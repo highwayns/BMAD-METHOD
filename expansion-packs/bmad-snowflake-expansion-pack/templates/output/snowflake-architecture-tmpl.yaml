@@ -1,0 +1,126 @@
+template:
+  id: snowflake-architecture-template-v1
+  name: Snowflake Architecture
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/snowflake-architecture.md
+    title: "{{project_name}} Snowflake Architecture"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+  custom_elicitation:
+    title: "Architecture Actions"
+    sections:
+      - id: snowflake-overview
+        options:
+          - "1) Multi-Region / DR Strategy"
+          - "2) Warehouse Sizing & Auto-Suspend Tuning"
+          - "3) RBAC Role Hierarchy Deep Dive"
+          - "4) Data Classification & Masking Plan"
+          - "5) Streaming Strategy (Snowpipe/Streams/Tasks)"
+          - "6) Dynamic Tables vs Materialized Views"
+          - "7) Cost Guardrails & Monthly Review"
+          - "8) Observability SLO Design"
+          - "9) Finalize this Section"
+
+sections:
+  - id: initial-setup
+    instruction: |
+      准备契约/域模型/预算与 RBAC 草案。将变量 {{account}}, {{database}}, {{schema}}, {{warehouse}}, {{role}} 等设置到上下文。
+  - id: snowflake-overview
+    title: Snowflake Overview
+    elicit: true
+    custom_elicitation: snowflake-overview
+    instruction: |
+      概述账户/区域、数据库与 Schema 策略、仓库类别与使用策略、环境分层。
+    template: |
+      - **Account/Region(s):** {{account_region}}
+      - **Databases & Schemas:** {{db_schema_strategy}}
+      - **Warehouses Strategy:** {{warehouse_strategy}}
+      - **Multi-Environment:** {{env_strategy}}
+      <critical_rule>All compute must be configured with auto-suspend and tagged for cost ownership.</critical_rule>
+    examples:
+      - |
+        - **Account/Region(s):** Primary ap-southeast-1; DR us-west-2
+        - **Warehouses Strategy:** XS for dev & CI; S/M for ELT; L for BI bursts
+
+  - id: governance-rbac
+    title: Governance & RBAC
+    instruction: |
+      定义角色层级、授权边界、审计策略；标签/遮罩/行访问策略。
+    template: |
+      - **Role Hierarchy:** {{rbac_hierarchy}}
+      - **Grants & Boundaries:** {{grants_boundaries}}
+      - **Tags/Masking/Row Access:** {{tag_mask_row}}
+      - **Audit Strategy:** {{audit_strategy}}
+      <critical_rule>Enforce least privilege with explicit grants; default deny.</critical_rule>
+
+  - id: ingestion-streaming
+    title: Ingestion & Streaming
+    instruction: |
+      Stage/FileFormat/Copy；Snowpipe/Streams/Tasks 的依赖与调度。
+    template: |
+      - **Stages & FileFormats:** {{stages_fileformats}}
+      - **Snowpipe:** {{snowpipe_plan}}
+      - **Streams & Tasks:** {{streams_tasks_plan}}
+      - **Backfill & Replay:** {{backfill_replay}}
+      <critical_rule>All ingestion paths must be idempotent and replayable.</critical_rule>
+
+  - id: dynamic-tables-semantic
+    title: Dynamic Tables & Semantic Layer
+    instruction: |
+      动态表刷新策略与语义层口径。
+    template: |
+      - **Dynamic Tables:** {{dynamic_tables}}
+      - **Semantic Views:** {{semantic_views}}
+      - **Data Quality:** {{dq_strategy}}
+      <critical_rule>Semantic metrics must be consistent across environments.</critical_rule>
+
+  - id: snowpark-ml
+    title: Snowpark & Model UDF (Optional)
+    instruction: |
+      特征/训练/指标/部署与监控策略。
+    template: |
+      - **Features & Training:** {{features_training}}
+      - **Model UDF:** {{model_udf}}
+      - **Monitoring:** {{ml_monitoring}}
+
+  - id: security-privacy
+    title: Security & Privacy
+    template: |
+      - **KMS/Secrets:** {{kms_secrets}}
+      - **Network / PrivateLink:** {{network_privatelink}}
+      - **Compliance Controls:** {{compliance}}
+      <critical_rule>All sensitive data must be masked or protected via policies.</critical_rule>
+
+  - id: observability-finops
+    title: Observability & FinOps
+    template: |
+      - **SLOs & Alerts:** {{slos_alerts}}
+      - **ACCOUNT_USAGE Metrics:** {{account_usage_metrics}}
+      - **Budget & Guardrails:** {{budget_guardrails}}
+      <critical_rule>Monthly cost review required with action items.</critical_rule>
+
+  - id: bmad-integration
+    title: BMAD Integration
+    template: |
+      - **Dev Support:** {{dev_support}}
+      - **Product Alignment:** {{product_alignment}}
+      - **Architecture Compliance:** {{arch_compliance}}
+
+  - id: documentation-validation
+    title: Architecture Documentation Validation
+    instruction: |
+      生成与检查清单第12章对应的文档验证表。
+    template: |
+      - **Completeness:** {{doc_completeness}}
+      - **Consistency:** {{doc_consistency}}
+      - **Usability:** {{doc_usability}}
+
+  - id: final-review
+    title: Final Review
+    template: |
+      - **Version:** {{doc_version}}
+      - **Timestamp:** {{doc_ts}}

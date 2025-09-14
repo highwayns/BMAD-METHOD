@@ -1,0 +1,362 @@
+# <!-- Powered by BMAD™ Core -->
+workflow:
+  id: animation-greenwild-feature
+  name: Animation Film Production — Green Wild
+  description: >
+    End‑to‑end BMAD-method workflow for creating the animated feature “Green Wild”
+    using 18 production roles. Covers pre‑production, asset build, shot production,
+    and post/delivery with contracts, templates, QC gates, and evidence-based approvals.
+  type: feature-animation
+  project_types:
+    - feature-film
+    - streaming-special
+    - pilot
+    - short-film
+
+  full_film_sequence:
+    # ————— PRE‑PRODUCTION —————
+    - agent: executive-producer
+      creates: show-brief.md
+      optional_steps:
+        - business_objectives
+        - financing_strategy
+        - franchise_opportunities
+      notes: >
+        Establish vision, target audience, and commercial strategy for “Green Wild”.
+        Lock the “why” and success metrics before creative execution.
+
+    - agent: producer-line-producer
+      creates:
+        - master-schedule.gantt.md
+        - cost-baseline.md
+      requires: show-brief.md
+      optional_steps:
+        - vendor_strategy
+        - location_calendar
+        - contingency_planning
+      notes: >
+        Build the master schedule and budget baseline with critical path & buffers.
+
+    - agent: production-manager-asset-manager
+      creates:
+        - stakeholder-map.md
+        - data-model.yaml
+        - asset-lifecycle.yaml
+      requires:
+        - show-brief.md
+        - master-schedule.gantt.md
+      optional_steps:
+        - api_contracts
+        - training_plan
+      uses: create-doc pm-asset/data-model-tmpl.md OR create-doc pm-asset/asset-lifecycle-spec-tmpl.md
+      notes: >
+        Define Single Source of Truth: entities, states, events, naming and permissions.
+
+    - agent: director
+      creates:
+        - story-outline.md
+        - script-beats.md
+      requires: show-brief.md
+      optional_steps:
+        - tone_boards
+        - animatic_sketch
+      notes: >
+        Create story spine and beat sheet. Keep production feasibility in view.
+
+    - agent: art-director-visdev
+      creates:
+        - style-bible.md
+        - visdev-boards.md
+      requires:
+        - story-outline.md
+        - script-beats.md
+      optional_steps:
+        - palette_exploration
+        - worldbuilding_notes
+      notes: >
+        Establish visual pillars (shape language, palette, materials, lighting motifs).
+
+    - agent: technical-director
+      creates: tech-architecture.md
+      requires:
+        - style-bible.md
+        - data-model.yaml
+      optional_steps:
+        - performance_budget
+        - platform_matrix
+      notes: >
+        Choose renderers, formats, caching, farm strategy, and guardrails.
+
+    - agent: pipeline-td
+      creates: pipeline-spec.md
+      requires:
+        - tech-architecture.md
+        - asset-lifecycle.yaml
+      optional_steps:
+        - naming_conventions
+        - event_bus_contract
+      notes: >
+        Bootstrap pipeline services, I/O conventions, and CI for DCC integrations.
+
+    - agent: editorial-post-supervisor
+      creates:
+        - editorial-plan.md
+        - conform-strategy.md
+      requires:
+        - story-outline.md
+      optional_steps:
+        - turnover_policy
+        - review_rhythm
+      notes: >
+        Define timeline sources, conform rules (EDL/XML/AAF), and dailies cadence.
+
+    - agent: qa-qc-lead
+      creates:
+        - qa-policy.md
+        - acceptance-criteria.md
+      requires:
+        - pipeline-spec.md
+        - editorial-plan.md
+      optional_steps:
+        - sampling_plan
+        - regression_suite
+      notes: >
+        Set thresholds-as-code, main gate, sampling, and evidence requirements.
+
+    # ————— ASSET BUILD —————
+    - agent: modeling-lead
+      creates:
+        - modeling-brief.md
+        - modeling-specs.yaml
+      requires:
+        - style-bible.md
+        - asset-lifecycle.yaml
+      optional_steps:
+        - topology_guidelines
+        - udim_plan
+      notes: >
+        Lock topology, scale, UDIMs, LODs, naming, and export standards.
+
+    - agent: rigging-lead
+      creates:
+        - rig-spec.yaml
+        - rig-test-report.md
+      requires:
+        - modeling-specs.yaml
+      optional_steps:
+        - deformation_tests
+        - performance_bench
+      notes: >
+        Define controllers, constraints, weights, and performance thresholds.
+
+    - agent: lookdev-shading-lead
+      creates:
+        - lookdev-spec.yaml
+        - material-library.md
+      requires:
+        - style-bible.md
+        - modeling-specs.yaml
+      optional_steps:
+        - texture_source_contract
+        - shader_validation
+      notes: >
+        Create lookdev contracts, calibration references, and approval frames.
+
+    # ————— SHOT BUILD —————
+    - agent: layout-lead
+      creates:
+        - layout-guide.md
+        - shotlist.csv
+      requires:
+        - editorial-plan.md
+        - style-bible.md
+      optional_steps:
+        - camera_lens_catalog
+        - blocking_rules
+      notes: >
+        Camera/lens conventions, staging rules, and shot inventory for production.
+
+    - agent: cg-supervisor
+      creates: cg-integration-plan.md
+      requires:
+        - layout-guide.md
+        - lookdev-spec.yaml
+      optional_steps:
+        - grey_chrome_validation
+        - environment_build_plan
+      notes: >
+        Define integration tests (grey/chrome), contact shadows and environment build.
+
+    - agent: animation-supervisor
+      creates:
+        - animation-brief.md
+        - performance-bible.md
+      requires:
+        - shotlist.csv
+        - rig-spec.yaml
+      optional_steps:
+        - acting_refs
+        - motion_style_rules
+      notes: >
+        Acting principles, timing models, continuity anchors across sequences.
+
+    - agent: fx-supervisor
+      creates:
+        - fx-plan.md
+        - cache-standards.yaml
+      requires:
+        - cg-integration-plan.md
+        - shotlist.csv
+      optional_steps:
+        - seed_policy
+        - cache_repro_tests
+      notes: >
+        FX scope, reproducibility (seeds/versions), farm and storage budgets.
+
+    - agent: lighting-rendering-lead
+      creates:
+        - lighting-bible.md
+        - render-aov-contract.yaml
+      requires:
+        - lookdev-spec.yaml
+        - fx-plan.md
+      optional_steps:
+        - exposure_anchor_frames
+        - render_farm_capacity
+      notes: >
+        Lock exposure anchors, AOV/LPE, CryptoID, bit-depth, and farm strategy.
+
+    - agent: compositing-supervisor
+      creates:
+        - comp-io-spec.yaml
+        - aov-rebuild-report.md
+      requires:
+        - render-aov-contract.yaml
+      uses: create-doc compositing-lead/comp-io-spec-tmpl.yaml OR create-doc compositing-lead/aov-rebuild-tmpl.md
+      optional_steps:
+        - lens_distortion_solve
+        - deep_comp_policy
+      notes: >
+        Define ACES/OCIO chain, premult discipline, lens distortion, deep pipeline.
+
+    # ————— QC & REVIEW LOOPS —————
+    - agent: qa-qc-lead
+      creates:
+        - gate-pass.md
+        - qc-summary.md
+      requires:
+        - modeling-specs.yaml
+        - rig-spec.yaml
+        - cache-standards.yaml
+        - comp-io-spec.yaml
+      uses: execute-checklist qa-qc-lead/qc-master-gate-checklist.md
+      optional_steps:
+        - vendor_qa
+        - performance_audit
+      notes: >
+        Run master gate; ensure rebuild-before-approve and time/spatial consistency.
+
+    - agent: editorial-post-supervisor
+      creates:
+        - reconform-report.md
+        - mastering-spec.yaml
+      requires:
+        - gate-pass.md
+        - conform-strategy.md
+      optional_steps:
+        - color_turnover
+        - sound_turnover
+      notes: >
+        Re-conform timeline, then define mastering targets (IMF/DCP/Broadcast).
+
+    # ————— DELIVERY & ARCHIVE —————
+    - agent: editorial-post-supervisor
+      creates:
+        - delivery-manifest.yaml
+        - archive-plan.md
+      requires:
+        - mastering-spec.yaml
+        - qc-summary.md
+      uses: create-doc post-supervisor/delivery-manifest-tmpl.yaml
+      optional_steps:
+        - security_hardening
+        - watermark_policy
+      notes: >
+        Build delivery with checksums; secure distribution and archive with retention.
+
+  prototype_workflow:
+    description: >
+      Minimal path to validate visual language & pipeline with a 90‑second “Green Wild”
+      teaser. Focus on one hero character, one environment, and a single VFX motif.
+    steps:
+      - agent: director
+        creates: teaser-beats.md
+        notes: 12‑16 beats; tempo map and emotional peaks.
+      - agent: art-director-visdev
+        creates: teaser-style-keys.md
+        notes: 6–8 style frames covering day/night and mood shifts.
+      - agent: pipeline-td
+        creates: proto-pipeline-spec.md
+        notes: Minimal I/O, naming tokens, and farm smoke test.
+      - agent: modeling-lead
+        creates: hero-model-spec.yaml
+      - agent: rigging-lead
+        creates: hero-rig-spec.yaml
+      - agent: lookdev-shading-lead
+        creates: hero-lookdev.yaml
+      - agent: lighting-rendering-lead
+        creates: teaser-aov-contract.yaml
+      - agent: compositing-supervisor
+        creates: teaser-comp-io.yaml
+      - agent: qa-qc-lead
+        creates: teaser-gate-pass.md
+        uses: execute-checklist qa-qc-lead/qc-master-gate-checklist.md
+      - agent: editorial-post-supervisor
+        creates: teaser-delivery.yaml
+        notes: Single target (streaming review) with burn‑ins.
+
+  flow_diagram: |
+    ```mermaid
+    graph TD
+      A[Start: GREEN WILD] --> B[EP: show-brief]
+      B --> C[Producer/LP: schedule & budget]
+      C --> D[PM/AM: data-model & lifecycle]
+      D --> E[Director: story beats]
+      E --> F[Art/VisDev: style bible]
+      F --> G[TD: tech architecture]
+      G --> H[Pipeline TD: pipeline spec]
+      H --> I[Editorial: plan & conform]
+      I --> J[QA/QC: policy & acceptance]
+
+      J --> K[Modeling: specs]
+      K --> L[Rigging: rig spec]
+      L --> M[Lookdev: materials]
+      M --> N[Layout: shotlist & guide]
+      N --> O[CG Supe: integration plan]
+      O --> P[Animation: brief]
+      P --> Q[FX: plan & caches]
+      Q --> R[Lighting: bible & AOV]
+      R --> S[Comp: IO & rebuild]
+
+      S --> T[QA/QC: gate pass]
+      T --> U[Editorial/Post: reconform & mastering]
+      U --> V[Delivery: manifest & archive]
+      V --> W[End]
+
+  success_criteria:
+    greenlight_ready:
+      - Vision, schedule, budget, and data contracts approved
+      - Story outline and style bible validated
+      - Tech architecture and pipeline spec baselined
+    asset_pipeline_ready:
+      - Modeling, rigging, and lookdev specs approved with sample assets
+      - Layout guide and shot inventory complete
+      - AOV/LPE/CryptoID contract locked with exposure anchors
+    shot_pipeline_ready:
+      - CG integration validated (grey/chrome), FX caches reproducible
+      - Lighting/comp ACES chain validated; beauty rebuild delta <= 1%
+      - Master gate pass achieved with evidence (reports & checksums)
+    post_delivery_ready:
+      - Re-conform completed; mastering spec approved
+      - Delivery manifest checksums match; security and archive plans in place
+      - KPI targets met (on-time milestones, QC pass rate, rework rate)

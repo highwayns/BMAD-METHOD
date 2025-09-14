@@ -1,0 +1,129 @@
+template:
+  id: staffing-architecture-template-v1
+  name: Staffing HR Architecture
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/staffing-architecture.md
+    title: "{{project_name}} Staffing HR Architecture"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+  custom_elicitation:
+    title: "Architecture Actions"
+    sections:
+      - id: staffing-overview
+        options:
+          - "1) Client Intake & Contract Terms (SLA/Fees)"
+          - "2) Job Profile Data Contract (skills/levels/language/location)"
+          - "3) Sourcing Channel Mix (job boards/referrals/partners)"
+          - "4) Assessment Matrix (online tests/interviews/case)"
+          - "5) Privacy & Compliance (PII/GDPR/consent)"
+          - "6) L&D Curriculum & Certification Plan"
+          - "7) Dispatch Scheduling & Timesheets"
+          - "8) Payroll & Billing Controls"
+          - "9) Finalize this Section"
+
+sections:
+  - id: initial-setup
+    instruction: |
+      准备客户合同与 SLA、岗位画像、渠道与评测矩阵、隐私与合规策略、培训与派遣规则、薪资与计费模板。
+      设置 {{client_name}}, {{sla_terms}}, {{job_profile}}, {{payroll_rules}} 等变量。
+  - id: staffing-overview
+    title: Operations Overview
+    elicit: true
+    custom_elicitation: staffing-overview
+    instruction: |
+      概述客户/岗位、ATS/HRIS 集成、寻源/评测/面试/Offer、入职与合规、培训、派遣/工时、薪资与计费、KPI。
+    template: |
+      - **Client & SLAs:** {{client_name}} — {{sla_terms}}
+      - **Job Profiles (Data Contract):** {{job_profile}}
+      - **ATS/HRIS Integrations:** {{ats_hris}}
+      - **Sourcing & Pipeline:** {{sourcing_pipeline}}
+      - **Assessment & Interviews:** {{assess_interview}}
+      - **Onboarding & Compliance:** {{onboarding_compliance}}
+      - **L&D Programs:** {{learning_programs}}
+      - **Dispatch & Timesheets:** {{dispatch_timesheets}}
+      - **Payroll & Billing:** {{payroll_billing}}
+      <critical_rule>No candidate data is processed without explicit consent and retention policy.</critical_rule>
+
+  - id: governance-privacy
+    title: Governance & Privacy
+    template: |
+      - **Access & Roles:** {{access_roles}}
+      - **PII Classification & Retention:** {{pii_retention}}
+      - **Background Check Policy:** {{bg_check}}
+      - **Incident & Breach Process:** {{breach_process}}
+      <critical_rule>Default deny for PII; access logged and periodically reviewed.</critical_rule>
+
+  - id: job-intake-contracts
+    title: Job Intake & Contracts
+    template: |
+      - **Intake Form & Approvals:** {{intake_form}}
+      - **Job Data Contract (fields/validators):** {{job_contract}}
+      - **Rate Cards & Fees:** {{rate_cards}}
+
+  - id: sourcing-assessments
+    title: Sourcing & Assessments
+    template: |
+      - **Channels & Budget:** {{channels_budget}}
+      - **Assessment Matrix & Cutoffs:** {{assessment_matrix}}
+      - **Diversity & Inclusion Goals:** {{dei_goals}}
+
+  - id: interviews-offers
+    title: Interviews & Offers
+    template: |
+      - **Panel & Rubrics:** {{panel_rubrics}}
+      - **Feedback SLA & Bias Checks:** {{feedback_sla}}
+      - **Offer Workflows (e-sign):** {{offer_workflows}}
+
+  - id: onboarding-training
+    title: Onboarding & Training
+    template: |
+      - **Pre-onboarding Checklist:** {{pre_onboarding}}
+      - **Training Curriculum & Schedule:** {{training_curr}}
+      - **Certification & Readiness:** {{cert_readiness}}
+
+  - id: dispatch-scheduling
+    title: Dispatch & Scheduling
+    template: |
+      - **Placement Process:** {{placement_process}}
+      - **Roster & Shifts:** {{roster_shifts}}
+      - **Timesheet & Approval:** {{timesheet_approval}}
+      <critical_rule>All timesheets must be approved by client supervisors before payroll.</critical_rule>
+
+  - id: payroll-billing
+    title: Payroll & Billing
+    template: |
+      - **Payroll Cycles & Rules:** {{payroll_cycles}}
+      - **Billing & Invoicing:** {{billing_invoicing}}
+      - **Reconciliation & Audits:** {{recon_audits}}
+      <critical_rule>Payroll must reconcile with approved timesheets and contracts.</critical_rule>
+
+  - id: observability-kpi
+    title: Observability & KPI
+    template: |
+      - **Dashboards (pipeline/time-to-fill/quality-of-hire):** {{dashboards}}
+      - **SLA Alerts:** {{sla_alerts}}
+      - **Cost & Margin Tracking:** {{cost_margin}}
+
+  - id: bmad-integration
+    title: BMAD Integration
+    template: |
+      - **Sales Support:** {{sales_support}}
+      - **Delivery Alignment:** {{delivery_alignment}}
+      - **Legal/Finance Compliance:** {{legal_finance}}
+
+  - id: documentation-validation
+    title: Documentation Validation
+    template: |
+      - **Completeness:** {{doc_completeness}}
+      - **Consistency:** {{doc_consistency}}
+      - **Usability:** {{doc_usability}}
+
+  - id: final-review
+    title: Final Review
+    template: |
+      - **Version:** {{doc_version}}
+      - **Timestamp:** {{doc_ts}}

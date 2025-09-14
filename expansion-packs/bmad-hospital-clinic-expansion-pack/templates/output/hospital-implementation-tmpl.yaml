@@ -1,0 +1,36 @@
+template:
+  id: hospital-implementation-template-v1
+  name: Hospital/Clinic Implementation
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/hospital-implementation.md
+    title: "{{organization_name}} Hospital/Clinic Implementation Plan"
+
+workflow:
+  mode: interactive
+
+sections:
+  - id: departments
+    title: Departments & Services
+    sections:
+      - id: department
+        repeatable: true
+        title: "{{department_name}} Department"
+        template: |
+          - **Systems/Tools:** {{systems_tools}}
+          - **Standards/SOPs:** {{standards_sops}}
+          - **Handoffs:** {{handoffs}}
+  - id: automations
+    title: Automations & Integrations
+    template: |
+      - **EHR/LIS/PACS Interfaces:** {{interfaces}}
+      - **Alerting & Escalation:** {{alerting}}
+      - **Backups & DR (IT):** {{backups_dr}}
+      <critical_rule>Every integration must be idempotent, logged, and tested regularly.</critical_rule>
+  - id: runbook
+    title: Runbook & Operations
+    template: |
+      - **On-call & Escalation:** {{oncall}}
+      - **Incident Process (RCA/Postmortem):** {{incident_process}}
+      - **Emergency Drills:** {{emergency_drills}}

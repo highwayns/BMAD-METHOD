@@ -1,0 +1,126 @@
+template:
+  id: regbio-architecture-template-v1
+  name: RegBio Lab Operations Architecture
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/regbio-architecture.md
+    title: "{{organization_name}} RegBio Lab Operations Architecture"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+  custom_elicitation:
+    title: "Architecture Actions"
+    sections:
+      - id: regbio-overview
+        options:
+          - "1) Ethics & Approvals (IRB/IEC/IACUC)"
+          - "2) Biosafety & Biosecurity (BSL/BSL-3?)"
+          - "3) Cell Line/Organoid Contracts & Provenance"
+          - "4) CQAs & Release Criteria"
+          - "5) LIMS/ELN & Data Governance"
+          - "6) Environmental & Equipment Monitoring"
+          - "7) Animal/Functional Validation"
+          - "8) Tech Transfer & Shipping (Cold chain)"
+          - "9) Finalize this Section"
+
+sections:
+  - id: initial-setup
+    instruction: |
+      准备伦理/审批文件、生物安全政策、样本/细胞/材料契约与 SOP、CQAs 与放行标准、LIMS/ELN 结构、设备与环境监测方案、动物/功能验证计划。
+      设置 {{organization_name}}、{{approvals}}, {{biosafety_level}}, {{lims_vendor}} 等变量。
+  - id: regbio-overview
+    title: Operations Overview
+    elicit: true
+    custom_elicitation: regbio-overview
+    instruction: |
+      概述研究方向、合规框架、细胞/类器官/组织工程的关键工艺、数据与转化路径。
+    template: |
+      - **Approvals & Protocol IDs:** {{approvals}}
+      - **Biosafety Level & Controls:** {{biosafety_level}}
+      - **Key Workflows (cell/organoid/tissue):** {{key_workflows}}
+      - **LIMS/ELN & Data Flows:** {{lims_eln}}
+      - **Tech Transfer Targets:** {{tech_transfer}}
+      <critical_rule>No experimental work starts without valid approvals and biosafety clearance.</critical_rule>
+
+  - id: governance-ethics
+    title: Governance & Ethics
+    template: |
+      - **Consent & De-identification:** {{consent_deid}}
+      - **Data Privacy & Access:** {{privacy_access}}
+      - **MTA/IP & Publication Policy:** {{mta_ip_publication}}
+      <critical_rule>Human subject data must be de-identified and access is least-privilege with logs.</critical_rule>
+
+  - id: biosafety-biosecurity
+    title: Biosafety & Biosecurity
+    template: |
+      - **BSL Controls & PPE:** {{bsl_controls}}
+      - **Waste & Decontamination:** {{waste_decon}}
+      - **Incident Response & Drills:** {{incident_drills}}
+      <critical_rule>All incidents are logged within 24h and reviewed monthly.</critical_rule>
+
+  - id: sample-cell-materials
+    title: Samples, Cell Lines & Materials
+    template: |
+      - **Provenance & Authentication (STR/Karyo):** {{provenance_auth}}
+      - **Mycoplasma & Sterility Program:** {{myco_sterility}}
+      - **Cryopreservation & Chain-of-Custody:** {{cryo_coc}}
+      <critical_rule>No contaminated line enters production or animal studies.</critical_rule>
+
+  - id: process-differentiation
+    title: Process & Differentiation
+    template: |
+      - **SOP & Batch Records:** {{sop_batch}}
+      - **Scaling & Bioreactors/Bioreactors?:** {{scaling}}
+      - **In-process Controls:** {{ipc_controls}}
+
+  - id: assays-qc-cqas
+    title: Assays, QC & CQAs
+    template: |
+      - **Phenotype/Marker Panels:** {{marker_panels}}
+      - **Functional Assays:** {{functional_assays}}
+      - **Release Criteria & Trend:** {{release_criteria}}
+      <critical_rule>Release requires passing CQAs with documented evidence and trending.</critical_rule>
+
+  - id: equipment-environment
+    title: Equipment & Environment
+    template: |
+      - **Calibration/PM & CMMS:** {{cal_pm_cmms}}
+      - **Environmental Monitoring (Temp/CO2/Particles):** {{env_monitor}}
+      - **Deviation & CAPA:** {{deviation_capa}}
+
+  - id: animal-functional
+    title: Animal & Functional Validation
+    template: |
+      - **Study Design & Power:** {{study_design}}
+      - **Welfare & Monitoring:** {{welfare_monitor}}
+      - **Endpoints & Analysis:** {{endpoints_analysis}}
+
+  - id: data-governance
+    title: Data Governance & Reproducibility
+    template: |
+      - **FAIR & Metadata:** {{fair_metadata}}
+      - **Pipelines & Versioning:** {{pipelines_versioning}}
+      - **Data Access & Retention:** {{data_access_retention}}
+      <critical_rule>All raw data and analysis pipelines must be versioned and reproducible.</critical_rule>
+
+  - id: tech-transfer-shipping
+    title: Tech Transfer & Shipping
+    template: |
+      - **Readiness Checklist:** {{readiness}}
+      - **Cold Chain & Packaging:** {{cold_chain}}
+      - **Receiving & Requalification:** {{receiving_requal}}
+
+  - id: documentation-validation
+    title: Documentation Validation
+    template: |
+      - **Completeness:** {{doc_completeness}}
+      - **Consistency:** {{doc_consistency}}
+      - **Usability:** {{doc_usability}}
+
+  - id: final-review
+    title: Final Review
+    template: |
+      - **Version:** {{doc_version}}
+      - **Timestamp:** {{doc_ts}}

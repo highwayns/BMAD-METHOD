@@ -1,0 +1,274 @@
+# <!-- Powered by BMAD™ Core -->
+workflow:
+  id: animation-greenwild-miniseries
+  name: Animation Short Series — Green Wild
+  description: >
+    以 BMAD-method 编排的“绿野”动画短剧工作流，覆盖 18 个核心角色。
+    强调“平台化资产 + 集约化镜头生产 + 证据化验收”，支持 EP01 试播到整季扩展。
+  type: short-series
+  project_types:
+    - short-series
+    - web-series
+    - anthology
+    - pilot
+
+  operating_cadence:
+    sprint: 1w
+    reviews:
+      - daily: dailies(动画/灯光/合成)
+      - weekly: weeklies(导演会/制片会/QA会)
+    cut_policy:
+      picture_lock_lag: "<= 3d 每集"
+      reconform_window: "T-2d 至 T-1d"
+    kpis:
+      - qc_pass_rate >= 95%
+      - beauty_rebuild_delta <= 1%
+      - on_time_episode >= 90%
+
+  # —————————————————— SHOW-LEVEL 平台化筹备 ——————————————————
+  show_level:
+    - agent: executive-producer
+      creates:
+        - show-brief.md
+        - business-objectives.md
+      optional_steps: [financing_strategy, release_targets]
+      notes: 锁定愿景/受众/商业目标与成功指标。
+
+    - agent: producer-line-producer
+      requires: [show-brief.md]
+      creates:
+        - master-schedule.gantt.md
+        - cost-baseline.md
+        - vendor-strategy.md
+      notes: 主排期与预算基线，关键路径/缓冲/分包策略。
+
+    - agent: production-manager-asset-manager
+      requires: [show-brief.md, master-schedule.gantt.md]
+      creates:
+        - stakeholder-map.md
+        - data-model.yaml
+        - asset-lifecycle.yaml
+      uses: create-doc pm-asset/data-model-tmpl.md
+      notes: 建立唯一数据源（实体/状态/事件/命名/权限）。
+
+    - agent: director
+      requires: [show-brief.md]
+      creates:
+        - series-outline.md
+        - character-bible.md
+      notes: 系列结构与人物弧线，用于短剧节奏优化。
+
+    - agent: art-director-visdev
+      requires: [series-outline.md, character-bible.md]
+      creates:
+        - style-bible.md
+        - visdev-keys.md
+      notes: 形体语言/材质/色彩与光影母题，支撑多集统一风格。
+
+    - agent: technical-director
+      requires: [style-bible.md, data-model.yaml]
+      creates: tech-architecture.md
+      optional_steps: [performance_budget, farm_strategy]
+      notes: 渲染/缓存/容器/并行策略与性能护栏。
+
+    - agent: pipeline-td
+      requires: [tech-architecture.md, asset-lifecycle.yaml]
+      creates:
+        - pipeline-spec.md
+        - naming-conventions.md
+      optional_steps: [event_bus_contract, ci_cd]
+      notes: DCC 集成/I-O/任务状态机/自动化门禁。
+
+    - agent: editorial-post-supervisor
+      requires: [series-outline.md]
+      creates:
+        - editorial-plan.md
+        - conform-strategy.md
+        - review-rhythm.md
+      notes: 时间线来源、EDL/XML/AAF 对账、日周评审节奏。
+
+    - agent: qa-qc-lead
+      requires: [pipeline-spec.md, editorial-plan.md]
+      creates:
+        - qa-policy.md
+        - acceptance-criteria.md
+        - sampling-plan.md
+      notes: 阈值即代码、主门禁、抽样与证据要求。
+
+  # —————————————————— 资产平台搭建 ——————————————————
+  asset_platform:
+    - agent: modeling-lead
+      requires: [style-bible.md, asset-lifecycle.yaml]
+      creates: [modeling-specs.yaml, modeling-brief.md]
+      notes: 拓扑/尺度/UDIM/LOD/导出规范。
+
+    - agent: rigging-lead
+      requires: [modeling-specs.yaml]
+      creates: [rig-spec.yaml, rig-test-report.md]
+      notes: 控制器/权重/约束与性能阈值。
+
+    - agent: lookdev-shading-lead
+      requires: [style-bible.md, modeling-specs.yaml]
+      creates: [lookdev-spec.yaml, material-library.md]
+      notes: 参考帧/校准/材质库与审批锚点。
+
+    - agent: lighting-rendering-lead
+      requires: [lookdev-spec.yaml]
+      creates:
+        - lighting-bible.md
+        - render-aov-contract.yaml
+      notes: 曝光锚点/AOV/LPE/CryptoID/位深/农场策略。
+
+    - agent: compositing-supervisor
+      requires: [render-aov-contract.yaml]
+      creates:
+        - comp-io-spec.yaml
+        - aov-rebuild-report.md
+      uses: create-doc compositing-lead/comp-io-spec-tmpl.yaml
+      notes: ACES/OCIO 链路、Premult 纪律、Deep/畸变策略。
+
+    - agent: qa-qc-lead
+      requires: [modeling-specs.yaml, rig-spec.yaml, comp-io-spec.yaml]
+      creates: [gate-pass.md, qc-summary.md]
+      uses: execute-checklist qa-qc-lead/qc-master-gate-checklist.md
+      notes: 平台级主门禁通过后，允许镜头量产。
+
+  # —————————————————— 集模板（Episode Template） ——————————————————
+  episode_template:
+    description: >
+      定义单集的标准产线（含 I/O、命名、评审、QC 门禁与交付），确保可复制。
+    steps:
+      - agent: layout-lead
+        requires: [editorial-plan.md, style-bible.md]
+        creates: [layout-guide.md, shotlist.csv]
+        notes: 镜头清单/相机镜头/分镜阻塞规则。
+
+      - agent: cg-supervisor
+        requires: [layout-guide.md, lookdev-spec.yaml]
+        creates: [cg-integration-plan.md]
+        notes: 灰/铬球验证、接触阴影/反射策略、环境组装。
+
+      - agent: animation-supervisor
+        requires: [shotlist.csv, rig-spec.yaml]
+        creates: [animation-brief.md, performance-bible.md]
+        notes: 表演原则/时间模型/跨镜头一致锚点。
+
+      - agent: fx-supervisor
+        requires: [cg-integration-plan.md, shotlist.csv]
+        creates: [fx-plan.md, cache-standards.yaml]
+        notes: 缓存再现性（种子/版本）与性能预算。
+
+      - agent: lighting-rendering-lead
+        requires: [lookdev-spec.yaml, fx-plan.md]
+        creates: [episode-aov-contract.yaml]
+        notes: 集级曝光锚点、Farm 容量切片。
+
+      - agent: compositing-supervisor
+        requires: [episode-aov-contract.yaml, comp-io-spec.yaml]
+        creates: [episode-aov-rebuild.md]
+        notes: 集级重建前置验证，之后才允许风格化。
+
+      - agent: editorial-post-supervisor
+        requires: [conform-strategy.md]
+        creates: [episode-mastering-spec.yaml, review-setup.md]
+        notes: 集级母版目标与审看打包。
+
+      - agent: qa-qc-lead
+        requires: [episode-aov-contract.yaml, episode-mastering-spec.yaml]
+        creates: [episode-gate.md]
+        uses: execute-checklist qa-qc-lead/qc-master-gate-checklist.md
+        notes: 集级主门禁模板，供每集复用。
+
+  # —————————————————— 每集循环（Episodic Loop） ——————————————————
+  episodic_loop:
+    description: >
+      对每一集（EPxx）执行同样的标准步骤；严格依赖“集模板”并输出可审计证据。
+    per_episode:
+      - agent: director
+        creates: EP{{num}}-beat-sheet.md
+        notes: 12–18 节拍，确保冲突/反转/结尾钩子。
+
+      - agent: editorial-post-supervisor
+        requires: ["EP{{num}}-beat-sheet.md", "editorial-plan.md"]
+        creates: ["EP{{num}}-offline-cut.md", "EP{{num}}-reconform-report.md"]
+        notes: 线下剪/对账/回生成在线时间线。
+
+      - agent: layout-lead
+        requires: ["EP{{num}}-offline-cut.md", "layout-guide.md"]
+        creates: ["EP{{num}}-shotlist.csv"]
+        notes: 按集落地镜头清单与阻塞。
+
+      - agent: animation-supervisor
+        requires: ["EP{{num}}-shotlist.csv", "animation-brief.md"]
+        creates: ["EP{{num}}-blocking", "EP{{num}}-splines"]
+        notes: 阶段门（Blocking→Spline→Polish）评审节奏。
+
+      - agent: fx-supervisor
+        requires: ["EP{{num}}-shotlist.csv", "fx-plan.md"]
+        creates: ["EP{{num}}-fx-caches"]
+        notes: 种子/版本记录与复测。
+
+      - agent: lighting-rendering-lead
+        requires: ["EP{{num}}-splines", "episode-aov-contract.yaml"]
+        creates: ["EP{{num}}-render-packs"]
+        notes: 农场切片/失败回归队列。
+
+      - agent: compositing-supervisor
+        requires: ["EP{{num}}-render-packs", "comp-io-spec.yaml"]
+        creates: ["EP{{num}}-comp-plates", "EP{{num}}-aov-rebuild.md"]
+        notes: ACES 链路与重建先于风格化；边缘/时间一致性。
+
+      - agent: qa-qc-lead
+        requires: ["EP{{num}}-comp-plates"]
+        creates: ["EP{{num}}-gate-pass.md", "EP{{num}}-qc-summary.md"]
+        uses: execute-checklist qa-qc-lead/qc-master-gate-checklist.md
+        notes: 集级主门禁（颜色/重建/边缘/时间/交付）。
+
+      - agent: editorial-post-supervisor
+        requires: ["EP{{num}}-gate-pass.md", "episode-mastering-spec.yaml"]
+        creates: ["EP{{num}}-delivery-manifest.yaml", "EP{{num}}-archive-plan.md"]
+        uses: create-doc post-supervisor/delivery-manifest-tmpl.yaml
+        notes: 打包/校验/签名/归档与分发。
+
+  flow_diagram: |
+    ```mermaid
+    graph TD
+      A[Start: GREEN WILD Short Series] --> B[EP: show-brief]
+      B --> C[Producer/LP: schedule & budget]
+      C --> D[PM/AM: data-model & lifecycle]
+      D --> E[Director: series outline]
+      E --> F[Art/VisDev: style bible]
+      F --> G[TD: tech architecture]
+      G --> H[Pipeline TD: pipeline spec]
+      H --> I[Editorial: plan & conform]
+      I --> J[QA/QC: policy & acceptance]
+
+      J --> K[Modeling]
+      K --> L[Rigging]
+      L --> M[Lookdev]
+      M --> N[Lighting & AOV]
+      N --> O[Comp IO & Rebuild]
+      O --> P[Platform Gate]
+
+      P --> Q[Episode Loop: Layout -> Anim -> FX -> Light -> Comp -> Gate]
+      Q --> R[Delivery per Episode]
+      R --> S[Season Complete]
+    ```
+
+  success_criteria:
+    greenlight_ready:
+      - Show-brief / schedule / budget / data contracts 批准
+      - Series-outline / style-bible 通过评审
+      - Tech-architecture / pipeline-spec 基线化
+    asset_platform_ready:
+      - Modeling/Rigging/Lookdev/Lighting/Comp 平台资产样例通过
+      - AOV/LPE/CryptoID 合同锁定并完成重建验证 (<=1%)
+      - QA master gate 通过，抽样计划生效
+    episode_ready:
+      - EP 线下剪/对账完成；shotlist 落地
+      - 渲染包/合成包通过 ACES 链路与主门禁
+      - EP 交付清单校验值匹配，归档与签名完成
+    season_ready:
+      - 全集按时交付率 >= 90%，技术 QC 通过率 >= 95%
+      - 返工率 < 15%，关键 KPI 达标
+      - 所有集可回溯（版本/校验值/评审记录/问题闭环）

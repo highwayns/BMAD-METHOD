@@ -1,0 +1,1 @@
+-- semantic view example placeholder

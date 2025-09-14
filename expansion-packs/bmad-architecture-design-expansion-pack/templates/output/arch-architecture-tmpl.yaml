@@ -1,0 +1,155 @@
+template:
+  id: arch-architecture-template-v1
+  name: Architecture Design Operations Architecture
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/arch-architecture.md
+    title: "{{project_name}} Architecture Design Operations Architecture"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+  custom_elicitation:
+    title: "Architecture Actions"
+    sections:
+      - id: arch-overview
+        options:
+          - "1) Appointment/Scope/Contracts (AIA/FIDIC/local)"
+          - "2) Site & Surveys (GIS/Topo/Geotech)"
+          - "3) Codes/Zoning/Fire/Life Safety/Accessibility"
+          - "4) Concept→SD→DD→CD Strategy"
+          - "5) BIM Standards (LOD/IFC/Coordinates/Families)"
+          - "6) Coordination & Clash (BIM 360/Navisworks/etc.)"
+          - "7) Sustainability & Energy Targets"
+          - "8) Permits & Authorities (AHJ) Checklist"
+          - "9) Documentation Control & Revisions"
+
+sections:
+  - id: initial-setup
+    instruction: |
+      准备合同与任务书、场地与测绘、法规清单、专业接口矩阵、BIM 标准、分析与报批项、招投标与工程量清单、CA 与文控策略。
+      设置 {{project_name}}、{{client}}、{{site}}、{{code_list}} 等变量。
+  - id: arch-overview
+    title: Operations Overview
+    elicit: true
+    custom_elicitation: arch-overview
+    instruction: |
+      概述项目目标、范围与接口、阶段策略、BIM 标准与协同、法规核对、报批路径、文控与修订、KPI。
+    template: |
+      - **Client & Scope:** {{client}} — {{scope}}
+      - **Site & Context:** {{site}}
+      - **Codes & Zoning List:** {{code_list}}
+      - **Phasing (SD/DD/CD):** {{phasing}}
+      - **BIM Standards & Coordinates:** {{bim_standards}}
+      - **Coordination & Clash:** {{coordination}}
+      - **Sustainability Targets:** {{sustainability_targets}}
+      - **Permits (AHJ) Path:** {{permits_path}}
+      - **Doc Control & Revisions:** {{doc_control}}
+      <critical_rule>No deliverables issued without code and coordination checklists signed.</critical_rule>
+
+  - id: contracts-brief
+    title: Appointment, Brief & Responsibility Matrix
+    template: |
+      - **Contracts & Terms:** {{contracts}}
+      - **Design Brief & Goals:** {{brief_goals}}
+      - **RACI & Interfaces:** {{raci}}
+
+  - id: site-surveys
+    title: Site & Surveys
+    template: |
+      - **Topo/Geotech/Utilities:** {{surveys}}
+      - **Constraints (easements, setbacks):** {{constraints}}
+      - **Opportunities (views, access):** {{opportunities}}
+
+  - id: codes-compliance
+    title: Codes, Zoning & Compliance
+    template: |
+      - **Applicable Codes & Versions:** {{codes_versions}}
+      - **Occupancy/Type/Fire Ratings:** {{life_safety}}
+      - **Accessibility/Green/Local:** {{accessibility_green}}
+      <critical_rule>Document version specific code basis and deviations approval.</critical_rule>
+
+  - id: design-strategy
+    title: Design Phasing Strategy (Concept→SD→DD→CD)
+    template: |
+      - **Key Milestones & Gate Reviews:** {{milestones}}
+      - **Options & Decision Records (ADR):** {{options_adr}}
+      - **External Reviews (stakeholders/AHJ):** {{ext_reviews}}
+
+  - id: bim-standards
+    title: BIM Standards & Model QA
+    template: |
+      - **LOD/IFC/Coordinates:** {{lod_ifc_coords}}
+      - **Families/Classification/Parameters:** {{families_params}}
+      - **Model QA & Handover (IFC/NWC):** {{model_qa}}
+      <critical_rule>BIM coordinates & levels are frozen before multi-discipline modeling.</critical_rule>
+
+  - id: coordination
+    title: Coordination & Clash
+    template: |
+      - **Meetings & Frequencies:** {{meetings}}
+      - **Clash Rules & Tolerances:** {{clash_rules}}
+      - **Issue Tracking & SLA:** {{issue_sla}}
+
+  - id: sustainability-energy
+    title: Sustainability & Energy
+    template: |
+      - **Framework (LEED/BREEAM/绿建):** {{framework}}
+      - **Energy/Daylight/Wind Targets:** {{energy_targets}}
+      - **Materials & EPDs:** {{materials_epd}}
+
+  - id: tender-specs
+    title: Specifications, Quantities & Tender
+    template: |
+      - **Specs & CSI/GB Codes:** {{specs}}
+      - **BoQ/Quantities & Methods:** {{boq_methods}}
+      - **Tender Docs & Addenda:** {{tender_docs}}
+
+  - id: permits
+    title: Permits & AHJ
+    template: |
+      - **Checklist & Dependencies:** {{permit_check}}
+      - **Submissions & Responses:** {{submissions}}
+      - **Conditions & Closeout:** {{conditions_closeout}}
+
+  - id: construction-admin
+    title: Construction Administration (CA)
+    template: |
+      - **RFIs/Submittals/Shop Drawings:** {{rfi_submittal}}
+      - **Site Reports & NCRs:** {{site_reports}}
+      - **Change Orders & Claims:** {{change_orders}}
+
+  - id: doc-control
+    title: Documentation Control
+    template: |
+      - **Drawing Register & Revisions:** {{drawing_register}}
+      - **Signatures & Stamps:** {{sign_stamps}}
+      - **Transmittals & Archives:** {{transmittals_archives}}
+
+  - id: handover-poe
+    title: Handover & Post-Occupancy Evaluation
+    template: |
+      - **As-built & O&M Manuals:** {{asbuilt_om}}
+      - **Closeout & Warranty:** {{closeout_warranty}}
+      - **POE & Lessons Learned:** {{poe_lessons}}
+
+  - id: observability-kpi
+    title: Observability & KPI
+    template: |
+      - **On-time Milestones & Variance:** {{milestone_kpi}}
+      - **RFI Turnaround & Clash Trends:** {{rfi_clash_kpi}}
+      - **Cost & Change Impacts:** {{cost_change_kpi}}
+
+  - id: documentation-validation
+    title: Documentation Validation
+    template: |
+      - **Completeness:** {{doc_completeness}}
+      - **Consistency:** {{doc_consistency}}
+      - **Usability:** {{doc_usability}}
+
+  - id: final-review
+    title: Final Review
+    template: |
+      - **Version:** {{doc_version}}
+      - **Timestamp:** {{doc_ts}}

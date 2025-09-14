@@ -1,0 +1,127 @@
+template:
+  id: travel-architecture-template-v1
+  name: Travel Reception Operations Architecture
+  version: 1.0
+  output:
+    format: markdown
+    filename: docs/travel-architecture.md
+    title: "{{project_name}} Travel Reception Operations Architecture"
+
+workflow:
+  mode: interactive
+  elicitation: advanced-elicitation
+  custom_elicitation:
+    title: "Architecture Actions"
+    sections:
+      - id: travel-overview
+        options:
+          - "1) Client Intake & Terms (SLA/Fees)"
+          - "2) Traveler Data Contract (PII/consent/medical/diet)"
+          - "3) Itinerary Design & Budgeting"
+          - "4) Vendor Selection & SLAs (hotel/transport/guide/meal/attraction)"
+          - "5) Booking & Rooming/Seating Controls"
+          - "6) Safety & Emergency Playbooks"
+          - "7) Visa & Insurance Policies"
+          - "8) Billing & Margin Controls"
+          - "9) Finalize this Section"
+
+sections:
+  - id: initial-setup
+    instruction: |
+      准备客户条款与 SLA、游客数据契约、签证与保险模板、供应商合同与价单、行程与控位方案、应急预案与结算规则。
+      设置 {{project_name}}、{{client_name}}、{{sla_terms}}、{{traveler_contract}} 等变量。
+  - id: travel-overview
+    title: Operations Overview
+    elicit: true
+    custom_elicitation: travel-overview
+    instruction: |
+      概述产品/线路、目标人群、系统与接口、行程与预算框架、供应商与资源池、应急与保险、结算与 KPI。
+    template: |
+      - **Client & SLAs:** {{client_name}} — {{sla_terms}}
+      - **Traveler Data Contract:** {{traveler_contract}}
+      - **DMS/CRM & Payment:** {{systems}}
+      - **Itinerary & Budget Framework:** {{itinerary_budget}}
+      - **Vendors & Resource Pools:** {{vendors_pool}}
+      - **Safety & Emergency:** {{safety_emergency}}
+      - **Visa & Insurance:** {{visa_insurance}}
+      - **Billing & Margin:** {{billing_margin}}
+      <critical_rule>No PII processing without consent and retention policy.</critical_rule>
+
+  - id: governance-privacy
+    title: Governance & Privacy (PII)
+    template: |
+      - **Access & Roles:** {{access_roles}}
+      - **Consent & Retention:** {{consent_retention}}
+      - **Incident & Breach Process:** {{breach_process}}
+      <critical_rule>Default deny for traveler PII; access logged and quarterly reviewed.</critical_rule>
+
+  - id: itinerary-design
+    title: Itinerary Design & Content
+    template: |
+      - **Route & Timing Rules:** {{route_timing}}
+      - **Pacing & Rest (duty hours):** {{pacing_rest}}
+      - **Alternate/Contingency Plans:** {{contingency_plans}}
+
+  - id: vendors-contracts
+    title: Vendors & Contracts
+    template: |
+      - **Hotel Contracting & Allotments:** {{hotel_allotments}}
+      - **Transport/Guide SLAs:** {{transport_guide_sla}}
+      - **Restaurant/Attraction Policies:** {{meal_attraction}}
+      <critical_rule>Vendors must have valid licenses/insurance and meet SLA before booking.</critical_rule>
+
+  - id: booking-controls
+    title: Booking & Controls
+    template: |
+      - **Booking Workflow & Cutoffs:** {{booking_workflow}}
+      - **Rooming/Seating Rules:** {{rooming_seating}}
+      - **Voucher/Ticket & Recon:** {{voucher_recon}}
+
+  - id: onsite-ops
+    title: On-site Operations
+    template: |
+      - **Meet & Greet SOP:** {{meet_greet}}
+      - **Daily Briefing & Logs:** {{daily_logs}}
+      - **Issue/Trouble Desk:** {{issue_desk}}
+
+  - id: safety-emergency
+    title: Safety & Emergency
+    template: |
+      - **Risk Map & Alerts:** {{risk_map}}
+      - **Emergency Contacts & Escalation:** {{emergency_contacts}}
+      - **Incident Handling & Reporting:** {{incident_handling}}
+      <critical_rule>24/7 emergency line and escalation tree are mandatory during trips.</critical_rule>
+
+  - id: visa-insurance
+    title: Visa & Insurance
+    template: |
+      - **Visa Guidance & Lead Time:** {{visa_guidance}}
+      - **Insurance Coverage & Exclusions:** {{insurance_coverage}}
+      - **Claims Support Process:** {{claims_support}}
+
+  - id: observability-kpi
+    title: Observability & KPI
+    template: |
+      - **Dashboards (NPS/complaints/OTD/margin):** {{dashboards}}
+      - **SLA Alerts:** {{sla_alerts}}
+      - **Cost & Margin Tracking:** {{cost_margin}}
+
+  - id: bmad-integration
+    title: BMAD Integration
+    template: |
+      - **Sales Support:** {{sales_support}}
+      - **Vendor Alignment:** {{vendor_alignment}}
+      - **Finance/Legal Compliance:** {{finance_legal}}
+
+  - id: documentation-validation
+    title: Documentation Validation
+    template: |
+      - **Completeness:** {{doc_completeness}}
+      - **Consistency:** {{doc_consistency}}
+      - **Usability:** {{doc_usability}}
+
+  - id: final-review
+    title: Final Review
+    template: |
+      - **Version:** {{doc_version}}
+      - **Timestamp:** {{doc_ts}}

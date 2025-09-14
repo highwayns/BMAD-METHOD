@@ -1,0 +1,15 @@
+version: 1
+template_id: producer-line/timesheet-import-spec
+purpose: Timesheet 导入规范
+fields:
+  format: { type: string, enum: [csv, xlsx] }
+  columns:
+    {
+      type: list,
+      items: string,
+      example: ["date", "name", "role", "proj", "seq", "shot", "hours", "overtime", "notes"],
+    }
+  validations:
+    { type: list, items: string, example: ["hours<=16", "date in work-calendar", "shot exists"] }
+outputs:
+  - finance/timesheet-spec-{{date}}.yaml

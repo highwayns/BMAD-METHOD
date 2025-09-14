@@ -1,0 +1,3 @@
+# 响度标准
+
+- ITU-R BS.1770（LKFS/LUFS）、EBU R128、ATSC A/85 概览

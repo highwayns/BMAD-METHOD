@@ -1,0 +1,13 @@
+# budget-plan-tmpl.yaml
+version: 1
+template_id: exec-producer/budget-plan
+purpose: 预算结构（CAPEX/OPEX）、资金池与燃尽
+fields:
+  currency: { type: string, default: JPY }
+  capex_items: { type: table, columns: [code, name, amount, notes] }
+  opex_items: { type: table, columns: [code, name, amount, vendor, notes] }
+  contingency_pct: { type: number, default: 10 }
+  funding_pool: { type: number, required: true }
+  approval_chain: { type: list, items: string }
+outputs:
+  - finance/budget-plan-{{date}}.yaml
