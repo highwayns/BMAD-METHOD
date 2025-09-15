@@ -1,0 +1,3 @@
+- OMOP CDM：标准化表结构与术语（SNOMED/LOINC/ATC 等）
+- OHDSI 工具：ATLAS/ACHILLES/PLP/PLE；研究者可视化建模与生存分析
+- 数据质量：DQD（Data Quality Dashboard）与留痕治理

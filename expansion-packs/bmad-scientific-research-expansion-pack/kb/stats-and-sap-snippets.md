@@ -1,0 +1,4 @@
+- 样本量/功效：alpha/beta/effect size；常见连续/二项/时间到事件计算
+- 多重比较：Bonferroni/Holm/Benjamini-Hochberg
+- 缺失处理：MCAR/MAR/MNAR；多重插补
+- 重复测量与混合效应模型、倾向评分匹配

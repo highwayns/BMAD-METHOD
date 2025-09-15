@@ -1,0 +1,3 @@
+- AAR：Allowable/Allocable/Reasonable
+- 判定逻辑：政策/条款→直接相关→市场/历史/计算依据→证据
+- 典型灰区与处理建议

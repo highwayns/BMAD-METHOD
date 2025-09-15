@@ -1,0 +1,3 @@
+- FAIR：可发现/可获取/可互操作/可复用（Findable/Accessible/Interoperable/Reusable）
+- 许可常见：CC-BY、ODC-BY、BSD/MIT/Apache-2.0
+- 引用与数据/代码 DOI 最佳实践

@@ -1,0 +1,1 @@
+- DataCite/DublinCore/schema.org/JSON-LD 常用字段与映射示例。
