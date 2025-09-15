@@ -1,0 +1,18 @@
+meta: { name: "Pipeline Spec", owner: hris-analytics }
+ingestion:
+  mode: [full, incremental, cdc]
+  schedule: [hourly, daily, weekly]
+dq_hooks: [schema_check, null_check, pk_fk_check, range_check, enum_check, anomaly]
+marts:
+  - name: mart_recruiting_funnel
+    grain: application_id
+    dims: [job, date, source]
+    facts: [stage, stage_dwell_days, conversion]
+  - name: mart_training
+    grain: enroll_id
+    dims: [person, training, date]
+    facts: [progress_pct, score, pass_flag]
+  - name: mart_dispatch_util
+    grain: person_id, date
+    dims: [site, shift, client]
+    facts: [hours_regular, hours_ot, utilization, coverage]

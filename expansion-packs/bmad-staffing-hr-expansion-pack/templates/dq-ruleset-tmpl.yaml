@@ -1,0 +1,17 @@
+meta: { name: "DQ Ruleset", owner: hris-analytics }
+rules:
+  - id: pk_unique_person
+    table: employees
+    check: primary_key_unique(person_id)
+  - id: email_format
+    table: candidates
+    check: regex(email, "^[^@\s]+@[^@\s]+\.[^@\s]+$")
+  - id: timesheet_hours_range
+    table: timesheets
+    check: range(hours_regular+hours_ot, 0, 24)
+  - id: enum_stage
+    table: applications
+    check: enum(stage, ["Sourced","Screen","Interview","Offer","Hired","Reject"])
+  - id: payroll_currency
+    table: payroll
+    check: enum(currency, ["JPY","USD","EUR","CNY"])
