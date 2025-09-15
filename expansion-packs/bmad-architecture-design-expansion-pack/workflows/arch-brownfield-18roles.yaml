@@ -1,0 +1,519 @@
+# <!-- Powered by BMAD™ Core -->
+workflow:
+  id: arch-brownfield-18roles
+  name: Architecture – Brownfield Retrofit (18-Role Orchestration)
+  description: |
+    A BMAD-method brownfield workflow orchestrating 18 architecture roles for existing-building repair/retrofit:
+    due diligence → survey & condition assessment → retrofit concepts → DD/CD → tender & live construction →
+    handover & warranty. Emphasizes Scan-to-BIM, code grandfathering/change-of-use, phasing in occupied sites,
+    hazardous materials, envelope/MEP renewal, and audit-ready CDE governance.
+  type: brownfield
+  project_types:
+    - adaptive-reuse
+    - renovation
+    - historic-conservation
+    - seismic-retrofit
+    - deep-energy-retrofit
+    - facade-recladding
+    - tenant-improvement
+    - plant-room-replacement
+    - healthcare-live-upgrade
+    - campus-renewal
+
+  agents_catalog:
+    - design-director
+    - lead-architect
+    - project-manager
+    - bim-manager
+    - structural-lead
+    - mep-lead
+    - interior-lead
+    - landscape-architect
+    - facade-engineer
+    - urban-planner
+    - sustainability-energy-lead
+    - code-compliance-officer
+    - specifications-wwriter
+    - visualization-vr-lead
+    - cost-estimator
+    - construction-administrator
+    - document-control-qaqc-lead
+    - contracts-legal-coordinator
+
+  onboarding:
+    - step: init_workspace
+      agent: project-manager
+      creates:
+        - docs/brief/project-charter.md
+        - docs/brief/raci-matrix.md
+      uses: create-doc (project charter), decision-record-tmpl.yaml
+      notes: Establish governance, cadence, risk & KPI; define live-operations constraints and outage windows.
+    - step: cde_bootstrap
+      agent: document-control-qaqc-lead
+      creates:
+        - docs/cde/cde-governance-docs.md
+        - docs/policy/numbering-and-revision-policy.md
+      uses: cde-governance-docs-tmpl.yaml, numbering-and-revision-policy-tmpl.yaml
+      notes: "Enable SSOT: naming/permissions/receipts/audit; add legacy vs as-built revision grammar."
+    - step: legal_context
+      agent: contracts-legal-coordinator
+      creates:
+        - docs/permits/cl-compliance-and-permits-mapping.md
+        - docs/audit/cl-audit-and-legal-hold-plan.md
+      uses: cl-compliance-and-permits-mapping-tmpl.yaml, cl-audit-and-legal-hold-plan-tmpl.yaml
+      notes: Map permits/heritage approvals; set legal-hold for legacy docs & tests.
+
+  kickoff:
+    - agent: design-director
+      creates:
+        - docs/brief/design-governance-charter.md
+      uses: create-doc (charter), decision-record-tmpl.yaml
+      notes: Gateways, escalation, “live site” quality bar and safety interfaces.
+    - agent: cost-estimator
+      creates:
+        - docs/brief/cost-governance-charter.md
+      uses: cost-governance-charter-tmpl.yaml
+      notes: Establish rate build-up transparency, contingency & escalation policy aligned to brownfield risks.
+
+  full_project_sequence:
+    # 1) DUE DILIGENCE & SURVEY
+    - step: records_ingest
+      agent: document-control-qaqc-lead
+      creates:
+        - docs/drawings/drawing-register-and-revision-control.md
+      uses: drawing-register-and-revision-control-tmpl.yaml
+      notes: Ingest legacy drawings/O&M/test reports; tag confidence levels and missing data.
+    - step: site_safety_access
+      agent: construction-administrator
+      creates:
+        - docs/comm/asi-ccd-pr-protocols.md
+      uses: asi-ccd-pr-protocols-tmpl.yaml
+      notes: Access permits, shutdown requests, PR/CCD flows for live areas.
+    - step: scan_to_bim_plan
+      agent: bim-manager
+      creates:
+        - docs/bim/as-built-scan-to-bim-plan.md
+      uses: create-doc (Scan-to-BIM plan)
+      notes: Laser scanning scope, accuracy targets, model LOD/LOI, heritage capture if applicable.
+    - step: structural_condition
+      agent: structural-lead
+      creates:
+        - docs/struct/condition-assessment.md
+      uses: inspection-and-test-plan-tmpl.yaml
+      notes: Material tests, corrosion/movement/deflection monitoring; temporary works triggers.
+    - step: mep_energy_audit
+      agent: mep-lead
+      creates:
+        - docs/mep/mep-condition-and-energy-audit.md
+      uses: lab-and-field-tests-plan-tmpl.yaml
+      notes: Asset-by-asset condition, metering gaps, ventilation/IAQ baseline, refrigerant compliance.
+    - step: facade_survey
+      agent: facade-engineer
+      creates:
+        - docs/facade/facade-condition-survey.md
+      uses: site-observation-and-witness-report-tmpl.yaml
+      notes: Water ingress/thermal bridges/fixings; intrusive probes plan.
+    - step: hazards_register
+      agent: document-control-qaqc-lead
+      creates:
+        - docs/tests/hazardous-materials-register.md
+      uses: lab-and-field-tests-plan-tmpl.yaml
+      notes: ACM/lead/mold/PCBs; chain-of-custody and accredited labs.
+    - step: survey_gate
+      agent: design-director
+      quality_gate:
+        checklists:
+          - drawing-register-completeness-checklist.md
+          - site-observation-record-quality-checklist.md
+          - lab-and-field-tests-witness-checklist.md
+          - qa-audit-readiness-checklist.md
+        outputs:
+          - docs/meetings/survey-gate-minutes.md
+
+    # 2) RETROFIT CONCEPT & PHASING
+    - step: change_of_use_code
+      agent: code-compliance-officer
+      creates:
+        - docs/code/change-of-use-and-grandfathering-analysis.md
+      uses: create-doc (code analysis)
+    - step: retrofit_options
+      agent: lead-architect
+      creates:
+        - docs/brief/retrofit-options-and-phasing.md
+      uses: decision-record-tmpl.yaml
+      notes: Options A/B/C with decanting/temporary partitions; wayfinding & accessibility upgrades.
+    - step: structural_retrofit_strategy
+      agent: structural-lead
+      creates:
+        - docs/struct/retrofit-strategy.md
+      uses: inspection-and-test-plan-tmpl.yaml
+    - step: mep_retrofit_strategy
+      agent: mep-lead
+      creates:
+        - docs/mep/retrofit-strategy.md
+      uses: create-doc (MEP retrofit)
+    - step: envelope_strategy
+      agent: facade-engineer
+      creates:
+        - docs/facade/recladding-and-weatherproofing-strategy.md
+      uses: create-doc (facade strategy)
+    - step: interior_refurb_strategy
+      agent: interior-lead
+      creates:
+        - docs/interior/refurbishment-strategy.md
+      uses: create-doc (interior strategy)
+    - step: site_ops_access
+      agent: landscape-architect
+      creates:
+        - docs/landscape/site-operations-access-phasing.md
+      uses: create-doc (site ops & logistics)
+    - step: energy_targets
+      agent: sustainability-energy-lead
+      creates:
+        - docs/sustain/sustainability-targets-retrofit.md
+      uses: create-doc (EUI/comfort/embodied-carbon)
+    - step: concept_costing
+      agent: cost-estimator
+      creates:
+        - docs/cost/assemblies-library-and-mapping.md
+        - docs/ve/value-engineering-register.md
+      uses: assemblies-library-and-mapping-tmpl.yaml, value-engineering-register-tmpl.yaml
+    - step: concept_visuals
+      agent: visualization-vr-lead
+      creates:
+        - docs/vis/retrofit-visualization-package.md
+      uses: create-doc (viz brief)
+    - step: concept_gate
+      agent: design-director
+      quality_gate:
+        checklists:
+          - dcq-gate-concept.md
+          - cost-gate-concept.md
+          - cde-governance-checklist.md
+          - notice-and-timebar-compliance-checklist.md
+        outputs:
+          - docs/meetings/concept-gate-minutes.md
+
+    # 3) DESIGN DEVELOPMENT (DD)
+    - step: code_matrix_dd
+      agent: code-compliance-officer
+      creates:
+        - docs/code/code-scan-report-dd.md
+      uses: create-doc (code scan), rfi-procedure-and-log-tmpl.yaml
+    - step: bod_updates
+      agent: lead-architect
+      creates:
+        - docs/brief/architectural-brief-dd.md
+      uses: create-doc (architectural BOD)
+    - step: struct_bod_dd
+      agent: structural-lead
+      creates:
+        - docs/struct/structural-basis-of-design.md
+      uses: inspection-and-test-plan-tmpl.yaml
+    - step: mep_bod_dd
+      agent: mep-lead
+      creates:
+        - docs/mep/mep-basis-of-design.md
+      uses: create-doc (MEP BOD)
+    - step: specs_outline_dd
+      agent: specifications-writer
+      creates:
+        - docs/specs/specs-outline-dd.md
+      uses: create-doc (specs outline)
+    - step: bim_qto_crosswalk
+      agent: bim-manager
+      creates:
+        - docs/qto/qto-bim-plan-and-extract.md
+        - docs/boq/measurement-rules-and-crosswalk.md
+      uses: qto-bim-plan-and-extract-tmpl.yaml, measurement-rules-and-crosswalk-tmpl.yaml
+    - step: dd_cost_cashflow
+      agent: cost-estimator
+      creates:
+        - docs/cost/cost-reporting-monthly-and-stage.md
+        - docs/cost/cashflow-and-s-curve.md
+      uses: cost-reporting-monthly-and-stage-tmpl.yaml, cashflow-and-s-curve-tmpl.yaml
+    - step: dd_gate
+      agent: design-director
+      quality_gate:
+        checklists:
+          - dcq-gate-dd.md
+          - drawings-bim-boq-reconciliation-checklist.md
+          - risk-and-contingency-checklist.md
+          - redlining-and-ambiguity-checklist.md
+        outputs:
+          - docs/meetings/dd-gate-minutes.md
+
+    # 4) CONSTRUCTION DOCUMENTS (CD)
+    - step: mdl_publish
+      agent: document-control-qaqc-lead
+      creates:
+        - docs/plan/master-deliverables-list.md
+      uses: master-deliverables-list-tmpl.yaml
+    - step: full_specs
+      agent: specifications-writer
+      creates:
+        - docs/specs/project-specifications.md
+      uses: meeting-minutes-tmpl.yaml
+    - step: compliance_matrix_cd
+      agent: code-compliance-officer
+      creates:
+        - docs/code/code-compliance-matrix.md
+      uses: create-doc (matrix)
+    - step: reconciliation_cd
+      agent: bim-manager
+      creates:
+        - docs/qaqc/drawings-bim-boq-reconciliation.md
+      uses: drawings-bim-boq-reconciliation-tmpl.yaml
+    - step: indirects_escalation
+      agent: cost-estimator
+      creates:
+        - docs/cost/indirects-and-preliminaries.md
+        - docs/cost/escalation-fx-tax-strategy.md
+      uses: indirects-and-preliminaries-tmpl.yaml, escalation-fx-tax-strategy-tmpl.yaml
+    - step: phasing_temp_works
+      agent: construction-administrator
+      creates:
+        - docs/site/phasing-and-temporary-works-plan.md
+      uses: create-doc (phasing & temp works)
+    - step: cd_gate
+      agent: design-director
+      quality_gate:
+        checklists:
+          - dcq-gate-cd.md
+          - itp-coverage-and-frequency-checklist.md
+          - cl-gate-award.md
+        outputs:
+          - docs/meetings/cd-gate-minutes.md
+
+    # 5) TENDER & PROCUREMENT
+    - step: tender_strategy
+      agent: contracts-legal-coordinator
+      creates:
+        - docs/tender/cl-tender-procurement-strategy.md
+        - docs/contract/cl-contract-structure-and-flowdown.md
+      uses: cl-tender-procurement-strategy-tmpl.yaml, cl-contract-structure-and-flowdown-tmpl.yaml
+      notes: Live-site packaging, night-work allowances, provisional sums for hidden defects.
+    - step: rfq_release
+      agent: cost-estimator
+      creates:
+        - docs/proc/quotes-and-comparison.md
+      uses: vendor-quotes-and-comparison-tmpl.yaml
+    - step: evaluation_clarifications
+      agent: cost-estimator
+      creates:
+        - docs/tender/tender-evaluation-and-clarifications.md
+      uses: tender-evaluation-and-clarifications-tmpl.yaml
+    - step: award_gate
+      agent: project-manager
+      quality_gate:
+        checklists:
+          - cl-gate-tender.md
+          - insurance-bonds-completeness-checklist.md
+          - payment-and-retention-checklist.md
+          - subcontract-flowdown-checklist.md
+        outputs:
+          - docs/meetings/award-decision-record.md
+
+    # 6) LIVE CONSTRUCTION / RETROFIT
+    - step: ca_setup
+      agent: construction-administrator
+      creates:
+        - docs/submittals/submittals-plan-and-register.md
+        - docs/rfi/rfi-procedure-and-log.md
+      uses: submittals-plan-and-register-tmpl.yaml, rfi-procedure-and-log-tmpl.yaml
+    - step: qaqc_itp
+      agent: document-control-qaqc-lead
+      creates:
+        - docs/qaqc/qaqc-master-plan-and-itp.md
+      uses: qaqc-master-plan-and-itp-tmpl.yaml
+    - step: cost_control_live
+      agent: cost-estimator
+      creates:
+        - docs/fin/eac-and-etc-rolling-baseline.md
+      uses: eac-and-etc-rolling-baseline-tmpl.yaml
+    - step: site_observation
+      agent: construction-administrator
+      creates:
+        - docs/site/site-observation-and-witness-report.md
+      uses: site-observation-and-witness-report-tmpl.yaml
+    - step: change_claims
+      agent: contracts-legal-coordinator
+      creates:
+        - docs/change/cl-change-variation-management.md
+        - docs/claim/cl-claim-preparation-and-evaluation.md
+      uses: cl-change-variation-management-tmpl.yaml, cl-claim-preparation-and-evaluation-tmpl.yaml
+    - step: pre_handover_gate
+      agent: design-director
+      quality_gate:
+        checklists:
+          - ca-gate-pre-handover.md
+          - warranty-dlp-closure-checklist.md
+          - audit-trail-and-legal-hold-checklist.md
+        outputs:
+          - docs/meetings/pre-handover-minutes.md
+
+    # 7) HANDOVER & WARRANTY (DLP)
+    - step: as_built_dossier
+      agent: document-control-qaqc-lead
+      creates:
+        - docs/handover/handover-documentation-index.md
+      uses: handover-documentation-index-tmpl.yaml
+    - step: training_handover
+      agent: construction-administrator
+      creates:
+        - docs/handover/handover-and-closeout-plan.md
+      uses: handover-and-closeout-plan-tmpl.yaml
+    - step: lcc_wrap
+      agent: sustainability-energy-lead
+      creates:
+        - docs/lcc/lcc-life-cycle-costing.md
+      uses: lcc-life-cycle-costing-tmpl.yaml
+    - step: final_visuals
+      agent: visualization-vr-lead
+      creates:
+        - docs/vis/visualization-final-as-built.md
+      uses: create-doc (as-built visuals)
+    - step: final_gate
+      agent: project-manager
+      quality_gate:
+        checklists:
+          - cl-gate-handover.md
+          - retention-and-archive-checklist.md
+        outputs:
+          - docs/status/status-weekly-{date}.md
+
+  sprint_cadence:
+    design:
+      rhythm: weekly
+      ceremonies:
+        - name: Brownfield Design Sync
+          agent: project-manager
+          creates: docs/minutes/{date}-design-sync.md
+          uses: meeting-minutes-tmpl.yaml
+        - name: Gate Prep
+          agent: document-control-qaqc-lead
+          creates: docs/brief/decision-record-{id}.md
+          uses: decision-record-tmpl.yaml
+    construction:
+      rhythm: weekly
+      ceremonies:
+        - name: CA Live-Site Sync
+          agent: construction-administrator
+          creates: docs/minutes/{date}-construction-minutes.md
+          uses: meeting-minutes-tmpl.yaml
+
+  handovers:
+    - from: document-control-qaqc-lead
+      to: bim-manager
+      artifacts:
+        - docs/drawings/drawing-register-and-revision-control.md
+    - from: bim-manager
+      to: cost-estimator
+      artifacts:
+        - docs/qto/qto-bim-plan-and-extract.md
+    - from: specifications-writer
+      to: contracts-legal-coordinator
+      artifacts:
+        - docs/specs/project-specifications.md
+    - from: construction-administrator
+      to: document-control-qaqc-lead
+      artifacts:
+        - docs/site/site-observation-and-witness-report.md
+
+  quality_gates:
+    survey_complete:
+      owner: design-director
+      checklists:
+        - drawing-register-completeness-checklist.md
+        - site-observation-record-quality-checklist.md
+        - lab-and-field-tests-witness-checklist.md
+        - qa-audit-readiness-checklist.md
+    concept:
+      owner: design-director
+      checklists:
+        - dcq-gate-concept.md
+        - cost-gate-concept.md
+        - cde-governance-checklist.md
+        - notice-and-timebar-compliance-checklist.md
+    dd:
+      owner: design-director
+      checklists:
+        - dcq-gate-dd.md
+        - drawings-bim-boq-reconciliation-checklist.md
+        - risk-and-contingency-checklist.md
+    cd:
+      owner: design-director
+      checklists:
+        - dcq-gate-cd.md
+        - itp-coverage-and-frequency-checklist.md
+        - cl-gate-award.md
+    tender:
+      owner: project-manager
+      checklists:
+        - cl-gate-tender.md
+        - insurance-bonds-completeness-checklist.md
+        - payment-and-retention-checklist.md
+    pre_handover:
+      owner: design-director
+      checklists:
+        - ca-gate-pre-handover.md
+        - warranty-dlp-closure-checklist.md
+        - audit-trail-and-legal-hold-checklist.md
+    handover:
+      owner: project-manager
+      checklists:
+        - cl-gate-handover.md
+        - retention-and-archive-checklist.md
+
+  artifacts:
+    - docs/brief/project-charter.md
+    - docs/brief/design-governance-charter.md
+    - docs/drawings/drawing-register-and-revision-control.md
+    - docs/bim/as-built-scan-to-bim-plan.md
+    - docs/struct/condition-assessment.md
+    - docs/mep/mep-condition-and-energy-audit.md
+    - docs/facade/facade-condition-survey.md
+    - docs/tests/hazardous-materials-register.md
+    - docs/brief/retrofit-options-and-phasing.md
+    - docs/struct/retrofit-strategy.md
+    - docs/mep/retrofit-strategy.md
+    - docs/facade/recladding-and-weatherproofing-strategy.md
+    - docs/specs/specs-outline-dd.md
+    - docs/boq/measurement-rules-and-crosswalk.md
+    - docs/cost/cost-reporting-monthly-and-stage.md
+    - docs/cost/cashflow-and-s-curve.md
+    - docs/qaqc/drawings-bim-boq-reconciliation.md
+    - docs/tender/tender-evaluation-and-clarifications.md
+    - docs/submittals/submittals-plan-and-register.md
+    - docs/rfi/rfi-procedure-and-log.md
+    - docs/qaqc/qaqc-master-plan-and-itp.md
+    - docs/handover/handover-documentation-index.md
+    - docs/status/status-weekly-{date}.md
+    - docs/minutes/{date}-design-sync.md
+
+  success_criteria:
+    due_diligence_complete:
+      - Legacy records ingested and confidence scores assigned
+      - Scan-to-BIM plan approved; hazardous materials register initiated
+      - Live-site access & CCD/PR protocols active
+    concept_approved:
+      - Retrofit options and phasing signed-off
+      - Code change-of-use/grandfathering risks addressed
+      - Baseline cost assemblies & VE register issued
+      - Concept visuals reviewed with stakeholders
+    dd_complete:
+      - BODs (Arch/Struct/MEP) aligned with code scan
+      - Specs outline & BIM QTO crosswalk approved
+      - DD cost & cashflow issued
+    cd_complete:
+      - Full specs issued; compliance matrix approved
+      - Reconciliation complete; phasing & temporary works plan issued
+    tender_ready:
+      - Procurement strategy and flowdown approved; RFQ package released
+      - Evaluation & clarifications report finalized
+    live_construction_ready:
+      - CA submittals/RFI processes live; QA-QC ITP mother plan issued
+      - EAC/ETC baseline active
+    handover_complete:
+      - Handover dossier accepted; warranty/DLP plan baselined
+      - Final as-built visuals delivered
