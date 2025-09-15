@@ -1,0 +1,343 @@
+# <!-- Powered by BMAD™ Core -->
+workflow:
+  id: db-brownfield-migration
+  name: 棕野 Databricks 系统移植开发（Brownfield Migration）
+  description: >
+    参照 BMAD-method 工作流格式，组织 18 个 Databricks 角色（Agent）完成从传统/异构平台向
+    Databricks Lakehouse 的迁移与替换：资产盘点→评估分级→目标架构与平台落地→
+    契约化映射→批/流（含 CDC）迁移工厂→双运行与一致性校验→切换与回退→稳定化与退役。
+  type: brownfield-migration
+  project_types:
+    - legacy-dwh-to-lakehouse
+    - hadoop-to-delta
+    - cdc-migration
+    - bi-parity
+    - model-porting
+
+  # 主路径：分阶段串联，含前置依赖、产出与备注
+  full_sequence:
+    # 0. 项目治理与迁移目标
+    - agent: Platform-Owner
+      creates: 00-charter-migration-governance.md
+      requires: []
+      steps:
+        - stakeholder_and_systems_inventory
+        - migration_objectives_kpis
+        - risk_register_and_governance
+      outputs:
+        - docs/charter-migration.md
+        - docs/governance/model.md
+      notes: "定义范围/窗口/预算/冻结策略/证据目录；建立跨域治理与决策机制。"
+
+    - agent: Product-Manager
+      creates: 01-migration-brief-and-roadmap.md
+      requires:
+        - docs/charter-migration.md
+      steps:
+        - migration_brief
+        - milestone_roadmap
+        - acceptance_criteria_per_wave
+      outputs:
+        - docs/product/migration-brief.md
+        - docs/product/roadmap.md
+
+    - agent: Business-Analyst
+      creates: 02-legacy-assessment-and-prioritization.md
+      requires:
+        - docs/product/migration-brief.md
+      steps:
+        - use_case_criticality_matrix
+        - dependency_pruning
+        - parity_requirements_bi_and_ml
+      outputs:
+        - docs/analysis/assessment.md
+        - docs/analysis/parity-requirements.md
+
+    # 1. 目标架构与平台落地
+    - agent: Lakehouse-Architect
+      creates: 03-target-architecture-and-adr.md
+      requires:
+        - docs/analysis/assessment.md
+      steps:
+        - target_state_architecture
+        - adr_for_migration_choices
+        - nfr_for_migration_windows
+      outputs:
+        - docs/architecture/target.md
+        - docs/architecture/adr/*.md
+
+    - agent: DevEx-Platform-Automation
+      creates: 04-landing-zone-and-scaffolding.md
+      requires:
+        - docs/architecture/target.md
+      steps:
+        - uc_bootstrap_and_workspace_baseline
+        - policies_pools_and_secrets
+        - dab_scaffold_and_repo_standards
+        - ci_cd_bootstrap_and_env_promotion
+      outputs:
+        - infra/terraform/*
+        - resources/dab/*
+        - docs/platform/bootstrap.md
+
+    - agent: Security-Governance-UC
+      creates: 05-security-governance-baseline.md
+      requires:
+        - docs/platform/bootstrap.md
+      steps:
+        - identity_entitlements_mapping
+        - uc_permissions_target_model
+        - external_location_and_credentials
+      outputs:
+        - docs/security/uc-governance.md
+        - specs/uc/external-location.yaml
+
+    - agent: Privacy-Compliance
+      creates: 06-privacy-register-and-policies.md
+      requires:
+        - docs/analysis/assessment.md
+      steps:
+        - ropa_register
+        - consent_taxonomy
+        - masking_rowcolumn_policies
+      outputs:
+        - docs/privacy/ropa.md
+        - docs/privacy/masking-policy.md
+
+    # 2. 契约化映射与源清单
+    - agent: Data-Contract-Owner
+      creates: 07-contracts-and-source-to-target-mapping.md
+      requires:
+        - docs/analysis/parity-requirements.md
+        - docs/security/uc-governance.md
+      steps:
+        - source_inventory_and_lineage
+        - schema_mapping_rules
+        - data_contracts_by_domain
+        - evolution_policy
+      outputs:
+        - inventory/source-inventory.yaml
+        - contracts/*.yaml
+        - docs/governance/contracts-mapping.md
+
+    # 3. 数据工程（批/流/CDC）迁移工厂
+    - agent: Data-Engineering-Lead
+      creates: 08-batch-migration-factory-specs.md
+      requires:
+        - contracts/*.yaml
+        - resources/dab/*
+      steps:
+        - pipeline_spec_batch
+        - storage_layout_delta
+        - backfill_strategy_and_reprocessing
+      outputs:
+        - specs/pipeline-batch/*.yaml
+        - docs/data/batch-migration-factory.md
+
+    - agent: Streaming-Engineer
+      creates: 09-cdc-streaming-migration-specs.md
+      requires:
+        - contracts/*.yaml
+        - docs/platform/bootstrap.md
+      steps:
+        - autoloader_design_for_legacy_landing
+        - cdc_capture_and_merge_strategy
+        - watermark_checkpoint_and_idempotency
+      outputs:
+        - specs/pipeline-streaming/*.yaml
+        - specs/watermark.yaml
+        - docs/data/cdc-specs.md
+
+    # 4. 分析/BI 与模型移植
+    - agent: Analytics-Engineer-BISQL
+      creates: 10-bi-parity-plan.md
+      requires:
+        - specs/pipeline-batch/*.yaml
+        - specs/pipeline-streaming/*.yaml
+      steps:
+        - semantic_model_alignment
+        - dbsql_warehouse_plan
+        - dashboard_parity_matrix
+      outputs:
+        - specs/dbsql/warehouse-plan.yaml
+        - docs/bi/semantic-model.md
+        - docs/bi/parity-matrix.md
+
+    - agent: ML-Engineer-MLOps
+      creates: 11-ml-porting-and-serving.md
+      requires:
+        - docs/bi/semantic-model.md
+      steps:
+        - feature_spec_and_backfill
+        - training_config_migration
+        - serving_endpoint_dual_run
+      outputs:
+        - specs/feature/*.yaml
+        - specs/ml/training-config.yaml
+        - specs/serving/endpoint.yaml
+
+    # 5. 质量与一致性校验（双运行阶段）
+    - agent: Quality-Assurance
+      creates: 12-reconciliation-rules-and-test-harness.md
+      requires:
+        - contracts/*.yaml
+        - specs/pipeline-batch/*.yaml
+        - specs/pipeline-streaming/*.yaml
+        - specs/serving/endpoint.yaml
+      steps:
+        - dq_rules_and_freshness_sla
+        - reconciliation_sampling_and_full_checks
+        - performance_regression_tests
+        - canary_data_release
+      outputs:
+        - tests/dq-rules.yaml
+        - tests/freshness-sla.yaml
+        - tests/reconciliation-plan.md
+        - tests/perf-plan.md
+
+    - agent: Observability-Reliability
+      creates: 13-sli_slo_and_alerts_for_dual_run.md
+      requires:
+        - tests/dq-rules.yaml
+      steps:
+        - metrics_catalog_and_sli_slo
+        - alert_routing_rules
+        - dashboards_for_dual_run
+      outputs:
+        - o11y/metrics-catalog.yaml
+        - o11y/sli-slo.yaml
+        - o11y/alert-routing-rules.yaml
+        - o11y/dashboards/*.yaml
+
+    - agent: DataOps-SRE
+      creates: 14-runbooks-and-auto-heal.md
+      requires:
+        - o11y/alert-routing-rules.yaml
+        - specs/pipeline-batch/*.yaml
+        - specs/pipeline-streaming/*.yaml
+      steps:
+        - jobs_dlt_operational_runbooks
+        - auto_heal_scripts_and_retry_policies
+        - rollback_and_shadow_read_paths
+      outputs:
+        - ops/runbooks/*.md
+        - ops/auto-heal/*.md
+        - ops/shadow-read-plan.md
+
+    - agent: FinOps-Cost-Optimizer
+      creates: 15-cost-plan-for_dual_run_and_backfill.md
+      requires:
+        - docs/platform/bootstrap.md
+        - specs/dbsql/warehouse-plan.yaml
+      steps:
+        - cost_estimation_for_dual_run
+        - budgets_quotas_and_guardrails
+        - periodic_cost_report
+      outputs:
+        - finops/estimation.md
+        - finops/budgets.yaml
+        - finops/guardrails.yaml
+        - finops/report-baseline.md
+
+    # 6. 切换、回退与稳定化
+    - agent: Release-Change-Manager
+      creates: 16-migration-release-plan-and-gates.md
+      requires:
+        - finops/guardrails.yaml
+        - o11y/sli-slo.yaml
+        - tests/reconciliation-plan.md
+        - docs/security/uc-governance.md
+        - docs/privacy/masking-policy.md
+      steps:
+        - change_policy_as_code
+        - rfc_and_cab_for_cutover
+        - rehearsal_preflight_and_checkpoint
+        - cutover_plan_dual_read_write
+        - backout_rollback_and_data_repair
+        - release_gate_summary
+      outputs:
+        - release/cutover-runbook.md
+        - release/preflight.md
+        - release/checkpoints.md
+        - release/backout-plan.md
+        - release/gate-summary.md
+
+    - agent: Support-Incident-Manager
+      creates: 17-war-room_and_status_comms.md
+      requires:
+        - release/cutover-runbook.md
+        - o11y/alert-routing-rules.yaml
+      steps:
+        - oncall_rotation_and_escalation_matrix
+        - major_incident_protocol
+        - status_page_and_stakeholder_comms
+      outputs:
+        - ops/oncall-schedule.yaml
+        - ops/escalation-matrix.md
+        - ops/status-templates.md
+
+    # 7. 退役与优化
+    - agent: Platform-Owner
+      creates: 18-legacy-decommission-plan.md
+      requires:
+        - release/gate-summary.md
+        - tests/reconciliation-plan.md
+      steps:
+        - decommission_criteria
+        - staged_decommission
+        - benefits_realization_review
+      outputs:
+        - docs/decommission/plan.md
+        - docs/decommission/checklist.md
+        - docs/benefits-review.md
+
+  # 迁移专属门禁
+  gates:
+    definition_of_ready:
+      - 源系统清单/血缘/关键依赖明确并分批（wave）分级
+      - 目标平台基线可用（UC/Workspace/Policies/Secrets/DAB/CI-CD）
+      - 数据契约与 S2T 映射草案完成；合规与安全基线成文
+    definition_of_done:
+      - 双运行期关键域一致性 ≥ 99.9% 或达到业务阈值并闭环差异
+      - DQ/Freshness/SLO 与告警生效；FinOps 护栏启用
+      - 切换演练通过与回退验证完成；PIR/RCA 闭环
+      - 退役步骤按计划执行并归档证据
+
+  # 并行泳道（按迁移工厂组织）
+  swimlanes:
+    - lane: migration-factory-batch
+      by_agents: [Data-Engineering-Lead, Quality-Assurance, DataOps-SRE]
+      focuses:
+        - 批量迁移与回填
+        - 一致性抽样+全量核对
+        - 自动重试与修复
+    - lane: migration-factory-cdc
+      by_agents: [Streaming-Engineer, Observability-Reliability, DataOps-SRE]
+      focuses:
+        - CDC 捕获/合并与幂等
+        - 水位/检查点与延迟控制
+        - SLO/燃尽与抑制
+    - lane: analytics-ml-parity
+      by_agents: [Analytics-Engineer-BISQL, ML-Engineer-MLOps, Quality-Assurance]
+      focuses:
+        - 语义与报表对齐
+        - 模型重训/冷启动与影子流量
+        - 性能与回归
+
+  # 成功标准（里程碑）
+  success_criteria:
+    assessment_signed_off:
+      - 迁移范围/优先级/窗口获批
+      - 风险与合规路径明确
+    landing_zone_ready:
+      - UC/Workspace/Policies/Secrets/DAB/CI-CD 就绪
+      - 安全与隐私基线生效
+    migration_factory_ready:
+      - 批/流规格与迁移脚手架到位
+      - DQ/SLA/一致性策略入库
+    cutover_ready:
+      - 预检通过 + 回退演练一次
+      - War Room/状态页/通报口径建立
+    stabilized_and_decommissioned:
+      - 双运行稳定窗口通过
+      - 退役完成与收益复盘

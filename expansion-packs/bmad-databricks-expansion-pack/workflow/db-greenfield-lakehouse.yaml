@@ -1,0 +1,334 @@
+# <!-- Powered by BMAD™ Core -->
+workflow:
+  id: db-greenfield-lakehouse
+  name: 绿野 Databricks 系统开发（Greenfield）
+  description: >
+    使用 BMAD-method 的 18 个角色（Agent）在 Databricks Lakehouse 上进行从 0 到 1 的系统开发。
+    工作流涵盖：项目/产品立项、业务与数据分析、湖仓架构与平台自动化、数据契约、批/流数据工程、
+    分析与可视化、ML & 特征与 Serving、质量保证、可观测与可靠性、发布变更、隐私与安全、FinOps 成本优化、
+    运行支撑与事故管理。每个阶段均定义产出物、前置依赖、可选步骤与门禁（DoR/DoD）一致性。
+  type: greenfield
+  project_types:
+    - data-mart
+    - streaming-analytics
+    - feature-store
+    - ml-serving
+    - bi-reporting
+    - governance-modernization
+
+  # 端到端阶段编排（按主要交付路径）
+  full_sequence:
+    # 0. 项目启动与治理
+    - agent: Platform-Owner
+      creates: 00-charter-and-governance.md
+      requires: []
+      steps:
+        - stakeholder_mapping
+        - governance_model_definition
+        - risk_register_seed
+      outputs:
+        - docs/charter.md
+        - docs/governance/model.md
+      notes: "确定范围/预算/时序与治理模型；设定统一证据与审计目录结构。"
+
+    # 1. 产品与需求
+    - agent: Product-Manager
+      creates: 01-product-brief.md
+      requires:
+        - docs/charter.md
+      steps:
+        - product_brief
+        - roadmap
+        - release_goals
+      outputs:
+        - docs/product/brief.md
+        - docs/product/roadmap.md
+
+    - agent: Business-Analyst
+      creates: 02-business-requirements.md
+      requires:
+        - docs/product/brief.md
+      steps:
+        - stakeholder_interviews
+        - use_case_catalog
+        - kpi_definition
+      outputs:
+        - docs/analysis/brd.md
+        - docs/analysis/use-cases.md
+        - docs/analysis/kpi.md
+
+    # 2. 架构设计与平台基线
+    - agent: Lakehouse-Architect
+      creates: 03-architecture-decision-records.md
+      requires:
+        - docs/analysis/brd.md
+        - docs/analysis/use-cases.md
+      steps:
+        - target_architecture
+        - adr_set
+        - non_functional_requirements
+      outputs:
+        - docs/architecture/adr/*.md
+        - docs/architecture/target.md
+
+    - agent: DevEx-Platform-Automation
+      creates: 04-platform-bootstrap.md
+      requires:
+        - docs/architecture/target.md
+      steps:
+        - uc_bootstrap
+        - workspace_bootstrap
+        - policies_pools
+        - terraform_foundation
+        - dab_scaffold
+      outputs:
+        - infra/terraform/*
+        - resources/dab/*
+        - docs/platform/bootstrap.md
+
+    # 3. 数据契约与治理
+    - agent: Data-Contract-Owner
+      creates: 05-data-contracts.md
+      requires:
+        - docs/analysis/use-cases.md
+        - docs/architecture/adr/*.md
+      steps:
+        - domain_boundary
+        - schema_evolution_policies
+        - contract_draft
+        - consumer_signoff
+      outputs:
+        - contracts/*.yaml
+        - docs/governance/contracts.md
+
+    - agent: Security-Governance-UC
+      creates: 06-security-governance.md
+      requires:
+        - docs/platform/bootstrap.md
+        - contracts/*.yaml
+      steps:
+        - identity_and_entitlements
+        - uc_permissions_model
+        - secret_kms_policy
+      outputs:
+        - docs/security/uc-governance.md
+
+    - agent: Privacy-Compliance
+      creates: 07-privacy-register.md
+      requires:
+        - docs/analysis/brd.md
+        - contracts/*.yaml
+      steps:
+        - ropa_register
+        - consent_taxonomy
+        - masking_policy
+      outputs:
+        - docs/privacy/ropa.md
+        - docs/privacy/masking-policy.md
+
+    # 4. 数据工程（批/流）
+    - agent: Data-Engineering-Lead
+      creates: 08-batch-pipeline-specs.md
+      requires:
+        - contracts/*.yaml
+        - docs/platform/bootstrap.md
+      steps:
+        - source_inventory
+        - pipeline_spec_batch
+        - storage_layout
+      outputs:
+        - specs/pipeline-batch/*.yaml
+        - docs/data/batch-specs.md
+
+    - agent: Streaming-Engineer
+      creates: 09-streaming-pipeline-specs.md
+      requires:
+        - contracts/*.yaml
+        - docs/platform/bootstrap.md
+      steps:
+        - autoloader_design
+        - expectations_streaming
+        - checkpoint_watermark
+      outputs:
+        - specs/pipeline-streaming/*.yaml
+        - docs/data/streaming-specs.md
+
+    # 5. 分析与可视化
+    - agent: Analytics-Engineer-BISQL
+      creates: 10-bi-semantic-and-dashboards.md
+      requires:
+        - specs/pipeline-batch/*.yaml
+        - docs/data/streaming-specs.md
+      steps:
+        - semantic_modeling
+        - dbsql_warehouse_plan
+        - dashboard_design
+      outputs:
+        - specs/dbsql/warehouse-plan.yaml
+        - docs/bi/semantic-model.md
+        - dashboards/*
+
+    # 6. 机器学习与服务
+    - agent: ML-Engineer-MLOps
+      creates: 11-ml-feature-serving-specs.md
+      requires:
+        - specs/pipeline-batch/*.yaml
+        - specs/pipeline-streaming/*.yaml
+      steps:
+        - feature_spec
+        - training_config
+        - serving_endpoint_config
+      outputs:
+        - specs/feature/*.yaml
+        - specs/ml/training-config.yaml
+        - specs/serving/endpoint.yaml
+
+    # 7. 质量保证与测试
+    - agent: Quality-Assurance
+      creates: 12-qa-strategy-and-plans.md
+      requires:
+        - contracts/*.yaml
+        - specs/pipeline-batch/*.yaml
+        - specs/pipeline-streaming/*.yaml
+        - specs/serving/endpoint.yaml
+      steps:
+        - qa_strategy
+        - dlt_expectations
+        - dq_rules_and_freshness_sla
+        - jobs_workflows_test_harness
+        - sql_query_tests
+        - performance_scale_tests
+      outputs:
+        - tests/qa-strategy.md
+        - tests/dlt-expectations.yaml
+        - tests/dq-rules.yaml
+        - tests/freshness-sla.yaml
+        - tests/jobs-harness.md
+        - tests/perf-plan.md
+
+    # 8. 可观测与可靠性
+    - agent: Observability-Reliability
+      creates: 13-sli-slo-error-budgets.md
+      requires:
+        - docs/bi/semantic-model.md
+        - specs/serving/endpoint.yaml
+      steps:
+        - metrics_catalog
+        - sli_slo_definitions
+        - alert_routing_rules
+        - dashboard_specs
+      outputs:
+        - o11y/metrics-catalog.yaml
+        - o11y/sli-slo.yaml
+        - o11y/alert-routing-rules.yaml
+        - o11y/dashboards/*.yaml
+
+    # 9. 成本优化与护栏
+    - agent: FinOps-Cost-Optimizer
+      creates: 14-finops-guardrails.md
+      requires:
+        - docs/platform/bootstrap.md
+        - specs/dbsql/warehouse-plan.yaml
+      steps:
+        - budgets_and_quotas
+        - cost_estimation
+        - guardrails_policies
+      outputs:
+        - finops/budgets.yaml
+        - finops/guardrails.yaml
+        - finops/report-baseline.md
+
+    # 10. 发布与变更
+    - agent: Release-Change-Manager
+      creates: 15-release-plan-and-gates.md
+      requires:
+        - tests/qa-strategy.md
+        - o11y/sli-slo.yaml
+        - finops/guardrails.yaml
+        - docs/security/uc-governance.md
+        - docs/privacy/masking-policy.md
+      steps:
+        - change_policy_as_code
+        - rfc_and_cab
+        - release_plan_and_cutover
+        - preflight_readiness_review
+        - canary_and_rollback
+        - release_gate_summary
+      outputs:
+        - release/change-policy.md
+        - release/plan.md
+        - release/preflight.md
+        - release/canary-rollout.md
+        - release/gate-summary.md
+
+    # 11. 运行支持与事故管理
+    - agent: Support-Incident-Manager
+      creates: 16-oncall-and-runbooks.md
+      requires:
+        - o11y/alert-routing-rules.yaml
+        - release/gate-summary.md
+      steps:
+        - oncall_setup
+        - escalation_matrix
+        - incident_response_runbook
+        - status_page_templates
+      outputs:
+        - ops/oncall-schedule.yaml
+        - ops/escalation-matrix.md
+        - ops/incident-response-runbook.md
+        - ops/status-page-templates.md
+
+  # 质量门（跨阶段门禁）
+  gates:
+    definition_of_ready:
+      - 范围/目标/干系人与权限明确且有项目章程
+      - 环境/命名/标签/证据归档路径成文
+      - 合同/Schema/数据源最小闭环确定
+    definition_of_done:
+      - 各阶段清单通过并归档证据（脚本/日志/看板/截图/链接）
+      - 门禁（安全/隐私/FinOps/O11y/DQ）全部通过并有结论
+      - 发布计划执行且 PRV/PIR 完成并闭环
+
+  # 可选并行泳道（按角色执行）
+  swimlanes:
+    - lane: data-engineering
+      by_agents: [Data-Engineering-Lead, Streaming-Engineer]
+      focuses:
+        - 架构落地与批/流管道实现
+        - 存储布局与作业/回放策略
+    - lane: analytics-ml
+      by_agents: [Analytics-Engineer-BISQL, ML-Engineer-MLOps]
+      focuses:
+        - 语义建模/可视化
+        - 特征/训练/Serving
+    - lane: platform-governance
+      by_agents:
+        [
+          DevEx-Platform-Automation,
+          Security-Governance-UC,
+          Privacy-Compliance,
+          FinOps-Cost-Optimizer,
+        ]
+      focuses:
+        - 平台引导、策略护栏与合规
+
+  # 成功标准（里程碑）
+  success_criteria:
+    inception_signed_off:
+      - 项目章程与产品简报完成并获批
+      - BRD/用例/KPI 明确
+    architecture_ready:
+      - ADR 完成，目标架构与 NFR 明确
+      - 平台基线（UC/Workspace/Policies/DAB）上线
+    contracts_ready:
+      - 关键域的数据契约签署并入库
+      - 隐私/安全基线完成
+    pipelines_ready:
+      - 批/流规格与 DLT/Jobs 实施方案评审通过
+      - DQ & Freshness SLA 配置到位
+    release_ready:
+      - SLI/SLO 与告警落地，FinOps 护栏生效
+      - Preflight 通过并出具 Release Gate 结论
+    operations_ready:
+      - On-call 轮值、升级矩阵、响应手册与状态页模板上线
+      - 首次 MIM 演练完成
