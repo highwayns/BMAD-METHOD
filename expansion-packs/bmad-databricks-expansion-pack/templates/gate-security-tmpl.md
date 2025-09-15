@@ -1,0 +1,1 @@
+# gate-security-tmpl.md
