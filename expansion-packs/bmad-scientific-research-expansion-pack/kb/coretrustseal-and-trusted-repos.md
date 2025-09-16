@@ -1,0 +1,1 @@
+- coretrustseal and trusted repos.md

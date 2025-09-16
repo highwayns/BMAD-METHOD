@@ -1,0 +1,1 @@
+- cold-chain.md 概要。

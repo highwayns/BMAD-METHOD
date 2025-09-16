@@ -1,0 +1,1 @@
+- chemical-ghs-sds.md 概要。

@@ -1,0 +1,1 @@
+- incident-capa.md 概要。

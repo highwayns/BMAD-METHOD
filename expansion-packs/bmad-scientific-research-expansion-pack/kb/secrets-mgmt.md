@@ -1,0 +1,1 @@
+- KMS/Secret Manager、密钥分层与轮换、最小权限与审计。

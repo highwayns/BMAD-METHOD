@@ -1,3 +1,8 @@
-# Create Document (BMAD Core)
+# Create Doc.Md
 
-用途：读取 YAML 模板，逐节访谈生成规范文档；关键字段同步至 CSV 台账。
+BMAD 标准任务占位：
+
+- 步骤
+- 记录项
+- 输出产物
+- 证据与审计轨迹

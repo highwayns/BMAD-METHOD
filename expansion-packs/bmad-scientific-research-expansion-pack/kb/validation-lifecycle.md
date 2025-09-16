@@ -1,0 +1,1 @@
+- Validation Lifecycle.Md 概要与实操清单。

@@ -1,0 +1,1 @@
+- CycloneDX/SPDX、SLSA 等级与供应链签名（Sigstore）。

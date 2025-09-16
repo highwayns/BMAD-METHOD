@@ -1,3 +1,8 @@
-# Execute Checklist (BMAD Core)
+# Execute Checklist.Md
 
-输入：checklists/\*.md；输出：检查报告与整改项（Y/N/NA+证据+Owner+Due）。
+BMAD 标准任务占位：
+
+- 步骤
+- 记录项
+- 输出产物
+- 证据与审计轨迹

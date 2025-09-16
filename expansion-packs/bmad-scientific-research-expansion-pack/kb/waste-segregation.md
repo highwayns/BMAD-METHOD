@@ -1,0 +1,1 @@
+- waste-segregation.md 概要。

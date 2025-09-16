@@ -1,0 +1,1 @@
+- MIT/Apache-2.0/GPL/AGPL/CC-BY 等许可与相容性矩阵、再分发注意事项。

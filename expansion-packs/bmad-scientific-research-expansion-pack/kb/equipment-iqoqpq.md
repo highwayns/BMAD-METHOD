@@ -1,0 +1,1 @@
+- equipment-iqoqpq.md 概要。

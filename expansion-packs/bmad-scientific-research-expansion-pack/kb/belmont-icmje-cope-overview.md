@@ -1,0 +1,1 @@
+- Belmont / ICMJE / COPE 纲要与研究伦理框架。
