@@ -1,0 +1,3 @@
+# asset-inventory checklist
+
+- [ ] item

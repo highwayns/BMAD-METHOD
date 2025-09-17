@@ -1,0 +1,3 @@
+# revenue-recognition checklist
+
+- [ ] item
