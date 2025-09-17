@@ -1,1 +1,0 @@
-# validate-operations | Health Monitoring
