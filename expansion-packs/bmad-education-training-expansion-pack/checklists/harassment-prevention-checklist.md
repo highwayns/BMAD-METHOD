@@ -1,5 +1,4 @@
-# 反骚扰与尊严清单
+# harassment prevention checklist
 
-- [ ] 政策/培训/承诺
-- [ ] 举报/保护/调查
-- [ ] 复盘与沟通
+- [ ] item 1
+- [ ] item 2

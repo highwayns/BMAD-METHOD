@@ -1,5 +1,4 @@
-# 事件响应清单
+# incident response checklist
 
-- [ ] 分级/升级/沟通
-- [ ] 证据/整改/告警
-- [ ] 复盘/CIP
+- [ ] item 1
+- [ ] item 2

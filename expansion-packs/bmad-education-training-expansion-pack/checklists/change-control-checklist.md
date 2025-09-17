@@ -1,5 +1,4 @@
-# 变更控制清单
+# change control checklist
 
-- [ ] 影响评估与审批
-- [ ] 通知/培训/归档
-- [ ] 回滚与审计
+- [ ] item 1
+- [ ] item 2

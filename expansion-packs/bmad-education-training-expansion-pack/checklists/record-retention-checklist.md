@@ -1,3 +1,1 @@
-# record-retention checklist
-
-- [ ] item
+# record-retention-checklist
