@@ -1,0 +1,2 @@
+-- Snowpipe Streaming pseudo example (API/SDK usage outline placeholder)
+-- Use client to write rows to a table with low latency; ensure idempotency keys.

@@ -1,0 +1,2 @@
+-- Query optimization helpers
+-- Prefer selective predicates, avoid wide scans, materialize heavy joins off-peak.

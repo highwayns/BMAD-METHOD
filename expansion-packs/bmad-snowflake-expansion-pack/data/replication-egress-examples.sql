@@ -1,0 +1,2 @@
+-- Replication/Egress examples
+ALTER DATABASE ANALYTICS ENABLE REPLICATION TO ACCOUNTS ...;

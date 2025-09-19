@@ -1,0 +1,33 @@
+product: orders_silver
+owner: data.contracts@company.com
+schema:
+  primary_key: order_id
+  fields:
+    - name: order_id
+      type: STRING
+      required: true
+      unique: true
+    - name: user_id
+      type: STRING
+      required: true
+    - name: email
+      type: STRING
+      mask: MP_EMAIL
+    - name: amount
+      type: NUMBER(12,2)
+      required: true
+      min: 0
+    - name: currency
+      type: STRING
+      dictionary: ISO-4217
+slislos:
+  freshness: { target: "15 MINUTES", alert: "30 MINUTES" }
+  availability: { target: "99.9%" }
+  correctness: { rule_fail_rate_max: 0.5 }
+privacy:
+  classification: INTERNAL
+  row_access: region == CURRENT_REGION()
+  usage_limit: analytics_only
+versioning:
+  strategy: semver
+  deprecation: { notice_period_days: 90 }

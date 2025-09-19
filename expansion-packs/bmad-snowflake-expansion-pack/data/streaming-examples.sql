@@ -1,0 +1,2 @@
+-- Streaming examples
+ALTER PIPE RAW.EVENTS SET AUTO_INGEST=TRUE;
