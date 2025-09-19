@@ -1,0 +1,2 @@
+-- Dynamic Tables examples
+ALTER DYNAMIC TABLE DT_SILVER SET TARGET_LAG='30 MINUTES';

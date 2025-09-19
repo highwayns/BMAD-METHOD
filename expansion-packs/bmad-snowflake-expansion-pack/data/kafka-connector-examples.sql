@@ -1,0 +1,2 @@
+-- Kafka Connector mapping example (conceptual)
+-- Topic 'orders' -> BRONZE.ORDERS with key=order_id, value schema (JSON/Avro)
