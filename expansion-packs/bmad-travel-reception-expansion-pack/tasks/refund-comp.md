@@ -1,14 +1,14 @@
 # task: refund-comp
 
 version: 1.0
-role: sales-account-manager
-purpose: 规范退款/补偿流程并与财务/运营一致。
-inputs: [订单/触发原因/证据, 金额测算]
-outputs: [reports/refund-comp-<booking_id>.md]
+role: customer-service-care-lead
+purpose: 确定退款/补偿政策与审批链，沉淀口径与对账路径。
+inputs: [触发条件/金额区间/审批, 退款路径/票据/对账]
+outputs: [docs/care/refund-comp-policy.md]
 steps:
 
-- templates/refund-compensation-tmpl.yaml 渲染
-- 审批与支付/回执追踪
+- 渲染 templates/refund-comp-policy-tmpl.yaml
+- 执行 refund-policy-check 清单
   acceptance:
-- 金额与证据匹配
-- 审批留痕
+- 条款合规/路径清晰
+- 对账可核

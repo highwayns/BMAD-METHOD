@@ -1,15 +1,14 @@
 # task: invoice-recon
 
 version: 1.0
-role: sales-account-manager
-purpose: 完成发票与应收对账，推进回款。
-inputs: [账期, 订单/发票清单]
+role: vendor-procurement-manager
+purpose: 发票稽核与对账，关闭差异并沉淀规则。
+inputs: [账期/供应商/金额, 差异明细]
 outputs: [reports/invoice-recon-<period>.md]
 steps:
 
-- templates/invoice-recon-tmpl.yaml 渲染
-- 列出差异并分配处理动作
-- 更新账龄/回款计划
+- 渲染 templates/invoice-recon-tmpl.yaml
+- 执行 invoice-audit-check
   acceptance:
-- 差异闭环率≥95%
-- 账龄更新
+- 差异闭环≥95%
+- 规则更新
