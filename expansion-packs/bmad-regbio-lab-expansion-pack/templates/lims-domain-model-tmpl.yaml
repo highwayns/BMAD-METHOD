@@ -1,0 +1,40 @@
+lims_domain_model:
+  entities:
+    Sample:
+      fields:
+        sample_id: "string"
+        type: "string"
+        collection_time: "datetime"
+        subject_id: "string"
+        status: "enum(received, processing, stored, disposed)"
+      relations:
+        - name: "belongs_to"
+          target: "Batch"
+    Batch:
+      fields:
+        batch_id: "string"
+        project_id: "string"
+        received_date: "date"
+      relations:
+        - name: "has_many"
+          target: "Sample"
+    Test:
+      fields:
+        test_id: "string"
+        method: "string"
+        instrument_id: "string"
+        status: "enum(pending, running, complete, failed)"
+      relations:
+        - name: "performed_on"
+          target: "Sample"
+    Result:
+      fields:
+        result_id: "string"
+        test_id: "string"
+        analyte: "string"
+        value: "number"
+        unit: "string"
+        flags: "string"
+  constraints:
+    - "sample.sample_id unique"
+    - "result.test_id references test.test_id"

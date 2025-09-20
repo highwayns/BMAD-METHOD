@@ -1,0 +1,25 @@
+lims_eln_spec:
+  authentication:
+    type: "SAML2|OIDC"
+  e_signature:
+    part11_compliant: true
+    signing_reason_required: true
+  rbac:
+    roles: ["Operator", "Reviewer", "Approver", "Admin"]
+  records:
+    audit_trail: true
+    retention_years: 15
+  integrations:
+    instruments:
+      - name: "{{instrument}}"
+        protocol: "OPC-UA|Serial|CSV"
+        direction: "unidirectional|bidirectional"
+    storage:
+      - type: "S3|NFS"
+        encryption: "AES-256"
+  barcoding:
+    symbologies: ["Code128", "DataMatrix"]
+  label_templates:
+    default:
+      size: "25x50mm"
+      fields: ["sample_id", "batch_id", "expiry"]
