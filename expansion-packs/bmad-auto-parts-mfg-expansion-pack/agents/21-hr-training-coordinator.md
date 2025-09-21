@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when the user selects them for execution via a command or task
   - The agent.customization ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates/checklists, ALWAYS show as a numbered options list so the user can type a number to select/execute
+  - When listing templates/checklists, ALWAYS show as a numbered options list so the user can type a number to select/execute
   - STAY IN CHARACTER!
   - All outputs must be audit-ready and compliant with IATF16949/ISO9001/ISO14001/ISO45001 + 法规（特种作业/叉车/危化等）
 
@@ -62,80 +62,80 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/training-needs-analysis-tna.md
-    - tasks/competency-model-and-skill-matrix.md
-    - tasks/annual-training-plan-and-budget.md
-    - tasks/training-calendar-and-scheduling.md
-    - tasks/course-design-and-lms-setup.md
-    - tasks/classroom-logistics-and-roster.md
-    - tasks/ojt-plan-and-qualification.md
-    - tasks/license-and-certification-register.md
-    - tasks/exam-paper-and-grading.md
-    - tasks/kirkpatrick-evaluation-and-roi.md
-    - tasks/moc-change-training-rollout.md
-    - tasks/contractor-and-visitor-induction.md
-    - tasks/compliance-audit-traceability-pack.md
-    - tasks/training-records-retention-and-privacy.md
-    - tasks/kpi-dashboard-and-heatmap.md
+    - training-needs-analysis-tna.md
+    - competency-model-and-skill-matrix.md
+    - annual-training-plan-and-budget.md
+    - training-calendar-and-scheduling.md
+    - course-design-and-lms-setup.md
+    - classroom-logistics-and-roster.md
+    - ojt-plan-and-qualification.md
+    - license-and-certification-register.md
+    - exam-paper-and-grading.md
+    - kirkpatrick-evaluation-and-roi.md
+    - moc-change-training-rollout.md
+    - contractor-and-visitor-induction.md
+    - compliance-audit-traceability-pack.md
+    - training-records-retention-and-privacy.md
+    - kpi-dashboard-and-heatmap.md
   templates:
-    - templates/output/tna-report-tmpl.yaml
-    - templates/output/competency-model-tmpl.yaml
-    - templates/output/skill-matrix-tmpl.yaml
-    - templates/output/annual-training-plan-tmpl.yaml
-    - templates/output/training-budget-tmpl.yaml
-    - templates/output/training-calendar-tmpl.yaml
-    - templates/output/session-roster-signin-tmpl.yaml
-    - templates/output/course-outline-tmpl.yaml
-    - templates/output/lms-import-template-tmpl.yaml
-    - templates/output/ojt-checklist-and-signoff-tmpl.yaml
-    - templates/output/qualification-certificate-tmpl.yaml
-    - templates/output/license-register-tmpl.yaml
-    - templates/output/exam-paper-tmpl.yaml
-    - templates/output/exam-answer-sheet-tmpl.yaml
-    - templates/output/exam-grading-sheet-tmpl.yaml
-    - templates/output/kirkpatrick-l1-l4-surveys-tmpl.yaml
-    - templates/output/moc-training-acknowledgement-tmpl.yaml
-    - templates/output/contractor-induction-record-tmpl.yaml
-    - templates/output/compliance-evidence-pack-tmpl.yaml
-    - templates/output/training-kpi-dashboard-tmpl.yaml
-    - templates/output/lesson-plan-microlearning-tmpl.yaml
-    - templates/output/onboarding-day1-plan-tmpl.yaml
-    - templates/output/forklift-operator-check-tmpl.yaml
-    - templates/output/welder-qualification-record-tmpl.yaml
+    - tna-report-tmpl.yaml
+    - competency-model-tmpl.yaml
+    - skill-matrix-tmpl.yaml
+    - annual-training-plan-tmpl.yaml
+    - training-budget-tmpl.yaml
+    - training-calendar-tmpl.yaml
+    - session-roster-signin-tmpl.yaml
+    - course-outline-tmpl.yaml
+    - lms-import-template-tmpl.yaml
+    - ojt-checklist-and-signoff-tmpl.yaml
+    - qualification-certificate-tmpl.yaml
+    - license-register-tmpl.yaml
+    - exam-paper-tmpl.yaml
+    - exam-answer-sheet-tmpl.yaml
+    - exam-grading-sheet-tmpl.yaml
+    - kirkpatrick-l1-l4-surveys-tmpl.yaml
+    - moc-training-acknowledgement-tmpl.yaml
+    - contractor-induction-record-tmpl.yaml
+    - compliance-evidence-pack-tmpl.yaml
+    - training-kpi-dashboard-tmpl.yaml
+    - lesson-plan-microlearning-tmpl.yaml
+    - onboarding-day1-plan-tmpl.yaml
+    - forklift-operator-check-tmpl.yaml
+    - welder-qualification-record-tmpl.yaml
   checklists:
-    - checklists/new-hire-day1.md
-    - checklists/ojt-readiness.md
-    - checklists/forklift-license-verification.md
-    - checklists/lockout-tagout-training.md
-    - checklists/chemical-handling-training.md
-    - checklists/ppe-training.md
-    - checklists/emergency-drill-participation.md
-    - checklists/iatf-competency-evidence.md
-    - checklists/auditor-qualification.md
-    - checklists/lms-data-quality.md
-    - checklists/contractor-induction.md
-    - checklists/visitor-safety-briefing.md
-    - checklists/training-records-audit.md
-    - checklists/moc-training-rollout.md
+    - new-hire-day1.md
+    - ojt-readiness.md
+    - forklift-license-verification.md
+    - lockout-tagout-training.md
+    - chemical-handling-training.md
+    - ppe-training.md
+    - emergency-drill-participation.md
+    - iatf-competency-evidence.md
+    - auditor-qualification.md
+    - lms-data-quality.md
+    - contractor-induction.md
+    - visitor-safety-briefing.md
+    - training-records-audit.md
+    - moc-training-rollout.md
   data:
-    - templates/data/employees.csv
-    - templates/data/roles.csv
-    - templates/data/role_skills.csv
-    - templates/data/courses.csv
-    - templates/data/sessions.csv
-    - templates/data/attendance.csv
-    - templates/data/exams.csv
-    - templates/data/exam_results.csv
-    - templates/data/certifications.csv
-    - templates/data/licenses.csv
-    - templates/data/ojt_records.csv
-    - templates/data/contractor_training.csv
-    - templates/data/visitor_briefing.csv
-    - templates/data/training_budget.csv
-    - templates/data/training_costs.csv
-    - templates/data/kirkpatrick_surveys.csv
-    - templates/data/kpi_dashboard.csv
-    - templates/data/alerts.csv
-    - templates/data/moc_changes.csv
-    - templates/data/lms_exports.csv
+    - employees.csv
+    - roles.csv
+    - role_skills.csv
+    - courses.csv
+    - sessions.csv
+    - attendance.csv
+    - exams.csv
+    - exam_results.csv
+    - certifications.csv
+    - licenses.csv
+    - ojt_records.csv
+    - contractor_training.csv
+    - visitor_briefing.csv
+    - training_budget.csv
+    - training_costs.csv
+    - kirkpatrick_surveys.csv
+    - kpi_dashboard.csv
+    - alerts.csv
+    - moc_changes.csv
+    - lms_exports.csv
 ```

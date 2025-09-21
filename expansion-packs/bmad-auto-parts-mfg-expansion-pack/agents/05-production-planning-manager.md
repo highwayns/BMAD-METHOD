@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when the user selects them for execution via a command or task
   - The agent.customization ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates/checklists, ALWAYS show as a numbered options list so the user can type a number to select/execute
+  - When listing templates/checklists, ALWAYS show as a numbered options list so the user can type a number to select/execute
   - STAY IN CHARACTER!
   - All outputs must be planning-grade, auditable, and factory-floor ready for 汽车零部件制造
 
@@ -66,86 +66,86 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/forecast-consensus-and-bias.md
-    - tasks/siop-sop-demand-supply-balance.md
-    - tasks/mps-build-and-time-fence.md
-    - tasks/rccp-rough-cut-capacity-planning.md
-    - tasks/mrp-run-and-exception-management.md
-    - tasks/finite-capacity-scheduling-fcp.md
-    - tasks/atp-ctp-commitment-and-slotting.md
-    - tasks/backlog-recovery-and-order-allocation.md
-    - tasks/inventory-policy-and-safety-stock.md
-    - tasks/abc-xyz-and-kanban-sizing.md
-    - tasks/pfep-plan-for-every-part.md
-    - tasks/supplier-collaboration-and-asn.md
-    - tasks/ecn-cutover-planning.md
-    - tasks/npd-npi-ramp-and-integration.md
-    - tasks/calendar-and-master-data-governance.md
-    - tasks/excess-obsolete-eo-review.md
-    - tasks/kpi-dashboard-and-weekly-ops-review.md
-    - tasks/traceability-and-recall-drill.md
+    - forecast-consensus-and-bias.md
+    - siop-sop-demand-supply-balance.md
+    - mps-build-and-time-fence.md
+    - rccp-rough-cut-capacity-planning.md
+    - mrp-run-and-exception-management.md
+    - finite-capacity-scheduling-fcp.md
+    - atp-ctp-commitment-and-slotting.md
+    - backlog-recovery-and-order-allocation.md
+    - inventory-policy-and-safety-stock.md
+    - abc-xyz-and-kanban-sizing.md
+    - pfep-plan-for-every-part.md
+    - supplier-collaboration-and-asn.md
+    - ecn-cutover-planning.md
+    - npd-npi-ramp-and-integration.md
+    - calendar-and-master-data-governance.md
+    - excess-obsolete-eo-review.md
+    - kpi-dashboard-and-weekly-ops-review.md
+    - traceability-and-recall-drill.md
   templates:
-    - templates/output/forecast-consensus-tmpl.yaml
-    - templates/output/siop-balance-deck-tmpl.yaml
-    - templates/output/mps-table-tmpl.yaml
-    - templates/output/time-fence-policy-tmpl.yaml
-    - templates/output/rccp-report-tmpl.yaml
-    - templates/output/mrp-exception-list-tmpl.yaml
-    - templates/output/finite-capacity-plan-tmpl.yaml
-    - templates/output/atp-ctp-commitment-tmpl.yaml
-    - templates/output/pegging-report-tmpl.yaml
-    - templates/output/backlog-recovery-plan-tmpl.yaml
-    - templates/output/inventory-policy-tmpl.yaml
-    - templates/output/safety-stock-calc-tmpl.yaml
-    - templates/output/kanban-sizing-tmpl.yaml
-    - templates/output/abc-xyz-output-tmpl.yaml
-    - templates/output/pfep-tmpl.yaml
-    - templates/output/supplier-po-schedule-tmpl.yaml
-    - templates/output/asn-delivery-schedule-tmpl.yaml
-    - templates/output/ecn-cutover-plan-tmpl.yaml
-    - templates/output/npi-ramp-plan-tmpl.yaml
-    - templates/output/calendar-capacity-tmpl.yaml
-    - templates/output/kpi-dashboard-tmpl.yaml
-    - templates/output/traceability-report-tmpl.yaml
+    - forecast-consensus-tmpl.yaml
+    - siop-balance-deck-tmpl.yaml
+    - mps-table-tmpl.yaml
+    - time-fence-policy-tmpl.yaml
+    - rccp-report-tmpl.yaml
+    - mrp-exception-list-tmpl.yaml
+    - finite-capacity-plan-tmpl.yaml
+    - atp-ctp-commitment-tmpl.yaml
+    - pegging-report-tmpl.yaml
+    - backlog-recovery-plan-tmpl.yaml
+    - inventory-policy-tmpl.yaml
+    - safety-stock-calc-tmpl.yaml
+    - kanban-sizing-tmpl.yaml
+    - abc-xyz-output-tmpl.yaml
+    - pfep-tmpl.yaml
+    - supplier-po-schedule-tmpl.yaml
+    - asn-delivery-schedule-tmpl.yaml
+    - ecn-cutover-plan-tmpl.yaml
+    - npi-ramp-plan-tmpl.yaml
+    - calendar-capacity-tmpl.yaml
+    - kpi-dashboard-tmpl.yaml
+    - traceability-report-tmpl.yaml
   checklists:
-    - checklists/siop-meeting-checklist.md
-    - checklists/mps-weekly-gate-checklist.md
-    - checklists/mrp-run-checklist.md
-    - checklists/exception-management-checklist.md
-    - checklists/fcp-sanity-checklist.md
-    - checklists/order-promising-gate-checklist.md
-    - checklists/inventory-policy-monthly-review.md
-    - checklists/supplier-weekly-alignment.md
-    - checklists/ecn-cutover-readiness.md
-    - checklists/master-data-change-control.md
-    - checklists/holiday-and-maintenance-calendar.md
-    - checklists/ot-security-and-data-backup.md
+    - siop-meeting-checklist.md
+    - mps-weekly-gate-checklist.md
+    - mrp-run-checklist.md
+    - exception-management-checklist.md
+    - fcp-sanity-checklist.md
+    - order-promising-gate-checklist.md
+    - inventory-policy-monthly-review.md
+    - supplier-weekly-alignment.md
+    - ecn-cutover-readiness.md
+    - master-data-change-control.md
+    - holiday-and-maintenance-calendar.md
+    - ot-security-and-data-backup.md
   data:
-    - templates/data/items.csv
-    - templates/data/boms.csv
-    - templates/data/routings.csv
-    - templates/data/work_centers.csv
-    - templates/data/lines_cells.csv
-    - templates/data/machines_assets.csv
-    - templates/data/planning_parameters.csv
-    - templates/data/calendar_capacity.csv
-    - templates/data/demand_forecast.csv
-    - templates/data/safety_stock_params.csv
-    - templates/data/abc_xyz.csv
-    - templates/data/kanban_cards.csv
-    - templates/data/customers.csv
-    - templates/data/sales_orders.csv
-    - templates/data/purchase_orders.csv
-    - templates/data/suppliers.csv
-    - templates/data/asn_schedule.csv
-    - templates/data/inventory_onhand.csv
-    - templates/data/production_orders.csv
-    - templates/data/mrp_exceptions.csv
-    - templates/data/pegging_links.csv
-    - templates/data/backlog_and_commitments.csv
-    - templates/data/atp_ctp_buffers.csv
-    - templates/data/eo_risk.csv
-    - templates/data/npd_npi_pipeline.csv
-    - templates/data/ecn_changes.csv
-    - templates/data/kpi_dashboard.csv
+    - items.csv
+    - boms.csv
+    - routings.csv
+    - work_centers.csv
+    - lines_cells.csv
+    - machines_assets.csv
+    - planning_parameters.csv
+    - calendar_capacity.csv
+    - demand_forecast.csv
+    - safety_stock_params.csv
+    - abc_xyz.csv
+    - kanban_cards.csv
+    - customers.csv
+    - sales_orders.csv
+    - purchase_orders.csv
+    - suppliers.csv
+    - asn_schedule.csv
+    - inventory_onhand.csv
+    - production_orders.csv
+    - mrp_exceptions.csv
+    - pegging_links.csv
+    - backlog_and_commitments.csv
+    - atp_ctp_buffers.csv
+    - eo_risk.csv
+    - npd_npi_pipeline.csv
+    - ecn_changes.csv
+    - kpi_dashboard.csv
 ```

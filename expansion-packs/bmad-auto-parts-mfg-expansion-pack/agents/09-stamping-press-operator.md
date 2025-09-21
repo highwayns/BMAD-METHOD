@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when the user selects them for execution via a command or task
   - The agent.customization ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates/checklists, ALWAYS show as a numbered options list so the user can type a number to select/execute
+  - When listing templates/checklists, ALWAYS show as a numbered options list so the user can type a number to select/execute
   - STAY IN CHARACTER!
   - All outputs must be pressshop-ready, auditable, and IATF16949/EHS compliant for 汽车零部件冲压
 
@@ -64,75 +64,75 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/start-of-shift-sqdcp-and-takt.md
-    - tasks/prestart-safety-and-machine-check.md
-    - tasks/die-change-and-smed.md
-    - tasks/coil-decoiler-straightener-feeder-setup.md
-    - tasks/first-piece-inspection-and-release.md
-    - tasks/online-spc-and-reaction-plan.md
-    - tasks/sensor-and-die-protection-verification.md
-    - tasks/hourly-board-and-takt-control.md
-    - tasks/scrap-and-waste-handling.md
-    - tasks/lubrication-and-oil-mist-control.md
-    - tasks/andon-escalation-and-response.md
-    - tasks/traceability-and-recall-drill.md
-    - tasks/ehs-walk-and-near-miss.md
-    - tasks/5s-and-visual-management.md
+    - start-of-shift-sqdcp-and-takt.md
+    - prestart-safety-and-machine-check.md
+    - die-change-and-smed.md
+    - coil-decoiler-straightener-feeder-setup.md
+    - first-piece-inspection-and-release.md
+    - online-spc-and-reaction-plan.md
+    - sensor-and-die-protection-verification.md
+    - hourly-board-and-takt-control.md
+    - scrap-and-waste-handling.md
+    - lubrication-and-oil-mist-control.md
+    - andon-escalation-and-response.md
+    - traceability-and-recall-drill.md
+    - ehs-walk-and-near-miss.md
+    - 5s-and-visual-management.md
   templates:
-    - templates/output/daily-sqdcp-board-tmpl.yaml
-    - templates/output/prestart-checksheet-tmpl.yaml
-    - templates/output/die-change-smed-sheet-tmpl.yaml
-    - templates/output/coil-setup-record-tmpl.yaml
-    - templates/output/first-piece-report-tmpl.yaml
-    - templates/output/spc-exception-log-tmpl.yaml
-    - templates/output/sensor-verification-log-tmpl.yaml
-    - templates/output/hourly-board-tmpl.yaml
-    - templates/output/scrap-handling-log-tmpl.yaml
-    - templates/output/lubrication-oilmist-log-tmpl.yaml
-    - templates/output/andon-log-tmpl.yaml
-    - templates/output/traceability-bundle-tmpl.yaml
-    - templates/output/ehs-walk-report-tmpl.yaml
-    - templates/output/5s-audit-sheet-tmpl.yaml
-    - templates/output/kaizen-a3-tmpl.yaml
+    - daily-sqdcp-board-tmpl.yaml
+    - prestart-checksheet-tmpl.yaml
+    - die-change-smed-sheet-tmpl.yaml
+    - coil-setup-record-tmpl.yaml
+    - first-piece-report-tmpl.yaml
+    - spc-exception-log-tmpl.yaml
+    - sensor-verification-log-tmpl.yaml
+    - hourly-board-tmpl.yaml
+    - scrap-handling-log-tmpl.yaml
+    - lubrication-oilmist-log-tmpl.yaml
+    - andon-log-tmpl.yaml
+    - traceability-bundle-tmpl.yaml
+    - ehs-walk-report-tmpl.yaml
+    - 5s-audit-sheet-tmpl.yaml
+    - kaizen-a3-tmpl.yaml
   checklists:
-    - checklists/start-of-shift-sqdcp.md
-    - checklists/prestart-lockout-guards.md
-    - checklists/die-change-safety.md
-    - checklists/coil-threading-and-straightening.md
-    - checklists/first-piece-readiness.md
-    - checklists/online-spc-reaction.md
-    - checklists/sensor-and-die-protection.md
-    - checklists/hourly-board-discipline.md
-    - checklists/scrap-waste-fifo-and-mixing.md
-    - checklists/lubrication-and-leakage.md
-    - checklists/ehs-walk-and-near-miss.md
-    - checklists/5s-visual-management-pressshop.md
-    - checklists/ot-security-and-data-backup.md
+    - start-of-shift-sqdcp.md
+    - prestart-lockout-guards.md
+    - die-change-safety.md
+    - coil-threading-and-straightening.md
+    - first-piece-readiness.md
+    - online-spc-reaction.md
+    - sensor-and-die-protection.md
+    - hourly-board-discipline.md
+    - scrap-waste-fifo-and-mixing.md
+    - lubrication-and-leakage.md
+    - ehs-walk-and-near-miss.md
+    - 5s-visual-management-pressshop.md
+    - ot-security-and-data-backup.md
   data:
-    - templates/data/items.csv
-    - templates/data/boms.csv
-    - templates/data/routings.csv
-    - templates/data/work_centers.csv
-    - templates/data/press_lines.csv
-    - templates/data/machines_assets.csv
-    - templates/data/dies_and_tools.csv
-    - templates/data/coil_materials.csv
-    - templates/data/coil_certificates.csv
-    - templates/data/press_parameters.csv
-    - templates/data/sensor_settings.csv
-    - templates/data/first_piece_results.csv
-    - templates/data/spc_measurements.csv
-    - templates/data/defects_and_scrap.csv
-    - templates/data/scrap_waste_log.csv
-    - templates/data/oee_kpi.csv
-    - templates/data/hourly_board.csv
-    - templates/data/andon_events.csv
-    - templates/data/maintenance_history.csv
-    - templates/data/lubrication_and_oilmist.csv
-    - templates/data/traceability_links.csv
-    - templates/data/barcodes_rfid.csv
-    - templates/data/ehs_incidents.csv
-    - templates/data/shift_roster.csv
-    - templates/data/skills_training_matrix.csv
-    - templates/data/kpi_dashboard.csv
+    - items.csv
+    - boms.csv
+    - routings.csv
+    - work_centers.csv
+    - press_lines.csv
+    - machines_assets.csv
+    - dies_and_tools.csv
+    - coil_materials.csv
+    - coil_certificates.csv
+    - press_parameters.csv
+    - sensor_settings.csv
+    - first_piece_results.csv
+    - spc_measurements.csv
+    - defects_and_scrap.csv
+    - scrap_waste_log.csv
+    - oee_kpi.csv
+    - hourly_board.csv
+    - andon_events.csv
+    - maintenance_history.csv
+    - lubrication_and_oilmist.csv
+    - traceability_links.csv
+    - barcodes_rfid.csv
+    - ehs_incidents.csv
+    - shift_roster.csv
+    - skills_training_matrix.csv
+    - kpi_dashboard.csv
 ```

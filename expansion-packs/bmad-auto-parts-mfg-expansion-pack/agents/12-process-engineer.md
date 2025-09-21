@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when the user selects them for execution via a command or task
   - The agent.customization ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates/checklists, ALWAYS show as a numbered options list so the user can type a number to select/execute
+  - When listing templates/checklists, ALWAYS show as a numbered options list so the user can type a number to select/execute
   - STAY IN CHARACTER!
   - All outputs must be process-ready, auditable, and compliant with IATF16949/APQP/PPAP for 汽车零部件工艺工程
 
@@ -62,82 +62,82 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/process-mapping-and-routing.md
-    - tasks/time-study-and-yamazumi-balance.md
-    - tasks/factory-layout-and-logistics-flow.md
-    - tasks/standard-work-and-sop-swi.md
-    - tasks/pfmea-and-control-plan.md
-    - tasks/gauge-selection-msa-and-spc-deployment.md
-    - tasks/poka-yoke-design-and-red-rabbit.md
-    - tasks/first-article-and-trial-run-capability.md
-    - tasks/run-at-rate-and-sor-validation.md
-    - tasks/ecn-ecr-change-management.md
-    - tasks/layered-process-audit-lpa.md
-    - tasks/ergonomics-and-safety-design.md
-    - tasks/traceability-design-and-labeling.md
-    - tasks/energy-and-cost-visibility.md
-    - tasks/kaizen-a3-and-standardization.md
+    - process-mapping-and-routing.md
+    - time-study-and-yamazumi-balance.md
+    - factory-layout-and-logistics-flow.md
+    - standard-work-and-sop-swi.md
+    - pfmea-and-control-plan.md
+    - gauge-selection-msa-and-spc-deployment.md
+    - poka-yoke-design-and-red-rabbit.md
+    - first-article-and-trial-run-capability.md
+    - run-at-rate-and-sor-validation.md
+    - ecn-ecr-change-management.md
+    - layered-process-audit-lpa.md
+    - ergonomics-and-safety-design.md
+    - traceability-design-and-labeling.md
+    - energy-and-cost-visibility.md
+    - kaizen-a3-and-standardization.md
   templates:
-    - templates/output/process-map-tmpl.yaml
-    - templates/output/routing-sheet-tmpl.yaml
-    - templates/output/time-study-sheet-tmpl.yaml
-    - templates/output/yamazumi-chart-tmpl.yaml
-    - templates/output/layout-plan-tmpl.yaml
-    - templates/output/sop-swi-tmpl.yaml
-    - templates/output/standard-work-combination-tmpl.yaml
-    - templates/output/pfmea-tmpl.yaml
-    - templates/output/control-plan-tmpl.yaml
-    - templates/output/msa-plan-tmpl.yaml
-    - templates/output/spc-setup-tmpl.yaml
-    - templates/output/poka-yoke-register-tmpl.yaml
-    - templates/output/red-rabbit-plan-tmpl.yaml
-    - templates/output/fai-report-tmpl.yaml
-    - templates/output/trial-run-capability-tmpl.yaml
-    - templates/output/run-at-rate-sor-tmpl.yaml
-    - templates/output/ecn-ecr-log-tmpl.yaml
-    - templates/output/lpa-checksheet-tmpl.yaml
-    - templates/output/ergonomics-assessment-tmpl.yaml
-    - templates/output/traceability-design-tmpl.yaml
-    - templates/output/energy-cost-report-tmpl.yaml
-    - templates/output/kaizen-a3-tmpl.yaml
+    - process-map-tmpl.yaml
+    - routing-sheet-tmpl.yaml
+    - time-study-sheet-tmpl.yaml
+    - yamazumi-chart-tmpl.yaml
+    - layout-plan-tmpl.yaml
+    - sop-swi-tmpl.yaml
+    - standard-work-combination-tmpl.yaml
+    - pfmea-tmpl.yaml
+    - control-plan-tmpl.yaml
+    - msa-plan-tmpl.yaml
+    - spc-setup-tmpl.yaml
+    - poka-yoke-register-tmpl.yaml
+    - red-rabbit-plan-tmpl.yaml
+    - fai-report-tmpl.yaml
+    - trial-run-capability-tmpl.yaml
+    - run-at-rate-sor-tmpl.yaml
+    - ecn-ecr-log-tmpl.yaml
+    - lpa-checksheet-tmpl.yaml
+    - ergonomics-assessment-tmpl.yaml
+    - traceability-design-tmpl.yaml
+    - energy-cost-report-tmpl.yaml
+    - kaizen-a3-tmpl.yaml
   checklists:
-    - checklists/process-map-completeness.md
-    - checklists/time-study-discipline.md
-    - checklists/layout-and-logistics-readiness.md
-    - checklists/sop-swi-quality-gate.md
-    - checklists/pfmea-quality-gate.md
-    - checklists/msa-and-spc-readiness.md
-    - checklists/poka-yoke-and-red-rabbit.md
-    - checklists/fai-trial-run-readiness.md
-    - checklists/run-at-rate-exit-criteria.md
-    - checklists/ecn-ecr-control-and-baseline.md
-    - checklists/lpa-on-process-stations.md
-    - checklists/ergonomics-risk-and-posture.md
-    - checklists/traceability-and-labeling.md
-    - checklists/energy-and-cost-review.md
-    - checklists/kaizen-standardization-and-handover.md
+    - process-map-completeness.md
+    - time-study-discipline.md
+    - layout-and-logistics-readiness.md
+    - sop-swi-quality-gate.md
+    - pfmea-quality-gate.md
+    - msa-and-spc-readiness.md
+    - poka-yoke-and-red-rabbit.md
+    - fai-trial-run-readiness.md
+    - run-at-rate-exit-criteria.md
+    - ecn-ecr-control-and-baseline.md
+    - lpa-on-process-stations.md
+    - ergonomics-risk-and-posture.md
+    - traceability-and-labeling.md
+    - energy-and-cost-review.md
+    - kaizen-standardization-and-handover.md
   data:
-    - templates/data/items.csv
-    - templates/data/boms.csv
-    - templates/data/routings.csv
-    - templates/data/work_centers.csv
-    - templates/data/lines_cells.csv
-    - templates/data/standard_work.csv
-    - templates/data/time_studies.csv
-    - templates/data/layout_blocks.csv
-    - templates/data/logistics_flows.csv
-    - templates/data/tools_fixtures_register.csv
-    - templates/data/poka_yoke_register.csv
-    - templates/data/spc_points.csv
-    - templates/data/msa_studies.csv
-    - templates/data/fai_records.csv
-    - templates/data/trial_run_results.csv
-    - templates/data/capability_indices.csv
-    - templates/data/ecn_ecr_log.csv
-    - templates/data/lpa_records.csv
-    - templates/data/ergonomics_assessments.csv
-    - templates/data/traceability_plan.csv
-    - templates/data/energy_consumption.csv
-    - templates/data/unit_costs.csv
-    - templates/data/kpi_dashboard.csv
+    - items.csv
+    - boms.csv
+    - routings.csv
+    - work_centers.csv
+    - lines_cells.csv
+    - standard_work.csv
+    - time_studies.csv
+    - layout_blocks.csv
+    - logistics_flows.csv
+    - tools_fixtures_register.csv
+    - poka_yoke_register.csv
+    - spc_points.csv
+    - msa_studies.csv
+    - fai_records.csv
+    - trial_run_results.csv
+    - capability_indices.csv
+    - ecn_ecr_log.csv
+    - lpa_records.csv
+    - ergonomics_assessments.csv
+    - traceability_plan.csv
+    - energy_consumption.csv
+    - unit_costs.csv
+    - kpi_dashboard.csv
 ```

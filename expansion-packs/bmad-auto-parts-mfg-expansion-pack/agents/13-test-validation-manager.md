@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when the user selects them for execution via a command or task
   - The agent.customization ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates/checklists, ALWAYS show as a numbered options list so the user can type a number to select/execute
+  - When listing templates/checklists, ALWAYS show as a numbered options list so the user can type a number to select/execute
   - STAY IN CHARACTER!
   - All outputs must be lab-validated, auditable, and compliant with IATF16949/APQP/PPAP for 汽车零部件测试与验证
 
@@ -63,81 +63,81 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/vv-master-plan-and-gates.md
-    - tasks/dv-planning-sample-and-fixture.md
-    - tasks/pv-planning-and-process-consistency.md
-    - tasks/reliability-profile-and-life-model.md
-    - tasks/lab-capability-and-17025-compliance.md
-    - tasks/fixture-instrument-calibration-and-traceability.md
-    - tasks/test-execution-and-deviation-control.md
-    - tasks/data-integrity-and-alcoa-plus.md
-    - tasks/statistics-and-test-reporting.md
-    - tasks/ppap-psw-support-and-qna.md
-    - tasks/run-at-rate-and-sor-support.md
-    - tasks/revalidation-on-change-ecn-ecr.md
-    - tasks/recall-and-failure-investigation-support.md
-    - tasks/training-qualification-and-lpa.md
-    - tasks/kpi-dashboard-ppmfpy-on-time.md
+    - vv-master-plan-and-gates.md
+    - dv-planning-sample-and-fixture.md
+    - pv-planning-and-process-consistency.md
+    - reliability-profile-and-life-model.md
+    - lab-capability-and-17025-compliance.md
+    - fixture-instrument-calibration-and-traceability.md
+    - test-execution-and-deviation-control.md
+    - data-integrity-and-alcoa-plus.md
+    - statistics-and-test-reporting.md
+    - ppap-psw-support-and-qna.md
+    - run-at-rate-and-sor-support.md
+    - revalidation-on-change-ecn-ecr.md
+    - recall-and-failure-investigation-support.md
+    - training-qualification-and-lpa.md
+    - kpi-dashboard-ppmfpy-on-time.md
   templates:
-    - templates/output/vv-master-plan-tmpl.yaml
-    - templates/output/dv-plan-tmpl.yaml
-    - templates/output/pv-plan-tmpl.yaml
-    - templates/output/reliability-plan-tmpl.yaml
-    - templates/output/lab-capability-assessment-tmpl.yaml
-    - templates/output/external-lab-qualification-tmpl.yaml
-    - templates/output/fixture-spec-and-cal-log-tmpl.yaml
-    - templates/output/instrument-register-tmpl.yaml
-    - templates/output/test-protocol-tmpl.yaml
-    - templates/output/deviation-log-tmpl.yaml
-    - templates/output/sample-traceability-tmpl.yaml
-    - templates/output/data-integrity-audit-tmpl.yaml
-    - templates/output/stats-analysis-plan-tmpl.yaml
-    - templates/output/test-report-tmpl.yaml
-    - templates/output/ppap-support-index-tmpl.yaml
-    - templates/output/run-at-rate-support-tmpl.yaml
-    - templates/output/revalidation-plan-tmpl.yaml
-    - templates/output/recall-test-support-tmpl.yaml
-    - templates/output/training-matrix-tmpl.yaml
-    - templates/output/kpi-dashboard-tmpl.yaml
-    - templates/output/kaizen-a3-tmpl.yaml
+    - vv-master-plan-tmpl.yaml
+    - dv-plan-tmpl.yaml
+    - pv-plan-tmpl.yaml
+    - reliability-plan-tmpl.yaml
+    - lab-capability-assessment-tmpl.yaml
+    - external-lab-qualification-tmpl.yaml
+    - fixture-spec-and-cal-log-tmpl.yaml
+    - instrument-register-tmpl.yaml
+    - test-protocol-tmpl.yaml
+    - deviation-log-tmpl.yaml
+    - sample-traceability-tmpl.yaml
+    - data-integrity-audit-tmpl.yaml
+    - stats-analysis-plan-tmpl.yaml
+    - test-report-tmpl.yaml
+    - ppap-support-index-tmpl.yaml
+    - run-at-rate-support-tmpl.yaml
+    - revalidation-plan-tmpl.yaml
+    - recall-test-support-tmpl.yaml
+    - training-matrix-tmpl.yaml
+    - kpi-dashboard-tmpl.yaml
+    - kaizen-a3-tmpl.yaml
   checklists:
-    - checklists/vv-gate-review.md
-    - checklists/dv-readiness.md
-    - checklists/pv-readiness.md
-    - checklists/reliability-method-and-profile.md
-    - checklists/lab-17025-compliance.md
-    - checklists/fixture-and-instrument-traceability.md
-    - checklists/test-execution-discipline.md
-    - checklists/data-integrity-alcoa-plus.md
-    - checklists/stats-assumption-and-power.md
-    - checklists/test-report-quality-gate.md
-    - checklists/ppap-support-completeness.md
-    - checklists/run-at-rate-support.md
-    - checklists/revalidation-on-change.md
-    - checklists/recall-support-and-evidence.md
-    - checklists/training-and-lpa-discipline.md
-    - checklists/kpi-review-and-on-time.md
+    - vv-gate-review.md
+    - dv-readiness.md
+    - pv-readiness.md
+    - reliability-method-and-profile.md
+    - lab-17025-compliance.md
+    - fixture-and-instrument-traceability.md
+    - test-execution-discipline.md
+    - data-integrity-alcoa-plus.md
+    - stats-assumption-and-power.md
+    - test-report-quality-gate.md
+    - ppap-support-completeness.md
+    - run-at-rate-support.md
+    - revalidation-on-change.md
+    - recall-support-and-evidence.md
+    - training-and-lpa-discipline.md
+    - kpi-review-and-on-time.md
   data:
-    - templates/data/items.csv
-    - templates/data/design_revisions.csv
-    - templates/data/tests_catalog.csv
-    - templates/data/dv_plan.csv
-    - templates/data/pv_plan.csv
-    - templates/data/reliability_profiles.csv
-    - templates/data/samples_register.csv
-    - templates/data/fixtures_register.csv
-    - templates/data/instruments_register.csv
-    - templates/data/calibration_records.csv
-    - templates/data/test_protocols.csv
-    - templates/data/test_results.csv
-    - templates/data/deviation_log.csv
-    - templates/data/data_integrity_audits.csv
-    - templates/data/stats_analysis.csv
-    - templates/data/test_reports.csv
-    - templates/data/ppap_support_index.csv
-    - templates/data/run_at_rate_support.csv
-    - templates/data/revalidation_records.csv
-    - templates/data/recall_support_records.csv
-    - templates/data/training_matrix.csv
-    - templates/data/kpi_dashboard.csv
+    - items.csv
+    - design_revisions.csv
+    - tests_catalog.csv
+    - dv_plan.csv
+    - pv_plan.csv
+    - reliability_profiles.csv
+    - samples_register.csv
+    - fixtures_register.csv
+    - instruments_register.csv
+    - calibration_records.csv
+    - test_protocols.csv
+    - test_results.csv
+    - deviation_log.csv
+    - data_integrity_audits.csv
+    - stats_analysis.csv
+    - test_reports.csv
+    - ppap_support_index.csv
+    - run_at_rate_support.csv
+    - revalidation_records.csv
+    - recall_support_records.csv
+    - training_matrix.csv
+    - kpi_dashboard.csv
 ```

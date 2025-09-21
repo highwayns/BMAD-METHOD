@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when the user selects them for execution via a command or task
   - The agent.customization ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates/checklists, ALWAYS show as a numbered options list so the user can type a number to select/execute
+  - When listing templates/checklists, ALWAYS show as a numbered options list so the user can type a number to select/execute
   - STAY IN CHARACTER!
   - All outputs must be inventory-ready, auditable, and compliant with IATF16949/ISO9001/AIAG for 汽车零部件库存管理
 
@@ -65,87 +65,87 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/master-data-audit-and-governance.md
-    - tasks/abc-xyz-classification-and-parameters.md
-    - tasks/inventory-policy-safety-stock-rop-roq-kanban.md
-    - tasks/dock-to-stock-and-exceptions.md
-    - tasks/putaway-and-slotting-optimization.md
-    - tasks/supermarket-and-kanban-replenishment.md
-    - tasks/issue-consumption-and-backflush.md
-    - tasks/cycle-count-plan-execute-and-capa.md
-    - tasks/fifo-fefo-and-shelf-life-control.md
-    - tasks/blocked-quarantine-and-deviation.md
-    - tasks/slob-and-obsolescence-management.md
-    - tasks/vmi-consignment-balance-and-reconcile.md
-    - tasks/month-end-reconciliation-wms-erp-finance.md
-    - tasks/inventory-valuation-and-variance.md
-    - tasks/traceability-and-recall-export.md
-    - tasks/kpi-dashboard-accuracy-turns-stockouts-slob.md
-    - tasks/kanban-parameter-tuning-simulation.md
-    - tasks/batch-serialization-and-label-standards.md
+    - master-data-audit-and-governance.md
+    - abc-xyz-classification-and-parameters.md
+    - inventory-policy-safety-stock-rop-roq-kanban.md
+    - dock-to-stock-and-exceptions.md
+    - putaway-and-slotting-optimization.md
+    - supermarket-and-kanban-replenishment.md
+    - issue-consumption-and-backflush.md
+    - cycle-count-plan-execute-and-capa.md
+    - fifo-fefo-and-shelf-life-control.md
+    - blocked-quarantine-and-deviation.md
+    - slob-and-obsolescence-management.md
+    - vmi-consignment-balance-and-reconcile.md
+    - month-end-reconciliation-wms-erp-finance.md
+    - inventory-valuation-and-variance.md
+    - traceability-and-recall-export.md
+    - kpi-dashboard-accuracy-turns-stockouts-slob.md
+    - kanban-parameter-tuning-simulation.md
+    - batch-serialization-and-label-standards.md
   templates:
-    - templates/output/master-data-audit-tmpl.yaml
-    - templates/output/abc-xyz-result-tmpl.yaml
-    - templates/output/inventory-policy-tmpl.yaml
-    - templates/output/dock-to-stock-log-tmpl.yaml
-    - templates/output/putaway-task-tmpl.yaml
-    - templates/output/slotting-analysis-tmpl.yaml
-    - templates/output/supermarket-kanban-rules-tmpl.yaml
-    - templates/output/replenishment-plan-tmpl.yaml
-    - templates/output/issue-consumption-log-tmpl.yaml
-    - templates/output/cycle-count-plan-tmpl.yaml
-    - templates/output/inventory-variance-log-tmpl.yaml
-    - templates/output/fifo-fefo-audit-tmpl.yaml
-    - templates/output/quarantine-block-log-tmpl.yaml
-    - templates/output/slob-report-tmpl.yaml
-    - templates/output/vmi-consignment-reconcile-tmpl.yaml
-    - templates/output/month-end-reconciliation-tmpl.yaml
-    - templates/output/inventory-valuation-report-tmpl.yaml
-    - templates/output/traceability-export-kit-tmpl.yaml
-    - templates/output/kanban-parameter-tmpl.yaml
-    - templates/output/label-standard-map-tmpl.yaml
-    - templates/output/kpi-dashboard-tmpl.yaml
-    - templates/output/kaizen-a3-tmpl.yaml
+    - master-data-audit-tmpl.yaml
+    - abc-xyz-result-tmpl.yaml
+    - inventory-policy-tmpl.yaml
+    - dock-to-stock-log-tmpl.yaml
+    - putaway-task-tmpl.yaml
+    - slotting-analysis-tmpl.yaml
+    - supermarket-kanban-rules-tmpl.yaml
+    - replenishment-plan-tmpl.yaml
+    - issue-consumption-log-tmpl.yaml
+    - cycle-count-plan-tmpl.yaml
+    - inventory-variance-log-tmpl.yaml
+    - fifo-fefo-audit-tmpl.yaml
+    - quarantine-block-log-tmpl.yaml
+    - slob-report-tmpl.yaml
+    - vmi-consignment-reconcile-tmpl.yaml
+    - month-end-reconciliation-tmpl.yaml
+    - inventory-valuation-report-tmpl.yaml
+    - traceability-export-kit-tmpl.yaml
+    - kanban-parameter-tmpl.yaml
+    - label-standard-map-tmpl.yaml
+    - kpi-dashboard-tmpl.yaml
+    - kaizen-a3-tmpl.yaml
   checklists:
-    - checklists/master-data-and-barcoding.md
-    - checklists/abc-xyz-discipline.md
-    - checklists/inventory-policy-and-safety-stock.md
-    - checklists/dock-to-stock-and-receiving.md
-    - checklists/putaway-and-slotting-discipline.md
-    - checklists/supermarket-and-kanban-discipline.md
-    - checklists/issue-and-consumption-discipline.md
-    - checklists/cycle-count-and-accuracy.md
-    - checklists/fifo-fefo-and-shelf-life.md
-    - checklists/quarantine-and-deviation-control.md
-    - checklists/vmi-consignment-governance.md
-    - checklists/month-end-reconciliation.md
-    - checklists/inventory-valuation-and-variance.md
-    - checklists/traceability-and-recall-readiness.md
-    - checklists/slob-and-obsolescence-governance.md
-    - checklists/kpi-daily-weekly-review.md
+    - master-data-and-barcoding.md
+    - abc-xyz-discipline.md
+    - inventory-policy-and-safety-stock.md
+    - dock-to-stock-and-receiving.md
+    - putaway-and-slotting-discipline.md
+    - supermarket-and-kanban-discipline.md
+    - issue-and-consumption-discipline.md
+    - cycle-count-and-accuracy.md
+    - fifo-fefo-and-shelf-life.md
+    - quarantine-and-deviation-control.md
+    - vmi-consignment-governance.md
+    - month-end-reconciliation.md
+    - inventory-valuation-and-variance.md
+    - traceability-and-recall-readiness.md
+    - slob-and-obsolescence-governance.md
+    - kpi-daily-weekly-review.md
   data:
-    - templates/data/items.csv
-    - templates/data/warehouse_locations.csv
-    - templates/data/wms_masterdata.csv
-    - templates/data/abc_xyz.csv
-    - templates/data/kanban_params.csv
-    - templates/data/demand_forecast.csv
-    - templates/data/mps.csv
-    - templates/data/mrp_output.csv
-    - templates/data/asn.csv
-    - templates/data/receipts.csv
-    - templates/data/putaway.csv
-    - templates/data/replenishment.csv
-    - templates/data/issues_consumption.csv
-    - templates/data/inventory.csv
-    - templates/data/cycle_counts.csv
-    - templates/data/variances.csv
-    - templates/data/quarantine_block.csv
-    - templates/data/expiry_shelf_life.csv
-    - templates/data/slob_candidates.csv
-    - templates/data/vmi_consignment.csv
-    - templates/data/reconciliation.csv
-    - templates/data/valuation.csv
-    - templates/data/traceability_links.csv
-    - templates/data/kpi_dashboard.csv
+    - items.csv
+    - warehouse_locations.csv
+    - wms_masterdata.csv
+    - abc_xyz.csv
+    - kanban_params.csv
+    - demand_forecast.csv
+    - mps.csv
+    - mrp_output.csv
+    - asn.csv
+    - receipts.csv
+    - putaway.csv
+    - replenishment.csv
+    - issues_consumption.csv
+    - inventory.csv
+    - cycle_counts.csv
+    - variances.csv
+    - quarantine_block.csv
+    - expiry_shelf_life.csv
+    - slob_candidates.csv
+    - vmi_consignment.csv
+    - reconciliation.csv
+    - valuation.csv
+    - traceability_links.csv
+    - kpi_dashboard.csv
 ```
