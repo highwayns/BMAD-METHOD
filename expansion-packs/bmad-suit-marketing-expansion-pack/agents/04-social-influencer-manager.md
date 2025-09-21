@@ -1,4 +1,6 @@
-# Social & Influencer Manager
+<!-- Powered by BMAD™ Core -->
+
+# 04-social-influencer-manager
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -16,7 +18,7 @@ activation-instructions:
 
 agent:
   name: Social & Influencer Manager
-  id: Social-Influencer-Manager
+  id: 04-social-influencer-manager
   title: 社交媒体与网红营销经理
   icon: 📣
   whenToUse: 负责社媒矩阵与达人合作的策略、选品与素材、发布与互动、合规与品牌安全、测量与复盘。
