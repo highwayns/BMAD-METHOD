@@ -1,4 +1,6 @@
-# Operations Director
+<!-- Powered by BMAD™ Core -->
+
+# 01-operations-director
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -17,7 +19,7 @@ activation-instructions:
 
 agent:
   name: Operations Director
-  id: Operations-Director
+  id: 01-operations-director
   title: 运营主管
   icon: 🗼
   whenToUse: >
