@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Use numbered options whenever asking the user to choose next actions
   - Keep all decisions traceable to revenue KPIs/OKRs and customer evidence
@@ -50,73 +50,73 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/author-revenue-strategy-and-operating-model.md
-    - tasks/define-icp-qualification-and-sales-process.md
-    - tasks/sales-stages-exit-criteria-and-raci.md
-    - tasks/territory-design-quota-and-capacity-plan.md
-    - tasks/lead-routing-sla-and-mql-sql-rules.md
-    - tasks/sdr-prospecting-playbook-and-sequences.md
-    - tasks/discovery-call-and-needs-analysis.md
-    - tasks/demo-script-value-prop-and-proof.md
-    - tasks/solution-proposal-and-pricing-packages.md
-    - tasks/discount-approval-and-deal-desk.md
-    - tasks/contracting-cpq-esign-and-legal-clauses.md
-    - tasks/handoff-to-onboarding-and-csm.md
-    - tasks/renewal-forecast-and-expansion-playbook.md
-    - tasks/partner-channel-program-and-ops.md
-    - tasks/crm-hygiene-data-governance-and-naming.md
-    - tasks/pipeline-health-review-and-actions.md
-    - tasks/forecast-process-scenarios-and-commit.md
-    - tasks/revops-automation-integrations-and-runbooks.md
-    - tasks/revenue-analytics-dashboard-and-qbr.md
-    - tasks/revenue-risk-register-and-mitigation.md
+    - author-revenue-strategy-and-operating-model.md
+    - define-icp-qualification-and-sales-process.md
+    - sales-stages-exit-criteria-and-raci.md
+    - territory-design-quota-and-capacity-plan.md
+    - lead-routing-sla-and-mql-sql-rules.md
+    - sdr-prospecting-playbook-and-sequences.md
+    - discovery-call-and-needs-analysis.md
+    - demo-script-value-prop-and-proof.md
+    - solution-proposal-and-pricing-packages.md
+    - discount-approval-and-deal-desk.md
+    - contracting-cpq-esign-and-legal-clauses.md
+    - handoff-to-onboarding-and-csm.md
+    - renewal-forecast-and-expansion-playbook.md
+    - partner-channel-program-and-ops.md
+    - crm-hygiene-data-governance-and-naming.md
+    - pipeline-health-review-and-actions.md
+    - forecast-process-scenarios-and-commit.md
+    - revops-automation-integrations-and-runbooks.md
+    - revenue-analytics-dashboard-and-qbr.md
+    - revenue-risk-register-and-mitigation.md
   templates:
-    - templates/revenue-strategy-1pager-tmpl.yaml
-    - templates/icp-and-qualification-tmpl.yaml
-    - templates/sales-process-map-tmpl.yaml
-    - templates/stage-definitions-and-exit-criteria-tmpl.yaml
-    - templates/territory-and-quota-sheet-tmpl.yaml
-    - templates/capacity-headcount-model-tmpl.yaml
-    - templates/lead-routing-and-sla-tmpl.yaml
-    - templates/prospecting-sequence-tmpl.yaml
-    - templates/discovery-notes-tmpl.yaml
-    - templates/demo-script-tmpl.yaml
-    - templates/battlecard-tmpl.yaml
-    - templates/objection-handling-matrix-tmpl.yaml
-    - templates/proposal-template-tmpl.yaml
-    - templates/pricing-and-discount-policy-tmpl.yaml
-    - templates/deal-desk-approval-tmpl.yaml
-    - templates/contract-checklist-and-clauses-tmpl.yaml
-    - templates/handoff-checklist-csm-tmpl.yaml
-    - templates/renewal-and-expansion-playbook-tmpl.yaml
-    - templates/partner-mou-and-jmp-tmpl.yaml
-    - templates/forecast-sheet-and-scenarios-tmpl.yaml
-    - templates/pipeline-dashboard-spec-tmpl.yaml
-    - templates/revops-systems-architecture-tmpl.yaml
-    - templates/qbr-deck-outline-tmpl.yaml
-    - templates/comp-plan-and-spiffs-tmpl.yaml
+    - revenue-strategy-1pager-tmpl.yaml
+    - icp-and-qualification-tmpl.yaml
+    - sales-process-map-tmpl.yaml
+    - stage-definitions-and-exit-criteria-tmpl.yaml
+    - territory-and-quota-sheet-tmpl.yaml
+    - capacity-headcount-model-tmpl.yaml
+    - lead-routing-and-sla-tmpl.yaml
+    - prospecting-sequence-tmpl.yaml
+    - discovery-notes-tmpl.yaml
+    - demo-script-tmpl.yaml
+    - battlecard-tmpl.yaml
+    - objection-handling-matrix-tmpl.yaml
+    - proposal-template-tmpl.yaml
+    - pricing-and-discount-policy-tmpl.yaml
+    - deal-desk-approval-tmpl.yaml
+    - contract-checklist-and-clauses-tmpl.yaml
+    - handoff-checklist-csm-tmpl.yaml
+    - renewal-and-expansion-playbook-tmpl.yaml
+    - partner-mou-and-jmp-tmpl.yaml
+    - forecast-sheet-and-scenarios-tmpl.yaml
+    - pipeline-dashboard-spec-tmpl.yaml
+    - revops-systems-architecture-tmpl.yaml
+    - qbr-deck-outline-tmpl.yaml
+    - comp-plan-and-spiffs-tmpl.yaml
   checklists:
-    - checklists/deal-qualification-meddicc.md
-    - checklists/discovery-call-review.md
-    - checklists/demo-review-and-proof.md
-    - checklists/proposal-and-pricing-qa.md
-    - checklists/discount-approval-controls.md
-    - checklists/contract-legal-and-security.md
-    - checklists/crm-pipeline-hygiene.md
-    - checklists/forecast-submission-and-commit.md
-    - checklists/handoff-to-onboarding-csm.md
-    - checklists/renewal-playbook-adherence.md
-    - checklists/partner-vetting-and-compliance.md
-    - checklists/revops-change-management.md
+    - deal-qualification-meddicc.md
+    - discovery-call-review.md
+    - demo-review-and-proof.md
+    - proposal-and-pricing-qa.md
+    - discount-approval-controls.md
+    - contract-legal-and-security.md
+    - crm-pipeline-hygiene.md
+    - forecast-submission-and-commit.md
+    - handoff-to-onboarding-csm.md
+    - renewal-playbook-adherence.md
+    - partner-vetting-and-compliance.md
+    - revops-change-management.md
   data:
-    - data/revenue-metrics-glossary.md
-    - data/pipeline-math-cheatsheet.md
-    - data/forecasting-methods-notes.md
-    - data/negotiation-principles-quicknotes.md
-    - data/saas-legal-basics-and-clauses.md
-    - data/security-questionnaire-faqs.md
-    - data/revops-systems-patterns.md
-    - data/crm-naming-and-standards.md
+    - revenue-metrics-glossary.md
+    - pipeline-math-cheatsheet.md
+    - forecasting-methods-notes.md
+    - negotiation-principles-quicknotes.md
+    - saas-legal-basics-and-clauses.md
+    - security-questionnaire-faqs.md
+    - revops-systems-patterns.md
+    - crm-naming-and-standards.md
 
 help-display-template: |
   === Head of Sales/RevOps Commands ===

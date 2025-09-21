@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Use numbered lists whenever asking the user to choose next actions
   - Tie all decisions to risk, runway, and reputation; always document advice with an auditable trail
@@ -52,83 +52,83 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/author-legal-strategy-and-operating-model.md
-    - tasks/contract-playbook-and-clause-library.md
-    - tasks/master-terms-tos-msa-and-ordering-forms.md
-    - tasks/data-processing-addendum-and-sccs.md
-    - tasks/privacy-program-and-records-of-processing.md
-    - tasks/dpia-lia-and-privacy-impact-assessments.md
-    - tasks/product-marketing-claims-and-comms-review.md
-    - tasks/cookie-consent-and-tracking-governance.md
-    - tasks/ip-portfolio-and-trademark-clearance.md
-    - tasks/oss-compliance-and-third-party-licenses.md
-    - tasks/vendor-due-diligence-and-security-privacy.md
-    - tasks/customer-security-and-privacy-questionnaires.md
-    - tasks/incident-response-legal-communications.md
-    - tasks/export-controls-and-sanctions-screening.md
-    - tasks/employment-and-contractor-compliance.md
-    - tasks/corporate-governance-and-board-ops.md
-    - tasks/fundraising-legal-and-dataroom.md
-    - tasks/litigation-and-dispute-readiness.md
-    - tasks/compliance-audit-and-risk-register.md
-    - tasks/legal-ops-workflows-and-matter-tracking.md
+    - author-legal-strategy-and-operating-model.md
+    - contract-playbook-and-clause-library.md
+    - master-terms-tos-msa-and-ordering-forms.md
+    - data-processing-addendum-and-sccs.md
+    - privacy-program-and-records-of-processing.md
+    - dpia-lia-and-privacy-impact-assessments.md
+    - product-marketing-claims-and-comms-review.md
+    - cookie-consent-and-tracking-governance.md
+    - ip-portfolio-and-trademark-clearance.md
+    - oss-compliance-and-third-party-licenses.md
+    - vendor-due-diligence-and-security-privacy.md
+    - customer-security-and-privacy-questionnaires.md
+    - incident-response-legal-communications.md
+    - export-controls-and-sanctions-screening.md
+    - employment-and-contractor-compliance.md
+    - corporate-governance-and-board-ops.md
+    - fundraising-legal-and-dataroom.md
+    - litigation-and-dispute-readiness.md
+    - compliance-audit-and-risk-register.md
+    - legal-ops-workflows-and-matter-tracking.md
   templates:
-    - templates/legal-strategy-1pager-tmpl.yaml
-    - templates/contract-playbook-tmpl.yaml
-    - templates/clause-library-tmpl.yaml
-    - templates/tos-msa-order-form-tmpl.yaml
-    - templates/dpa-and-sccs-tmpl.yaml
-    - templates/records-of-processing-tmpl.yaml
-    - templates/dpia-and-lia-tmpl.yaml
-    - templates/marketing-claims-review-tmpl.yaml
-    - templates/cookie-consent-config-tmpl.yaml
-    - templates/ip-portfolio-register-tmpl.yaml
-    - templates/trademark-clearance-report-tmpl.yaml
-    - templates/oss-compliance-bom-tmpl.yaml
-    - templates/vendor-due-diligence-tmpl.yaml
-    - templates/customer-security-privacy-faq-tmpl.yaml
-    - templates/incident-legal-comms-pack-tmpl.yaml
-    - templates/export-control-screening-tmpl.yaml
-    - templates/employment-contract-and-handbook-tmpl.yaml
-    - templates/contractor-agreement-and-checks-tmpl.yaml
-    - templates/corporate-governance-pack-tmpl.yaml
-    - templates/board-minutes-outline-tmpl.yaml
-    - templates/fundraising-legal-checklist-tmpl.yaml
-    - templates/dispute-and-legal-hold-tmpl.yaml
-    - templates/compliance-audit-plan-tmpl.yaml
-    - templates/risk-register-tmpl.yaml
-    - templates/legal-ops-workflow-spec-tmpl.yaml
+    - legal-strategy-1pager-tmpl.yaml
+    - contract-playbook-tmpl.yaml
+    - clause-library-tmpl.yaml
+    - tos-msa-order-form-tmpl.yaml
+    - dpa-and-sccs-tmpl.yaml
+    - records-of-processing-tmpl.yaml
+    - dpia-and-lia-tmpl.yaml
+    - marketing-claims-review-tmpl.yaml
+    - cookie-consent-config-tmpl.yaml
+    - ip-portfolio-register-tmpl.yaml
+    - trademark-clearance-report-tmpl.yaml
+    - oss-compliance-bom-tmpl.yaml
+    - vendor-due-diligence-tmpl.yaml
+    - customer-security-privacy-faq-tmpl.yaml
+    - incident-legal-comms-pack-tmpl.yaml
+    - export-control-screening-tmpl.yaml
+    - employment-contract-and-handbook-tmpl.yaml
+    - contractor-agreement-and-checks-tmpl.yaml
+    - corporate-governance-pack-tmpl.yaml
+    - board-minutes-outline-tmpl.yaml
+    - fundraising-legal-checklist-tmpl.yaml
+    - dispute-and-legal-hold-tmpl.yaml
+    - compliance-audit-plan-tmpl.yaml
+    - risk-register-tmpl.yaml
+    - legal-ops-workflow-spec-tmpl.yaml
   checklists:
-    - checklists/contract-review-and-approval.md
-    - checklists/dpa-and-cross-border-transfers.md
-    - checklists/dpia-lia-quality-gates.md
-    - checklists/marketing-claims-and-ads-policy.md
-    - checklists/cookie-consent-and-tracking.md
-    - checklists/ip-trademark-copyright-clearance.md
-    - checklists/oss-license-compliance.md
-    - checklists/vendor-due-diligence-and-security.md
-    - checklists/customer-security-privacy-rfi-rfp.md
-    - checklists/incident-response-legal-qa.md
-    - checklists/export-controls-and-sanctions.md
-    - checklists/employment-and-contractor-legal.md
-    - checklists/corporate-governance-and-minutes.md
-    - checklists/fundraising-term-sheet-and-docs.md
-    - checklists/dispute-escalation-and-legal-hold.md
-    - checklists/compliance-audit-and-evidence.md
-    - checklists/legal-ops-change-management.md
+    - contract-review-and-approval.md
+    - dpa-and-cross-border-transfers.md
+    - dpia-lia-quality-gates.md
+    - marketing-claims-and-ads-policy.md
+    - cookie-consent-and-tracking.md
+    - ip-trademark-copyright-clearance.md
+    - oss-license-compliance.md
+    - vendor-due-diligence-and-security.md
+    - customer-security-privacy-rfi-rfp.md
+    - incident-response-legal-qa.md
+    - export-controls-and-sanctions.md
+    - employment-and-contractor-legal.md
+    - corporate-governance-and-minutes.md
+    - fundraising-term-sheet-and-docs.md
+    - dispute-escalation-and-legal-hold.md
+    - compliance-audit-and-evidence.md
+    - legal-ops-change-management.md
   data:
-    - data/legal-metrics-and-slas.md
-    - data/contract-clauses-cheatsheet.md
-    - data/privacy-laws-quickmap.md
-    - data/dpia-lia-scenarios.md
-    - data/marketing-claims-rules.md
-    - data/ip-and-oss-quicknotes.md
-    - data/vendor-risk-weights.md
-    - data/incident-communications-lines.md
-    - data/export-controls-basics.md
-    - data/employment-law-basics.md
-    - data/governance-and-board-basics.md
-    - data/compliance-audit-evidence-types.md
+    - legal-metrics-and-slas.md
+    - contract-clauses-cheatsheet.md
+    - privacy-laws-quickmap.md
+    - dpia-lia-scenarios.md
+    - marketing-claims-rules.md
+    - ip-and-oss-quicknotes.md
+    - vendor-risk-weights.md
+    - incident-communications-lines.md
+    - export-controls-basics.md
+    - employment-law-basics.md
+    - governance-and-board-basics.md
+    - compliance-audit-evidence-types.md
 
 help-display-template: |
   === Legal & Compliance Commands ===

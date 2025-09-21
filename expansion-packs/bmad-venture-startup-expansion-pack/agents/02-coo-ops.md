@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Use numbered options whenever asking the user to choose next actions
   - Keep all decisions traceable to metrics/OKRs
@@ -48,60 +48,60 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/define-ops-model-raci.md
-    - tasks/cascade-ops-okr.md
-    - tasks/build-ops-kpi-dashboard.md
-    - tasks/design-sdlc-release-train.md
-    - tasks/capacity-planning-and-sop.md
-    - tasks/run-weekly-ops-review.md
-    - tasks/incident-management-postmortem.md
-    - tasks/setup-qms.md
-    - tasks/security-privacy-ops.md
-    - tasks/vendor-procurement-ops.md
-    - tasks/finops-cost-optimization.md
-    - tasks/cs-ops-playbook.md
-    - tasks/dataops-observability.md
-    - tasks/maintain-ops-risk-register.md
-    - tasks/compliance-ops-soc2-iso.md
-    - tasks/revops-alignment.md
-    - tasks/ops-hiring-plan.md
-    - tasks/ops-onboarding-runbooks.md
-    - tasks/bcp-dr-plan.md
-    - tasks/facility-workplace-ops.md
+    - define-ops-model-raci.md
+    - cascade-ops-okr.md
+    - build-ops-kpi-dashboard.md
+    - design-sdlc-release-train.md
+    - capacity-planning-and-sop.md
+    - run-weekly-ops-review.md
+    - incident-management-postmortem.md
+    - setup-qms.md
+    - security-privacy-ops.md
+    - vendor-procurement-ops.md
+    - finops-cost-optimization.md
+    - cs-ops-playbook.md
+    - dataops-observability.md
+    - maintain-ops-risk-register.md
+    - compliance-ops-soc2-iso.md
+    - revops-alignment.md
+    - ops-hiring-plan.md
+    - ops-onboarding-runbooks.md
+    - bcp-dr-plan.md
+    - facility-workplace-ops.md
   templates:
-    - templates/ops-okr-tmpl.yaml
-    - templates/ops-kpi-dashboard-tmpl.yaml
-    - templates/runbook-tmpl.yaml
-    - templates/incident-report-tmpl.yaml
-    - templates/change-request-tmpl.yaml
-    - templates/release-plan-tmpl.yaml
-    - templates/capacity-plan-tmpl.yaml
-    - templates/vendor-scorecard-tmpl.yaml
-    - templates/finops-report-tmpl.yaml
-    - templates/bcdr-plan-tmpl.yaml
-    - templates/sop-tmpl.yaml
-    - templates/raci-matrix-tmpl.yaml
-    - templates/sla-slo-policy-tmpl.yaml
-    - templates/support-ops-playbook-tmpl.yaml
-    - templates/soc2-evidence-register-tmpl.yaml
-    - templates/data-quality-sla-tmpl.yaml
+    - ops-okr-tmpl.yaml
+    - ops-kpi-dashboard-tmpl.yaml
+    - runbook-tmpl.yaml
+    - incident-report-tmpl.yaml
+    - change-request-tmpl.yaml
+    - release-plan-tmpl.yaml
+    - capacity-plan-tmpl.yaml
+    - vendor-scorecard-tmpl.yaml
+    - finops-report-tmpl.yaml
+    - bcdr-plan-tmpl.yaml
+    - sop-tmpl.yaml
+    - raci-matrix-tmpl.yaml
+    - sla-slo-policy-tmpl.yaml
+    - support-ops-playbook-tmpl.yaml
+    - soc2-evidence-register-tmpl.yaml
+    - data-quality-sla-tmpl.yaml
   checklists:
-    - checklists/ops-weekly-review.md
-    - checklists/incident-response.md
-    - checklists/change-management.md
-    - checklists/release-readiness.md
-    - checklists/security-privacy-ops.md
-    - checklists/vendor-onboarding.md
-    - checklists/soc2-iso-audit-prep.md
-    - checklists/data-quality-gates.md
-    - checklists/finops-savings-playbook.md
-    - checklists/bcdr-drill.md
+    - ops-weekly-review.md
+    - incident-response.md
+    - change-management.md
+    - release-readiness.md
+    - security-privacy-ops.md
+    - vendor-onboarding.md
+    - soc2-iso-audit-prep.md
+    - data-quality-gates.md
+    - finops-savings-playbook.md
+    - bcdr-drill.md
   data:
-    - data/ops-metrics-cheatsheet.md
-    - data/incident-severity-matrix.md
-    - data/finops-levers.md
-    - data/rto-rpo-guidelines.md
-    - data/procurement-policy-basics.md
+    - ops-metrics-cheatsheet.md
+    - incident-severity-matrix.md
+    - finops-levers.md
+    - rto-rpo-guidelines.md
+    - procurement-policy-basics.md
 
 help-display-template: |
   === COO/OPS Commands ===
@@ -125,5 +125,5 @@ loading:
 
 ownership:
   - COO owns: 运营模型/交付/容量/成本/质量/SLA/事故/合规/BCP
-  - Editors: PM/Architect/Dev/QA/CS/Data/Fin 可对各自章节补充，但保留COO最终拍板
+  - Editors: PM/Architect/Dev/QA/CS/Fin 可对各自章节补充，但保留COO最终拍板
 ```

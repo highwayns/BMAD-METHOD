@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Decisions align to: value→risk→flow→cost→evidence
 
@@ -48,67 +48,67 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/author-agile-operating-model-and-rituals.md
-    - tasks/okr-and-roadmap-alignment.md
-    - tasks/program-increment-planning-and-objectives.md
-    - tasks/dependency-management-and-program-kanban.md
-    - tasks/capacity-planning-and-forecasting.md
-    - tasks/backlog-intake-and-prioritization.md
-    - tasks/user-story-quality-and-acceptance-criteria.md
-    - tasks/definition-of-ready-and-done-gates.md
-    - tasks/sprint-planning-execution-and-reports.md
-    - tasks/kanban-flow-and-wip-limits.md
-    - tasks/risk-raid-register-and-mitigation.md
-    - tasks/change-control-and-scope-management.md
-    - tasks/stakeholder-map-and-comms-plan.md
-    - tasks/status-reporting-and-exec-updates.md
-    - tasks/release-planning-cutover-and-rollback.md
-    - tasks/post-release-verification-and-retrospective.md
-    - tasks/vendor-and-statement-of-work-alignment.md
-    - tasks/decision-log-and-architecture-adr-lite.md
+    - author-agile-operating-model-and-rituals.md
+    - okr-and-roadmap-alignment.md
+    - program-increment-planning-and-objectives.md
+    - dependency-management-and-program-kanban.md
+    - capacity-planning-and-forecasting.md
+    - backlog-intake-and-prioritization.md
+    - user-story-quality-and-acceptance-criteria.md
+    - definition-of-ready-and-done-gates.md
+    - sprint-planning-execution-and-reports.md
+    - kanban-flow-and-wip-limits.md
+    - risk-raid-register-and-mitigation.md
+    - change-control-and-scope-management.md
+    - stakeholder-map-and-comms-plan.md
+    - status-reporting-and-exec-updates.md
+    - release-planning-cutover-and-rollback.md
+    - post-release-verification-and-retrospective.md
+    - vendor-and-statement-of-work-alignment.md
+    - decision-log-and-architecture-adr-lite.md
   templates:
-    - templates/strategy-okr-1pager-tmpl.yaml
-    - templates/roadmap-tmpl.yaml
-    - templates/pi-objectives-and-confidence-vote-tmpl.yaml
-    - templates/program-kanban-spec-tmpl.yaml
-    - templates/dependency-map-tmpl.yaml
-    - templates/capacity-and-velocity-plan-tmpl.yaml
-    - templates/backlog-intake-form-tmpl.yaml
-    - templates/user-story-and-acceptance-criteria-tmpl.yaml
-    - templates/dor-dod-checklist-tmpl.yaml
-    - templates/sprint-plan-and-commitment-tmpl.yaml
-    - templates/burndown-burnup-spec-tmpl.yaml
-    - templates/raid-register-tmpl.yaml
-    - templates/change-request-and-impact-tmpl.yaml
-    - templates/stakeholder-map-and-comms-plan-tmpl.yaml
-    - templates/status-report-weekly-tmpl.yaml
-    - templates/release-plan-and-gonogo-tmpl.yaml
-    - templates/cutover-runbook-and-rollback-tmpl.yaml
-    - templates/post-release-review-and-retro-tmpl.yaml
-    - templates/vendor-sow-and-agile-contract-checklist-tmpl.yaml
-    - templates/decision-log-adr-lite-tmpl.yaml
+    - strategy-okr-1pager-tmpl.yaml
+    - roadmap-tmpl.yaml
+    - pi-objectives-and-confidence-vote-tmpl.yaml
+    - program-kanban-spec-tmpl.yaml
+    - dependency-map-tmpl.yaml
+    - capacity-and-velocity-plan-tmpl.yaml
+    - backlog-intake-form-tmpl.yaml
+    - user-story-and-acceptance-criteria-tmpl.yaml
+    - dor-dod-checklist-tmpl.yaml
+    - sprint-plan-and-commitment-tmpl.yaml
+    - burndown-burnup-spec-tmpl.yaml
+    - raid-register-tmpl.yaml
+    - change-request-and-impact-tmpl.yaml
+    - stakeholder-map-and-comms-plan-tmpl.yaml
+    - status-report-weekly-tmpl.yaml
+    - release-plan-and-gonogo-tmpl.yaml
+    - cutover-runbook-and-rollback-tmpl.yaml
+    - post-release-review-and-retro-tmpl.yaml
+    - vendor-sow-and-agile-contract-checklist-tmpl.yaml
+    - decision-log-adr-lite-tmpl.yaml
   checklists:
-    - checklists/story-quality-and-dor.md
-    - checklists/sprint-readiness.md
-    - checklists/sprint-execution-anti-patterns.md
-    - checklists/review-demo-checklist.md
-    - checklists/retro-action-items-and-followup.md
-    - checklists/dependency-and-integration-readiness.md
-    - checklists/raid-review-and-escalation.md
-    - checklists/change-control-and-scope-creep.md
-    - checklists/release-readiness-gates.md
-    - checklists/cutover-and-rollback-validation.md
-    - checklists/stakeholder-comms-and-raci.md
-    - checklists/status-report-quality.md
-    - checklists/vendor-sow-and-deliverables.md
+    - story-quality-and-dor.md
+    - sprint-readiness.md
+    - sprint-execution-anti-patterns.md
+    - review-demo-checklist.md
+    - retro-action-items-and-followup.md
+    - dependency-and-integration-readiness.md
+    - raid-review-and-escalation.md
+    - change-control-and-scope-creep.md
+    - release-readiness-gates.md
+    - cutover-and-rollback-validation.md
+    - stakeholder-comms-and-raci.md
+    - status-report-quality.md
+    - vendor-sow-and-deliverables.md
   data:
-    - data/agile-metrics-glossary.md
-    - data/ceremonies-cadence-and-roles.md
-    - data/story-points-and-estimation-notes.md
-    - data/flow-metrics-and-littles-law.md
-    - data/wsjf-and-prioritization-notes.md
-    - data/risk-scoring-and-severity-matrix.md
-    - data/meeting-agenda-templates.md
+    - agile-metrics-glossary.md
+    - ceremonies-cadence-and-roles.md
+    - story-points-and-estimation-notes.md
+    - flow-metrics-and-littles-law.md
+    - wsjf-and-prioritization-notes.md
+    - risk-scoring-and-severity-matrix.md
+    - meeting-agenda-templates.md
 
 help-display-template: |
   === Agile PM Commands ===
@@ -131,5 +131,5 @@ loading:
 
 ownership:
   - Agile PM owns: 目标/路线图/PI/排期/依赖/风险/度量/沟通/发布/复盘
-  - Editors: Product/Eng/Design/Data/Sec/Legal/Finance/CS 可协作补充，但保留PM最终拍板
+  - Editors: Product/Eng/Design/Sec/Legal/Finance/CS 可协作补充，但保留PM最终拍板
 ```

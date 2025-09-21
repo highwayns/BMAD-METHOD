@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Use numbered options whenever asking the user to choose next actions
   - Keep all decisions traceable to metrics/OKRs and user evidence
@@ -49,64 +49,64 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/author-ux-vision-and-principles.md
-    - tasks/run-ux-research-plan.md
-    - tasks/persona-journey-and-service-blueprint.md
-    - tasks/information-architecture-and-nav.md
-    - tasks/interaction-patterns-and-prototyping.md
-    - tasks/visual-language-and-brand-consistency.md
-    - tasks/design-system-foundation-and-tokens.md
-    - tasks/component-library-and-governance.md
-    - tasks/content-design-and-tone-of-voice.md
-    - tasks/accessibility-wcag-and-inclusive-design.md
-    - tasks/localization-and-internationalization.md
-    - tasks/spec-and-handoff-to-engineering.md
-    - tasks/design-qa-and-acceptance.md
-    - tasks/usability-testing-and-report.md
-    - tasks/heuristic-review-and-ux-audit.md
-    - tasks/ux-metrics-dashboard-and-tracking.md
-    - tasks/figma-ops-and-asset-governance.md
-    - tasks/research-repository-and-tagging.md
+    - author-ux-vision-and-principles.md
+    - run-ux-research-plan.md
+    - persona-journey-and-service-blueprint.md
+    - information-architecture-and-nav.md
+    - interaction-patterns-and-prototyping.md
+    - visual-language-and-brand-consistency.md
+    - design-system-foundation-and-tokens.md
+    - component-library-and-governance.md
+    - content-design-and-tone-of-voice.md
+    - accessibility-wcag-and-inclusive-design.md
+    - localization-and-internationalization.md
+    - spec-and-handoff-to-engineering.md
+    - design-qa-and-acceptance.md
+    - usability-testing-and-report.md
+    - heuristic-review-and-ux-audit.md
+    - ux-metrics-dashboard-and-tracking.md
+    - figma-ops-and-asset-governance.md
+    - research-repository-and-tagging.md
   templates:
-    - templates/ux-vision-1pager-tmpl.yaml
-    - templates/design-principles-tmpl.yaml
-    - templates/persona-canvas-tmpl.yaml
-    - templates/journey-map-tmpl.yaml
-    - templates/service-blueprint-tmpl.yaml
-    - templates/ia-sitemap-tmpl.yaml
-    - templates/interaction-spec-tmpl.yaml
-    - templates/ui-spec-tmpl.yaml
-    - templates/component-spec-tmpl.yaml
-    - templates/design-tokens-tmpl.yaml
-    - templates/content-style-guide-tmpl.yaml
-    - templates/microcopy-matrix-tmpl.yaml
-    - templates/accessibility-audit-report-tmpl.yaml
-    - templates/usability-test-plan-tmpl.yaml
-    - templates/usability-test-report-tmpl.yaml
-    - templates/ux-heuristic-eval-report-tmpl.yaml
-    - templates/handoff-package-checklist-tmpl.yaml
-    - templates/ux-metrics-dashboard-tmpl.yaml
-    - templates/figma-contribution-guide-tmpl.yaml
-    - templates/l10n-i18n-plan-tmpl.yaml
+    - ux-vision-1pager-tmpl.yaml
+    - design-principles-tmpl.yaml
+    - persona-canvas-tmpl.yaml
+    - journey-map-tmpl.yaml
+    - service-blueprint-tmpl.yaml
+    - ia-sitemap-tmpl.yaml
+    - interaction-spec-tmpl.yaml
+    - ui-spec-tmpl.yaml
+    - component-spec-tmpl.yaml
+    - design-tokens-tmpl.yaml
+    - content-style-guide-tmpl.yaml
+    - microcopy-matrix-tmpl.yaml
+    - accessibility-audit-report-tmpl.yaml
+    - usability-test-plan-tmpl.yaml
+    - usability-test-report-tmpl.yaml
+    - ux-heuristic-eval-report-tmpl.yaml
+    - handoff-package-checklist-tmpl.yaml
+    - ux-metrics-dashboard-tmpl.yaml
+    - figma-contribution-guide-tmpl.yaml
+    - l10n-i18n-plan-tmpl.yaml
   checklists:
-    - checklists/design-review.md
-    - checklists/accessibility.md
-    - checklists/usability-test.md
-    - checklists/content-design.md
-    - checklists/handoff-to-engineering.md
-    - checklists/design-qa-before-release.md
-    - checklists/heuristic-evaluation.md
-    - checklists/figma-hygiene-and-versioning.md
-    - checklists/localization-review.md
-    - checklists/ethics-and-dark-patterns.md
+    - design-review.md
+    - accessibility.md
+    - usability-test.md
+    - content-design.md
+    - handoff-to-engineering.md
+    - design-qa-before-release.md
+    - heuristic-evaluation.md
+    - figma-hygiene-and-versioning.md
+    - localization-review.md
+    - ethics-and-dark-patterns.md
   data:
-    - data/ux-metrics-cheatsheet.md
-    - data/nielsen-heuristics.md
-    - data/wcag-quick-overview.md
-    - data/content-design-tone.md
-    - data/color-contrast-cheatsheet.md
-    - data/research-methods-cheatsheet.md
-    - data/design-maturity-ladder.md
+    - ux-metrics-cheatsheet.md
+    - nielsen-heuristics.md
+    - wcag-quick-overview.md
+    - content-design-tone.md
+    - color-contrast-cheatsheet.md
+    - research-methods-cheatsheet.md
+    - design-maturity-ladder.md
 
 help-display-template: |
   === Head of Design/UX Commands ===

@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Align every decision to: runway→growth quality→governance→compliance→narrative/relationships→evidence
 
@@ -49,73 +49,73 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/author-ir-strategy-and-operating-model.md
-    - tasks/investor-landscape-mapping-and-targeting.md
-    - tasks/fundraising-narrative-and-pitch-assets.md
-    - tasks/round-modeling-and-terms-analysis.md
-    - tasks/dataroom-structure-and-diligence-readiness.md
-    - tasks/outreach-cadence-and-investor-crm-ops.md
-    - tasks/term-sheet-redlines-and-tradeoffs.md
-    - tasks/cap-table-esop-and-dilution-planning.md
-    - tasks/board-governance-charter-and-calendar.md
-    - tasks/board-meeting-pack-and-pre-read.md
-    - tasks/board-minutes-resolutions-and-consents.md
-    - tasks/monthly-investor-update-and-qna.md
-    - tasks/kpi-glossary-and-reporting-package.md
-    - tasks/financial-model-and-runway-scenarios.md
-    - tasks/covenants-and-info-rights-compliance.md
-    - tasks/pr-and-fundraising-announcement-plan.md
-    - tasks/crisis-comms-and-selective-disclosure-playbook.md
-    - tasks/secondary-and-spv-considerations.md
-    - tasks/post-close-actions-and-integrations.md
+    - author-ir-strategy-and-operating-model.md
+    - investor-landscape-mapping-and-targeting.md
+    - fundraising-narrative-and-pitch-assets.md
+    - round-modeling-and-terms-analysis.md
+    - dataroom-structure-and-diligence-readiness.md
+    - outreach-cadence-and-investor-crm-ops.md
+    - term-sheet-redlines-and-tradeoffs.md
+    - cap-table-esop-and-dilution-planning.md
+    - board-governance-charter-and-calendar.md
+    - board-meeting-pack-and-pre-read.md
+    - board-minutes-resolutions-and-consents.md
+    - monthly-investor-update-and-qna.md
+    - kpi-glossary-and-reporting-package.md
+    - financial-model-and-runway-scenarios.md
+    - covenants-and-info-rights-compliance.md
+    - pr-and-fundraising-announcement-plan.md
+    - crisis-comms-and-selective-disclosure-playbook.md
+    - secondary-and-spv-considerations.md
+    - post-close-actions-and-integrations.md
   templates:
-    - templates/ir-strategy-1pager-tmpl.yaml
-    - templates/investor-map-and-tiering-tmpl.yaml
-    - templates/pitch-deck-and-onepager-tmpl.yaml
-    - templates/fundraising-tracker-and-crm-fields-tmpl.yaml
-    - templates/round-model-and-dilution-tmpl.yaml
-    - templates/term-sheet-comparison-matrix-tmpl.yaml
-    - templates/data-room-index-tmpl.yaml
-    - templates/investor-outreach-email-tmpl.yaml
-    - templates/board-governance-charter-tmpl.yaml
-    - templates/board-agenda-and-calendar-tmpl.yaml
-    - templates/board-pack-deck-spec-tmpl.yaml
-    - templates/board-minutes-and-resolutions-tmpl.yaml
-    - templates/investor-update-monthly-tmpl.yaml
-    - templates/kpi-glossary-and-metrics-tmpl.yaml
-    - templates/reporting-package-monthly-tmpl.yaml
-    - templates/runway-and-scenario-model-tmpl.yaml
-    - templates/cap-table-and-esop-model-tmpl.yaml
-    - templates/covenants-and-info-rights-checklist-tmpl.yaml
-    - templates/press-release-and-faq-tmpl.yaml
-    - templates/crisis-communication-brief-tmpl.yaml
-    - templates/secondary-spv-brief-tmpl.yaml
+    - ir-strategy-1pager-tmpl.yaml
+    - investor-map-and-tiering-tmpl.yaml
+    - pitch-deck-and-onepager-tmpl.yaml
+    - fundraising-tracker-and-crm-fields-tmpl.yaml
+    - round-model-and-dilution-tmpl.yaml
+    - term-sheet-comparison-matrix-tmpl.yaml
+    - data-room-index-tmpl.yaml
+    - investor-outreach-email-tmpl.yaml
+    - board-governance-charter-tmpl.yaml
+    - board-agenda-and-calendar-tmpl.yaml
+    - board-pack-deck-spec-tmpl.yaml
+    - board-minutes-and-resolutions-tmpl.yaml
+    - investor-update-monthly-tmpl.yaml
+    - kpi-glossary-and-metrics-tmpl.yaml
+    - reporting-package-monthly-tmpl.yaml
+    - runway-and-scenario-model-tmpl.yaml
+    - cap-table-and-esop-model-tmpl.yaml
+    - covenants-and-info-rights-checklist-tmpl.yaml
+    - press-release-and-faq-tmpl.yaml
+    - crisis-communication-brief-tmpl.yaml
+    - secondary-spv-brief-tmpl.yaml
   checklists:
-    - checklists/fundraising-readiness.md
-    - checklists/narrative-and-pitch-review.md
-    - checklists/data-room-diligence.md
-    - checklists/term-sheet-redlines.md
-    - checklists/cap-table-and-esop-hygiene.md
-    - checklists/investor-outreach-and-meeting.md
-    - checklists/kpi-quality-and-consistency.md
-    - checklists/reporting-package-quality.md
-    - checklists/board-meeting-readiness.md
-    - checklists/minutes-resolutions-and-consents.md
-    - checklists/disclosure-controls-and-insider-list.md
-    - checklists/regulatory-and-compliance-risks.md
-    - checklists/crisis-comms-and-media.md
-    - checklists/post-close-action-items.md
+    - fundraising-readiness.md
+    - narrative-and-pitch-review.md
+    - data-room-diligence.md
+    - term-sheet-redlines.md
+    - cap-table-and-esop-hygiene.md
+    - investor-outreach-and-meeting.md
+    - kpi-quality-and-consistency.md
+    - reporting-package-quality.md
+    - board-meeting-readiness.md
+    - minutes-resolutions-and-consents.md
+    - disclosure-controls-and-insider-list.md
+    - regulatory-and-compliance-risks.md
+    - crisis-comms-and-media.md
+    - post-close-action-items.md
   data:
-    - data/saas-metrics-glossary.md
-    - data/kpi-definitions-and-formulas.md
-    - data/fundraising-instruments-overview.md
-    - data/preference-and-anti-dilution-notes.md
-    - data/governance-structures-and-roles.md
-    - data/board-cadence-and-best-practices.md
-    - data/investor-types-and-motives.md
-    - data/esop-101-and-vesting.md
-    - data/reporting-maturity-model.md
-    - data/crisis-and-selective-disclosure-notes.md
+    - saas-metrics-glossary.md
+    - kpi-definitions-and-formulas.md
+    - fundraising-instruments-overview.md
+    - preference-and-anti-dilution-notes.md
+    - governance-structures-and-roles.md
+    - board-cadence-and-best-practices.md
+    - investor-types-and-motives.md
+    - esop-101-and-vesting.md
+    - reporting-maturity-model.md
+    - crisis-and-selective-disclosure-notes.md
 
 help-display-template: |
   === IR & Board Ops Commands ===

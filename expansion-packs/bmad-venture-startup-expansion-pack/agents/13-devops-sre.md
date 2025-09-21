@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Use numbered options whenever asking the user to choose next actions
   - Tie all decisions to SLO/SLA→Error Budget→Change Risk→Cost→Security posture
@@ -52,72 +52,72 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/author-reliability-strategy-and-operating-model.md
-    - tasks/slo-sli-design-and-error-budget-policy.md
-    - tasks/observability-architecture-and-alert-policy.md
-    - tasks/release-engineering-and-change-management.md
-    - tasks/incident-management-and-postmortems.md
-    - tasks/service-catalog-and-ownership-model.md
-    - tasks/infrastructure-as-code-and-environment-stds.md
-    - tasks/kubernetes-platform-and-gitops.md
-    - tasks/database-reliability-and-backup-restore.md
-    - tasks/performance-and-capacity-planning.md
-    - tasks/cost-optimization-and-finops.md
-    - tasks/dr-bcp-and-chaos-exercises.md
-    - tasks/security-baseline-and-secrets-management.md
-    - tasks/availability-architecture-and-multi-region.md
-    - tasks/runbook-program-and-auto-remediation.md
-    - tasks/reliability-reviews-and-quality-gates.md
+    - author-reliability-strategy-and-operating-model.md
+    - slo-sli-design-and-error-budget-policy.md
+    - observability-architecture-and-alert-policy.md
+    - release-engineering-and-change-management.md
+    - incident-management-and-postmortems.md
+    - service-catalog-and-ownership-model.md
+    - infrastructure-as-code-and-environment-stds.md
+    - kubernetes-platform-and-gitops.md
+    - database-reliability-and-backup-restore.md
+    - performance-and-capacity-planning.md
+    - cost-optimization-and-finops.md
+    - dr-bcp-and-chaos-exercises.md
+    - security-baseline-and-secrets-management.md
+    - availability-architecture-and-multi-region.md
+    - runbook-program-and-auto-remediation.md
+    - reliability-reviews-and-quality-gates.md
   templates:
-    - templates/reliability-strategy-1pager-tmpl.yaml
-    - templates/slo-sli-spec-tmpl.yaml
-    - templates/alert-policy-tmpl.yaml
-    - templates/observability-plan-tmpl.yaml
-    - templates/release-plan-and-rollback-tmpl.yaml
-    - templates/change-request-and-risk-assessment-tmpl.yaml
-    - templates/incident-timeline-and-status-comms-tmpl.yaml
-    - templates/postmortem-rca-pack-tmpl.yaml
-    - templates/service-catalog-entry-tmpl.yaml
-    - templates/runbook-tmpl.yaml
-    - templates/iac-standards-and-module-spec-tmpl.yaml
-    - templates/k8s-platform-contract-and-addon-tmpl.yaml
-    - templates/db-backup-restore-plan-tmpl.yaml
-    - templates/perf-test-plan-and-benchmark-tmpl.yaml
-    - templates/capacity-model-tmpl.yaml
-    - templates/finops-report-and-rightsizing-tmpl.yaml
-    - templates/dr-bcp-plan-tmpl.yaml
-    - templates/statuspage-and-comms-policy-tmpl.yaml
-    - templates/oncall-schedule-and-escalation-tmpl.yaml
-    - templates/security-baseline-and-secrets-tmpl.yaml
-    - templates/availability-architecture-tmpl.yaml
-    - templates/reliability-review-checklist-tmpl.yaml
+    - reliability-strategy-1pager-tmpl.yaml
+    - slo-sli-spec-tmpl.yaml
+    - alert-policy-tmpl.yaml
+    - observability-plan-tmpl.yaml
+    - release-plan-and-rollback-tmpl.yaml
+    - change-request-and-risk-assessment-tmpl.yaml
+    - incident-timeline-and-status-comms-tmpl.yaml
+    - postmortem-rca-pack-tmpl.yaml
+    - service-catalog-entry-tmpl.yaml
+    - runbook-tmpl.yaml
+    - iac-standards-and-module-spec-tmpl.yaml
+    - k8s-platform-contract-and-addon-tmpl.yaml
+    - db-backup-restore-plan-tmpl.yaml
+    - perf-test-plan-and-benchmark-tmpl.yaml
+    - capacity-model-tmpl.yaml
+    - finops-report-and-rightsizing-tmpl.yaml
+    - dr-bcp-plan-tmpl.yaml
+    - statuspage-and-comms-policy-tmpl.yaml
+    - oncall-schedule-and-escalation-tmpl.yaml
+    - security-baseline-and-secrets-tmpl.yaml
+    - availability-architecture-tmpl.yaml
+    - reliability-review-checklist-tmpl.yaml
   checklists:
-    - checklists/production-readiness.md
-    - checklists/slo-sli-design-quality.md
-    - checklists/alert-policy-hygiene.md
-    - checklists/oncall-handoff-and-rotations.md
-    - checklists/incident-response-and-severity.md
-    - checklists/postmortem-quality-gates.md
-    - checklists/release-gates-and-change-controls.md
-    - checklists/runbook-quality-and-autofix.md
-    - checklists/iac-code-review-and-security.md
-    - checklists/k8s-and-platform-hygiene.md
-    - checklists/database-backup-restore-and-drill.md
-    - checklists/performance-and-capacity.md
-    - checklists/cost-optimization-and-anomalies.md
-    - checklists/dr-bcp-drill-and-rto-rpo.md
-    - checklists/security-baseline-and-secrets.md
+    - production-readiness.md
+    - slo-sli-design-quality.md
+    - alert-policy-hygiene.md
+    - oncall-handoff-and-rotations.md
+    - incident-response-and-severity.md
+    - postmortem-quality-gates.md
+    - release-gates-and-change-controls.md
+    - runbook-quality-and-autofix.md
+    - iac-code-review-and-security.md
+    - k8s-and-platform-hygiene.md
+    - database-backup-restore-and-drill.md
+    - performance-and-capacity.md
+    - cost-optimization-and-anomalies.md
+    - dr-bcp-drill-and-rto-rpo.md
+    - security-baseline-and-secrets.md
   data:
-    - data/sre-metrics-glossary.md
-    - data/common-sli-formulas.md
-    - data/alerting-anti-patterns.md
-    - data/toil-reduction-ideas.md
-    - data/k8s-anti-patterns-and-tips.md
-    - data/iac-conventions-and-naming.md
-    - data/postmortem-taxonomy-and-sev.md
-    - data/finops-signals-and-metrics.md
-    - data/dr-patterns-and-testing-notes.md
-    - data/security-baseline-quicknotes.md
+    - sre-metrics-glossary.md
+    - common-sli-formulas.md
+    - alerting-anti-patterns.md
+    - toil-reduction-ideas.md
+    - k8s-anti-patterns-and-tips.md
+    - iac-conventions-and-naming.md
+    - postmortem-taxonomy-and-sev.md
+    - finops-signals-and-metrics.md
+    - dr-patterns-and-testing-notes.md
+    - security-baseline-quicknotes.md
 
 help-display-template: |
   === DevOps / SRE Commands ===
@@ -145,5 +145,5 @@ loading:
 
 ownership:
   - DevOps/SRE owns: 可靠性/SLO/告警/事故/发布/平台/IaC/K8s/数据库/可观测性/DR/成本/安全基线
-  - Editors: Product/Eng/Data/Sec/Finance/CS 可对各自章节补充，但保留SRE最终拍板
+  - Editors: Product/Eng/Sec/Finance/CS 可对各自章节补充，但保留SRE最终拍板
 ```

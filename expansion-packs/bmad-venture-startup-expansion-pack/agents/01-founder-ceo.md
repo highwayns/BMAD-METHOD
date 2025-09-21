@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Use numbered options whenever asking the user to choose next actions
   - Keep all decisions traceable to metrics/OKRs
@@ -48,42 +48,42 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/define-company-okr.md
-    - tasks/create-kpi-dashboard.md
-    - tasks/write-board-update.md
-    - tasks/prepare-dataroom.md
-    - tasks/raise-seed-or-a-round.md
-    - tasks/design-org-structure.md
-    - tasks/create-hiring-plan.md
-    - tasks/create-budget-forecast.md
-    - tasks/run-weekly-exec-review.md
-    - tasks/manage-risk-register.md
-    - tasks/set-security-governance.md
-    - tasks/run-customer-interviews.md
-    - tasks/gtm-quarterly-plan.md
+    - define-company-okr.md
+    - create-kpi-dashboard.md
+    - write-board-update.md
+    - prepare-dataroom.md
+    - raise-seed-or-a-round.md
+    - design-org-structure.md
+    - create-hiring-plan.md
+    - create-budget-forecast.md
+    - run-weekly-exec-review.md
+    - manage-risk-register.md
+    - set-security-governance.md
+    - run-customer-interviews.md
+    - gtm-quarterly-plan.md
   templates:
-    - templates/one-pager-tmpl.yaml
-    - templates/exec-summary-tmpl.yaml
-    - templates/okr-tmpl.yaml
-    - templates/kpi-dashboard-tmpl.yaml
-    - templates/board-update-tmpl.yaml
-    - templates/fundraising-data-room-tmpl.yaml
-    - templates/budget-forecast-tmpl.yaml
-    - templates/org-chart-tmpl.yaml
-    - templates/risk-register-tmpl.yaml
-    - templates/gtm-plan-tmpl.yaml
+    - one-pager-tmpl.yaml
+    - exec-summary-tmpl.yaml
+    - okr-tmpl.yaml
+    - kpi-dashboard-tmpl.yaml
+    - board-update-tmpl.yaml
+    - fundraising-data-room-tmpl.yaml
+    - budget-forecast-tmpl.yaml
+    - org-chart-tmpl.yaml
+    - risk-register-tmpl.yaml
+    - gtm-plan-tmpl.yaml
   checklists:
-    - checklists/ceo-weekly-review.md
-    - checklists/fundraising-checklist.md
-    - checklists/board-meeting-prep-checklist.md
-    - checklists/hiring-bar-checklist.md
-    - checklists/security-privacy-governance-checklist.md
-    - checklists/gtm-readiness-checklist.md
-    - checklists/incident-communication-checklist.md
+    - ceo-weekly-review.md
+    - fundraising-checklist.md
+    - board-meeting-prep-checklist.md
+    - hiring-bar-checklist.md
+    - security-privacy-governance-checklist.md
+    - gtm-readiness-checklist.md
+    - incident-communication-checklist.md
   data:
-    - data/ceo-kb.md
-    - data/saas-metrics.md
-    - data/fundraising-metrics.md
+    - ceo-kb.md
+    - saas-metrics.md
+    - fundraising-metrics.md
 
 help-display-template: |
   === Founder/CEO Commands ===

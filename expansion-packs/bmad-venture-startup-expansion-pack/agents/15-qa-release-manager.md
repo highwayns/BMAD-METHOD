@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Tie all decisions to SLO/SLA→risk→change-safety→coverage→cost
 
@@ -49,85 +49,85 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/author-quality-strategy-and-operating-model.md
-    - tasks/test-automation-pyramid-and-coverage-model.md
-    - tasks/api-contract-testing-and-mock-strategy.md
-    - tasks/e2e-regression-and-critical-user-flows.md
-    - tasks/exploratory-testing-and-bug-bash.md
-    - tasks/performance-reliability-and-capacity-tests.md
-    - tasks/accessibility-and-ux-quality.md
-    - tasks/privacy-and-security-test-alignment.md
-    - tasks/test-data-management-and-env-standards.md
-    - tasks/data-quality-analytics-and-event-validation.md
-    - tasks/release-plan-change-controls-and-risk-assessment.md
-    - tasks/canary-feature-flags-and-rollout-policy.md
-    - tasks/rollback-playbook-and-verification.md
-    - tasks/post-release-monitoring-and-early-life-support.md
-    - tasks/defect-management-and-flaky-test-triage.md
-    - tasks/uat-beta-program-and-signoff.md
-    - tasks/quality-metrics-dashboard-and-qbr.md
+    - author-quality-strategy-and-operating-model.md
+    - test-automation-pyramid-and-coverage-model.md
+    - api-contract-testing-and-mock-strategy.md
+    - e2e-regression-and-critical-user-flows.md
+    - exploratory-testing-and-bug-bash.md
+    - performance-reliability-and-capacity-tests.md
+    - accessibility-and-ux-quality.md
+    - privacy-and-security-test-alignment.md
+    - test-data-management-and-env-standards.md
+    - data-quality-analytics-and-event-validation.md
+    - release-plan-change-controls-and-risk-assessment.md
+    - canary-feature-flags-and-rollout-policy.md
+    - rollback-playbook-and-verification.md
+    - post-release-monitoring-and-early-life-support.md
+    - defect-management-and-flaky-test-triage.md
+    - uat-beta-program-and-signoff.md
+    - quality-metrics-dashboard-and-qbr.md
   templates:
-    - templates/quality-strategy-1pager-tmpl.yaml
-    - templates/test-plan-tmpl.yaml
-    - templates/automation-plan-tmpl.yaml
-    - templates/api-contract-spec-tmpl.yaml
-    - templates/mock-service-spec-tmpl.yaml
-    - templates/e2e-regression-pack-tmpl.yaml
-    - templates/exploratory-charter-tmpl.yaml
-    - templates/perf-test-plan-tmpl.yaml
-    - templates/accessibility-audit-report-tmpl.yaml
-    - templates/privacy-security-test-brief-tmpl.yaml
-    - templates/test-data-catalog-tmpl.yaml
-    - templates/data-validation-sql-pack-tmpl.yaml
-    - templates/release-plan-and-go-nogo-tmpl.yaml
-    - templates/change-request-and-risk-tmpl.yaml
-    - templates/canary-rollout-plan-tmpl.yaml
-    - templates/rollback-runbook-tmpl.yaml
-    - templates/post-release-verification-checklist-tmpl.yaml
-    - templates/defect-report-and-prioritization-tmpl.yaml
-    - templates/flaky-test-quarantine-plan-tmpl.yaml
-    - templates/uat-script-and-signoff-tmpl.yaml
-    - templates/beta-test-plan-tmpl.yaml
-    - templates/quality-dashboard-spec-tmpl.yaml
-    - templates/risk-register-tmpl.yaml
-    - templates/traceability-matrix-tmpl.yaml
-    - templates/coverage-matrix-tmpl.yaml
-    - templates/status-comms-policy-tmpl.yaml
+    - quality-strategy-1pager-tmpl.yaml
+    - test-plan-tmpl.yaml
+    - automation-plan-tmpl.yaml
+    - api-contract-spec-tmpl.yaml
+    - mock-service-spec-tmpl.yaml
+    - e2e-regression-pack-tmpl.yaml
+    - exploratory-charter-tmpl.yaml
+    - perf-test-plan-tmpl.yaml
+    - accessibility-audit-report-tmpl.yaml
+    - privacy-security-test-brief-tmpl.yaml
+    - test-data-catalog-tmpl.yaml
+    - data-validation-sql-pack-tmpl.yaml
+    - release-plan-and-go-nogo-tmpl.yaml
+    - change-request-and-risk-tmpl.yaml
+    - canary-rollout-plan-tmpl.yaml
+    - rollback-runbook-tmpl.yaml
+    - post-release-verification-checklist-tmpl.yaml
+    - defect-report-and-prioritization-tmpl.yaml
+    - flaky-test-quarantine-plan-tmpl.yaml
+    - uat-script-and-signoff-tmpl.yaml
+    - beta-test-plan-tmpl.yaml
+    - quality-dashboard-spec-tmpl.yaml
+    - risk-register-tmpl.yaml
+    - traceability-matrix-tmpl.yaml
+    - coverage-matrix-tmpl.yaml
+    - status-comms-policy-tmpl.yaml
   checklists:
-    - checklists/production-readiness.md
-    - checklists/test-plan-quality.md
-    - checklists/test-case-hygiene.md
-    - checklists/automation-code-review.md
-    - checklists/api-contract-compatibility.md
-    - checklists/performance-test-readiness.md
-    - checklists/accessibility-wcag-qa.md
-    - checklists/mobile-device-matrix.md
-    - checklists/data-migration-and-backfill.md
-    - checklists/release-change-control.md
-    - checklists/canary-rollout-steps.md
-    - checklists/rollback-verification.md
-    - checklists/post-release-monitoring.md
-    - checklists/defect-triage-and-sla.md
-    - checklists/flaky-test-handling.md
-    - checklists/test-environment-hygiene.md
-    - checklists/test-data-management.md
-    - checklists/privacy-test-checklist.md
-    - checklists/security-test-checklist.md
-    - checklists/uat-signoff.md
-    - checklists/documentation-qa.md
-    - checklists/statuspage-and-comms.md
+    - production-readiness.md
+    - test-plan-quality.md
+    - test-case-hygiene.md
+    - automation-code-review.md
+    - api-contract-compatibility.md
+    - performance-test-readiness.md
+    - accessibility-wcag-qa.md
+    - mobile-device-matrix.md
+    - data-migration-and-backfill.md
+    - release-change-control.md
+    - canary-rollout-steps.md
+    - rollback-verification.md
+    - post-release-monitoring.md
+    - defect-triage-and-sla.md
+    - flaky-test-handling.md
+    - test-environment-hygiene.md
+    - test-data-management.md
+    - privacy-test-checklist.md
+    - security-test-checklist.md
+    - uat-signoff.md
+    - documentation-qa.md
+    - statuspage-and-comms.md
   data:
-    - data/qa-metrics-glossary.md
-    - data/testing-heuristics-cheatsheet.md
-    - data/automation-pyramid-notes.md
-    - data/wcag-quicknotes.md
-    - data/api-testing-cheatsheet.md
-    - data/perf-tuning-basics.md
-    - data/mobile-testing-tips.md
-    - data/ci-quality-gates-patterns.md
-    - data/release-strategies-and-canary-metrics.md
-    - data/rollback-triggers-and-guardrails.md
-    - data/defect-taxonomy-and-examples.md
+    - qa-metrics-glossary.md
+    - testing-heuristics-cheatsheet.md
+    - automation-pyramid-notes.md
+    - wcag-quicknotes.md
+    - api-testing-cheatsheet.md
+    - perf-tuning-basics.md
+    - mobile-testing-tips.md
+    - ci-quality-gates-patterns.md
+    - release-strategies-and-canary-metrics.md
+    - rollback-triggers-and-guardrails.md
+    - defect-taxonomy-and-examples.md
 
 help-display-template: |
   === QA & Release Commands ===

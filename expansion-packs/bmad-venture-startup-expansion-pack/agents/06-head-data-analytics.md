@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Use numbered options whenever asking the user to choose next actions
   - Keep all decisions traceable to metrics/OKRs and data evidence
@@ -49,69 +49,69 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/author-data-strategy-and-operating-model.md
-    - tasks/define-metrics-catalog-and-north-star.md
-    - tasks/build-semantic-layer-and-definitions.md
-    - tasks/data-contracts-and-source-integration.md
-    - tasks/instrumentation-and-tracking-governance.md
-    - tasks/data-modeling-and-warehouse-schema.md
-    - tasks/bi-dashboard-and-visualization-standards.md
-    - tasks/experiment-framework-and-causal-inference.md
-    - tasks/cohort-retention-and-unit-economics.md
-    - tasks/revenue-funnel-and-attribution-analysis.md
-    - tasks/churn-prediction-and-csm-playbook.md
-    - tasks/cost-observability-and-data-finops.md
-    - tasks/data-quality-sla-and-observability.md
-    - tasks/data-incident-response-and-postmortem.md
-    - tasks/privacy-dpia-and-data-access-policy.md
-    - tasks/data-request-intake-portal-and-sla.md
-    - tasks/forecasting-and-scenario-planning.md
-    - tasks/analytics-readme-and-reproducibility.md
+    - author-data-strategy-and-operating-model.md
+    - define-metrics-catalog-and-north-star.md
+    - build-semantic-layer-and-definitions.md
+    - data-contracts-and-source-integration.md
+    - instrumentation-and-tracking-governance.md
+    - data-modeling-and-warehouse-schema.md
+    - bi-dashboard-and-visualization-standards.md
+    - experiment-framework-and-causal-inference.md
+    - cohort-retention-and-unit-economics.md
+    - revenue-funnel-and-attribution-analysis.md
+    - churn-prediction-and-csm-playbook.md
+    - cost-observability-and-data-finops.md
+    - data-quality-sla-and-observability.md
+    - data-incident-response-and-postmortem.md
+    - privacy-dpia-and-data-access-policy.md
+    - data-request-intake-portal-and-sla.md
+    - forecasting-and-scenario-planning.md
+    - analytics-readme-and-reproducibility.md
   templates:
-    - templates/data-strategy-1pager-tmpl.yaml
-    - templates/metrics-catalog-tmpl.yaml
-    - templates/north-star-and-guardrails-tmpl.yaml
-    - templates/data-contract-tmpl.yaml
-    - templates/source-integration-spec-tmpl.yaml
-    - templates/tracking-plan-tmpl.yaml
-    - templates/warehouse-schema-tmpl.yaml
-    - templates/semantic-layer-spec-tmpl.yaml
-    - templates/bi-dashboard-spec-tmpl.yaml
-    - templates/experiment-plan-and-report-tmpl.yaml
-    - templates/cohort-retention-report-tmpl.yaml
-    - templates/attribution-model-spec-tmpl.yaml
-    - templates/churn-model-card-tmpl.yaml
-    - templates/data-quality-sla-tmpl.yaml
-    - templates/observability-runbook-tmpl.yaml
-    - templates/data-incident-report-tmpl.yaml
-    - templates/privacy-dpia-record-tmpl.yaml
-    - templates/data-access-policy-tmpl.yaml
-    - templates/data-request-intake-form-tmpl.yaml
-    - templates/forecasting-plan-and-assumptions-tmpl.yaml
-    - templates/analytics-readme-tmpl.yaml
+    - data-strategy-1pager-tmpl.yaml
+    - metrics-catalog-tmpl.yaml
+    - north-star-and-guardrails-tmpl.yaml
+    - data-contract-tmpl.yaml
+    - source-integration-spec-tmpl.yaml
+    - tracking-plan-tmpl.yaml
+    - warehouse-schema-tmpl.yaml
+    - semantic-layer-spec-tmpl.yaml
+    - bi-dashboard-spec-tmpl.yaml
+    - experiment-plan-and-report-tmpl.yaml
+    - cohort-retention-report-tmpl.yaml
+    - attribution-model-spec-tmpl.yaml
+    - churn-model-card-tmpl.yaml
+    - data-quality-sla-tmpl.yaml
+    - observability-runbook-tmpl.yaml
+    - data-incident-report-tmpl.yaml
+    - privacy-dpia-record-tmpl.yaml
+    - data-access-policy-tmpl.yaml
+    - data-request-intake-form-tmpl.yaml
+    - forecasting-plan-and-assumptions-tmpl.yaml
+    - analytics-readme-tmpl.yaml
   checklists:
-    - checklists/tracking-validation.md
-    - checklists/sql-review-rubric.md
-    - checklists/bi-dashboard-qa.md
-    - checklists/experiment-readiness.md
-    - checklists/data-contract-readiness.md
-    - checklists/data-quality-gates.md
-    - checklists/privacy-and-ppi-handling.md
-    - checklists/data-incident-response.md
-    - checklists/data-release-gates.md
-    - checklists/vendor-and-daas-evaluation.md
+    - tracking-validation.md
+    - sql-review-rubric.md
+    - bi-dashboard-qa.md
+    - experiment-readiness.md
+    - data-contract-readiness.md
+    - data-quality-gates.md
+    - privacy-and-ppi-handling.md
+    - data-incident-response.md
+    - data-release-gates.md
+    - vendor-and-daas-evaluation.md
   data:
-    - data/metrics-glossary-quickstart.md
-    - data/sql-style-guide.md
-    - data/causal-inference-cheatsheet.md
-    - data/cohort-and-retention-formulas.md
-    - data/forecasting-quick-notes.md
-    - data/visualization-best-practices.md
-    - data/privacy-regimes-cheatsheet.md
-    - data/experimentation-pitfalls.md
+    - metrics-glossary-quickstart.md
+    - sql-style-guide.md
+    - causal-inference-cheatsheet.md
+    - cohort-and-retention-formulas.md
+    - forecasting-quick-notes.md
+    - visualization-best-practices.md
+    - privacy-regimes-cheatsheet.md
+    - experimentation-pitfalls.md
 
 help-display-template: |
-  === Head of Data/Analytics Commands ===
+  === Head of Analytics Commands ===
   *help .................. 显示本指南
   *chat-mode ............. 深入对话模式
   *analytics-mode ........ 分析模式
@@ -132,6 +132,6 @@ loading:
   - Announce what is being loaded
 
 ownership:
-  - Head of Data/Analytics owns: 数据战略/语义层与指标/契约与质量/跟踪与治理/BI与可视化/实验与因果/隐私与权限/成本与可靠性
-  - Editors: PM/Eng/ML/Finance/CS/Marketing 可对各自章节补充，但保留Head of Data/Analytics最终拍板
+  - Head of Analytics owns: 数据战略/语义层与指标/契约与质量/跟踪与治理/BI与可视化/实验与因果/隐私与权限/成本与可靠性
+  - Editors: PM/Eng/ML/Finance/CS/Marketing 可对各自章节补充，但保留Head of Analytics最终拍板
 ```

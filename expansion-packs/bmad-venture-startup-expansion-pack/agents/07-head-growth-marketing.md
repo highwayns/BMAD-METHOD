@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Use numbered options whenever asking the user to choose next actions
   - Keep all decisions traceable to metrics/OKRs and experiment evidence
@@ -49,72 +49,72 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/author-gtm-strategy-and-operating-model.md
-    - tasks/define-icp-positioning-and-messaging.md
-    - tasks/brand-narrative-and-guidelines.md
-    - tasks/content-engine-and-editorial-calendar.md
-    - tasks/website-ia-and-landing-pages.md
-    - tasks/seo-aso-foundation-and-briefs.md
-    - tasks/paid-acquisition-and-creative-ops.md
-    - tasks/lifecycle-crm-and-marketing-automation.md
-    - tasks/plg-onboarding-and-activation.md
-    - tasks/referral-and-partnership-growth-loops.md
-    - tasks/experiment-framework-and-growth-research.md
-    - tasks/attribution-and-mmm-spec.md
-    - tasks/conversion-rate-optimization-and-research.md
-    - tasks/sales-enablement-and-lead-scoring.md
-    - tasks/pr-comms-and-press-faq.md
-    - tasks/launch-planning-and-golive-comms.md
-    - tasks/community-and-social-strategy.md
-    - tasks/event-and-webinar-playbook.md
-    - tasks/budget-planning-and-channel-allocation.md
-    - tasks/marketing-ops-governance-and-privacy.md
+    - author-gtm-strategy-and-operating-model.md
+    - define-icp-positioning-and-messaging.md
+    - brand-narrative-and-guidelines.md
+    - content-engine-and-editorial-calendar.md
+    - website-ia-and-landing-pages.md
+    - seo-aso-foundation-and-briefs.md
+    - paid-acquisition-and-creative-ops.md
+    - lifecycle-crm-and-marketing-automation.md
+    - plg-onboarding-and-activation.md
+    - referral-and-partnership-growth-loops.md
+    - experiment-framework-and-growth-research.md
+    - attribution-and-mmm-spec.md
+    - conversion-rate-optimization-and-research.md
+    - sales-enablement-and-lead-scoring.md
+    - pr-comms-and-press-faq.md
+    - launch-planning-and-golive-comms.md
+    - community-and-social-strategy.md
+    - event-and-webinar-playbook.md
+    - budget-planning-and-channel-allocation.md
+    - marketing-ops-governance-and-privacy.md
   templates:
-    - templates/gtm-1pager-tmpl.yaml
-    - templates/icp-persona-tmpl.yaml
-    - templates/positioning-doc-tmpl.yaml
-    - templates/messaging-matrix-tmpl.yaml
-    - templates/value-prop-canvas-tmpl.yaml
-    - templates/brand-guidelines-tmpl.yaml
-    - templates/content-calendar-tmpl.yaml
-    - templates/seo-brief-tmpl.yaml
-    - templates/campaign-brief-tmpl.yaml
-    - templates/creative-brief-tmpl.yaml
-    - templates/channel-plan-tmpl.yaml
-    - templates/landing-spec-tmpl.yaml
-    - templates/lifecycle-flow-tmpl.yaml
-    - templates/lead-scoring-model-tmpl.yaml
-    - templates/attribution-spec-tmpl.yaml
-    - templates/mmm-brief-tmpl.yaml
-    - templates/experiment-plan-tmpl.yaml
-    - templates/pr-press-faq-tmpl.yaml
-    - templates/launch-brief-tmpl.yaml
-    - templates/budget-sheet-tmpl.yaml
-    - templates/marketing-dashboard-spec-tmpl.yaml
-    - templates/community-guidelines-tmpl.yaml
-    - templates/partner-mou-tmpl.yaml
+    - gtm-1pager-tmpl.yaml
+    - icp-persona-tmpl.yaml
+    - positioning-doc-tmpl.yaml
+    - messaging-matrix-tmpl.yaml
+    - value-prop-canvas-tmpl.yaml
+    - brand-guidelines-tmpl.yaml
+    - content-calendar-tmpl.yaml
+    - seo-brief-tmpl.yaml
+    - campaign-brief-tmpl.yaml
+    - creative-brief-tmpl.yaml
+    - channel-plan-tmpl.yaml
+    - landing-spec-tmpl.yaml
+    - lifecycle-flow-tmpl.yaml
+    - lead-scoring-model-tmpl.yaml
+    - attribution-spec-tmpl.yaml
+    - mmm-brief-tmpl.yaml
+    - experiment-plan-tmpl.yaml
+    - pr-press-faq-tmpl.yaml
+    - launch-brief-tmpl.yaml
+    - budget-sheet-tmpl.yaml
+    - marketing-dashboard-spec-tmpl.yaml
+    - community-guidelines-tmpl.yaml
+    - partner-mou-tmpl.yaml
   checklists:
-    - checklists/campaign-readiness.md
-    - checklists/landing-page-qa.md
-    - checklists/tracking-and-utm-qa.md
-    - checklists/email-deliverability.md
-    - checklists/seo-technical-audit.md
-    - checklists/paid-ads-hygiene.md
-    - checklists/brand-guideline-compliance.md
-    - checklists/crisis-comms-playbook.md
-    - checklists/consent-privacy-and-safety.md
-    - checklists/event-webinar-runbook.md
-    - checklists/influencer-and-partner-vetting.md
+    - campaign-readiness.md
+    - landing-page-qa.md
+    - tracking-and-utm-qa.md
+    - email-deliverability.md
+    - seo-technical-audit.md
+    - paid-ads-hygiene.md
+    - brand-guideline-compliance.md
+    - crisis-comms-playbook.md
+    - consent-privacy-and-safety.md
+    - event-webinar-runbook.md
+    - influencer-and-partner-vetting.md
   data:
-    - data/funnel-metrics-cheatsheet.md
-    - data/growth-loop-patterns.md
-    - data/channel-benchmarks-notes.md
-    - data/utm-standard-and-naming.md
-    - data/email-qa-and-sender-reputation.md
-    - data/copywriting-principles.md
-    - data/brand-voice-examples.md
-    - data/social-algorithm-notes.md
-    - data/consent-regimes-quick-notes.md
+    - funnel-metrics-cheatsheet.md
+    - growth-loop-patterns.md
+    - channel-benchmarks-notes.md
+    - utm-standard-and-naming.md
+    - email-qa-and-sender-reputation.md
+    - copywriting-principles.md
+    - brand-voice-examples.md
+    - social-algorithm-notes.md
+    - consent-regimes-quick-notes.md
 
 help-display-template: |
   === Head of Growth/Marketing Commands ===
@@ -139,5 +139,5 @@ loading:
 
 ownership:
   - Head of Growth/Marketing owns: GTM/ICP/定位与叙事/品牌与内容/渠道组合/SEO与付费/PLG与激活/CRM与自动化/归因与实验/公关与危机/合规与预算
-  - Editors: PM/PMM/Eng/Design/Data/Sales/CS/Finance 可对各自章节补充，但保留Head of Growth/Marketing最终拍板
+  - Editors: PM/PMM/Eng/Design/Sales/CS/Finance 可对各自章节补充，但保留Head of Growth/Marketing最终拍板
 ```

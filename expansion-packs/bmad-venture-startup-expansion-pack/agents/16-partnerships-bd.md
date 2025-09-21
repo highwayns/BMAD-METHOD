@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Tie every decision to: ICP→value→economics→risk→evidence
 
@@ -49,84 +49,84 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/author-partnerships-strategy-and-operating-model.md
-    - tasks/ecosystem-mapping-and-partner-segmentation.md
-    - tasks/ideal-partner-profile-and-scorecard.md
-    - tasks/value-proposition-and-joint-solution-blueprint.md
-    - tasks/commercial-models-and-revenue-share.md
-    - tasks/partner-due-diligence-and-risk.md
-    - tasks/negotiation-plan-and-terms.md
-    - tasks/contracting-and-governance.md
-    - tasks/integration-and-marketplace-listing.md
-    - tasks/cosell-comarketing-and-mdf-plan.md
-    - tasks/deal-registration-and-conflict-policy.md
-    - tasks/partner-onboarding-and-enablement.md
-    - tasks/partner-portal-and-crm-operations.md
-    - tasks/joint-pipeline-forecast-and-qbr.md
-    - tasks/support-escalation-and-sla-alignment.md
-    - tasks/data-sharing-privacy-and-security.md
-    - tasks/bd-experiments-and-opportunity-validation.md
-    - tasks/partner-health-score-and-lifecycle.md
-    - tasks/exit-termination-and-transition-plan.md
+    - author-partnerships-strategy-and-operating-model.md
+    - ecosystem-mapping-and-partner-segmentation.md
+    - ideal-partner-profile-and-scorecard.md
+    - value-proposition-and-joint-solution-blueprint.md
+    - commercial-models-and-revenue-share.md
+    - partner-due-diligence-and-risk.md
+    - negotiation-plan-and-terms.md
+    - contracting-and-governance.md
+    - integration-and-marketplace-listing.md
+    - cosell-comarketing-and-mdf-plan.md
+    - deal-registration-and-conflict-policy.md
+    - partner-onboarding-and-enablement.md
+    - partner-portal-and-crm-operations.md
+    - joint-pipeline-forecast-and-qbr.md
+    - support-escalation-and-sla-alignment.md
+    - data-sharing-privacy-and-security.md
+    - bd-experiments-and-opportunity-validation.md
+    - partner-health-score-and-lifecycle.md
+    - exit-termination-and-transition-plan.md
   templates:
-    - templates/strategy-1pager-tmpl.yaml
-    - templates/ecosystem-map-tmpl.yaml
-    - templates/partner-profile-tmpl.yaml
-    - templates/partner-evaluation-scorecard-tmpl.yaml
-    - templates/joint-solution-brief-tmpl.yaml
-    - templates/revenue-share-model-tmpl.yaml
-    - templates/nda-tmpl.yaml
-    - templates/msa-and-dpa-checklist-tmpl.yaml
-    - templates/term-sheet-tmpl.yaml
-    - templates/referral-agreement-tmpl.yaml
-    - templates/reseller-agreement-tmpl.yaml
-    - templates/oem-whitelabel-addendum-tmpl.yaml
-    - templates/deal-registration-policy-tmpl.yaml
-    - templates/mdf-plan-tmpl.yaml
-    - templates/cosell-playbook-tmpl.yaml
-    - templates/comarketing-plan-tmpl.yaml
-    - templates/marketplace-listing-checklist-tmpl.yaml
-    - templates/integration-requirements-doc-tmpl.yaml
-    - templates/api-and-data-sharing-agreement-tmpl.yaml
-    - templates/partner-onboarding-checklist-tmpl.yaml
-    - templates/enablement-curriculum-tmpl.yaml
-    - templates/certification-rubric-tmpl.yaml
-    - templates/escalation-matrix-and-sla-alignment-tmpl.yaml
-    - templates/partner-qbr-deck-spec-tmpl.yaml
-    - templates/partner-performance-dashboard-spec-tmpl.yaml
-    - templates/governance-charter-tmpl.yaml
-    - templates/partnership-risk-register-tmpl.yaml
-    - templates/exit-and-transition-checklist-tmpl.yaml
+    - strategy-1pager-tmpl.yaml
+    - ecosystem-map-tmpl.yaml
+    - partner-profile-tmpl.yaml
+    - partner-evaluation-scorecard-tmpl.yaml
+    - joint-solution-brief-tmpl.yaml
+    - revenue-share-model-tmpl.yaml
+    - nda-tmpl.yaml
+    - msa-and-dpa-checklist-tmpl.yaml
+    - term-sheet-tmpl.yaml
+    - referral-agreement-tmpl.yaml
+    - reseller-agreement-tmpl.yaml
+    - oem-whitelabel-addendum-tmpl.yaml
+    - deal-registration-policy-tmpl.yaml
+    - mdf-plan-tmpl.yaml
+    - cosell-playbook-tmpl.yaml
+    - comarketing-plan-tmpl.yaml
+    - marketplace-listing-checklist-tmpl.yaml
+    - integration-requirements-doc-tmpl.yaml
+    - api-and-data-sharing-agreement-tmpl.yaml
+    - partner-onboarding-checklist-tmpl.yaml
+    - enablement-curriculum-tmpl.yaml
+    - certification-rubric-tmpl.yaml
+    - escalation-matrix-and-sla-alignment-tmpl.yaml
+    - partner-qbr-deck-spec-tmpl.yaml
+    - partner-performance-dashboard-spec-tmpl.yaml
+    - governance-charter-tmpl.yaml
+    - partnership-risk-register-tmpl.yaml
+    - exit-and-transition-checklist-tmpl.yaml
   checklists:
-    - checklists/pre-qualification-and-fit.md
-    - checklists/due-diligence-and-compliance.md
-    - checklists/abac-anti-corruption.md
-    - checklists/export-controls-and-sanctions.md
-    - checklists/security-and-privacy-review.md
-    - checklists/contract-review-and-approvals.md
-    - checklists/marketplace-readiness.md
-    - checklists/integration-readiness.md
-    - checklists/cosell-readiness.md
-    - checklists/comarketing-readiness.md
-    - checklists/deal-registration-and-conflict.md
-    - checklists/partner-onboarding.md
-    - checklists/enablement-and-certification.md
-    - checklists/support-and-escalation-alignment.md
-    - checklists/billing-and-reconciliation.md
-    - checklists/qbr-prep-and-actions.md
-    - checklists/partner-health-and-exit-signals.md
+    - pre-qualification-and-fit.md
+    - due-diligence-and-compliance.md
+    - abac-anti-corruption.md
+    - export-controls-and-sanctions.md
+    - security-and-privacy-review.md
+    - contract-review-and-approvals.md
+    - marketplace-readiness.md
+    - integration-readiness.md
+    - cosell-readiness.md
+    - comarketing-readiness.md
+    - deal-registration-and-conflict.md
+    - partner-onboarding.md
+    - enablement-and-certification.md
+    - support-and-escalation-alignment.md
+    - billing-and-reconciliation.md
+    - qbr-prep-and-actions.md
+    - partner-health-and-exit-signals.md
   data:
-    - data/partner-models-glossary.md
-    - data/partner-metrics-glossary.md
-    - data/margin-and-incentive-cheatsheet.md
-    - data/marketplace-kpis.md
-    - data/mdf-roi-calculator-notes.md
-    - data/integration-categories-and-patterns.md
-    - data/api-terms-and-quotas-notes.md
-    - data/negotiation-tactics-cheatsheet.md
-    - data/legal-clauses-cheatsheet.md
-    - data/channel-conflict-patterns.md
-    - data/crm-pipeline-stages.md
+    - partner-models-glossary.md
+    - partner-metrics-glossary.md
+    - margin-and-incentive-cheatsheet.md
+    - marketplace-kpis.md
+    - mdf-roi-calculator-notes.md
+    - integration-categories-and-patterns.md
+    - api-terms-and-quotas-notes.md
+    - negotiation-tactics-cheatsheet.md
+    - legal-clauses-cheatsheet.md
+    - channel-conflict-patterns.md
+    - crm-pipeline-stages.md
 
 help-display-template: |
   === Partnerships & BD Commands ===

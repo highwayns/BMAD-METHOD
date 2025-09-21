@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Prefer "control-by-design": 需求→威胁→控制→证据→度量→改进
 
@@ -52,87 +52,87 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/author-security-privacy-strategy-and-operating-model.md
-    - tasks/risk-register-and-controls-framework.md
-    - tasks/security-policy-library-and-governance.md
-    - tasks/identity-access-and-zero-trust-baseline.md
-    - tasks/keys-management-and-encryption-architecture.md
-    - tasks/logging-siem-and-detection-engineering.md
-    - tasks/secure-sdlc-and-threat-modeling.md
-    - tasks/appsec-scanning-and-secure-code-review.md
-    - tasks/vulnerability-and-patch-management.md
-    - tasks/cloud-security-posture-management.md
-    - tasks/data-classification-rota-and-retention.md
-    - tasks/privacy-program-ropa-dsr-and-dpia.md
-    - tasks/data-loss-prevention-and-sharing-controls.md
-    - tasks/vendor-risk-management-and-dd.md
-    - tasks/incident-response-and-forensics.md
-    - tasks/business-continuity-dr-and-tabletop.md
-    - tasks/security-awareness-and-phishing-program.md
-    - tasks/compliance-mapping-soc2-iso27001.md
-    - tasks/audit-readiness-and-evidence-index.md
-    - tasks/bug-bounty-and-disclosure-policy.md
-    - tasks/security-metrics-and-qbr.md
+    - author-security-privacy-strategy-and-operating-model.md
+    - risk-register-and-controls-framework.md
+    - security-policy-library-and-governance.md
+    - identity-access-and-zero-trust-baseline.md
+    - keys-management-and-encryption-architecture.md
+    - logging-siem-and-detection-engineering.md
+    - secure-sdlc-and-threat-modeling.md
+    - appsec-scanning-and-secure-code-review.md
+    - vulnerability-and-patch-management.md
+    - cloud-security-posture-management.md
+    - data-classification-rota-and-retention.md
+    - privacy-program-ropa-dsr-and-dpia.md
+    - data-loss-prevention-and-sharing-controls.md
+    - vendor-risk-management-and-dd.md
+    - incident-response-and-forensics.md
+    - business-continuity-dr-and-tabletop.md
+    - security-awareness-and-phishing-program.md
+    - compliance-mapping-soc2-iso27001.md
+    - audit-readiness-and-evidence-index.md
+    - bug-bounty-and-disclosure-policy.md
+    - security-metrics-and-qbr.md
   templates:
-    - templates/security-privacy-strategy-1pager-tmpl.yaml
-    - templates/risk-register-tmpl.yaml
-    - templates/policy-library-outline-tmpl.yaml
-    - templates/access-control-policy-tmpl.yaml
-    - templates/key-management-sop-tmpl.yaml
-    - templates/logging-and-detection-plan-tmpl.yaml
-    - templates/incident-response-pack-tmpl.yaml
-    - templates/tabletop-exercise-scenario-tmpl.yaml
-    - templates/secure-sdlc-checklist-tmpl.yaml
-    - templates/threat-model-tmpl.yaml
-    - templates/secure-code-review-checklist-tmpl.yaml
-    - templates/vuln-and-patch-runbook-tmpl.yaml
-    - templates/cspm-ruleset-and-guardrails-tmpl.yaml
-    - templates/encryption-architecture-tmpl.yaml
-    - templates/key-rotation-calendar-tmpl.yaml
-    - templates/ropa-records-of-processing-tmpl.yaml
-    - templates/dpia-template-tmpl.yaml
-    - templates/dsr-workflow-tmpl.yaml
-    - templates/data-classification-schema-tmpl.yaml
-    - templates/data-retention-schedule-tmpl.yaml
-    - templates/dlp-policy-and-sharing-controls-tmpl.yaml
-    - templates/vendor-dd-questionnaire-tmpl.yaml
-    - templates/vendor-security-requirements-tmpl.yaml
-    - templates/audit-evidence-index-tmpl.yaml
-    - templates/soc2-iso-mapping-matrix-tmpl.yaml
-    - templates/security-metrics-dashboard-spec-tmpl.yaml
-    - templates/awareness-and-phishing-plan-tmpl.yaml
-    - templates/bug-bounty-policy-tmpl.yaml
+    - security-privacy-strategy-1pager-tmpl.yaml
+    - risk-register-tmpl.yaml
+    - policy-library-outline-tmpl.yaml
+    - access-control-policy-tmpl.yaml
+    - key-management-sop-tmpl.yaml
+    - logging-and-detection-plan-tmpl.yaml
+    - incident-response-pack-tmpl.yaml
+    - tabletop-exercise-scenario-tmpl.yaml
+    - secure-sdlc-checklist-tmpl.yaml
+    - threat-model-tmpl.yaml
+    - secure-code-review-checklist-tmpl.yaml
+    - vuln-and-patch-runbook-tmpl.yaml
+    - cspm-ruleset-and-guardrails-tmpl.yaml
+    - encryption-architecture-tmpl.yaml
+    - key-rotation-calendar-tmpl.yaml
+    - ropa-records-of-processing-tmpl.yaml
+    - dpia-template-tmpl.yaml
+    - dsr-workflow-tmpl.yaml
+    - data-classification-schema-tmpl.yaml
+    - data-retention-schedule-tmpl.yaml
+    - dlp-policy-and-sharing-controls-tmpl.yaml
+    - vendor-dd-questionnaire-tmpl.yaml
+    - vendor-security-requirements-tmpl.yaml
+    - audit-evidence-index-tmpl.yaml
+    - soc2-iso-mapping-matrix-tmpl.yaml
+    - security-metrics-dashboard-spec-tmpl.yaml
+    - awareness-and-phishing-plan-tmpl.yaml
+    - bug-bounty-policy-tmpl.yaml
   checklists:
-    - checklists/security-policy-library-qa.md
-    - checklists/access-review-and-zero-trust-hygiene.md
-    - checklists/key-management-and-secrets-qa.md
-    - checklists/logging-retention-and-siem-qa.md
-    - checklists/incident-response-drill-and-72h-rca.md
-    - checklists/vendor-risk-and-privacy-dd.md
-    - checklists/dpia-privacy-impact-quality-gates.md
-    - checklists/ropa-and-data-inventory-hygiene.md
-    - checklists/data-retention-and-deletion-qa.md
-    - checklists/secure-release-and-change-controls.md
-    - checklists/vulnerability-triage-and-sla.md
-    - checklists/patch-window-and-emergency-fix.md
-    - checklists/cspm-and-cloud-misconfig-qa.md
-    - checklists/endpoint-hardening-and-mdm.md
-    - checklists/backup-restore-and-key-separation.md
-    - checklists/audit-readiness-and-evidence-sampling.md
-    - checklists/phishing-sim-and-awareness.md
+    - security-policy-library-qa.md
+    - access-review-and-zero-trust-hygiene.md
+    - key-management-and-secrets-qa.md
+    - logging-retention-and-siem-qa.md
+    - incident-response-drill-and-72h-rca.md
+    - vendor-risk-and-privacy-dd.md
+    - dpia-privacy-impact-quality-gates.md
+    - ropa-and-data-inventory-hygiene.md
+    - data-retention-and-deletion-qa.md
+    - secure-release-and-change-controls.md
+    - vulnerability-triage-and-sla.md
+    - patch-window-and-emergency-fix.md
+    - cspm-and-cloud-misconfig-qa.md
+    - endpoint-hardening-and-mdm.md
+    - backup-restore-and-key-separation.md
+    - audit-readiness-and-evidence-sampling.md
+    - phishing-sim-and-awareness.md
   data:
-    - data/security-metrics-glossary.md
-    - data/common-controls-catalog.md
-    - data/privacy-laws-quickmap.md
-    - data/mitre-attck-quicknotes.md
-    - data/log-retention-baselines.md
-    - data/severity-matrix-and-prioritization.md
-    - data/encryption-modes-cheatsheet.md
-    - data/oauth-oidc-patterns.md
-    - data/backup-restore-patterns.md
-    - data/phishing-red-flags.md
-    - data/cloud-misconfig-patterns.md
-    - data/data-subject-rights-quicknotes.md
+    - security-metrics-glossary.md
+    - common-controls-catalog.md
+    - privacy-laws-quickmap.md
+    - mitre-attck-quicknotes.md
+    - log-retention-baselines.md
+    - severity-matrix-and-prioritization.md
+    - encryption-modes-cheatsheet.md
+    - oauth-oidc-patterns.md
+    - backup-restore-patterns.md
+    - phishing-red-flags.md
+    - cloud-misconfig-patterns.md
+    - data-subject-rights-quicknotes.md
 
 help-display-template: |
   === Security & Privacy Commands ===
@@ -161,5 +161,5 @@ loading:
 
 ownership:
   - Security & Privacy owns: 风险/策略/身份/密钥/加密/日志/SIEM/SDLC/AppSec/云安全/隐私/RoPA/DSR/DPIA/事故/审计
-  - Editors: SRE/Eng/Data/Legal/Finance/CS 可对各自章节补充，但保留Security最终拍板
+  - Editors: SRE/Eng/Legal/Finance/CS 可对各自章节补充，但保留Security最终拍板
 ```

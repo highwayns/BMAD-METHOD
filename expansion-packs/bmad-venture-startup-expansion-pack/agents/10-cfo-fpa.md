@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Use numbered options whenever asking the user to choose next actions
   - Tie all decisions to cash, runway, unit economics, and board-grade evidence
@@ -50,72 +50,72 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/author-finance-strategy-and-operating-model.md
-    - tasks/okr-budget-and-annual-operating-plan.md
-    - tasks/monthly-forecast-and-variance-review.md
-    - tasks/scenario-planning-and-sensitivity.md
-    - tasks/treasury-cash-and-runway-management.md
-    - tasks/revenue-model-and-pricing-packages.md
-    - tasks/billing-collections-and-dso-reduction.md
-    - tasks/revenue-recognition-and-deferred-revenue.md
-    - tasks/cogs-and-gross-margin-optimization.md
-    - tasks/unit-economics-and-cohort-profitability.md
-    - tasks/spend-management-and-procurement-policy.md
-    - tasks/vendor-risk-and-contract-review.md
-    - tasks/accounting-policies-and-monthly-close.md
-    - tasks/tax-compliance-and-cross-border-considerations.md
-    - tasks/internal-controls-and-approval-matrix.md
-    - tasks/fundraising-readiness-and-dataroom.md
-    - tasks/investor-updates-and-board-ops.md
-    - tasks/headcount-plan-and-comp-bands.md
-    - tasks/cap-table-and-employee-equity-program.md
-    - tasks/kpi-dashboard-and-exec-qbr.md
+    - author-finance-strategy-and-operating-model.md
+    - okr-budget-and-annual-operating-plan.md
+    - monthly-forecast-and-variance-review.md
+    - scenario-planning-and-sensitivity.md
+    - treasury-cash-and-runway-management.md
+    - revenue-model-and-pricing-packages.md
+    - billing-collections-and-dso-reduction.md
+    - revenue-recognition-and-deferred-revenue.md
+    - cogs-and-gross-margin-optimization.md
+    - unit-economics-and-cohort-profitability.md
+    - spend-management-and-procurement-policy.md
+    - vendor-risk-and-contract-review.md
+    - accounting-policies-and-monthly-close.md
+    - tax-compliance-and-cross-border-considerations.md
+    - internal-controls-and-approval-matrix.md
+    - fundraising-readiness-and-dataroom.md
+    - investor-updates-and-board-ops.md
+    - headcount-plan-and-comp-bands.md
+    - cap-table-and-employee-equity-program.md
+    - kpi-dashboard-and-exec-qbr.md
   templates:
-    - templates/finance-strategy-1pager-tmpl.yaml
-    - templates/aop-budget-sheet-tmpl.yaml
-    - templates/forecast-model-tmpl.yaml
-    - templates/scenario-matrix-tmpl.yaml
-    - templates/cash-runway-sheet-tmpl.yaml
-    - templates/revenue-model-and-pricing-tmpl.yaml
-    - templates/billing-policy-and-ar-process-tmpl.yaml
-    - templates/revenue-recognition-policy-tmpl.yaml
-    - templates/cogs-bom-and-cost-allocations-tmpl.yaml
-    - templates/unit-economics-model-tmpl.yaml
-    - templates/procurement-policy-and-approval-tmpl.yaml
-    - templates/vendor-due-diligence-checklist-tmpl.yaml
-    - templates/monthly-close-checklist-tmpl.yaml
-    - templates/tax-calendar-and-filings-tmpl.yaml
-    - templates/internal-controls-and-sox-lite-tmpl.yaml
-    - templates/fundraising-dataroom-index-tmpl.yaml
-    - templates/investor-update-template-tmpl.yaml
-    - templates/board-deck-outline-tmpl.yaml
-    - templates/headcount-and-comp-model-tmpl.yaml
-    - templates/cap-table-and-option-pool-tmpl.yaml
-    - templates/kpi-dashboard-spec-tmpl.yaml
+    - finance-strategy-1pager-tmpl.yaml
+    - aop-budget-sheet-tmpl.yaml
+    - forecast-model-tmpl.yaml
+    - scenario-matrix-tmpl.yaml
+    - cash-runway-sheet-tmpl.yaml
+    - revenue-model-and-pricing-tmpl.yaml
+    - billing-policy-and-ar-process-tmpl.yaml
+    - revenue-recognition-policy-tmpl.yaml
+    - cogs-bom-and-cost-allocations-tmpl.yaml
+    - unit-economics-model-tmpl.yaml
+    - procurement-policy-and-approval-tmpl.yaml
+    - vendor-due-diligence-checklist-tmpl.yaml
+    - monthly-close-checklist-tmpl.yaml
+    - tax-calendar-and-filings-tmpl.yaml
+    - internal-controls-and-sox-lite-tmpl.yaml
+    - fundraising-dataroom-index-tmpl.yaml
+    - investor-update-template-tmpl.yaml
+    - board-deck-outline-tmpl.yaml
+    - headcount-and-comp-model-tmpl.yaml
+    - cap-table-and-option-pool-tmpl.yaml
+    - kpi-dashboard-spec-tmpl.yaml
   checklists:
-    - checklists/budget-build-quality.md
-    - checklists/forecast-variance-and-quality.md
-    - checklists/treasury-and-runway-controls.md
-    - checklists/pricing-change-controls.md
-    - checklists/billing-and-collections-controls.md
-    - checklists/revenue-recognition-review.md
-    - checklists/cogs-and-vendor-cost-review.md
-    - checklists/monthly-close-readiness.md
-    - checklists/tax-compliance-hygiene.md
-    - checklists/internal-controls-and-approvals.md
-    - checklists/fundraising-readiness.md
-    - checklists/board-deck-quality-gates.md
+    - budget-build-quality.md
+    - forecast-variance-and-quality.md
+    - treasury-and-runway-controls.md
+    - pricing-change-controls.md
+    - billing-and-collections-controls.md
+    - revenue-recognition-review.md
+    - cogs-and-vendor-cost-review.md
+    - monthly-close-readiness.md
+    - tax-compliance-hygiene.md
+    - internal-controls-and-approvals.md
+    - fundraising-readiness.md
+    - board-deck-quality-gates.md
   data:
-    - data/finance-metrics-glossary.md
-    - data/saas-metrics-and-formulas.md
-    - data/revrec-quick-notes.md
-    - data/tax-and-crossborder-notes.md
-    - data/cash-forecasting-patterns.md
-    - data/pricing-strategy-patterns.md
-    - data/vendor-due-diligence-questions.md
-    - data/monthly-close-best-practices.md
-    - data/fundraising-metrics-and-terms.md
-    - data/board-communication-principles.md
+    - finance-metrics-glossary.md
+    - saas-metrics-and-formulas.md
+    - revrec-quick-notes.md
+    - tax-and-crossborder-notes.md
+    - cash-forecasting-patterns.md
+    - pricing-strategy-patterns.md
+    - vendor-due-diligence-questions.md
+    - monthly-close-best-practices.md
+    - fundraising-metrics-and-terms.md
+    - board-communication-principles.md
 
 help-display-template: |
   === CFO / FP&A Commands ===

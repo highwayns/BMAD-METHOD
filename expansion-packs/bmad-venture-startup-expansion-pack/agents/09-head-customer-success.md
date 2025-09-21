@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Use numbered options whenever asking the user to choose next actions
   - Keep all decisions traceable to customer value/NRR and evidence (health scores, product usage, VOC)
@@ -52,76 +52,76 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/author-cs-strategy-and-operating-model.md
-    - tasks/segmentation-and-service-tiering.md
-    - tasks/success-plan-and-value-metrics.md
-    - tasks/onboarding-project-and-acceptance.md
-    - tasks/adoption-cadence-and-plays.md
-    - tasks/health-score-model-and-early-warning.md
-    - tasks/renewal-forecast-and-risk-mitigation.md
-    - tasks/expansion-playbook-and-bundles.md
-    - tasks/csat-ces-nps-program-and-surveys.md
-    - tasks/voc-loop-and-product-feedback.md
-    - tasks/support-sla-and-quality-management.md
-    - tasks/knowledge-base-and-education-program.md
-    - tasks/community-program-and-advocacy.md
-    - tasks/csm-capacity-and-coverage-model.md
-    - tasks/cs-revenue-analytics-and-qbr.md
-    - tasks/cs-ops-architecture-and-governance.md
-    - tasks/customer-communications-and-crisis-playbook.md
-    - tasks/churn-analysis-and-save-plays.md
-    - tasks/success-stories-and-reference-program.md
-    - tasks/security-and-privacy-requirements-in-cs.md
+    - author-cs-strategy-and-operating-model.md
+    - segmentation-and-service-tiering.md
+    - success-plan-and-value-metrics.md
+    - onboarding-project-and-acceptance.md
+    - adoption-cadence-and-plays.md
+    - health-score-model-and-early-warning.md
+    - renewal-forecast-and-risk-mitigation.md
+    - expansion-playbook-and-bundles.md
+    - csat-ces-nps-program-and-surveys.md
+    - voc-loop-and-product-feedback.md
+    - support-sla-and-quality-management.md
+    - knowledge-base-and-education-program.md
+    - community-program-and-advocacy.md
+    - csm-capacity-and-coverage-model.md
+    - cs-revenue-analytics-and-qbr.md
+    - cs-ops-architecture-and-governance.md
+    - customer-communications-and-crisis-playbook.md
+    - churn-analysis-and-save-plays.md
+    - success-stories-and-reference-program.md
+    - security-and-privacy-requirements-in-cs.md
   templates:
-    - templates/cs-strategy-1pager-tmpl.yaml
-    - templates/segmentation-and-tiering-tmpl.yaml
-    - templates/success-plan-tmpl.yaml
-    - templates/onboarding-project-plan-tmpl.yaml
-    - templates/adoption-plan-and-cadence-tmpl.yaml
-    - templates/health-score-model-tmpl.yaml
-    - templates/renewal-forecast-sheet-tmpl.yaml
-    - templates/expansion-offer-matrix-tmpl.yaml
-    - templates/csat-ces-nps-program-tmpl.yaml
-    - templates/voc-loop-spec-tmpl.yaml
-    - templates/support-sla-tmpl.yaml
-    - templates/qm-scorecard-tmpl.yaml
-    - templates/knowledge-base-ia-tmpl.yaml
-    - templates/education-curriculum-tmpl.yaml
-    - templates/community-guidelines-and-engagement-tmpl.yaml
-    - templates/csm-coverage-and-ratio-model-tmpl.yaml
-    - templates/cs-qbr-deck-tmpl.yaml
-    - templates/csops-architecture-tmpl.yaml
-    - templates/customer-comm-and-crisis-faq-tmpl.yaml
-    - templates/churn-review-template-tmpl.yaml
-    - templates/success-story-and-reference-brief-tmpl.yaml
-    - templates/cs-privacy-and-security-checklist-tmpl.yaml
+    - cs-strategy-1pager-tmpl.yaml
+    - segmentation-and-tiering-tmpl.yaml
+    - success-plan-tmpl.yaml
+    - onboarding-project-plan-tmpl.yaml
+    - adoption-plan-and-cadence-tmpl.yaml
+    - health-score-model-tmpl.yaml
+    - renewal-forecast-sheet-tmpl.yaml
+    - expansion-offer-matrix-tmpl.yaml
+    - csat-ces-nps-program-tmpl.yaml
+    - voc-loop-spec-tmpl.yaml
+    - support-sla-tmpl.yaml
+    - qm-scorecard-tmpl.yaml
+    - knowledge-base-ia-tmpl.yaml
+    - education-curriculum-tmpl.yaml
+    - community-guidelines-and-engagement-tmpl.yaml
+    - csm-coverage-and-ratio-model-tmpl.yaml
+    - cs-qbr-deck-tmpl.yaml
+    - csops-architecture-tmpl.yaml
+    - customer-comm-and-crisis-faq-tmpl.yaml
+    - churn-review-template-tmpl.yaml
+    - success-story-and-reference-brief-tmpl.yaml
+    - cs-privacy-and-security-checklist-tmpl.yaml
   checklists:
-    - checklists/onboarding-readiness.md
-    - checklists/success-plan-quality.md
-    - checklists/adoption-review.md
-    - checklists/health-score-validation.md
-    - checklists/renewal-deal-review.md
-    - checklists/expansion-offer-controls.md
-    - checklists/support-ticket-qa.md
-    - checklists/knowledge-base-quality.md
-    - checklists/nps-csat-ces-survey-hygiene.md
-    - checklists/voc-product-feedback-handoff.md
-    - checklists/customer-communication-and-crisis.md
-    - checklists/csm-handoff-and-coverage.md
-    - checklists/csops-change-management.md
-    - checklists/privacy-security-in-cs.md
+    - onboarding-readiness.md
+    - success-plan-quality.md
+    - adoption-review.md
+    - health-score-validation.md
+    - renewal-deal-review.md
+    - expansion-offer-controls.md
+    - support-ticket-qa.md
+    - knowledge-base-quality.md
+    - nps-csat-ces-survey-hygiene.md
+    - voc-product-feedback-handoff.md
+    - customer-communication-and-crisis.md
+    - csm-handoff-and-coverage.md
+    - csops-change-management.md
+    - privacy-security-in-cs.md
   data:
-    - data/cs-metrics-glossary.md
-    - data/health-score-signals-examples.md
-    - data/onboarding-acceptance-criteria-examples.md
-    - data/adoption-plays-library.md
-    - data/renewal-risk-archetypes.md
-    - data/expansion-bundle-patterns.md
-    - data/survey-scales-and-benchmarks.md
-    - data/support-kpi-and-slo.md
-    - data/education-modalities-best-practices.md
-    - data/voc-categorization-codes.md
-    - data/csm-coaching-questions.md
+    - cs-metrics-glossary.md
+    - health-score-signals-examples.md
+    - onboarding-acceptance-criteria-examples.md
+    - adoption-plays-library.md
+    - renewal-risk-archetypes.md
+    - expansion-bundle-patterns.md
+    - survey-scales-and-benchmarks.md
+    - support-kpi-and-slo.md
+    - education-modalities-best-practices.md
+    - voc-categorization-codes.md
+    - csm-coaching-questions.md
 
 help-display-template: |
   === Head of Customer Success Commands ===

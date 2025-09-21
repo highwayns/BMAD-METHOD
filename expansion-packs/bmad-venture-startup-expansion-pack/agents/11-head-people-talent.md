@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Use numbered options whenever asking the user to choose next actions
   - Tie all decisions to evidence (people analytics), law/compliance, and business OKRs
@@ -52,97 +52,97 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/author-people-strategy-and-operating-model.md
-    - tasks/org-design-and-workforce-planning.md
-    - tasks/employer-branding-and-talent-marketing.md
-    - tasks/hiring-plan-and-recruiting-funnel.md
-    - tasks/job-description-and-leveling-framework.md
-    - tasks/interview-kits-and-structured-hiring.md
-    - tasks/offer-approval-and-comp-bands.md
-    - tasks/onboarding-30-60-90-and-ramp.md
-    - tasks/probation-review-and-regularization.md
-    - tasks/performance-cycle-and-calibration.md
-    - tasks/promotion-committee-and-packet.md
-    - tasks/compensation-philosophy-and-pay-equity.md
-    - tasks/equity-grants-and-esop-ops.md
-    - tasks/benefits-and-payroll-operations.md
-    - tasks/learning-and-development-curriculum.md
-    - tasks/career-pathing-and-manager-enablement.md
-    - tasks/engagement-survey-and-action-plan.md
-    - tasks/dei-plan-and-inclusive-practices.md
-    - tasks/employee-relations-and-investigations.md
-    - tasks/discipline-termination-and-offboarding.md
-    - tasks/contractor-and-outsourcing-governance.md
-    - tasks/hris-ats-architecture-and-data-governance.md
-    - tasks/privacy-compliance-and-records-retention.md
-    - tasks/global-employment-and-immigration.md
-    - tasks/people-analytics-dashboard-and-qbr.md
+    - author-people-strategy-and-operating-model.md
+    - org-design-and-workforce-planning.md
+    - employer-branding-and-talent-marketing.md
+    - hiring-plan-and-recruiting-funnel.md
+    - job-description-and-leveling-framework.md
+    - interview-kits-and-structured-hiring.md
+    - offer-approval-and-comp-bands.md
+    - onboarding-30-60-90-and-ramp.md
+    - probation-review-and-regularization.md
+    - performance-cycle-and-calibration.md
+    - promotion-committee-and-packet.md
+    - compensation-philosophy-and-pay-equity.md
+    - equity-grants-and-esop-ops.md
+    - benefits-and-payroll-operations.md
+    - learning-and-development-curriculum.md
+    - career-pathing-and-manager-enablement.md
+    - engagement-survey-and-action-plan.md
+    - dei-plan-and-inclusive-practices.md
+    - employee-relations-and-investigations.md
+    - discipline-termination-and-offboarding.md
+    - contractor-and-outsourcing-governance.md
+    - hris-ats-architecture-and-data-governance.md
+    - privacy-compliance-and-records-retention.md
+    - global-employment-and-immigration.md
+    - people-analytics-dashboard-and-qbr.md
   templates:
-    - templates/people-strategy-1pager-tmpl.yaml
-    - templates/org-design-doc-tmpl.yaml
-    - templates/workforce-plan-model-tmpl.yaml
-    - templates/employer-brand-playbook-tmpl.yaml
-    - templates/hiring-plan-sheet-tmpl.yaml
-    - templates/job-description-tmpl.yaml
-    - templates/leveling-matrix-tmpl.yaml
-    - templates/interview-scorecard-tmpl.yaml
-    - templates/offer-approval-matrix-tmpl.yaml
-    - templates/onboarding-plan-30-60-90-tmpl.yaml
-    - templates/probation-review-form-tmpl.yaml
-    - templates/performance-cycle-pack-tmpl.yaml
-    - templates/promotion-packet-tmpl.yaml
-    - templates/comp-philosophy-and-pay-bands-tmpl.yaml
-    - templates/equity-grant-brief-tmpl.yaml
-    - templates/benefits-summary-and-policy-tmpl.yaml
-    - templates/ld-curriculum-tmpl.yaml
-    - templates/career-pathing-matrix-tmpl.yaml
-    - templates/manager-playbook-tmpl.yaml
-    - templates/engagement-survey-program-tmpl.yaml
-    - templates/dei-plan-tmpl.yaml
-    - templates/er-investigation-pack-tmpl.yaml
-    - templates/offboarding-checklist-tmpl.yaml
-    - templates/contractor-policy-tmpl.yaml
-    - templates/hris-ats-architecture-tmpl.yaml
-    - templates/hr-privacy-and-retention-tmpl.yaml
-    - templates/global-employment-checklist-tmpl.yaml
-    - templates/people-dashboard-spec-tmpl.yaml
-    - templates/employee-handbook-outline-tmpl.yaml
+    - people-strategy-1pager-tmpl.yaml
+    - org-design-doc-tmpl.yaml
+    - workforce-plan-model-tmpl.yaml
+    - employer-brand-playbook-tmpl.yaml
+    - hiring-plan-sheet-tmpl.yaml
+    - job-description-tmpl.yaml
+    - leveling-matrix-tmpl.yaml
+    - interview-scorecard-tmpl.yaml
+    - offer-approval-matrix-tmpl.yaml
+    - onboarding-plan-30-60-90-tmpl.yaml
+    - probation-review-form-tmpl.yaml
+    - performance-cycle-pack-tmpl.yaml
+    - promotion-packet-tmpl.yaml
+    - comp-philosophy-and-pay-bands-tmpl.yaml
+    - equity-grant-brief-tmpl.yaml
+    - benefits-summary-and-policy-tmpl.yaml
+    - ld-curriculum-tmpl.yaml
+    - career-pathing-matrix-tmpl.yaml
+    - manager-playbook-tmpl.yaml
+    - engagement-survey-program-tmpl.yaml
+    - dei-plan-tmpl.yaml
+    - er-investigation-pack-tmpl.yaml
+    - offboarding-checklist-tmpl.yaml
+    - contractor-policy-tmpl.yaml
+    - hris-ats-architecture-tmpl.yaml
+    - hr-privacy-and-retention-tmpl.yaml
+    - global-employment-checklist-tmpl.yaml
+    - people-dashboard-spec-tmpl.yaml
+    - employee-handbook-outline-tmpl.yaml
   checklists:
-    - checklists/hiring-kickoff-and-jd-qa.md
-    - checklists/job-posting-and-channel-qa.md
-    - checklists/interview-hygiene-and-bias-controls.md
-    - checklists/offer-approval-and-signature-controls.md
-    - checklists/background-check-and-compliance.md
-    - checklists/onboarding-readiness-and-day1.md
-    - checklists/30-60-90-review.md
-    - checklists/performance-cycle-quality-gates.md
-    - checklists/promotion-committee-process.md
-    - checklists/comp-change-controls-and-audit.md
-    - checklists/benefits-renewal-and-communication.md
-    - checklists/payroll-cutoff-and-audit.md
-    - checklists/engagement-survey-hygiene.md
-    - checklists/er-case-intake-and-triage.md
-    - checklists/investigation-due-process.md
-    - checklists/dei-in-practice-qa.md
-    - checklists/discipline-termination-legal-checks.md
-    - checklists/offboarding-return-and-deprovisioning.md
-    - checklists/contractor-compliance-and-invoicing.md
-    - checklists/immigration-and-global-mobility.md
-    - checklists/hris-change-management.md
-    - checklists/hr-data-privacy-and-security.md
+    - hiring-kickoff-and-jd-qa.md
+    - job-posting-and-channel-qa.md
+    - interview-hygiene-and-bias-controls.md
+    - offer-approval-and-signature-controls.md
+    - background-check-and-compliance.md
+    - onboarding-readiness-and-day1.md
+    - 30-60-90-review.md
+    - performance-cycle-quality-gates.md
+    - promotion-committee-process.md
+    - comp-change-controls-and-audit.md
+    - benefits-renewal-and-communication.md
+    - payroll-cutoff-and-audit.md
+    - engagement-survey-hygiene.md
+    - er-case-intake-and-triage.md
+    - investigation-due-process.md
+    - dei-in-practice-qa.md
+    - discipline-termination-legal-checks.md
+    - offboarding-return-and-deprovisioning.md
+    - contractor-compliance-and-invoicing.md
+    - immigration-and-global-mobility.md
+    - hris-change-management.md
+    - hr-data-privacy-and-security.md
   data:
-    - data/people-metrics-glossary.md
-    - data/recruiting-benchmarks-and-formulas.md
-    - data/leveling-guidelines-and-examples.md
-    - data/comp-philosophy-examples.md
-    - data/pay-equity-and-audit-notes.md
-    - data/performance-rubrics-examples.md
-    - data/manager-1on1-question-bank.md
-    - data/engagement-survey-scales.md
-    - data/er-case-archetypes.md
-    - data/investigation-steps-and-notes.md
-    - data/dei-definitions-and-anti-bias-tips.md
-    - data/hr-privacy-and-retention-notes.md
+    - people-metrics-glossary.md
+    - recruiting-benchmarks-and-formulas.md
+    - leveling-guidelines-and-examples.md
+    - comp-philosophy-examples.md
+    - pay-equity-and-audit-notes.md
+    - performance-rubrics-examples.md
+    - manager-1on1-question-bank.md
+    - engagement-survey-scales.md
+    - er-case-archetypes.md
+    - investigation-steps-and-notes.md
+    - dei-definitions-and-anti-bias-tips.md
+    - hr-privacy-and-retention-notes.md
 
 help-display-template: |
   === Head of People & Talent Commands ===

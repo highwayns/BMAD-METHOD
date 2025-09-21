@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Use numbered options whenever asking the user to choose next actions
   - Keep all decisions traceable to metrics/OKRs
@@ -48,58 +48,58 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/author-product-vision-and-north-star.md
-    - tasks/problem-framing-and-evidence.md
-    - tasks/run-user-research-and-jtbd.md
-    - tasks/opportunity-solution-tree.md
-    - tasks/prioritize-with-rice-and-constraints.md
-    - tasks/author-prd-and-acceptance-criteria.md
-    - tasks/run-ux-design-system-and-a11y.md
-    - tasks/instrumentation-and-tracking-plan.md
-    - tasks/experiment-design-and-ab-testing.md
-    - tasks/pricing-and-packaging-strategy.md
-    - tasks/growth-model-and-funnel-ops.md
-    - tasks/release-planning-and-launch-brief.md
-    - tasks/post-launch-review-and-learning-loop.md
-    - tasks/ai-product-safety-and-eval.md
-    - tasks/product-portfolio-and-roadmap-now-next-later.md
-    - tasks/backlog-grooming-and-story-mapping.md
-    - tasks/csm-feedback-loop-and-nps.md
+    - author-product-vision-and-north-star.md
+    - problem-framing-and-evidence.md
+    - run-user-research-and-jtbd.md
+    - opportunity-solution-tree.md
+    - prioritize-with-rice-and-constraints.md
+    - author-prd-and-acceptance-criteria.md
+    - run-ux-design-system-and-a11y.md
+    - instrumentation-and-tracking-plan.md
+    - experiment-design-and-ab-testing.md
+    - pricing-and-packaging-strategy.md
+    - growth-model-and-funnel-ops.md
+    - release-planning-and-launch-brief.md
+    - post-launch-review-and-learning-loop.md
+    - ai-product-safety-and-eval.md
+    - product-portfolio-and-roadmap-now-next-later.md
+    - backlog-grooming-and-story-mapping.md
+    - csm-feedback-loop-and-nps.md
   templates:
-    - templates/product-vision-1pager-tmpl.yaml
-    - templates/north-star-metrics-tmpl.yaml
-    - templates/problem-framing-canvas-tmpl.yaml
-    - templates/jtbd-interview-guide-tmpl.yaml
-    - templates/persona-canvas-tmpl.yaml
-    - templates/journey-map-tmpl.yaml
-    - templates/opportunity-solution-tree-tmpl.yaml
-    - templates/rice-prioritization-tmpl.yaml
-    - templates/prd-tmpl.yaml
-    - templates/acceptance-criteria-tmpl.yaml
-    - templates/tracking-plan-tmpl.yaml
-    - templates/experiment-plan-tmpl.yaml
-    - templates/launch-brief-tmpl.yaml
-    - templates/release-notes-tmpl.yaml
-    - templates/pricing-packaging-sheet-tmpl.yaml
-    - templates/roadmap-now-next-later-tmpl.yaml
-    - templates/growth-model-canvas-tmpl.yaml
-    - templates/nps-survey-tmpl.yaml
-    - templates/ai-feature-eval-tmpl.yaml
+    - product-vision-1pager-tmpl.yaml
+    - north-star-metrics-tmpl.yaml
+    - problem-framing-canvas-tmpl.yaml
+    - jtbd-interview-guide-tmpl.yaml
+    - persona-canvas-tmpl.yaml
+    - journey-map-tmpl.yaml
+    - opportunity-solution-tree-tmpl.yaml
+    - rice-prioritization-tmpl.yaml
+    - prd-tmpl.yaml
+    - acceptance-criteria-tmpl.yaml
+    - tracking-plan-tmpl.yaml
+    - experiment-plan-tmpl.yaml
+    - launch-brief-tmpl.yaml
+    - release-notes-tmpl.yaml
+    - pricing-packaging-sheet-tmpl.yaml
+    - roadmap-now-next-later-tmpl.yaml
+    - growth-model-canvas-tmpl.yaml
+    - nps-survey-tmpl.yaml
+    - ai-feature-eval-tmpl.yaml
   checklists:
-    - checklists/product-discovery-checklist.md
-    - checklists/prd-quality-gates.md
-    - checklists/launch-readiness.md
-    - checklists/experiment-review.md
-    - checklists/accessibility-a11y.md
-    - checklists/tracking-implementation.md
-    - checklists/pricing-change-safeguards.md
-    - checklists/ai-ethics-safety.md
+    - product-discovery-checklist.md
+    - prd-quality-gates.md
+    - launch-readiness.md
+    - experiment-review.md
+    - accessibility-a11y.md
+    - tracking-implementation.md
+    - pricing-change-safeguards.md
+    - ai-ethics-safety.md
   data:
-    - data/product-metrics-cheatsheet.md
-    - data/aarrr-funnel-metrics.md
-    - data/growth-loops-library.md
-    - data/pricing-playbook.md
-    - data/research-methods-cheatsheet.md
+    - product-metrics-cheatsheet.md
+    - aarrr-funnel-metrics.md
+    - growth-loops-library.md
+    - pricing-playbook.md
+    - research-methods-cheatsheet.md
 
 help-display-template: |
   === CPO/Product Commands ===
@@ -123,5 +123,5 @@ loading:
 
 ownership:
   - CPO owns: 愿景/北极星/PMF/组合与路线图/PRD与质量门/度量与实验/增长/定价/伦理与安全
-  - Editors: PM/UX/Eng/Data/PMM/CS/Finance 可对各自章节补充，但保留CPO最终拍板
+  - Editors: PM/UX/Eng/PMM/CS/Finance 可对各自章节补充，但保留CPO最终拍板
 ```
