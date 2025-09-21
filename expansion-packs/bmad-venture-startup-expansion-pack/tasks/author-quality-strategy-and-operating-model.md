@@ -1,0 +1,3 @@
+# Author Quality Strategy & Operating Model
+
+...
