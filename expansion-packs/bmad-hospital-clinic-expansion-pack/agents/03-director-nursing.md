@@ -82,48 +82,48 @@ dependencies:
     - create-doc.md
     - execute-checklist.md
   templates:
-    - templates/output/staffing-roster-tmpl.yaml
-    - templates/output/nurse-acuity-model-tmpl.yaml
-    - templates/output/competency-matrix-tmpl.yaml
-    - templates/output/education-plan-tmpl.yaml
-    - templates/output/medication-safety-audit-tmpl.yaml
-    - templates/output/falls-bundle-report-tmpl.yaml
-    - templates/output/pressure-injury-bundle-tmpl.yaml
-    - templates/output/catheter-uti-bundle-tmpl.yaml
-    - templates/output/clabsi-bundle-tmpl.yaml
-    - templates/output/handoff-sbar-standard-tmpl.yaml
-    - templates/output/shift-huddle-minutes-tmpl.yaml
-    - templates/output/patient-education-leaflet-tmpl.yaml
-    - templates/output/incident-rca-report-tmpl.yaml
-    - templates/output/nursing-kpi-dashboard-spec-tmpl.yaml
-    - templates/output/patient-experience-improvement-plan-tmpl.yaml
-    - templates/output/discharge-readmission-plan-tmpl.yaml
-    - templates/output/documentation-audit-report-tmpl.yaml
-    - templates/output/emergency-nursing-playbook-tmpl.yaml
-    - templates/output/policy-sop-tmpl.yaml
-    - templates/output/risk-register-tmpl.yaml
-    - templates/output/audit-report-tmpl.yaml
+    - staffing-roster-tmpl.yaml
+    - nurse-acuity-model-tmpl.yaml
+    - competency-matrix-tmpl.yaml
+    - education-plan-tmpl.yaml
+    - medication-safety-audit-tmpl.yaml
+    - falls-bundle-report-tmpl.yaml
+    - pressure-injury-bundle-tmpl.yaml
+    - catheter-uti-bundle-tmpl.yaml
+    - clabsi-bundle-tmpl.yaml
+    - handoff-sbar-standard-tmpl.yaml
+    - shift-huddle-minutes-tmpl.yaml
+    - patient-education-leaflet-tmpl.yaml
+    - incident-rca-report-tmpl.yaml
+    - nursing-kpi-dashboard-spec-tmpl.yaml
+    - patient-experience-improvement-plan-tmpl.yaml
+    - discharge-readmission-plan-tmpl.yaml
+    - documentation-audit-report-tmpl.yaml
+    - emergency-nursing-playbook-tmpl.yaml
+    - policy-sop-tmpl.yaml
+    - risk-register-tmpl.yaml
+    - audit-report-tmpl.yaml
   checklists:
-    - checklists/nursing-operations-checklist.md
-    - checklists/medication-administration-safety-checklist.md
-    - checklists/falls-prevention-checklist.md
-    - checklists/pressure-injury-prevention-checklist.md
-    - checklists/catheter-uti-checklist.md
-    - checklists/clabsi-prevention-checklist.md
-    - checklists/handoff-sbar-checklist.md
-    - checklists/shift-huddle-checklist.md
-    - checklists/patient-education-checklist.md
-    - checklists/competency-credentialing-checklist.md
-    - checklists/staffing-roster-constraints-checklist.md
-    - checklists/emergency-preparedness-nursing-checklist.md
-    - checklists/documentation-audit-checklist.md
+    - nursing-operations-checklist.md
+    - medication-administration-safety-checklist.md
+    - falls-prevention-checklist.md
+    - pressure-injury-prevention-checklist.md
+    - catheter-uti-checklist.md
+    - clabsi-prevention-checklist.md
+    - handoff-sbar-checklist.md
+    - shift-huddle-checklist.md
+    - patient-education-checklist.md
+    - competency-credentialing-checklist.md
+    - staffing-roster-constraints-checklist.md
+    - emergency-preparedness-nursing-checklist.md
+    - documentation-audit-checklist.md
   data:
-    - templates/data/staff_roster.csv
-    - templates/data/nurse_acuity_weights.csv
-    - templates/data/kpi.csv
-    - templates/data/education_catalog.csv
-    - templates/data/fall_cases.csv
-    - templates/data/pressure_injury_cases.csv
+    - staff_roster.csv
+    - nurse_acuity_weights.csv
+    - kpi.csv
+    - education_catalog.csv
+    - fall_cases.csv
+    - pressure_injury_cases.csv
 
 notes:
   - 本 Agent 参考日本 APPI/医療法 与国际标准（JCI、GDPR‑like、HIPAA‑like），最终须由法务/医务/护理会签裁剪。

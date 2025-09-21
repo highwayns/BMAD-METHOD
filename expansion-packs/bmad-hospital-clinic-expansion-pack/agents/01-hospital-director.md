@@ -67,34 +67,34 @@ dependencies:
     - create-doc.md
     - execute-checklist.md
   templates:
-    - templates/output/operations-plan-tmpl.yaml
-    - templates/output/accreditation-readiness-report-tmpl.yaml
-    - templates/output/infection-control-rounds-tmpl.yaml
-    - templates/output/privacy-impact-assessment-tmpl.yaml
-    - templates/output/incident-drill-report-tmpl.yaml
-    - templates/output/rcm-improvement-plan-tmpl.yaml
-    - templates/output/staffing-roster-tmpl.yaml
-    - templates/output/vendor-evaluation-tmpl.yaml
-    - templates/output/emr-change-request-tmpl.yaml
-    - templates/output/kpi-dashboard-spec-tmpl.yaml
-    - templates/output/risk-register-tmpl.yaml
-    - templates/output/audit-report-tmpl.yaml
-    - templates/output/policy-sop-tmpl.yaml
-    - templates/output/patient-complaint-response-tmpl.yaml
+    - operations-plan-tmpl.yaml
+    - accreditation-readiness-report-tmpl.yaml
+    - infection-control-rounds-tmpl.yaml
+    - privacy-impact-assessment-tmpl.yaml
+    - incident-drill-report-tmpl.yaml
+    - rcm-improvement-plan-tmpl.yaml
+    - staffing-roster-tmpl.yaml
+    - vendor-evaluation-tmpl.yaml
+    - emr-change-request-tmpl.yaml
+    - kpi-dashboard-spec-tmpl.yaml
+    - risk-register-tmpl.yaml
+    - audit-report-tmpl.yaml
+    - policy-sop-tmpl.yaml
+    - patient-complaint-response-tmpl.yaml
   checklists:
-    - checklists/hospital-operations-checklist.md
-    - checklists/accreditation-readiness-checklist.md
-    - checklists/infection-control-rounds-checklist.md
-    - checklists/privacy-appi-compliance-checklist.md
-    - checklists/incident-rca-checklist.md
-    - checklists/emergency-preparedness-drill-checklist.md
-    - checklists/emr-change-management-checklist.md
-    - checklists/medication-safety-checklist.md
+    - hospital-operations-checklist.md
+    - accreditation-readiness-checklist.md
+    - infection-control-rounds-checklist.md
+    - privacy-appi-compliance-checklist.md
+    - incident-rca-checklist.md
+    - emergency-preparedness-drill-checklist.md
+    - emr-change-management-checklist.md
+    - medication-safety-checklist.md
   data:
-    - templates/data/kpi.csv
-    - templates/data/staff_roster.csv
-    - templates/data/appointment_schedule.csv
-    - templates/data/medication_formulary.csv
+    - kpi.csv
+    - staff_roster.csv
+    - appointment_schedule.csv
+    - medication_formulary.csv
 
 notes:
   - 本 Agent 面向日本/国际混合环境，采用“APPI/GDPR‑like/HIPAA‑like”保守合规模型（需由法务最终裁剪）。

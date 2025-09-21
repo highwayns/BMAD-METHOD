@@ -66,38 +66,38 @@ dependencies:
     - create-doc.md
     - execute-checklist.md
   templates:
-    - templates/output/care-pathway-spec-tmpl.yaml
-    - templates/output/order-set-governance-tmpl.yaml
-    - templates/output/ams-program-plan-tmpl.yaml
-    - templates/output/ic-rounds-report-tmpl.yaml
-    - templates/output/mm-minutes-tmpl.yaml
-    - templates/output/sepsis-bundle-compliance-tmpl.yaml
-    - templates/output/rrt-protocol-tmpl.yaml
-    - templates/output/credentialing-privileging-tmpl.yaml
-    - templates/output/qi-project-charter-tmpl.yaml
-    - templates/output/clinical-kpi-dashboard-spec-tmpl.yaml
-    - templates/output/policy-sop-tmpl.yaml
-    - templates/output/risk-register-tmpl.yaml
-    - templates/output/audit-report-tmpl.yaml
-    - templates/output/patient-communication-note-tmpl.yaml
+    - care-pathway-spec-tmpl.yaml
+    - order-set-governance-tmpl.yaml
+    - ams-program-plan-tmpl.yaml
+    - ic-rounds-report-tmpl.yaml
+    - mm-minutes-tmpl.yaml
+    - sepsis-bundle-compliance-tmpl.yaml
+    - rrt-protocol-tmpl.yaml
+    - credentialing-privileging-tmpl.yaml
+    - qi-project-charter-tmpl.yaml
+    - clinical-kpi-dashboard-spec-tmpl.yaml
+    - policy-sop-tmpl.yaml
+    - risk-register-tmpl.yaml
+    - audit-report-tmpl.yaml
+    - patient-communication-note-tmpl.yaml
   checklists:
-    - checklists/care-pathway-readiness-checklist.md
-    - checklists/order-set-safety-checklist.md
-    - checklists/antimicrobial-stewardship-checklist.md
-    - checklists/infection-control-rounds-checklist.md
-    - checklists/sepsis-bundle-checklist.md
-    - checklists/rapid-response-system-checklist.md
-    - checklists/credentialing-privileging-checklist.md
-    - checklists/qi-project-lifecycle-checklist.md
-    - checklists/clinical-audit-checklist.md
+    - care-pathway-readiness-checklist.md
+    - order-set-safety-checklist.md
+    - antimicrobial-stewardship-checklist.md
+    - infection-control-rounds-checklist.md
+    - sepsis-bundle-checklist.md
+    - rapid-response-system-checklist.md
+    - credentialing-privileging-checklist.md
+    - qi-project-lifecycle-checklist.md
+    - clinical-audit-checklist.md
   data:
-    - templates/data/guideline_index.csv
-    - templates/data/order_set.csv
-    - templates/data/antibiogram.csv
-    - templates/data/sepsis_cases.csv
-    - templates/data/rrt_events.csv
-    - templates/data/credentialing_roster.csv
-    - templates/data/kpi.csv
+    - guideline_index.csv
+    - order_set.csv
+    - antibiogram.csv
+    - sepsis_cases.csv
+    - rrt_events.csv
+    - credentialing_roster.csv
+    - kpi.csv
 
 notes:
   - 本 Agent 以日本（APPI/医療法）与国际（GDPR‑like/HIPAA‑like、JCI 等）混合环境为参考标准，最终需由法务/医务会签裁剪。

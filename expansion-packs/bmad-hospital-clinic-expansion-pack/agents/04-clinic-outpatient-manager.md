@@ -82,52 +82,52 @@ dependencies:
     - create-doc.md
     - execute-checklist.md
   templates:
-    - templates/output/appointment-plan-tmpl.yaml
-    - templates/output/queue-dashboard-spec-tmpl.yaml
-    - templates/output/triage-protocol-tmpl.yaml
-    - templates/output/frontdesk-sop-tmpl.yaml
-    - templates/output/eligibility-preauth-tmpl.yaml
-    - templates/output/rcm-outpatient-plan-tmpl.yaml
-    - templates/output/telemedicine-sop-tmpl.yaml
-    - templates/output/ic-ambulatory-report-tmpl.yaml
-    - templates/output/lab-imaging-coordination-tmpl.yaml
-    - templates/output/pharmacy-pickup-tmpl.yaml
-    - templates/output/noshow-reduction-plan-tmpl.yaml
-    - templates/output/capacity-plan-tmpl.yaml
-    - templates/output/outpatient-kpi-dashboard-spec-tmpl.yaml
-    - templates/output/patient-communication-scripts-tmpl.yaml
-    - templates/output/complaint-response-tmpl.yaml
-    - templates/output/accessibility-signage-plan-tmpl.yaml
-    - templates/output/emergency-drill-report-tmpl.yaml
-    - templates/output/policy-sop-tmpl.yaml
-    - templates/output/audit-report-tmpl.yaml
-    - templates/output/risk-register-tmpl.yaml
+    - appointment-plan-tmpl.yaml
+    - queue-dashboard-spec-tmpl.yaml
+    - triage-protocol-tmpl.yaml
+    - frontdesk-sop-tmpl.yaml
+    - eligibility-preauth-tmpl.yaml
+    - rcm-outpatient-plan-tmpl.yaml
+    - telemedicine-sop-tmpl.yaml
+    - ic-ambulatory-report-tmpl.yaml
+    - lab-imaging-coordination-tmpl.yaml
+    - pharmacy-pickup-tmpl.yaml
+    - noshow-reduction-plan-tmpl.yaml
+    - capacity-plan-tmpl.yaml
+    - outpatient-kpi-dashboard-spec-tmpl.yaml
+    - patient-communication-scripts-tmpl.yaml
+    - complaint-response-tmpl.yaml
+    - accessibility-signage-plan-tmpl.yaml
+    - emergency-drill-report-tmpl.yaml
+    - policy-sop-tmpl.yaml
+    - audit-report-tmpl.yaml
+    - risk-register-tmpl.yaml
   checklists:
-    - checklists/outpatient-operations-16s-checklist.md
-    - checklists/triage-safety-checklist.md
-    - checklists/frontdesk-intake-checklist.md
-    - checklists/privacy-appi-outpatient-checklist.md
-    - checklists/cleaning-disinfection-ambulatory-checklist.md
-    - checklists/sharps-injection-safety-checklist.md
-    - checklists/waiting-area-safety-checklist.md
-    - checklists/peds-safeguard-checklist.md
-    - checklists/elderly-fall-prevent-outpatient-checklist.md
-    - checklists/telemedicine-compliance-checklist.md
-    - checklists/rcm-outpatient-checklist.md
-    - checklists/cash-handling-checklist.md
-    - checklists/vaccine-coldchain-checklist.md
-    - checklists/clinic-open-close-checklist.md
-    - checklists/accessibility-checklist.md
-    - checklists/complaint-handling-checklist.md
+    - outpatient-operations-16s-checklist.md
+    - triage-safety-checklist.md
+    - frontdesk-intake-checklist.md
+    - privacy-appi-outpatient-checklist.md
+    - cleaning-disinfection-ambulatory-checklist.md
+    - sharps-injection-safety-checklist.md
+    - waiting-area-safety-checklist.md
+    - peds-safeguard-checklist.md
+    - elderly-fall-prevent-outpatient-checklist.md
+    - telemedicine-compliance-checklist.md
+    - rcm-outpatient-checklist.md
+    - cash-handling-checklist.md
+    - vaccine-coldchain-checklist.md
+    - clinic-open-close-checklist.md
+    - accessibility-checklist.md
+    - complaint-handling-checklist.md
   data:
-    - templates/data/appointment_schedule.csv
-    - templates/data/patient_registry.csv
-    - templates/data/staff_roster.csv
-    - templates/data/no_show_history.csv
-    - templates/data/kpi.csv
-    - templates/data/lab_orders.csv
-    - templates/data/imaging_orders.csv
-    - templates/data/pharmacy_orders.csv
+    - appointment_schedule.csv
+    - patient_registry.csv
+    - staff_roster.csv
+    - no_show_history.csv
+    - kpi.csv
+    - lab_orders.csv
+    - imaging_orders.csv
+    - pharmacy_orders.csv
 
 notes:
   - 本 Agent 参考日本 APPI/医療法 与国际标准（JCI/WHO Ambulatory 指南等），最终须由法务/医疗管理会签裁剪。
