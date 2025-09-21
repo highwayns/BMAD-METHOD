@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -58,85 +58,85 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/surveillance-syndromic-and-pathogen.md
-    - tasks/screening-and-isolation-decision.md
-    - tasks/cohorting-and-bed-management.md
-    - tasks/ppe-and-hand-hygiene-observation.md
-    - tasks/environmental-cleaning-and-disinfection.md
-    - tasks/air-quality-and-ventilation-management.md
-    - tasks/water-safety-and-legionella-control.md
-    - tasks/sterilization-and-reprocessing-audit.md
-    - tasks/waste-and-laundry-management.md
-    - tasks/vaccination-clinic-and-consent.md
-    - tasks/occupational-exposure-and-pep.md
-    - tasks/outbreak-investigation-and-contact-tracing.md
-    - tasks/case-line-list-and-analytics.md
-    - tasks/visitor-and-contractor-screening.md
-    - tasks/data-quality-and-ehr-fhir-ipc-mapping.md
-    - tasks/privacy-impact-assessment-and-dpia.md
-    - tasks/audit-log-review-and-access-control.md
-    - tasks/reporting-kpi-and-quality-improvement.md
-    - tasks/backup-disaster-recovery-and-drill.md
+    - surveillance-syndromic-and-pathogen.md
+    - screening-and-isolation-decision.md
+    - cohorting-and-bed-management.md
+    - ppe-and-hand-hygiene-observation.md
+    - environmental-cleaning-and-disinfection.md
+    - air-quality-and-ventilation-management.md
+    - water-safety-and-legionella-control.md
+    - sterilization-and-reprocessing-audit.md
+    - waste-and-laundry-management.md
+    - vaccination-clinic-and-consent.md
+    - occupational-exposure-and-pep.md
+    - outbreak-investigation-and-contact-tracing.md
+    - case-line-list-and-analytics.md
+    - visitor-and-contractor-screening.md
+    - data-quality-and-ehr-fhir-ipc-mapping.md
+    - privacy-impact-assessment-and-dpia.md
+    - audit-log-review-and-access-control.md
+    - reporting-kpi-and-quality-improvement.md
+    - backup-disaster-recovery-and-drill.md
   templates:
-    - templates/output/ipc-screening-note-tmpl.yaml
-    - templates/output/isolation-order-and-cohorting-plan-tmpl.yaml
-    - templates/output/ppe-and-hand-hygiene-observation-tmpl.yaml
-    - templates/output/environmental-cleaning-schedule-tmpl.yaml
-    - templates/output/air-quality-and-co2-monitoring-tmpl.yaml
-    - templates/output/water-safety-legionella-log-tmpl.yaml
-    - templates/output/sterilization-reprocessing-audit-tmpl.yaml
-    - templates/output/waste-and-laundry-audit-tmpl.yaml
-    - templates/output/vaccination-clinic-roster-and-consent-tmpl.yaml
-    - templates/output/occupational-exposure-and-pep-tmpl.yaml
-    - templates/output/outbreak-line-list-and-epi-curve-tmpl.yaml
-    - templates/output/contact-tracing-register-tmpl.yaml
-    - templates/output/visitor-and-contractor-screening-tmpl.yaml
-    - templates/output/kpi-dashboard-spec-tmpl.yaml
-    - templates/output/privacy-dpia-register-tmpl.yaml
-    - templates/output/audit-log-review-report-tmpl.yaml
-    - templates/output/ehr-hl7-fhir-ipc-mapping-tmpl.yaml
-    - templates/output/bcdr-plan-and-drill-report-tmpl.yaml
+    - ipc-screening-note-tmpl.yaml
+    - isolation-order-and-cohorting-plan-tmpl.yaml
+    - ppe-and-hand-hygiene-observation-tmpl.yaml
+    - environmental-cleaning-schedule-tmpl.yaml
+    - air-quality-and-co2-monitoring-tmpl.yaml
+    - water-safety-legionella-log-tmpl.yaml
+    - sterilization-reprocessing-audit-tmpl.yaml
+    - waste-and-laundry-audit-tmpl.yaml
+    - vaccination-clinic-roster-and-consent-tmpl.yaml
+    - occupational-exposure-and-pep-tmpl.yaml
+    - outbreak-line-list-and-epi-curve-tmpl.yaml
+    - contact-tracing-register-tmpl.yaml
+    - visitor-and-contractor-screening-tmpl.yaml
+    - kpi-dashboard-spec-tmpl.yaml
+    - privacy-dpia-register-tmpl.yaml
+    - audit-log-review-report-tmpl.yaml
+    - ehr-hl7-fhir-ipc-mapping-tmpl.yaml
+    - bcdr-plan-and-drill-report-tmpl.yaml
   checklists:
-    - checklists/admission-screening-and-isolation.md
-    - checklists/ppe-donning-doffing-and-fit-check.md
-    - checklists/hand-hygiene-five-moments-audit.md
-    - checklists/room-terminal-cleaning-and-turnover.md
-    - checklists/air-zone-pressurization-and-filter-check.md
-    - checklists/water-temperature-and-flushing-rounds.md
-    - checklists/sterilization-bowie-dick-and-biological-indicator.md
-    - checklists/waste-segregation-and-transport.md
-    - checklists/laundry-collection-and-thermal-disinfection.md
-    - checklists/vaccination-clinic-safety-and-cold-chain.md
-    - checklists/occupational-exposure-management.md
-    - checklists/outbreak-ims-roles-and-briefing.md
-    - checklists/visitor-contractor-screening.md
-    - checklists/hipaa-appi-iso27701-ipc-gap-assessment.md
+    - admission-screening-and-isolation.md
+    - ppe-donning-doffing-and-fit-check.md
+    - hand-hygiene-five-moments-audit.md
+    - room-terminal-cleaning-and-turnover.md
+    - air-zone-pressurization-and-filter-check.md
+    - water-temperature-and-flushing-rounds.md
+    - sterilization-bowie-dick-and-biological-indicator.md
+    - waste-segregation-and-transport.md
+    - laundry-collection-and-thermal-disinfection.md
+    - vaccination-clinic-safety-and-cold-chain.md
+    - occupational-exposure-management.md
+    - outbreak-ims-roles-and-briefing.md
+    - visitor-contractor-screening.md
+    - hipaa-appi-iso27701-ipc-gap-assessment.md
   data:
-    - templates/data/residents.csv
-    - templates/data/admission_screening.csv
-    - templates/data/syndromic_surveillance.csv
-    - templates/data/lab_results.csv
-    - templates/data/isolation_orders.csv
-    - templates/data/cohorting_plans.csv
-    - templates/data/ppe_observations.csv
-    - templates/data/hand_hygiene_audits.csv
-    - templates/data/environmental_cleaning.csv
-    - templates/data/air_quality.csv
-    - templates/data/room_pressurization.csv
-    - templates/data/water_system_temps.csv
-    - templates/data/legionella_tests.csv
-    - templates/data/sterilization_records.csv
-    - templates/data/waste_streams.csv
-    - templates/data/laundry_cycles.csv
-    - templates/data/vaccination_roster.csv
-    - templates/data/consents.csv
-    - templates/data/occupational_exposures.csv
-    - templates/data/contact_tracing.csv
-    - templates/data/outbreak_line_list.csv
-    - templates/data/visitors_and_contractors.csv
-    - templates/data/audit_logs.csv
-    - templates/data/access_controls.csv
-    - templates/data/kpi_metrics.csv
+    - residents.csv
+    - admission_screening.csv
+    - syndromic_surveillance.csv
+    - lab_results.csv
+    - isolation_orders.csv
+    - cohorting_plans.csv
+    - ppe_observations.csv
+    - hand_hygiene_audits.csv
+    - environmental_cleaning.csv
+    - air_quality.csv
+    - room_pressurization.csv
+    - water_system_temps.csv
+    - legionella_tests.csv
+    - sterilization_records.csv
+    - waste_streams.csv
+    - laundry_cycles.csv
+    - vaccination_roster.csv
+    - consents.csv
+    - occupational_exposures.csv
+    - contact_tracing.csv
+    - outbreak_line_list.csv
+    - visitors_and_contractors.csv
+    - audit_logs.csv
+    - access_controls.csv
+    - kpi_metrics.csv
 
 deliverables:
   - IPC KPI：HAI率、手卫生依从率、PPE合规率、环境抽检合格率、空气/水监测合规、疫苗覆盖率、暴发处置时长与规模控制等

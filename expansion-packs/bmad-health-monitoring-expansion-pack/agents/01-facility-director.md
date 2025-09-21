@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -61,98 +61,98 @@ commands:
 dependencies:
   tasks:
     # —— 健康监控（沿用并增强）——
-    - tasks/device-onboarding-and-calibration.md
-    - tasks/vitals-stream-ingestion-and-alarms.md
-    - tasks/fall-detection-configuration-and-testing.md
-    - tasks/rounds-planning-and-handover.md
-    - tasks/infection-prevention-and-surveillance.md
-    - tasks/emergency-response-and-escalation.md
-    - tasks/reporting-kpi-and-quality-improvement.md
-    - tasks/privacy-impact-assessment-and-dpia.md
-    - tasks/audit-log-review-and-access-control.md
+    - device-onboarding-and-calibration.md
+    - vitals-stream-ingestion-and-alarms.md
+    - fall-detection-configuration-and-testing.md
+    - rounds-planning-and-handover.md
+    - infection-prevention-and-surveillance.md
+    - emergency-response-and-escalation.md
+    - reporting-kpi-and-quality-improvement.md
+    - privacy-impact-assessment-and-dpia.md
+    - audit-log-review-and-access-control.md
     # —— 设施/后勤（新增）——
-    - tasks/facility-asset-register-and-tagging.md # 资产主数据/编码/QR/位置信息
-    - tasks/pm-plan-and-calibration-schedule.md # 预防性维护/校准主计划
-    - tasks/work-order-lifecycle-and-permit-to-work.md # 工单全流程与作业许可
-    - tasks/hvac-bms-optimization-and-filter-check.md # BMS/HVAC运行优化与滤网点检
-    - tasks/water-safety-legionella-control.md # 水安全/温度/军团菌控制
-    - tasks/emergency-power-generator-ats-test.md # 发电机/ATS周测
-    - tasks/fire-safety-drill-and-evacuation-plan.md # 消防演练/疏散预案
-    - tasks/nurse-call-cctv-access-privacy-review.md # 护士呼叫/视频/门禁隐私与脱敏
-    - tasks/kitchen-haccp-and-cold-chain.md # 厨房HACCP/冷链
-    - tasks/laundry-infection-control-and-linen-flow.md # 洗衣与感染控制
-    - tasks/waste-classification-and-chain-of-custody.md # 医废/生活垃圾分类与链路记录
-    - tasks/vendor-sla-evaluation-and-renewal.md # 供应商SLA评估与续约
-    - tasks/energy-co2-monitoring-and-anomaly-diagnosis.md # 能耗/CO₂强度监控与异常诊断
+    - facility-asset-register-and-tagging.md # 资产主数据/编码/QR/位置信息
+    - pm-plan-and-calibration-schedule.md # 预防性维护/校准主计划
+    - work-order-lifecycle-and-permit-to-work.md # 工单全流程与作业许可
+    - hvac-bms-optimization-and-filter-check.md # BMS/HVAC运行优化与滤网点检
+    - water-safety-legionella-control.md # 水安全/温度/军团菌控制
+    - emergency-power-generator-ats-test.md # 发电机/ATS周测
+    - fire-safety-drill-and-evacuation-plan.md # 消防演练/疏散预案
+    - nurse-call-cctv-access-privacy-review.md # 护士呼叫/视频/门禁隐私与脱敏
+    - kitchen-haccp-and-cold-chain.md # 厨房HACCP/冷链
+    - laundry-infection-control-and-linen-flow.md # 洗衣与感染控制
+    - waste-classification-and-chain-of-custody.md # 医废/生活垃圾分类与链路记录
+    - vendor-sla-evaluation-and-renewal.md # 供应商SLA评估与续约
+    - energy-co2-monitoring-and-anomaly-diagnosis.md # 能耗/CO₂强度监控与异常诊断
   templates:
     # —— 保留并复用原有输出模板 ——
-    - templates/output/vitals-thresholds-and-alert-rules-tmpl.yaml
-    - templates/output/infection-surveillance-daily-log-tmpl.yaml
-    - templates/output/incident-8d-capa-report-tmpl.yaml
-    - templates/output/kpi-dashboard-spec-tmpl.yaml
-    - templates/output/privacy-dpia-register-tmpl.yaml
-    - templates/output/audit-log-review-report-tmpl.yaml
-    - templates/output/bcdr-plan-and-drill-report-tmpl.yaml
+    - vitals-thresholds-and-alert-rules-tmpl.yaml
+    - infection-surveillance-daily-log-tmpl.yaml
+    - incident-8d-capa-report-tmpl.yaml
+    - kpi-dashboard-spec-tmpl.yaml
+    - privacy-dpia-register-tmpl.yaml
+    - audit-log-review-report-tmpl.yaml
+    - bcdr-plan-and-drill-report-tmpl.yaml
     # —— 新增设施/后勤输出模板 ——
-    - templates/output/asset-register-tmpl.yaml
-    - templates/output/pm-schedule-tmpl.yaml
-    - templates/output/work-order-log-tmpl.yaml
-    - templates/output/vendor-sla-monthly-report-tmpl.yaml
-    - templates/output/energy-and-co2-dashboard-tmpl.yaml
-    - templates/output/water-safety-log-tmpl.yaml
-    - templates/output/fire-drill-report-tmpl.yaml
-    - templates/output/kitchen-haccp-log-tmpl.yaml
-    - templates/output/waste-audit-report-tmpl.yaml
-    - templates/output/inventory-ppe-daily-count-tmpl.yaml
-    - templates/output/transport-and-logistics-log-tmpl.yaml
-    - templates/output/esg-procurement-checklist-tmpl.yaml
+    - asset-register-tmpl.yaml
+    - pm-schedule-tmpl.yaml
+    - work-order-log-tmpl.yaml
+    - vendor-sla-monthly-report-tmpl.yaml
+    - energy-and-co2-dashboard-tmpl.yaml
+    - water-safety-log-tmpl.yaml
+    - fire-drill-report-tmpl.yaml
+    - kitchen-haccp-log-tmpl.yaml
+    - waste-audit-report-tmpl.yaml
+    - inventory-ppe-daily-count-tmpl.yaml
+    - transport-and-logistics-log-tmpl.yaml
+    - esg-procurement-checklist-tmpl.yaml
   checklists:
     # —— 保留原护理/合规/应急清单 ——
-    - checklists/shift-start-sos-nursing.md
-    - checklists/infection-control-ppe-and-hand-hygiene.md
-    - checklists/emergency-code-blue-and-evacuation.md
-    - checklists/hipaa-appi-iso27701-gap-assessment.md
-    - checklists/data-quality-and-missingness.md
+    - shift-start-sos-nursing.md
+    - infection-control-ppe-and-hand-hygiene.md
+    - emergency-code-blue-and-evacuation.md
+    - hipaa-appi-iso27701-gap-assessment.md
+    - data-quality-and-missingness.md
     # —— 新增设施/后勤清单 ——
-    - checklists/hvac-filter-and-temperature-check.md
-    - checklists/water-temperature-and-legionella-control.md
-    - checklists/generator-weekly-ats-test.md
-    - checklists/fire-alarm-suppression-and-evacuation-drill.md
-    - checklists/nurse-call-and-cctv-privacy-mask-check.md
-    - checklists/access-control-permission-review.md
-    - checklists/kitchen-haccp-daily-check.md
-    - checklists/laundry-infection-control.md
-    - checklists/waste-classification-and-custody.md
-    - checklists/asset-maintenance-and-calibration.md
-    - checklists/energy-and-co2-dashboard-review.md
-    - checklists/vendor-sla-quarterly-review.md
-    - checklists/esg-procurement-compliance.md
+    - hvac-filter-and-temperature-check.md
+    - water-temperature-and-legionella-control.md
+    - generator-weekly-ats-test.md
+    - fire-alarm-suppression-and-evacuation-drill.md
+    - nurse-call-and-cctv-privacy-mask-check.md
+    - access-control-permission-review.md
+    - kitchen-haccp-daily-check.md
+    - laundry-infection-control.md
+    - waste-classification-and-custody.md
+    - asset-maintenance-and-calibration.md
+    - energy-and-co2-dashboard-review.md
+    - vendor-sla-quarterly-review.md
+    - esg-procurement-compliance.md
   data:
     # —— 兼容原有数据表 ——
-    - templates/data/devices.csv
-    - templates/data/device_calibration.csv
-    - templates/data/alerts.csv
-    - templates/data/triage_actions.csv
-    - templates/data/staff_roster.csv
-    - templates/data/stock_ppe_and_medications.csv
-    - templates/data/waste_management.csv
-    - templates/data/energy_and_environment.csv
-    - templates/data/kpi_metrics.csv
-    - templates/data/finance_costs.csv
+    - devices.csv
+    - device_calibration.csv
+    - alerts.csv
+    - triage_actions.csv
+    - staff_roster.csv
+    - stock_ppe_and_medications.csv
+    - waste_management.csv
+    - energy_and_environment.csv
+    - kpi_metrics.csv
+    - finance_costs.csv
     # —— 新增设施/后勤数据表 ——
-    - templates/data/asset_master.csv
-    - templates/data/maintenance_workorders.csv
-    - templates/data/hvac_sensors.csv
-    - templates/data/water_temperature_log.csv
-    - templates/data/generator_ats_tests.csv
-    - templates/data/fire_drill_logs.csv
-    - templates/data/cctv_access_and_privacy.csv
-    - templates/data/access_control_reviews.csv
-    - templates/data/kitchen_haccp_checks.csv
-    - templates/data/laundry_cycles_and_disinfection.csv
-    - templates/data/vendor_sla_scores.csv
-    - templates/data/energy_co2_timeseries.csv
-    - templates/data/transport_and_logistics.csv
+    - asset_master.csv
+    - maintenance_workorders.csv
+    - hvac_sensors.csv
+    - water_temperature_log.csv
+    - generator_ats_tests.csv
+    - fire_drill_logs.csv
+    - cctv_access_and_privacy.csv
+    - access_control_reviews.csv
+    - kitchen_haccp_checks.csv
+    - laundry_cycles_and_disinfection.csv
+    - vendor_sla_scores.csv
+    - energy_co2_timeseries.csv
+    - transport_and_logistics.csv
 
 # 交付物/输出约定（DoD）
 deliverables:

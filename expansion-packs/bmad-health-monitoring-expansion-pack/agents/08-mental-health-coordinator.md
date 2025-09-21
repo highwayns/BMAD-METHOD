@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -54,68 +54,68 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/mental-health-screening-and-triage.md
-    - tasks/behavioral-support-plan-bsp.md
-    - tasks/de-escalation-and-crisis-management.md
-    - tasks/wandering-elopement-prevention-and-drills.md
-    - tasks/sleep-hygiene-and-noc-agitation-pathway.md
-    - tasks/psychotropic-medication-monitoring-and-aims.md
-    - tasks/family-meeting-and-shared-decision-making.md
-    - tasks/mdt-case-conference-and-followup.md
-    - tasks/incident-reporting-and-8d-capa.md
-    - tasks/restraint-reduction-and-alternatives.md
-    - tasks/capacity-and-consent-management.md
-    - tasks/data-quality-and-ehr-fhir-mental-health-mapping.md
-    - tasks/privacy-impact-assessment-and-dpia.md
-    - tasks/audit-log-review-and-access-control.md
-    - tasks/reporting-kpi-and-quality-improvement.md
-    - tasks/backup-disaster-recovery-and-drill.md
+    - mental-health-screening-and-triage.md
+    - behavioral-support-plan-bsp.md
+    - de-escalation-and-crisis-management.md
+    - wandering-elopement-prevention-and-drills.md
+    - sleep-hygiene-and-noc-agitation-pathway.md
+    - psychotropic-medication-monitoring-and-aims.md
+    - family-meeting-and-shared-decision-making.md
+    - mdt-case-conference-and-followup.md
+    - incident-reporting-and-8d-capa.md
+    - restraint-reduction-and-alternatives.md
+    - capacity-and-consent-management.md
+    - data-quality-and-ehr-fhir-mental-health-mapping.md
+    - privacy-impact-assessment-and-dpia.md
+    - audit-log-review-and-access-control.md
+    - reporting-kpi-and-quality-improvement.md
+    - backup-disaster-recovery-and-drill.md
   templates:
-    - templates/output/mh-screening-bundle-tmpl.yaml
-    - templates/output/behavioral-support-plan-bsp-tmpl.yaml
-    - templates/output/de-escalation-log-and-safety-plan-tmpl.yaml
-    - templates/output/wandering-risk-and-geo-fence-plan-tmpl.yaml
-    - templates/output/sleep-diary-and-intervention-plan-tmpl.yaml
-    - templates/output/psychotropic-med-review-and-aims-tmpl.yaml
-    - templates/output/case-conference-minutes-tmpl.yaml
-    - templates/output/family-consent-and-communication-tmpl.yaml
-    - templates/output/restraint-reduction-plan-tmpl.yaml
-    - templates/output/capacity-assessment-and-consent-tmpl.yaml
-    - templates/output/incident-8d-capa-report-tmpl.yaml
-    - templates/output/kpi-dashboard-spec-tmpl.yaml
-    - templates/output/privacy-dpia-register-tmpl.yaml
-    - templates/output/audit-log-review-report-tmpl.yaml
-    - templates/output/ehr-hl7-fhir-mental-health-mapping-tmpl.yaml
-    - templates/output/bcdr-plan-and-drill-report-tmpl.yaml
+    - mh-screening-bundle-tmpl.yaml
+    - behavioral-support-plan-bsp-tmpl.yaml
+    - de-escalation-log-and-safety-plan-tmpl.yaml
+    - wandering-risk-and-geo-fence-plan-tmpl.yaml
+    - sleep-diary-and-intervention-plan-tmpl.yaml
+    - psychotropic-med-review-and-aims-tmpl.yaml
+    - case-conference-minutes-tmpl.yaml
+    - family-consent-and-communication-tmpl.yaml
+    - restraint-reduction-plan-tmpl.yaml
+    - capacity-assessment-and-consent-tmpl.yaml
+    - incident-8d-capa-report-tmpl.yaml
+    - kpi-dashboard-spec-tmpl.yaml
+    - privacy-dpia-register-tmpl.yaml
+    - audit-log-review-report-tmpl.yaml
+    - ehr-hl7-fhir-mental-health-mapping-tmpl.yaml
+    - bcdr-plan-and-drill-report-tmpl.yaml
   checklists:
-    - checklists/shift-mental-health-huddle.md
-    - checklists/c-ssrs-screen-trigger-and-escalation.md
-    - checklists/de-escalation-kit-and-environment-check.md
-    - checklists/wandering-and-elopement-prevention-rounds.md
-    - checklists/sleep-hygiene-and-night-rounds.md
-    - checklists/restraint-reduction-and-alternatives.md
-    - checklists/psychotropic-medication-monitoring-rounds.md
-    - checklists/family-meeting-prep-and-followup.md
-    - checklists/documentation-and-privacy-minimization.md
-    - checklists/hipaa-appi-iso27701-gap-assessment.md
+    - shift-mental-health-huddle.md
+    - c-ssrs-screen-trigger-and-escalation.md
+    - de-escalation-kit-and-environment-check.md
+    - wandering-and-elopement-prevention-rounds.md
+    - sleep-hygiene-and-night-rounds.md
+    - restraint-reduction-and-alternatives.md
+    - psychotropic-medication-monitoring-rounds.md
+    - family-meeting-prep-and-followup.md
+    - documentation-and-privacy-minimization.md
+    - hipaa-appi-iso27701-gap-assessment.md
   data:
-    - templates/data/residents.csv
-    - templates/data/mh_assessments.csv
-    - templates/data/c_ssrs_screenings.csv
-    - templates/data/behavior_incidents.csv
-    - templates/data/behavior_interventions.csv
-    - templates/data/psychotropic_med_use.csv
-    - templates/data/aims_scores.csv
-    - templates/data/sleep_logs.csv
-    - templates/data/wandering_events.csv
-    - templates/data/geo_fence_events.csv
-    - templates/data/therapy_sessions.csv
-    - templates/data/capacity_and_consents.csv
-    - templates/data/case_conferences.csv
-    - templates/data/family_contacts_and_sessions.csv
-    - templates/data/audit_logs.csv
-    - templates/data/access_controls.csv
-    - templates/data/kpi_metrics.csv
+    - residents.csv
+    - mh_assessments.csv
+    - c_ssrs_screenings.csv
+    - behavior_incidents.csv
+    - behavior_interventions.csv
+    - psychotropic_med_use.csv
+    - aims_scores.csv
+    - sleep_logs.csv
+    - wandering_events.csv
+    - geo_fence_events.csv
+    - therapy_sessions.csv
+    - capacity_and_consents.csv
+    - case_conferences.csv
+    - family_contacts_and_sessions.csv
+    - audit_logs.csv
+    - access_controls.csv
+    - kpi_metrics.csv
 
 deliverables:
   - 精神健康KPI：筛查覆盖率/高危随访达成/去激化成功率/约束使用时长↓/走失事件=0/夜间激越下降/跌倒率与再入院（精神相关）

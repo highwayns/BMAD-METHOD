@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -57,70 +57,70 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/psycho-social-assessment-and-risk-stratification.md
-    - tasks/case-management-care-plan-and-goals.md
-    - tasks/benefits-eligibility-and-enrollment.md
-    - tasks/legal-rights-advance-directives-and-guardianship.md
-    - tasks/abuse-neglect-exploitation-screening-and-reporting.md
-    - tasks/referrals-mental-legal-community-and-transport.md
-    - tasks/discharge-planning-and-community-transition.md
-    - tasks/grievance-intake-resolution-and-feedback.md
-    - tasks/resident-council-setup-and-minutes.md
-    - tasks/engagement-programs-and-volunteer-management.md
-    - tasks/language-access-and-cultural-competence.md
-    - tasks/data-quality-and-ehr-fhir-social-mapping.md
-    - tasks/privacy-impact-assessment-and-dpia.md
-    - tasks/audit-log-review-and-access-control.md
-    - tasks/reporting-kpi-and-quality-improvement.md
-    - tasks/backup-disaster-recovery-and-drill.md
+    - psycho-social-assessment-and-risk-stratification.md
+    - case-management-care-plan-and-goals.md
+    - benefits-eligibility-and-enrollment.md
+    - legal-rights-advance-directives-and-guardianship.md
+    - abuse-neglect-exploitation-screening-and-reporting.md
+    - referrals-mental-legal-community-and-transport.md
+    - discharge-planning-and-community-transition.md
+    - grievance-intake-resolution-and-feedback.md
+    - resident-council-setup-and-minutes.md
+    - engagement-programs-and-volunteer-management.md
+    - language-access-and-cultural-competence.md
+    - data-quality-and-ehr-fhir-social-mapping.md
+    - privacy-impact-assessment-and-dpia.md
+    - audit-log-review-and-access-control.md
+    - reporting-kpi-and-quality-improvement.md
+    - backup-disaster-recovery-and-drill.md
   templates:
-    - templates/output/psycho-social-assessment-tmpl.yaml
-    - templates/output/case-plan-and-goals-tmpl.yaml
-    - templates/output/benefits-application-packet-tmpl.yaml
-    - templates/output/legal-rights-and-advance-directives-tmpl.yaml
-    - templates/output/abuse-report-aps-intake-tmpl.yaml
-    - templates/output/referral-package-and-tracking-tmpl.yaml
-    - templates/output/discharge-and-community-transition-tmpl.yaml
-    - templates/output/grievance-intake-and-resolution-tmpl.yaml
-    - templates/output/resident-council-minutes-tmpl.yaml
-    - templates/output/engagement-rounds-and-activity-log-tmpl.yaml
-    - templates/output/language-access-plan-and-interpreter-log-tmpl.yaml
-    - templates/output/kpi-dashboard-spec-tmpl.yaml
-    - templates/output/privacy-dpia-register-tmpl.yaml
-    - templates/output/audit-log-review-report-tmpl.yaml
-    - templates/output/ehr-hl7-fhir-social-mapping-tmpl.yaml
-    - templates/output/bcdr-plan-and-drill-report-tmpl.yaml
+    - psycho-social-assessment-tmpl.yaml
+    - case-plan-and-goals-tmpl.yaml
+    - benefits-application-packet-tmpl.yaml
+    - legal-rights-and-advance-directives-tmpl.yaml
+    - abuse-report-aps-intake-tmpl.yaml
+    - referral-package-and-tracking-tmpl.yaml
+    - discharge-and-community-transition-tmpl.yaml
+    - grievance-intake-and-resolution-tmpl.yaml
+    - resident-council-minutes-tmpl.yaml
+    - engagement-rounds-and-activity-log-tmpl.yaml
+    - language-access-plan-and-interpreter-log-tmpl.yaml
+    - kpi-dashboard-spec-tmpl.yaml
+    - privacy-dpia-register-tmpl.yaml
+    - audit-log-review-report-tmpl.yaml
+    - ehr-hl7-fhir-social-mapping-tmpl.yaml
+    - bcdr-plan-and-drill-report-tmpl.yaml
   checklists:
-    - checklists/admission-psycho-social-intake.md
-    - checklists/benefits-application-readiness.md
-    - checklists/aps-abuse-neglect-exploitation-response.md
-    - checklists/advance-directives-and-consents.md
-    - checklists/discharge-transition-and-followup.md
-    - checklists/transportation-safety-and-escorts.md
-    - checklists/grievance-intake-and-resolution.md
-    - checklists/interpreter-and-language-access-quality.md
-    - checklists/resident-council-meeting-procedure.md
-    - checklists/community-partner-vetting-and-mou.md
-    - checklists/hipaa-appi-iso27701-social-gap-assessment.md
+    - admission-psycho-social-intake.md
+    - benefits-application-readiness.md
+    - aps-abuse-neglect-exploitation-response.md
+    - advance-directives-and-consents.md
+    - discharge-transition-and-followup.md
+    - transportation-safety-and-escorts.md
+    - grievance-intake-and-resolution.md
+    - interpreter-and-language-access-quality.md
+    - resident-council-meeting-procedure.md
+    - community-partner-vetting-and-mou.md
+    - hipaa-appi-iso27701-social-gap-assessment.md
   data:
-    - templates/data/residents.csv
-    - templates/data/contacts_and_family.csv
-    - templates/data/psycho_social_assessments.csv
-    - templates/data/case_plans.csv
-    - templates/data/benefits_applications.csv
-    - templates/data/legal_rights_and_documents.csv
-    - templates/data/abuse_reports_and_aps.csv
-    - templates/data/referrals.csv
-    - templates/data/transportation_requests.csv
-    - templates/data/discharge_transitions.csv
-    - templates/data/grievances.csv
-    - templates/data/resident_council_minutes.csv
-    - templates/data/engagement_rounds.csv
-    - templates/data/volunteers.csv
-    - templates/data/language_interpreter_logs.csv
-    - templates/data/audit_logs.csv
-    - templates/data/access_controls.csv
-    - templates/data/kpi_metrics.csv
+    - residents.csv
+    - contacts_and_family.csv
+    - psycho_social_assessments.csv
+    - case_plans.csv
+    - benefits_applications.csv
+    - legal_rights_and_documents.csv
+    - abuse_reports_and_aps.csv
+    - referrals.csv
+    - transportation_requests.csv
+    - discharge_transitions.csv
+    - grievances.csv
+    - resident_council_minutes.csv
+    - engagement_rounds.csv
+    - volunteers.csv
+    - language_interpreter_logs.csv
+    - audit_logs.csv
+    - access_controls.csv
+    - kpi_metrics.csv
 
 deliverables:
   - 社会心理评估与风险分层、个案计划、随访与目标达成证据链

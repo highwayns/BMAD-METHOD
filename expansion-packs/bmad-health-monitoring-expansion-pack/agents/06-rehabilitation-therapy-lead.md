@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -55,75 +55,75 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/pt-ot-slp-initial-evaluation.md
-    - tasks/rehab-plan-of-care-poc.md
-    - tasks/rehab-session-delivery-and-safety.md
-    - tasks/fall-prevention-and-mobility-program.md
-    - tasks/gait-balance-strengthening-protocols.md
-    - tasks/adl-iadl-training-and-enablement.md
-    - tasks/swallowing-management-and-diet-levels.md
-    - tasks/speech-and-cognitive-rehabilitation.md
-    - tasks/assistive-device-and-wheelchair-seating.md
-    - tasks/orthosis-splint-fitting-and-followup.md
-    - tasks/pain-fatigue-management-and-education.md
-    - tasks/family-caregiver-training-and-handover.md
-    - tasks/outcome-measures-and-progress-review.md
-    - tasks/discharge-planning-and-community-link.md
-    - tasks/data-quality-and-ehr-fhir-rehab-mapping.md
-    - tasks/privacy-impact-assessment-and-dpia.md
-    - tasks/audit-log-review-and-documentation-audit.md
-    - tasks/reporting-kpi-and-quality-improvement.md
-    - tasks/backup-disaster-recovery-and-drill.md
+    - pt-ot-slp-initial-evaluation.md
+    - rehab-plan-of-care-poc.md
+    - rehab-session-delivery-and-safety.md
+    - fall-prevention-and-mobility-program.md
+    - gait-balance-strengthening-protocols.md
+    - adl-iadl-training-and-enablement.md
+    - swallowing-management-and-diet-levels.md
+    - speech-and-cognitive-rehabilitation.md
+    - assistive-device-and-wheelchair-seating.md
+    - orthosis-splint-fitting-and-followup.md
+    - pain-fatigue-management-and-education.md
+    - family-caregiver-training-and-handover.md
+    - outcome-measures-and-progress-review.md
+    - discharge-planning-and-community-link.md
+    - data-quality-and-ehr-fhir-rehab-mapping.md
+    - privacy-impact-assessment-and-dpia.md
+    - audit-log-review-and-documentation-audit.md
+    - reporting-kpi-and-quality-improvement.md
+    - backup-disaster-recovery-and-drill.md
   templates:
-    - templates/output/rehab-evaluation-pt-ot-slp-tmpl.yaml
-    - templates/output/rehab-plan-of-care-poc-tmpl.yaml
-    - templates/output/rehab-session-note-tmpl.yaml
-    - templates/output/gait-balance-strength-progress-note-tmpl.yaml
-    - templates/output/adl-iadl-training-plan-tmpl.yaml
-    - templates/output/swallowing-screening-and-diet-tmpl.yaml
-    - templates/output/speech-cognition-plan-tmpl.yaml
-    - templates/output/assistive-device-fitting-tmpl.yaml
-    - templates/output/wheelchair-seating-assessment-tmpl.yaml
-    - templates/output/orthosis-splint-fitting-tmpl.yaml
-    - templates/output/pain-and-fatigue-plan-tmpl.yaml
-    - templates/output/family-training-leaflet-tmpl.yaml
-    - templates/output/outcome-measures-summary-tmpl.yaml
-    - templates/output/discharge-summary-and-home-exercise-tmpl.yaml
-    - templates/output/kpi-dashboard-spec-tmpl.yaml
-    - templates/output/privacy-dpia-register-tmpl.yaml
-    - templates/output/audit-log-review-report-tmpl.yaml
-    - templates/output/ehr-hl7-fhir-rehab-mapping-tmpl.yaml
-    - templates/output/bcdr-plan-and-drill-report-tmpl.yaml
+    - rehab-evaluation-pt-ot-slp-tmpl.yaml
+    - rehab-plan-of-care-poc-tmpl.yaml
+    - rehab-session-note-tmpl.yaml
+    - gait-balance-strength-progress-note-tmpl.yaml
+    - adl-iadl-training-plan-tmpl.yaml
+    - swallowing-screening-and-diet-tmpl.yaml
+    - speech-cognition-plan-tmpl.yaml
+    - assistive-device-fitting-tmpl.yaml
+    - wheelchair-seating-assessment-tmpl.yaml
+    - orthosis-splint-fitting-tmpl.yaml
+    - pain-and-fatigue-plan-tmpl.yaml
+    - family-training-leaflet-tmpl.yaml
+    - outcome-measures-summary-tmpl.yaml
+    - discharge-summary-and-home-exercise-tmpl.yaml
+    - kpi-dashboard-spec-tmpl.yaml
+    - privacy-dpia-register-tmpl.yaml
+    - audit-log-review-report-tmpl.yaml
+    - ehr-hl7-fhir-rehab-mapping-tmpl.yaml
+    - bcdr-plan-and-drill-report-tmpl.yaml
   checklists:
-    - checklists/therapy-gym-safety-and-cleaning.md
-    - checklists/transfer-and-ambulation-safety.md
-    - checklists/wheelchair-seating-and-restraints-check.md
-    - checklists/assistive-device-fit-and-education.md
-    - checklists/swallowing-safety-and-diet-verification.md
-    - checklists/orthosis-donning-doffing-and-skin-check.md
-    - checklists/pain-and-fatigue-reassessment.md
-    - checklists/documentation-completeness-and-billing.md
-    - checklists/infection-control-ppe-and-hand-hygiene.md
-    - checklists/hipaa-appi-iso27701-gap-assessment.md
+    - therapy-gym-safety-and-cleaning.md
+    - transfer-and-ambulation-safety.md
+    - wheelchair-seating-and-restraints-check.md
+    - assistive-device-fit-and-education.md
+    - swallowing-safety-and-diet-verification.md
+    - orthosis-donning-doffing-and-skin-check.md
+    - pain-and-fatigue-reassessment.md
+    - documentation-completeness-and-billing.md
+    - infection-control-ppe-and-hand-hygiene.md
+    - hipaa-appi-iso27701-gap-assessment.md
   data:
-    - templates/data/residents.csv
-    - templates/data/rehab_evaluations.csv
-    - templates/data/rehab_plans.csv
-    - templates/data/rehab_sessions.csv
-    - templates/data/outcome_measures.csv
-    - templates/data/fall_risk_and_mobility.csv
-    - templates/data/activity_wearables.csv
-    - templates/data/assistive_devices.csv
-    - templates/data/wheelchair_seating.csv
-    - templates/data/orthoses_splints.csv
-    - templates/data/swallow_assessments.csv
-    - templates/data/diet_orders.csv
-    - templates/data/speech_cognition_records.csv
-    - templates/data/pain_fatigue_records.csv
-    - templates/data/family_training.csv
-    - templates/data/audit_logs.csv
-    - templates/data/access_controls.csv
-    - templates/data/kpi_metrics.csv
+    - residents.csv
+    - rehab_evaluations.csv
+    - rehab_plans.csv
+    - rehab_sessions.csv
+    - outcome_measures.csv
+    - fall_risk_and_mobility.csv
+    - activity_wearables.csv
+    - assistive_devices.csv
+    - wheelchair_seating.csv
+    - orthoses_splints.csv
+    - swallow_assessments.csv
+    - diet_orders.csv
+    - speech_cognition_records.csv
+    - pain_fatigue_records.csv
+    - family_training.csv
+    - audit_logs.csv
+    - access_controls.csv
+    - kpi_metrics.csv
 
 deliverables:
   - 康复KPI报告：目标达成率、参与度、依从性、跌倒率、长度/耐力（6MWT）、步态速度、BBS/TUG改善幅度等

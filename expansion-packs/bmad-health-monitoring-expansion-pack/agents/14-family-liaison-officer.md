@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -57,65 +57,65 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/family-onboarding-consent-and-education.md
-    - tasks/contact-preference-and-channel-management.md
-    - tasks/visit-scheduling-and-access-control.md
-    - tasks/routine-status-updates-and-milestones.md
-    - tasks/incident-communication-and-followup.md
-    - tasks/crisis-broadcast-and-emergency-notifications.md
-    - tasks/grievance-intake-resolution-and-feedback.md
-    - tasks/bereavement-and-end-of-life-communication.md
-    - tasks/family-townhall-and-quarterly-briefing.md
-    - tasks/language-access-and-cultural-competence.md
-    - tasks/data-quality-and-ehr-fhir-communication-mapping.md
-    - tasks/privacy-impact-assessment-and-dpia.md
-    - tasks/audit-log-review-and-access-control.md
-    - tasks/reporting-kpi-and-experience-improvement.md
-    - tasks/backup-disaster-recovery-and-drill.md
+    - family-onboarding-consent-and-education.md
+    - contact-preference-and-channel-management.md
+    - visit-scheduling-and-access-control.md
+    - routine-status-updates-and-milestones.md
+    - incident-communication-and-followup.md
+    - crisis-broadcast-and-emergency-notifications.md
+    - grievance-intake-resolution-and-feedback.md
+    - bereavement-and-end-of-life-communication.md
+    - family-townhall-and-quarterly-briefing.md
+    - language-access-and-cultural-competence.md
+    - data-quality-and-ehr-fhir-communication-mapping.md
+    - privacy-impact-assessment-and-dpia.md
+    - audit-log-review-and-access-control.md
+    - reporting-kpi-and-experience-improvement.md
+    - backup-disaster-recovery-and-drill.md
   templates:
-    - templates/output/family-onboarding-and-consents-tmpl.yaml
-    - templates/output/contact-preference-profile-tmpl.yaml
-    - templates/output/visit-schedule-and-pass-tmpl.yaml
-    - templates/output/status-update-and-milestone-tmpl.yaml
-    - templates/output/incident-brief-and-followup-tmpl.yaml
-    - templates/output/crisis-broadcast-pack-tmpl.yaml
-    - templates/output/grievance-intake-and-resolution-tmpl.yaml
-    - templates/output/bereavement-communication-pack-tmpl.yaml
-    - templates/output/family-townhall-minutes-tmpl.yaml
-    - templates/output/language-access-plan-and-interpreter-log-tmpl.yaml
-    - templates/output/kpi-dashboard-spec-tmpl.yaml
-    - templates/output/privacy-dpia-register-tmpl.yaml
-    - templates/output/audit-log-review-report-tmpl.yaml
-    - templates/output/ehr-hl7-fhir-communication-mapping-tmpl.yaml
-    - templates/output/bcdr-plan-and-drill-report-tmpl.yaml
+    - family-onboarding-and-consents-tmpl.yaml
+    - contact-preference-profile-tmpl.yaml
+    - visit-schedule-and-pass-tmpl.yaml
+    - status-update-and-milestone-tmpl.yaml
+    - incident-brief-and-followup-tmpl.yaml
+    - crisis-broadcast-pack-tmpl.yaml
+    - grievance-intake-and-resolution-tmpl.yaml
+    - bereavement-communication-pack-tmpl.yaml
+    - family-townhall-minutes-tmpl.yaml
+    - language-access-plan-and-interpreter-log-tmpl.yaml
+    - kpi-dashboard-spec-tmpl.yaml
+    - privacy-dpia-register-tmpl.yaml
+    - audit-log-review-report-tmpl.yaml
+    - ehr-hl7-fhir-communication-mapping-tmpl.yaml
+    - bcdr-plan-and-drill-report-tmpl.yaml
   checklists:
-    - checklists/family-onboarding-and-identity-verify.md
-    - checklists/visit-scheduling-and-access-control.md
-    - checklists/routine-update-and-milestone.md
-    - checklists/incident-communication-and-followup.md
-    - checklists/crisis-broadcast-and-emergency.md
-    - checklists/grievance-intake-and-resolution.md
-    - checklists/bereavement-communication-quality.md
-    - checklists/townhall-meeting-procedure.md
-    - checklists/interpreter-and-language-access.md
-    - checklists/hipaa-appi-iso27701-family-gap-assessment.md
+    - family-onboarding-and-identity-verify.md
+    - visit-scheduling-and-access-control.md
+    - routine-update-and-milestone.md
+    - incident-communication-and-followup.md
+    - crisis-broadcast-and-emergency.md
+    - grievance-intake-and-resolution.md
+    - bereavement-communication-quality.md
+    - townhall-meeting-procedure.md
+    - interpreter-and-language-access.md
+    - hipaa-appi-iso27701-family-gap-assessment.md
   data:
-    - templates/data/residents.csv
-    - templates/data/family_contacts.csv
-    - templates/data/consents_and_restrictions.csv
-    - templates/data/contact_preferences.csv
-    - templates/data/visit_bookings.csv
-    - templates/data/status_updates.csv
-    - templates/data/incidents.csv
-    - templates/data/incident_notifications.csv
-    - templates/data/broadcasts.csv
-    - templates/data/grievances.csv
-    - templates/data/bereavement_records.csv
-    - templates/data/townhall_minutes.csv
-    - templates/data/language_interpreter_logs.csv
-    - templates/data/audit_logs.csv
-    - templates/data/access_controls.csv
-    - templates/data/kpi_metrics.csv
+    - residents.csv
+    - family_contacts.csv
+    - consents_and_restrictions.csv
+    - contact_preferences.csv
+    - visit_bookings.csv
+    - status_updates.csv
+    - incidents.csv
+    - incident_notifications.csv
+    - broadcasts.csv
+    - grievances.csv
+    - bereavement_records.csv
+    - townhall_minutes.csv
+    - language_interpreter_logs.csv
+    - audit_logs.csv
+    - access_controls.csv
+    - kpi_metrics.csv
 
 deliverables:
   - 家属入院教育与同意/代理/限制记录、沟通偏好档案与探视通行

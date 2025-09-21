@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -54,72 +54,72 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/kpi-framework-and-metric-dictionary.md
-    - tasks/data-quality-rulebook-and-monitoring.md
-    - tasks/alert-triage-and-slo-sla-governance.md
-    - tasks/incident-grading-and-8d-capa-pipeline.md
-    - tasks/root-cause-analysis-rca-and-spc.md
-    - tasks/process-audit-and-compliance-check.md
-    - tasks/risk-register-and-fmea.md
-    - tasks/training-program-and-certification-ledger.md
-    - tasks/supplier-and-outsourcing-audit.md
-    - tasks/customer-experience-and-complaint-handling.md
-    - tasks/ehr-and-fhir-quality-mapping.md
-    - tasks/privacy-impact-assessment-and-dpia.md
-    - tasks/audit-log-review-and-access-control.md
-    - tasks/reporting-kpi-and-continuous-improvement.md
-    - tasks/backup-disaster-recovery-and-drill.md
+    - kpi-framework-and-metric-dictionary.md
+    - data-quality-rulebook-and-monitoring.md
+    - alert-triage-and-slo-sla-governance.md
+    - incident-grading-and-8d-capa-pipeline.md
+    - root-cause-analysis-rca-and-spc.md
+    - process-audit-and-compliance-check.md
+    - risk-register-and-fmea.md
+    - training-program-and-certification-ledger.md
+    - supplier-and-outsourcing-audit.md
+    - customer-experience-and-complaint-handling.md
+    - ehr-and-fhir-quality-mapping.md
+    - privacy-impact-assessment-and-dpia.md
+    - audit-log-review-and-access-control.md
+    - reporting-kpi-and-continuous-improvement.md
+    - backup-disaster-recovery-and-drill.md
   templates:
-    - templates/output/kpi-definition-and-sli-spec-tmpl.yaml
-    - templates/output/metric-dictionary-tmpl.yaml
-    - templates/output/data-quality-dashboard-spec-tmpl.yaml
-    - templates/output/incident-8d-capa-report-tmpl.yaml
-    - templates/output/rca-ischikawa-5whys-tmpl.yaml
-    - templates/output/spc-chart-spec-tmpl.yaml
-    - templates/output/process-audit-plan-and-sampling-tmpl.yaml
-    - templates/output/risk-register-and-heatmap-tmpl.yaml
-    - templates/output/fmea-and-control-plan-tmpl.yaml
-    - templates/output/training-plan-and-quiz-tmpl.yaml
-    - templates/output/certification-ledger-tmpl.yaml
-    - templates/output/supplier-audit-check-and-sor-tmpl.yaml
-    - templates/output/complaint-intake-and-resolution-tmpl.yaml
-    - templates/output/ehr-hl7-fhir-quality-mapping-tmpl.yaml
-    - templates/output/kpi-dashboard-spec-tmpl.yaml
-    - templates/output/privacy-dpia-register-tmpl.yaml
-    - templates/output/audit-log-review-report-tmpl.yaml
-    - templates/output/bcdr-plan-and-drill-report-tmpl.yaml
+    - kpi-definition-and-sli-spec-tmpl.yaml
+    - metric-dictionary-tmpl.yaml
+    - data-quality-dashboard-spec-tmpl.yaml
+    - incident-8d-capa-report-tmpl.yaml
+    - rca-ischikawa-5whys-tmpl.yaml
+    - spc-chart-spec-tmpl.yaml
+    - process-audit-plan-and-sampling-tmpl.yaml
+    - risk-register-and-heatmap-tmpl.yaml
+    - fmea-and-control-plan-tmpl.yaml
+    - training-plan-and-quiz-tmpl.yaml
+    - certification-ledger-tmpl.yaml
+    - supplier-audit-check-and-sor-tmpl.yaml
+    - complaint-intake-and-resolution-tmpl.yaml
+    - ehr-hl7-fhir-quality-mapping-tmpl.yaml
+    - kpi-dashboard-spec-tmpl.yaml
+    - privacy-dpia-register-tmpl.yaml
+    - audit-log-review-report-tmpl.yaml
+    - bcdr-plan-and-drill-report-tmpl.yaml
   checklists:
-    - checklists/shift-quality-huddle-and-safety-kickoff.md
-    - checklists/data-quality-daily-standup.md
-    - checklists/incident-intake-and-severity-triage.md
-    - checklists/capa-action-verification-and-effectiveness.md
-    - checklists/process-audit-sampling-and-evidence.md
-    - checklists/risk-register-review-and-heatmap.md
-    - checklists/training-session-and-quiz-proctor.md
-    - checklists/supplier-audit-readiness-and-followup.md
-    - checklists/complaint-intake-and-feedback-loop.md
-    - checklists/hipaa-appi-iso27701-quality-gap-assessment.md
+    - shift-quality-huddle-and-safety-kickoff.md
+    - data-quality-daily-standup.md
+    - incident-intake-and-severity-triage.md
+    - capa-action-verification-and-effectiveness.md
+    - process-audit-sampling-and-evidence.md
+    - risk-register-review-and-heatmap.md
+    - training-session-and-quiz-proctor.md
+    - supplier-audit-readiness-and-followup.md
+    - complaint-intake-and-feedback-loop.md
+    - hipaa-appi-iso27701-quality-gap-assessment.md
   data:
-    - templates/data/residents.csv
-    - templates/data/metric_dictionary.csv
-    - templates/data/kpi_targets.csv
-    - templates/data/sli_slo_records.csv
-    - templates/data/data_quality_issues.csv
-    - templates/data/alert_slo_breaches.csv
-    - templates/data/incidents.csv
-    - templates/data/rca_records.csv
-    - templates/data/capa_actions.csv
-    - templates/data/process_audits.csv
-    - templates/data/risk_register.csv
-    - templates/data/fmea.csv
-    - templates/data/training_sessions.csv
-    - templates/data/certifications.csv
-    - templates/data/supplier_audits.csv
-    - templates/data/complaints.csv
-    - templates/data/evidence_repository.csv
-    - templates/data/audit_logs.csv
-    - templates/data/access_controls.csv
-    - templates/data/kpi_metrics.csv
+    - residents.csv
+    - metric_dictionary.csv
+    - kpi_targets.csv
+    - sli_slo_records.csv
+    - data_quality_issues.csv
+    - alert_slo_breaches.csv
+    - incidents.csv
+    - rca_records.csv
+    - capa_actions.csv
+    - process_audits.csv
+    - risk_register.csv
+    - fmea.csv
+    - training_sessions.csv
+    - certifications.csv
+    - supplier_audits.csv
+    - complaints.csv
+    - evidence_repository.csv
+    - audit_logs.csv
+    - access_controls.csv
+    - kpi_metrics.csv
 
 deliverables:
   - 质量与安全KPI仪表板与周/月报：跌倒/压疮/再入院/响应时长/依从性/事件CAPA/数据质量/顾客满意度等

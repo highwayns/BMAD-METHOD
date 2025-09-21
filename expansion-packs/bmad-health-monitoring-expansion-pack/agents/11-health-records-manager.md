@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -55,75 +55,75 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/chart-completion-and-deficiency-tracking.md
-    - tasks/icd-coding-and-principal-diagnosis-review.md
-    - tasks/roi-intake-validation-and-fulfillment.md
-    - tasks/resident-rights-request-and-amendment.md
-    - tasks/retention-schedule-and-disposition-plan.md
-    - tasks/legal-hold-and-litigation-readiness.md
-    - tasks/mpi-duplicate-detection-and-merge-policy.md
-    - tasks/form-template-governance-and-versioning.md
-    - tasks/ehr-fhir-mapping-and-document-index.md
-    - tasks/quality-sampling-and-chart-audit.md
-    - tasks/audit-log-review-and-privacy-monitoring.md
-    - tasks/data-dictionary-and-metadata-governance.md
-    - tasks/training-and-competency-for-him.md
-    - tasks/reporting-kpi-and-continuous-improvement.md
-    - tasks/backup-disaster-recovery-and-drill.md
+    - chart-completion-and-deficiency-tracking.md
+    - icd-coding-and-principal-diagnosis-review.md
+    - roi-intake-validation-and-fulfillment.md
+    - resident-rights-request-and-amendment.md
+    - retention-schedule-and-disposition-plan.md
+    - legal-hold-and-litigation-readiness.md
+    - mpi-duplicate-detection-and-merge-policy.md
+    - form-template-governance-and-versioning.md
+    - ehr-fhir-mapping-and-document-index.md
+    - quality-sampling-and-chart-audit.md
+    - audit-log-review-and-privacy-monitoring.md
+    - data-dictionary-and-metadata-governance.md
+    - training-and-competency-for-him.md
+    - reporting-kpi-and-continuous-improvement.md
+    - backup-disaster-recovery-and-drill.md
   templates:
-    - templates/output/deficiency-worklist-tmpl.yaml
-    - templates/output/coding-review-and-query-tmpl.yaml
-    - templates/output/roi-intake-and-fulfillment-tmpl.yaml
-    - templates/output/resident-rights-request-tmpl.yaml
-    - templates/output/retention-schedule-and-disposition-tmpl.yaml
-    - templates/output/legal-hold-notice-and-tracking-tmpl.yaml
-    - templates/output/mpi-merge-candidate-review-tmpl.yaml
-    - templates/output/form-template-spec-and-changelog-tmpl.yaml
-    - templates/output/fhir-documentreference-index-tmpl.yaml
-    - templates/output/chart-audit-sampling-plan-tmpl.yaml
-    - templates/output/privacy-audit-report-tmpl.yaml
-    - templates/output/data-dictionary-spec-tmpl.yaml
-    - templates/output/him-training-plan-and-quiz-tmpl.yaml
-    - templates/output/kpi-dashboard-spec-tmpl.yaml
-    - templates/output/privacy-dpia-register-tmpl.yaml
-    - templates/output/audit-log-review-report-tmpl.yaml
-    - templates/output/bcdr-plan-and-drill-report-tmpl.yaml
+    - deficiency-worklist-tmpl.yaml
+    - coding-review-and-query-tmpl.yaml
+    - roi-intake-and-fulfillment-tmpl.yaml
+    - resident-rights-request-tmpl.yaml
+    - retention-schedule-and-disposition-tmpl.yaml
+    - legal-hold-notice-and-tracking-tmpl.yaml
+    - mpi-merge-candidate-review-tmpl.yaml
+    - form-template-spec-and-changelog-tmpl.yaml
+    - fhir-documentreference-index-tmpl.yaml
+    - chart-audit-sampling-plan-tmpl.yaml
+    - privacy-audit-report-tmpl.yaml
+    - data-dictionary-spec-tmpl.yaml
+    - him-training-plan-and-quiz-tmpl.yaml
+    - kpi-dashboard-spec-tmpl.yaml
+    - privacy-dpia-register-tmpl.yaml
+    - audit-log-review-report-tmpl.yaml
+    - bcdr-plan-and-drill-report-tmpl.yaml
   checklists:
-    - checklists/admission-forms-and-consents.md
-    - checklists/progress-notes-and-signature-compliance.md
-    - checklists/medication-and-orders-completeness.md
-    - checklists/discharge-summary-and-handover.md
-    - checklists/coding-principal-diagnosis-decision-tree.md
-    - checklists/roi-intake-validation-and-redaction.md
-    - checklists/resident-rights-amendment-and-restriction.md
-    - checklists/retention-and-destruction-controls.md
-    - checklists/legal-hold-and-subpoena-response.md
-    - checklists/mpi-merge-and-identity-proofing.md
-    - checklists/template-governance-and-version-release.md
-    - checklists/hipaa-appi-iso27701-him-gap-assessment.md
+    - admission-forms-and-consents.md
+    - progress-notes-and-signature-compliance.md
+    - medication-and-orders-completeness.md
+    - discharge-summary-and-handover.md
+    - coding-principal-diagnosis-decision-tree.md
+    - roi-intake-validation-and-redaction.md
+    - resident-rights-amendment-and-restriction.md
+    - retention-and-destruction-controls.md
+    - legal-hold-and-subpoena-response.md
+    - mpi-merge-and-identity-proofing.md
+    - template-governance-and-version-release.md
+    - hipaa-appi-iso27701-him-gap-assessment.md
   data:
-    - templates/data/residents.csv
-    - templates/data/encounters.csv
-    - templates/data/providers.csv
-    - templates/data/documents_index.csv
-    - templates/data/deficiencies.csv
-    - templates/data/coding_records.csv
-    - templates/data/coder_queries.csv
-    - templates/data/roi_requests.csv
-    - templates/data/roi_fulfillments.csv
-    - templates/data/rights_requests.csv
-    - templates/data/retention_policies.csv
-    - templates/data/disposition_logs.csv
-    - templates/data/legal_holds.csv
-    - templates/data/mpi_candidates.csv
-    - templates/data/mpi_merges.csv
-    - templates/data/forms_templates.csv
-    - templates/data/chart_audits.csv
-    - templates/data/audit_logs.csv
-    - templates/data/access_controls.csv
-    - templates/data/data_dictionary.csv
-    - templates/data/training_sessions.csv
-    - templates/data/kpi_metrics.csv
+    - residents.csv
+    - encounters.csv
+    - providers.csv
+    - documents_index.csv
+    - deficiencies.csv
+    - coding_records.csv
+    - coder_queries.csv
+    - roi_requests.csv
+    - roi_fulfillments.csv
+    - rights_requests.csv
+    - retention_policies.csv
+    - disposition_logs.csv
+    - legal_holds.csv
+    - mpi_candidates.csv
+    - mpi_merges.csv
+    - forms_templates.csv
+    - chart_audits.csv
+    - audit_logs.csv
+    - access_controls.csv
+    - data_dictionary.csv
+    - training_sessions.csv
+    - kpi_metrics.csv
 
 deliverables:
   - 病案完整性与缺陷闭环报表（签名/时间戳/表单缺失/非法字符/版本不匹配）

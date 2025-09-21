@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -55,75 +55,75 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/nutrition-assessment-and-risk-stratification.md
-    - tasks/diet-ordering-and-preference-management.md
-    - tasks/menu-cycle-design-and-recipe-standardization.md
-    - tasks/production-forecasting-batch-and-plating.md
-    - tasks/temperature-control-and-haccp-records.md
-    - tasks/allergen-and-cross-contact-prevention.md
-    - tasks/idssi-dysphagia-management-and-safe-feeding.md
-    - tasks/intake-output-and-weight-trending.md
-    - tasks/supplement-and-enteral-nutrition-pathway.md
-    - tasks/meal-delivery-verification-and-satisfaction.md
-    - tasks/recall-and-supplier-quality-management.md
-    - tasks/food-waste-and-cost-dashboard.md
-    - tasks/family-education-and-counseling.md
-    - tasks/data-quality-and-ehr-fhir-nutrition-mapping.md
-    - tasks/privacy-impact-assessment-and-dpia.md
-    - tasks/audit-log-review-and-access-control.md
-    - tasks/reporting-kpi-and-quality-improvement.md
-    - tasks/backup-disaster-recovery-and-drill.md
+    - nutrition-assessment-and-risk-stratification.md
+    - diet-ordering-and-preference-management.md
+    - menu-cycle-design-and-recipe-standardization.md
+    - production-forecasting-batch-and-plating.md
+    - temperature-control-and-haccp-records.md
+    - allergen-and-cross-contact-prevention.md
+    - idssi-dysphagia-management-and-safe-feeding.md
+    - intake-output-and-weight-trending.md
+    - supplement-and-enteral-nutrition-pathway.md
+    - meal-delivery-verification-and-satisfaction.md
+    - recall-and-supplier-quality-management.md
+    - food-waste-and-cost-dashboard.md
+    - family-education-and-counseling.md
+    - data-quality-and-ehr-fhir-nutrition-mapping.md
+    - privacy-impact-assessment-and-dpia.md
+    - audit-log-review-and-access-control.md
+    - reporting-kpi-and-quality-improvement.md
+    - backup-disaster-recovery-and-drill.md
   templates:
-    - templates/output/nutrition-assessment-tmpl.yaml
-    - templates/output/diet-order-and-preference-tmpl.yaml
-    - templates/output/menu-cycle-and-recipes-tmpl.yaml
-    - templates/output/production-batch-and-plating-tmpl.yaml
-    - templates/output/temperature-log-haccp-tmpl.yaml
-    - templates/output/allergen-cross-contact-register-tmpl.yaml
-    - templates/output/idssi-dysphagia-diet-plan-tmpl.yaml
-    - templates/output/intake-output-weight-trend-tmpl.yaml
-    - templates/output/supplement-and-enteral-plan-tmpl.yaml
-    - templates/output/meal-delivery-check-and-feedback-tmpl.yaml
-    - templates/output/recall-and-supplier-quality-tmpl.yaml
-    - templates/output/waste-and-cost-dashboard-spec-tmpl.yaml
-    - templates/output/family-counseling-leaflet-tmpl.yaml
-    - templates/output/kpi-dashboard-spec-tmpl.yaml
-    - templates/output/privacy-dpia-register-tmpl.yaml
-    - templates/output/audit-log-review-report-tmpl.yaml
-    - templates/output/ehr-hl7-fhir-nutrition-mapping-tmpl.yaml
-    - templates/output/bcdr-plan-and-drill-report-tmpl.yaml
+    - nutrition-assessment-tmpl.yaml
+    - diet-order-and-preference-tmpl.yaml
+    - menu-cycle-and-recipes-tmpl.yaml
+    - production-batch-and-plating-tmpl.yaml
+    - temperature-log-haccp-tmpl.yaml
+    - allergen-cross-contact-register-tmpl.yaml
+    - idssi-dysphagia-diet-plan-tmpl.yaml
+    - intake-output-weight-trend-tmpl.yaml
+    - supplement-and-enteral-plan-tmpl.yaml
+    - meal-delivery-check-and-feedback-tmpl.yaml
+    - recall-and-supplier-quality-tmpl.yaml
+    - waste-and-cost-dashboard-spec-tmpl.yaml
+    - family-counseling-leaflet-tmpl.yaml
+    - kpi-dashboard-spec-tmpl.yaml
+    - privacy-dpia-register-tmpl.yaml
+    - audit-log-review-report-tmpl.yaml
+    - ehr-hl7-fhir-nutrition-mapping-tmpl.yaml
+    - bcdr-plan-and-drill-report-tmpl.yaml
   checklists:
-    - checklists/nutrition-assessment-intake-check.md
-    - checklists/menu-prep-and-allergen-segregation.md
-    - checklists/production-and-holding-temperature.md
-    - checklists/plating-delivery-and-id-verification.md
-    - checklists/dysphagia-safe-feeding-rounds.md
-    - checklists/supplement-and-enteral-safety.md
-    - checklists/kitchen-sanitation-and-pest-control.md
-    - checklists/recall-traceability-and-batch-control.md
-    - checklists/food-waste-sampling-and-feedback.md
-    - checklists/hipaa-appi-iso27701-haccp-gap-assessment.md
+    - nutrition-assessment-intake-check.md
+    - menu-prep-and-allergen-segregation.md
+    - production-and-holding-temperature.md
+    - plating-delivery-and-id-verification.md
+    - dysphagia-safe-feeding-rounds.md
+    - supplement-and-enteral-safety.md
+    - kitchen-sanitation-and-pest-control.md
+    - recall-traceability-and-batch-control.md
+    - food-waste-sampling-and-feedback.md
+    - hipaa-appi-iso27701-haccp-gap-assessment.md
   data:
-    - templates/data/residents.csv
-    - templates/data/nutrition_assessments.csv
-    - templates/data/diet_orders.csv
-    - templates/data/preferences_and_allergens.csv
-    - templates/data/menu_cycle.csv
-    - templates/data/recipes.csv
-    - templates/data/production_batches.csv
-    - templates/data/temperature_logs.csv
-    - templates/data/cleaning_sanitation_logs.csv
-    - templates/data/pest_control_logs.csv
-    - templates/data/meal_delivery_checks.csv
-    - templates/data/intake_output.csv
-    - templates/data/weights.csv
-    - templates/data/supplements_enteral.csv
-    - templates/data/recalls_and_suppliers.csv
-    - templates/data/food_waste_and_costs.csv
-    - templates/data/satisfaction_surveys.csv
-    - templates/data/audit_logs.csv
-    - templates/data/access_controls.csv
-    - templates/data/kpi_metrics.csv
+    - residents.csv
+    - nutrition_assessments.csv
+    - diet_orders.csv
+    - preferences_and_allergens.csv
+    - menu_cycle.csv
+    - recipes.csv
+    - production_batches.csv
+    - temperature_logs.csv
+    - cleaning_sanitation_logs.csv
+    - pest_control_logs.csv
+    - meal_delivery_checks.csv
+    - intake_output.csv
+    - weights.csv
+    - supplements_enteral.csv
+    - recalls_and_suppliers.csv
+    - food_waste_and_costs.csv
+    - satisfaction_surveys.csv
+    - audit_logs.csv
+    - access_controls.csv
+    - kpi_metrics.csv
 
 deliverables:
   - 营养与厨房KPI报告：营养不良发生率/体重稳定率/摄入达标率/IDDSI遵循率/温度合规率/过敏与交叉污染事件=0/废弃率/成本每住民日

@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -55,68 +55,68 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/regulatory-inventory-and-change-tracking.md
-    - tasks/policy-and-sop-governance.md
-    - tasks/license-and-credential-management.md
-    - tasks/survey-readiness-and-mock-inspection.md
-    - tasks/mandatory-reporting-aps-fire-ehs-breach.md
-    - tasks/incident-severity-grading-and-escalation.md
-    - tasks/privacy-dpia-and-consent-management.md
-    - tasks/audit-log-review-and-access-control.md
-    - tasks/contract-and-third-party-risk-management.md
-    - tasks/training-program-and-competency-ledger.md
-    - tasks/waste-management-and-ehs-compliance.md
-    - tasks/bcdr-plan-and-annual-drill.md
-    - tasks/reporting-kpi-and-remediation-tracker.md
-    - tasks/ehr-fhir-compliance-and-interop-controls.md
+    - regulatory-inventory-and-change-tracking.md
+    - policy-and-sop-governance.md
+    - license-and-credential-management.md
+    - survey-readiness-and-mock-inspection.md
+    - mandatory-reporting-aps-fire-ehs-breach.md
+    - incident-severity-grading-and-escalation.md
+    - privacy-dpia-and-consent-management.md
+    - audit-log-review-and-access-control.md
+    - contract-and-third-party-risk-management.md
+    - training-program-and-competency-ledger.md
+    - waste-management-and-ehs-compliance.md
+    - bcdr-plan-and-annual-drill.md
+    - reporting-kpi-and-remediation-tracker.md
+    - ehr-fhir-compliance-and-interop-controls.md
   templates:
-    - templates/output/regulatory-register-and-impact-tmpl.yaml
-    - templates/output/policy-sop-mapping-and-diff-tmpl.yaml
-    - templates/output/license-and-credential-ledger-tmpl.yaml
-    - templates/output/survey-readiness-scorecard-tmpl.yaml
-    - templates/output/mock-inspection-evidence-pack-tmpl.yaml
-    - templates/output/incident-reporting-workflow-tmpl.yaml
-    - templates/output/privacy-dpia-register-tmpl.yaml
-    - templates/output/consent-and-access-control-tmpl.yaml
-    - templates/output/audit-log-review-report-tmpl.yaml
-    - templates/output/contract-compliance-check-and-dpa-tmpl.yaml
-    - templates/output/training-plan-quiz-and-ledger-tmpl.yaml
-    - templates/output/waste-ehs-compliance-log-tmpl.yaml
-    - templates/output/bcdr-plan-and-drill-report-tmpl.yaml
-    - templates/output/kpi-dashboard-spec-tmpl.yaml
-    - templates/output/ehr-hl7-fhir-compliance-controls-tmpl.yaml
+    - regulatory-register-and-impact-tmpl.yaml
+    - policy-sop-mapping-and-diff-tmpl.yaml
+    - license-and-credential-ledger-tmpl.yaml
+    - survey-readiness-scorecard-tmpl.yaml
+    - mock-inspection-evidence-pack-tmpl.yaml
+    - incident-reporting-workflow-tmpl.yaml
+    - privacy-dpia-register-tmpl.yaml
+    - consent-and-access-control-tmpl.yaml
+    - audit-log-review-report-tmpl.yaml
+    - contract-compliance-check-and-dpa-tmpl.yaml
+    - training-plan-quiz-and-ledger-tmpl.yaml
+    - waste-ehs-compliance-log-tmpl.yaml
+    - bcdr-plan-and-drill-report-tmpl.yaml
+    - kpi-dashboard-spec-tmpl.yaml
+    - ehr-hl7-fhir-compliance-controls-tmpl.yaml
   checklists:
-    - checklists/daily-compliance-floor-walk.md
-    - checklists/policy-and-sop-version-control.md
-    - checklists/license-and-credential-renewal.md
-    - checklists/survey-readiness-room-to-room.md
-    - checklists/mandatory-reporting-decision-tree.md
-    - checklists/privacy-and-consent-self-audit.md
-    - checklists/audit-log-and-access-review.md
-    - checklists/contract-vendor-compliance.md
-    - checklists/training-session-and-exam-proctor.md
-    - checklists/waste-ehs-and-fire-safety.md
-    - checklists/bcdr-drill-and-postmortem.md
-    - checklists/hipaa-appi-iso27701-gap-assessment.md
+    - daily-compliance-floor-walk.md
+    - policy-and-sop-version-control.md
+    - license-and-credential-renewal.md
+    - survey-readiness-room-to-room.md
+    - mandatory-reporting-decision-tree.md
+    - privacy-and-consent-self-audit.md
+    - audit-log-and-access-review.md
+    - contract-vendor-compliance.md
+    - training-session-and-exam-proctor.md
+    - waste-ehs-and-fire-safety.md
+    - bcdr-drill-and-postmortem.md
+    - hipaa-appi-iso27701-gap-assessment.md
   data:
-    - templates/data/regulations.csv
-    - templates/data/policies_and_sops.csv
-    - templates/data/licenses_and_credentials.csv
-    - templates/data/surveys_and_findings.csv
-    - templates/data/incidents_and_reports.csv
-    - templates/data/privacy_dpia.csv
-    - templates/data/consents.csv
-    - templates/data/audit_logs.csv
-    - templates/data/access_controls.csv
-    - templates/data/contracts_and_dpas.csv
-    - templates/data/training_sessions.csv
-    - templates/data/competency_ledger.csv
-    - templates/data/waste_ehs_logs.csv
-    - templates/data/bcdr_drills.csv
-    - templates/data/kpi_metrics.csv
-    - templates/data/risk_register.csv
-    - templates/data/followup_actions.csv
-    - templates/data/fhir_controls.csv
+    - regulations.csv
+    - policies_and_sops.csv
+    - licenses_and_credentials.csv
+    - surveys_and_findings.csv
+    - incidents_and_reports.csv
+    - privacy_dpia.csv
+    - consents.csv
+    - audit_logs.csv
+    - access_controls.csv
+    - contracts_and_dpas.csv
+    - training_sessions.csv
+    - competency_ledger.csv
+    - waste_ehs_logs.csv
+    - bcdr_drills.csv
+    - kpi_metrics.csv
+    - risk_register.csv
+    - followup_actions.csv
+    - fhir_controls.csv
 
 deliverables:
   - 法规登记册与变更影响评估、政策与SOP映射与版本差异报告

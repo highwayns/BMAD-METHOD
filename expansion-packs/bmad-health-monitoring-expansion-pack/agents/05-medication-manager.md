@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -55,74 +55,74 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/medication-order-verification-and-dosing.md
-    - tasks/medication-reconciliation-at-transitions.md
-    - tasks/mar-execution-and-exception-reporting.md
-    - tasks/anticoagulation-monitoring-and-dosing.md
-    - tasks/insulin-protocol-and-hypoglycemia-response.md
-    - tasks/high-alert-medication-double-checks.md
-    - tasks/controlled-substances-count-and-disposal.md
-    - tasks/cold-chain-and-fridge-temperature-compliance.md
-    - tasks/antimicrobial-stewardship-weekly-rounds.md
-    - tasks/adverse-drug-reaction-adr-reporting-and-rca.md
-    - tasks/medication-error-8d-and-capa.md
-    - tasks/recall-and-expiry-management.md
-    - tasks/family-education-and-adherence-coaching.md
-    - tasks/data-quality-and-ehr-fhir-medication-mapping.md
-    - tasks/privacy-impact-assessment-and-dpia.md
-    - tasks/audit-log-review-and-access-control.md
-    - tasks/reporting-kpi-and-quality-improvement.md
-    - tasks/backup-disaster-recovery-and-drill.md
+    - medication-order-verification-and-dosing.md
+    - medication-reconciliation-at-transitions.md
+    - mar-execution-and-exception-reporting.md
+    - anticoagulation-monitoring-and-dosing.md
+    - insulin-protocol-and-hypoglycemia-response.md
+    - high-alert-medication-double-checks.md
+    - controlled-substances-count-and-disposal.md
+    - cold-chain-and-fridge-temperature-compliance.md
+    - antimicrobial-stewardship-weekly-rounds.md
+    - adverse-drug-reaction-adr-reporting-and-rca.md
+    - medication-error-8d-and-capa.md
+    - recall-and-expiry-management.md
+    - family-education-and-adherence-coaching.md
+    - data-quality-and-ehr-fhir-medication-mapping.md
+    - privacy-impact-assessment-and-dpia.md
+    - audit-log-review-and-access-control.md
+    - reporting-kpi-and-quality-improvement.md
+    - backup-disaster-recovery-and-drill.md
   templates:
-    - templates/output/formulary-and-restrictions-tmpl.yaml
-    - templates/output/medication-order-verification-tmpl.yaml
-    - templates/output/medication-reconciliation-tmpl.yaml
-    - templates/output/mar-record-tmpl.yaml
-    - templates/output/anticoagulation-monitoring-tmpl.yaml
-    - templates/output/insulin-protocol-and-hypoglycemia-tmpl.yaml
-    - templates/output/high-alert-medication-double-check-tmpl.yaml
-    - templates/output/controlled-substances-audit-tmpl.yaml
-    - templates/output/fridge-temperature-log-tmpl.yaml
-    - templates/output/antimicrobial-stewardship-rounds-tmpl.yaml
-    - templates/output/adr-report-and-rca-tmpl.yaml
-    - templates/output/medication-error-8d-capa-tmpl.yaml
-    - templates/output/recall-and-expiry-dashboard-tmpl.yaml
-    - templates/output/family-education-leaflet-tmpl.yaml
-    - templates/output/kpi-dashboard-spec-tmpl.yaml
-    - templates/output/privacy-dpia-register-tmpl.yaml
-    - templates/output/audit-log-review-report-tmpl.yaml
-    - templates/output/ehr-hl7-fhir-medication-mapping-tmpl.yaml
-    - templates/output/bcdr-plan-and-drill-report-tmpl.yaml
+    - formulary-and-restrictions-tmpl.yaml
+    - medication-order-verification-tmpl.yaml
+    - medication-reconciliation-tmpl.yaml
+    - mar-record-tmpl.yaml
+    - anticoagulation-monitoring-tmpl.yaml
+    - insulin-protocol-and-hypoglycemia-tmpl.yaml
+    - high-alert-medication-double-check-tmpl.yaml
+    - controlled-substances-audit-tmpl.yaml
+    - fridge-temperature-log-tmpl.yaml
+    - antimicrobial-stewardship-rounds-tmpl.yaml
+    - adr-report-and-rca-tmpl.yaml
+    - medication-error-8d-capa-tmpl.yaml
+    - recall-and-expiry-dashboard-tmpl.yaml
+    - family-education-leaflet-tmpl.yaml
+    - kpi-dashboard-spec-tmpl.yaml
+    - privacy-dpia-register-tmpl.yaml
+    - audit-log-review-report-tmpl.yaml
+    - ehr-hl7-fhir-medication-mapping-tmpl.yaml
+    - bcdr-plan-and-drill-report-tmpl.yaml
   checklists:
-    - checklists/medication-five-rights.md
-    - checklists/anticoagulation-monitoring-rounds.md
-    - checklists/insulin-administration-and-hypoglycemia.md
-    - checklists/high-alert-medication-double-check.md
-    - checklists/controlled-substances-shift-change-count.md
-    - checklists/fridge-temperature-daily-check.md
-    - checklists/medication-reconciliation-at-admission-discharge.md
-    - checklists/antimicrobial-stewardship-prescribing.md
-    - checklists/adr-and-medication-error-reporting.md
-    - checklists/hipaa-appi-iso27701-gap-assessment.md
+    - medication-five-rights.md
+    - anticoagulation-monitoring-rounds.md
+    - insulin-administration-and-hypoglycemia.md
+    - high-alert-medication-double-check.md
+    - controlled-substances-shift-change-count.md
+    - fridge-temperature-daily-check.md
+    - medication-reconciliation-at-admission-discharge.md
+    - antimicrobial-stewardship-prescribing.md
+    - adr-and-medication-error-reporting.md
+    - hipaa-appi-iso27701-gap-assessment.md
   data:
-    - templates/data/residents.csv
-    - templates/data/medication_orders.csv
-    - templates/data/mar_administration.csv
-    - templates/data/allergies.csv
-    - templates/data/lab_results.csv
-    - templates/data/vitals_stream_glucose.csv
-    - templates/data/anticoagulation_inr.csv
-    - templates/data/insulin_administration.csv
-    - templates/data/controlled_substances_inventory.csv
-    - templates/data/fridge_temperature_timeseries.csv
-    - templates/data/antimicrobial_stewardship_reviews.csv
-    - templates/data/adr_reports.csv
-    - templates/data/medication_errors.csv
-    - templates/data/recall_and_expiry.csv
-    - templates/data/family_education.csv
-    - templates/data/audit_logs.csv
-    - templates/data/access_controls.csv
-    - templates/data/kpi_metrics.csv
+    - residents.csv
+    - medication_orders.csv
+    - mar_administration.csv
+    - allergies.csv
+    - lab_results.csv
+    - vitals_stream_glucose.csv
+    - anticoagulation_inr.csv
+    - insulin_administration.csv
+    - controlled_substances_inventory.csv
+    - fridge_temperature_timeseries.csv
+    - antimicrobial_stewardship_reviews.csv
+    - adr_reports.csv
+    - medication_errors.csv
+    - recall_and_expiry.csv
+    - family_education.csv
+    - audit_logs.csv
+    - access_controls.csv
+    - kpi_metrics.csv
 
 deliverables:
   - 药事KPI报告：给药准时率、差错率、ADR率、冷链偏差、库存有效性、抗菌药DDD/1000床日等

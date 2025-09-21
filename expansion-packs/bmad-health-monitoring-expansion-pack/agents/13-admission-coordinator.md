@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -57,77 +57,77 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/lead-and-referral-intake-and-triage.md
-    - tasks/eligibility-and-payer-verification.md
-    - tasks/bed-management-and-room-readiness.md
-    - tasks/pre-admission-checks-and-family-briefing.md
-    - tasks/admission-day-identity-consent-and-baseline.md
-    - tasks/baseline-risk-screening-and-vaccine-status.md
-    - tasks/device-onboarding-and-geo-fence-setup.md
-    - tasks/medication-reconciliation-and-order-activation.md
-    - tasks/infection-screening-and-isolation-decision.md
-    - tasks/mdt-scheduling-and-week1-followup.md
-    - tasks/belongings-inventory-and-valuables.md
-    - tasks/language-access-and-cultural-brief.md
-    - tasks/data-quality-and-ehr-fhir-admission-mapping.md
-    - tasks/privacy-impact-assessment-and-dpia.md
-    - tasks/audit-log-review-and-access-control.md
-    - tasks/reporting-kpi-and-experience-improvement.md
-    - tasks/backup-disaster-recovery-and-drill.md
+    - lead-and-referral-intake-and-triage.md
+    - eligibility-and-payer-verification.md
+    - bed-management-and-room-readiness.md
+    - pre-admission-checks-and-family-briefing.md
+    - admission-day-identity-consent-and-baseline.md
+    - baseline-risk-screening-and-vaccine-status.md
+    - device-onboarding-and-geo-fence-setup.md
+    - medication-reconciliation-and-order-activation.md
+    - infection-screening-and-isolation-decision.md
+    - mdt-scheduling-and-week1-followup.md
+    - belongings-inventory-and-valuables.md
+    - language-access-and-cultural-brief.md
+    - data-quality-and-ehr-fhir-admission-mapping.md
+    - privacy-impact-assessment-and-dpia.md
+    - audit-log-review-and-access-control.md
+    - reporting-kpi-and-experience-improvement.md
+    - backup-disaster-recovery-and-drill.md
   templates:
-    - templates/output/lead-intake-and-referral-tmpl.yaml
-    - templates/output/eligibility-verification-and-estimate-tmpl.yaml
-    - templates/output/bed-assignment-and-room-prep-tmpl.yaml
-    - templates/output/movein-schedule-and-checklist-tmpl.yaml
-    - templates/output/admission-day-consent-and-baseline-tmpl.yaml
-    - templates/output/baseline-risk-screen-bundle-tmpl.yaml
-    - templates/output/device-pairing-and-geo-fence-tmpl.yaml
-    - templates/output/medication-reconciliation-tmpl.yaml
-    - templates/output/infection-screening-and-isolation-tmpl.yaml
-    - templates/output/belongings-inventory-tmpl.yaml
-    - templates/output/family-welcome-pack-and-faq-tmpl.yaml
-    - templates/output/mdt-week1-minutes-tmpl.yaml
-    - templates/output/kpi-dashboard-spec-tmpl.yaml
-    - templates/output/privacy-dpia-register-tmpl.yaml
-    - templates/output/audit-log-review-report-tmpl.yaml
-    - templates/output/ehr-hl7-fhir-admission-mapping-tmpl.yaml
-    - templates/output/bcdr-plan-and-drill-report-tmpl.yaml
+    - lead-intake-and-referral-tmpl.yaml
+    - eligibility-verification-and-estimate-tmpl.yaml
+    - bed-assignment-and-room-prep-tmpl.yaml
+    - movein-schedule-and-checklist-tmpl.yaml
+    - admission-day-consent-and-baseline-tmpl.yaml
+    - baseline-risk-screen-bundle-tmpl.yaml
+    - device-pairing-and-geo-fence-tmpl.yaml
+    - medication-reconciliation-tmpl.yaml
+    - infection-screening-and-isolation-tmpl.yaml
+    - belongings-inventory-tmpl.yaml
+    - family-welcome-pack-and-faq-tmpl.yaml
+    - mdt-week1-minutes-tmpl.yaml
+    - kpi-dashboard-spec-tmpl.yaml
+    - privacy-dpia-register-tmpl.yaml
+    - audit-log-review-report-tmpl.yaml
+    - ehr-hl7-fhir-admission-mapping-tmpl.yaml
+    - bcdr-plan-and-drill-report-tmpl.yaml
   checklists:
-    - checklists/pre-admission-phone-screen.md
-    - checklists/eligibility-documents-and-auth.md
-    - checklists/room-readiness-and-terminal-clean.md
-    - checklists/admission-day-identity-consent-and-vitals.md
-    - checklists/medication-reconciliation-intake.md
-    - checklists/device-onboarding-and-safety.md
-    - checklists/infection-screening-and-isolation.md
-    - checklists/belongings-inventory-and-valuables.md
-    - checklists/family-orientation-and-faq.md
-    - checklists/week1-followup-and-mdt.md
-    - checklists/hipaa-appi-iso27701-admission-gap-assessment.md
+    - pre-admission-phone-screen.md
+    - eligibility-documents-and-auth.md
+    - room-readiness-and-terminal-clean.md
+    - admission-day-identity-consent-and-vitals.md
+    - medication-reconciliation-intake.md
+    - device-onboarding-and-safety.md
+    - infection-screening-and-isolation.md
+    - belongings-inventory-and-valuables.md
+    - family-orientation-and-faq.md
+    - week1-followup-and-mdt.md
+    - hipaa-appi-iso27701-admission-gap-assessment.md
   data:
-    - templates/data/leads.csv
-    - templates/data/referrals.csv
-    - templates/data/eligibility_checks.csv
-    - templates/data/authorizations.csv
-    - templates/data/bed_map.csv
-    - templates/data/room_readiness.csv
-    - templates/data/movein_schedule.csv
-    - templates/data/belongings_inventory.csv
-    - templates/data/admission_day_log.csv
-    - templates/data/baseline_vitals.csv
-    - templates/data/risk_screens.csv
-    - templates/data/device_pairings.csv
-    - templates/data/geo_fence_settings.csv
-    - templates/data/med_rec.csv
-    - templates/data/infection_screening.csv
-    - templates/data/vaccination_status.csv
-    - templates/data/mdt_week1_minutes.csv
-    - templates/data/family_communications.csv
-    - templates/data/language_access.csv
-    - templates/data/audit_logs.csv
-    - templates/data/access_controls.csv
-    - templates/data/kpi_metrics.csv
-    - templates/data/billing_estimates.csv
+    - leads.csv
+    - referrals.csv
+    - eligibility_checks.csv
+    - authorizations.csv
+    - bed_map.csv
+    - room_readiness.csv
+    - movein_schedule.csv
+    - belongings_inventory.csv
+    - admission_day_log.csv
+    - baseline_vitals.csv
+    - risk_screens.csv
+    - device_pairings.csv
+    - geo_fence_settings.csv
+    - med_rec.csv
+    - infection_screening.csv
+    - vaccination_status.csv
+    - mdt_week1_minutes.csv
+    - family_communications.csv
+    - language_access.csv
+    - audit_logs.csv
+    - access_controls.csv
+    - kpi_metrics.csv
+    - billing_estimates.csv
 
 deliverables:
   - 入院时间线与任务闭环：资格核验/床位分配/房间准备/入院当天/周内随访

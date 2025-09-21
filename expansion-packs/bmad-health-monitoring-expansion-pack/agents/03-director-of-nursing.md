@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -53,91 +53,91 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/resident-onboarding-and-consent.md
-    - tasks/device-onboarding-and-calibration.md
-    - tasks/vitals-stream-ingestion-and-alarms.md
-    - tasks/fall-detection-configuration-and-testing.md
-    - tasks/rounds-planning-and-handover.md
-    - tasks/medication-order-reconciliation-and-mar.md
-    - tasks/risk-assessment-and-care-plan.md
-    - tasks/infection-prevention-and-surveillance.md
-    - tasks/emergency-response-and-escalation.md
-    - tasks/family-communication-and-weekly-update.md
-    - tasks/data-quality-and-sensor-drift-review.md
-    - tasks/privacy-impact-assessment-and-dpia.md
-    - tasks/audit-log-review-and-access-control.md
-    - tasks/reporting-kpi-and-quality-improvement.md
-    - tasks/ehr-integration-and-interoperability.md
-    - tasks/backup-disaster-recovery-and-drill.md
+    - resident-onboarding-and-consent.md
+    - device-onboarding-and-calibration.md
+    - vitals-stream-ingestion-and-alarms.md
+    - fall-detection-configuration-and-testing.md
+    - rounds-planning-and-handover.md
+    - medication-order-reconciliation-and-mar.md
+    - risk-assessment-and-care-plan.md
+    - infection-prevention-and-surveillance.md
+    - emergency-response-and-escalation.md
+    - family-communication-and-weekly-update.md
+    - data-quality-and-sensor-drift-review.md
+    - privacy-impact-assessment-and-dpia.md
+    - audit-log-review-and-access-control.md
+    - reporting-kpi-and-quality-improvement.md
+    - ehr-integration-and-interoperability.md
+    - backup-disaster-recovery-and-drill.md
   templates:
-    - templates/output/resident-profile-tmpl.yaml
-    - templates/output/consent-and-privacy-tmpl.yaml
-    - templates/output/device-register-and-calibration-tmpl.yaml
-    - templates/output/vitals-thresholds-and-alert-rules-tmpl.yaml
-    - templates/output/fall-detection-policy-tmpl.yaml
-    - templates/output/rounds-checklist-and-handover-tmpl.yaml
-    - templates/output/medication-administration-record-mar-tmpl.yaml
-    - templates/output/care-plan-multidisciplinary-tmpl.yaml
-    - templates/output/risk-scores-braden-morse-nutrition-tmpl.yaml
-    - templates/output/infection-surveillance-daily-log-tmpl.yaml
-    - templates/output/incident-8d-capa-report-tmpl.yaml
-    - templates/output/family-briefing-weekly-summary-tmpl.yaml
-    - templates/output/kpi-dashboard-spec-tmpl.yaml
-    - templates/output/privacy-dpia-register-tmpl.yaml
-    - templates/output/audit-log-review-report-tmpl.yaml
-    - templates/output/ehr-hl7-fhir-mapping-tmpl.yaml
-    - templates/output/bcdr-plan-and-drill-report-tmpl.yaml
+    - resident-profile-tmpl.yaml
+    - consent-and-privacy-tmpl.yaml
+    - device-register-and-calibration-tmpl.yaml
+    - vitals-thresholds-and-alert-rules-tmpl.yaml
+    - fall-detection-policy-tmpl.yaml
+    - rounds-checklist-and-handover-tmpl.yaml
+    - medication-administration-record-mar-tmpl.yaml
+    - care-plan-multidisciplinary-tmpl.yaml
+    - risk-scores-braden-morse-nutrition-tmpl.yaml
+    - infection-surveillance-daily-log-tmpl.yaml
+    - incident-8d-capa-report-tmpl.yaml
+    - family-briefing-weekly-summary-tmpl.yaml
+    - kpi-dashboard-spec-tmpl.yaml
+    - privacy-dpia-register-tmpl.yaml
+    - audit-log-review-report-tmpl.yaml
+    - ehr-hl7-fhir-mapping-tmpl.yaml
+    - bcdr-plan-and-drill-report-tmpl.yaml
   checklists:
-    - checklists/shift-start-sos-nursing.md
-    - checklists/medication-five-rights.md
-    - checklists/fall-prevention-rounds.md
-    - checklists/pressure-injury-prevention-turning.md
-    - checklists/infection-control-ppe-and-hand-hygiene.md
-    - checklists/device-safety-and-battery-check.md
-    - checklists/data-quality-and-missingness.md
-    - checklists/consent-renewal-and-privacy-rights.md
-    - checklists/emergency-code-blue-and-evacuation.md
-    - checklists/hipaa-appi-iso27701-gap-assessment.md
+    - shift-start-sos-nursing.md
+    - medication-five-rights.md
+    - fall-prevention-rounds.md
+    - pressure-injury-prevention-turning.md
+    - infection-control-ppe-and-hand-hygiene.md
+    - device-safety-and-battery-check.md
+    - data-quality-and-missingness.md
+    - consent-renewal-and-privacy-rights.md
+    - emergency-code-blue-and-evacuation.md
+    - hipaa-appi-iso27701-gap-assessment.md
   data:
-    - templates/data/residents.csv
-    - templates/data/resident_contacts.csv
-    - templates/data/consent_records.csv
-    - templates/data/devices.csv
-    - templates/data/device_calibration.csv
-    - templates/data/vitals_stream_bp.csv
-    - templates/data/vitals_stream_spo2.csv
-    - templates/data/vitals_stream_hr.csv
-    - templates/data/vitals_stream_temp.csv
-    - templates/data/activity_motion.csv
-    - templates/data/fall_events.csv
-    - templates/data/geo_fence_events.csv
-    - templates/data/alerts.csv
-    - templates/data/triage_actions.csv
-    - templates/data/rounds_tasks.csv
-    - templates/data/medication_orders.csv
-    - templates/data/mar_administration.csv
-    - templates/data/allergies.csv
-    - templates/data/risk_assessments.csv
-    - templates/data/care_plans.csv
-    - templates/data/pressure_injury_assessments.csv
-    - templates/data/nutrition_assessments.csv
-    - templates/data/infection_cases.csv
-    - templates/data/covid_flu_surveillance.csv
-    - templates/data/lab_results.csv
-    - templates/data/incident_reports.csv
-    - templates/data/capa_actions.csv
-    - templates/data/family_updates.csv
-    - templates/data/audit_logs.csv
-    - templates/data/access_controls.csv
-    - templates/data/ehr_encounters.csv
-    - templates/data/appointments.csv
-    - templates/data/staff_roster.csv
-    - templates/data/training_and_certifications.csv
-    - templates/data/stock_ppe_and_medications.csv
-    - templates/data/waste_management.csv
-    - templates/data/energy_and_environment.csv
-    - templates/data/kpi_metrics.csv
-    - templates/data/finance_costs.csv
+    - residents.csv
+    - resident_contacts.csv
+    - consent_records.csv
+    - devices.csv
+    - device_calibration.csv
+    - vitals_stream_bp.csv
+    - vitals_stream_spo2.csv
+    - vitals_stream_hr.csv
+    - vitals_stream_temp.csv
+    - activity_motion.csv
+    - fall_events.csv
+    - geo_fence_events.csv
+    - alerts.csv
+    - triage_actions.csv
+    - rounds_tasks.csv
+    - medication_orders.csv
+    - mar_administration.csv
+    - allergies.csv
+    - risk_assessments.csv
+    - care_plans.csv
+    - pressure_injury_assessments.csv
+    - nutrition_assessments.csv
+    - infection_cases.csv
+    - covid_flu_surveillance.csv
+    - lab_results.csv
+    - incident_reports.csv
+    - capa_actions.csv
+    - family_updates.csv
+    - audit_logs.csv
+    - access_controls.csv
+    - ehr_encounters.csv
+    - appointments.csv
+    - staff_roster.csv
+    - training_and_certifications.csv
+    - stock_ppe_and_medications.csv
+    - waste_management.csv
+    - energy_and_environment.csv
+    - kpi_metrics.csv
+    - finance_costs.csv
 
 deliverables:
   - 周/月护理质量KPI报告（跌倒率/压疮率/感染率/MTTA/五对依从性/再入院率）

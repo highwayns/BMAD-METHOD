@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -57,75 +57,75 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/role-profile-and-competency-matrix.md
-    - tasks/curriculum-design-and-learning-paths.md
-    - tasks/session-planning-and-facilitation.md
-    - tasks/quiz-bank-governance-and-item-analysis.md
-    - tasks/osce-checklists-and-return-demonstration.md
-    - tasks/simulation-scenarios-and-debriefing.md
-    - tasks/enrollment-attendance-and-reminders.md
-    - tasks/certification-tracker-and-renewals.md
-    - tasks/onboarding-30-60-90-program.md
-    - tasks/annual-mandatory-training-and-refreshers.md
-    - tasks/med-safety-and-high-alert-protocols.md
-    - tasks/fall-pressure-injury-and-mobility-safety.md
-    - tasks/ipc-hand-hygiene-ppe-and-outbreak-drills.md
-    - tasks/privacy-hipaa-appi-and-security-awareness.md
-    - tasks/bcdr-fire-ehs-drills-and-readiness.md
-    - tasks/lms-audit-data-quality-and-access-control.md
-    - tasks/reporting-kpi-and-continuous-improvement.md
+    - role-profile-and-competency-matrix.md
+    - curriculum-design-and-learning-paths.md
+    - session-planning-and-facilitation.md
+    - quiz-bank-governance-and-item-analysis.md
+    - osce-checklists-and-return-demonstration.md
+    - simulation-scenarios-and-debriefing.md
+    - enrollment-attendance-and-reminders.md
+    - certification-tracker-and-renewals.md
+    - onboarding-30-60-90-program.md
+    - annual-mandatory-training-and-refreshers.md
+    - med-safety-and-high-alert-protocols.md
+    - fall-pressure-injury-and-mobility-safety.md
+    - ipc-hand-hygiene-ppe-and-outbreak-drills.md
+    - privacy-hipaa-appi-and-security-awareness.md
+    - bcdr-fire-ehs-drills-and-readiness.md
+    - lms-audit-data-quality-and-access-control.md
+    - reporting-kpi-and-continuous-improvement.md
   templates:
-    - templates/output/role-profile-and-competency-matrix-tmpl.yaml
-    - templates/output/curriculum-map-and-learning-path-tmpl.yaml
-    - templates/output/session-plan-agenda-and-materials-tmpl.yaml
-    - templates/output/quiz-bank-and-item-analysis-tmpl.yaml
-    - templates/output/osce-checklist-and-scoring-tmpl.yaml
-    - templates/output/simulation-script-and-evaluation-card-tmpl.yaml
-    - templates/output/enrollment-attendance-ledger-tmpl.yaml
-    - templates/output/certification-tracker-ledger-tmpl.yaml
-    - templates/output/onboarding-30-60-90-roadmap-tmpl.yaml
-    - templates/output/annual-training-plan-and-calendar-tmpl.yaml
-    - templates/output/med-safety-high-alert-osce-tmpl.yaml
-    - templates/output/fall-pressure-injury-safety-pack-tmpl.yaml
-    - templates/output/ipc-hand-hygiene-ppe-pack-tmpl.yaml
-    - templates/output/privacy-security-awareness-pack-tmpl.yaml
-    - templates/output/bcdr-fire-ehs-drill-pack-tmpl.yaml
-    - templates/output/kpi-dashboard-spec-tmpl.yaml
-    - templates/output/lms-audit-report-tmpl.yaml
+    - role-profile-and-competency-matrix-tmpl.yaml
+    - curriculum-map-and-learning-path-tmpl.yaml
+    - session-plan-agenda-and-materials-tmpl.yaml
+    - quiz-bank-and-item-analysis-tmpl.yaml
+    - osce-checklist-and-scoring-tmpl.yaml
+    - simulation-script-and-evaluation-card-tmpl.yaml
+    - enrollment-attendance-ledger-tmpl.yaml
+    - certification-tracker-ledger-tmpl.yaml
+    - onboarding-30-60-90-roadmap-tmpl.yaml
+    - annual-training-plan-and-calendar-tmpl.yaml
+    - med-safety-high-alert-osce-tmpl.yaml
+    - fall-pressure-injury-safety-pack-tmpl.yaml
+    - ipc-hand-hygiene-ppe-pack-tmpl.yaml
+    - privacy-security-awareness-pack-tmpl.yaml
+    - bcdr-fire-ehs-drill-pack-tmpl.yaml
+    - kpi-dashboard-spec-tmpl.yaml
+    - lms-audit-report-tmpl.yaml
   checklists:
-    - checklists/new-hire-day0-onboarding.md
-    - checklists/new-hire-30-60-90-followup.md
-    - checklists/preceptor-and-shadowing-checklist.md
-    - checklists/osce-return-demonstration-record.md
-    - checklists/medication-five-rights-and-insulin-pen.md
-    - checklists/fall-prevention-and-safe-mobility.md
-    - checklists/pressure-injury-prevention-turning.md
-    - checklists/ipc-hand-hygiene-and-ppe-don-doff.md
-    - checklists/documentation-standards-and-audits.md
-    - checklists/privacy-and-security-awareness.md
-    - checklists/bcdr-fire-ehs-mock-drill.md
-    - checklists/device-training-and-safety-check.md
-    - checklists/lms-content-and-access-audit.md
+    - new-hire-day0-onboarding.md
+    - new-hire-30-60-90-followup.md
+    - preceptor-and-shadowing-checklist.md
+    - osce-return-demonstration-record.md
+    - medication-five-rights-and-insulin-pen.md
+    - fall-prevention-and-safe-mobility.md
+    - pressure-injury-prevention-turning.md
+    - ipc-hand-hygiene-and-ppe-don-doff.md
+    - documentation-standards-and-audits.md
+    - privacy-and-security-awareness.md
+    - bcdr-fire-ehs-mock-drill.md
+    - device-training-and-safety-check.md
+    - lms-content-and-access-audit.md
   data:
-    - templates/data/staff.csv
-    - templates/data/roles.csv
-    - templates/data/competencies.csv
-    - templates/data/curriculum.csv
-    - templates/data/modules.csv
-    - templates/data/sessions.csv
-    - templates/data/attendance.csv
-    - templates/data/quiz_bank.csv
-    - templates/data/quiz_scores.csv
-    - templates/data/osce_checklists.csv
-    - templates/data/simulation_runs.csv
-    - templates/data/certifications.csv
-    - templates/data/reminders.csv
-    - templates/data/preceptor_assignments.csv
-    - templates/data/training_gaps.csv
-    - templates/data/lms_audit.csv
-    - templates/data/audit_logs.csv
-    - templates/data/access_controls.csv
-    - templates/data/kpi_metrics.csv
+    - staff.csv
+    - roles.csv
+    - competencies.csv
+    - curriculum.csv
+    - modules.csv
+    - sessions.csv
+    - attendance.csv
+    - quiz_bank.csv
+    - quiz_scores.csv
+    - osce_checklists.csv
+    - simulation_runs.csv
+    - certifications.csv
+    - reminders.csv
+    - preceptor_assignments.csv
+    - training_gaps.csv
+    - lms_audit.csv
+    - audit_logs.csv
+    - access_controls.csv
+    - kpi_metrics.csv
 
 deliverables:
   - 胜任力矩阵/课程地图/年度与专项培训计划与日历、场次计划与材料包
