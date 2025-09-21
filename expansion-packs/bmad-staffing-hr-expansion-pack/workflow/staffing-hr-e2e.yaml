@@ -1,0 +1,200 @@
+# <!-- Powered by BMAD™ Core -->
+workflow:
+  id: staffing-hr-e2e
+  name: Staffing HR - End-to-End Workflow
+  description: >
+    End-to-end workflow for talent acquisition → learning & development → staffing/dispatch → payroll/compliance
+    across 18 BMAD roles. Aligned to BMAD-method format with sequences, flow diagram, decision guidance, handoff
+    prompts, and measurable success criteria.
+  type: operations
+  project_types:
+    - staffing-agency
+    - in-house-staffing
+    - campus-hiring
+    - surge-hiring
+    - training-to-deploy
+    - global-dispatch
+  full_process_sequence:
+    - agent: hr-director
+      creates: strategy-brief.md
+      optional_steps: [stakeholder-map, risk-register, kpi-tree]
+      notes: "Define hiring targets, budget/SLA, governance and metrics. SAVE OUTPUT to docs/strategy/."
+    - agent: head-talent-acquisition
+      creates: ta-operating-plan.md
+      optional_steps: [channel-mix, headcount-plan, abtest-plan]
+      notes: "Own TA engine and SLA. Coordinate with Sourcing/Recruiter/Branding."
+    - agent: employer-branding-lead
+      creates: evp-campaign-brief.md
+      optional_steps: [brand-guidelines, content-calendar]
+      notes: "Launch EVP and demand-gen to feed top of funnel."
+    - agent: sourcing-lead
+      creates: sourcing-channel-plan.yaml
+      optional_steps: [boolean-library, persona-cards, outreach-sequences]
+      notes: "Deploy channels, lists, enrichment, and outreach cadences."
+    - agent: recruiter
+      creates: requisition-brief.md
+      optional_steps: [interview-loop-plan, phone-screen-scripts]
+      notes: "Drive req intake, screens, interviews, offers; maintain ATS hygiene."
+    - agent: interview-scheduling-coordinator
+      creates: interview-schedule.json
+      optional_steps: [calendar-sync, logistics-checklist]
+      notes: "Coordinate panels, rooms/links, reminders, reschedules; record no-shows."
+    - agent: assessment-specialist
+      creates: assessment-pack.yaml
+      optional_steps: [test-blueprint, scoring-calibration, adverse-impact-check]
+      notes: "Design/operate assessments with fairness and psychometrics."
+    - agent: ld-manager
+      creates: ld-portfolio-plan.md
+      optional_steps: [analytics-plan, compliance-calendar]
+      notes: "Define learning portfolio with business alignment."
+    - agent: curriculum-designer
+      creates: curriculum-blueprint.yaml
+      optional_steps: [learning-objectives, storyboard, media-spec]
+      notes: "Design courses/paths mapped to job/skills."
+    - agent: trainer-coach
+      creates: training-delivery-report.md
+      optional_steps: [session-plan, observation-rubric, evaluation-forms]
+      notes: "Deliver and evaluate learning; coach for workplace transfer."
+    - agent: onboarding-manager
+      creates: onboarding-bridge.yaml
+      optional_steps: [preboarding-checklist, access-matrix, rtw-plan]
+      notes: "Bridge candidate→employee; provision accounts; day-1 readiness."
+    - agent: workforce-planner
+      creates: workforce-forecast.yaml
+      optional_steps: [coverage-model, scenario-analysis]
+      notes: "Plan supply/demand, forecast coverage & utilization."
+    - agent: client-engagement-manager
+      creates: sow-billing-schedule.yaml
+      optional_steps: [service-catalog, dispute-playbook]
+      notes: "Own client SOW, KPIs, cadence, and billing schedule."
+    - agent: staffing-dispatch-coordinator
+      creates: weekly-dispatch-plan.yaml
+      optional_steps: [scheduling-playbook, onsite-logistics, incident-escalation]
+      notes: "Build rosters, shifts, backfills; manage day-of operations."
+    - agent: compliance-legal
+      creates: compliance-register.md
+      optional_steps: [privacy-check, labor-law-matrix, incident-reporting]
+      notes: "Ensure legal/contract/privacy/anti-harassment compliance."
+    - agent: hris-analytics
+      creates: kpi-dashboard.json
+      optional_steps: [data-contract, dq-ruleset, pipeline-spec, payroll-recon-report]
+      notes: "Unify data and produce KPIs for hiring/training/dispatch/payroll."
+    - agent: finance-payroll
+      creates: monthly-close-pack.md
+      optional_steps: [payroll-runbook, invoice-kit, ar-ap-aging, tax-filing]
+      notes: "Run payroll, billing, AR/AP, tax; complete month close."
+    - agent: employee-relations-support
+      creates: weekly-er-brief.md
+      optional_steps: [hotline-log, mediation-plan, anti-retaliation-audit]
+      notes: "Handle complaints, investigations, mediation, RTW and wellbeing."
+  workflow_end:
+    - "All mandatory artifacts exist and are signed-off by owners."
+    - "KPIs published with thresholds and alerting configured."
+    - "Compliance and privacy reviews completed with evidence archived."
+  flow_diagram: |
+    flowchart TD
+      HRD[HR Director] --> HTA[Head of TA]
+      HTA --> EBL[Employer Branding]
+      HTA --> SL[Sourcing Lead]
+      SL --> R[Recruiter]
+      R --> ISC[Interview Scheduling]
+      R --> AS[Assessment]
+      AS --> R
+      R --> OM[Onboarding]
+      OM --> WFP[Workforce Planner]
+      WFP --> CEM[Client Engagement]
+      CEM --> SDC[Staffing/Dispatch]
+      SDC --> FP[Finance & Payroll]
+      SDC --> HRIS[HRIS & Analytics]
+      HRIS --> FP
+      SDC --> CL[Compliance & Legal]
+      CL --> ERS[Employee Relations]
+      ERS --> HRD
+  decision_guidance:
+    offer_or_hold:
+      question: "Proceed to offer now or hold for more signals?"
+      inputs: [assessment_score, interview_signal, calibration_notes, salary_band, client_priority]
+      rules:
+        - "All green + within band → offer"
+        - "Mixed signals → add calibration panel"
+        - "Over band or compliance flag → hold and escalate"
+    dispatch_or_train:
+      question: "Dispatch immediately or route to training?"
+      inputs: [role_readiness, certification, client_SLA, coverage_gap]
+      rules:
+        - "Readiness >= threshold and SLA urgent → dispatch"
+        - "Readiness < threshold → training path + RTW plan"
+    overtime_policy:
+      question: "Approve OT?"
+      inputs: [coverage, utilization, budget_guardrail, local_law]
+      rules:
+        - "Coverage critical & legal ✔ & budget ✔ → approve"
+        - "Else → reschedule/backfill"
+  handoff_prompts:
+    - from: head-talent-acquisition
+      to: employer-branding-lead
+      prompt: "Share hiring goals, EVP pillars, target personas, and channel KPIs."
+    - from: sourcing-lead
+      to: recruiter
+      prompt: "Deliver enriched candidate lists, outreach status, and consent evidence."
+    - from: recruiter
+      to: interview-scheduling-coordinator
+      prompt: "Provide panel roster, constraints, and candidate availability windows."
+    - from: assessment-specialist
+      to: recruiter
+      prompt: "Return candidate scores, rubric evidence, and adverse-impact summary."
+    - from: recruiter
+      to: onboarding-manager
+      prompt: "Send offer pack, start date, access requirements, and compliance docs."
+    - from: onboarding-manager
+      to: workforce-planner
+      prompt: "Publish ready-to-dispatch roster with skills and availability."
+    - from: workforce-planner
+      to: client-engagement-manager
+      prompt: "Align forecasted coverage/utilization vs client demand; note risks."
+    - from: client-engagement-manager
+      to: staffing-dispatch-coordinator
+      prompt: "Share SOW, rate card, site rules, and billing schedule."
+    - from: staffing-dispatch-coordinator
+      to: finance-payroll
+      prompt: "Submit approved timesheets, allowances, and exceptions for payroll/invoice."
+    - from: staffing-dispatch-coordinator
+      to: hris-analytics
+      prompt: "Provide dispatch plan IDs and event logs for KPI refresh."
+    - from: compliance-legal
+      to: employee-relations-support
+      prompt: "Escalate sensitive cases, retaliation watchlist, and required notices."
+  project_setup_guidance:
+    repositories:
+      - name: staffing-ops
+        folders: [docs, templates, checklists, data, dashboards, evidence]
+      - name: training-portfolio
+        folders: [curriculum, sessions, evaluation, media, localization]
+    cadences:
+      - "TA ops: weekly intake & SLA review"
+      - "Client ops: weekly dispatch & KPI"
+      - "Finance: monthly close"
+      - "ER: weekly brief + hotline"
+  story_development_guidance:
+    - "Convert SOW and coverage needs into dispatch stories with DoD including timesheet and client signoff."
+    - "For training → ensure learning objectives map to assessment instruments and on-the-job transfer tasks."
+  best_practices:
+    - "Contract/Data first; keep mapping across ATS/LMS/Dispatch/Payroll consistent."
+    - "Privacy by design; apply least privilege and retention."
+    - "Evidence-based decisions; archive logs and approvals."
+  success_criteria:
+    ta_pipeline_ready:
+      - "Requisition briefs, interview loop plans, and assessment packs approved"
+      - "Sourcing channels live; outreach sequences running"
+    training_ready:
+      - "Curriculum blueprints, objectives, and session plans approved"
+      - "Trainers scheduled; evaluation forms prepared"
+    dispatch_ready:
+      - "Workforce forecast and weekly dispatch plan approved"
+      - "Coverage/utilization ≥ target; backfill plan documented"
+    financial_ready:
+      - "Payroll runbook executed; invoices generated; AR/AP aging updated"
+    analytics_ready:
+      - "KPI dashboard refreshed; data quality pass rate ≥ 98%"
+    er_compliance_ready:
+      - "ER hotline live; anti-retaliation audit sampled; privacy checks passed"

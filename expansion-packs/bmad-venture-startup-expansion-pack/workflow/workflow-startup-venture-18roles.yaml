@@ -1,0 +1,384 @@
+workflow:
+  name: startup-venture-lifecycle-18roles
+  version: 1.0
+  description: >
+    使用 18 个创业团队核心职能角色，从 0→1→10 的端到端创业交付工作流。
+    覆盖 论证→发现→MVP→Beta/GTM→规模化→治理与融资→持续运营 的闭环；
+    统一以 BMAD-method 的“任务/检查/模板/数据资产/证据留痕”为标准输出。
+  metadata:
+    created_at: "2025-09-21 04:49"
+    owner: "BMAD Orchestrator"
+    standard: "BMAD-method v1"
+
+  commands:
+    start: "*workflow startup-venture-lifecycle-18roles"
+    plan: "*plan"
+    status: "*plan-status"
+    update: "*plan-update"
+
+  orchestrator:
+    id: bmad-orchestrator
+    cadences:
+      - name: Weekly Ops
+        owner: COO-Head of Operations
+        day: Fri
+        artifacts: [ops-dashboard, risk-register, release-readiness]
+      - name: Product Council
+        owner: CPO-Product
+        day: Tue
+        artifacts: [roadmap, backlog, discovery-pipeline]
+      - name: Eng Sync
+        owner: CTO-Engineering
+        day: Wed
+        artifacts: [tech-risks, architecture-decisions, delivery-forecast]
+      - name: GTM Sync
+        owner: Head-Growth-Marketing
+        day: Thu
+        artifacts: [funnel, campaigns, messaging-tests]
+      - name: RevOps Sync
+        owner: Head-Sales-RevOps
+        day: Thu
+        artifacts: [crm-pipeline, forecast, SLA-CS handoff]
+      - name: Board/IR Monthly
+        owner: Investor-Relations-Board-Ops
+        day: Monthly
+        artifacts: [board-pack, KPI, cash-runway]
+
+  roles:
+    - Founder-CEO
+    - COO-Head of Operations
+    - CTO-Engineering
+    - CPO-Product
+    - Head of Design-UX
+    - Head of Data-Analytics
+    - Head-Growth-Marketing
+    - Head-Sales-RevOps
+    - Head-Customer-Success
+    - CFO-FPA
+    - Head-People-Talent
+    - Legal-Compliance
+    - DevOps-SRE
+    - Security-Privacy-Officer
+    - QA-Release-Manager
+    - Partnerships-BD-Lead
+    - Program-Project-Manager (Agile)
+    - Investor-Relations-Board-Ops
+
+  artifacts:
+    repositories:
+      - name: product-docs
+        templates:
+          - templates/output/vs-architecture-tmpl.yaml
+          - templates/output/vs-implementation-tmpl.yaml
+        tasks:
+          - tasks/create-doc-vs-architecture.md
+      - name: ops-and-risk
+        checklists:
+          - checklists/vs-operations-checklist.md
+    datasets:
+      - templates/data/company.csv
+      - templates/data/okr.csv
+      - templates/data/roadmap.csv
+      - templates/data/backlog.csv
+      - templates/data/releases.csv
+      - templates/data/incidents.csv
+      - templates/data/integrations.csv
+      - templates/data/security_findings.csv
+      - templates/data/privacy_records.csv
+      - templates/data/experiments.csv
+      - templates/data/events_tracking.csv
+      - templates/data/metrics.csv
+      - templates/data/funnel.csv
+      - templates/data/campaigns.csv
+      - templates/data/crm_pipeline.csv
+      - templates/data/contracts.csv
+      - templates/data/customers.csv
+      - templates/data/churn.csv
+      - templates/data/support_tickets.csv
+      - templates/data/hiring_plan.csv
+      - templates/data/culture.csv
+      - templates/data/fundraising.csv
+      - templates/data/cap_table.csv
+      - templates/data/board_minutes.csv
+      - templates/data/finance.csv
+      - templates/data/kpi.csv
+
+  raci:
+    product_strategy:
+      {
+        R: CPO-Product,
+        A: Founder-CEO,
+        C: [Head of Design-UX, CTO-Engineering, Head-Growth-Marketing],
+        I: [Investor-Relations-Board-Ops],
+      }
+    architecture_and_sdlc:
+      {
+        R: CTO-Engineering,
+        A: COO-Head of Operations,
+        C: [DevOps-SRE, QA-Release-Manager, Security-Privacy-Officer],
+        I: [CPO-Product],
+      }
+    gtm_growth:
+      {
+        R: Head-Growth-Marketing,
+        A: Head-Sales-RevOps,
+        C: [Head of Data-Analytics, Partnerships-BD-Lead],
+        I: [Founder-CEO],
+      }
+    revenue_pipeline:
+      {
+        R: Head-Sales-RevOps,
+        A: COO-Head of Operations,
+        C: [Head-Customer-Success, CFO-FPA],
+        I: [Founder-CEO],
+      }
+    customer_success:
+      {
+        R: Head-Customer-Success,
+        A: COO-Head of Operations,
+        C: [Head-Sales-RevOps, CPO-Product, Head of Data-Analytics],
+        I: [Founder-CEO],
+      }
+    finance_and_fundraising:
+      { R: CFO-FPA, A: Founder-CEO, C: [Investor-Relations-Board-Ops, Legal-Compliance], I: [All] }
+    people_and_talent:
+      { R: Head-People-Talent, A: COO-Head of Operations, C: [Founder-CEO], I: [All] }
+    legal_privacy_security:
+      {
+        R: Legal-Compliance,
+        A: Security-Privacy-Officer,
+        C: [DevOps-SRE, CPO-Product, Head of Data-Analytics],
+        I: [All],
+      }
+    release_engineering:
+      {
+        R: QA-Release-Manager,
+        A: CTO-Engineering,
+        C: [DevOps-SRE, Security-Privacy-Officer],
+        I: [COO-Head of Operations],
+      }
+
+  metrics:
+    north_star:
+      [
+        "WAU/MAU activation",
+        "Revenue (ARR/MRR)",
+        "Net Revenue Retention",
+        "Payback Period",
+        "P95 latency & error rate",
+        "Time-to-Value",
+        "Cash runway",
+      ]
+    leading_indicators:
+      [
+        "Qualified Leads",
+        "Onboarding Success Rate",
+        "Feature Adoption",
+        "Experiment Uplift",
+        "Deployment Frequency",
+        "Change Failure Rate",
+      ]
+    review_cadence: ["Weekly Ops", "Monthly Board"]
+
+  phases:
+    - id: 0
+      name: Venture Thesis & Alignment
+      goal: 明确使命、战略叙事、目标市场与北极星指标；建立初始治理与节奏。
+      owner: Founder-CEO
+      entry_criteria: ["团队核心角色就位", "问题空间已有初步洞察"]
+      exit_criteria: ["Venture Thesis / Narrative", "3-5 个可验证假设", "OKR v1", "工作节奏设定"]
+      tasks:
+        - name: 撰写 Venture Thesis 与北极星
+          owner: Founder-CEO
+          outputs: ["Venture Thesis v1", "North Star"]
+          use:
+            templates:
+              [
+                "templates/output/vs-architecture-tmpl.yaml",
+                "templates/output/vs-implementation-tmpl.yaml",
+              ]
+        - name: 治理与节奏建立
+          owner: COO-Head of Operations
+          checklist: "checklists/vs-operations-checklist.md"
+          outputs: ["运营节奏与会议机制", "风险登记表 v1"]
+        - name: 叙事与董事会通信框架
+          owner: Investor-Relations-Board-Ops
+          outputs: ["board-minutes seed", "board-pack outline"]
+        - name: 法律与合规基线
+          owner: Legal-Compliance
+          outputs: ["公司注册/股权/合同清单", "数据处理与隐私记录草案"]
+
+    - id: 1
+      name: Problem Discovery & Validation
+      goal: 用定性/定量证据验证客户痛点与可行解；形成 PRD 和研究工单池。
+      owner: CPO-Product
+      entry_criteria: ["Venture Thesis v1", "OKR v1"]
+      exit_criteria: ["已验证的 JTBD/Persona", "机会评估", "优先级化的 Discovery Backlog"]
+      tasks:
+        - name: 研究计划 & 访谈
+          owner: Head of Design-UX
+          outputs: ["访谈纪要", "洞察地图", "无障碍与可用性原则"]
+        - name: 定量机会评估
+          owner: Head of Data-Analytics
+          datasets: ["templates/data/metrics.csv", "templates/data/experiments.csv"]
+          outputs: ["TAM/SAM/SOM 估算", "因果假设与实验设计"]
+        - name: PRD 与范围界定
+          owner: CPO-Product
+          outputs: ["PRD v1", "MVP 目标与成功标准"]
+        - name: 合作与渠道探索
+          owner: Partnerships-BD-Lead
+          outputs: ["首批渠道/生态伙伴清单", "试点意向书 LOI"]
+
+    - id: 2
+      name: MVP Architecture & Build
+      goal: 构建安全、可发布、可观测的 MVP；建立流水线与基础设施。
+      owner: CTO-Engineering
+      entry_criteria: ["PRD v1", "范围与成功标准"]
+      exit_criteria: ["可用 MVP", "基础监控/日志/告警", "发布与回滚策略"]
+      tasks:
+        - name: 架构与数据契约
+          owner: CTO-Engineering
+          use:
+            templates: ["templates/output/vs-architecture-tmpl.yaml"]
+          outputs: ["系统架构", "数据契约"]
+        - name: 平台与流水线
+          owner: DevOps-SRE
+          outputs: ["CI/CD", "IaC", "SLO & Error Budget", "蓝绿/灰度方案"]
+        - name: 安全与隐私内建
+          owner: Security-Privacy-Officer
+          datasets: ["templates/data/security_findings.csv", "templates/data/privacy_records.csv"]
+          outputs: ["威胁建模", "最小权限与密钥管理", "隐私记录"]
+        - name: 质量与发布工程
+          owner: QA-Release-Manager
+          checklist: "checklists/vs-operations-checklist.md"
+          outputs: ["测试金字塔", "发布门禁/回滚手册", "变更失败率基线"]
+        - name: 人才与团队建制
+          owner: Head-People-Talent
+          datasets: ["templates/data/hiring_plan.csv", "templates/data/culture.csv"]
+          outputs: ["岗位 JD", "面试回路", "入职与绩效节奏"]
+
+    - id: 3
+      name: Private Beta & Go-To-Market
+      goal: 私测→公测，建立增长引擎与收入漏斗，完成 CS 交接与 SLA。
+      owner: Head-Growth-Marketing
+      entry_criteria: ["MVP 可用", "可用的监控和回滚"]
+      exit_criteria: ["GTM 叙事/素材", "验证过的信息传递", "可预测的线索→收入漏斗"]
+      tasks:
+        - name: 信息传递与实验
+          owner: Head-Growth-Marketing
+          datasets:
+            [
+              "templates/data/funnel.csv",
+              "templates/data/campaigns.csv",
+              "templates/data/events_tracking.csv",
+            ]
+          outputs: ["定位/关键信息", "渠道实验结果", "付费/自然增长策略"]
+        - name: 收入管道与预测
+          owner: Head-Sales-RevOps
+          datasets: ["templates/data/crm_pipeline.csv", "templates/data/contracts.csv"]
+          outputs: ["合格线索定义", "SQL→Close 流水线", "预测准确度仪表板"]
+        - name: 客户成功就绪
+          owner: Head-Customer-Success
+          datasets: ["templates/data/support_tickets.csv", "templates/data/churn.csv"]
+          outputs: ["SLA/SLG", "上线/培训脚本", "健康分与预警模型"]
+        - name: 法务与商业条款
+          owner: Legal-Compliance
+          outputs: ["主服务协议/隐私条款/DPA", "合作协议模板"]
+        - name: 渠道与生态发布
+          owner: Partnerships-BD-Lead
+          outputs: ["Marketplace/渠道上架", "联名市场活动"]
+
+    - id: 4
+      name: Scale & Reliability
+      goal: 在可靠性与成本效率下扩展；优化工程流速与质量。
+      owner: COO-Head of Operations
+      entry_criteria: ["≥早期可重复收入", "可维护的发布节奏"]
+      exit_criteria: ["可预测交付", "可靠性 SLO 达标", "单位经济学达标"]
+      tasks:
+        - name: 交付体系与可预测性
+          owner: Program-Project-Manager (Agile)
+          outputs: ["节奏/看板", "瓶颈与 WIP 策略", "预测模型"]
+        - name: 可靠性与成本
+          owner: DevOps-SRE
+          outputs: ["容量与弹性计划", "成本/性能优化建议"]
+        - name: 安全/隐私持续合规
+          owner: Security-Privacy-Officer
+          outputs: ["风险处置台账", "隐私审计证据"]
+        - name: 质量与发布度量
+          owner: QA-Release-Manager
+          outputs: ["部署频率/Lead Time/变更失败率/MTTR 报表"]
+        - name: 数据与因果实验运营
+          owner: Head of Data-Analytics
+          outputs: ["实验平台与Uplift报告", "因果指标守护"]
+
+    - id: 5
+      name: Fundraising & Board Ops
+      goal: 规范董事会运作、融资材料与关键 KPI；延长 Runway。
+      owner: Investor-Relations-Board-Ops
+      entry_criteria: ["可重复增长信号", "核心 KPI 基线"]
+      exit_criteria: ["融资材料就绪", "Board Pack 标准化", "Runway≥12 个月"]
+      tasks:
+        - name: 财务模型与场景
+          owner: CFO-FPA
+          datasets:
+            [
+              "templates/data/finance.csv",
+              "templates/data/kpi.csv",
+              "templates/data/fundraising.csv",
+            ]
+          outputs: ["三表模型", "情景与敏感性", "资金使用计划"]
+        - name: 融资资料与故事线
+          owner: Founder-CEO
+          outputs: ["Pitch Deck", "客户证言与指标选段"]
+        - name: 董事会运营
+          owner: Investor-Relations-Board-Ops
+          datasets: ["templates/data/board_minutes.csv", "templates/data/kpi.csv"]
+          outputs: ["Board Pack", "Minutes", "决议跟踪"]
+
+    - id: 6
+      name: Operate, Learn & Renew
+      goal: 建立持续改进与再发现机制，围绕北极星闭环迭代。
+      owner: COO-Head of Operations
+      entry_criteria: ["进入常态化运营阶段"]
+      exit_criteria: ["季度复盘与新一轮假设池"]
+      tasks:
+        - name: 季度业务复盘（QBR）
+          owner: Founder-CEO
+          outputs: ["战略回顾与方向调整", "季度 OKR 重设"]
+        - name: 产品/用户体验复盘
+          owner: CPO-Product
+          outputs: ["Roadmap 调整", "体验债务清单"]
+        - name: 安全/隐私/可靠性复盘
+          owner: Security-Privacy-Officer
+          outputs: ["重大事件根因/改进", "合规模块更新"]
+        - name: 人才与组织复盘
+          owner: Head-People-Talent
+          outputs: ["人才盘点", "组织健康/文化改进项"]
+
+  quality_gates:
+    - name: Release Readiness
+      owned_by: QA-Release-Manager
+      includes:
+        - checklist: checklists/vs-operations-checklist.md
+        - evidence: ["测试覆盖与结果", "回滚演练记录"]
+    - name: Privacy & Security
+      owned_by: Security-Privacy-Officer
+      includes:
+        - artifacts: ["威胁建模", "隐私记录", "访问与密钥审计"]
+    - name: SRE SLO Gate
+      owned_by: DevOps-SRE
+      includes:
+        - sli: ["可用性", "延迟 P95", "错误率", "变更失败率"]
+
+  communications:
+    docs:
+      - board-pack: ["board-minutes", "KPI", "筹资更新"]
+      - product: ["PRD", "Roadmap", "Discovery Notes"]
+      - ops: ["Runbook", "SLA/SLG", "Incident Review"]
+    channels: ["Weekly Ops", "Product Council", "Eng Sync", "GTM/RevOps Sync", "Monthly Board"]
+
+  how_to_run:
+    - "*workflow startup-venture-lifecycle-18roles"
+    - "*plan"
+    - "*plan-status"
+    - "*plan-update"

@@ -1,0 +1,519 @@
+workflow:
+  id: hospital_full_cycle_care_v1
+  name: 全周期治疗工作流（18院内角色版）
+  description: 参照 BMAD-method 的工作流格式，覆盖从接入、分诊、诊断、治疗/手术、住院、出院、结算到随访的端到端闭环，显式编排18个院内角色的分工、交接与决策。
+  type: healthcare_full_cycle
+  project_types:
+    - 门急诊到住院的一体化诊疗
+    - 择期/急诊手术路径
+    - 慢病长期管理与复诊随访
+  full_game_sequence:
+    - phase: 患者接入与体验
+      owner_role: 16-Patient Experience & Front Desk Lead
+      inputs:
+        - 转诊/自来/线上预约
+      outputs:
+        - 完成登记/同意/隐私告知
+        - 就诊号/队列号
+      raci:
+        R:
+          - "16"
+        A:
+          - "01"
+        C:
+          - "13"
+          - "14"
+          - "12"
+          - "17"
+        I:
+          - "03"
+    - phase: 急诊或门诊分诊
+      owner_role: 05-Emergency Lead / 04-Outpatient Manager
+      decision: 是否急危重症？
+      path_if_yes: 急诊绿色通道
+      path_if_no: 常规门诊流程
+      inputs:
+        - 主诉/生命体征
+      outputs:
+        - ESI/优先级
+        - 就诊去向
+      raci:
+        R:
+          - "05"
+          - "04"
+          - "03"
+        A:
+          - "02"
+        C:
+          - "12"
+          - "11"
+        I:
+          - "16"
+    - phase: 初诊评估与检验申请
+      owner_role: 02-Chief Medical Officer（临床学科代表）
+      inputs:
+        - 病史/体格检查
+      outputs:
+        - 初步诊断
+        - 检验/影像/处方申请
+      raci:
+        R:
+          - 临床主诊
+        A:
+          - "02"
+        C:
+          - 08
+          - 09
+          - "10"
+          - "03"
+        I:
+          - "12"
+          - "11"
+          - "17"
+    - phase: 检验与影像
+      owner_role: 08-Lab Manager / 09-Radiology & PACS Manager
+      inputs:
+        - 采血/标本/检查申请
+      outputs:
+        - 报告（含关键值告警）
+        - 影像链接/PACS UID
+      raci:
+        R:
+          - 08
+          - 09
+        A:
+          - "02"
+        C:
+          - "13"
+          - "03"
+          - "12"
+        I:
+          - "11"
+    - phase: 药学审核与用药发放
+      owner_role: 10-Pharmacy Director
+      inputs:
+        - 处方/医嘱
+      outputs:
+        - 处方审核（相互作用/过敏）
+        - 药品发放/用药宣教
+      raci:
+        R:
+          - "10"
+        A:
+          - "02"
+        C:
+          - "03"
+          - "12"
+          - "11"
+        I:
+          - "14"
+          - "15"
+    - phase: 治疗决策与同意
+      owner_role: 02-Chief Medical Officer
+      inputs:
+        - 诊断/检查结果/风险评估
+      outputs:
+        - 治疗方案/手术指征
+        - 签署手术/麻醉/输血/隐私/金融同意
+      raci:
+        R:
+          - 临床主诊
+          - "07"
+        A:
+          - "02"
+        C:
+          - "03"
+          - "10"
+          - "11"
+          - "12"
+          - "17"
+        I:
+          - "01"
+    - phase: 手术与麻醉（如适用）
+      owner_role: 07-OR & Anesthesia Lead
+      inputs:
+        - 术前评估/术式耗材包
+        - 植入物/器械/血制品
+      outputs:
+        - 术中记录/植入UDI
+        - 术后交班
+      raci:
+        R:
+          - "07"
+          - "03"
+          - "10"
+          - "15"
+        A:
+          - "07"
+        C:
+          - "11"
+          - "12"
+          - "02"
+        I:
+          - "01"
+          - "16"
+    - phase: 住院与病区护理
+      owner_role: 06-Inpatient Ward Manager / 03-Director of Nursing
+      inputs:
+        - 术后/治疗计划/护理计划
+      outputs:
+        - 医嘱执行/护理记录
+        - 感染监测/不良事件报告
+      raci:
+        R:
+          - "06"
+          - "03"
+        A:
+          - "03"
+        C:
+          - "12"
+          - "11"
+          - "10"
+          - "15"
+        I:
+          - "02"
+          - "01"
+    - phase: 出院筹备与患者教育
+      owner_role: 03-Director of Nursing / 02-CMO
+      inputs:
+        - 病程/恢复评估
+      outputs:
+        - 出院带药/处置
+        - 出院小结/宣教/复诊随访计划
+      raci:
+        R:
+          - "03"
+          - "02"
+          - "10"
+        A:
+          - "02"
+        C:
+          - "12"
+          - "16"
+        I:
+          - "14"
+    - phase: 收入循环与结算
+      owner_role: 14-Finance & Revenue Cycle Manager
+      inputs:
+        - 诊疗记录/编码/费用明细
+      outputs:
+        - 估价/结算/发票
+        - 申报837/入账835/异议处理
+      raci:
+        R:
+          - "14"
+        A:
+          - "14"
+        C:
+          - "02"
+          - "03"
+          - "10"
+          - "13"
+        I:
+          - "01"
+          - "17"
+    - phase: 供应链与追溯归集
+      owner_role: 15-Supply & Inventory Manager
+      inputs:
+        - 耗材出入库/UDI/批号
+      outputs:
+        - 成本归集/召回可追溯
+        - 近效期与短缺报告
+      raci:
+        R:
+          - "15"
+        A:
+          - "15"
+        C:
+          - "07"
+          - "10"
+          - "12"
+          - "11"
+        I:
+          - "14"
+          - "01"
+    - phase: 质量与患者安全监测
+      owner_role: 12-Quality & Patient Safety Manager
+      inputs:
+        - 事件/不良反应/投诉
+      outputs:
+        - RCA/CAPA
+        - 质量指标看板与通报
+      raci:
+        R:
+          - "12"
+        A:
+          - "12"
+        C:
+          - "02"
+          - "03"
+          - "05"
+          - "04"
+          - "11"
+          - "16"
+        I:
+          - "01"
+    - phase: 感染预防与控制
+      owner_role: 11-Infection Control Officer
+      inputs:
+        - 监测数据/暴发线索
+      outputs:
+        - 隔离/上报/干预
+        - 手卫生/环境整改
+      raci:
+        R:
+          - "11"
+        A:
+          - "11"
+        C:
+          - "03"
+          - "06"
+          - "07"
+          - "12"
+        I:
+          - "01"
+          - "02"
+    - phase: 信息系统与互联
+      owner_role: 13-Health IT & EHR Admin
+      inputs:
+        - 接口映射/字典/账号权限
+      outputs:
+        - EHR/ERP/PACS/RCM 正常运行
+        - 停机/恢复对账记录
+      raci:
+        R:
+          - "13"
+        A:
+          - "13"
+        C:
+          - "02"
+          - "03"
+          - 08
+          - 09
+          - "10"
+          - "14"
+          - "15"
+        I:
+          - "01"
+          - "12"
+          - "17"
+    - phase: 合规与法务监督
+      owner_role: 17-Compliance & Legal
+      inputs:
+        - 同意与隐私记录/合同/第三方
+      outputs:
+        - 审计与证据台账
+        - 泄露通报/热线与调查/DPIA
+      raci:
+        R:
+          - "17"
+        A:
+          - "17"
+        C:
+          - "12"
+          - "13"
+          - "14"
+          - "16"
+        I:
+          - "01"
+          - "02"
+    - phase: 教育培训与变更赋能
+      owner_role: 18-Education & Training Coordinator
+      inputs:
+        - 新政策/新流程/事件教训
+      outputs:
+        - 课程与评估
+        - 胜任力提升与复训计划
+      raci:
+        R:
+          - "18"
+        A:
+          - "18"
+        C:
+          - "12"
+          - "17"
+          - "13"
+          - "03"
+          - "02"
+        I:
+          - "01"
+    - phase: 随访与复诊管理
+      owner_role: 04-Outpatient Manager / 02-CMO
+      inputs:
+        - 出院随访计划/预约
+      outputs:
+        - 复诊/慢病管理
+        - 再入院/并发症监测
+      raci:
+        R:
+          - "04"
+          - "02"
+          - "16"
+        A:
+          - "02"
+        C:
+          - "12"
+          - "10"
+          - "03"
+        I:
+          - "01"
+    - phase: 工作流结束与复盘
+      owner_role: 01-Hospital Director
+      inputs:
+        - KPI/事件/RCA/CAPA
+      outputs:
+        - 管理评审/资源决策
+        - 改进路线图
+      raci:
+        R:
+          - "01"
+          - "12"
+        A:
+          - "01"
+        C:
+          - "02"
+          - "03"
+          - "14"
+          - "13"
+          - "17"
+          - "18"
+        I:
+          - 全体
+  project_setup_guidance:
+    roles_index:
+      "01": 医院院长/行政主管
+      "02": 首席医疗官
+      "03": 护理部主任
+      "04": 门诊管理主任
+      "05": 急诊科负责人
+      "06": 住院病区主任
+      "07": 手术室/麻醉负责人
+      08: 实验室经理
+      09: 放射科/PACS 经理
+      "10": 药学部主任
+      "11": 感染控制官
+      "12": 质量与患者安全经理
+      "13": 医疗信息系统管理员
+      "14": 财务与收入循环经理
+      "15": 供应链与库存经理
+      "16": 患者体验与前台负责人
+      "17": 合规与法务
+      "18": 教育与培训协调员
+    raci_legend:
+      R: Responsible
+      A: Accountable
+      C: Consulted
+      I: Informed
+    artifacts:
+      - 登记/同意/隐私记录
+      - 处方与用药指导
+      - 检验/影像报告链接
+      - 手术/麻醉记录（含UDI）
+      - 护理记录/医嘱执行
+      - 出院小结/宣教
+      - 账单与申报文件（837/835）
+      - 事件/RCA/CAPA 报告
+      - 审计与合规证据台账
+      - 培训记录与胜任力证明
+    systems:
+      - EHR/HIS
+      - ERP/RCM
+      - LIS
+      - RIS/PACS
+      - ADC/智能柜
+      - 条码/UDI 扫描
+      - 队列与自助机
+      - 呼叫中心
+      - 冷链/环境监测
+    entry_criteria:
+      - 系统可用/停机预案就绪
+      - 岗位胜任力有效
+      - 物资与药品就绪
+      - 合同/第三方合规
+      - 隐私与同意模板现行
+    exit_criteria:
+      - 出院与账单关闭
+      - 随访计划生成
+      - 关键指标达标
+      - CAPA 落地与验证
+  workflow_end:
+    definition_of_done:
+      - 医疗文档完整且签署齐备
+      - 账单正确并已结算/申报
+      - 患者获得清晰的出院与复诊指引
+      - 质量/安全/合规事件均已评估、必要时完成通报
+      - 改进与培训闭环完成
+  prototype_sequence:
+    - phase: 小范围门诊路径试点
+      goal: 验证预约→就诊→检验→处方→结算最短闭环
+      metrics:
+        - 平均等待时间
+        - 一次通过登记率
+        - 处方审核通过率
+  prototype_workflow_end:
+    success_gate:
+      - 指标≥设定阈值
+      - 无严重合规问题
+      - 用户反馈≥4/5
+  flow_diagram: "\nflowchart TD\n  A[接入/前台16] --> B{急危重? 05/04}\n  B -- 是 --> C[急诊路径\
+    \ 05]\n  B -- 否 --> D[门诊初诊 02]\n  D --> E[检验8/影像9]\n  E --> F[药学审核10]\n  F -->\
+    \ G{需手术? 07}\n  G -- 是 --> H[手术室 07]\n  G -- 否 --> I[治疗与观察 02/03]\n  H --> J[住院\
+    \ 06/03]\n  I --> J\n  J --> K[出院与宣教 02/03/10]\n  K --> L[结算与申报 14]\n  L --> M[质量/感染/合规\
+    \ 12/11/17]\n  M --> N[培训改进 18]\n  K --> O[随访复诊 04/02]\n  N --> P[管理评审 01]\n"
+  decision_guidance:
+    急危重症判定:
+      owner: "05"
+      criteria:
+        - 生命体征异常
+        - 意识障碍
+        - 重大外伤
+      escalation:
+        - 立即启动绿色通道
+        - 通知相关专科/手术/输血
+    手术适应证:
+      owner: 02/07
+      criteria:
+        - 指南/评分系统
+        - 患者意愿与同意
+      second_opinion: true
+    出院标准:
+      owner: 02/03
+      criteria:
+        - 生命体征平稳
+        - 疼痛控制
+        - 出院教育完成
+        - 随访已安排
+  handoff_prompts:
+    16→04/05: 登记完成，隐私与金融同意已签署，过敏/语言需求标注。
+    02→08/09: 检查目的与临床疑问；关键值回呼联系人。
+    09/08→02: 关键结果提醒与时间窗；追加建议。
+    02/03→10: 诊疗计划与禁忌；用药教育重点。
+    07→06/03: 术后医嘱、植入UDI、引流/管路管理要点。
+    06/03→14: 出院带药与处置计入费用；编码所需要素齐全。
+    14→16: 费用解释与申诉路径；慈善/援助选项。
+  story_development_guidance:
+    patient_journey:
+      - 可达性：预约便捷、等待透明、导航清晰
+      - 理解性：沟通脚本、教具与多语言
+      - 连续性：跨场景交接提示与回访机制
+  game_development_best_practices:
+    安全优先:
+      - 隐私最小化与屏蔽
+      - 手卫生与环境清洁
+      - 停机/断网纸质预案
+    自动化:
+      - 条码扫描减少差错
+      - 队列与提醒自动化
+      - 接口对账与告警
+    度量改进:
+      - 看板实时刷新
+      - 阈值预警与升级
+      - PDCA 持续改进
+  success_criteria:
+    kpi:
+      - 临床：再入院率、并发症率、手术部位感染率
+      - 效率：预约至就诊时长、住院日、手术周转时间
+      - 体验：NPS、投诉按时关闭率、平均等待时间
+      - 财务：拒付率、现金回收周期、成本/病例
+      - 合规：泄露按时通报率、培训完成率、审计发现关闭率
+    review_cadence: 月度科室会 + 季度管理评审（01 主持）

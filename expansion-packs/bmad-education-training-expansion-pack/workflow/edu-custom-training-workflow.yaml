@@ -1,0 +1,273 @@
+# <!-- Powered by BMAD™ Core -->
+workflow:
+  id: edu-custom-training
+  name: Education Training - Bespoke Program Delivery
+  description: >-
+    End-to-end workflow for a customized training engagement in an education/training institution,
+    orchestrating 18 roles across discovery, curriculum & ID, content production, platform setup,
+    delivery, assessment & QA, learner success, compliance, and continuous improvement.
+  type: bespoke-training
+  project_types:
+    - corporate-training
+    - academic-extension
+    - workforce-upskilling
+    - bootcamp
+    - micro-credential
+    - blended-learning
+    - e-learning
+
+  full_training_sequence:
+    - agent: academic-head
+      creates: engagement-charter.md
+      optional_steps:
+        - stakeholder_briefings
+        - scope_boundary_workshop
+      notes: "Define scope, North Star outcomes, governance, timeline, budget guardrails, and RACI."
+    - agent: marketing-community-lead
+      creates: stakeholder-map.md
+      requires: engagement-charter.md
+      optional_steps: [persona_workshop, value_prop_alignment]
+      notes: "Identify buyer/user personas, key sponsors, and communication cadence."
+    - agent: partnerships-employability-lead
+      creates: industry-needs-brief.md
+      optional_steps: [employer_interviews, job_task_analysis]
+      notes: "Gather external signals (employers/partners) to shape competencies and job relevance."
+    - agent: curriculum-director
+      creates: program-outcomes-obe.md
+      requires: engagement-charter.md
+      uses: create-doc outcomes-framework OR create-doc curriculum-map
+      notes: "Define OBE-aligned program outcomes (PLO/CLO) and initial curriculum structure."
+    - agent: instructional-design-lead
+      creates: instructional-blueprint.md
+      requires: program-outcomes-obe.md
+      uses: create-doc blueprint OR observation-rubric
+      notes: "Design learning paths, modalities, UDL & accessibility anchors, and assessment strategy."
+    - agent: accessibility-inclusion-officer
+      validates: accessibility_design_review
+      requires: instructional-blueprint.md
+      notes: "Run WCAG/UDL early review; record reasonable accommodations and artifacts."
+    - agent: content-production-lead
+      creates: content-strategy.md
+      requires: instructional-blueprint.md
+      uses: content-strategy OR style-guide
+      notes: "Define asset types, production workflow, localization plan, and release calendar."
+    - agent: content-production-lead
+      creates: storyboard-pack/
+      requires: content-strategy.md
+      uses: storyboard OR script
+      notes: "Produce storyboards/scripts for priority modules. Gate with QA rubric before shoot."
+    - agent: content-production-lead
+      creates: media-assets/
+      requires: storyboard-pack/
+      uses: shoot-plan OR postproduction OR captions-transcripts
+      notes: "Produce & QC audio/video/screen-capture assets with captions and transcripts."
+    - agent: lms-administrator
+      creates: lms-course-shells/
+      requires: instructional-blueprint.md
+      uses: create-course-shell OR lms-hardening
+      notes: "Create course shells, roles, enrollment rules, SSO, SCORM/xAPI packaging tests."
+    - agent: it-security-privacy-officer
+      validates: data_privacy_security
+      requires: lms-course-shells/
+      uses: hr-privacy-dpia OR vendor-risk-dpa
+      notes: "Review data flows, access control, consents, retention schedule, and audit logging."
+    - agent: registrar
+      creates: academic-operations-plan.md
+      requires: engagement-charter.md
+      uses: timetable-policy OR workload-policy
+      notes: "Define academic calendar, schedules, registration/SIS alignment, and grading policies."
+    - agent: finance-ops-manager
+      creates: cost-model-and-sow.md
+      requires: engagement-charter.md
+      notes: "Finalize SOW, vendor contracts, instructor rates, and procurement milestones."
+    - agent: hr-faculty-development
+      creates: staffing-and-pd-plan.md
+      requires: instructional-blueprint.md
+      uses: recruitment-plan OR pd-catalog OR observation-cycle
+      notes: "Recruit/assign instructors, plan onboarding, mentoring, observations, and PD schedule."
+    - agent: faculty-lead
+      creates: teaching-readiness-pack.md
+      requires: lms-course-shells/
+      uses: lesson-plan-kit OR observation-rubric
+      notes: "Lesson plans, sample activities, classroom management, and tech checks."
+    - agent: admissions-enrollment-manager
+      creates: admissions-enrollment-brief.md
+      requires: stakeholder-map.md
+      notes: "Define eligibility, admissions messaging, selection rubric, and enrollment ops."
+    - agent: learner-success-lead
+      creates: learner-support-plan.md
+      requires: instructional-blueprint.md
+      uses: risk-flag-rubric OR intervention-playbook
+      notes: "Define orientation, nudges, tutoring, escalation ladder, and wellbeing resources."
+    - agent: assessment-qa-lead
+      creates: assessment-pack-and-qa.md
+      requires: program-outcomes-obe.md
+      uses: blueprint-to-item-bank OR moderation-sop
+      notes: "Item bank, rubrics, academic integrity controls, sampling and moderation plan."
+    - agent: compliance-accreditation-liaison
+      creates: compliance-matrix-and-ssr.md
+      requires: engagement-charter.md
+      uses: regime-mapping OR evidence-catalog
+      notes: "Map regulatory/accreditation clauses, compile evidence, plan site visits if applicable."
+    - agent: learning-analytics-lead
+      creates: analytics-spec-and-kpis.md
+      requires: instructional-blueprint.md
+      uses: kpi-dashboard OR xapi-instrumentation
+      notes: "Define learning and business metrics, instrumentation, and reporting windows."
+    - agent: academic-head
+      validates: go_live_gate
+      requires:
+        - teaching-readiness-pack.md
+        - assessment-pack-and-qa.md
+        - lms-course-shells/
+        - compliance-matrix-and-ssr.md
+      notes: "Gate review—scope, quality, risk; sign-off to launch."
+    - agent: marketing-community-lead
+      creates: launch-comms-kit.md
+      requires: go_live_gate
+      notes: "Internal & external comms templates, FAQ, social posts, SLA for responses."
+    - agent: lms-administrator
+      creates: course-publication-record.md
+      requires: go_live_gate
+      notes: "Publish courses, enroll cohorts, smoke test, and record version & checksum."
+    - agent: faculty-lead
+      creates: delivery-logs/
+      requires: course-publication-record.md
+      notes: "Deliver instruction; log deviations, incidents, and improvement notes."
+    - agent: learner-success-lead
+      creates: intervention-logs/
+      requires: delivery-logs/
+      notes: "Monitor risk flags, run interventions, track outcomes."
+    - agent: assessment-qa-lead
+      creates: moderation-reports/
+      requires: delivery-logs/
+      notes: "Run sampling & moderation; address integrity issues and feedback to faculty."
+    - agent: learning-analytics-lead
+      creates: analytics-dashboards/
+      requires:
+        - delivery-logs/
+        - intervention-logs/
+        - moderation-reports/
+      notes: "Publish dashboards (engagement, progress, outcome, satisfaction)."
+    - agent: content-production-lead
+      creates: content-hotfixes/
+      requires: delivery-logs/
+      notes: "Minor content fixes during delivery; follow change-control and re-QA."
+    - agent: registrar
+      creates: final-grades-and-records.md
+      requires:
+        - moderation-reports/
+        - analytics-dashboards/
+      notes: "Issue grades, transcripts/certificates; archive records per retention schedule."
+    - agent: compliance-accreditation-liaison
+      creates: cqi-and-capa-register.md
+      requires:
+        - analytics-dashboards/
+        - moderation-reports/
+        - final-grades-and-records.md
+      notes: "Compile findings, root causes, CAPA actions, assign owners & due dates."
+    - agent: academic-head
+      creates: postmortem-and-roadmap.md
+      requires: cqi-and-capa-register.md
+      notes: "Close the loop—publish CQI changes, update curriculum/content roadmap."
+
+  fast_track_sequence:
+    - step: scope_gate
+      action: decide_full_or_fast_track
+      notes: "If customization is minor and content exists, choose fast-track; else full sequence."
+    - agent: academic-head
+      creates: mini-charter.md
+      optional_steps: [abbreviated_raci, budget_snapshot]
+      notes: "Scope-only charter for small engagements."
+    - agent: instructional-design-lead
+      creates: sprint-backlog.md
+      requires: mini-charter.md
+      notes: "Choose backlog items to adapt existing content; define acceptance criteria."
+    - agent: content-production-lead
+      creates: rapid-adapted-assets/
+      requires: sprint-backlog.md
+      notes: "Light edits, re-records, re-caption, and quick QC."
+    - agent: lms-administrator
+      creates: course-updates-publication.md
+      requires: rapid-adapted-assets/
+      notes: "Republish deltas; maintain version notes."
+    - agent: academic-head
+      validates: release_gate
+      requires: course-updates-publication.md
+      notes: "Go/no-go for low-risk release."
+
+  project_setup_guidance:
+    action: initialize_program_repo
+    notes: >-
+      Create /docs, /curriculum, /content, /lms, /qa, /analytics, /compliance folders.
+      Initialize versioning and naming conventions for artifacts and evidence. Set access controls.
+
+  workflow_end:
+    summary: "Training engagement delivered with CQI loop closed and artifacts archived."
+
+  flow_diagram: |
+    ```mermaid
+    graph TD
+      A[Start: Bespoke Training Engagement] --> B{Scope?}
+      B -->|Full| C[Academic Head: engagement-charter.md]
+      B -->|Fast Track| D[Academic Head: mini-charter.md]
+
+      C --> E[Curriculum Director: program-outcomes-obe.md]
+      E --> F[ID Lead: instructional-blueprint.md]
+      F --> G[Accessibility Officer: accessibility review]
+      F --> H[Content Production: content-strategy.md]
+      H --> I[Storyboards & Scripts]
+      I --> J[Media assets + captions]
+      F --> K[LMS Admin: course shells]
+      K --> L[IT/Security: privacy & security]
+      C --> M[Registrar: operations plan]
+      C --> N[Finance/Ops: SOW & cost model]
+      F --> O[HR/Faculty Dev: staffing & PD]
+      K --> P[Faculty Lead: teaching readiness]
+      C --> Q[Admissions/Enrollment brief]
+      F --> R[Learner Success plan]
+      E --> S[Assessment & QA pack]
+      C --> T[Compliance & SSR]
+      R & P & S & K & T --> U{Go Live Gate}
+      U -->|OK| V[Launch: publish & deliver]
+      V --> W[Delivery logs / Interventions / Moderation]
+      W --> X[Learning Analytics dashboards]
+      X --> Y[Registrar: final grades & records]
+      Y --> Z[Compliance: CAPA & CQI]
+      Z --> AA[Academic Head: postmortem & roadmap]
+      D --> AB[Fast-track backlog & quick update]
+      AB --> AC[Release Gate]
+
+      style U fill:#90EE90
+      style V fill:#90EE90
+      style AC fill:#90EE90
+      style C fill:#FFE4B5
+      style E fill:#FFE4B5
+      style F fill:#FFE4B5
+      style H fill:#FFE4B5
+      style K fill:#FFE4B5
+    ```
+
+  decision_guidance:
+    - "Go Full vs Fast-Track based on customization complexity, compliance impact, and content gap size."
+    - "Enforce accessibility and privacy gates before content production and LMS publication."
+    - "If assessment integrity risks are high, require pre-moderation and proctoring setup before launch."
+    - "Use data from early cohorts to trigger content hotfixes and intervention playbooks."
+
+  handoff_prompts:
+    - "What artifacts must be handed over? Where are they stored?"
+    - "Who signs off? What are objective acceptance criteria?"
+    - "What evidence is required for compliance and audits?"
+    - "What is the rollback plan for release failures?"
+
+  training_best_practices:
+    - "Design around OBE; align assessments to outcomes and rubrics."
+    - "Default to UDL and WCAG AA; include captions/transcripts and keyboard operability."
+    - "Instrument xAPI/learning analytics from day one; define KPIs before delivery."
+    - "Run short feedback loops (observations, quick surveys, moderation) and act quickly."
+
+  success_criteria:
+    - "≥ 90% of artifacts captured in evidence catalog and version-controlled."
+    - "Accessibility and privacy validations passed before go-live."
+    - "KPI targets met (completion, satisfaction, competency attainment)."
+    - "CQI cycle closed with CAPA actions verified."

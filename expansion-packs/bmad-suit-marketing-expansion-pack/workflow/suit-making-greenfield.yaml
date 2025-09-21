@@ -1,0 +1,309 @@
+# <!-- Powered by BMAD™ Core -->
+workflow:
+  id: suit-making-greenfield
+  name: Suit Making - D2C & Retail (End-to-End)
+  description: 专用于西装企业在 D2C、电商、门店（含 BOPIS/同城配）场景下，从客户获客—量体—面料与辅料选择—打版与生产—质检与改衣—仓配履约—售后与口碑闭环的全流程工作流；覆盖成衣（含改衣）、MTM（Made-to-Measure）与 Bespoke 三类路径，统一 18 个角色的作业分工、产物与交接。
+  type: greenfield
+  project_types:
+    - ready-to-wear
+    - made-to-measure
+    - bespoke
+    - wedding-party
+    - corporate-uniform
+    - trunk-show
+
+  # ——————————————————————————————————————————
+  # A) 标准端到端主流程（从获客到复购）
+  # ——————————————————————————————————————————
+  full_suit_sequence:
+    - step: kickoff_scope_alignment
+      action: align_business_goal
+      notes: 明确本次需求（RTW/MTM/Bespoke、婚礼/职场/日常）、预算/时限/场景与风格偏好；建立唯一客户ID与意向单。
+      creates: intent-brief.md
+      agent: Product-Assortment-Manager
+
+    - agent: Marketing-Director
+      creates: go-to-market-brief.md
+      uses: cs-strategy OR orchestration from related agents where needed
+      optional_steps:
+        - demand_calendar_alignment
+        - hero_story_alignment
+      notes: 输出活动/内容的北极星与目标人群同步给 Brand、PM、CRM、Ecom。
+
+    - agent: Brand-Manager
+      creates: brand-story-and-style-guardrails.md
+      notes: 明确风格锚点（剪裁/版型/面料叙事）与渠道口径；供创意/社媒/门店话术调用。
+
+    - agent: Creative-Director
+      creates: creative-brief.md
+      notes: 视觉叙事与关键素材清单；供电商、社媒、门店陈列统一输出。
+
+    - agent: Social-Influencer-Manager
+      creates: koc-kol-plan.md
+      notes: 社媒与达人节奏、测款与素材反馈路径，沉淀可复用素材库。
+
+    - agent: Performance-Marketing-Lead
+      creates: media-plan-and-experiment-design.md
+      notes: 转化/线索双轨投放与增量验证；归因与预算护栏与 Data/Finance 联动。
+
+    - agent: Ecommerce-Manager
+      creates: product-detail-pages-and-offers.md
+      notes: 电商承接页（面料/版型/尺码/试穿建议/改衣选项）、到店预约/量体表单、BOPIS开关。
+
+    - agent: CRM-MA-Lead
+      creates: lifecycle-journey-and-automation.md
+      notes: 线索→试穿/预约→下单→取货→回访→复购自动化旅程（短信/邮件/社媒私域）与分群策略。
+
+    - agent: Retail-Ops-Manager
+      creates: store-readiness-and-bopis-sop.md
+      notes: 门店排班/试衣房/量体位/预约SOP；BOPIS交接/No-show策略与在店转化脚本。
+
+    - agent: Visual-Merchandising-Manager
+      creates: vm-plan-and-window-guide.md
+      notes: 橱窗/挂墙/配色/场景陈列，联动品牌叙事与当季卖点/价格带。
+
+    - agent: Stylist-Fitter-Lead
+      creates: fitting-script-and-measurement-intake.md
+      notes: 量体与合身沟通（能/不能/风险）；生成量点与改衣建议，记录客户身形与偏好。
+
+    - agent: Product-Assortment-Manager
+      creates: assortment-recommendation.md
+      requires: fitting-script-and-measurement-intake.md
+      notes: 基于身形/场景/预算出候选款与尺码曲线建议（RTW/MTM/Bespoke分流）。
+
+    - agent: Sourcing-Fabric-Manager
+      creates: fabric-shortlist-and-trims.md
+      notes: 面料/里料/辅料候选清单，交付价格带与交期，建立面辅料数据契约字段（与 BI 对齐）。
+
+    - agent: Finance-Pricing-Manager
+      creates: price-architecture-and-quote.md
+      requires: fabric-shortlist-and-trims.md
+      notes: 报价（标价/活动价/改衣价/定制价）、交期承诺与收款方式；含促销/例外护栏。
+
+    - agent: Customer-Service-Lead
+      creates: order-intake-and-consent.md
+      notes: 统一口径下单与隐私/同意确认（工作提示），地址校验/风控与预约到店/配送安排。
+
+    - agent: Production-Tailoring-Coordinator
+      creates: production-workorder.md
+      requires: measurement-intake + fabric + trims + style
+      notes: 打版/订辅料/工序编排；MTM/Bespoke与RTW改衣的区分流程。
+
+    - agent: Quality-Alterations-Manager
+      creates: pre-production-qc-plan.md
+      notes: 关键尺寸公差与复检点；高风险项（驳头/肩线/袖长/裤长/腰臀围）定义与复核。
+
+    - agent: Logistics-Fulfillment-Manager
+      creates: packaging-and-routing-brief.md
+      notes: GOH/折叠选择、防皱与支撑、面单与承运路由；BOPIS/同城配/门店调拨编排。
+
+    - agent: Data-Analyst-BI-Lead
+      creates: metric-dictionary-and-dashboards.md
+      notes: 语义层与KPI字典（转化/交付SLA/一次合格率/NPS/退货率/单均成本），埋点验收清单。
+
+    - step: production_and_qc
+      action: make_and_verify
+      notes: 生产/改衣与质检并行；异常编码/影像留存；必要时回工或工艺替代。
+      requires:
+        - production-workorder.md
+        - pre-production-qc-plan.md
+      agent: Production-Tailoring-Coordinator
+      optional_steps:
+        - interim_fitting_for_bespoke
+
+    - agent: Logistics-Fulfillment-Manager
+      creates: shipment-or-bopis-ticket.md
+      notes: 出库与预约到店；影像存证；承诺到达时间（DIFOT）与异常预警。
+
+    - agent: Customer-Service-Lead
+      creates: handover-and-care-instructions.md
+      notes: 到店/签收交接、去皱与保养指引；收集一次体验反馈与潜在改衣诉求。
+
+    - agent: Quality-Alterations-Manager
+      creates: post-fit-alteration-ticket.md
+      notes: 验收后轻改衣（袖/裤/腰/驳口等）与返修SLA；二次预约与工单闭环。
+
+    - agent: CRM-MA-Lead
+      creates: nps-and-winback-journeys.md
+      notes: NPS回访、照片征集、保养提醒、复购/礼遇/婚礼成员推荐旅程。
+
+    - agent: Finance-Pricing-Manager
+      creates: settlement-and-margin-bridge.md
+      notes: 订单→结算→毛利瀑布与差异解释；促销/改衣/退换影响复盘。
+
+    - agent: Data-Analyst-BI-Lead
+      creates: postmortem-and-opportunities.md
+      notes: VOC/NPS/退货与缺陷映射→品类/工艺/运营改进项与AB测试建议，形成下周期行动清单。
+
+  # ——————————————————————————————————————————
+  # B) 细分路径：MTM（Made-to-Measure）
+  # ——————————————————————————————————————————
+  mtm_sequence:
+    - agent: Stylist-Fitter-Lead
+      creates: mtm-measurement-pack.md
+      notes: 全量量点与容差、客户偏好记录（肩宽/后背/腰臀/袖长/裤长等）。
+
+    - agent: Sourcing-Fabric-Manager
+      creates: mtm-fabric-config.md
+      notes: 面/里/辅料确定与交付周次，替代选项与价格带。
+
+    - agent: Production-Tailoring-Coordinator
+      creates: mtm-pattern-and-bom.md
+      requires: mtm-measurement-pack.md
+      notes: 打版与BOM、工艺卡、里料/衬/胸围/袖山等关键结构要求。
+
+    - agent: Quality-Alterations-Manager
+      creates: mtm-qc-checkpoints.md
+      notes: 关键尺寸与版型落差复核点；一次合格率目标与返修路径。
+
+    - agent: Logistics-Fulfillment-Manager
+      creates: mtm-pack-routing.md
+      notes: GOH优先+支撑件；预约到店试穿与同城配时窗沟通。
+
+  # ——————————————————————————————————————————
+  # C) 细分路径：Bespoke（高级定制）
+  # ——————————————————————————————————————————
+  bespoke_sequence:
+    - agent: Brand-Manager
+      creates: bespoke-style-charter.md
+      notes: 高级定制风格宪章与故事性表达，限定稀缺面辅料与高端价带。
+
+    - agent: Stylist-Fitter-Lead
+      creates: basted-fitting-plan.md
+      notes: 半成衣试穿（basted fitting）与多轮调整节奏与口径。
+
+    - agent: Production-Tailoring-Coordinator
+      creates: bespoke-pattern-iterations.md
+      requires: basted-fitting-plan.md
+      notes: 多轮纸样迭代与关键量点回归，异常记录与影像归档。
+
+    - agent: Quality-Alterations-Manager
+      creates: bespoke-qc-and-craft-notes.md
+      notes: 手工工艺边界、容差放宽或严控项、客户期望值管理。
+
+  # ——————————————————————————————————————————
+  # D) 细分路径：RTW（成衣+改衣）
+  # ——————————————————————————————————————————
+  rtw_with_alterations_sequence:
+    - agent: Product-Assortment-Manager
+      creates: rtw-size-curve-and-top-sellers.md
+      notes: 门店热销与尺码曲线补货策略，结合退货与NPS映射。
+
+    - agent: Stylist-Fitter-Lead
+      creates: alteration-scope-and-price-list.md
+      notes: 袖/裤/腰臀/肩/门襟等常用改衣项目、SLA与价格表。
+
+    - agent: Retail-Ops-Manager
+      creates: sfs-and-bopis-ops-brief.md
+      notes: 门店发货SFS与BOPIS交付差异、No-show与二次预约。
+
+  # ——————————————————————————————————————————
+  # E) 角色清单（18 个）
+  # ——————————————————————————————————————————
+  roles:
+    - Marketing-Director
+    - Brand-Manager
+    - Performance-Marketing-Lead
+    - Social-Influencer-Manager
+    - Creative-Director
+    - Ecommerce-Manager
+    - CRM-MA-Lead
+    - Retail-Ops-Manager
+    - Visual-Merchandising-Manager
+    - Stylist-Fitter-Lead
+    - Product-Assortment-Manager
+    - Sourcing-Fabric-Manager
+    - Production-Tailoring-Coordinator
+    - Quality-Alterations-Manager
+    - Logistics-Fulfillment-Manager
+    - Customer-Service-Lead
+    - Data-Analyst-BI-Lead
+    - Finance-Pricing-Manager
+
+  # ——————————————————————————————————————————
+  # F) 支撑产物与模板映射（示例，供 agent.create-doc 使用）
+  # ——————————————————————————————————————————
+  artifacts:
+    - name: intent-brief.md
+      from_agent: Product-Assortment-Manager
+      templates:
+        - product-brief.yaml
+    - name: fitting-script-and-measurement-intake.md
+      from_agent: Stylist-Fitter-Lead
+      templates:
+        - alteration-intake-brief.yaml
+    - name: production-workorder.md
+      from_agent: Production-Tailoring-Coordinator
+      templates:
+        - refurb-workorder.yaml
+    - name: pre-production-qc-plan.md
+      from_agent: Quality-Alterations-Manager
+      templates:
+        - cs-qa-scorecard.yaml
+    - name: packaging-and-routing-brief.md
+      from_agent: Logistics-Fulfillment-Manager
+      templates:
+        - suit-packaging-spec.yaml
+        - routing-guide.yaml
+    - name: metric-dictionary-and-dashboards.md
+      from_agent: Data-Analyst-BI-Lead
+      templates:
+        - metric-dictionary.yaml
+        - dashboard-spec-exec.yaml
+    - name: settlement-and-margin-bridge.md
+      from_agent: Finance-Pricing-Manager
+      templates:
+        - margin-waterfall-template.yaml
+        - finance-kpi-dashboard-spec.yaml
+
+  # ——————————————————————————————————————————
+  # G) 关键里程碑（milestones）
+  # ——————————————————————————————————————————
+  milestones:
+    - name: M0_Lead_Onboarded
+      exit_criteria:
+        - 客户ID与意向单建立
+        - 渠道与风格偏好记录
+    - name: M1_Fit_and_Assortment_Confirmed
+      exit_criteria:
+        - 量点与合身建议确认
+        - 款式/面辅料/价格带确认
+        - 交付时限承诺
+    - name: M2_Production_Released
+      exit_criteria:
+        - 工单/BOM/打版完成
+        - 关键质检点设定
+    - name: M3_QC_and_Logistics_Ready
+      exit_criteria:
+        - 一次合格率≥目标值
+        - 包装与路由已编排
+        - BOPIS/配送预约完成
+    - name: M4_Delivery_and_Handover
+      exit_criteria:
+        - 到店/签收与影像留存
+        - 保养与穿搭指引交付
+    - name: M5_Postfit_and_VOC_Closed
+      exit_criteria:
+        - 改衣/返修闭环
+        - NPS回访完成并记录
+        - 复购/口碑旅程启动
+
+  # ——————————————————————————————————————————
+  # H) 成功标准（Success Criteria）
+  # ——————————————————————————————————————————
+  success_criteria:
+    commercial_outcomes:
+      - 订单毛利与现金回收达成既定护栏
+      - 促销/例外在审批矩阵范围内
+      - 渠道结算零重大差异
+    experience_outcomes:
+      - DIFOT ≥ 目标；一次合格率 ≥ 目标
+      - NPS 达标且投诉闭环 ≤ 目标时长
+      - 改衣/返修在 SLA 内完成
+    operational_outcomes:
+      - 关键文档与工单齐全且可追溯
+      - KPI 看板与语义层上线可用
+      - 异常有编码、有证据、有复盘
+    learning_outcomes:
+      - VOC/退货/缺陷→品类与工艺改进项沉淀
+      - 至少 1 个AB/价格/陈列实验有结论与再应用

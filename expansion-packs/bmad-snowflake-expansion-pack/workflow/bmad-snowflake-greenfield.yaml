@@ -1,0 +1,271 @@
+# <!-- Powered by BMAD™ Core -->
+workflow:
+  id: snowflake-greenfield
+  name: Snowflake Data Platform - Greenfield Project
+  description: >
+    End-to-end workflow for a brand-new Snowflake-based analytics/ML platform following BMAD-method.
+    Covers 18 roles from discovery to go-live: contracts-first, reliability/cost/security gates,
+    evidence-ready change, and post-launch support.
+  type: greenfield
+  project_types:
+    - analytics-platform
+    - data-mart
+    - realtime-ingestion
+    - ml-platform
+    - governance-modernization
+    - prototype-pilot
+
+  full_project_sequence:
+    - agent: platform-owner
+      creates: vision-charter.md
+      optional_steps:
+        - stakeholder_mapping
+        - value_hypothesis
+      notes: "Define business outcomes, success metrics, scope boundaries, budget guardrails, and timeline."
+
+    - agent: product-manager
+      creates: product-requirements.md
+      requires: vision-charter.md
+      optional_steps:
+        - discovery_interviews
+        - roadmap_drafting
+      notes: "Translate vision to PRD with prioritized use-cases, KPIs, and non-functional requirements."
+
+    - agent: business-analyst
+      creates: business-process-map.md
+      requires: product-requirements.md
+      optional_steps:
+        - as_is_to_be_analysis
+        - data_source_inventory
+      notes: "Map processes → surface data needs, edge cases, and SLAs tied to business events."
+
+    - agent: snowflake-architect
+      creates: target-architecture.md
+      requires:
+        - product-requirements.md
+        - business-process-map.md
+      optional_steps:
+        - capacity_planning
+        - multi_cloud_region_strategy
+      notes: "Define account topology, DB/Schema layout, warehouses, security layers, network, and HA/DR."
+
+    - agent: data-contract-owner
+      creates: data-contracts.yaml
+      requires:
+        - target-architecture.md
+        - business-process-map.md
+      optional_steps:
+        - semantic_glossary
+        - backward_compat_strategy
+      notes: "Author contracts for sources/domains/metrics (schema, quality, semantics, SLOs, ownership, versioning)."
+
+    - agent: devex-platform-automation
+      creates: iac-blueprints.yaml
+      requires:
+        - target-architecture.md
+        - data-contracts.yaml
+      optional_steps:
+        - scaffolding_generators
+        - policy_as_code_repo
+      notes: "Provide Golden Paths, templates, and GitOps pipelines for IaC, RBAC, contracts, and ELT."
+
+    - agent: security-governance-rbac
+      creates: security-model.md
+      requires:
+        - iac-blueprints.yaml
+        - data-contracts.yaml
+      optional_steps:
+        - tag_taxonomy_design
+        - rls_masking_strategy
+      notes: "Design least-privilege roles, tags, masking/row policies, data classifications, audit strategy."
+
+    - agent: privacy-compliance
+      creates: privacy-assessment.md
+      requires:
+        - security-model.md
+        - data-contracts.yaml
+      optional_steps:
+        - data_protection_impact_assessment
+        - retention_policy_matrix
+      notes: "Assess lawful basis, minimization, retention, cross-border, subject rights, and RoPA links."
+
+    - agent: data-engineering-lead
+      creates: elt-blueprint.md
+      requires:
+        - iac-blueprints.yaml
+        - data-contracts.yaml
+      optional_steps:
+        - orchestration_strategy
+        - error_handling_patterns
+      notes: "Design ELT layers (Bronze/Silver/Gold), Tasks/Dynamic Tables graphs, and backfill strategy."
+
+    - agent: ingestion-streaming-engineer
+      creates: ingestion-spec.md
+      requires: elt-blueprint.md
+      optional_steps:
+        - connectors_selection
+        - throughput_cost_sizing
+      notes: "Specify batch/Snowpipe/Streaming connectors, file/stream formats, retries, DLQ, and ordering guarantees."
+
+    - agent: analytics-engineer-bisql
+      creates: semantic-model.md
+      requires:
+        - data-contracts.yaml
+        - elt-blueprint.md
+      optional_steps:
+        - metric_definitions
+        - bi_caching_strategy
+      notes: "Model marts, views, metrics/definitions, and BI caching/materialization patterns."
+
+    - agent: ml-engineer-snowpark
+      creates: ml-plan.md
+      requires:
+        - semantic-model.md
+        - target-architecture.md
+      optional_steps:
+        - feature_store_design
+        - model_governance
+      notes: "Plan Snowpark pipelines, feature tables, model registry, deployment, monitoring and rollback."
+
+    - agent: quality-assurance
+      creates: qa-master-test-plan.md
+      requires:
+        - data-contracts.yaml
+        - elt-blueprint.md
+        - semantic-model.md
+      optional_steps:
+        - contract_test_suite
+        - dq_rulebook
+      notes: "Define contract/quality/semantic/freshness/security/perf/cost test suites and coverage metrics."
+
+    - agent: finops-credit-optimizer
+      creates: finops-guardrails.md
+      requires:
+        - target-architecture.md
+        - elt-blueprint.md
+      optional_steps:
+        - unit_cost_model
+        - resource_monitors_plan
+      notes: "Set budgets, resource monitors, warehouse sizing policies, and unit-cost KPIs with alerts."
+
+    - agent: observability-reliability
+      creates: o11y-slo-pack.md
+      requires:
+        - qa-master-test-plan.md
+        - finops-guardrails.md
+      optional_steps:
+        - dashboards_plan
+        - alerts_routing
+      notes: "Define SLIs/SLOs for availability/latency/freshness/error-rate/cost; dashboards, alerts, runbooks."
+
+    - agent: release-change-manager
+      creates: release-train-plan.md
+      requires:
+        - qa-master-test-plan.md
+        - o11y-slo-pack.md
+      optional_steps:
+        - change_calendar
+        - freeze_windows
+      notes: "Plan release cadence, gates, approvals, rollback drills, and compliance evidence package."
+
+    - agent: devex-platform-automation
+      creates: gitops-pipelines.md
+      requires:
+        - release-train-plan.md
+        - iac-blueprints.yaml
+      optional_steps:
+        - drift_detection
+        - self_service_portal
+      notes: "Implement CI/CD and GitOps pipelines (lint/test/plan/apply/verify/rollback) with evidence artifacts."
+
+    - agent: dataops-sre
+      creates: runbooks-index.md
+      requires:
+        - o11y-slo-pack.md
+        - gitops-pipelines.md
+      optional_steps:
+        - chaos_drills
+        - capacity_runbooks
+      notes: "Write runbooks for warehouses, queries, tasks, DT, Snowpipe/Streaming; define MTTA/MTTR targets."
+
+    - agent: release-change-manager
+      creates: preprod-readiness.md
+      requires:
+        - security-model.md
+        - privacy-assessment.md
+        - qa-master-test-plan.md
+        - runbooks-index.md
+      optional_steps:
+        - gate_check
+        - canary_bluegreen_plan
+      notes: "Conduct gate checks; ensure monitoring hooks, rollback scripts, approvals, and communications ready."
+
+    - agent: support-incident-manager
+      creates: incident-playbook.md
+      requires:
+        - runbooks-index.md
+        - o11y-slo-pack.md
+      optional_steps:
+        - sev_matrix
+        - status_page_templates
+      notes: "Define oncall structure, SEV taxonomy, comms frequency, evidence capture, and PIR workflow."
+
+    - agent: platform-owner
+      creates: go-no-go-record.md
+      requires:
+        - preprod-readiness.md
+        - incident-playbook.md
+      optional_steps:
+        - exec_briefing
+        - stakeholder_signoff
+      notes: "Host Go/No-Go with sign-offs across Security, Privacy, QA, FinOps, SRE, and Product."
+
+    - agent: release-change-manager
+      creates: production-release.md
+      requires:
+        - go-no-go-record.md
+      optional_steps:
+        - canary_rollout
+        - blue_green_switch
+      notes: "Execute release with canary/blue-green. Tag queries with release id, monitor SLIs, enforce guardrails."
+
+    - agent: quality-assurance
+      creates: post-deploy-verification.md
+      requires: production-release.md
+      optional_steps:
+        - smoke_tests
+        - freshness_gap_check
+      notes: "Run smoke, freshness, and data diff checks; validate SLOs; gate full traffic migration."
+
+    - agent: support-incident-manager
+      creates: post-incident-review.md
+      requires: post-deploy-verification.md
+      optional_steps:
+        - timeline_evidence_pack
+        - problem_management_backlog
+      notes: "If any incident occurred, drive PIR, root cause, actions, and track problem backlog to resolution."
+
+  success_criteria:
+    discovery_complete:
+      - Vision charter approved and PRD prioritized
+      - Business processes mapped with data needs and SLAs
+      - Target architecture drafted with security/privacy input
+    design_complete:
+      - Data contracts authored and versioned
+      - IaC blueprints and RBAC/ABAC model designed
+      - ELT/Streaming/DT/BI/ML plans aligned to contracts
+    implementation_ready:
+      - QA plan & DQ rulebook approved; coverage thresholds defined
+      - FinOps guardrails configured (budgets/monitors)
+      - O11y SLO pack, dashboards, alerts, and runbooks prepared
+      - Release train, change calendar, rollback drills scheduled
+    go_live_approved:
+      - Preprod readiness gates passed with sign-offs
+      - Oncall, SEV matrix, comms templates in place
+      - Canary/blue-green plan rehearsed and evidence archived
+      - Go/No-Go recorded; production release executed
+    post_launch_stable:
+      - Post-deploy verification passed; SLOs met
+      - Incidents (if any) reviewed with actions tracked to closure
+      - Costs within budget; unit-cost KPIs healthy
+      - Documentation and knowledge base updated

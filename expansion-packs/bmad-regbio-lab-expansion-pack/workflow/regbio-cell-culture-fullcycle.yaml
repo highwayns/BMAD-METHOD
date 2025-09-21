@@ -1,0 +1,273 @@
+workflow:
+  id: regbio-cell-culture-fullcycle
+  name: Regenerative Cell Culture – End-to-End GxP Workflow
+  description: "A BMAD-method workflow orchestrating 18 lab roles to execute a full
+    lifecycle regenerative cell culture program: ethics→approvals→training→procurement→facility
+    readiness→LIMS→biosafety→cell bank→seed train→expansion→QC→analytics→preclinical→release→tech
+    transfer/IP→archive."
+  type: gxp
+  project_types:
+    - research-grade
+    - preclinical
+    - clinical-trial-material
+    - technology-transfer
+  full_cycle_sequence:
+    - step: scope_and_governance
+      agent: laboratory-director
+      creates: project-charter.md
+      uses: create-doc project-charter OR chat-mode
+      notes: Define objectives, scope (research/preclinical/clinical), timeline, funding,
+        success metrics, and role matrix for all 18 agents.
+    - step: ethics_and_approvals
+      agent: compliance-ethics-coordinator
+      creates:
+        - irb-protocol.md
+        - iacuc-protocol.md
+        - ibc-application.md
+        - privacy-dpia.md
+        - mta-dta-baa.md
+      uses: approvals-pack, consent-dpia, privacy-crossborder, mtas-dtas
+      gates:
+        - execute-checklist irb-iacuc-ibc-submission
+        - execute-checklist consent-and-privacy
+      notes: Obtain IRB/IACUC/IBC approvals and privacy/DPIA; register disclosures before
+        any public communication.
+    - step: training_enablement
+      agent: training-safety-officer
+      creates:
+        - training-matrix.csv
+        - authorization-records.csv
+        - emergency-drill-plan.md
+      uses: training-matrix, lms-setup, biosafety-program, chemical-hygiene, permit-loto
+      gates:
+        - execute-checklist new-hire-safety-induction
+        - execute-checklist bsl2-and-bbp-operations
+      notes: LMS configured; all staff authorized for tasks (BSL-2/2+, BBP, LN2, compressed
+        gases, IATA if shipping).
+    - step: facility_and_equipment_readiness
+      agent: equipment-facilities-engineer
+      creates:
+        - vmp.md
+        - iq-oq-pq-protocols.md
+        - hvac-balance.csv
+        - em-plan.yaml
+        - bsc-cert-records.csv
+      uses: validation-plan, hvac-pressures, em-program, bsc-cert-incubator-qc, utilities-qc,
+        sterilization-validation
+      gates:
+        - execute-checklist hvac-balance-and-pressures
+        - execute-checklist cmms-and-pm-compliance
+      notes: Cleanroom classification verified; BSC certified; CO₂ incubators stable;
+        utilities (WFI/clean steam/gases) within spec.
+    - step: lims_and_data_governance
+      agent: data-manager-lims-admin
+      creates:
+        - lims-domain-model.yaml
+        - label-templates.md
+        - rbac-matrix.csv
+        - instrument-integration-plan.md
+      uses: create-doc lims-eln-spec-tmpl OR create-doc lims-domain-model-tmpl
+      gates:
+        - execute-checklist data-integrity-and-time-sync
+      notes: Master data and barcodes created; e-signatures enabled; audit trails active;
+        backup/DR tested.
+    - step: procurement_and_inventory
+      agent: procurement-inventory
+      creates:
+        - mrp-plan.md
+        - rfq-and-po.md
+        - receiving-qc.md
+        - fefo-policy.md
+      uses: demand-plan, vendor-qual, rfq-and-po, receiving-qc, inventory-fefo
+      gates:
+        - execute-checklist supplier-qualification
+        - execute-checklist receiving-qc
+      notes: Qualify vendors (ASL). Place POs for media/reagents/consumables/cryovials;
+        cold-chain and hazmat controls in place.
+    - step: biosafety_and_quarantine
+      agent: biosafety-officer
+      creates:
+        - biosafety-hazard-assessment.md
+        - quarantine-plan.md
+      uses: risk-assessment OR execute-checklist quarantine
+      gates:
+        - execute-checklist biosafety-level-assessment
+      notes: Define pathogen/vector risks; ensure waste segregation and spill response
+        SOPs; quarantine incoming cell lines.
+    - step: mcwcb_cell_bank_setup
+      agent: stem-cell-lead
+      creates:
+        - cell-bank-plan.yaml
+        - freeze-log.csv
+        - thaw-log.csv
+      uses: create-doc cell-bank-plan-tmpl.yaml, bsc-cert-incubator-qc
+      requires:
+        - quarantine-plan.md
+        - receiving-qc.md
+      gates:
+        - execute-checklist bsc-cert-and-incubator-qc
+      notes: Establish MCB/WCB with viability and identity/passages documented; integrate
+        labels with LIMS.
+    - step: seed_train_and_expansion
+      agent: stem-cell-lead
+      creates:
+        - seed-train-protocol.md
+        - expansion-batch-record.md
+      uses: create-doc sop-spec-param-window-tmpl.md
+      requires:
+        - cell-bank-plan.yaml
+      notes: Define CQAs/CPPs; maintain CO₂/temp/RH; capture batch data via LIMS/ELN.
+    - step: tissue_engineering_and_bioreactors
+      agent: tissue-engineering-lead
+      creates:
+        - bioreactor-validation-plan.md
+        - scaffold-specs.md
+        - process-parameters.md
+      uses: create-doc bioreactor-validation-plan-tmpl.md
+      requires:
+        - seed-train-protocol.md
+      gates:
+        - execute-checklist bioreactor-and-centrifuge
+      notes: Scale in bioreactors; validate SIP/CIP; link sensors to LIMS.
+    - step: organoid_or_advanced_models
+      agent: organoid-lead
+      creates:
+        - organoid-protocol.md
+        - morphology-assessment.md
+      uses: create-doc organoid-protocol OR chat-mode
+      notes: If applicable, generate organoids/3D constructs; define acceptance criteria
+        and imaging cadence.
+    - step: in_process_qc_and_release_qc
+      agent: quality-manager
+      creates:
+        - qc-plan.md
+        - sampling-plan.md
+        - coa-template.md
+      uses: create-doc water-qc-plan-tmpl.yaml OR change-deviation-capa
+      gates:
+        - execute-checklist water-steam-gases-qc
+        - execute-checklist change-deviation-capa
+      notes: Sterility, mycoplasma, endotoxin, viability, identity/STR; define release
+        criteria and deviation handling.
+    - step: genomics_quality_and_identity
+      agent: genomics-sequencing-lead
+      creates:
+        - genomics-qc-protocol.md
+        - identity-report.md
+      uses: create-doc sequencing-qc OR chat-mode
+      requires:
+        - sampling-plan.md
+      notes: WES/RNA-seq/STR as appropriate; ensure data integrity and consent scope
+        compliance.
+    - step: imaging_and_histology
+      agent: imaging-histology-lead
+      creates:
+        - imaging-plan.md
+        - histology-report.md
+      uses: create-doc imaging-plan OR histology-sop
+      notes: Microscopy and staining panels to confirm morphology and differentiation;
+        standardized scoring.
+    - step: bioinformatics_analysis
+      agent: bioinformatics-lead
+      creates:
+        - analysis-notebook.ipynb
+        - multiomics-report.md
+      uses: chat-mode OR create-doc analysis-template
+      requires:
+        - identity-report.md
+        - histology-report.md
+      notes: QC metrics, differential expression, pathway; export figures/tables to
+        QA-ready reports.
+    - step: preclinical_in_vivo_if_applicable
+      agent: animal-facility-manager
+      creates:
+        - iacuc-schedule.md
+        - in_vivo-study-plan.md
+        - animal-welfare-records.csv
+      uses: contractor-visitor OR create-doc iacuc-protocol-tmpl.md
+      requires:
+        - iacuc-protocol.md
+      gates:
+        - execute-checklist contractor-visitor-control
+      notes: If required, conduct in vivo evaluation under IACUC/AAALAC standards; record
+        endpoints and welfare.
+    - step: batch_record_and_release
+      agent: lab-manager
+      creates:
+        - master-batch-record.md
+        - release-package-index.md
+      uses: create-doc evidence-index-tmpl.md OR kpi-update
+      requires:
+        - qc-plan.md
+        - multiomics-report.md
+        - histology-report.md
+      gates:
+        - execute-checklist cmms-and-pm-compliance
+      notes: Compile MBR and QA release package; ensure all deviations/CAPAs are closed
+        or justified.
+    - step: tech_transfer_and_ip
+      agent: tech-transfer-ip-manager
+      creates:
+        - transfer-package-index.md
+        - iq-oq-pq-plan.md
+        - mta/duas.md
+        - ip-strategy-roadmap.md
+      uses: transfer-package, receiver-enablement, mta-dta-license, ip-strategy-portfolio
+      notes: Prepare SOPs/specs/BOM/validation evidence; align disclosure timelines
+        and file/maintain IP; set milestones/royalties.
+    - step: post_release_kpi_and_audit
+      agent: quality-manager
+      creates:
+        - kpi-dashboard.csv
+        - audit-plan.md
+      uses: kpi-update OR audit-readiness
+      notes: Update KPIs (yield, OOS, deviation closure time, uptime); schedule internal/external
+        audits.
+    - step: project_close_and_archive
+      agent: laboratory-director
+      creates:
+        - project-closeout-report.md
+        - archive-manifest.md
+      uses: chat-mode OR create-doc archive-policy
+      notes: Sign-off; archive data/specimens/records per retention policy; lessons
+        learned and next iteration plan.
+  role_directory:
+    - laboratory-director
+    - chief-researcher
+    - lab-manager
+    - biosafety-officer
+    - quality-manager
+    - stem-cell-lead
+    - tissue-engineering-lead
+    - organoid-lead
+    - genomics-sequencing-lead
+    - imaging-histology-lead
+    - animal-facility-manager
+    - bioinformatics-lead
+    - data-manager-lims-admin
+    - procurement-inventory
+    - equipment-facilities-engineer
+    - compliance-ethics-coordinator
+    - training-safety-officer
+    - tech-transfer-ip-manager
+  success_criteria:
+    governance_ready:
+      - IRB/IACUC/IBC approvals in place
+      - Training & authorizations current; LMS evidence available
+      - Facilities validated (IQ/OQ/PQ), EM within thresholds
+    process_ready:
+      - LIMS/ELN configuration complete with barcoding and audit trail
+      - ASL vendors qualified; materials received with COA and labels
+      - MCB/WCB established and mapped to LIMS
+    production_ready:
+      - Seed train SOP approved; CQAs/CPPs defined
+      - Bioreactors validated; in-process QC plan approved
+      - Release tests defined with acceptance criteria
+    analysis_ready:
+      - Genomics identity/QC completed
+      - Imaging & histology reports approved
+      - Bioinformatics report compiled and versioned
+    release_and_transfer:
+      - MBR and QA release package approved
+      - Tech transfer package ready with IQ/OQ/PQ plan
+      - IP filings/disclosures aligned; contracts executed

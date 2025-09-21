@@ -1,0 +1,181 @@
+# <!-- Powered by BMAD™ Core -->
+workflow:
+  id: ltc-daily-health-monitoring
+  name: Eldercare · Daily Health Monitoring (18 Agents)
+  description: Daily operations workflow for long-term care facilities using BMAD-method with 18 coordinated agents. Covers planning, morning rounds, data triage & MDT, communication, QA & compliance, and end-of-day handoff, with embedded subworkflows for falls, infection clusters, and medication events.
+  type: operations
+  project_types:
+    - eldercare-facility
+    - skilled-nursing
+    - assisted-living
+    - memory-care
+  full_daily_sequence:
+    - Planning & Systems Readiness
+    - Morning Rounds & Initial Monitoring
+    - Data Aggregation, Triage & MDT
+    - Communication & Follow-up
+    - QA & Compliance Spot-checks
+    - End-of-day Review & Handoff
+  minimal_daily_sequence:
+    - Morning Rounds Core (04/05/07/09)
+    - MDT for red/orange cases (02/03)
+    - EOD Handoff (03/11)
+  flow_diagram: |
+    ```mermaid
+    flowchart TB
+        subgraph Planning["Planning & Systems"]
+          SYS[系统就绪检查 18] --> PLAN[风险分层与巡查计划 03]
+        end
+        subgraph Morning["Morning Rounds"]
+          VITAL[生命体征与基础评估 04] --> MED[给药与复核 05]
+          MED --> REHAB[康复执行 06] --> NUT[营养核查 07] --> MENTAL[心理筛查 08] --> INF[感染监测 09]
+          INF --> SAFE[设施安全巡检 17]
+        end
+        subgraph Huddle["Data Triage & MDT"]
+          DATA[数据整合与分级 11+18] --> MDT[MDT 晨会 02]
+        end
+        subgraph Followup["Comms & Follow‑up"]
+          COMM[家属沟通 14] --> SOC[社工衔接 12] --> ADM[入院/转入基线 13]
+        end
+        subgraph QA["QA & Compliance"]
+          QA1[质量复盘 10] --> COMP[合规抽查 15]
+        end
+        subgraph EOD["EOD"]
+          EOD1[日报与交接 03] --> EOD2[培训派发 16]
+        end
+
+        PLAN --> VITAL --> DATA --> MDT --> COMM --> QA1 --> EOD1
+        SAFE -. 隐患-> QA1
+        click SYS "#sys-01" "系统就绪检查"
+        click VITAL "#round-01" "生命体征与基础评估"
+        click MED "#med-01" "给药与复核"
+        click INF "#infect-01" "感染监测"
+    ```
+  roles:
+    clinical_core:
+      - 02-medical-director
+      - 03-director-of-nursing
+      - 04-clinical-care-manager
+      - 05-medication-manager
+      - 06-rehabilitation-therapy-lead
+      - 07-nutrition-dietary-manager
+      - 08-mental-health-coordinator
+      - 09-infection-prevention-officer
+    operations_support:
+      - 01-facility-director
+      - 11-health-records-manager
+      - 12-social-services-coordinator
+      - 13-admission-coordinator
+      - 14-family-liaison-officer
+      - 16-staff-training-coordinator
+      - 17-maintenance-safety-manager
+      - 18-technology-systems-admin
+    governance_quality:
+      - 10-quality-assurance-manager
+      - 15-compliance-regulatory-manager
+
+  artifacts:
+    - Daily Health Monitor Summary (EOD report)
+    - Exception & Escalation Tickets with RCA/CAPA
+    - Infection Daily Report & Environment Checks
+    - Medication Exception/Error Reports
+    - Rehab Progress & Nutrition Variance Notes
+    - Family Communication Records & Acknowledgements
+    - Safety Work Orders & Evidence Pack
+
+  lanes:
+    - id: planning
+      name: Planning & Systems
+      steps:
+        - id: sys-01
+          title: 系统就绪检查
+          owner: 18-technology-systems-admin
+          outputs: [系统状态板, 设备异常清单, 数据延迟报告]
+        - id: plan-01
+          title: 风险分层与巡查计划
+          owner: 03-director-of-nursing
+          outputs: [巡查任务清单, 高危人群看板]
+    - id: morning
+      name: Morning Rounds
+      steps:
+        - id: round-01
+          title: 生命体征与基础评估
+          owner: 04-clinical-care-manager
+        - id: med-01
+          title: 给药与用药复核
+          owner: 05-medication-manager
+        - id: rehab-01
+          title: 康复执行与记录
+          owner: 06-rehabilitation-therapy-lead
+        - id: nutrition-01
+          title: 营养核查与早餐执行
+          owner: 07-nutrition-dietary-manager
+        - id: mental-01
+          title: 情绪与认知筛查
+          owner: 08-mental-health-coordinator
+        - id: infect-01
+          title: 感染监测与环境抽检
+          owner: 09-infection-prevention-officer
+        - id: safe-01
+          title: 设施安全巡检
+          owner: 17-maintenance-safety-manager
+    - id: huddle
+      name: Data Triage & MDT
+      steps:
+        - id: data-01
+          title: 数据整合与异常分级
+          owner: 11-health-records-manager
+        - id: mdt-01
+          title: 多学科晨会与处置计划
+          owner: 02-medical-director
+    - id: comms
+      name: Communication & Follow-up
+      steps:
+        - id: comm-01
+          title: 家属沟通与回执
+          owner: 14-family-liaison-officer
+        - id: soc-01
+          title: 社会服务衔接
+          owner: 12-social-services-coordinator
+        - id: adm-01
+          title: 入院/转入基线采集
+          owner: 13-admission-coordinator
+    - id: qa
+      name: QA & Compliance
+      steps:
+        - id: qa-01
+          title: 质量复盘与 CAPA
+          owner: 10-quality-assurance-manager
+        - id: comp-01
+          title: 合规抽查
+          owner: 15-compliance-regulatory-manager
+    - id: eod
+      name: End-of-day
+      steps:
+        - id: eod-01
+          title: 日报生成与交接
+          owner: 03-director-of-nursing
+        - id: eod-02
+          title: 次日培训派发
+          owner: 16-staff-training-coordinator
+
+  decision_guidance:
+    use_full_sequence_when:
+      - High acuity resident mix or recent incidents
+      - New infectious signals or seasonal peaks
+      - Survey readiness window or external audits
+    use_minimal_sequence_when:
+      - Low risk census and stable trends
+      - Staff shortage with safe fallback
+
+  success_criteria:
+    safety_and_quality:
+      - Red/Orange cases planned and acted within SLA
+      - Medication error rate under target, all exceptions closed
+      - Infection signals ruled-out or isolated with evidence
+    operations_and_docs:
+      - 100% logging completeness and signed handoff
+      - Device uptime and alarm routing healthy
+      - Family communication acknowledgements ≥ 98%
+
+  workflow_end: ok

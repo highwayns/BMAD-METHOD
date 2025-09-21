@@ -1,0 +1,353 @@
+# <!-- Powered by BMAD™ Core -->
+workflow:
+  id: bmad-vc-e2e
+  name: Venture Capital Management - End-to-End (18 Roles)
+  description: >
+    End-to-end BMAD-method workflow orchestrating 18 VC firm roles across fundraising,
+    sourcing, diligence, investment committee, closing & onboarding, portfolio value creation,
+    operations/finance/legal/compliance, data & research, ESG/impact, investor reporting, and exits.
+    Uses single-source-of-truth artifacts, numbered task options, explicit templates/checklists,
+    clear DoR/DoD gates, and auditable evidence packs.
+  type: firm-operations
+  project_types:
+    - venture-fund
+    - growth-fund
+    - seed-fund
+    - corporate-venture
+    - evergreen-vehicle
+    - fund-of-funds
+
+  sequence:
+    - stage: Fund Strategy & Readiness
+      steps:
+        - agent: Managing-Partner
+          creates: strategy-brief.md
+          requires: []
+          templates:
+            - 01-managing-partner.md
+          checklists:
+            - readiness-mission-checklist.md
+          notes: "Define fund thesis, differentiation, target markets, governance model, resource plan."
+        - agent: Data-Research-Lead
+          creates: thesis-framework.md
+          requires: [strategy-brief.md]
+          templates:
+            - dr-thesis-framework-tmpl.yaml
+            - dr-market-map-tmpl.yaml
+            - dr-tam-sam-som-tmpl.yaml
+          checklists:
+            - dr-research-qa-checklist.md
+            - dr-bias-mitigation-checklist.md
+          notes: "Build thesis, market map, TAM/SAM/SOM, signal book & glossary."
+        - agent: CFO-COO
+          creates: fund-economics-pack.md
+          requires: [strategy-brief.md]
+          templates:
+            - 12-cfo-coo.md
+          checklists:
+            - budget-fee-carry-checklist.md
+          notes: "Model fees, reserves, pacing, target ownership, ops calendar."
+        - agent: Fund-Counsel-Legal
+          creates: legal-structure-term-sheet.md
+          requires: [fund-economics-pack.md]
+          templates:
+            - 13-fund-counsel-legal.md
+          checklists:
+            - legal-vehicle-checklist.md
+          notes: "Vehicle, domicile, LPA outline, side-letter policy, conflicts & information wall."
+
+    - stage: Fundraising Engine
+      steps:
+        - agent: Investor-Relations-IR-Lead
+          creates: fundraising-narrative.md
+          requires: [strategy-brief.md, thesis-framework.md, fund-economics-pack.md]
+          templates:
+            - ir-fundraising-narrative-tmpl.yaml
+            - ir-deck-outline-tmpl.yaml
+            - ir-lp-segmentation-tmpl.yaml
+            - ir-dataroom-index-tmpl.yaml
+          checklists:
+            - ir-readiness-checklist.md
+            - ir-dataroom-hygiene-checklist.md
+          notes: "Narrative/Deck/FAQ, LP segmentation & rhythm, data room spin-up."
+        - agent: ESG-Impact-Lead
+          creates: responsible-investing-policy.md
+          requires: [fundraising-narrative.md]
+          templates:
+            - ei-policy-suite-tmpl.yaml
+            - ei-exclusion-list-tmpl.yaml
+          checklists:
+            - ei-prescreen-checklist.md
+          notes: "Publish ESG policy & exclusion/sensitive lists; align with thesis & IR materials."
+        - agent: Head-of-Marketing
+          creates: comms-guardrails.md
+          requires: [fundraising-narrative.md, responsible-investing-policy.md]
+          templates:
+            - 11-head-of-marketing.md
+          checklists:
+            - ir-comms-compliance-checklist.md
+          notes: "Brand narrative alignment, channel plan, compliance-safe wording and media calendar."
+        - agent: Compliance-AML-Officer
+          creates: marketing-compliance-record.md
+          requires: [comms-guardrails.md]
+          templates:
+            - ca-marketing-review-sop-tmpl.yaml
+          checklists:
+            - ca-reg-reporting-checklist.md
+          notes: "Review external materials, log approvals, boundaries, and evidence."
+
+    - stage: Sourcing & Pipeline
+      steps:
+        - agent: Investment-Partner
+          creates: sourcing-playbook.md
+          requires: [thesis-framework.md, signal-book.md]
+          templates:
+            - 03-investment-partner.md
+          checklists:
+            - pipeline-hygiene-checklist.md
+          notes: "Own sourcing lanes, co-create ICP & referral engine; commit weekly sourcing OKRs."
+        - agent: Senior-Associate
+          creates: pipeline-init.csv
+          requires: [sourcing-playbook.md]
+          templates:
+            - dr-pipeline-scoring-tmpl.yaml
+          checklists:
+            - dr-pipeline-hygiene-checklist.md
+          notes: "Build initial pipeline, dedupe, enrich, schedule first meetings."
+        - agent: Analyst
+          creates: signal-scores.csv
+          requires: [pipeline-init.csv]
+          templates:
+            - dr-signal-book-tmpl.yaml
+          checklists:
+            - dr-data-quality-checklist.md
+          notes: "Compute signal scores, bucket A/B/C with thresholds and evidence."
+
+    - stage: Diligence & IC
+      steps:
+        - agent: Data-Research-Lead
+          creates: dd-research-pack.md
+          requires: [signal-scores.csv]
+          templates:
+            - dr-diligence-ddq-tmpl.yaml
+            - dr-expert-call-brief-tmpl.yaml
+            - dr-survey-kit-tmpl.yaml
+          checklists:
+            - dr-diligence-completeness-checklist.md
+          notes: "Design DDQ & external calls; capture transcripts; maintain evidence trail."
+        - agent: ESG-Impact-Lead
+          creates: esg-dd-pack.md
+          requires: [dd-research-pack.md, responsible-investing-policy.md]
+          templates:
+            - ei-esg-ddq-tmpl.yaml
+            - ei-screening-matrix-tmpl.yaml
+          checklists:
+            - ei-dd-checklist.md
+          notes: "ESG DD, red flags, 100‑day plan seed, IC terms suggestions."
+        - agent: Fund-Counsel-Legal
+          creates: legal-dd-pack.md
+          requires: [dd-research-pack.md]
+          templates:
+            - 13-fund-counsel-legal.md
+          checklists:
+            - legal-dd-checklist.md
+          notes: "Legal DD, IP/contract/regs, conflicts & disclosures."
+        - agent: Principal
+          creates: ic-memo-draft.md
+          requires: [dd-research-pack.md, esg-dd-pack.md, legal-dd-pack.md]
+          templates:
+            - dr-ic-memo-tmpl.yaml
+          checklists:
+            - dr-ic-memo-qa-checklist.md
+          notes: "Assemble IC memo draft with options, risks, scenarios."
+        - agent: Managing-Partner
+          creates: ic-memo-final.md
+          requires: [ic-memo-draft.md]
+          templates: []
+          checklists:
+            - governance-ic-checklist.md
+          notes: "Chair IC, ensure dissent captured, decision & conditions recorded."
+
+    - stage: Closing & Onboarding
+      steps:
+        - agent: CFO-COO
+          creates: term-sheet-final.md
+          requires: [ic-memo-final.md]
+          templates: []
+          checklists:
+            - commercial-terms-checklist.md
+          notes: "Translate IC decision to economic terms; reserves & pacing alignment."
+        - agent: Fund-Counsel-Legal
+          creates: definitive-docs.zip
+          requires: [term-sheet-final.md]
+          templates: []
+          checklists:
+            - signing-closing-checklist.md
+          notes: "SPA/SSA/SHA, investor rights, board docs, info rights, side letters."
+        - agent: Controller-Fund-Administrator
+          creates: closing-entries-and-dataroom.md
+          requires: [definitive-docs.zip]
+          templates:
+            - cfa-ic-register-tmpl.yaml
+            - cfa-dataroom-index-tmpl.yaml
+          checklists:
+            - cfa-bank-recon-checklist.md
+          notes: "Journal mapping from IC to GL, bank setup, dataroom archival & index."
+        - agent: Compliance-AML-Officer
+          creates: kyc-kyb-onboarding-record.md
+          requires: [definitive-docs.zip]
+          templates:
+            - ca-kyc-intake-form-tmpl.yaml
+            - ca-screening-sop-tmpl.yaml
+          checklists:
+            - ca-onboarding-kyc-checklist.md
+          notes: "KYC/KYB/UBO, sanctions/PEP/adverse media screening, approvals & evidence."
+        - agent: IR-Lead
+          creates: closing-announcement-and-welcome.md
+          requires: [definitive-docs.zip, kyc-kyb-onboarding-record.md]
+          templates:
+            - ir-closing-pack-tmpl.yaml
+          checklists:
+            - ir-closing-onboarding-checklist.md
+          notes: "LP communications, welcome pack, obligations tracker initialization."
+
+    - stage: Portfolio Value Creation
+      steps:
+        - agent: Head-of-Platform
+          creates: 100d-value-plan.md
+          requires: [ic-memo-final.md]
+          templates:
+            - 09-head-of-platform.md
+          checklists:
+            - platform-100d-checklist.md
+          notes: "Company-specific value creation plan; intros, GTM, product ops."
+        - agent: Head-of-Talent
+          creates: talent-plan.md
+          requires: [100d-value-plan.md]
+          templates:
+            - 10-head-of-talent.md
+          checklists:
+            - hiring-and-org-checklist.md
+          notes: "Hiring plan, org design, leadership coaching, compensation benchmarks."
+        - agent: ESG-Impact-Lead
+          creates: portfolio-impact-kpis.md
+          requires: [100d-value-plan.md]
+          templates:
+            - ei-impact-kpi-dictionary-tmpl.yaml
+            - ei-100d-plan-tmpl.yaml
+          checklists:
+            - ei-100d-checklist.md
+          notes: "ESG/impact 100‑day actions and KPI dictionary & measurement plan."
+        - agent: Head-of-Marketing
+          creates: portfolio-comms-brief.md
+          requires: [100d-value-plan.md]
+          templates: []
+          checklists:
+            - ei-green-claims-checklist.md
+          notes: "Launch PR/brand guardrails; case-study pipeline; avoid greenwashing."
+        - agent: EIR
+          creates: product-ops-sprint-notes.md
+          requires: [100d-value-plan.md]
+          templates: []
+          checklists:
+            - eir-engagement-checklist.md
+          notes: "Hands-on with product/BD; weekly sprints and de-bottlenecking."
+
+    - stage: Operations & Reporting
+      steps:
+        - agent: Controller-Fund-Administrator
+          creates: monthly-close-pack.md
+          requires: []
+          templates:
+            - cfa-monthly-close-pack-tmpl.yaml
+            - cfa-bank-recon-tmpl.yaml
+          checklists:
+            - cfa-monthly-close-checklist.md
+            - cfa-bank-recon-checklist.md
+          notes: "Cash/GL/TB, valuation tie-out, fee accruals; audit trail to /docs."
+        - agent: CFO-COO
+          creates: quarterly-pack.md
+          requires: [monthly-close-pack.md]
+          templates:
+            - cfa-quarterly-pack-tmpl.yaml
+          checklists:
+            - cfa-quarterly-pack-checklist.md
+          notes: "Fund KPIs, pacing, fee/carry, forecast vs actuals, reserves, variances."
+        - agent: IR-Lead
+          creates: lp-quarterly-letter.md
+          requires: [quarterly-pack.md, portfolio-impact-kpis.md]
+          templates:
+            - ir-quarterly-reporting-pack-tmpl.yaml
+            - ir-lp-letter-tmpl.yaml
+          checklists:
+            - ir-reporting-qa-checklist.md
+          notes: "Quarterly pack & letter; LPAC/AGM materials; NPS survey cadence."
+        - agent: Compliance-AML-Officer
+          creates: compliance-report.md
+          requires: [monthly-close-pack.md]
+          templates:
+            - ca-regulatory-reporting-pack-tmpl.yaml
+          checklists:
+            - ca-reg-reporting-checklist.md
+          notes: "Reg filings, training coverage, incidents/SAR, watchlist refresh evidence."
+        - agent: Data-Research-Lead
+          creates: kpi-dashboard-refresh.md
+          requires: [monthly-close-pack.md, lp-quarterly-letter.md]
+          templates:
+            - dr-kpi-dashboard-spec-tmpl.yaml
+          checklists:
+            - dr-dashboard-qa-checklist.md
+          notes: "Pipeline/portfolio/fund KPIs refresh; versioning & lineage."
+
+    - stage: Exit & Distributions
+      steps:
+        - agent: Investment-Partner
+          creates: exit-scenarios.md
+          requires: [ic-memo-final.md, quarterly-pack.md]
+          templates:
+            - dr-scenario-model-tmpl.yaml
+          checklists:
+            - exit-readiness-checklist.md
+          notes: "Scenario planning, buyer list, banker selection, timing & value creation."
+        - agent: Fund-Counsel-Legal
+          creates: exit-definitive-docs.zip
+          requires: [exit-scenarios.md]
+          templates: []
+          checklists:
+            - exit-legal-checklist.md
+          notes: "Docs for M&A/IPO/secondary; disclosure & consents; conflicts."
+        - agent: Controller-Fund-Administrator
+          creates: distribution-pack.md
+          requires: [exit-definitive-docs.zip]
+          templates:
+            - cfa-distribution-pack-tmpl.yaml
+            - cfa-carry-waterfall-tmpl.yaml
+          checklists:
+            - cfa-distribution-checklist.md
+            - cfa-carry-waterfall-checklist.md
+          notes: "Waterfall, carry, tax, notices, cash & GL reconciliation."
+        - agent: IR-Lead
+          creates: exit-communications.md
+          requires: [distribution-pack.md]
+          templates: []
+          checklists:
+            - ir-comms-compliance-checklist.md
+          notes: "LP communications and public narratives; update FAQ/Q&A; capture NPS."
+
+  success_criteria:
+    fundraising_complete:
+      - Narrative, deck, data room, DDQ/Q&A bank approved and consistent
+      - Target LP tiers and rhythm plan executed with touchpoint hygiene ≥ 95%
+      - ESG policy & exclusion list published; marketing guardrails logged
+    investment_readiness:
+      - DD packs (Research/Legal/ESG) complete; IC memo approved with conditions
+      - KYC/KYB/UBO and sanctions/PEP/Adverse media onboarding evidence archived
+    operations_excellence:
+      - Monthly close on time; reconciliations closed; valuation tie-out evidence archived
+      - Compliance reporting on schedule; training & incidents logged
+    reporting_trust:
+      - Quarterly pack & LP letter sent with receipts; LPAC/AGM records archived
+      - KPI dashboards refreshed with lineage and versioning
+    exit_quality:
+      - Waterfall & distributions accurate; notices & receipts archived
+      - Communications compliant; NPS captured; post‑mortem & lessons recorded

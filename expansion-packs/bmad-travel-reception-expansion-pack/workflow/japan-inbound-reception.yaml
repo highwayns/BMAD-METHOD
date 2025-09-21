@@ -1,0 +1,378 @@
+# <!-- Powered by BMAD™ Core -->
+workflow:
+  id: japan-inbound-reception
+  name: Japan Inbound Reception — End-to-End Ops (18 Roles)
+  description: >
+    全链路日本入境接待工作流（咨询→方案→签约→签证与保险→资源锁定→系统开单→执行落地→现场运营→
+    风险与应急→对账与开票→复盘与增长），覆盖 18 个 BMAD 角色，并对齐 BMAD-method 的任务/模板/检查清单。
+  type: inbound-reception
+  project_types:
+    - FIT
+    - Group-Tour
+    - MICE-Event
+    - Luxury-Tailor
+    - Family-Kid
+    - Accessible-Travel
+    - Education-StudyTour
+
+  full_service_sequence:
+    - agent: Operations-Director
+      title: 运营主管（总体统筹）
+      inputs:
+        - 商机线索/客户画像/预算与时间窗
+        - 内部产能与旺季资源预测
+      steps:
+        - 定义服务范围、里程碑与关键风险（S0 立项）
+        - 指定流程负责人与责任矩阵（RACI）
+        - 启动“质量基线 + 指标口径对齐”会议
+      outputs:
+        - docs/ops/scope-and-milestones.md
+        - docs/raci/japan-inbound-raci.md
+      checks:
+        - release-gate-check
+        - risk-matrix-check
+
+    - agent: Sales-Account-Manager
+      title: 销售与账户主管（商机→签约）
+      inputs:
+        - 客户 Brief / 预算 / 偏好 / 目的
+      steps:
+        - 资格评估与机会分级；建立 CRM 账户与机会
+        - 报价策略与商议条款；推动合同与定金
+      outputs:
+        - docs/sales/quote-<oppty>.md
+        - contracts/client/msa-sow-<oppty>.pdf
+      checks:
+        - brand-consistency-check
+        - legal-ip-privacy-check
+
+    - agent: Itinerary-Designer
+      title: 行程设计师 / 产品负责人
+      inputs:
+        - 客户画像与预算/日期/目的
+      steps:
+        - 形成多方案行程（主/备/亲民）与体验亮点
+        - 资源可行性初审（酒店/交通/导游/活动）
+        - 价格测算与毛利目标校验
+      outputs:
+        - docs/itinerary/proposals-<oppty>.md
+        - docs/costing/calc-<oppty>.xlsx
+      checks:
+        - booking-critical-path-check
+        - a11y-i18n-check
+
+    - agent: Hotel-Contracting-Manager
+      title: 旅馆联系人 / 酒店采购
+      inputs:
+        - 行程的城市晚数与房型需求
+      steps:
+        - 发送 RFP / 拿房 / 协议价与释放曲线
+        - 过敏/无障碍/连通房等特殊需求确认
+      outputs:
+        - contracts/hotel/roomblock-<hotel>.pdf
+        - docs/rooming/release-curve-<city>.md
+      checks:
+        - rooming-integrity-check
+        - permits-check
+
+    - agent: Vendor-Procurement-Manager
+      title: 供应采购经理（非房类）
+      inputs:
+        - 景点/餐饮/活动/翻译/KOL/摄影等清单
+      steps:
+        - 询价比价与条款谈判；确定 SLA/赔偿
+        - 建立供应商台账与合规材料
+      outputs:
+        - contracts/vendor/<vendor>-msa.pdf
+        - docs/vendor/vendor-roster.md
+      checks:
+        - data-contract-check
+        - sustainability-check
+
+    - agent: Transport-Logistics-Coordinator
+      title: 运输物流协调员
+      inputs:
+        - 逐日行程/班次/车型/人数/行李件数
+      steps:
+        - 车队排期与集结点规划；司机名册
+        - 极端天气/交通改线预案
+      outputs:
+        - docs/transport/plan-<tourid>.md
+        - manifests/transport/<day>.csv
+      checks:
+        - transport-dispatch-check
+        - weather-contingency-check
+
+    - agent: Guide-Leader-Manager
+      title: 导游 / 领队管理者
+      inputs:
+        - 语言/资格/分团/导游-车辆-酒店的耦合
+      steps:
+        - 导游排班与禁排管理；口径培训
+        - 导游应急矩阵与事故上报路径演练
+      outputs:
+        - docs/guide/roster-<tourid>.md
+        - training/guide-brief-<tourid>.pdf
+      checks:
+        - guide-qualification-check
+        - incident-drill-check
+
+    - agent: MICE-Events-Manager
+      title: 会议活动经理（若涉及）
+      inputs:
+        - 会场/分会场/议程/人数/AV/同传/安保
+      steps:
+        - 场地 RFP→BEO→Run-of-Show；志愿者/口译安排
+        - MCC 指挥中心与对讲方案
+      outputs:
+        - docs/mice/ros-<event>.md
+        - beo/<venue>-<date>.pdf
+      checks:
+        - venue-safety-check
+        - av-tech-check
+
+    - agent: Visa-Insurance-Specialist
+      title: 签证与保险专员
+      inputs:
+        - 团员证照/行程单/邀请函/在留素材
+      steps:
+        - 申签路径与材料校验；投保与批单
+      outputs:
+        - docs/visa/checklist-<group>.md
+        - insurance/policy-<group>.pdf
+      checks:
+        - privacy-appi-check
+        - fact-accuracy-check
+
+    - agent: Legal-Compliance
+      title: 法律与合规专员
+      inputs:
+        - 合同条款/行前须知/隐私与同意
+      steps:
+        - 条款与责任边界复核；APPI/肖像/版权
+      outputs:
+        - legal/opinion-<project>.md
+      checks:
+        - privacy-appi-check
+        - permits-check
+
+    - agent: Tech-Systems-DMS-CRM
+      title: 技术系统专员（DMS/CRM）
+      inputs:
+        - 订单/旅客/资源/房配/车配/导游数据
+      steps:
+        - DMS/CRM 建模与字段映射；自动化推送
+        - 报表与权限/审计日志配置
+      outputs:
+        - docs/sys/config-<project>.md
+        - pipelines/<project>-sync.yaml
+      checks:
+        - data-contract-check
+        - dashboard-a11y-i18n-check
+
+    - agent: Data-Analyst-Reporting
+      title: 数据分析报告人员
+      inputs:
+        - CRM/DMS/财务/客服等数据源
+      steps:
+        - KPI 字典与看板；漏斗/归因/预测方案
+        - SLA 与异常告警阈值设定
+      outputs:
+        - reports/kpi/dashboard-spec.md
+        - reports/ops/funnel-<period>.md
+      checks:
+        - kpi-consistency-check
+        - dq-freshness-completeness-check
+
+    - agent: Finance-Billing
+      title: 财务计费专员
+      inputs:
+        - 合同/订金/对账/发票/汇率与税率
+      steps:
+        - 三单匹配；开票与收款跟踪；退款处理
+      outputs:
+        - finance/invoice-<client>.pdf
+        - reports/finance/recon-<period>.md
+      checks:
+        - finance-three-way-match-check
+        - contract-currency-tax-check
+
+    - agent: Risk-Safety-Manager
+      title: 风险安全经理
+      inputs:
+        - 行程/会场/交通/天气/人群密度评估
+      steps:
+        - 风险矩阵与缓解；应急演练与记录
+      outputs:
+        - docs/risk/matrix-<tourid>.md
+        - playbooks/emergency-<tourid>.md
+      checks:
+        - risk-matrix-check
+        - incident-drill-check
+
+    - agent: Onsite-Ops-Lead
+      title: 现场运营主管
+      inputs:
+        - Run-of-Day、导游/车辆/酒店/票务联动表
+      steps:
+        - 现场 MCC 开场/收场；异常工单化与升级
+        - 与客服/数据分析共享实时指针
+      outputs:
+        - mcc/log-<date>.md
+        - incidents/<id>.md
+      checks:
+        - mcc-opening-check
+        - mcc-closing-check
+
+    - agent: Customer-Service-Lead
+      title: 客户服务主管
+      inputs:
+        - 行前/行中/行后服务脚本与工单系统
+      steps:
+        - 多语种 7×24 响应；变更/补偿/安抚
+      outputs:
+        - cs/macros/triage-sop.md
+        - cs/case-<id>.md
+      checks:
+        - sla-threshold-check
+        - social-safety-check
+
+    - agent: Content-Branding
+      title: 内容品牌专员
+      inputs:
+        - 行前邮件/落地页/社媒矩阵/危机口径
+      steps:
+        - 品牌一致性/多语言本地化；UGC 授权与回收
+      outputs:
+        - docs/brand/brand-bible.md
+        - docs/campaign/social-matrix.md
+      checks:
+        - brand-consistency-check
+        - image-rights-check
+
+    - agent: Quality-Assurance
+      title: 质量管理测试人员
+      inputs:
+        - 需求/数据契约/各域流程与SLA
+      steps:
+        - 端到端测试计划与回归；发布闸门
+        - 演练与监控回放；缺陷与返工治理
+      outputs:
+        - qa/test-plan-<project>.md
+        - qa/release-readiness-<date>.md
+      checks:
+        - requirements-testability-check
+        - release-gate-check
+
+    - agent: Workflow-End
+      title: 结项与复盘
+      steps:
+        - 数据归档/证据留痕；QBR 复盘与改进项立项（S+1）
+      outputs:
+        - reports/debrief-<project>.md
+        - backlog/improvements-<project>.md
+      checks:
+        - regression-scope-check
+
+  express_sequence:
+    - agent: Sales-Account-Manager
+    - agent: Itinerary-Designer
+    - agent: Hotel-Contracting-Manager
+    - agent: Transport-Logistics-Coordinator
+    - agent: Guide-Leader-Manager
+    - agent: Finance-Billing
+    - agent: Onsite-Ops-Lead
+    - agent: Customer-Service-Lead
+    - agent: Quality-Assurance
+    - agent: Workflow-End
+
+  project_setup_guidance:
+    doc_structure:
+      - docs/ops/*
+      - docs/itinerary/*
+      - contracts/*
+      - docs/rooming/*
+      - manifests/*
+      - mcc/*
+      - reports/*
+    environments:
+      - CRM/DMS 对接与字段映射完成
+      - 指标字典与权限分配完成
+      - 证据与回执的归档规范启用
+
+  decision_guidance:
+    booking_capacity:
+      rules:
+        - 如果团组 > 35 人或涉及多会场 → 启用 MICE-Events-Manager 与 MCC 双班
+        - 旺季（樱花/红叶/雪季/花火）→ 提前 60–90 天锁定资源与释放曲线
+    compliance_privacy:
+      rules:
+        - 收集护照/签证/保险信息 → 触发 APPI 最小必要与撤回机制
+        - 使用人物素材 → 触发同意与版权授权清单
+    incident_severity:
+      levels:
+        - SEV1: 人身安全/医疗/警情 → 立即 119/110 + 风险经理接管
+        - SEV2: 行程大面积中断 → Onsite-Ops-Lead 指挥 + 客服统一口径
+        - SEV3: 局部延误或投诉 → 工单化 + 2 小时内回执
+
+  handoff_prompts:
+    Sales-Account-Manager -> Itinerary-Designer: >
+      提供预算区间/偏好/禁忌与分日节奏，标注 P0 体验与成本红线。
+    Itinerary-Designer -> Hotel-Contracting-Manager: >
+      提供城市晚数与房型/无障碍/连通房需求，附候选酒店优先级。
+    Hotel-Contracting-Manager -> Vendor-Procurement-Manager: >
+      同步未覆盖的餐饮/景点/活动清单与特殊饮食需求。
+    Vendor-Procurement-Manager -> Transport-Logistics-Coordinator: >
+      汇总多点上下客的时窗与峰值流量，给出车型/班次建议。
+    Transport-Logistics-Coordinator -> Guide-Leader-Manager: >
+      提供分车与分团名册，标记 VIP/特殊人群/过敏。
+    Guide-Leader-Manager -> Onsite-Ops-Lead: >
+      提交导游排班与值班表，明确升级矩阵与口径。
+    Visa-Insurance-Specialist -> Legal-Compliance: >
+      汇总材料风险点与批单范围，确认法律边界与告知义务。
+    Tech-Systems-DMS-CRM -> Data-Analyst-Reporting: >
+      提供字段映射与刷新策略，确认 KPI 与告警阈值。
+    Data-Analyst-Reporting -> Operations-Director: >
+      输出试运行看板与异常基线，给出上线放量建议。
+    Finance-Billing -> Customer-Service-Lead: >
+      提供退款/补偿口径与可用额度，确保对客一致话术。
+    Content-Branding -> Customer-Service-Lead: >
+      提供行前/行中通知模板与危机口径卡。
+
+  flow_diagram: |
+    flowchart TD
+      A[Leads/Brief] --> B[Sales & Account]
+      B --> C[Itinerary Design]
+      C --> D[Hotel Contracting]
+      C --> E[Vendor Procurement]
+      D --> F[Room Blocks]
+      E --> G[Tickets/Activities]
+      C --> H[Transport Logistics]
+      H --> I[Guide Roster]
+      B --> J[Contract & Deposit]
+      J --> K[Tech: DMS/CRM Setup]
+      K --> L[Data: KPI & Dashboards]
+      J --> M[Visa & Insurance]
+      M --> N[Legal Compliance]
+      I --> O[Onsite Ops (MCC)]
+      O --> P[Customer Service]
+      P --> Q[Finance Billing]
+      Q --> R[Debrief & Improvements]
+      L --> O
+      O --> R
+
+  game_development_best_practices: {} # 保留空键以兼容相同结构的解析器
+  story_development_guidance: {} # 同上
+
+  success_criteria:
+    service_readiness:
+      - RACI 完成并已公告
+      - 房配/车配/导游/票务资源已锁定且有回执
+      - 合同/定金/保险/签证/合规材料齐备
+      - DMS/CRM 与 KPI 看板上线，SLA 阈值有效
+      - 发布闸门评审通过（QA）
+    execution_complete:
+      - 现场 MCC 开/收场记录完整，事故闭环
+      - 财务三单匹配完成并出具发票
+      - 客诉/满意度/NPS 入库，形成复盘
+      - 改进项立项并纳入下一周期（S+1）

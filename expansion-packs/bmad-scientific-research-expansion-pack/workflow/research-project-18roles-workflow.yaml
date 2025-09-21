@@ -1,0 +1,589 @@
+bmad:
+  version: "1.0"
+  kind: workflow
+  domain: talent-science-research-mgmt
+  title: 人才科学研究管理：18角色科研项目全流程工作流
+  id: research-project-18roles-e2e
+  generated_at_utc: "2025-09-21 05:40:15"
+meta:
+  lifecycle:
+    - ideation
+    - pre-award
+    - award-setup
+    - compliance
+    - execution
+    - analysis
+    - publication
+    - translation
+    - closeout
+  principles:
+    - Evidence-first
+    - Compliance-by-design
+    - Reproducibility-by-default
+    - Transparency
+    - Least-burden
+  success_metrics:
+    - On-time % of gates
+    - Compliance findings (↓)
+    - Reproducibility audit pass rate (↑)
+    - Publication/DOI outputs
+    - IP/Tech transfer outcomes
+    - Budget variance %
+roles:
+  - id: Principal-Investigator
+    name: 首席研究员（PI）
+  - id: Research-Program-Manager
+    name: 研究项目经理（RPM）
+  - id: Grant-Finance-Manager
+    name: 资助与财务经理（GFM）
+  - id: Ethics-Coordinator
+    name: 伦理/动物实验委员会协调员（IRB/IACUC）
+  - id: Data-Manager
+    name: 数据管理员/数据管理计划主管（DM）
+  - id: Statistician
+    name: 生物统计学家/统计学家（STAT）
+  - id: Research-Computing-Lead
+    name: 研究软件与计算主管（RCL）
+  - id: Lab-Manager
+    name: 实验室经理（LM）
+  - id: EHS-Biosafety-Officer
+    name: 环境健康安全与生物安全官员（EHS/BSO）
+  - id: QA-QC-Lead
+    name: 质量保证/质量控制主管（QA/QC）
+  - id: Protocol-Method-Lead
+    name: 实验方案作者与方法主管（PML）
+  - id: Field-Sample-Coordinator
+    name: 现场与样本采集协调员（FSC）
+  - id: Procurement-Inventory-Manager
+    name: 采购与库存经理（PIM）
+  - id: Publication-Communications
+    name: 出版与传播主管（PC）
+  - id: IP-Tech-Transfer-Liaison
+    name: 知识产权与技术转移联络员（IPTT）
+  - id: Collaboration-Consortium-Coordinator
+    name: 合作与联盟协调员（CCC）
+  - id: Training-RCR-Coordinator
+    name: 培训与研究行为规范协调员（RCR）
+  - id: Reproducibility-Open-Science-Lead
+    name: 可重现性与开放科学主管（ROS）
+artifacts:
+  concept-note: 立项概念说明（PI 起草）
+  partner-raci: 伙伴与角色 RACI 矩阵（CCC/RPM）
+  budget: 预算与成本分摊（GFM）
+  dmp: 数据管理计划（DM/ROS）
+  protocol: 研究方案与SOP（PML/QA）
+  irb-iacuc-package: 伦理/动物审查包（EC/PI/PML）
+  training-matrix: 培训矩阵与证书（RCR/EHS/GLP/GCP）
+  biosafety-and-risk: 生物安全/风险评估（EHS/LM）
+  procurement-plan: 采购与库存计划（PIM/LM）
+  it-compute-plan: 计算环境与软件计划（RCL/ROS）
+  field-plan: 现场/样本采集计划（FSC/PML）
+  code-repo: 代码仓与CI策略（RCL/ROS）
+  container-env: 容器/环境清单（RCL/ROS）
+  data-dictionary: 数据字典/变量说明（DM/ROS）
+  qc-plan: 质量控制计划（QA/STAT）
+  analysis-plan: 统计分析计划（SAP）（STAT/PI）
+  export-control-review: 出口管制评估（IPTT/CCC）
+  ip-strategy: IP与发表策略（IPTT/PC/PI）
+  publication-plan: 发表与开放获取计划（PC/ROS）
+  kpi-dashboard: KPI与里程碑看板（RPM）
+  prereg-plan: 预注册/注册报告（ROS/STAT/PI）
+  data-release: 数据/代码发布包与DOI（ROS/DM/RCL/PC）
+  funder-reports: 资助方报告（GFM/RPM/PI）
+  closeout-pack: 项目收尾包（RPM/GFM/PI）
+workflow:
+  - id: R1
+    title: 立项概念与需求对齐
+    owner: Principal-Investigator
+    lane: Principal-Investigator
+    phase: ideation
+    inputs: []
+    outputs:
+      - concept-note
+      - partner-raci
+    depends_on: []
+    gate: false
+    checks:
+      - pre-award-consortium-formation-checklist.md
+    kb:
+      - kb/consortium-governance-best-practices.md
+  - id: R2
+    title: 可行性/资源/风险初评
+    owner: Research-Program-Manager
+    lane: Research-Program-Manager
+    phase: ideation
+    inputs:
+      - concept-note
+    outputs:
+      - kpi-dashboard
+    depends_on: []
+    gate: false
+    checks:
+      - kpi-health-check-checklist.md
+    kb: []
+  - id: R3
+    title: 伙伴筛选与尽调
+    owner: Collaboration-Consortium-Coordinator
+    lane: Collaboration-Consortium-Coordinator
+    phase: ideation
+    inputs:
+      - concept-note
+    outputs:
+      - partner-raci
+    depends_on: []
+    gate: false
+    checks:
+      - partner-due-diligence-checklist.md
+      - export-control-redflags-checklist.md
+    kb: []
+  - id: P1
+    title: 预算草案与资金路径
+    owner: Grant-Finance-Manager
+    lane: Grant-Finance-Manager
+    phase: pre-award
+    inputs:
+      - concept-note
+    outputs:
+      - budget
+    depends_on: []
+    gate: false
+    checks: []
+    kb: []
+  - id: P2
+    title: DMP 草拟与开放策略
+    owner: Data-Manager
+    lane: Data-Manager
+    phase: pre-award
+    inputs: []
+    outputs:
+      - dmp
+    depends_on: []
+    gate: false
+    checks:
+      - fair-principles-checklist.md
+      - data-dictionary-checklist.md
+    kb:
+      - kb/fair-primer.md
+      - kb/data-management-fair-privacy.md
+  - id: P3
+    title: IP/发表与出口评审
+    owner: IP-Tech-Transfer-Liaison
+    lane: IP-Tech-Transfer-Liaison
+    phase: pre-award
+    inputs:
+      - concept-note
+    outputs:
+      - ip-strategy
+      - export-control-review
+    depends_on: []
+    gate: false
+    checks:
+      - licensing-compatibility-checklist.md
+    kb: []
+  - id: P4
+    title: 研究方案与方法草拟
+    owner: Protocol-Method-Lead
+    lane: Protocol-Method-Lead
+    phase: pre-award
+    inputs: []
+    outputs:
+      - protocol
+    depends_on: []
+    gate: false
+    checks:
+      - repro-acceptance-criteria-checklist.md
+    kb: []
+  - id: P5
+    title: 提交资助/联合申报材料
+    owner: Research-Program-Manager
+    lane: Research-Program-Manager
+    phase: pre-award
+    inputs:
+      - concept-note
+      - budget
+      - dmp
+      - protocol
+      - partner-raci
+    outputs:
+      - kpi-dashboard
+    depends_on: []
+    gate: false
+    checks: []
+    kb: []
+  - id: P6
+    title: 启动治理框架与章程
+    owner: Collaboration-Consortium-Coordinator
+    lane: Collaboration-Consortium-Coordinator
+    phase: pre-award
+    inputs: []
+    outputs:
+      - partner-raci
+    depends_on: []
+    gate: false
+    checks:
+      - governance-charter-raci-checklist.md
+    kb: []
+  - id: A1
+    title: 伦理/动物审查准备与提交
+    owner: Ethics-Coordinator
+    lane: Ethics-Coordinator
+    phase: award-setup
+    inputs:
+      - protocol
+      - dmp
+    outputs:
+      - irb-iacuc-package
+    depends_on: []
+    gate: false
+    checks:
+      - irb-iacuc-training-checklist.md
+    kb: []
+  - id: A2
+    title: 培训矩阵/入职与证书核验
+    owner: Training-RCR-Coordinator
+    lane: Training-RCR-Coordinator
+    phase: award-setup
+    inputs: []
+    outputs:
+      - training-matrix
+    depends_on: []
+    gate: false
+    checks:
+      - onboarding-rcr-checklist.md
+      - training-records-audit-checklist.md
+    kb: []
+  - id: A3
+    title: 计算与数据环境准备
+    owner: Research-Computing-Lead
+    lane: Research-Computing-Lead
+    phase: award-setup
+    inputs: []
+    outputs:
+      - it-compute-plan
+      - code-repo
+      - container-env
+    depends_on: []
+    gate: false
+    checks:
+      - environment-capture-checklist.md
+      - code-repo-health-checklist.md
+    kb: []
+  - id: A4
+    title: 采购与库存启用
+    owner: Procurement-Inventory-Manager
+    lane: Procurement-Inventory-Manager
+    phase: award-setup
+    inputs:
+      - protocol
+    outputs:
+      - procurement-plan
+    depends_on: []
+    gate: false
+    checks:
+      - deliverable-readiness-checklist.md
+    kb: []
+  - id: C1
+    title: 生物安全/危害评估与PPE
+    owner: EHS-Biosafety-Officer
+    lane: EHS-Biosafety-Officer
+    phase: compliance
+    inputs:
+      - protocol
+    outputs:
+      - biosafety-and-risk
+    depends_on: []
+    gate: false
+    checks:
+      - lab-safety-code-of-conduct-checklist.md
+    kb: []
+  - id: C2
+    title: 质量计划与文件化
+    owner: QA-QC-Lead
+    lane: QA-QC-Lead
+    phase: compliance
+    inputs:
+      - protocol
+    outputs:
+      - qc-plan
+    depends_on: []
+    gate: false
+    checks:
+      - office-action-response-quality-checklist.md
+    kb: []
+  - id: C3
+    title: 数据隐私与共享政策定稿
+    owner: Reproducibility-Open-Science-Lead
+    lane: Reproducibility-Open-Science-Lead
+    phase: compliance
+    inputs:
+      - dmp
+    outputs:
+      - sharing-policy
+    depends_on: []
+    gate: false
+    checks:
+      - data-citation-completeness-checklist.md
+    kb: []
+  - id: C4
+    title: 统计分析计划（SAP）定稿
+    owner: Statistician
+    lane: Statistician
+    phase: compliance
+    inputs:
+      - protocol
+    outputs:
+      - analysis-plan
+    depends_on: []
+    gate: false
+    checks: []
+    kb: []
+  - id: C5
+    title: 现场与样本采集计划定稿
+    owner: Field-Sample-Coordinator
+    lane: Field-Sample-Coordinator
+    phase: compliance
+    inputs:
+      - protocol
+      - biosafety-and-risk
+    outputs:
+      - field-plan
+    depends_on: []
+    gate: false
+    checks: []
+    kb: []
+  - id: E1
+    title: 现场与样本采集执行
+    owner: Field-Sample-Coordinator
+    lane: Field-Sample-Coordinator
+    phase: execution
+    inputs:
+      - field-plan
+      - training-matrix
+    outputs:
+      - data-dictionary
+    depends_on: []
+    gate: false
+    checks:
+      - dua-mta-review-checklist.md
+    kb: []
+  - id: E2
+    title: 实验室操作与样本管理
+    owner: Lab-Manager
+    lane: Lab-Manager
+    phase: execution
+    inputs:
+      - protocol
+      - procurement-plan
+      - biosafety-and-risk
+    outputs: []
+    depends_on: []
+    gate: false
+    checks:
+      - mta-compliance-checklist.md
+    kb: []
+  - id: E3
+    title: 数据捕获/标注/版本/备份
+    owner: Data-Manager
+    lane: Data-Manager
+    phase: execution
+    inputs:
+      - dmp
+      - it-compute-plan
+    outputs:
+      - data-dictionary
+    depends_on: []
+    gate: false
+    checks:
+      - backup-verify-checklist.md
+    kb: []
+  - id: E4
+    title: 代码与工作流落地/CI
+    owner: Research-Computing-Lead
+    lane: Research-Computing-Lead
+    phase: execution
+    inputs:
+      - code-repo
+      - container-env
+    outputs:
+      - workflow-manifest
+      - run-logs
+    depends_on: []
+    gate: false
+    checks:
+      - workflow-robustness-checklist.md
+    kb: []
+  - id: E5
+    title: 质量控制与偏差处置
+    owner: QA-QC-Lead
+    lane: QA-QC-Lead
+    phase: execution
+    inputs:
+      - qc-plan
+      - data-dictionary
+    outputs: []
+    depends_on: []
+    gate: false
+    checks:
+      - incident-capa-checklist.md
+    kb: []
+  - id: E6
+    title: KPI/里程碑监控与协调
+    owner: Research-Program-Manager
+    lane: Research-Program-Manager
+    phase: execution
+    inputs:
+      - kpi-dashboard
+    outputs:
+      - funder-reports
+    depends_on: []
+    gate: false
+    checks: []
+    kb: []
+  - id: N1
+    title: 统计分析与中期结果
+    owner: Statistician
+    lane: Statistician
+    phase: analysis
+    inputs:
+      - analysis-plan
+      - data-dictionary
+    outputs:
+      - provenance-report
+    depends_on: []
+    gate: false
+    checks:
+      - reproducible-notebook-checklist.md
+    kb: []
+  - id: N2
+    title: 复现证据与RO-Crate/PROV
+    owner: Reproducibility-Open-Science-Lead
+    lane: Reproducibility-Open-Science-Lead
+    phase: analysis
+    inputs:
+      - workflow-manifest
+      - run-logs
+    outputs:
+      - ro-crate
+      - provenance-report
+    depends_on: []
+    gate: false
+    checks:
+      - provenance-completeness-checklist.md
+    kb: []
+  - id: N3
+    title: IP与发表窗口复核
+    owner: IP-Tech-Transfer-Liaison
+    lane: IP-Tech-Transfer-Liaison
+    phase: analysis
+    inputs:
+      - analysis-plan
+      - provenance-report
+    outputs:
+      - ip-strategy
+      - publication-plan
+    depends_on: []
+    gate: false
+    checks:
+      - publication-embargo-checklist.md
+    kb: []
+  - id: U1
+    title: 预注册/注册报告/DOI
+    owner: Reproducibility-Open-Science-Lead
+    lane: Reproducibility-Open-Science-Lead
+    phase: publication
+    inputs:
+      - prereg-plan
+    outputs:
+      - doi-minting-request
+      - dois
+    depends_on: []
+    gate: false
+    checks: []
+    kb: []
+  - id: U2
+    title: 论文写作/投稿/OA 路径
+    owner: Publication-Communications
+    lane: Publication-Communications
+    phase: publication
+    inputs:
+      - publication-plan
+      - provenance-report
+    outputs:
+      - manuscript
+      - oa-processing-charges
+    depends_on: []
+    gate: false
+    checks: []
+    kb: []
+  - id: U3
+    title: 数据/代码发布与存档
+    owner: Reproducibility-Open-Science-Lead
+    lane: Reproducibility-Open-Science-Lead
+    phase: publication
+    inputs:
+      - dataset-readme
+      - data-dictionary
+      - code-repo
+    outputs:
+      - data-release
+    depends_on: []
+    gate: false
+    checks:
+      - release-and-archiving-checklist.md
+    kb: []
+  - id: T1
+    title: 技术转移/许可/产业化对接
+    owner: IP-Tech-Transfer-Liaison
+    lane: IP-Tech-Transfer-Liaison
+    phase: translation
+    inputs:
+      - ip-strategy
+      - provenance-report
+    outputs:
+      - options
+      - licenses
+    depends_on: []
+    gate: false
+    checks: []
+    kb: []
+  - id: T2
+    title: 伙伴/联盟成果传播与复用
+    owner: Collaboration-Consortium-Coordinator
+    lane: Collaboration-Consortium-Coordinator
+    phase: translation
+    inputs:
+      - data-release
+      - manuscript
+    outputs: []
+    depends_on: []
+    gate: false
+    checks: []
+    kb: []
+  - id: Z1
+    title: 资助收尾与审计
+    owner: Grant-Finance-Manager
+    lane: Grant-Finance-Manager
+    phase: closeout
+    inputs:
+      - funder-reports
+      - budget
+    outputs:
+      - closeout-pack
+    depends_on: []
+    gate: false
+    checks: []
+    kb: []
+  - id: Z2
+    title: 经验教训与资产保存
+    owner: Research-Program-Manager
+    lane: Research-Program-Manager
+    phase: closeout
+    inputs:
+      - ro-crate
+      - data-release
+    outputs:
+      - closeout-pack
+    depends_on: []
+    gate: false
+    checks: []
+    kb: []
