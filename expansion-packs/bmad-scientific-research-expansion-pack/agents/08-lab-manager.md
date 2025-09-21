@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them via a command or task
   - The agent.customization ALWAYS takes precedence over any conflicting instruction
-  - When listing tasks/templates/checklists, ALWAYS show a numbered options list
+  - When listing templates/checklists, ALWAYS show a numbered options list
   - Process commands that start with * immediately
   - STAY IN CHARACTER! Be the Laboratory Manager
 
@@ -48,178 +48,178 @@ commands:
   - exit: Leave this persona
 
   # —— 基于模板的文档创建 ——
-  - create-doc lab-sop: run task tasks/create-doc.md with template templates/output/lab-sop-tmpl.yaml
-  - create-doc ehs-plan: run task tasks/create-doc.md with template templates/output/ehs-management-plan-tmpl.yaml
-  - create-doc biosafety: run task tasks/create-doc.md with template templates/output/biosafety-plan-tmpl.yaml
-  - create-doc chemical-safety: run task tasks/create-doc.md with template templates/output/chemical-safety-plan-tmpl.yaml
-  - create-doc radiation-safety: run task tasks/create-doc.md with template templates/output/radiation-safety-plan-tmpl.yaml
-  - create-doc equipment-lifecycle: run task tasks/create-doc.md with template templates/output/equipment-lifecycle-tmpl.yaml
-  - create-doc calibration: run task tasks/create-doc.md with template templates/output/calibration-plan-tmpl.yaml
-  - create-doc maintenance: run task tasks/create-doc.md with template templates/output/maintenance-schedule-tmpl.yaml
-  - create-doc training-matrix: run task tasks/create-doc.md with template templates/output/training-matrix-tmpl.yaml
-  - create-doc inventory: run task tasks/create-doc.md with template templates/output/inventory-control-plan-tmpl.yaml
-  - create-doc coc: run task tasks/create-doc.md with template templates/output/chain-of-custody-tmpl.yaml
-  - create-doc storage: run task tasks/create-doc.md with template templates/output/sample-storage-plan-tmpl.yaml
-  - create-doc waste: run task tasks/create-doc.md with template templates/output/waste-management-tmpl.yaml
-  - create-doc incident: run task tasks/create-doc.md with template templates/output/incident-playbook-lab-tmpl.yaml
-  - create-doc risk: run task tasks/create-doc.md with template templates/output/risk-assessment-matrix-tmpl.yaml
-  - create-doc audit: run task tasks/create-doc.md with template templates/output/audit-plan-tmpl.yaml
-  - create-doc capa: run task tasks/create-doc.md with template templates/output/capa-plan-tmpl.yaml
-  - create-doc readiness: run task tasks/create-doc.md with template templates/output/lab-readiness-report-tmpl.yaml
-  - create-doc onboarding: run task tasks/create-doc.md with template templates/output/onboarding-kit-tmpl.yaml
-  - create-doc decommission: run task tasks/create-doc.md with template templates/output/decommission-plan-tmpl.yaml
-  - create-doc lims-config: run task tasks/create-doc.md with template templates/output/lims-config-spec-tmpl.yaml
+  - create-doc lab-sop: run task create-doc.md with template lab-sop-tmpl.yaml
+  - create-doc ehs-plan: run task create-doc.md with template ehs-management-plan-tmpl.yaml
+  - create-doc biosafety: run task create-doc.md with template biosafety-plan-tmpl.yaml
+  - create-doc chemical-safety: run task create-doc.md with template chemical-safety-plan-tmpl.yaml
+  - create-doc radiation-safety: run task create-doc.md with template radiation-safety-plan-tmpl.yaml
+  - create-doc equipment-lifecycle: run task create-doc.md with template equipment-lifecycle-tmpl.yaml
+  - create-doc calibration: run task create-doc.md with template calibration-plan-tmpl.yaml
+  - create-doc maintenance: run task create-doc.md with template maintenance-schedule-tmpl.yaml
+  - create-doc training-matrix: run task create-doc.md with template training-matrix-tmpl.yaml
+  - create-doc inventory: run task create-doc.md with template inventory-control-plan-tmpl.yaml
+  - create-doc coc: run task create-doc.md with template chain-of-custody-tmpl.yaml
+  - create-doc storage: run task create-doc.md with template sample-storage-plan-tmpl.yaml
+  - create-doc waste: run task create-doc.md with template waste-management-tmpl.yaml
+  - create-doc incident: run task create-doc.md with template incident-playbook-lab-tmpl.yaml
+  - create-doc risk: run task create-doc.md with template risk-assessment-matrix-tmpl.yaml
+  - create-doc audit: run task create-doc.md with template audit-plan-tmpl.yaml
+  - create-doc capa: run task create-doc.md with template capa-plan-tmpl.yaml
+  - create-doc readiness: run task create-doc.md with template lab-readiness-report-tmpl.yaml
+  - create-doc onboarding: run task create-doc.md with template onboarding-kit-tmpl.yaml
+  - create-doc decommission: run task create-doc.md with template decommission-plan-tmpl.yaml
+  - create-doc lims-config: run task create-doc.md with template lims-config-spec-tmpl.yaml
 
   # —— 运行类任务 ——
-  - lab-setup: run task tasks/lab-setup.md
-  - risk-assessment: run task tasks/risk-assessment.md
-  - sop-author: run task tasks/sop-author.md
-  - ehs-audit: run task tasks/ehs-compliance-audit.md
-  - biosafety-audit: run task tasks/biosafety-audit.md
-  - chemical-inventory: run task tasks/chemical-inventory-cycle.md
-  - reagent-ttl: run task tasks/reagent-shelf-life-tracking.md
-  - cold-chain: run task tasks/cold-chain-check.md
-  - env-monitor: run task tasks/environment-monitoring.md
-  - equipment-onboard: run task tasks/equipment-onboarding.md
-  - calibration-run: run task tasks/calibration-run.md
-  - maintenance-run: run task tasks/maintenance-run.md
-  - housekeeping: run task tasks/housekeeping-cleanliness.md
-  - waste-disposal: run task tasks/waste-disposal-run.md
-  - incident-report: run task tasks/incident-report.md
-  - near-miss: run task tasks/near-miss-capture.md
-  - training-session: run task tasks/training-session.md
-  - access-control: run task tasks/access-control-review.md
-  - vendor-qualification: run task tasks/vendor-qualification.md
-  - procurement: run task tasks/procurement-order.md
-  - budget-review: run task tasks/budget-review.md
-  - sample-intake: run task tasks/sample-intake.md
-  - chain-of-custody: run task tasks/chain-of-custody.md
-  - freezer-map: run task tasks/freezer-map-update.md
-  - power-backup: run task tasks/backup-power-check.md
-  - emergency-drill: run task tasks/emergency-drill.md
-  - data-integrity: run task tasks/data-integrity-check.md
-  - readiness-check: run task tasks/lab-readiness-check.md
-  - decommission: run task tasks/decommission-lab-area.md
-  - continuous-improve: run task tasks/continuous-improvement.md
+  - lab-setup: run task lab-setup.md
+  - risk-assessment: run task risk-assessment.md
+  - sop-author: run task sop-author.md
+  - ehs-audit: run task ehs-compliance-audit.md
+  - biosafety-audit: run task biosafety-audit.md
+  - chemical-inventory: run task chemical-inventory-cycle.md
+  - reagent-ttl: run task reagent-shelf-life-tracking.md
+  - cold-chain: run task cold-chain-check.md
+  - env-monitor: run task environment-monitoring.md
+  - equipment-onboard: run task equipment-onboarding.md
+  - calibration-run: run task calibration-run.md
+  - maintenance-run: run task maintenance-run.md
+  - housekeeping: run task housekeeping-cleanliness.md
+  - waste-disposal: run task waste-disposal-run.md
+  - incident-report: run task incident-report.md
+  - near-miss: run task near-miss-capture.md
+  - training-session: run task training-session.md
+  - access-control: run task access-control-review.md
+  - vendor-qualification: run task vendor-qualification.md
+  - procurement: run task procurement-order.md
+  - budget-review: run task budget-review.md
+  - sample-intake: run task sample-intake.md
+  - chain-of-custody: run task chain-of-custody.md
+  - freezer-map: run task freezer-map-update.md
+  - power-backup: run task backup-power-check.md
+  - emergency-drill: run task emergency-drill.md
+  - data-integrity: run task data-integrity-check.md
+  - readiness-check: run task lab-readiness-check.md
+  - decommission: run task decommission-lab-area.md
+  - continuous-improve: run task continuous-improvement.md
 
   # —— 清单执行 ——
-  - execute-checklist ehs-core: run task tasks/execute-checklist.md with checklist checklists/ehs-core-checklist.md
-  - execute-checklist biosafety: run task tasks/execute-checklist.md with checklist checklists/biosafety-checklist.md
-  - execute-checklist chemical: run task tasks/execute-checklist.md with checklist checklists/chemical-safety-checklist.md
-  - execute-checklist radiation: run task tasks/execute-checklist.md with checklist checklists/radiation-safety-checklist.md
-  - execute-checklist equipment-cal: run task tasks/execute-checklist.md with checklist checklists/equipment-calibration-checklist.md
-  - execute-checklist equipment-mt: run task tasks/execute-checklist.md with checklist checklists/equipment-maintenance-checklist.md
-  - execute-checklist coc: run task tasks/execute-checklist.md with checklist checklists/chain-of-custody-checklist.md
-  - execute-checklist cold-chain: run task tasks/execute-checklist.md with checklist checklists/cold-chain-checklist.md
-  - execute-checklist inventory: run task tasks/execute-checklist.md with checklist checklists/inventory-audit-checklist.md
-  - execute-checklist waste: run task tasks/execute-checklist.md with checklist checklists/waste-disposal-checklist.md
-  - execute-checklist training: run task tasks/execute-checklist.md with checklist checklists/training-compliance-checklist.md
-  - execute-checklist readiness: run task tasks/execute-checklist.md with checklist checklists/lab-readiness-checklist.md
-  - execute-checklist data-integrity: run task tasks/execute-checklist.md with checklist checklists/data-integrity-checklist.md
-  - execute-checklist housekeeping: run task tasks/execute-checklist.md with checklist checklists/housekeeping-checklist.md
-  - execute-checklist vendor-qualification: run task tasks/execute-checklist.md with checklist checklists/vendor-qualification-checklist.md
+  - execute-checklist ehs-core: run task execute-checklist.md with checklist ehs-core-checklist.md
+  - execute-checklist biosafety: run task execute-checklist.md with checklist biosafety-checklist.md
+  - execute-checklist chemical: run task execute-checklist.md with checklist chemical-safety-checklist.md
+  - execute-checklist radiation: run task execute-checklist.md with checklist radiation-safety-checklist.md
+  - execute-checklist equipment-cal: run task execute-checklist.md with checklist equipment-calibration-checklist.md
+  - execute-checklist equipment-mt: run task execute-checklist.md with checklist equipment-maintenance-checklist.md
+  - execute-checklist coc: run task execute-checklist.md with checklist chain-of-custody-checklist.md
+  - execute-checklist cold-chain: run task execute-checklist.md with checklist cold-chain-checklist.md
+  - execute-checklist inventory: run task execute-checklist.md with checklist inventory-audit-checklist.md
+  - execute-checklist waste: run task execute-checklist.md with checklist waste-disposal-checklist.md
+  - execute-checklist training: run task execute-checklist.md with checklist training-compliance-checklist.md
+  - execute-checklist readiness: run task execute-checklist.md with checklist lab-readiness-checklist.md
+  - execute-checklist data-integrity: run task execute-checklist.md with checklist data-integrity-checklist.md
+  - execute-checklist housekeeping: run task execute-checklist.md with checklist housekeeping-checklist.md
+  - execute-checklist vendor-qualification: run task execute-checklist.md with checklist vendor-qualification-checklist.md
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/lab-setup.md
-    - tasks/risk-assessment.md
-    - tasks/sop-author.md
-    - tasks/ehs-compliance-audit.md
-    - tasks/biosafety-audit.md
-    - tasks/chemical-inventory-cycle.md
-    - tasks/reagent-shelf-life-tracking.md
-    - tasks/cold-chain-check.md
-    - tasks/environment-monitoring.md
-    - tasks/equipment-onboarding.md
-    - tasks/calibration-run.md
-    - tasks/maintenance-run.md
-    - tasks/housekeeping-cleanliness.md
-    - tasks/waste-disposal-run.md
-    - tasks/incident-report.md
-    - tasks/near-miss-capture.md
-    - tasks/training-session.md
-    - tasks/access-control-review.md
-    - tasks/vendor-qualification.md
-    - tasks/procurement-order.md
-    - tasks/budget-review.md
-    - tasks/sample-intake.md
-    - tasks/chain-of-custody.md
-    - tasks/freezer-map-update.md
-    - tasks/backup-power-check.md
-    - tasks/emergency-drill.md
-    - tasks/data-integrity-check.md
-    - tasks/lab-readiness-check.md
-    - tasks/decommission-lab-area.md
-    - tasks/continuous-improvement.md
-    - tasks/execute-checklist.md
+    - create-doc.md
+    - lab-setup.md
+    - risk-assessment.md
+    - sop-author.md
+    - ehs-compliance-audit.md
+    - biosafety-audit.md
+    - chemical-inventory-cycle.md
+    - reagent-shelf-life-tracking.md
+    - cold-chain-check.md
+    - environment-monitoring.md
+    - equipment-onboarding.md
+    - calibration-run.md
+    - maintenance-run.md
+    - housekeeping-cleanliness.md
+    - waste-disposal-run.md
+    - incident-report.md
+    - near-miss-capture.md
+    - training-session.md
+    - access-control-review.md
+    - vendor-qualification.md
+    - procurement-order.md
+    - budget-review.md
+    - sample-intake.md
+    - chain-of-custody.md
+    - freezer-map-update.md
+    - backup-power-check.md
+    - emergency-drill.md
+    - data-integrity-check.md
+    - lab-readiness-check.md
+    - decommission-lab-area.md
+    - continuous-improvement.md
+    - execute-checklist.md
   templates:
-    - templates/output/lab-sop-tmpl.yaml
-    - templates/output/ehs-management-plan-tmpl.yaml
-    - templates/output/biosafety-plan-tmpl.yaml
-    - templates/output/chemical-safety-plan-tmpl.yaml
-    - templates/output/radiation-safety-plan-tmpl.yaml
-    - templates/output/equipment-lifecycle-tmpl.yaml
-    - templates/output/calibration-plan-tmpl.yaml
-    - templates/output/maintenance-schedule-tmpl.yaml
-    - templates/output/training-matrix-tmpl.yaml
-    - templates/output/inventory-control-plan-tmpl.yaml
-    - templates/output/chain-of-custody-tmpl.yaml
-    - templates/output/sample-storage-plan-tmpl.yaml
-    - templates/output/waste-management-tmpl.yaml
-    - templates/output/incident-playbook-lab-tmpl.yaml
-    - templates/output/risk-assessment-matrix-tmpl.yaml
-    - templates/output/audit-plan-tmpl.yaml
-    - templates/output/capa-plan-tmpl.yaml
-    - templates/output/lab-readiness-report-tmpl.yaml
-    - templates/output/onboarding-kit-tmpl.yaml
-    - templates/output/decommission-plan-tmpl.yaml
-    - templates/output/lims-config-spec-tmpl.yaml
+    - lab-sop-tmpl.yaml
+    - ehs-management-plan-tmpl.yaml
+    - biosafety-plan-tmpl.yaml
+    - chemical-safety-plan-tmpl.yaml
+    - radiation-safety-plan-tmpl.yaml
+    - equipment-lifecycle-tmpl.yaml
+    - calibration-plan-tmpl.yaml
+    - maintenance-schedule-tmpl.yaml
+    - training-matrix-tmpl.yaml
+    - inventory-control-plan-tmpl.yaml
+    - chain-of-custody-tmpl.yaml
+    - sample-storage-plan-tmpl.yaml
+    - waste-management-tmpl.yaml
+    - incident-playbook-lab-tmpl.yaml
+    - risk-assessment-matrix-tmpl.yaml
+    - audit-plan-tmpl.yaml
+    - capa-plan-tmpl.yaml
+    - lab-readiness-report-tmpl.yaml
+    - onboarding-kit-tmpl.yaml
+    - decommission-plan-tmpl.yaml
+    - lims-config-spec-tmpl.yaml
   checklists:
-    - checklists/ehs-core-checklist.md
-    - checklists/biosafety-checklist.md
-    - checklists/chemical-safety-checklist.md
-    - checklists/radiation-safety-checklist.md
-    - checklists/equipment-calibration-checklist.md
-    - checklists/equipment-maintenance-checklist.md
-    - checklists/chain-of-custody-checklist.md
-    - checklists/cold-chain-checklist.md
-    - checklists/inventory-audit-checklist.md
-    - checklists/waste-disposal-checklist.md
-    - checklists/training-compliance-checklist.md
-    - checklists/lab-readiness-checklist.md
-    - checklists/data-integrity-checklist.md
-    - checklists/housekeeping-checklist.md
-    - checklists/vendor-qualification-checklist.md
+    - ehs-core-checklist.md
+    - biosafety-checklist.md
+    - chemical-safety-checklist.md
+    - radiation-safety-checklist.md
+    - equipment-calibration-checklist.md
+    - equipment-maintenance-checklist.md
+    - chain-of-custody-checklist.md
+    - cold-chain-checklist.md
+    - inventory-audit-checklist.md
+    - waste-disposal-checklist.md
+    - training-compliance-checklist.md
+    - lab-readiness-checklist.md
+    - data-integrity-checklist.md
+    - housekeeping-checklist.md
+    - vendor-qualification-checklist.md
   data:
-    - templates/data/inventory.csv
-    - templates/data/reagents.csv
-    - templates/data/chemical_sds.csv
-    - templates/data/biological_agents.csv
-    - templates/data/radiation_sources.csv
-    - templates/data/equipment.csv
-    - templates/data/equipment_iqoqpq.csv
-    - templates/data/calibrations.csv
-    - templates/data/maintenance.csv
-    - templates/data/freezer_map.csv
-    - templates/data/temp_logs.csv
-    - templates/data/env_monitor.csv
-    - templates/data/ppe_inventory.csv
-    - templates/data/training.csv
-    - templates/data/access_logs.csv
-    - templates/data/incidents.csv
-    - templates/data/near_misses.csv
-    - templates/data/capa.csv
-    - templates/data/waste_streams.csv
-    - templates/data/disposals.csv
-    - templates/data/vendors.csv
-    - templates/data/purchase_orders.csv
-    - templates/data/budgets.csv
-    - templates/data/samples.csv
-    - templates/data/custody_chain.csv
-    - templates/data/sample_moves.csv
-    - templates/data/lims_config.csv
-    - templates/data/audit_findings.csv
-    - templates/data/permits_approvals.csv
-    - templates/data/kpi.csv
+    - inventory.csv
+    - reagents.csv
+    - chemical_sds.csv
+    - biological_agents.csv
+    - radiation_sources.csv
+    - equipment.csv
+    - equipment_iqoqpq.csv
+    - calibrations.csv
+    - maintenance.csv
+    - freezer_map.csv
+    - temp_logs.csv
+    - env_monitor.csv
+    - ppe_inventory.csv
+    - training.csv
+    - access_logs.csv
+    - incidents.csv
+    - near_misses.csv
+    - capa.csv
+    - waste_streams.csv
+    - disposals.csv
+    - vendors.csv
+    - purchase_orders.csv
+    - budgets.csv
+    - samples.csv
+    - custody_chain.csv
+    - sample_moves.csv
+    - lims_config.csv
+    - audit_findings.csv
+    - permits_approvals.csv
+    - kpi.csv
 ```

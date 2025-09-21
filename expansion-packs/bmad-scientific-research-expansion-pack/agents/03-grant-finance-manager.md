@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them via a command or task
   - The agent.customization ALWAYS takes precedence over any conflicting instruction
-  - When listing tasks/templates/checklists, ALWAYS show as a numbered options list
+  - When listing templates/checklists, ALWAYS show as a numbered options list
   - Process commands that start with * immediately
   - STAY IN CHARACTER! Be the Grant & Finance Manager
 
@@ -46,116 +46,116 @@ commands:
   - doc-out: Output current document in progress
   - exit: Leave this persona
 
-  - create-doc funding-scan: run task create-doc.md with template templates/output/funding-opportunity-scan-tmpl.yaml
-  - create-doc loi: run task create-doc.md with template templates/output/letter-of-intent-tmpl.yaml
-  - create-doc proposal-budget: run task create-doc.md with template templates/output/proposal-budget-tmpl.yaml
-  - create-doc budget-justification: run task create-doc.md with template templates/output/budget-justification-tmpl.yaml
-  - create-doc cost-policy: run task create-doc.md with template templates/output/cost-policy-tmpl.yaml
-  - create-doc procurement-plan: run task create-doc.md with template templates/output/procurement-plan-finance-tmpl.yaml
-  - create-doc subaward-agreement: run task create-doc.md with template templates/output/subaward-agreement-tmpl.yaml
-  - create-doc invoicing-plan: run task create-doc.md with template templates/output/invoicing-plan-tmpl.yaml
-  - create-doc fsr: run task create-doc.md with template templates/output/financial-status-report-tmpl.yaml
-  - create-doc cashflow: run task create-doc.md with template templates/output/cashflow-forecast-tmpl.yaml
-  - create-doc effort-policy: run task create-doc.md with template templates/output/effort-policy-tmpl.yaml
-  - create-doc effort-cycle: run task create-doc.md with template templates/output/effort-certification-cycle-tmpl.yaml
-  - create-doc rebudget: run task create-doc.md with template templates/output/rebudget-request-tmpl.yaml
-  - create-doc carryforward: run task create-doc.md with template templates/output/carryforward-request-tmpl.yaml
-  - create-doc nce: run task create-doc.md with template templates/output/no-cost-extension-request-tmpl.yaml
-  - create-doc closeout: run task create-doc.md with template templates/output/award-closeout-plan-tmpl.yaml
-  - create-doc audit-pack: run task create-doc.md with template templates/output/audit-pack-tmpl.yaml
-  - create-doc sponsor-report: run task create-doc.md with template templates/output/sponsor-financial-report-tmpl.yaml
-  - create-doc burn-dashboard: run task create-doc.md with template templates/output/burn-rate-dashboard-spec-tmpl.yaml
+  - create-doc funding-scan: run task create-doc.md with template funding-opportunity-scan-tmpl.yaml
+  - create-doc loi: run task create-doc.md with template letter-of-intent-tmpl.yaml
+  - create-doc proposal-budget: run task create-doc.md with template proposal-budget-tmpl.yaml
+  - create-doc budget-justification: run task create-doc.md with template budget-justification-tmpl.yaml
+  - create-doc cost-policy: run task create-doc.md with template cost-policy-tmpl.yaml
+  - create-doc procurement-plan: run task create-doc.md with template procurement-plan-finance-tmpl.yaml
+  - create-doc subaward-agreement: run task create-doc.md with template subaward-agreement-tmpl.yaml
+  - create-doc invoicing-plan: run task create-doc.md with template invoicing-plan-tmpl.yaml
+  - create-doc fsr: run task create-doc.md with template financial-status-report-tmpl.yaml
+  - create-doc cashflow: run task create-doc.md with template cashflow-forecast-tmpl.yaml
+  - create-doc effort-policy: run task create-doc.md with template effort-policy-tmpl.yaml
+  - create-doc effort-cycle: run task create-doc.md with template effort-certification-cycle-tmpl.yaml
+  - create-doc rebudget: run task create-doc.md with template rebudget-request-tmpl.yaml
+  - create-doc carryforward: run task create-doc.md with template carryforward-request-tmpl.yaml
+  - create-doc nce: run task create-doc.md with template no-cost-extension-request-tmpl.yaml
+  - create-doc closeout: run task create-doc.md with template award-closeout-plan-tmpl.yaml
+  - create-doc audit-pack: run task create-doc.md with template audit-pack-tmpl.yaml
+  - create-doc sponsor-report: run task create-doc.md with template sponsor-financial-report-tmpl.yaml
+  - create-doc burn-dashboard: run task create-doc.md with template burn-rate-dashboard-spec-tmpl.yaml
 
-  - monthly-close: run task tasks/monthly-close.md
-  - track-burn-rate: run task tasks/track-burn-rate.md
-  - invoice-sponsor: run task tasks/invoice-sponsor.md
-  - subrecipient-monitoring: run task tasks/subrecipient-monitoring.md
-  - cost-transfer: run task tasks/cost-transfer.md
-  - effort-certification: run task tasks/effort-certification.md
-  - procurement-3-quotes: run task tasks/procurement-3-quotes.md
-  - sponsor-reporting: run task tasks/sponsor-reporting.md
-  - prepare-audit: run task tasks/prepare-audit.md
-  - change-budget: run task tasks/change-budget.md
-  - validate-operations: run task tasks/execute-checklist.md with checklist checklists/sponsor-compliance-checklist.md
-  - execute-checklist budget-allowability: run task tasks/execute-checklist.md with checklist checklists/budget-allowability-checklist.md
-  - execute-checklist subrecipient: run task tasks/execute-checklist.md with checklist checklists/subrecipient-due-diligence-checklist.md
-  - execute-checklist procurement: run task tasks/execute-checklist.md with checklist checklists/procurement-3-quotes-checklist.md
-  - execute-checklist expense-audit: run task tasks/execute-checklist.md with checklist checklists/expense-receipt-audit-checklist.md
-  - execute-checklist effort: run task tasks/execute-checklist.md with checklist checklists/effort-certification-checklist.md
-  - execute-checklist invoice: run task tasks/execute-checklist.md with checklist checklists/invoice-acceptance-checklist.md
-  - execute-checklist fsr-closeout: run task tasks/execute-checklist.md with checklist checklists/fsr-closeout-checklist.md
-  - execute-checklist audit-ready: run task tasks/execute-checklist.md with checklist checklists/audit-readiness-checklist.md
-  - execute-checklist carryforward-nce: run task tasks/execute-checklist.md with checklist checklists/carryforward-nce-checklist.md
+  - monthly-close: run task monthly-close.md
+  - track-burn-rate: run task track-burn-rate.md
+  - invoice-sponsor: run task invoice-sponsor.md
+  - subrecipient-monitoring: run task subrecipient-monitoring.md
+  - cost-transfer: run task cost-transfer.md
+  - effort-certification: run task effort-certification.md
+  - procurement-3-quotes: run task procurement-3-quotes.md
+  - sponsor-reporting: run task sponsor-reporting.md
+  - prepare-audit: run task prepare-audit.md
+  - change-budget: run task change-budget.md
+  - validate-operations: run task execute-checklist.md with checklist sponsor-compliance-checklist.md
+  - execute-checklist budget-allowability: run task execute-checklist.md with checklist budget-allowability-checklist.md
+  - execute-checklist subrecipient: run task execute-checklist.md with checklist subrecipient-due-diligence-checklist.md
+  - execute-checklist procurement: run task execute-checklist.md with checklist procurement-3-quotes-checklist.md
+  - execute-checklist expense-audit: run task execute-checklist.md with checklist expense-receipt-audit-checklist.md
+  - execute-checklist effort: run task execute-checklist.md with checklist effort-certification-checklist.md
+  - execute-checklist invoice: run task execute-checklist.md with checklist invoice-acceptance-checklist.md
+  - execute-checklist fsr-closeout: run task execute-checklist.md with checklist fsr-closeout-checklist.md
+  - execute-checklist audit-ready: run task execute-checklist.md with checklist audit-readiness-checklist.md
+  - execute-checklist carryforward-nce: run task execute-checklist.md with checklist carryforward-nce-checklist.md
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/monthly-close.md
-    - tasks/track-burn-rate.md
-    - tasks/invoice-sponsor.md
-    - tasks/subrecipient-monitoring.md
-    - tasks/cost-transfer.md
-    - tasks/effort-certification.md
-    - tasks/procurement-3-quotes.md
-    - tasks/sponsor-reporting.md
-    - tasks/prepare-audit.md
-    - tasks/change-budget.md
-    - tasks/execute-checklist.md
+    - create-doc.md
+    - monthly-close.md
+    - track-burn-rate.md
+    - invoice-sponsor.md
+    - subrecipient-monitoring.md
+    - cost-transfer.md
+    - effort-certification.md
+    - procurement-3-quotes.md
+    - sponsor-reporting.md
+    - prepare-audit.md
+    - change-budget.md
+    - execute-checklist.md
   templates:
-    - templates/output/funding-opportunity-scan-tmpl.yaml
-    - templates/output/letter-of-intent-tmpl.yaml
-    - templates/output/proposal-budget-tmpl.yaml
-    - templates/output/budget-justification-tmpl.yaml
-    - templates/output/cost-policy-tmpl.yaml
-    - templates/output/procurement-plan-finance-tmpl.yaml
-    - templates/output/subaward-agreement-tmpl.yaml
-    - templates/output/invoicing-plan-tmpl.yaml
-    - templates/output/financial-status-report-tmpl.yaml
-    - templates/output/cashflow-forecast-tmpl.yaml
-    - templates/output/effort-policy-tmpl.yaml
-    - templates/output/effort-certification-cycle-tmpl.yaml
-    - templates/output/rebudget-request-tmpl.yaml
-    - templates/output/carryforward-request-tmpl.yaml
-    - templates/output/no-cost-extension-request-tmpl.yaml
-    - templates/output/award-closeout-plan-tmpl.yaml
-    - templates/output/audit-pack-tmpl.yaml
-    - templates/output/sponsor-financial-report-tmpl.yaml
-    - templates/output/burn-rate-dashboard-spec-tmpl.yaml
+    - funding-opportunity-scan-tmpl.yaml
+    - letter-of-intent-tmpl.yaml
+    - proposal-budget-tmpl.yaml
+    - budget-justification-tmpl.yaml
+    - cost-policy-tmpl.yaml
+    - procurement-plan-finance-tmpl.yaml
+    - subaward-agreement-tmpl.yaml
+    - invoicing-plan-tmpl.yaml
+    - financial-status-report-tmpl.yaml
+    - cashflow-forecast-tmpl.yaml
+    - effort-policy-tmpl.yaml
+    - effort-certification-cycle-tmpl.yaml
+    - rebudget-request-tmpl.yaml
+    - carryforward-request-tmpl.yaml
+    - no-cost-extension-request-tmpl.yaml
+    - award-closeout-plan-tmpl.yaml
+    - audit-pack-tmpl.yaml
+    - sponsor-financial-report-tmpl.yaml
+    - burn-rate-dashboard-spec-tmpl.yaml
   checklists:
-    - checklists/sponsor-compliance-checklist.md
-    - checklists/budget-allowability-checklist.md
-    - checklists/subrecipient-due-diligence-checklist.md
-    - checklists/procurement-3-quotes-checklist.md
-    - checklists/expense-receipt-audit-checklist.md
-    - checklists/effort-certification-checklist.md
-    - checklists/invoice-acceptance-checklist.md
-    - checklists/fsr-closeout-checklist.md
-    - checklists/audit-readiness-checklist.md
-    - checklists/carryforward-nce-checklist.md
+    - sponsor-compliance-checklist.md
+    - budget-allowability-checklist.md
+    - subrecipient-due-diligence-checklist.md
+    - procurement-3-quotes-checklist.md
+    - expense-receipt-audit-checklist.md
+    - effort-certification-checklist.md
+    - invoice-acceptance-checklist.md
+    - fsr-closeout-checklist.md
+    - audit-readiness-checklist.md
+    - carryforward-nce-checklist.md
   data:
-    - templates/data/opportunities.csv
-    - templates/data/sponsors.csv
-    - templates/data/grants.csv
-    - templates/data/awards.csv
-    - templates/data/budgets.csv
-    - templates/data/budget_lines.csv
-    - templates/data/expenses.csv
-    - templates/data/encumbrances.csv
-    - templates/data/invoices.csv
-    - templates/data/payments.csv
-    - templates/data/subawards.csv
-    - templates/data/subrecipient_monitoring.csv
-    - templates/data/effort_reports.csv
-    - templates/data/timesheets.csv
-    - templates/data/cost_transfers.csv
-    - templates/data/procurement_records.csv
-    - templates/data/quotations.csv
-    - templates/data/purchase_orders.csv
-    - templates/data/vendors.csv
-    - templates/data/audit_findings.csv
-    - templates/data/carryforward_requests.csv
-    - templates/data/nce_requests.csv
-    - templates/data/reports_fsr.csv
-    - templates/data/cashflow.csv
-    - templates/data/fcoi.csv
+    - opportunities.csv
+    - sponsors.csv
+    - grants.csv
+    - awards.csv
+    - budgets.csv
+    - budget_lines.csv
+    - expenses.csv
+    - encumbrances.csv
+    - invoices.csv
+    - payments.csv
+    - subawards.csv
+    - subrecipient_monitoring.csv
+    - effort_reports.csv
+    - timesheets.csv
+    - cost_transfers.csv
+    - procurement_records.csv
+    - quotations.csv
+    - purchase_orders.csv
+    - vendors.csv
+    - audit_findings.csv
+    - carryforward_requests.csv
+    - nce_requests.csv
+    - reports_fsr.csv
+    - cashflow.csv
+    - fcoi.csv
 ```

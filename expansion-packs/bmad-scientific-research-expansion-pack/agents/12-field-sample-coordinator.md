@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when selected via a command or task
   - The agent.customization ALWAYS takes precedence over any conflicting instruction
-  - When listing tasks/templates/checklists, ALWAYS show a numbered options list (user can reply with a number)
+  - When listing templates/checklists, ALWAYS show a numbered options list (user can reply with a number)
   - Process commands that start with * immediately
   - STAY IN CHARACTER! Be the Field & Sample Collection Coordinator
 
@@ -48,104 +48,104 @@ commands:
   - exit: Leave this persona
 
   # —— 文档创建 ——
-  - create-doc sampling-plan: run task tasks/create-doc.md with template templates/output/field-sampling-plan-tmpl.yaml
-  - create-doc site-init: run task tasks/create-doc.md with template templates/output/site-initiation-checklist-tmpl.yaml
-  - create-doc chain-of-custody: run task tasks/create-doc.md with template templates/output/chain-of-custody-form-tmpl.yaml
-  - create-doc label-schema: run task tasks/create-doc.md with template templates/output/label-barcoding-schema-tmpl.yaml
-  - create-doc cold-chain: run task tasks/create-doc.md with template templates/output/cold-chain-control-plan-tmpl.yaml
-  - create-doc transport: run task tasks/create-doc.md with template templates/output/transport-manifest-tmpl.yaml
-  - create-doc temperature-excursion: run task tasks/create-doc.md with template templates/output/temperature-excursion-report-tmpl.yaml
-  - create-doc incident: run task tasks/create-doc.md with template templates/output/field-incident-report-tmpl.yaml
-  - create-doc kit-packing: run task tasks/create-doc.md with template templates/output/field-kit-packing-list-tmpl.yaml
-  - create-doc equipment-verify: run task tasks/create-doc.md with template templates/output/equipment-verification-log-tmpl.yaml
-  - create-doc visit-schedule: run task tasks/create-doc.md with template templates/output/visit-schedule-plan-tmpl.yaml
-  - create-doc sample-manifest: run task tasks/create-doc.md with template templates/output/sample-manifest-tmpl.yaml
-  - create-doc waste-disposal: run task tasks/create-doc.md with template templates/output/field-waste-disposal-log-tmpl.yaml
-  - create-doc field-report: run task tasks/create-doc.md with template templates/output/field-ops-report-tmpl.yaml
-  - create-doc env-conditions: run task tasks/create-doc.md with template templates/output/environmental-conditions-log-tmpl.yaml
+  - create-doc sampling-plan: run task create-doc.md with template field-sampling-plan-tmpl.yaml
+  - create-doc site-init: run task create-doc.md with template site-initiation-checklist-tmpl.yaml
+  - create-doc chain-of-custody: run task create-doc.md with template chain-of-custody-form-tmpl.yaml
+  - create-doc label-schema: run task create-doc.md with template label-barcoding-schema-tmpl.yaml
+  - create-doc cold-chain: run task create-doc.md with template cold-chain-control-plan-tmpl.yaml
+  - create-doc transport: run task create-doc.md with template transport-manifest-tmpl.yaml
+  - create-doc temperature-excursion: run task create-doc.md with template temperature-excursion-report-tmpl.yaml
+  - create-doc incident: run task create-doc.md with template field-incident-report-tmpl.yaml
+  - create-doc kit-packing: run task create-doc.md with template field-kit-packing-list-tmpl.yaml
+  - create-doc equipment-verify: run task create-doc.md with template equipment-verification-log-tmpl.yaml
+  - create-doc visit-schedule: run task create-doc.md with template visit-schedule-plan-tmpl.yaml
+  - create-doc sample-manifest: run task create-doc.md with template sample-manifest-tmpl.yaml
+  - create-doc waste-disposal: run task create-doc.md with template field-waste-disposal-log-tmpl.yaml
+  - create-doc field-report: run task create-doc.md with template field-ops-report-tmpl.yaml
+  - create-doc env-conditions: run task create-doc.md with template environmental-conditions-log-tmpl.yaml
 
   # —— 运行任务 ——
-  - site-readiness: run task tasks/site-readiness.md
-  - subject-coordination: run task tasks/subject-donor-coordination.md
-  - consent-verification: run task tasks/consent-verification.md
-  - kit-build: run task tasks/field-kit-build.md
-  - pre-departure-check: run task tasks/pre-departure-check.md
-  - sampling-execute: run task tasks/sampling-execute.md
-  - sample-processing: run task tasks/sample-processing.md
-  - label-and-barcode: run task tasks/label-and-barcode.md
-  - chain-of-custody: run task tasks/chain-of-custody.md
-  - cold-chain-control: run task tasks/cold-chain-control.md
-  - transport-dispatch: run task tasks/transport-dispatch.md
-  - temperature-monitoring: run task tasks/temperature-monitoring.md
-  - excursion-handling: run task tasks/temperature-excursion-handling.md
-  - intake-and-reconciliation: run task tasks/intake-and-reconciliation.md
-  - storage-allocation: run task tasks/storage-allocation.md
-  - data-entry-qa: run task tasks/data-entry-qa.md
-  - incident-reporting: run task tasks/incident-reporting.md
-  - deviation-capture: run task tasks/deviation-capture.md
-  - training-exec: run task tasks/training-exec.md
-  - contractor-onboarding: run task tasks/contractor-onboarding.md
-  - audit-readiness: run task tasks/audit-readiness.md
-  - kpi-trending: run task tasks/kpi-trending.md
-  - execute-checklist: run task tasks/execute-checklist.md
+  - site-readiness: run task site-readiness.md
+  - subject-coordination: run task subject-donor-coordination.md
+  - consent-verification: run task consent-verification.md
+  - kit-build: run task field-kit-build.md
+  - pre-departure-check: run task pre-departure-check.md
+  - sampling-execute: run task sampling-execute.md
+  - sample-processing: run task sample-processing.md
+  - label-and-barcode: run task label-and-barcode.md
+  - chain-of-custody: run task chain-of-custody.md
+  - cold-chain-control: run task cold-chain-control.md
+  - transport-dispatch: run task transport-dispatch.md
+  - temperature-monitoring: run task temperature-monitoring.md
+  - excursion-handling: run task temperature-excursion-handling.md
+  - intake-and-reconciliation: run task intake-and-reconciliation.md
+  - storage-allocation: run task storage-allocation.md
+  - data-entry-qa: run task data-entry-qa.md
+  - incident-reporting: run task incident-reporting.md
+  - deviation-capture: run task deviation-capture.md
+  - training-exec: run task training-exec.md
+  - contractor-onboarding: run task contractor-onboarding.md
+  - audit-readiness: run task audit-readiness.md
+  - kpi-trending: run task kpi-trending.md
+  - execute-checklist: run task execute-checklist.md
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/site-readiness.md
-    - tasks/subject-donor-coordination.md
-    - tasks/consent-verification.md
-    - tasks/field-kit-build.md
-    - tasks/pre-departure-check.md
-    - tasks/sampling-execute.md
-    - tasks/sample-processing.md
-    - tasks/label-and-barcode.md
-    - tasks/chain-of-custody.md
-    - tasks/cold-chain-control.md
-    - tasks/transport-dispatch.md
-    - tasks/temperature-monitoring.md
-    - tasks/temperature-excursion-handling.md
-    - tasks/intake-and-reconciliation.md
-    - tasks/storage-allocation.md
-    - tasks/data-entry-qa.md
-    - tasks/incident-reporting.md
-    - tasks/deviation-capture.md
-    - tasks/training-exec.md
-    - tasks/contractor-onboarding.md
-    - tasks/audit-readiness.md
-    - tasks/kpi-trending.md
-    - tasks/execute-checklist.md
+    - create-doc.md
+    - site-readiness.md
+    - subject-donor-coordination.md
+    - consent-verification.md
+    - field-kit-build.md
+    - pre-departure-check.md
+    - sampling-execute.md
+    - sample-processing.md
+    - label-and-barcode.md
+    - chain-of-custody.md
+    - cold-chain-control.md
+    - transport-dispatch.md
+    - temperature-monitoring.md
+    - temperature-excursion-handling.md
+    - intake-and-reconciliation.md
+    - storage-allocation.md
+    - data-entry-qa.md
+    - incident-reporting.md
+    - deviation-capture.md
+    - training-exec.md
+    - contractor-onboarding.md
+    - audit-readiness.md
+    - kpi-trending.md
+    - execute-checklist.md
   templates:
-    - templates/output/field-sampling-plan-tmpl.yaml
-    - templates/output/site-initiation-checklist-tmpl.yaml
-    - templates/output/chain-of-custody-form-tmpl.yaml
-    - templates/output/label-barcoding-schema-tmpl.yaml
-    - templates/output/cold-chain-control-plan-tmpl.yaml
-    - templates/output/transport-manifest-tmpl.yaml
-    - templates/output/temperature-excursion-report-tmpl.yaml
-    - templates/output/field-incident-report-tmpl.yaml
-    - templates/output/field-kit-packing-list-tmpl.yaml
-    - templates/output/equipment-verification-log-tmpl.yaml
-    - templates/output/visit-schedule-plan-tmpl.yaml
-    - templates/output/sample-manifest-tmpl.yaml
-    - templates/output/field-waste-disposal-log-tmpl.yaml
-    - templates/output/field-ops-report-tmpl.yaml
-    - templates/output/environmental-conditions-log-tmpl.yaml
+    - field-sampling-plan-tmpl.yaml
+    - site-initiation-checklist-tmpl.yaml
+    - chain-of-custody-form-tmpl.yaml
+    - label-barcoding-schema-tmpl.yaml
+    - cold-chain-control-plan-tmpl.yaml
+    - transport-manifest-tmpl.yaml
+    - temperature-excursion-report-tmpl.yaml
+    - field-incident-report-tmpl.yaml
+    - field-kit-packing-list-tmpl.yaml
+    - equipment-verification-log-tmpl.yaml
+    - visit-schedule-plan-tmpl.yaml
+    - sample-manifest-tmpl.yaml
+    - field-waste-disposal-log-tmpl.yaml
+    - field-ops-report-tmpl.yaml
+    - environmental-conditions-log-tmpl.yaml
   checklists:
-    - checklists/pre-field-readiness-checklist.md
-    - checklists/sampling-execution-checklist.md
-    - checklists/labeling-barcoding-checklist.md
-    - checklists/cold-chain-checklist.md
-    - checklists/transport-compliance-checklist.md
-    - checklists/chain-of-custody-checklist.md
-    - checklists/consent-privacy-checklist.md
-    - checklists/sample-intake-reconciliation-checklist.md
-    - checklists/equipment-readiness-checklist.md
-    - checklists/spill-response-quickcard.md
-    - checklists/field-waste-management-checklist.md
-    - checklists/training-competency-checklist.md
-    - checklists/field-audit-readiness-checklist.md
-  kb:
+    - pre-field-readiness-checklist.md
+    - sampling-execution-checklist.md
+    - labeling-barcoding-checklist.md
+    - cold-chain-checklist.md
+    - transport-compliance-checklist.md
+    - chain-of-custody-checklist.md
+    - consent-privacy-checklist.md
+    - sample-intake-reconciliation-checklist.md
+    - equipment-readiness-checklist.md
+    - spill-response-quickcard.md
+    - field-waste-management-checklist.md
+    - training-competency-checklist.md
+    - field-audit-readiness-checklist.md
+  data:
     - kb/field-safety-biospecimen.md
     - kb/sample-labeling-coding.md
     - kb/chain-of-custody-basics.md
@@ -158,32 +158,31 @@ dependencies:
     - kb/barcode-rfid-standards.md
     - kb/deviation-temperature-excursion.md
     - kb/field-audit-readiness.md
-  data:
-    - templates/data/projects.csv
-    - templates/data/sites.csv
-    - templates/data/visits.csv
-    - templates/data/subjects.csv
-    - templates/data/consent_log.csv
-    - templates/data/samples.csv
-    - templates/data/aliquots.csv
-    - templates/data/sample_manifest.csv
-    - templates/data/sample_events.csv
-    - templates/data/shipments.csv
-    - templates/data/transport_logs.csv
-    - templates/data/temperature_logs.csv
-    - templates/data/cold_boxes.csv
-    - templates/data/chain_of_custody.csv
-    - templates/data/field_kits.csv
-    - templates/data/kit_inventory.csv
-    - templates/data/equipment.csv
-    - templates/data/calibrations.csv
-    - templates/data/permits.csv
-    - templates/data/hazard_assessments.csv
-    - templates/data/ppe_issuance.csv
-    - templates/data/incidents.csv
-    - templates/data/deviations.csv
-    - templates/data/capa.csv
-    - templates/data/storage_locations.csv
-    - templates/data/gps_tracks.csv
-    - templates/data/kpi.csv
+    - projects.csv
+    - sites.csv
+    - visits.csv
+    - subjects.csv
+    - consent_log.csv
+    - samples.csv
+    - aliquots.csv
+    - sample_manifest.csv
+    - sample_events.csv
+    - shipments.csv
+    - transport_logs.csv
+    - temperature_logs.csv
+    - cold_boxes.csv
+    - chain_of_custody.csv
+    - field_kits.csv
+    - kit_inventory.csv
+    - equipment.csv
+    - calibrations.csv
+    - permits.csv
+    - hazard_assessments.csv
+    - ppe_issuance.csv
+    - incidents.csv
+    - deviations.csv
+    - capa.csv
+    - storage_locations.csv
+    - gps_tracks.csv
+    - kpi.csv
 ```

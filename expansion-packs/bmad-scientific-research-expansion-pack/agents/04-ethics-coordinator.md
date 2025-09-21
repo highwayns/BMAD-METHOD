@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them via a command or task
   - The agent.customization ALWAYS takes precedence over any conflicting instruction
-  - When listing tasks/templates/checklists, ALWAYS show a numbered options list
+  - When listing templates/checklists, ALWAYS show a numbered options list
   - Process commands that start with * immediately
   - STAY IN CHARACTER! Be the Ethics/IRB-IACUC Coordinator
 
@@ -47,131 +47,131 @@ commands:
   - doc-out: Output current document being drafted
   - exit: Leave this persona
 
-  - create-doc irb-protocol: run task create-doc.md with template templates/output/irb-protocol-tmpl.yaml
-  - create-doc iacuc-protocol: run task create-doc.md with template templates/output/iacuc-protocol-tmpl.yaml
-  - create-doc informed-consent: run task create-doc.md with template templates/output/informed-consent-tmpl.yaml
-  - create-doc assent-form: run task create-doc.md with template templates/output/assent-form-tmpl.yaml
-  - create-doc consent-short: run task create-doc.md with template templates/output/consent-short-form-tmpl.yaml
-  - create-doc recruitment: run task create-doc.md with template templates/output/recruitment-materials-tmpl.yaml
-  - create-doc dpia-lite: run task create-doc.md with template templates/output/dpia-lite-tmpl.yaml
-  - create-doc privacy-plan: run task create-doc.md with template templates/output/privacy-plan-tmpl.yaml
-  - create-doc biosafety-plan: run task create-doc.md with template templates/output/biosafety-plan-tmpl.yaml
-  - create-doc ibc-protocol: run task create-doc.md with template templates/output/ibc-protocol-tmpl.yaml
-  - create-doc humane-endpoints: run task create-doc.md with template templates/output/humane-endpoints-tmpl.yaml
-  - create-doc anesthesia-analgesia: run task create-doc.md with template templates/output/anesthesia-analgesia-table-tmpl.yaml
-  - create-doc euthanasia-plan: run task create-doc.md with template templates/output/euthanasia-plan-tmpl.yaml
-  - create-doc continuing-review: run task create-doc.md with template templates/output/continuing-review-tmpl.yaml
-  - create-doc amendment: run task create-doc.md with template templates/output/amendment-request-tmpl.yaml
-  - create-doc adverse-event: run task create-doc.md with template templates/output/adverse-event-report-tmpl.yaml
-  - create-doc deviation: run task create-doc.md with template templates/output/deviation-report-tmpl.yaml
-  - create-doc closeout: run task create-doc.md with template templates/output/ethics-closeout-report-tmpl.yaml
-  - create-doc coi-disclosure: run task create-doc.md with template templates/output/coi-disclosure-tmpl.yaml
-  - create-doc training-matrix: run task create-doc.md with template templates/output/training-matrix-tmpl.yaml
-  - create-doc mta-ethics-appendix: run task create-doc.md with template templates/output/mta-ethics-appendix-tmpl.yaml
-  - create-doc data-sharing: run task create-doc.md with template templates/output/data-sharing-plan-tmpl.yaml
-  - create-doc export-screening: run task create-doc.md with template templates/output/export-control-screening-tmpl.yaml
+  - create-doc irb-protocol: run task create-doc.md with template irb-protocol-tmpl.yaml
+  - create-doc iacuc-protocol: run task create-doc.md with template iacuc-protocol-tmpl.yaml
+  - create-doc informed-consent: run task create-doc.md with template informed-consent-tmpl.yaml
+  - create-doc assent-form: run task create-doc.md with template assent-form-tmpl.yaml
+  - create-doc consent-short: run task create-doc.md with template consent-short-form-tmpl.yaml
+  - create-doc recruitment: run task create-doc.md with template recruitment-materials-tmpl.yaml
+  - create-doc dpia-lite: run task create-doc.md with template dpia-lite-tmpl.yaml
+  - create-doc privacy-plan: run task create-doc.md with template privacy-plan-tmpl.yaml
+  - create-doc biosafety-plan: run task create-doc.md with template biosafety-plan-tmpl.yaml
+  - create-doc ibc-protocol: run task create-doc.md with template ibc-protocol-tmpl.yaml
+  - create-doc humane-endpoints: run task create-doc.md with template humane-endpoints-tmpl.yaml
+  - create-doc anesthesia-analgesia: run task create-doc.md with template anesthesia-analgesia-table-tmpl.yaml
+  - create-doc euthanasia-plan: run task create-doc.md with template euthanasia-plan-tmpl.yaml
+  - create-doc continuing-review: run task create-doc.md with template continuing-review-tmpl.yaml
+  - create-doc amendment: run task create-doc.md with template amendment-request-tmpl.yaml
+  - create-doc adverse-event: run task create-doc.md with template adverse-event-report-tmpl.yaml
+  - create-doc deviation: run task create-doc.md with template deviation-report-tmpl.yaml
+  - create-doc closeout: run task create-doc.md with template ethics-closeout-report-tmpl.yaml
+  - create-doc coi-disclosure: run task create-doc.md with template coi-disclosure-tmpl.yaml
+  - create-doc training-matrix: run task create-doc.md with template training-matrix-tmpl.yaml
+  - create-doc mta-ethics-appendix: run task create-doc.md with template mta-ethics-appendix-tmpl.yaml
+  - create-doc data-sharing: run task create-doc.md with template data-sharing-plan-tmpl.yaml
+  - create-doc export-screening: run task create-doc.md with template export-control-screening-tmpl.yaml
 
-  - submission-prep: run task tasks/submission-prep.md
-  - pre-review-triage: run task tasks/pre-review-triage.md
-  - continuing-review-cycle: run task tasks/continuing-review-cycle.md
-  - amendment-workflow: run task tasks/amendment-workflow.md
-  - manage-ae: run task tasks/manage-adverse-events.md
-  - manage-deviation: run task tasks/manage-deviations.md
-  - consent-audit: run task tasks/consent-audit.md
-  - training-compliance: run task tasks/training-compliance.md
-  - animal-record-audit: run task tasks/animal-record-audit.md
-  - biosafety-walkthrough: run task tasks/biosafety-walkthrough.md
-  - post-approval-monitoring: run task tasks/post-approval-monitoring.md
-  - inspection-response: run task tasks/inspection-response.md
-  - ethics-closeout: run task tasks/ethics-closeout.md
+  - submission-prep: run task submission-prep.md
+  - pre-review-triage: run task pre-review-triage.md
+  - continuing-review-cycle: run task continuing-review-cycle.md
+  - amendment-workflow: run task amendment-workflow.md
+  - manage-ae: run task manage-adverse-events.md
+  - manage-deviation: run task manage-deviations.md
+  - consent-audit: run task consent-audit.md
+  - training-compliance: run task training-compliance.md
+  - animal-record-audit: run task animal-record-audit.md
+  - biosafety-walkthrough: run task biosafety-walkthrough.md
+  - post-approval-monitoring: run task post-approval-monitoring.md
+  - inspection-response: run task inspection-response.md
+  - ethics-closeout: run task ethics-closeout.md
 
-  - execute-checklist irb-ready: run task tasks/execute-checklist.md with checklist checklists/irb-readiness-checklist.md
-  - execute-checklist iacuc-ready: run task tasks/execute-checklist.md with checklist checklists/iacuc-readiness-checklist.md
-  - execute-checklist consent-elements: run task tasks/execute-checklist.md with checklist checklists/consent-elements-checklist.md
-  - execute-checklist dpia-lite: run task tasks/execute-checklist.md with checklist checklists/dpia-lite-checklist.md
-  - execute-checklist biosafety-bsl2: run task tasks/execute-checklist.md with checklist checklists/biosafety-bsl2-checklist.md
-  - execute-checklist humane-endpoints: run task tasks/execute-checklist.md with checklist checklists/humane-endpoints-checklist.md
-  - execute-checklist euthanasia: run task tasks/execute-checklist.md with checklist checklists/euthanasia-checklist.md
-  - execute-checklist deviation-audit: run task tasks/execute-checklist.md with checklist checklists/protocol-deviation-checklist.md
-  - execute-checklist data-sharing: run task tasks/execute-checklist.md with checklist checklists/data-sharing-checklist.md
-  - execute-checklist export-control: run task tasks/execute-checklist.md with checklist checklists/export-control-screening-checklist.md
+  - execute-checklist irb-ready: run task execute-checklist.md with checklist irb-readiness-checklist.md
+  - execute-checklist iacuc-ready: run task execute-checklist.md with checklist iacuc-readiness-checklist.md
+  - execute-checklist consent-elements: run task execute-checklist.md with checklist consent-elements-checklist.md
+  - execute-checklist dpia-lite: run task execute-checklist.md with checklist dpia-lite-checklist.md
+  - execute-checklist biosafety-bsl2: run task execute-checklist.md with checklist biosafety-bsl2-checklist.md
+  - execute-checklist humane-endpoints: run task execute-checklist.md with checklist humane-endpoints-checklist.md
+  - execute-checklist euthanasia: run task execute-checklist.md with checklist euthanasia-checklist.md
+  - execute-checklist deviation-audit: run task execute-checklist.md with checklist protocol-deviation-checklist.md
+  - execute-checklist data-sharing: run task execute-checklist.md with checklist data-sharing-checklist.md
+  - execute-checklist export-control: run task execute-checklist.md with checklist export-control-screening-checklist.md
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/submission-prep.md
-    - tasks/pre-review-triage.md
-    - tasks/continuing-review-cycle.md
-    - tasks/amendment-workflow.md
-    - tasks/manage-adverse-events.md
-    - tasks/manage-deviations.md
-    - tasks/consent-audit.md
-    - tasks/training-compliance.md
-    - tasks/animal-record-audit.md
-    - tasks/biosafety-walkthrough.md
-    - tasks/post-approval-monitoring.md
-    - tasks/inspection-response.md
-    - tasks/ethics-closeout.md
-    - tasks/execute-checklist.md
+    - create-doc.md
+    - submission-prep.md
+    - pre-review-triage.md
+    - continuing-review-cycle.md
+    - amendment-workflow.md
+    - manage-adverse-events.md
+    - manage-deviations.md
+    - consent-audit.md
+    - training-compliance.md
+    - animal-record-audit.md
+    - biosafety-walkthrough.md
+    - post-approval-monitoring.md
+    - inspection-response.md
+    - ethics-closeout.md
+    - execute-checklist.md
   templates:
-    - templates/output/irb-protocol-tmpl.yaml
-    - templates/output/iacuc-protocol-tmpl.yaml
-    - templates/output/informed-consent-tmpl.yaml
-    - templates/output/assent-form-tmpl.yaml
-    - templates/output/consent-short-form-tmpl.yaml
-    - templates/output/recruitment-materials-tmpl.yaml
-    - templates/output/dpia-lite-tmpl.yaml
-    - templates/output/privacy-plan-tmpl.yaml
-    - templates/output/biosafety-plan-tmpl.yaml
-    - templates/output/ibc-protocol-tmpl.yaml
-    - templates/output/humane-endpoints-tmpl.yaml
-    - templates/output/anesthesia-analgesia-table-tmpl.yaml
-    - templates/output/euthanasia-plan-tmpl.yaml
-    - templates/output/continuing-review-tmpl.yaml
-    - templates/output/amendment-request-tmpl.yaml
-    - templates/output/adverse-event-report-tmpl.yaml
-    - templates/output/deviation-report-tmpl.yaml
-    - templates/output/ethics-closeout-report-tmpl.yaml
-    - templates/output/coi-disclosure-tmpl.yaml
-    - templates/output/training-matrix-tmpl.yaml
-    - templates/output/mta-ethics-appendix-tmpl.yaml
-    - templates/output/data-sharing-plan-tmpl.yaml
-    - templates/output/export-control-screening-tmpl.yaml
+    - irb-protocol-tmpl.yaml
+    - iacuc-protocol-tmpl.yaml
+    - informed-consent-tmpl.yaml
+    - assent-form-tmpl.yaml
+    - consent-short-form-tmpl.yaml
+    - recruitment-materials-tmpl.yaml
+    - dpia-lite-tmpl.yaml
+    - privacy-plan-tmpl.yaml
+    - biosafety-plan-tmpl.yaml
+    - ibc-protocol-tmpl.yaml
+    - humane-endpoints-tmpl.yaml
+    - anesthesia-analgesia-table-tmpl.yaml
+    - euthanasia-plan-tmpl.yaml
+    - continuing-review-tmpl.yaml
+    - amendment-request-tmpl.yaml
+    - adverse-event-report-tmpl.yaml
+    - deviation-report-tmpl.yaml
+    - ethics-closeout-report-tmpl.yaml
+    - coi-disclosure-tmpl.yaml
+    - training-matrix-tmpl.yaml
+    - mta-ethics-appendix-tmpl.yaml
+    - data-sharing-plan-tmpl.yaml
+    - export-control-screening-tmpl.yaml
   checklists:
-    - checklists/irb-readiness-checklist.md
-    - checklists/iacuc-readiness-checklist.md
-    - checklists/consent-elements-checklist.md
-    - checklists/dpia-lite-checklist.md
-    - checklists/biosafety-bsl2-checklist.md
-    - checklists/humane-endpoints-checklist.md
-    - checklists/euthanasia-checklist.md
-    - checklists/protocol-deviation-checklist.md
-    - checklists/data-sharing-checklist.md
-    - checklists/export-control-screening-checklist.md
+    - irb-readiness-checklist.md
+    - iacuc-readiness-checklist.md
+    - consent-elements-checklist.md
+    - dpia-lite-checklist.md
+    - biosafety-bsl2-checklist.md
+    - humane-endpoints-checklist.md
+    - euthanasia-checklist.md
+    - protocol-deviation-checklist.md
+    - data-sharing-checklist.md
+    - export-control-screening-checklist.md
   data:
-    - templates/data/protocols.csv
-    - templates/data/irb_submissions.csv
-    - templates/data/iacuc_submissions.csv
-    - templates/data/ibc_submissions.csv
-    - templates/data/continuing_reviews.csv
-    - templates/data/amendments.csv
-    - templates/data/adverse_events.csv
-    - templates/data/deviations.csv
-    - templates/data/consent_versions.csv
-    - templates/data/recruitment_materials.csv
-    - templates/data/training_records.csv
-    - templates/data/animal_census.csv
-    - templates/data/procedures.csv
-    - templates/data/anesthesia_analgesia.csv
-    - templates/data/euthanasia.csv
-    - templates/data/ehs_inspections.csv
-    - templates/data/incidents.csv
-    - templates/data/data_flows.csv
-    - templates/data/data_access.csv
-    - templates/data/data_transfers.csv
-    - templates/data/export_screenings.csv
-    - templates/data/coi_disclosures.csv
-    - templates/data/mtas.csv
-    - templates/data/permissions.csv
-    - templates/data/kpi.csv
+    - protocols.csv
+    - irb_submissions.csv
+    - iacuc_submissions.csv
+    - ibc_submissions.csv
+    - continuing_reviews.csv
+    - amendments.csv
+    - adverse_events.csv
+    - deviations.csv
+    - consent_versions.csv
+    - recruitment_materials.csv
+    - training_records.csv
+    - animal_census.csv
+    - procedures.csv
+    - anesthesia_analgesia.csv
+    - euthanasia.csv
+    - ehs_inspections.csv
+    - incidents.csv
+    - data_flows.csv
+    - data_access.csv
+    - data_transfers.csv
+    - export_screenings.csv
+    - coi_disclosures.csv
+    - mtas.csv
+    - permissions.csv
+    - kpi.csv
 ```

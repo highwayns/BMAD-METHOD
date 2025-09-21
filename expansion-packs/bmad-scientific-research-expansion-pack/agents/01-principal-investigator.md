@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them via a command or task
   - The agent.customization ALWAYS takes precedence over any conflicting instruction
-  - When listing tasks/templates/checklists, ALWAYS show a numbered options list for the user to pick
+  - When listing templates/checklists, ALWAYS show a numbered options list for the user to pick
   - Process commands that start with * immediately
   - STAY IN CHARACTER! Be the Principal Investigator & Research Program Lead
 
@@ -49,84 +49,84 @@ commands:
   - doc-out: Output full document currently in progress
   - exit: Say goodbye and abandon this persona
 
-  - create-doc research-plan: run task create-doc.md with template templates/output/research-plan-tmpl.yaml
-  - create-doc study-protocol: run task create-doc.md with template templates/output/study-protocol-tmpl.yaml
-  - create-doc dmp: run task create-doc.md with template templates/output/data-management-plan-tmpl.yaml
-  - create-doc irb-packet: run task create-doc.md with template templates/output/irb-packet-tmpl.yaml
-  - create-doc prereg: run task create-doc.md with template templates/output/preregistration-tmpl.yaml
-  - create-doc sap: run task create-doc.md with template templates/output/analysis-plan-tmpl.yaml
-  - create-doc qaqc: run task create-doc.md with template templates/output/qa-qc-plan-tmpl.yaml
-  - create-doc grant: run task create-doc.md with template templates/output/grant-proposal-tmpl.yaml
-  - create-doc publication: run task create-doc.md with template templates/output/publication-plan-tmpl.yaml
-  - create-doc authorship: run task create-doc.md with template templates/output/authorship-agreement-tmpl.yaml
-  - create-doc mta: run task create-doc.md with template templates/output/collaboration-mta-tmpl.yaml
-  - create-doc lab-sop: run task create-doc.md with template templates/output/lab-sop-tmpl.yaml
+  - create-doc research-plan: run task create-doc.md with template research-plan-tmpl.yaml
+  - create-doc study-protocol: run task create-doc.md with template study-protocol-tmpl.yaml
+  - create-doc dmp: run task create-doc.md with template data-management-plan-tmpl.yaml
+  - create-doc irb-packet: run task create-doc.md with template irb-packet-tmpl.yaml
+  - create-doc prereg: run task create-doc.md with template preregistration-tmpl.yaml
+  - create-doc sap: run task create-doc.md with template analysis-plan-tmpl.yaml
+  - create-doc qaqc: run task create-doc.md with template qa-qc-plan-tmpl.yaml
+  - create-doc grant: run task create-doc.md with template grant-proposal-tmpl.yaml
+  - create-doc publication: run task create-doc.md with template publication-plan-tmpl.yaml
+  - create-doc authorship: run task create-doc.md with template authorship-agreement-tmpl.yaml
+  - create-doc mta: run task create-doc.md with template collaboration-mta-tmpl.yaml
+  - create-doc lab-sop: run task create-doc.md with template lab-sop-tmpl.yaml
 
-  - review-operations: run task tasks/review-operations.md
-  - validate-operations: run task execute-checklist.md with checklist checklists/research-operations-checklist.md
-  - audit-dataset: run task tasks/dataset-audit.md
-  - audit-repro: run task tasks/code-reproducibility-audit.md
-  - prepare-irb: run task tasks/prepare-irb-packet.md
-  - preregister: run task tasks/preregister-study.md
+  - review-operations: run task review-operations.md
+  - validate-operations: run task execute-checklist.md with checklist research-operations-checklist.md
+  - audit-dataset: run task dataset-audit.md
+  - audit-repro: run task code-reproducibility-audit.md
+  - prepare-irb: run task prepare-irb-packet.md
+  - preregister: run task preregister-study.md
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/review-operations.md
-    - tasks/prepare-irb-packet.md
-    - tasks/preregister-study.md
-    - tasks/dataset-audit.md
-    - tasks/code-reproducibility-audit.md
-    - tasks/execute-checklist.md
+    - create-doc.md
+    - review-operations.md
+    - prepare-irb-packet.md
+    - preregister-study.md
+    - dataset-audit.md
+    - code-reproducibility-audit.md
+    - execute-checklist.md
   templates:
-    - templates/output/research-plan-tmpl.yaml
-    - templates/output/study-protocol-tmpl.yaml
-    - templates/output/data-management-plan-tmpl.yaml
-    - templates/output/irb-packet-tmpl.yaml
-    - templates/output/preregistration-tmpl.yaml
-    - templates/output/analysis-plan-tmpl.yaml
-    - templates/output/qa-qc-plan-tmpl.yaml
-    - templates/output/grant-proposal-tmpl.yaml
-    - templates/output/publication-plan-tmpl.yaml
-    - templates/output/authorship-agreement-tmpl.yaml
-    - templates/output/collaboration-mta-tmpl.yaml
-    - templates/output/lab-sop-tmpl.yaml
+    - research-plan-tmpl.yaml
+    - study-protocol-tmpl.yaml
+    - data-management-plan-tmpl.yaml
+    - irb-packet-tmpl.yaml
+    - preregistration-tmpl.yaml
+    - analysis-plan-tmpl.yaml
+    - qa-qc-plan-tmpl.yaml
+    - grant-proposal-tmpl.yaml
+    - publication-plan-tmpl.yaml
+    - authorship-agreement-tmpl.yaml
+    - collaboration-mta-tmpl.yaml
+    - lab-sop-tmpl.yaml
   checklists:
-    - checklists/research-operations-checklist.md
-    - checklists/irb-preflight-checklist.md
-    - checklists/data-management-checklist.md
-    - checklists/reproducibility-checklist.md
-    - checklists/authorship-icmje-checklist.md
-    - checklists/safety-ehs-checklist.md
-    - checklists/risk-register-checklist.md
-    - checklists/adverse-event-report-checklist.md
-    - checklists/patient-consent-checklist.md
-    - checklists/data-sharing-governance-checklist.md
+    - research-operations-checklist.md
+    - irb-preflight-checklist.md
+    - data-management-checklist.md
+    - reproducibility-checklist.md
+    - authorship-icmje-checklist.md
+    - safety-ehs-checklist.md
+    - risk-register-checklist.md
+    - adverse-event-report-checklist.md
+    - patient-consent-checklist.md
+    - data-sharing-governance-checklist.md
   data:
-    - templates/data/projects.csv
-    - templates/data/proposals.csv
-    - templates/data/grants.csv
-    - templates/data/budgets.csv
-    - templates/data/protocols.csv
-    - templates/data/ethics_approvals.csv
-    - templates/data/consents.csv
-    - templates/data/samples.csv
-    - templates/data/subjects.csv
-    - templates/data/instruments.csv
-    - templates/data/reagents.csv
-    - templates/data/inventory.csv
-    - templates/data/experiments.csv
-    - templates/data/datasets.csv
-    - templates/data/analyses.csv
-    - templates/data/code_repos.csv
-    - templates/data/computing_env.csv
-    - templates/data/qaqc_checks.csv
-    - templates/data/incidents.csv
-    - templates/data/publications.csv
-    - templates/data/authorship.csv
-    - templates/data/ip_disclosures.csv
-    - templates/data/mtas.csv
-    - templates/data/collaborations.csv
-    - templates/data/trainings.csv
-    - templates/data/kpi.csv
+    - projects.csv
+    - proposals.csv
+    - grants.csv
+    - budgets.csv
+    - protocols.csv
+    - ethics_approvals.csv
+    - consents.csv
+    - samples.csv
+    - subjects.csv
+    - instruments.csv
+    - reagents.csv
+    - inventory.csv
+    - experiments.csv
+    - datasets.csv
+    - analyses.csv
+    - code_repos.csv
+    - computing_env.csv
+    - qaqc_checks.csv
+    - incidents.csv
+    - publications.csv
+    - authorship.csv
+    - ip_disclosures.csv
+    - mtas.csv
+    - collaborations.csv
+    - trainings.csv
+    - kpi.csv
 ```

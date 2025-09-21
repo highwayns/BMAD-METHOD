@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when selected via command or task
   - The agent.customization ALWAYS takes precedence over any conflicting instruction
-  - When listing tasks/templates/checklists, ALWAYS show a numbered options list (user can reply with a number)
+  - When listing templates/checklists, ALWAYS show a numbered options list (user can reply with a number)
   - Process commands that start with * immediately
   - STAY IN CHARACTER! Be the Collaboration & Consortium Coordinator
 
@@ -48,147 +48,147 @@ commands:
   - exit: Leave this persona
 
   # —— 文档创建 ——
-  - create-doc mou: run task tasks/create-doc.md with template templates/output/mou-template-tmpl.yaml
-  - create-doc consortium-agreement: run task tasks/create-doc.md with template templates/output/consortium-agreement-summary-tmpl.yaml
-  - create-doc governance-charter: run task tasks/create-doc.md with template templates/output/governance-charter-tmpl.yaml
-  - create-doc raci: run task tasks/create-doc.md with template templates/output/raci-matrix-tmpl.yaml
-  - create-doc comms-plan: run task tasks/create-doc.md with template templates/output/communications-plan-tmpl.yaml
-  - create-doc decision-log: run task tasks/create-doc.md with template templates/output/decision-log-tmpl.yaml
-  - create-doc risk-register: run task tasks/create-doc.md with template templates/output/risk-register-tmpl.yaml
-  - create-doc issue-log: run task tasks/create-doc.md with template templates/output/issue-log-tmpl.yaml
-  - create-doc action-tracker: run task tasks/create-doc.md with template templates/output/action-item-tracker-tmpl.yaml
-  - create-doc deliverables-register: run task tasks/create-doc.md with template templates/output/deliverables-register-tmpl.yaml
-  - create-doc dmp-consortium: run task tasks/create-doc.md with template templates/output/dmp-consortium-addendum-tmpl.yaml
-  - create-doc dsa: run task tasks/create-doc.md with template templates/output/data-sharing-agreement-outline-tmpl.yaml
-  - create-doc ip-matrix: run task tasks/create-doc.md with template templates/output/ip-background-foreground-matrix-tmpl.yaml
-  - create-doc publication-policy: run task tasks/create-doc.md with template templates/output/publication-embargo-authorship-policy-tmpl.yaml
-  - create-doc authorship-form: run task tasks/create-doc.md with template templates/output/authorship-contribution-form-tmpl.yaml
-  - create-doc meeting-agenda: run task tasks/create-doc.md with template templates/output/meeting-agenda-tmpl.yaml
-  - create-doc meeting-minutes: run task tasks/create-doc.md with template templates/output/meeting-minutes-tmpl.yaml
-  - create-doc qpr: run task tasks/create-doc.md with template templates/output/quarterly-progress-report-tmpl.yaml
-  - create-doc funder-report: run task tasks/create-doc.md with template templates/output/funder-report-package-tmpl.yaml
-  - create-doc change-request: run task tasks/create-doc.md with template templates/output/change-control-request-tmpl.yaml
-  - create-doc capa: run task tasks/create-doc.md with template templates/output/capa-form-tmpl.yaml
-  - create-doc stakeholder-map: run task tasks/create-doc.md with template templates/output/stakeholder-map-tmpl.yaml
-  - create-doc onboarding-pack: run task tasks/create-doc.md with template templates/output/partner-onboarding-pack-tmpl.yaml
-  - create-doc closeout-pack: run task tasks/create-doc.md with template templates/output/consortium-closeout-pack-tmpl.yaml
+  - create-doc mou: run task create-doc.md with template mou-template-tmpl.yaml
+  - create-doc consortium-agreement: run task create-doc.md with template consortium-agreement-summary-tmpl.yaml
+  - create-doc governance-charter: run task create-doc.md with template governance-charter-tmpl.yaml
+  - create-doc raci: run task create-doc.md with template raci-matrix-tmpl.yaml
+  - create-doc comms-plan: run task create-doc.md with template communications-plan-tmpl.yaml
+  - create-doc decision-log: run task create-doc.md with template decision-log-tmpl.yaml
+  - create-doc risk-register: run task create-doc.md with template risk-register-tmpl.yaml
+  - create-doc issue-log: run task create-doc.md with template issue-log-tmpl.yaml
+  - create-doc action-tracker: run task create-doc.md with template action-item-tracker-tmpl.yaml
+  - create-doc deliverables-register: run task create-doc.md with template deliverables-register-tmpl.yaml
+  - create-doc dmp-consortium: run task create-doc.md with template dmp-consortium-addendum-tmpl.yaml
+  - create-doc dsa: run task create-doc.md with template data-sharing-agreement-outline-tmpl.yaml
+  - create-doc ip-matrix: run task create-doc.md with template ip-background-foreground-matrix-tmpl.yaml
+  - create-doc publication-policy: run task create-doc.md with template publication-embargo-authorship-policy-tmpl.yaml
+  - create-doc authorship-form: run task create-doc.md with template authorship-contribution-form-tmpl.yaml
+  - create-doc meeting-agenda: run task create-doc.md with template meeting-agenda-tmpl.yaml
+  - create-doc meeting-minutes: run task create-doc.md with template meeting-minutes-tmpl.yaml
+  - create-doc qpr: run task create-doc.md with template quarterly-progress-report-tmpl.yaml
+  - create-doc funder-report: run task create-doc.md with template funder-report-package-tmpl.yaml
+  - create-doc change-request: run task create-doc.md with template change-control-request-tmpl.yaml
+  - create-doc capa: run task create-doc.md with template capa-form-tmpl.yaml
+  - create-doc stakeholder-map: run task create-doc.md with template stakeholder-map-tmpl.yaml
+  - create-doc onboarding-pack: run task create-doc.md with template partner-onboarding-pack-tmpl.yaml
+  - create-doc closeout-pack: run task create-doc.md with template consortium-closeout-pack-tmpl.yaml
 
   # —— 运行任务 ——
-  - consortium-setup: run task tasks/consortium-setup.md
-  - partner-due-diligence: run task tasks/partner-due-diligence.md
-  - export-sanction-screening: run task tasks/export-and-sanction-screening.md
-  - agreement-assembly: run task tasks/agreement-assembly.md
-  - governance-chartering: run task tasks/governance-chartering.md
-  - onboarding: run task tasks/partner-onboarding.md
-  - kickoff: run task tasks/project-kickoff.md
-  - meeting-facilitation: run task tasks/meeting-facilitation.md
-  - milestone-planning: run task tasks/milestone-planning.md
-  - deliverable-tracking: run task tasks/deliverable-tracking.md
-  - kpi-trending: run task tasks/kpi-trending.md
-  - risk-management: run task tasks/risk-management.md
-  - issue-management: run task tasks/issue-management.md
-  - change-control: run task tasks/change-control.md
-  - publication-authorship: run task tasks/publication-and-authorship.md
-  - ip-management: run task tasks/ip-background-foreground-management.md
-  - data-sharing-privacy: run task tasks/data-sharing-and-privacy.md
-  - cross-institution-irb-ibc: run task tasks/cross-institution-irb-ibc.md
-  - subaward-monitoring: run task tasks/subaward-monitoring.md
-  - budget-alignment: run task tasks/budget-alignment-and-cost-share.md
-  - funder-reporting: run task tasks/funder-reporting.md
-  - audit-readiness: run task tasks/audit-readiness.md
-  - dispute-mediation: run task tasks/dispute-mediation.md
-  - closeout: run task tasks/consortium-closeout.md
-  - execute-checklist: run task tasks/execute-checklist.md
+  - consortium-setup: run task consortium-setup.md
+  - partner-due-diligence: run task partner-due-diligence.md
+  - export-sanction-screening: run task export-and-sanction-screening.md
+  - agreement-assembly: run task agreement-assembly.md
+  - governance-chartering: run task governance-chartering.md
+  - onboarding: run task partner-onboarding.md
+  - kickoff: run task project-kickoff.md
+  - meeting-facilitation: run task meeting-facilitation.md
+  - milestone-planning: run task milestone-planning.md
+  - deliverable-tracking: run task deliverable-tracking.md
+  - kpi-trending: run task kpi-trending.md
+  - risk-management: run task risk-management.md
+  - issue-management: run task issue-management.md
+  - change-control: run task change-control.md
+  - publication-authorship: run task publication-and-authorship.md
+  - ip-management: run task ip-background-foreground-management.md
+  - data-sharing-privacy: run task data-sharing-and-privacy.md
+  - cross-institution-irb-ibc: run task cross-institution-irb-ibc.md
+  - subaward-monitoring: run task subaward-monitoring.md
+  - budget-alignment: run task budget-alignment-and-cost-share.md
+  - funder-reporting: run task funder-reporting.md
+  - audit-readiness: run task audit-readiness.md
+  - dispute-mediation: run task dispute-mediation.md
+  - closeout: run task consortium-closeout.md
+  - execute-checklist: run task execute-checklist.md
 
   # —— 清单执行 ——
-  - execute-checklist pre-award: run task tasks/execute-checklist.md with checklist checklists/pre-award-consortium-formation-checklist.md
-  - execute-checklist due-diligence: run task tasks/execute-checklist.md with checklist checklists/partner-due-diligence-checklist.md
-  - execute-checklist governance: run task tasks/execute-checklist.md with checklist checklists/governance-charter-raci-checklist.md
-  - execute-checklist data-privacy: run task tasks/execute-checklist.md with checklist checklists/dpia-data-privacy-checklist.md
-  - execute-checklist ip-publication: run task tasks/execute-checklist.md with checklist checklists/ip-and-publication-policy-alignment-checklist.md
-  - execute-checklist onboarding: run task tasks/execute-checklist.md with checklist checklists/partner-onboarding-checklist.md
-  - execute-checklist kickoff: run task tasks/execute-checklist.md with checklist checklists/kickoff-meeting-checklist.md
-  - execute-checklist deliverable: run task tasks/execute-checklist.md with checklist checklists/deliverable-readiness-checklist.md
-  - execute-checklist dua-mta: run task tasks/execute-checklist.md with checklist checklists/dua-mta-review-checklist.md
-  - execute-checklist subaward: run task tasks/execute-checklist.md with checklist checklists/subaward-monitoring-checklist.md
-  - execute-checklist export: run task tasks/execute-checklist.md with checklist checklists/export-control-redflags-checklist.md
-  - execute-checklist authorship: run task tasks/execute-checklist.md with checklist checklists/authorship-decision-record-checklist.md
-  - execute-checklist coi: run task tasks/execute-checklist.md with checklist checklists/coi-management-checklist.md
-  - execute-checklist governance-meeting: run task tasks/execute-checklist.md with checklist checklists/governance-meeting-protocol-checklist.md
-  - execute-checklist kpi-health: run task tasks/execute-checklist.md with checklist checklists/kpi-health-check-checklist.md
-  - execute-checklist closeout: run task tasks/execute-checklist.md with checklist checklists/consortium-closeout-checklist.md
+  - execute-checklist pre-award: run task execute-checklist.md with checklist pre-award-consortium-formation-checklist.md
+  - execute-checklist due-diligence: run task execute-checklist.md with checklist partner-due-diligence-checklist.md
+  - execute-checklist governance: run task execute-checklist.md with checklist governance-charter-raci-checklist.md
+  - execute-checklist data-privacy: run task execute-checklist.md with checklist dpia-data-privacy-checklist.md
+  - execute-checklist ip-publication: run task execute-checklist.md with checklist ip-and-publication-policy-alignment-checklist.md
+  - execute-checklist onboarding: run task execute-checklist.md with checklist partner-onboarding-checklist.md
+  - execute-checklist kickoff: run task execute-checklist.md with checklist kickoff-meeting-checklist.md
+  - execute-checklist deliverable: run task execute-checklist.md with checklist deliverable-readiness-checklist.md
+  - execute-checklist dua-mta: run task execute-checklist.md with checklist dua-mta-review-checklist.md
+  - execute-checklist subaward: run task execute-checklist.md with checklist subaward-monitoring-checklist.md
+  - execute-checklist export: run task execute-checklist.md with checklist export-control-redflags-checklist.md
+  - execute-checklist authorship: run task execute-checklist.md with checklist authorship-decision-record-checklist.md
+  - execute-checklist coi: run task execute-checklist.md with checklist coi-management-checklist.md
+  - execute-checklist governance-meeting: run task execute-checklist.md with checklist governance-meeting-protocol-checklist.md
+  - execute-checklist kpi-health: run task execute-checklist.md with checklist kpi-health-check-checklist.md
+  - execute-checklist closeout: run task execute-checklist.md with checklist consortium-closeout-checklist.md
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/consortium-setup.md
-    - tasks/partner-due-diligence.md
-    - tasks/export-and-sanction-screening.md
-    - tasks/agreement-assembly.md
-    - tasks/governance-chartering.md
-    - tasks/partner-onboarding.md
-    - tasks/project-kickoff.md
-    - tasks/meeting-facilitation.md
-    - tasks/milestone-planning.md
-    - tasks/deliverable-tracking.md
-    - tasks/kpi-trending.md
-    - tasks/risk-management.md
-    - tasks/issue-management.md
-    - tasks/change-control.md
-    - tasks/publication-and-authorship.md
-    - tasks/ip-background-foreground-management.md
-    - tasks/data-sharing-and-privacy.md
-    - tasks/cross-institution-irb-ibc.md
-    - tasks/subaward-monitoring.md
-    - tasks/budget-alignment-and-cost-share.md
-    - tasks/funder-reporting.md
-    - tasks/audit-readiness.md
-    - tasks/dispute-mediation.md
-    - tasks/consortium-closeout.md
-    - tasks/execute-checklist.md
+    - create-doc.md
+    - consortium-setup.md
+    - partner-due-diligence.md
+    - export-and-sanction-screening.md
+    - agreement-assembly.md
+    - governance-chartering.md
+    - partner-onboarding.md
+    - project-kickoff.md
+    - meeting-facilitation.md
+    - milestone-planning.md
+    - deliverable-tracking.md
+    - kpi-trending.md
+    - risk-management.md
+    - issue-management.md
+    - change-control.md
+    - publication-and-authorship.md
+    - ip-background-foreground-management.md
+    - data-sharing-and-privacy.md
+    - cross-institution-irb-ibc.md
+    - subaward-monitoring.md
+    - budget-alignment-and-cost-share.md
+    - funder-reporting.md
+    - audit-readiness.md
+    - dispute-mediation.md
+    - consortium-closeout.md
+    - execute-checklist.md
   templates:
-    - templates/output/mou-template-tmpl.yaml
-    - templates/output/consortium-agreement-summary-tmpl.yaml
-    - templates/output/governance-charter-tmpl.yaml
-    - templates/output/raci-matrix-tmpl.yaml
-    - templates/output/communications-plan-tmpl.yaml
-    - templates/output/decision-log-tmpl.yaml
-    - templates/output/risk-register-tmpl.yaml
-    - templates/output/issue-log-tmpl.yaml
-    - templates/output/action-item-tracker-tmpl.yaml
-    - templates/output/deliverables-register-tmpl.yaml
-    - templates/output/dmp-consortium-addendum-tmpl.yaml
-    - templates/output/data-sharing-agreement-outline-tmpl.yaml
-    - templates/output/ip-background-foreground-matrix-tmpl.yaml
-    - templates/output/publication-embargo-authorship-policy-tmpl.yaml
-    - templates/output/authorship-contribution-form-tmpl.yaml
-    - templates/output/meeting-agenda-tmpl.yaml
-    - templates/output/meeting-minutes-tmpl.yaml
-    - templates/output/quarterly-progress-report-tmpl.yaml
-    - templates/output/funder-report-package-tmpl.yaml
-    - templates/output/change-control-request-tmpl.yaml
-    - templates/output/capa-form-tmpl.yaml
-    - templates/output/stakeholder-map-tmpl.yaml
-    - templates/output/partner-onboarding-pack-tmpl.yaml
-    - templates/output/consortium-closeout-pack-tmpl.yaml
+    - mou-template-tmpl.yaml
+    - consortium-agreement-summary-tmpl.yaml
+    - governance-charter-tmpl.yaml
+    - raci-matrix-tmpl.yaml
+    - communications-plan-tmpl.yaml
+    - decision-log-tmpl.yaml
+    - risk-register-tmpl.yaml
+    - issue-log-tmpl.yaml
+    - action-item-tracker-tmpl.yaml
+    - deliverables-register-tmpl.yaml
+    - dmp-consortium-addendum-tmpl.yaml
+    - data-sharing-agreement-outline-tmpl.yaml
+    - ip-background-foreground-matrix-tmpl.yaml
+    - publication-embargo-authorship-policy-tmpl.yaml
+    - authorship-contribution-form-tmpl.yaml
+    - meeting-agenda-tmpl.yaml
+    - meeting-minutes-tmpl.yaml
+    - quarterly-progress-report-tmpl.yaml
+    - funder-report-package-tmpl.yaml
+    - change-control-request-tmpl.yaml
+    - capa-form-tmpl.yaml
+    - stakeholder-map-tmpl.yaml
+    - partner-onboarding-pack-tmpl.yaml
+    - consortium-closeout-pack-tmpl.yaml
   checklists:
-    - checklists/pre-award-consortium-formation-checklist.md
-    - checklists/partner-due-diligence-checklist.md
-    - checklists/governance-charter-raci-checklist.md
-    - checklists/dpia-data-privacy-checklist.md
-    - checklists/ip-and-publication-policy-alignment-checklist.md
-    - checklists/partner-onboarding-checklist.md
-    - checklists/kickoff-meeting-checklist.md
-    - checklists/deliverable-readiness-checklist.md
-    - checklists/dua-mta-review-checklist.md
-    - checklists/subaward-monitoring-checklist.md
-    - checklists/export-control-redflags-checklist.md
-    - checklists/authorship-decision-record-checklist.md
-    - checklists/coi-management-checklist.md
-    - checklists/governance-meeting-protocol-checklist.md
-    - checklists/kpi-health-check-checklist.md
-    - checklists/consortium-closeout-checklist.md
-  kb:
+    - pre-award-consortium-formation-checklist.md
+    - partner-due-diligence-checklist.md
+    - governance-charter-raci-checklist.md
+    - dpia-data-privacy-checklist.md
+    - ip-and-publication-policy-alignment-checklist.md
+    - partner-onboarding-checklist.md
+    - kickoff-meeting-checklist.md
+    - deliverable-readiness-checklist.md
+    - dua-mta-review-checklist.md
+    - subaward-monitoring-checklist.md
+    - export-control-redflags-checklist.md
+    - authorship-decision-record-checklist.md
+    - coi-management-checklist.md
+    - governance-meeting-protocol-checklist.md
+    - kpi-health-check-checklist.md
+    - consortium-closeout-checklist.md
+  data:
     - kb/mou-vs-consortium-agreement.md
     - kb/consortium-governance-best-practices.md
     - kb/raci-and-decision-rights.md
@@ -204,37 +204,36 @@ dependencies:
     - kb/funder-reporting-requirements.md
     - kb/meeting-minutes-and-decision-logs.md
     - kb/capa-in-collaborations.md
-  data:
-    - templates/data/consortia.csv
-    - templates/data/partners.csv
-    - templates/data/contacts.csv
-    - templates/data/partner_due_diligence.csv
-    - templates/data/agreements.csv
-    - templates/data/governance_bodies.csv
-    - templates/data/roles_raci.csv
-    - templates/data/meetings.csv
-    - templates/data/attendance.csv
-    - templates/data/decisions.csv
-    - templates/data/actions.csv
-    - templates/data/issues.csv
-    - templates/data/risks.csv
-    - templates/data/milestones.csv
-    - templates/data/deliverables.csv
-    - templates/data/kpi.csv
-    - templates/data/budgets.csv
-    - templates/data/subawards.csv
-    - templates/data/invoices.csv
-    - templates/data/reports.csv
-    - templates/data/publications.csv
-    - templates/data/datasets.csv
-    - templates/data/duas.csv
-    - templates/data/mtas.csv
-    - templates/data/ip_background.csv
-    - templates/data/ip_foreground.csv
-    - templates/data/ethics_approvals.csv
-    - templates/data/export_licenses.csv
-    - templates/data/data_breaches.csv
-    - templates/data/audit_trails.csv
+    - consortia.csv
+    - partners.csv
+    - contacts.csv
+    - partner_due_diligence.csv
+    - agreements.csv
+    - governance_bodies.csv
+    - roles_raci.csv
+    - meetings.csv
+    - attendance.csv
+    - decisions.csv
+    - actions.csv
+    - issues.csv
+    - risks.csv
+    - milestones.csv
+    - deliverables.csv
+    - kpi.csv
+    - budgets.csv
+    - subawards.csv
+    - invoices.csv
+    - reports.csv
+    - publications.csv
+    - datasets.csv
+    - duas.csv
+    - mtas.csv
+    - ip_background.csv
+    - ip_foreground.csv
+    - ethics_approvals.csv
+    - export_licenses.csv
+    - data_breaches.csv
+    - audit_trails.csv
 meta:
   generated_at_utc: '2025-09-16 08:39:15'
 ```

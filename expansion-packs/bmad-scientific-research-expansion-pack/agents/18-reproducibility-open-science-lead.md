@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when selected via command or task
   - The agent.customization ALWAYS takes precedence over any conflicting instruction
-  - When listing tasks/templates/checklists, ALWAYS show a numbered options list (user can reply with a number)
+  - When listing templates/checklists, ALWAYS show a numbered options list (user can reply with a number)
   - Process commands that start with * immediately
   - STAY IN CHARACTER! Be the Reproducibility & Open Science Lead
 
@@ -48,175 +48,175 @@ commands:
   - exit: Leave this persona
 
   # —— 文档创建 ——
-  - create-doc dmp: run task tasks/create-doc.md with template templates/output/dmp-template-tmpl.yaml
-  - create-doc repro-plan: run task tasks/create-doc.md with template templates/output/reproducibility-plan-tmpl.yaml
-  - create-doc data-inventory: run task tasks/create-doc.md with template templates/output/data-inventory-tmpl.yaml
-  - create-doc code-inventory: run task tasks/create-doc.md with template templates/output/code-inventory-tmpl.yaml
-  - create-doc env-manifest: run task tasks/create-doc.md with template templates/output/environment-manifest-tmpl.yaml
-  - create-doc containerfile: run task tasks/create-doc.md with template templates/output/containerfile-tmpl.yaml
-  - create-doc workflow-manifest: run task tasks/create-doc.md with template templates/output/workflow-manifest-tmpl.yaml
-  - create-doc dataset-readme: run task tasks/create-doc.md with template templates/output/dataset-readme-tmpl.yaml
-  - create-doc data-dictionary: run task tasks/create-doc.md with template templates/output/data-dictionary-tmpl.yaml
-  - create-doc variable-metadata: run task tasks/create-doc.md with template templates/output/variable-metadata-spec-tmpl.yaml
-  - create-doc sharing-policy: run task tasks/create-doc.md with template templates/output/data-sharing-access-policy-tmpl.yaml
-  - create-doc deid-plan: run task tasks/create-doc.md with template templates/output/de-identification-plan-tmpl.yaml
-  - create-doc data-license: run task tasks/create-doc.md with template templates/output/data-license-decision-record-tmpl.yaml
-  - create-doc oss-license: run task tasks/create-doc.md with template templates/output/oss-license-decision-record-tmpl.yaml
-  - create-doc citation-cff: run task tasks/create-doc.md with template templates/output/citation-cff-tmpl.yaml
-  - create-doc contributing: run task tasks/create-doc.md with template templates/output/contributing-md-tmpl.yaml
-  - create-doc release-notes: run task tasks/create-doc.md with template templates/output/release-notes-tmpl.yaml
-  - create-doc ro-crate: run task tasks/create-doc.md with template templates/output/ro-crate-metadata-tmpl.yaml
-  - create-doc provenance-report: run task tasks/create-doc.md with template templates/output/provenance-report-tmpl.yaml
-  - create-doc replication-audit: run task tasks/create-doc.md with template templates/output/replication-audit-report-tmpl.yaml
-  - create-doc prereg-plan: run task tasks/create-doc.md with template templates/output/preregistration-plan-tmpl.yaml
-  - create-doc registered-report: run task tasks/create-doc.md with template templates/output/registered-report-pack-tmpl.yaml
-  - create-doc oa-plan: run task tasks/create-doc.md with template templates/output/open-access-plan-tmpl.yaml
-  - create-doc repo-selection: run task tasks/create-doc.md with template templates/output/repository-selection-rationale-tmpl.yaml
-  - create-doc doi-request: run task tasks/create-doc.md with template templates/output/doi-minting-request-tmpl.yaml
-  - create-doc badge-application: run task tasks/create-doc.md with template templates/output/reproducibility-badge-application-tmpl.yaml
-  - create-doc compute-capsule: run task tasks/create-doc.md with template templates/output/compute-capsule-manifest-tmpl.yaml
+  - create-doc dmp: run task create-doc.md with template dmp-template-tmpl.yaml
+  - create-doc repro-plan: run task create-doc.md with template reproducibility-plan-tmpl.yaml
+  - create-doc data-inventory: run task create-doc.md with template data-inventory-tmpl.yaml
+  - create-doc code-inventory: run task create-doc.md with template code-inventory-tmpl.yaml
+  - create-doc env-manifest: run task create-doc.md with template environment-manifest-tmpl.yaml
+  - create-doc containerfile: run task create-doc.md with template containerfile-tmpl.yaml
+  - create-doc workflow-manifest: run task create-doc.md with template workflow-manifest-tmpl.yaml
+  - create-doc dataset-readme: run task create-doc.md with template dataset-readme-tmpl.yaml
+  - create-doc data-dictionary: run task create-doc.md with template data-dictionary-tmpl.yaml
+  - create-doc variable-metadata: run task create-doc.md with template variable-metadata-spec-tmpl.yaml
+  - create-doc sharing-policy: run task create-doc.md with template data-sharing-access-policy-tmpl.yaml
+  - create-doc deid-plan: run task create-doc.md with template de-identification-plan-tmpl.yaml
+  - create-doc data-license: run task create-doc.md with template data-license-decision-record-tmpl.yaml
+  - create-doc oss-license: run task create-doc.md with template oss-license-decision-record-tmpl.yaml
+  - create-doc citation-cff: run task create-doc.md with template citation-cff-tmpl.yaml
+  - create-doc contributing: run task create-doc.md with template contributing-md-tmpl.yaml
+  - create-doc release-notes: run task create-doc.md with template release-notes-tmpl.yaml
+  - create-doc ro-crate: run task create-doc.md with template ro-crate-metadata-tmpl.yaml
+  - create-doc provenance-report: run task create-doc.md with template provenance-report-tmpl.yaml
+  - create-doc replication-audit: run task create-doc.md with template replication-audit-report-tmpl.yaml
+  - create-doc prereg-plan: run task create-doc.md with template preregistration-plan-tmpl.yaml
+  - create-doc registered-report: run task create-doc.md with template registered-report-pack-tmpl.yaml
+  - create-doc oa-plan: run task create-doc.md with template open-access-plan-tmpl.yaml
+  - create-doc repo-selection: run task create-doc.md with template repository-selection-rationale-tmpl.yaml
+  - create-doc doi-request: run task create-doc.md with template doi-minting-request-tmpl.yaml
+  - create-doc badge-application: run task create-doc.md with template reproducibility-badge-application-tmpl.yaml
+  - create-doc compute-capsule: run task create-doc.md with template compute-capsule-manifest-tmpl.yaml
 
   # —— 运行任务 ——
-  - repro-gap-assessment: run task tasks/reproducibility-gap-assessment.md
-  - asset-inventory-data: run task tasks/data-asset-inventory.md
-  - asset-inventory-code: run task tasks/code-asset-inventory.md
-  - env-capture: run task tasks/environment-capture.md
-  - workflow-translation: run task tasks/workflow-translation.md
-  - pipeline-ci-setup: run task tasks/pipeline-ci-setup.md
-  - dqv: run task tasks/data-quality-validation.md
-  - metadata-enrichment: run task tasks/metadata-enrichment.md
-  - pid-integration: run task tasks/pid-integration-orcid-ror-doi.md
-  - privacy-evaluation: run task tasks/data-privacy-evaluation.md
-  - de-identification: run task tasks/data-de-identification.md
-  - author-dmp: run task tasks/dmp-authoring.md
-  - storage-backup: run task tasks/storage-backup-and-fixity.md
-  - versioning-policy: run task tasks/versioning-and-release-policy.md
-  - license-compliance: run task tasks/licensing-compliance.md
-  - provenance-capture: run task tasks/provenance-and-ro-crate.md
-  - containerization: run task tasks/containerization.md
-  - compute-capsule: run task tasks/compute-capsule-build.md
-  - run-recording: run task tasks/run-execution-recording.md
-  - preregistration: run task tasks/preregistration.md
-  - registered-report: run task tasks/registered-report.md
-  - oa-route: run task tasks/open-access-route-selection.md
-  - repository-selection: run task tasks/repository-selection.md
-  - doi-minting: run task tasks/doi-minting-and-linking.md
-  - release-software: run task tasks/release-software.md
-  - release-dataset: run task tasks/release-dataset.md
-  - replication-audit: run task tasks/replication-audit.md
-  - badge-apply: run task tasks/reproducibility-badge-apply.md
-  - training-onboarding: run task tasks/training-and-onboarding.md
-  - compliance-reporting: run task tasks/compliance-reporting.md
-  - kpi-trending: run task tasks/kpi-trending.md
-  - execute-checklist: run task tasks/execute-checklist.md
+  - repro-gap-assessment: run task reproducibility-gap-assessment.md
+  - asset-inventory-data: run task data-asset-inventory.md
+  - asset-inventory-code: run task code-asset-inventory.md
+  - env-capture: run task environment-capture.md
+  - workflow-translation: run task workflow-translation.md
+  - pipeline-ci-setup: run task pipeline-ci-setup.md
+  - dqv: run task data-quality-validation.md
+  - metadata-enrichment: run task metadata-enrichment.md
+  - pid-integration: run task pid-integration-orcid-ror-doi.md
+  - privacy-evaluation: run task data-privacy-evaluation.md
+  - de-identification: run task data-de-identification.md
+  - author-dmp: run task dmp-authoring.md
+  - storage-backup: run task storage-backup-and-fixity.md
+  - versioning-policy: run task versioning-and-release-policy.md
+  - license-compliance: run task licensing-compliance.md
+  - provenance-capture: run task provenance-and-ro-crate.md
+  - containerization: run task containerization.md
+  - compute-capsule: run task compute-capsule-build.md
+  - run-recording: run task run-execution-recording.md
+  - preregistration: run task preregistration.md
+  - registered-report: run task registered-report.md
+  - oa-route: run task open-access-route-selection.md
+  - repository-selection: run task repository-selection.md
+  - doi-minting: run task doi-minting-and-linking.md
+  - release-software: run task release-software.md
+  - release-dataset: run task release-dataset.md
+  - replication-audit: run task replication-audit.md
+  - badge-apply: run task reproducibility-badge-apply.md
+  - training-onboarding: run task training-and-onboarding.md
+  - compliance-reporting: run task compliance-reporting.md
+  - kpi-trending: run task kpi-trending.md
+  - execute-checklist: run task execute-checklist.md
 
   # —— 清单执行 ——
-  - execute-checklist fair: run task tasks/execute-checklist.md with checklist checklists/fair-principles-checklist.md
-  - execute-checklist dataset-readme: run task tasks/execute-checklist.md with checklist checklists/dataset-readme-checklist.md
-  - execute-checklist data-dictionary: run task tasks/execute-checklist.md with checklist checklists/data-dictionary-checklist.md
-  - execute-checklist repo-health: run task tasks/execute-checklist.md with checklist checklists/code-repo-health-checklist.md
-  - execute-checklist env-capture: run task tasks/execute-checklist.md with checklist checklists/environment-capture-checklist.md
-  - execute-checklist notebook: run task tasks/execute-checklist.md with checklist checklists/reproducible-notebook-checklist.md
-  - execute-checklist workflow: run task tasks/execute-checklist.md with checklist checklists/workflow-robustness-checklist.md
-  - execute-checklist deid: run task tasks/execute-checklist.md with checklist checklists/data-de-identification-checklist.md
-  - execute-checklist licensing: run task tasks/execute-checklist.md with checklist checklists/licensing-compatibility-checklist.md
-  - execute-checklist data-citation: run task tasks/execute-checklist.md with checklist checklists/data-citation-completeness-checklist.md
-  - execute-checklist provenance: run task tasks/execute-checklist.md with checklist checklists/provenance-completeness-checklist.md
-  - execute-checklist replication-pkg: run task tasks/execute-checklist.md with checklist checklists/replication-package-checklist.md
-  - execute-checklist doi-metadata: run task tasks/execute-checklist.md with checklist checklists/doi-and-metadata-checklist.md
-  - execute-checklist release-archive: run task tasks/execute-checklist.md with checklist checklists/release-and-archiving-checklist.md
-  - execute-checklist backup: run task tasks/execute-checklist.md with checklist checklists/backup-verify-checklist.md
-  - execute-checklist security-access: run task tasks/execute-checklist.md with checklist checklists/security-access-control-checklist.md
-  - execute-checklist funder-policy: run task tasks/execute-checklist.md with checklist checklists/funder-policy-compliance-checklist.md
-  - execute-checklist reg-report: run task tasks/execute-checklist.md with checklist checklists/registered-report-steps-checklist.md
-  - execute-checklist pr-quality: run task tasks/execute-checklist.md with checklist checklists/pull-request-quality-checklist.md
-  - execute-checklist acceptance: run task tasks/execute-checklist.md with checklist checklists/repro-acceptance-criteria-checklist.md
+  - execute-checklist fair: run task execute-checklist.md with checklist fair-principles-checklist.md
+  - execute-checklist dataset-readme: run task execute-checklist.md with checklist dataset-readme-checklist.md
+  - execute-checklist data-dictionary: run task execute-checklist.md with checklist data-dictionary-checklist.md
+  - execute-checklist repo-health: run task execute-checklist.md with checklist code-repo-health-checklist.md
+  - execute-checklist env-capture: run task execute-checklist.md with checklist environment-capture-checklist.md
+  - execute-checklist notebook: run task execute-checklist.md with checklist reproducible-notebook-checklist.md
+  - execute-checklist workflow: run task execute-checklist.md with checklist workflow-robustness-checklist.md
+  - execute-checklist deid: run task execute-checklist.md with checklist data-de-identification-checklist.md
+  - execute-checklist licensing: run task execute-checklist.md with checklist licensing-compatibility-checklist.md
+  - execute-checklist data-citation: run task execute-checklist.md with checklist data-citation-completeness-checklist.md
+  - execute-checklist provenance: run task execute-checklist.md with checklist provenance-completeness-checklist.md
+  - execute-checklist replication-pkg: run task execute-checklist.md with checklist replication-package-checklist.md
+  - execute-checklist doi-metadata: run task execute-checklist.md with checklist doi-and-metadata-checklist.md
+  - execute-checklist release-archive: run task execute-checklist.md with checklist release-and-archiving-checklist.md
+  - execute-checklist backup: run task execute-checklist.md with checklist backup-verify-checklist.md
+  - execute-checklist security-access: run task execute-checklist.md with checklist security-access-control-checklist.md
+  - execute-checklist funder-policy: run task execute-checklist.md with checklist funder-policy-compliance-checklist.md
+  - execute-checklist reg-report: run task execute-checklist.md with checklist registered-report-steps-checklist.md
+  - execute-checklist pr-quality: run task execute-checklist.md with checklist pull-request-quality-checklist.md
+  - execute-checklist acceptance: run task execute-checklist.md with checklist repro-acceptance-criteria-checklist.md
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/reproducibility-gap-assessment.md
-    - tasks/data-asset-inventory.md
-    - tasks/code-asset-inventory.md
-    - tasks/environment-capture.md
-    - tasks/workflow-translation.md
-    - tasks/pipeline-ci-setup.md
-    - tasks/data-quality-validation.md
-    - tasks/metadata-enrichment.md
-    - tasks/pid-integration-orcid-ror-doi.md
-    - tasks/data-privacy-evaluation.md
-    - tasks/data-de-identification.md
-    - tasks/dmp-authoring.md
-    - tasks/storage-backup-and-fixity.md
-    - tasks/versioning-and-release-policy.md
-    - tasks/licensing-compliance.md
-    - tasks/provenance-and-ro-crate.md
-    - tasks/containerization.md
-    - tasks/compute-capsule-build.md
-    - tasks/run-execution-recording.md
-    - tasks/preregistration.md
-    - tasks/registered-report.md
-    - tasks/open-access-route-selection.md
-    - tasks/repository-selection.md
-    - tasks/doi-minting-and-linking.md
-    - tasks/release-software.md
-    - tasks/release-dataset.md
-    - tasks/replication-audit.md
-    - tasks/reproducibility-badge-apply.md
-    - tasks/training-and-onboarding.md
-    - tasks/compliance-reporting.md
-    - tasks/kpi-trending.md
-    - tasks/execute-checklist.md
+    - create-doc.md
+    - reproducibility-gap-assessment.md
+    - data-asset-inventory.md
+    - code-asset-inventory.md
+    - environment-capture.md
+    - workflow-translation.md
+    - pipeline-ci-setup.md
+    - data-quality-validation.md
+    - metadata-enrichment.md
+    - pid-integration-orcid-ror-doi.md
+    - data-privacy-evaluation.md
+    - data-de-identification.md
+    - dmp-authoring.md
+    - storage-backup-and-fixity.md
+    - versioning-and-release-policy.md
+    - licensing-compliance.md
+    - provenance-and-ro-crate.md
+    - containerization.md
+    - compute-capsule-build.md
+    - run-execution-recording.md
+    - preregistration.md
+    - registered-report.md
+    - open-access-route-selection.md
+    - repository-selection.md
+    - doi-minting-and-linking.md
+    - release-software.md
+    - release-dataset.md
+    - replication-audit.md
+    - reproducibility-badge-apply.md
+    - training-and-onboarding.md
+    - compliance-reporting.md
+    - kpi-trending.md
+    - execute-checklist.md
   templates:
-    - templates/output/dmp-template-tmpl.yaml
-    - templates/output/reproducibility-plan-tmpl.yaml
-    - templates/output/data-inventory-tmpl.yaml
-    - templates/output/code-inventory-tmpl.yaml
-    - templates/output/environment-manifest-tmpl.yaml
-    - templates/output/containerfile-tmpl.yaml
-    - templates/output/workflow-manifest-tmpl.yaml
-    - templates/output/dataset-readme-tmpl.yaml
-    - templates/output/data-dictionary-tmpl.yaml
-    - templates/output/variable-metadata-spec-tmpl.yaml
-    - templates/output/data-sharing-access-policy-tmpl.yaml
-    - templates/output/de-identification-plan-tmpl.yaml
-    - templates/output/data-license-decision-record-tmpl.yaml
-    - templates/output/oss-license-decision-record-tmpl.yaml
-    - templates/output/citation-cff-tmpl.yaml
-    - templates/output/contributing-md-tmpl.yaml
-    - templates/output/release-notes-tmpl.yaml
-    - templates/output/ro-crate-metadata-tmpl.yaml
-    - templates/output/provenance-report-tmpl.yaml
-    - templates/output/replication-audit-report-tmpl.yaml
-    - templates/output/preregistration-plan-tmpl.yaml
-    - templates/output/registered-report-pack-tmpl.yaml
-    - templates/output/open-access-plan-tmpl.yaml
-    - templates/output/repository-selection-rationale-tmpl.yaml
-    - templates/output/doi-minting-request-tmpl.yaml
-    - templates/output/reproducibility-badge-application-tmpl.yaml
-    - templates/output/compute-capsule-manifest-tmpl.yaml
+    - dmp-template-tmpl.yaml
+    - reproducibility-plan-tmpl.yaml
+    - data-inventory-tmpl.yaml
+    - code-inventory-tmpl.yaml
+    - environment-manifest-tmpl.yaml
+    - containerfile-tmpl.yaml
+    - workflow-manifest-tmpl.yaml
+    - dataset-readme-tmpl.yaml
+    - data-dictionary-tmpl.yaml
+    - variable-metadata-spec-tmpl.yaml
+    - data-sharing-access-policy-tmpl.yaml
+    - de-identification-plan-tmpl.yaml
+    - data-license-decision-record-tmpl.yaml
+    - oss-license-decision-record-tmpl.yaml
+    - citation-cff-tmpl.yaml
+    - contributing-md-tmpl.yaml
+    - release-notes-tmpl.yaml
+    - ro-crate-metadata-tmpl.yaml
+    - provenance-report-tmpl.yaml
+    - replication-audit-report-tmpl.yaml
+    - preregistration-plan-tmpl.yaml
+    - registered-report-pack-tmpl.yaml
+    - open-access-plan-tmpl.yaml
+    - repository-selection-rationale-tmpl.yaml
+    - doi-minting-request-tmpl.yaml
+    - reproducibility-badge-application-tmpl.yaml
+    - compute-capsule-manifest-tmpl.yaml
   checklists:
-    - checklists/fair-principles-checklist.md
-    - checklists/dataset-readme-checklist.md
-    - checklists/data-dictionary-checklist.md
-    - checklists/code-repo-health-checklist.md
-    - checklists/environment-capture-checklist.md
-    - checklists/reproducible-notebook-checklist.md
-    - checklists/workflow-robustness-checklist.md
-    - checklists/data-de-identification-checklist.md
-    - checklists/licensing-compatibility-checklist.md
-    - checklists/data-citation-completeness-checklist.md
-    - checklists/provenance-completeness-checklist.md
-    - checklists/replication-package-checklist.md
-    - checklists/doi-and-metadata-checklist.md
-    - checklists/release-and-archiving-checklist.md
-    - checklists/backup-verify-checklist.md
-    - checklists/security-access-control-checklist.md
-    - checklists/funder-policy-compliance-checklist.md
-    - checklists/registered-report-steps-checklist.md
-    - checklists/pull-request-quality-checklist.md
-    - checklists/repro-acceptance-criteria-checklist.md
-  kb:
+    - fair-principles-checklist.md
+    - dataset-readme-checklist.md
+    - data-dictionary-checklist.md
+    - code-repo-health-checklist.md
+    - environment-capture-checklist.md
+    - reproducible-notebook-checklist.md
+    - workflow-robustness-checklist.md
+    - data-de-identification-checklist.md
+    - licensing-compatibility-checklist.md
+    - data-citation-completeness-checklist.md
+    - provenance-completeness-checklist.md
+    - replication-package-checklist.md
+    - doi-and-metadata-checklist.md
+    - release-and-archiving-checklist.md
+    - backup-verify-checklist.md
+    - security-access-control-checklist.md
+    - funder-policy-compliance-checklist.md
+    - registered-report-steps-checklist.md
+    - pull-request-quality-checklist.md
+    - repro-acceptance-criteria-checklist.md
+  data:
     - kb/fair-primer.md
     - kb/ro-crate-101.md
     - kb/w3c-prov-overview.md
@@ -237,52 +237,51 @@ dependencies:
     - kb/data-quality-frameworks.md
     - kb/repository-landscape.md
     - kb/coretrustseal-and-trusted-repos.md
-  data:
-    - templates/data/projects.csv
-    - templates/data/datasets.csv
-    - templates/data/files.csv
-    - templates/data/checksums.csv
-    - templates/data/storage_locations.csv
-    - templates/data/code_repos.csv
-    - templates/data/releases.csv
-    - templates/data/tags.csv
-    - templates/data/environments.csv
-    - templates/data/packages.csv
-    - templates/data/package_locks.csv
-    - templates/data/workflows.csv
-    - templates/data/workflow_steps.csv
-    - templates/data/workflow_io.csv
-    - templates/data/runs.csv
-    - templates/data/run_params.csv
-    - templates/data/run_artifacts.csv
-    - templates/data/run_logs.csv
-    - templates/data/provenance_edges.csv
-    - templates/data/metadata.csv
-    - templates/data/schema_fields.csv
-    - templates/data/licenses_software.csv
-    - templates/data/licenses_data.csv
-    - templates/data/access_controls.csv
-    - templates/data/doi_requests.csv
-    - templates/data/dois.csv
-    - templates/data/deposits.csv
-    - templates/data/data_quality_issues.csv
-    - templates/data/anonymization_actions.csv
-    - templates/data/deid_rules.csv
-    - templates/data/privacy_risk_assessments.csv
-    - templates/data/approvals.csv
-    - templates/data/training_records.csv
-    - templates/data/kpi.csv
-    - templates/data/backup_jobs.csv
-    - templates/data/restore_tests.csv
-    - templates/data/replications.csv
-    - templates/data/replication_results.csv
-    - templates/data/publication_links.csv
-    - templates/data/badge_applications.csv
-    - templates/data/release_checklists.csv
-    - templates/data/oa_processing_charges.csv
-    - templates/data/embargoes.csv
-    - templates/data/contacts.csv
-    - templates/data/institutions.csv
+    - projects.csv
+    - datasets.csv
+    - files.csv
+    - checksums.csv
+    - storage_locations.csv
+    - code_repos.csv
+    - releases.csv
+    - tags.csv
+    - environments.csv
+    - packages.csv
+    - package_locks.csv
+    - workflows.csv
+    - workflow_steps.csv
+    - workflow_io.csv
+    - runs.csv
+    - run_params.csv
+    - run_artifacts.csv
+    - run_logs.csv
+    - provenance_edges.csv
+    - metadata.csv
+    - schema_fields.csv
+    - licenses_software.csv
+    - licenses_data.csv
+    - access_controls.csv
+    - doi_requests.csv
+    - dois.csv
+    - deposits.csv
+    - data_quality_issues.csv
+    - anonymization_actions.csv
+    - deid_rules.csv
+    - privacy_risk_assessments.csv
+    - approvals.csv
+    - training_records.csv
+    - kpi.csv
+    - backup_jobs.csv
+    - restore_tests.csv
+    - replications.csv
+    - replication_results.csv
+    - publication_links.csv
+    - badge_applications.csv
+    - release_checklists.csv
+    - oa_processing_charges.csv
+    - embargoes.csv
+    - contacts.csv
+    - institutions.csv
 meta:
   regenerated_at_utc: '2025-09-16 10:47:48'
 ```

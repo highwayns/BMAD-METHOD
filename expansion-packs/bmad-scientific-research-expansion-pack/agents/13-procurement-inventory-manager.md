@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when selected via a command or task
   - The agent.customization ALWAYS takes precedence over any conflicting instruction
-  - When listing tasks/templates/checklists, ALWAYS show a numbered options list (user can reply with a number)
+  - When listing templates/checklists, ALWAYS show a numbered options list (user can reply with a number)
   - Process commands that start with * immediately
   - STAY IN CHARACTER! Be the Procurement & Inventory Manager
 
@@ -48,165 +48,165 @@ commands:
   - exit: Leave this persona
 
   # —— 文档创建 ——
-  - create-doc pr-form: run task tasks/create-doc.md with template templates/output/purchase-requisition-form-tmpl.yaml
-  - create-doc rfq: run task tasks/create-doc.md with template templates/output/rfq-package-tmpl.yaml
-  - create-doc bid-analysis: run task tasks/create-doc.md with template templates/output/comparative-bid-analysis-tmpl.yaml
-  - create-doc sole-source: run task tasks/create-doc.md with template templates/output/sole-source-justification-tmpl.yaml
-  - create-doc vendor-qual: run task tasks/create-doc.md with template templates/output/vendor-qualification-questionnaire-tmpl.yaml
-  - create-doc qa-agreement: run task tasks/create-doc.md with template templates/output/quality-agreement-tmpl.yaml
-  - create-doc msa: run task tasks/create-doc.md with template templates/output/master-service-agreement-tmpl.yaml
-  - create-doc sla: run task tasks/create-doc.md with template templates/output/service-level-agreement-tmpl.yaml
-  - create-doc mta: run task tasks/create-doc.md with template templates/output/material-transfer-agreement-tmpl.yaml
-  - create-doc po: run task tasks/create-doc.md with template templates/output/purchase-order-tmpl.yaml
-  - create-doc grn: run task tasks/create-doc.md with template templates/output/goods-receipt-note-tmpl.yaml
-  - create-doc ncmr: run task tasks/create-doc.md with template templates/output/nonconforming-material-report-tmpl.yaml
-  - create-doc incoming-inspection: run task tasks/create-doc.md with template templates/output/incoming-inspection-report-tmpl.yaml
-  - create-doc quarantine-release: run task tasks/create-doc.md with template templates/output/quarantine-release-form-tmpl.yaml
-  - create-doc inventory-master: run task tasks/create-doc.md with template templates/output/inventory-masterdata-template-tmpl.yaml
-  - create-doc reorder-plan: run task tasks/create-doc.md with template templates/output/reorder-minmax-eoq-plan-tmpl.yaml
-  - create-doc cycle-count-plan: run task tasks/create-doc.md with template templates/output/cycle-count-plan-tmpl.yaml
-  - create-doc kit-bom: run task tasks/create-doc.md with template templates/output/kit-bom-and-packing-list-tmpl.yaml
-  - create-doc service-order: run task tasks/create-doc.md with template templates/output/calibration-maint-service-order-tmpl.yaml
-  - create-doc disposal: run task tasks/create-doc.md with template templates/output/disposal-surplus-authorization-tmpl.yaml
-  - create-doc recall: run task tasks/create-doc.md with template templates/output/recall-withdrawal-notice-tmpl.yaml
-  - create-doc rma: run task tasks/create-doc.md with template templates/output/return-rma-form-tmpl.yaml
-  - create-doc encumbrance: run task tasks/create-doc.md with template templates/output/budget-encumbrance-log-tmpl.yaml
-  - create-doc spend-dashboard: run task tasks/create-doc.md with template templates/output/spend-dashboard-tmpl.yaml
+  - create-doc pr-form: run task create-doc.md with template purchase-requisition-form-tmpl.yaml
+  - create-doc rfq: run task create-doc.md with template rfq-package-tmpl.yaml
+  - create-doc bid-analysis: run task create-doc.md with template comparative-bid-analysis-tmpl.yaml
+  - create-doc sole-source: run task create-doc.md with template sole-source-justification-tmpl.yaml
+  - create-doc vendor-qual: run task create-doc.md with template vendor-qualification-questionnaire-tmpl.yaml
+  - create-doc qa-agreement: run task create-doc.md with template quality-agreement-tmpl.yaml
+  - create-doc msa: run task create-doc.md with template master-service-agreement-tmpl.yaml
+  - create-doc sla: run task create-doc.md with template service-level-agreement-tmpl.yaml
+  - create-doc mta: run task create-doc.md with template material-transfer-agreement-tmpl.yaml
+  - create-doc po: run task create-doc.md with template purchase-order-tmpl.yaml
+  - create-doc grn: run task create-doc.md with template goods-receipt-note-tmpl.yaml
+  - create-doc ncmr: run task create-doc.md with template nonconforming-material-report-tmpl.yaml
+  - create-doc incoming-inspection: run task create-doc.md with template incoming-inspection-report-tmpl.yaml
+  - create-doc quarantine-release: run task create-doc.md with template quarantine-release-form-tmpl.yaml
+  - create-doc inventory-master: run task create-doc.md with template inventory-masterdata-template-tmpl.yaml
+  - create-doc reorder-plan: run task create-doc.md with template reorder-minmax-eoq-plan-tmpl.yaml
+  - create-doc cycle-count-plan: run task create-doc.md with template cycle-count-plan-tmpl.yaml
+  - create-doc kit-bom: run task create-doc.md with template kit-bom-and-packing-list-tmpl.yaml
+  - create-doc service-order: run task create-doc.md with template calibration-maint-service-order-tmpl.yaml
+  - create-doc disposal: run task create-doc.md with template disposal-surplus-authorization-tmpl.yaml
+  - create-doc recall: run task create-doc.md with template recall-withdrawal-notice-tmpl.yaml
+  - create-doc rma: run task create-doc.md with template return-rma-form-tmpl.yaml
+  - create-doc encumbrance: run task create-doc.md with template budget-encumbrance-log-tmpl.yaml
+  - create-doc spend-dashboard: run task create-doc.md with template spend-dashboard-tmpl.yaml
 
   # —— 运行任务 ——
-  - demand-clarify: run task tasks/demand-clarification.md
-  - item-spec: run task tasks/item-specification.md
-  - sourcing-rfq: run task tasks/sourcing-rfq.md
-  - vendor-qualification: run task tasks/vendor-qualification.md
-  - contract-agreements: run task tasks/contract-and-agreements.md
-  - raise-pr: run task tasks/purchase-requisition.md
-  - issue-po: run task tasks/purchase-order-issue.md
-  - expedite: run task tasks/expedite-followup.md
-  - receive-grn: run task tasks/goods-receipt-and-quarantine.md
-  - incoming-inspection: run task tasks/incoming-inspection.md
-  - handle-ncmr: run task tasks/ncmr-handling.md
-  - release-or-return: run task tasks/quarantine-release-or-return.md
-  - inventory-putaway: run task tasks/inventory-putaway.md
-  - inventory-issue: run task tasks/inventory-issue-consumption.md
-  - coldchain-monitor: run task tasks/coldchain-monitoring.md
-  - controlled-substance: run task tasks/controlled-substance-handling.md
-  - hazardous-chem: run task tasks/hazardous-chemical-compliance.md
-  - kit-build: run task tasks/kit-build-and-kitting.md
-  - reorder-plan: run task tasks/reorder-minmax-eoq.md
-  - cycle-count: run task tasks/cycle-count-execution.md
-  - stock-adjust: run task tasks/stock-adjustment.md
-  - asset-receiving: run task tasks/capital-equipment-receiving.md
-  - service-procurement: run task tasks/service-procurement-calibration.md
-  - three-way-match: run task tasks/three-way-match.md
-  - invoice-processing: run task tasks/invoice-processing.md
-  - cost-allocation: run task tasks/cost-allocation-projects.md
-  - supplier-audit: run task tasks/supplier-audit.md
-  - recall-withdrawal: run task tasks/recall-withdrawal.md
-  - rma-returns: run task tasks/rma-returns.md
-  - disposal-surplus: run task tasks/disposal-surplus.md
-  - kpi-trending: run task tasks/kpi-trending.md
-  - execute-checklist: run task tasks/execute-checklist.md
+  - demand-clarify: run task demand-clarification.md
+  - item-spec: run task item-specification.md
+  - sourcing-rfq: run task sourcing-rfq.md
+  - vendor-qualification: run task vendor-qualification.md
+  - contract-agreements: run task contract-and-agreements.md
+  - raise-pr: run task purchase-requisition.md
+  - issue-po: run task purchase-order-issue.md
+  - expedite: run task expedite-followup.md
+  - receive-grn: run task goods-receipt-and-quarantine.md
+  - incoming-inspection: run task incoming-inspection.md
+  - handle-ncmr: run task ncmr-handling.md
+  - release-or-return: run task quarantine-release-or-return.md
+  - inventory-putaway: run task inventory-putaway.md
+  - inventory-issue: run task inventory-issue-consumption.md
+  - coldchain-monitor: run task coldchain-monitoring.md
+  - controlled-substance: run task controlled-substance-handling.md
+  - hazardous-chem: run task hazardous-chemical-compliance.md
+  - kit-build: run task kit-build-and-kitting.md
+  - reorder-plan: run task reorder-minmax-eoq.md
+  - cycle-count: run task cycle-count-execution.md
+  - stock-adjust: run task stock-adjustment.md
+  - asset-receiving: run task capital-equipment-receiving.md
+  - service-procurement: run task service-procurement-calibration.md
+  - three-way-match: run task three-way-match.md
+  - invoice-processing: run task invoice-processing.md
+  - cost-allocation: run task cost-allocation-projects.md
+  - supplier-audit: run task supplier-audit.md
+  - recall-withdrawal: run task recall-withdrawal.md
+  - rma-returns: run task rma-returns.md
+  - disposal-surplus: run task disposal-surplus.md
+  - kpi-trending: run task kpi-trending.md
+  - execute-checklist: run task execute-checklist.md
 
   # —— 清单执行 ——
-  - execute-checklist pr-approval: run task tasks/execute-checklist.md with checklist checklists/pr-approval-checklist.md
-  - execute-checklist rfq-bid: run task tasks/execute-checklist.md with checklist checklists/rfq-bid-evaluation-checklist.md
-  - execute-checklist vendor-qual: run task tasks/execute-checklist.md with checklist checklists/vendor-qualification-checklist.md
-  - execute-checklist po-issue: run task tasks/execute-checklist.md with checklist checklists/po-issue-checklist.md
-  - execute-checklist receiving: run task tasks/execute-checklist.md with checklist checklists/receiving-grn-checklist.md
-  - execute-checklist coldchain-receipt: run task tasks/execute-checklist.md with checklist checklists/coldchain-receipt-checklist.md
-  - execute-checklist hazardous: run task tasks/execute-checklist.md with checklist checklists/hazardous-chemical-checklist.md
-  - execute-checklist controlled: run task tasks/execute-checklist.md with checklist checklists/controlled-substance-checklist.md
-  - execute-checklist incoming-inspection: run task tasks/execute-checklist.md with checklist checklists/incoming-inspection-checklist.md
-  - execute-checklist ncmr: run task tasks/execute-checklist.md with checklist checklists/ncmr-handling-checklist.md
-  - execute-checklist putaway: run task tasks/execute-checklist.md with checklist checklists/putaway-and-location-checklist.md
-  - execute-checklist kit-build: run task tasks/execute-checklist.md with checklist checklists/kit-build-checklist.md
-  - execute-checklist cycle-count: run task tasks/execute-checklist.md with checklist checklists/cycle-count-checklist.md
-  - execute-checklist three-way-match: run task tasks/execute-checklist.md with checklist checklists/three-way-match-checklist.md
-  - execute-checklist invoice: run task tasks/execute-checklist.md with checklist checklists/invoice-processing-checklist.md
-  - execute-checklist disposal: run task tasks/execute-checklist.md with checklist checklists/disposal-surplus-checklist.md
-  - execute-checklist recall: run task tasks/execute-checklist.md with checklist checklists/recall-withdrawal-checklist.md
-  - execute-checklist rma: run task tasks/execute-checklist.md with checklist checklists/rma-returns-checklist.md
+  - execute-checklist pr-approval: run task execute-checklist.md with checklist pr-approval-checklist.md
+  - execute-checklist rfq-bid: run task execute-checklist.md with checklist rfq-bid-evaluation-checklist.md
+  - execute-checklist vendor-qual: run task execute-checklist.md with checklist vendor-qualification-checklist.md
+  - execute-checklist po-issue: run task execute-checklist.md with checklist po-issue-checklist.md
+  - execute-checklist receiving: run task execute-checklist.md with checklist receiving-grn-checklist.md
+  - execute-checklist coldchain-receipt: run task execute-checklist.md with checklist coldchain-receipt-checklist.md
+  - execute-checklist hazardous: run task execute-checklist.md with checklist hazardous-chemical-checklist.md
+  - execute-checklist controlled: run task execute-checklist.md with checklist controlled-substance-checklist.md
+  - execute-checklist incoming-inspection: run task execute-checklist.md with checklist incoming-inspection-checklist.md
+  - execute-checklist ncmr: run task execute-checklist.md with checklist ncmr-handling-checklist.md
+  - execute-checklist putaway: run task execute-checklist.md with checklist putaway-and-location-checklist.md
+  - execute-checklist kit-build: run task execute-checklist.md with checklist kit-build-checklist.md
+  - execute-checklist cycle-count: run task execute-checklist.md with checklist cycle-count-checklist.md
+  - execute-checklist three-way-match: run task execute-checklist.md with checklist three-way-match-checklist.md
+  - execute-checklist invoice: run task execute-checklist.md with checklist invoice-processing-checklist.md
+  - execute-checklist disposal: run task execute-checklist.md with checklist disposal-surplus-checklist.md
+  - execute-checklist recall: run task execute-checklist.md with checklist recall-withdrawal-checklist.md
+  - execute-checklist rma: run task execute-checklist.md with checklist rma-returns-checklist.md
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/demand-clarification.md
-    - tasks/item-specification.md
-    - tasks/sourcing-rfq.md
-    - tasks/vendor-qualification.md
-    - tasks/contract-and-agreements.md
-    - tasks/purchase-requisition.md
-    - tasks/purchase-order-issue.md
-    - tasks/expedite-followup.md
-    - tasks/goods-receipt-and-quarantine.md
-    - tasks/incoming-inspection.md
-    - tasks/ncmr-handling.md
-    - tasks/quarantine-release-or-return.md
-    - tasks/inventory-putaway.md
-    - tasks/inventory-issue-consumption.md
-    - tasks/coldchain-monitoring.md
-    - tasks/controlled-substance-handling.md
-    - tasks/hazardous-chemical-compliance.md
-    - tasks/kit-build-and-kitting.md
-    - tasks/reorder-minmax-eoq.md
-    - tasks/cycle-count-execution.md
-    - tasks/stock-adjustment.md
-    - tasks/capital-equipment-receiving.md
-    - tasks/service-procurement-calibration.md
-    - tasks/three-way-match.md
-    - tasks/invoice-processing.md
-    - tasks/cost-allocation-projects.md
-    - tasks/supplier-audit.md
-    - tasks/recall-withdrawal.md
-    - tasks/rma-returns.md
-    - tasks/disposal-surplus.md
-    - tasks/kpi-trending.md
-    - tasks/execute-checklist.md
+    - create-doc.md
+    - demand-clarification.md
+    - item-specification.md
+    - sourcing-rfq.md
+    - vendor-qualification.md
+    - contract-and-agreements.md
+    - purchase-requisition.md
+    - purchase-order-issue.md
+    - expedite-followup.md
+    - goods-receipt-and-quarantine.md
+    - incoming-inspection.md
+    - ncmr-handling.md
+    - quarantine-release-or-return.md
+    - inventory-putaway.md
+    - inventory-issue-consumption.md
+    - coldchain-monitoring.md
+    - controlled-substance-handling.md
+    - hazardous-chemical-compliance.md
+    - kit-build-and-kitting.md
+    - reorder-minmax-eoq.md
+    - cycle-count-execution.md
+    - stock-adjustment.md
+    - capital-equipment-receiving.md
+    - service-procurement-calibration.md
+    - three-way-match.md
+    - invoice-processing.md
+    - cost-allocation-projects.md
+    - supplier-audit.md
+    - recall-withdrawal.md
+    - rma-returns.md
+    - disposal-surplus.md
+    - kpi-trending.md
+    - execute-checklist.md
   templates:
-    - templates/output/purchase-requisition-form-tmpl.yaml
-    - templates/output/rfq-package-tmpl.yaml
-    - templates/output/comparative-bid-analysis-tmpl.yaml
-    - templates/output/sole-source-justification-tmpl.yaml
-    - templates/output/vendor-qualification-questionnaire-tmpl.yaml
-    - templates/output/quality-agreement-tmpl.yaml
-    - templates/output/master-service-agreement-tmpl.yaml
-    - templates/output/service-level-agreement-tmpl.yaml
-    - templates/output/material-transfer-agreement-tmpl.yaml
-    - templates/output/purchase-order-tmpl.yaml
-    - templates/output/goods-receipt-note-tmpl.yaml
-    - templates/output/nonconforming-material-report-tmpl.yaml
-    - templates/output/incoming-inspection-report-tmpl.yaml
-    - templates/output/quarantine-release-form-tmpl.yaml
-    - templates/output/inventory-masterdata-template-tmpl.yaml
-    - templates/output/reorder-minmax-eoq-plan-tmpl.yaml
-    - templates/output/cycle-count-plan-tmpl.yaml
-    - templates/output/kit-bom-and-packing-list-tmpl.yaml
-    - templates/output/calibration-maint-service-order-tmpl.yaml
-    - templates/output/disposal-surplus-authorization-tmpl.yaml
-    - templates/output/recall-withdrawal-notice-tmpl.yaml
-    - templates/output/return-rma-form-tmpl.yaml
-    - templates/output/budget-encumbrance-log-tmpl.yaml
-    - templates/output/spend-dashboard-tmpl.yaml
+    - purchase-requisition-form-tmpl.yaml
+    - rfq-package-tmpl.yaml
+    - comparative-bid-analysis-tmpl.yaml
+    - sole-source-justification-tmpl.yaml
+    - vendor-qualification-questionnaire-tmpl.yaml
+    - quality-agreement-tmpl.yaml
+    - master-service-agreement-tmpl.yaml
+    - service-level-agreement-tmpl.yaml
+    - material-transfer-agreement-tmpl.yaml
+    - purchase-order-tmpl.yaml
+    - goods-receipt-note-tmpl.yaml
+    - nonconforming-material-report-tmpl.yaml
+    - incoming-inspection-report-tmpl.yaml
+    - quarantine-release-form-tmpl.yaml
+    - inventory-masterdata-template-tmpl.yaml
+    - reorder-minmax-eoq-plan-tmpl.yaml
+    - cycle-count-plan-tmpl.yaml
+    - kit-bom-and-packing-list-tmpl.yaml
+    - calibration-maint-service-order-tmpl.yaml
+    - disposal-surplus-authorization-tmpl.yaml
+    - recall-withdrawal-notice-tmpl.yaml
+    - return-rma-form-tmpl.yaml
+    - budget-encumbrance-log-tmpl.yaml
+    - spend-dashboard-tmpl.yaml
   checklists:
-    - checklists/pr-approval-checklist.md
-    - checklists/rfq-bid-evaluation-checklist.md
-    - checklists/vendor-qualification-checklist.md
-    - checklists/po-issue-checklist.md
-    - checklists/receiving-grn-checklist.md
-    - checklists/coldchain-receipt-checklist.md
-    - checklists/hazardous-chemical-checklist.md
-    - checklists/controlled-substance-checklist.md
-    - checklists/incoming-inspection-checklist.md
-    - checklists/ncmr-handling-checklist.md
-    - checklists/putaway-and-location-checklist.md
-    - checklists/kit-build-checklist.md
-    - checklists/cycle-count-checklist.md
-    - checklists/three-way-match-checklist.md
-    - checklists/invoice-processing-checklist.md
-    - checklists/disposal-surplus-checklist.md
-    - checklists/recall-withdrawal-checklist.md
-    - checklists/rma-returns-checklist.md
-  kb:
+    - pr-approval-checklist.md
+    - rfq-bid-evaluation-checklist.md
+    - vendor-qualification-checklist.md
+    - po-issue-checklist.md
+    - receiving-grn-checklist.md
+    - coldchain-receipt-checklist.md
+    - hazardous-chemical-checklist.md
+    - controlled-substance-checklist.md
+    - incoming-inspection-checklist.md
+    - ncmr-handling-checklist.md
+    - putaway-and-location-checklist.md
+    - kit-build-checklist.md
+    - cycle-count-checklist.md
+    - three-way-match-checklist.md
+    - invoice-processing-checklist.md
+    - disposal-surplus-checklist.md
+    - recall-withdrawal-checklist.md
+    - rma-returns-checklist.md
+  data:
     - kb/procurement-policy-basics.md
     - kb/ethical-procurement-anti-bribery.md
     - kb/three-way-match-basics.md
@@ -222,50 +222,49 @@ dependencies:
     - kb/document-retention-and-audit-trail.md
     - kb/asset-and-calibration-procurement.md
     - kb/capex-opex-and-approval.md
-  data:
-    - templates/data/vendors.csv
-    - templates/data/items.csv
-    - templates/data/item_lots.csv
-    - templates/data/inventory.csv
-    - templates/data/locations.csv
-    - templates/data/bins.csv
-    - templates/data/reorder_levels.csv
-    - templates/data/purchase_requisitions.csv
-    - templates/data/rfqs.csv
-    - templates/data/quotes.csv
-    - templates/data/purchase_orders.csv
-    - templates/data/po_lines.csv
-    - templates/data/shipments_inbound.csv
-    - templates/data/goods_receipts.csv
-    - templates/data/inspections.csv
-    - templates/data/ncmr.csv
-    - templates/data/quarantine.csv
-    - templates/data/releases.csv
-    - templates/data/returns_rma.csv
-    - templates/data/recalls.csv
-    - templates/data/invoices.csv
-    - templates/data/payments.csv
-    - templates/data/gr_ir_accruals.csv
-    - templates/data/cost_centers.csv
-    - templates/data/gl_accounts.csv
-    - templates/data/projects_wbs.csv
-    - templates/data/price_lists.csv
-    - templates/data/supplier_qualifications.csv
-    - templates/data/supplier_audits.csv
-    - templates/data/quality_agreements.csv
-    - templates/data/msas.csv
-    - templates/data/mtas.csv
-    - templates/data/service_orders.csv
-    - templates/data/assets_register.csv
-    - templates/data/calibrations.csv
-    - templates/data/maintenance.csv
-    - templates/data/stock_txn_history.csv
-    - templates/data/cycle_counts.csv
-    - templates/data/stock_adjustments.csv
-    - templates/data/temperature_receiving.csv
-    - templates/data/coldchain_kits.csv
-    - templates/data/sds_register.csv
-    - templates/data/permits.csv
-    - templates/data/waste_disposals.csv
-    - templates/data/kpi.csv
+    - vendors.csv
+    - items.csv
+    - item_lots.csv
+    - inventory.csv
+    - locations.csv
+    - bins.csv
+    - reorder_levels.csv
+    - purchase_requisitions.csv
+    - rfqs.csv
+    - quotes.csv
+    - purchase_orders.csv
+    - po_lines.csv
+    - shipments_inbound.csv
+    - goods_receipts.csv
+    - inspections.csv
+    - ncmr.csv
+    - quarantine.csv
+    - releases.csv
+    - returns_rma.csv
+    - recalls.csv
+    - invoices.csv
+    - payments.csv
+    - gr_ir_accruals.csv
+    - cost_centers.csv
+    - gl_accounts.csv
+    - projects_wbs.csv
+    - price_lists.csv
+    - supplier_qualifications.csv
+    - supplier_audits.csv
+    - quality_agreements.csv
+    - msas.csv
+    - mtas.csv
+    - service_orders.csv
+    - assets_register.csv
+    - calibrations.csv
+    - maintenance.csv
+    - stock_txn_history.csv
+    - cycle_counts.csv
+    - stock_adjustments.csv
+    - temperature_receiving.csv
+    - coldchain_kits.csv
+    - sds_register.csv
+    - permits.csv
+    - waste_disposals.csv
+    - kpi.csv
 ```

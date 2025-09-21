@@ -17,7 +17,7 @@ ACTIVATION-NOTICE: This file contains your full agent operating guidelines. Foll
 activation-instructions:
   - ONLY load dependency files when selected via a command or task
   - The agent.customization ALWAYS takes precedence over any conflicting instruction
-  - When listing tasks/templates/checklists, ALWAYS show a numbered options list (user can reply with a number)
+  - When listing templates/checklists, ALWAYS show a numbered options list (user can reply with a number)
   - Process commands that start with * immediately
   - STAY IN CHARACTER! Be the IP & Tech Transfer Liaison
 
@@ -55,189 +55,189 @@ commands:
   - exit: Leave this persona
 
   # —— 文档创建 ——
-  - create-doc disclosure: run task tasks/create-doc.md with template templates/output/invention-disclosure-form-tmpl.yaml
-  - create-doc prior-art: run task tasks/create-doc.md with template templates/output/prior-art-search-report-tmpl.yaml
-  - create-doc patentability: run task tasks/create-doc.md with template templates/output/patentability-assessment-memo-tmpl.yaml
-  - create-doc inventorship: run task tasks/create-doc.md with template templates/output/inventorship-determination-memo-tmpl.yaml
-  - create-doc chain-title: run task tasks/create-doc.md with template templates/output/chain-of-title-summary-tmpl.yaml
-  - create-doc assignment: run task tasks/create-doc.md with template templates/output/assignment-and-declaration-tmpl.yaml
-  - create-doc provisional: run task tasks/create-doc.md with template templates/output/provisional-filing-dossier-tmpl.yaml
-  - create-doc nonprovisional: run task tasks/create-doc.md with template templates/output/nonprovisional-filing-dossier-tmpl.yaml
-  - create-doc pct: run task tasks/create-doc.md with template templates/output/pct-filing-request-tmpl.yaml
-  - create-doc oa-response: run task tasks/create-doc.md with template templates/output/office-action-response-brief-tmpl.yaml
-  - create-doc fto: run task tasks/create-doc.md with template templates/output/fto-report-tmpl.yaml
-  - create-doc public-review: run task tasks/create-doc.md with template templates/output/public-disclosure-review-form-tmpl.yaml
-  - create-doc nda: run task tasks/create-doc.md with template templates/output/nda-cda-template-tmpl.yaml
-  - create-doc mta-in: run task tasks/create-doc.md with template templates/output/mta-incoming-template-tmpl.yaml
-  - create-doc mta-out: run task tasks/create-doc.md with template templates/output/mta-outgoing-template-tmpl.yaml
-  - create-doc dua: run task tasks/create-doc.md with template templates/output/dua-template-tmpl.yaml
-  - create-doc sra: run task tasks/create-doc.md with template templates/output/sra-template-tmpl.yaml
-  - create-doc iia: run task tasks/create-doc.md with template templates/output/iia-template-tmpl.yaml
-  - create-doc option: run task tasks/create-doc.md with template templates/output/option-agreement-template-tmpl.yaml
-  - create-doc eval-license: run task tasks/create-doc.md with template templates/output/evaluation-license-template-tmpl.yaml
-  - create-doc comm-license: run task tasks/create-doc.md with template templates/output/commercial-license-template-tmpl.yaml
-  - create-doc term-sheet: run task tasks/create-doc.md with template templates/output/term-sheet-template-tmpl.yaml
-  - create-doc royalty-schedule: run task tasks/create-doc.md with template templates/output/royalty-distribution-schedule-tmpl.yaml
-  - create-doc tech-brief: run task tasks/create-doc.md with template templates/output/technology-marketing-brief-tmpl.yaml
-  - create-doc ncs: run task tasks/create-doc.md with template templates/output/nonconfidential-summary-tmpl.yaml
-  - create-doc export-review: run task tasks/create-doc.md with template templates/output/export-control-assessment-form-tmpl.yaml
-  - create-doc oss-review: run task tasks/create-doc.md with template templates/output/open-source-compliance-report-tmpl.yaml
-  - create-doc data-license: run task tasks/create-doc.md with template templates/output/data-license-decision-record-tmpl.yaml
+  - create-doc disclosure: run task create-doc.md with template invention-disclosure-form-tmpl.yaml
+  - create-doc prior-art: run task create-doc.md with template prior-art-search-report-tmpl.yaml
+  - create-doc patentability: run task create-doc.md with template patentability-assessment-memo-tmpl.yaml
+  - create-doc inventorship: run task create-doc.md with template inventorship-determination-memo-tmpl.yaml
+  - create-doc chain-title: run task create-doc.md with template chain-of-title-summary-tmpl.yaml
+  - create-doc assignment: run task create-doc.md with template assignment-and-declaration-tmpl.yaml
+  - create-doc provisional: run task create-doc.md with template provisional-filing-dossier-tmpl.yaml
+  - create-doc nonprovisional: run task create-doc.md with template nonprovisional-filing-dossier-tmpl.yaml
+  - create-doc pct: run task create-doc.md with template pct-filing-request-tmpl.yaml
+  - create-doc oa-response: run task create-doc.md with template office-action-response-brief-tmpl.yaml
+  - create-doc fto: run task create-doc.md with template fto-report-tmpl.yaml
+  - create-doc public-review: run task create-doc.md with template public-disclosure-review-form-tmpl.yaml
+  - create-doc nda: run task create-doc.md with template nda-cda-template-tmpl.yaml
+  - create-doc mta-in: run task create-doc.md with template mta-incoming-template-tmpl.yaml
+  - create-doc mta-out: run task create-doc.md with template mta-outgoing-template-tmpl.yaml
+  - create-doc dua: run task create-doc.md with template dua-template-tmpl.yaml
+  - create-doc sra: run task create-doc.md with template sra-template-tmpl.yaml
+  - create-doc iia: run task create-doc.md with template iia-template-tmpl.yaml
+  - create-doc option: run task create-doc.md with template option-agreement-template-tmpl.yaml
+  - create-doc eval-license: run task create-doc.md with template evaluation-license-template-tmpl.yaml
+  - create-doc comm-license: run task create-doc.md with template commercial-license-template-tmpl.yaml
+  - create-doc term-sheet: run task create-doc.md with template term-sheet-template-tmpl.yaml
+  - create-doc royalty-schedule: run task create-doc.md with template royalty-distribution-schedule-tmpl.yaml
+  - create-doc tech-brief: run task create-doc.md with template technology-marketing-brief-tmpl.yaml
+  - create-doc ncs: run task create-doc.md with template nonconfidential-summary-tmpl.yaml
+  - create-doc export-review: run task create-doc.md with template export-control-assessment-form-tmpl.yaml
+  - create-doc oss-review: run task create-doc.md with template open-source-compliance-report-tmpl.yaml
+  - create-doc data-license: run task create-doc.md with template data-license-decision-record-tmpl.yaml
 
   # —— 运行任务 ——
-  - ip-strategy: run task tasks/ip-portfolio-strategy.md
-  - disclosure-intake: run task tasks/disclosure-intake.md
-  - triage-prioritization: run task tasks/triage-and-prioritization.md
-  - prior-art-search: run task tasks/prior-art-search.md
-  - patentability-assess: run task tasks/patentability-assessment.md
-  - inventorship-determine: run task tasks/inventorship-determination.md
-  - ownership-chain: run task tasks/ownership-and-assignments.md
-  - publication-embargo: run task tasks/publication-embargo-control.md
-  - provisional-file: run task tasks/provisional-filing.md
-  - nonprovisional-file: run task tasks/nonprovisional-filing.md
-  - pct-file: run task tasks/pct-filing.md
-  - docket-control: run task tasks/docket-and-deadline-control.md
-  - annuity-manage: run task tasks/annuity-and-maintenance.md
-  - office-action: run task tasks/office-action-response.md
-  - fto-analysis: run task tasks/fto-analysis.md
-  - trademark-screen: run task tasks/trademark-screening.md
-  - copyright-register: run task tasks/copyright-registration.md
-  - oss-review: run task tasks/open-source-license-review.md
-  - data-license-review: run task tasks/data-license-review.md
-  - nda-execution: run task tasks/nda-cda-execution.md
-  - mta-incoming: run task tasks/mta-incoming.md
-  - mta-outgoing: run task tasks/mta-outgoing.md
-  - dua-incoming: run task tasks/dua-incoming.md
-  - dua-outgoing: run task tasks/dua-outgoing.md
-  - sra-drafting: run task tasks/sra-drafting.md
-  - iia-setup: run task tasks/iia-setup.md
-  - option-agreement: run task tasks/option-agreement.md
-  - eval-license: run task tasks/evaluation-license.md
-  - comm-license: run task tasks/commercial-license.md
-  - startup-readiness: run task tasks/startup-spinout-readiness.md
-  - negotiation: run task tasks/negotiation-and-term-sheet.md
-  - export-control: run task tasks/export-control-screening.md
-  - tech-marketing: run task tasks/technology-marketing-and-outreach.md
-  - royalty-reporting: run task tasks/royalty-reporting-and-audit.md
-  - revenue-distribution: run task tasks/revenue-sharing-distribution.md
-  - repository-records: run task tasks/repository-records.md
-  - conflict-of-interest: run task tasks/conflict-of-interest-management.md
-  - kpi-trending: run task tasks/kpi-trending.md
-  - execute-checklist: run task tasks/execute-checklist.md
+  - ip-strategy: run task ip-portfolio-strategy.md
+  - disclosure-intake: run task disclosure-intake.md
+  - triage-prioritization: run task triage-and-prioritization.md
+  - prior-art-search: run task prior-art-search.md
+  - patentability-assess: run task patentability-assessment.md
+  - inventorship-determine: run task inventorship-determination.md
+  - ownership-chain: run task ownership-and-assignments.md
+  - publication-embargo: run task publication-embargo-control.md
+  - provisional-file: run task provisional-filing.md
+  - nonprovisional-file: run task nonprovisional-filing.md
+  - pct-file: run task pct-filing.md
+  - docket-control: run task docket-and-deadline-control.md
+  - annuity-manage: run task annuity-and-maintenance.md
+  - office-action: run task office-action-response.md
+  - fto-analysis: run task fto-analysis.md
+  - trademark-screen: run task trademark-screening.md
+  - copyright-register: run task copyright-registration.md
+  - oss-review: run task open-source-license-review.md
+  - data-license-review: run task data-license-review.md
+  - nda-execution: run task nda-cda-execution.md
+  - mta-incoming: run task mta-incoming.md
+  - mta-outgoing: run task mta-outgoing.md
+  - dua-incoming: run task dua-incoming.md
+  - dua-outgoing: run task dua-outgoing.md
+  - sra-drafting: run task sra-drafting.md
+  - iia-setup: run task iia-setup.md
+  - option-agreement: run task option-agreement.md
+  - eval-license: run task evaluation-license.md
+  - comm-license: run task commercial-license.md
+  - startup-readiness: run task startup-spinout-readiness.md
+  - negotiation: run task negotiation-and-term-sheet.md
+  - export-control: run task export-control-screening.md
+  - tech-marketing: run task technology-marketing-and-outreach.md
+  - royalty-reporting: run task royalty-reporting-and-audit.md
+  - revenue-distribution: run task revenue-sharing-distribution.md
+  - repository-records: run task repository-records.md
+  - conflict-of-interest: run task conflict-of-interest-management.md
+  - kpi-trending: run task kpi-trending.md
+  - execute-checklist: run task execute-checklist.md
 
   # —— 清单执行 ——
-  - execute-checklist disclosure-intake: run task tasks/execute-checklist.md with checklist checklists/disclosure-intake-checklist.md
-  - execute-checklist patentability: run task tasks/execute-checklist.md with checklist checklists/patentability-criteria-checklist.md
-  - execute-checklist inventorship: run task tasks/execute-checklist.md with checklist checklists/inventorship-determination-checklist.md
-  - execute-checklist publication: run task tasks/execute-checklist.md with checklist checklists/publication-embargo-checklist.md
-  - execute-checklist prior-art: run task tasks/execute-checklist.md with checklist checklists/prior-art-search-checklist.md
-  - execute-checklist pct-paris: run task tasks/execute-checklist.md with checklist checklists/pct-paris-deadline-checklist.md
-  - execute-checklist docket: run task tasks/execute-checklist.md with checklist checklists/docket-deadline-control-checklist.md
-  - execute-checklist oa-quality: run task tasks/execute-checklist.md with checklist checklists/office-action-response-quality-checklist.md
-  - execute-checklist fto: run task tasks/execute-checklist.md with checklist checklists/fto-workflow-checklist.md
-  - execute-checklist nda: run task tasks/execute-checklist.md with checklist checklists/nda-execution-checklist.md
-  - execute-checklist mta: run task tasks/execute-checklist.md with checklist checklists/mta-compliance-checklist.md
-  - execute-checklist dua: run task tasks/execute-checklist.md with checklist checklists/dua-privacy-compliance-checklist.md
-  - execute-checklist sra-iia: run task tasks/execute-checklist.md with checklist checklists/sra-iia-terms-checklist.md
-  - execute-checklist export: run task tasks/execute-checklist.md with checklist checklists/export-control-redflags-checklist.md
-  - execute-checklist oss: run task tasks/execute-checklist.md with checklist checklists/open-source-compliance-checklist.md
-  - execute-checklist data-license: run task tasks/execute-checklist.md with checklist checklists/data-license-compatibility-checklist.md
-  - execute-checklist royalty: run task tasks/execute-checklist.md with checklist checklists/royalty-report-audit-checklist.md
-  - execute-checklist coi: run task tasks/execute-checklist.md with checklist checklists/coi-commercialization-checklist.md
-  - execute-checklist startup: run task tasks/execute-checklist.md with checklist checklists/startup-spinout-readiness-checklist.md
+  - execute-checklist disclosure-intake: run task execute-checklist.md with checklist disclosure-intake-checklist.md
+  - execute-checklist patentability: run task execute-checklist.md with checklist patentability-criteria-checklist.md
+  - execute-checklist inventorship: run task execute-checklist.md with checklist inventorship-determination-checklist.md
+  - execute-checklist publication: run task execute-checklist.md with checklist publication-embargo-checklist.md
+  - execute-checklist prior-art: run task execute-checklist.md with checklist prior-art-search-checklist.md
+  - execute-checklist pct-paris: run task execute-checklist.md with checklist pct-paris-deadline-checklist.md
+  - execute-checklist docket: run task execute-checklist.md with checklist docket-deadline-control-checklist.md
+  - execute-checklist oa-quality: run task execute-checklist.md with checklist office-action-response-quality-checklist.md
+  - execute-checklist fto: run task execute-checklist.md with checklist fto-workflow-checklist.md
+  - execute-checklist nda: run task execute-checklist.md with checklist nda-execution-checklist.md
+  - execute-checklist mta: run task execute-checklist.md with checklist mta-compliance-checklist.md
+  - execute-checklist dua: run task execute-checklist.md with checklist dua-privacy-compliance-checklist.md
+  - execute-checklist sra-iia: run task execute-checklist.md with checklist sra-iia-terms-checklist.md
+  - execute-checklist export: run task execute-checklist.md with checklist export-control-redflags-checklist.md
+  - execute-checklist oss: run task execute-checklist.md with checklist open-source-compliance-checklist.md
+  - execute-checklist data-license: run task execute-checklist.md with checklist data-license-compatibility-checklist.md
+  - execute-checklist royalty: run task execute-checklist.md with checklist royalty-report-audit-checklist.md
+  - execute-checklist coi: run task execute-checklist.md with checklist coi-commercialization-checklist.md
+  - execute-checklist startup: run task execute-checklist.md with checklist startup-spinout-readiness-checklist.md
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/ip-portfolio-strategy.md
-    - tasks/disclosure-intake.md
-    - tasks/triage-and-prioritization.md
-    - tasks/prior-art-search.md
-    - tasks/patentability-assessment.md
-    - tasks/inventorship-determination.md
-    - tasks/ownership-and-assignments.md
-    - tasks/publication-embargo-control.md
-    - tasks/provisional-filing.md
-    - tasks/nonprovisional-filing.md
-    - tasks/pct-filing.md
-    - tasks/docket-and-deadline-control.md
-    - tasks/annuity-and-maintenance.md
-    - tasks/office-action-response.md
-    - tasks/fto-analysis.md
-    - tasks/trademark-screening.md
-    - tasks/copyright-registration.md
-    - tasks/open-source-license-review.md
-    - tasks/data-license-review.md
-    - tasks/nda-cda-execution.md
-    - tasks/mta-incoming.md
-    - tasks/mta-outgoing.md
-    - tasks/dua-incoming.md
-    - tasks/dua-outgoing.md
-    - tasks/sra-drafting.md
-    - tasks/iia-setup.md
-    - tasks/option-agreement.md
-    - tasks/evaluation-license.md
-    - tasks/commercial-license.md
-    - tasks/startup-spinout-readiness.md
-    - tasks/negotiation-and-term-sheet.md
-    - tasks/export-control-screening.md
-    - tasks/technology-marketing-and-outreach.md
-    - tasks/royalty-reporting-and-audit.md
-    - tasks/revenue-sharing-distribution.md
-    - tasks/repository-records.md
-    - tasks/conflict-of-interest-management.md
-    - tasks/kpi-trending.md
-    - tasks/execute-checklist.md
+    - create-doc.md
+    - ip-portfolio-strategy.md
+    - disclosure-intake.md
+    - triage-and-prioritization.md
+    - prior-art-search.md
+    - patentability-assessment.md
+    - inventorship-determination.md
+    - ownership-and-assignments.md
+    - publication-embargo-control.md
+    - provisional-filing.md
+    - nonprovisional-filing.md
+    - pct-filing.md
+    - docket-and-deadline-control.md
+    - annuity-and-maintenance.md
+    - office-action-response.md
+    - fto-analysis.md
+    - trademark-screening.md
+    - copyright-registration.md
+    - open-source-license-review.md
+    - data-license-review.md
+    - nda-cda-execution.md
+    - mta-incoming.md
+    - mta-outgoing.md
+    - dua-incoming.md
+    - dua-outgoing.md
+    - sra-drafting.md
+    - iia-setup.md
+    - option-agreement.md
+    - evaluation-license.md
+    - commercial-license.md
+    - startup-spinout-readiness.md
+    - negotiation-and-term-sheet.md
+    - export-control-screening.md
+    - technology-marketing-and-outreach.md
+    - royalty-reporting-and-audit.md
+    - revenue-sharing-distribution.md
+    - repository-records.md
+    - conflict-of-interest-management.md
+    - kpi-trending.md
+    - execute-checklist.md
   templates:
-    - templates/output/invention-disclosure-form-tmpl.yaml
-    - templates/output/prior-art-search-report-tmpl.yaml
-    - templates/output/patentability-assessment-memo-tmpl.yaml
-    - templates/output/inventorship-determination-memo-tmpl.yaml
-    - templates/output/chain-of-title-summary-tmpl.yaml
-    - templates/output/assignment-and-declaration-tmpl.yaml
-    - templates/output/provisional-filing-dossier-tmpl.yaml
-    - templates/output/nonprovisional-filing-dossier-tmpl.yaml
-    - templates/output/pct-filing-request-tmpl.yaml
-    - templates/output/office-action-response-brief-tmpl.yaml
-    - templates/output/fto-report-tmpl.yaml
-    - templates/output/public-disclosure-review-form-tmpl.yaml
-    - templates/output/nda-cda-template-tmpl.yaml
-    - templates/output/mta-incoming-template-tmpl.yaml
-    - templates/output/mta-outgoing-template-tmpl.yaml
-    - templates/output/dua-template-tmpl.yaml
-    - templates/output/sra-template-tmpl.yaml
-    - templates/output/iia-template-tmpl.yaml
-    - templates/output/option-agreement-template-tmpl.yaml
-    - templates/output/evaluation-license-template-tmpl.yaml
-    - templates/output/commercial-license-template-tmpl.yaml
-    - templates/output/term-sheet-template-tmpl.yaml
-    - templates/output/royalty-distribution-schedule-tmpl.yaml
-    - templates/output/technology-marketing-brief-tmpl.yaml
-    - templates/output/nonconfidential-summary-tmpl.yaml
-    - templates/output/export-control-assessment-form-tmpl.yaml
-    - templates/output/open-source-compliance-report-tmpl.yaml
-    - templates/output/data-license-decision-record-tmpl.yaml
+    - invention-disclosure-form-tmpl.yaml
+    - prior-art-search-report-tmpl.yaml
+    - patentability-assessment-memo-tmpl.yaml
+    - inventorship-determination-memo-tmpl.yaml
+    - chain-of-title-summary-tmpl.yaml
+    - assignment-and-declaration-tmpl.yaml
+    - provisional-filing-dossier-tmpl.yaml
+    - nonprovisional-filing-dossier-tmpl.yaml
+    - pct-filing-request-tmpl.yaml
+    - office-action-response-brief-tmpl.yaml
+    - fto-report-tmpl.yaml
+    - public-disclosure-review-form-tmpl.yaml
+    - nda-cda-template-tmpl.yaml
+    - mta-incoming-template-tmpl.yaml
+    - mta-outgoing-template-tmpl.yaml
+    - dua-template-tmpl.yaml
+    - sra-template-tmpl.yaml
+    - iia-template-tmpl.yaml
+    - option-agreement-template-tmpl.yaml
+    - evaluation-license-template-tmpl.yaml
+    - commercial-license-template-tmpl.yaml
+    - term-sheet-template-tmpl.yaml
+    - royalty-distribution-schedule-tmpl.yaml
+    - technology-marketing-brief-tmpl.yaml
+    - nonconfidential-summary-tmpl.yaml
+    - export-control-assessment-form-tmpl.yaml
+    - open-source-compliance-report-tmpl.yaml
+    - data-license-decision-record-tmpl.yaml
   checklists:
-    - checklists/disclosure-intake-checklist.md
-    - checklists/patentability-criteria-checklist.md
-    - checklists/inventorship-determination-checklist.md
-    - checklists/publication-embargo-checklist.md
-    - checklists/prior-art-search-checklist.md
-    - checklists/pct-paris-deadline-checklist.md
-    - checklists/docket-deadline-control-checklist.md
-    - checklists/office-action-response-quality-checklist.md
-    - checklists/fto-workflow-checklist.md
-    - checklists/nda-execution-checklist.md
-    - checklists/mta-compliance-checklist.md
-    - checklists/dua-privacy-compliance-checklist.md
-    - checklists/sra-iia-terms-checklist.md
-    - checklists/export-control-redflags-checklist.md
-    - checklists/open-source-compliance-checklist.md
-    - checklists/data-license-compatibility-checklist.md
-    - checklists/royalty-report-audit-checklist.md
-    - checklists/coi-commercialization-checklist.md
-    - checklists/startup-spinout-readiness-checklist.md
-  kb:
+    - disclosure-intake-checklist.md
+    - patentability-criteria-checklist.md
+    - inventorship-determination-checklist.md
+    - publication-embargo-checklist.md
+    - prior-art-search-checklist.md
+    - pct-paris-deadline-checklist.md
+    - docket-deadline-control-checklist.md
+    - office-action-response-quality-checklist.md
+    - fto-workflow-checklist.md
+    - nda-execution-checklist.md
+    - mta-compliance-checklist.md
+    - dua-privacy-compliance-checklist.md
+    - sra-iia-terms-checklist.md
+    - export-control-redflags-checklist.md
+    - open-source-compliance-checklist.md
+    - data-license-compatibility-checklist.md
+    - royalty-report-audit-checklist.md
+    - coi-commercialization-checklist.md
+    - startup-spinout-readiness-checklist.md
+  data:
     - kb/novelty-nonobviousness-utility.md
     - kb/bayh-dole-and-funding-obligations.md
     - kb/pct-vs-paris-route.md
@@ -257,45 +257,44 @@ dependencies:
     - kb/export-controls-basics.md
     - kb/confidentiality-levels-and-public-disclosure.md
     - kb/ip-portfolio-kpis.md
-  data:
-    - templates/data/inventions.csv
-    - templates/data/disclosures.csv
-    - templates/data/inventors.csv
-    - templates/data/assignments.csv
-    - templates/data/patents.csv
-    - templates/data/applications.csv
-    - templates/data/jurisdictions.csv
-    - templates/data/docket_deadlines.csv
-    - templates/data/office_actions.csv
-    - templates/data/annuities.csv
-    - templates/data/trademarks.csv
-    - templates/data/copyrights.csv
-    - templates/data/os_components.csv
-    - templates/data/os_reviews.csv
-    - templates/data/datasets.csv
-    - templates/data/data_licenses.csv
-    - templates/data/code_repos.csv
-    - templates/data/repo_licenses.csv
-    - templates/data/mtas.csv
-    - templates/data/duas.csv
-    - templates/data/ndas.csv
-    - templates/data/sras.csv
-    - templates/data/iias.csv
-    - templates/data/licenses.csv
-    - templates/data/options.csv
-    - templates/data/evaluation_licenses.csv
-    - templates/data/royalty_reports.csv
-    - templates/data/royalty_payments.csv
-    - templates/data/revenue_sharing.csv
-    - templates/data/partners.csv
-    - templates/data/leads.csv
-    - templates/data/marketing_activities.csv
-    - templates/data/export_control.csv
-    - templates/data/conflicts_of_interest.csv
-    - templates/data/publication_watch.csv
-    - templates/data/agreements.csv
-    - templates/data/background_ip.csv
-    - templates/data/foreground_ip.csv
-    - templates/data/chain_of_title.csv
-    - templates/data/kpi.csv
+    - inventions.csv
+    - disclosures.csv
+    - inventors.csv
+    - assignments.csv
+    - patents.csv
+    - applications.csv
+    - jurisdictions.csv
+    - docket_deadlines.csv
+    - office_actions.csv
+    - annuities.csv
+    - trademarks.csv
+    - copyrights.csv
+    - os_components.csv
+    - os_reviews.csv
+    - datasets.csv
+    - data_licenses.csv
+    - code_repos.csv
+    - repo_licenses.csv
+    - mtas.csv
+    - duas.csv
+    - ndas.csv
+    - sras.csv
+    - iias.csv
+    - licenses.csv
+    - options.csv
+    - evaluation_licenses.csv
+    - royalty_reports.csv
+    - royalty_payments.csv
+    - revenue_sharing.csv
+    - partners.csv
+    - leads.csv
+    - marketing_activities.csv
+    - export_control.csv
+    - conflicts_of_interest.csv
+    - publication_watch.csv
+    - agreements.csv
+    - background_ip.csv
+    - foreground_ip.csv
+    - chain_of_title.csv
+    - kpi.csv
 ````

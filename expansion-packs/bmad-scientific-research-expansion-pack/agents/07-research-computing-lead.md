@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them via a command or task
   - The agent.customization ALWAYS takes precedence over any conflicting instruction
-  - When listing tasks/templates/checklists, ALWAYS show a numbered options list
+  - When listing templates/checklists, ALWAYS show a numbered options list
   - Process commands that start with * immediately
   - STAY IN CHARACTER! Be the Research Software & Computing Lead
 
@@ -47,142 +47,142 @@ commands:
   - doc-out: Output current document being drafted
   - exit: Leave this persona
 
-  - create-doc rs-architecture: run task tasks/create-doc.md with template templates/output/rs-architecture-tmpl.yaml
-  - create-doc rs-implementation: run task tasks/create-doc.md with template templates/output/rs-implementation-plan-tmpl.yaml
-  - create-doc pipeline-spec: run task tasks/create-doc.md with template templates/output/pipeline-spec-tmpl.yaml
-  - create-doc workflow-orchestration: run task tasks/create-doc.md with template templates/output/workflow-orchestration-tmpl.yaml
-  - create-doc container-build: run task tasks/create-doc.md with template templates/output/container-build-spec-tmpl.yaml
-  - create-doc env-lock: run task tasks/create-doc.md with template templates/output/environment-lockfile-tmpl.yaml
-  - create-doc ci-cd: run task tasks/create-doc.md with template templates/output/ci-cd-spec-tmpl.yaml
-  - create-doc security-plan: run task tasks/create-doc.md with template templates/output/devsecops-security-plan-tmpl.yaml
-  - create-doc threat-model: run task tasks/create-doc.md with template templates/output/threat-model-stride-tmpl.yaml
-  - create-doc sbom: run task tasks/create-doc.md with template templates/output/sbom-manifest-tmpl.yaml
-  - create-doc license-compliance: run task tasks/create-doc.md with template templates/output/license-compliance-matrix-tmpl.yaml
-  - create-doc runbook: run task tasks/create-doc.md with template templates/output/runbook-tmpl.yaml
-  - create-doc playbook: run task tasks/create-doc.md with template templates/output/incident-playbook-tmpl.yaml
-  - create-doc monitoring: run task tasks/create-doc.md with template templates/output/observability-dashboard-spec-tmpl.yaml
-  - create-doc performance: run task tasks/create-doc.md with template templates/output/performance-benchmark-plan-tmpl.yaml
-  - create-doc gpu-accel: run task tasks/create-doc.md with template templates/output/gpu-acceleration-plan-tmpl.yaml
-  - create-doc cost-guardrails: run task tasks/create-doc.md with template templates/output/cost-guardrails-tmpl.yaml
-  - create-doc release-notes: run task tasks/create-doc.md with template templates/output/release-notes-tmpl.yaml
-  - create-doc repro-capsule: run task tasks/create-doc.md with template templates/output/reproducibility-capsule-tmpl.yaml
+  - create-doc rs-architecture: run task create-doc.md with template rs-architecture-tmpl.yaml
+  - create-doc rs-implementation: run task create-doc.md with template rs-implementation-plan-tmpl.yaml
+  - create-doc pipeline-spec: run task create-doc.md with template pipeline-spec-tmpl.yaml
+  - create-doc workflow-orchestration: run task create-doc.md with template workflow-orchestration-tmpl.yaml
+  - create-doc container-build: run task create-doc.md with template container-build-spec-tmpl.yaml
+  - create-doc env-lock: run task create-doc.md with template environment-lockfile-tmpl.yaml
+  - create-doc ci-cd: run task create-doc.md with template ci-cd-spec-tmpl.yaml
+  - create-doc security-plan: run task create-doc.md with template devsecops-security-plan-tmpl.yaml
+  - create-doc threat-model: run task create-doc.md with template threat-model-stride-tmpl.yaml
+  - create-doc sbom: run task create-doc.md with template sbom-manifest-tmpl.yaml
+  - create-doc license-compliance: run task create-doc.md with template license-compliance-matrix-tmpl.yaml
+  - create-doc runbook: run task create-doc.md with template runbook-tmpl.yaml
+  - create-doc playbook: run task create-doc.md with template incident-playbook-tmpl.yaml
+  - create-doc monitoring: run task create-doc.md with template observability-dashboard-spec-tmpl.yaml
+  - create-doc performance: run task create-doc.md with template performance-benchmark-plan-tmpl.yaml
+  - create-doc gpu-accel: run task create-doc.md with template gpu-acceleration-plan-tmpl.yaml
+  - create-doc cost-guardrails: run task create-doc.md with template cost-guardrails-tmpl.yaml
+  - create-doc release-notes: run task create-doc.md with template release-notes-tmpl.yaml
+  - create-doc repro-capsule: run task create-doc.md with template reproducibility-capsule-tmpl.yaml
 
-  - arch-clinic: run task tasks/architecture-clinic.md
-  - pipeline-design: run task tasks/pipeline-design.md
-  - env-provision: run task tasks/environment-provisioning.md
-  - containerize: run task tasks/containerize.md
-  - workflow-build: run task tasks/workflow-build.md
-  - ci-cd-setup: run task tasks/ci-cd-setup.md
-  - security-hardening: run task tasks/security-hardening.md
-  - sbom-scan: run task tasks/sbom-scan.md
-  - license-check: run task tasks/license-compliance-check.md
-  - secrets-rotation: run task tasks/secrets-rotation.md
-  - data-access-setup: run task tasks/data-access-setup.md
-  - gpu-accel-check: run task tasks/gpu-accel-check.md
-  - perf-benchmark: run task tasks/performance-benchmark.md
-  - profiler-run: run task tasks/profiler-run.md
-  - perf-regression: run task tasks/performance-regression-test.md
-  - monitoring-alerts: run task tasks/monitoring-alerts.md
-  - backup-restore: run task tasks/backup-restore-cycle.md
-  - incident-drill: run task tasks/incident-drill.md
-  - change-control: run task tasks/change-control.md
-  - release: run task tasks/release-package.md
-  - repro-run: run task tasks/reproducibility-run.md
-  - artifact-publish: run task tasks/artifact-publish.md
-  - cost-review: run task tasks/cost-review.md
+  - arch-clinic: run task architecture-clinic.md
+  - pipeline-design: run task pipeline-design.md
+  - env-provision: run task environment-provisioning.md
+  - containerize: run task containerize.md
+  - workflow-build: run task workflow-build.md
+  - ci-cd-setup: run task ci-cd-setup.md
+  - security-hardening: run task security-hardening.md
+  - sbom-scan: run task sbom-scan.md
+  - license-check: run task license-compliance-check.md
+  - secrets-rotation: run task secrets-rotation.md
+  - data-access-setup: run task data-access-setup.md
+  - gpu-accel-check: run task gpu-accel-check.md
+  - perf-benchmark: run task performance-benchmark.md
+  - profiler-run: run task profiler-run.md
+  - perf-regression: run task performance-regression-test.md
+  - monitoring-alerts: run task monitoring-alerts.md
+  - backup-restore: run task backup-restore-cycle.md
+  - incident-drill: run task incident-drill.md
+  - change-control: run task change-control.md
+  - release: run task release-package.md
+  - repro-run: run task reproducibility-run.md
+  - artifact-publish: run task artifact-publish.md
+  - cost-review: run task cost-review.md
 
-  - execute-checklist devsecops: run task tasks/execute-checklist.md with checklist checklists/devsecops-checklist.md
-  - execute-checklist cloud-hpc: run task tasks/execute-checklist.md with checklist checklists/cloud-hpc-readiness-checklist.md
-  - execute-checklist container: run task tasks/execute-checklist.md with checklist checklists/container-hygiene-checklist.md
-  - execute-checklist workflow: run task tasks/execute-checklist.md with checklist checklists/workflow-reproducibility-checklist.md
-  - execute-checklist datasec: run task tasks/execute-checklist.md with checklist checklists/data-security-in-compute-checklist.md
-  - execute-checklist license: run task tasks/execute-checklist.md with checklist checklists/license-compliance-checklist.md
-  - execute-checklist observability: run task tasks/execute-checklist.md with checklist checklists/observability-sre-checklist.md
-  - execute-checklist performance: run task tasks/execute-checklist.md with checklist checklists/performance-gpu-checklist.md
-  - execute-checklist change: run task tasks/execute-checklist.md with checklist checklists/change-control-checklist.md
-  - execute-checklist release: run task tasks/execute-checklist.md with checklist checklists/release-quality-gates-checklist.md
-  - execute-checklist notebook: run task tasks/execute-checklist.md with checklist checklists/notebook-hygiene-checklist.md
+  - execute-checklist devsecops: run task execute-checklist.md with checklist devsecops-checklist.md
+  - execute-checklist cloud-hpc: run task execute-checklist.md with checklist cloud-hpc-readiness-checklist.md
+  - execute-checklist container: run task execute-checklist.md with checklist container-hygiene-checklist.md
+  - execute-checklist workflow: run task execute-checklist.md with checklist workflow-reproducibility-checklist.md
+  - execute-checklist datasec: run task execute-checklist.md with checklist data-security-in-compute-checklist.md
+  - execute-checklist license: run task execute-checklist.md with checklist license-compliance-checklist.md
+  - execute-checklist observability: run task execute-checklist.md with checklist observability-sre-checklist.md
+  - execute-checklist performance: run task execute-checklist.md with checklist performance-gpu-checklist.md
+  - execute-checklist change: run task execute-checklist.md with checklist change-control-checklist.md
+  - execute-checklist release: run task execute-checklist.md with checklist release-quality-gates-checklist.md
+  - execute-checklist notebook: run task execute-checklist.md with checklist notebook-hygiene-checklist.md
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/architecture-clinic.md
-    - tasks/pipeline-design.md
-    - tasks/environment-provisioning.md
-    - tasks/containerize.md
-    - tasks/workflow-build.md
-    - tasks/ci-cd-setup.md
-    - tasks/security-hardening.md
-    - tasks/sbom-scan.md
-    - tasks/license-compliance-check.md
-    - tasks/secrets-rotation.md
-    - tasks/data-access-setup.md
-    - tasks/gpu-accel-check.md
-    - tasks/performance-benchmark.md
-    - tasks/profiler-run.md
-    - tasks/performance-regression-test.md
-    - tasks/monitoring-alerts.md
-    - tasks/backup-restore-cycle.md
-    - tasks/incident-drill.md
-    - tasks/change-control.md
-    - tasks/release-package.md
-    - tasks/reproducibility-run.md
-    - tasks/artifact-publish.md
-    - tasks/cost-review.md
-    - tasks/execute-checklist.md
+    - create-doc.md
+    - architecture-clinic.md
+    - pipeline-design.md
+    - environment-provisioning.md
+    - containerize.md
+    - workflow-build.md
+    - ci-cd-setup.md
+    - security-hardening.md
+    - sbom-scan.md
+    - license-compliance-check.md
+    - secrets-rotation.md
+    - data-access-setup.md
+    - gpu-accel-check.md
+    - performance-benchmark.md
+    - profiler-run.md
+    - performance-regression-test.md
+    - monitoring-alerts.md
+    - backup-restore-cycle.md
+    - incident-drill.md
+    - change-control.md
+    - release-package.md
+    - reproducibility-run.md
+    - artifact-publish.md
+    - cost-review.md
+    - execute-checklist.md
   templates:
-    - templates/output/rs-architecture-tmpl.yaml
-    - templates/output/rs-implementation-plan-tmpl.yaml
-    - templates/output/pipeline-spec-tmpl.yaml
-    - templates/output/workflow-orchestration-tmpl.yaml
-    - templates/output/container-build-spec-tmpl.yaml
-    - templates/output/environment-lockfile-tmpl.yaml
-    - templates/output/ci-cd-spec-tmpl.yaml
-    - templates/output/devsecops-security-plan-tmpl.yaml
-    - templates/output/threat-model-stride-tmpl.yaml
-    - templates/output/sbom-manifest-tmpl.yaml
-    - templates/output/license-compliance-matrix-tmpl.yaml
-    - templates/output/runbook-tmpl.yaml
-    - templates/output/incident-playbook-tmpl.yaml
-    - templates/output/observability-dashboard-spec-tmpl.yaml
-    - templates/output/performance-benchmark-plan-tmpl.yaml
-    - templates/output/gpu-acceleration-plan-tmpl.yaml
-    - templates/output/cost-guardrails-tmpl.yaml
-    - templates/output/release-notes-tmpl.yaml
-    - templates/output/reproducibility-capsule-tmpl.yaml
+    - rs-architecture-tmpl.yaml
+    - rs-implementation-plan-tmpl.yaml
+    - pipeline-spec-tmpl.yaml
+    - workflow-orchestration-tmpl.yaml
+    - container-build-spec-tmpl.yaml
+    - environment-lockfile-tmpl.yaml
+    - ci-cd-spec-tmpl.yaml
+    - devsecops-security-plan-tmpl.yaml
+    - threat-model-stride-tmpl.yaml
+    - sbom-manifest-tmpl.yaml
+    - license-compliance-matrix-tmpl.yaml
+    - runbook-tmpl.yaml
+    - incident-playbook-tmpl.yaml
+    - observability-dashboard-spec-tmpl.yaml
+    - performance-benchmark-plan-tmpl.yaml
+    - gpu-acceleration-plan-tmpl.yaml
+    - cost-guardrails-tmpl.yaml
+    - release-notes-tmpl.yaml
+    - reproducibility-capsule-tmpl.yaml
   checklists:
-    - checklists/devsecops-checklist.md
-    - checklists/cloud-hpc-readiness-checklist.md
-    - checklists/container-hygiene-checklist.md
-    - checklists/workflow-reproducibility-checklist.md
-    - checklists/data-security-in-compute-checklist.md
-    - checklists/license-compliance-checklist.md
-    - checklists/observability-sre-checklist.md
-    - checklists/performance-gpu-checklist.md
-    - checklists/change-control-checklist.md
-    - checklists/release-quality-gates-checklist.md
-    - checklists/notebook-hygiene-checklist.md
+    - devsecops-checklist.md
+    - cloud-hpc-readiness-checklist.md
+    - container-hygiene-checklist.md
+    - workflow-reproducibility-checklist.md
+    - data-security-in-compute-checklist.md
+    - license-compliance-checklist.md
+    - observability-sre-checklist.md
+    - performance-gpu-checklist.md
+    - change-control-checklist.md
+    - release-quality-gates-checklist.md
+    - notebook-hygiene-checklist.md
   data:
-    - templates/data/projects.csv
-    - templates/data/code_repos.csv
-    - templates/data/pipelines.csv
-    - templates/data/workflow_runs.csv
-    - templates/data/environments.csv
-    - templates/data/containers.csv
-    - templates/data/images.csv
-    - templates/data/artifacts.csv
-    - templates/data/artifact_hashes.csv
-    - templates/data/benchmarks.csv
-    - templates/data/profiling.csv
-    - templates/data/costs.csv
-    - templates/data/quotas.csv
-    - templates/data/incidents.csv
-    - templates/data/vulnerabilities.csv
-    - templates/data/sbom_components.csv
-    - templates/data/licenses.csv
-    - templates/data/secrets_inventory.csv
-    - templates/data/access_grants.csv
-    - templates/data/releases.csv
-    - templates/data/observability.csv
-    - templates/data/kpi.csv
+    - projects.csv
+    - code_repos.csv
+    - pipelines.csv
+    - workflow_runs.csv
+    - environments.csv
+    - containers.csv
+    - images.csv
+    - artifacts.csv
+    - artifact_hashes.csv
+    - benchmarks.csv
+    - profiling.csv
+    - costs.csv
+    - quotas.csv
+    - incidents.csv
+    - vulnerabilities.csv
+    - sbom_components.csv
+    - licenses.csv
+    - secrets_inventory.csv
+    - access_grants.csv
+    - releases.csv
+    - observability.csv
+    - kpi.csv
 ```

@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when selected via a command or task
   - The agent.customization ALWAYS takes precedence over any conflicting instruction
-  - When listing tasks/templates/checklists, ALWAYS show a numbered options list (user can reply with a number)
+  - When listing templates/checklists, ALWAYS show a numbered options list (user can reply with a number)
   - Process commands that start with * immediately
   - STAY IN CHARACTER! Be the Protocol Author & Method Lead
 
@@ -48,79 +48,79 @@ commands:
   - exit: Leave this persona
 
   # —— 基于模板的文档创建 ——
-  - create-doc protocol-core: run task tasks/create-doc.md with template templates/output/protocol-core-tmpl.yaml
-  - create-doc sap: run task tasks/create-doc.md with template templates/output/statistical-analysis-plan-tmpl.yaml
-  - create-doc randsched: run task tasks/create-doc.md with template templates/output/randomization-schedule-tmpl.yaml
-  - create-doc blinding-plan: run task tasks/create-doc.md with template templates/output/blinding-plan-tmpl.yaml
-  - create-doc sample-size: run task tasks/create-doc.md with template templates/output/sample-size-justification-tmpl.yaml
-  - create-doc doe: run task tasks/create-doc.md with template templates/output/doe-design-tmpl.yaml
-  - create-doc method-dev: run task tasks/create-doc.md with template templates/output/method-development-plan-tmpl.yaml
-  - create-doc method-val-protocol: run task tasks/create-doc.md with template templates/output/method-validation-protocol-tmpl.yaml
-  - create-doc method-val-report: run task tasks/create-doc.md with template templates/output/method-validation-report-tmpl.yaml
-  - create-doc method-transfer: run task tasks/create-doc.md with template templates/output/method-transfer-plan-tmpl.yaml
-  - create-doc sop: run task tasks/create-doc.md with template templates/output/sop-template-tmpl.yaml
-  - create-doc dmp: run task tasks/create-doc.md with template templates/output/data-management-plan-tmpl.yaml
-  - create-doc prereg: run task tasks/create-doc.md with template templates/output/preregistration-package-tmpl.yaml
-  - create-doc biosafety-ethics: run task tasks/create-doc.md with template templates/output/ibc-irb-iacuc-appendix-tmpl.yaml
-  - create-doc codebook: run task tasks/create-doc.md with template templates/output/codebook-dictionary-tmpl.yaml
-  - create-doc metadata: run task tasks/create-doc.md with template templates/output/metadata-schema-tmpl.yaml
-  - create-doc change-plan: run task tasks/create-doc.md with template templates/output/method-change-control-plan-tmpl.yaml
-  - create-doc training-plan: run task tasks/create-doc.md with template templates/output/training-transfer-plan-tmpl.yaml
+  - create-doc protocol-core: run task create-doc.md with template protocol-core-tmpl.yaml
+  - create-doc sap: run task create-doc.md with template statistical-analysis-plan-tmpl.yaml
+  - create-doc randsched: run task create-doc.md with template randomization-schedule-tmpl.yaml
+  - create-doc blinding-plan: run task create-doc.md with template blinding-plan-tmpl.yaml
+  - create-doc sample-size: run task create-doc.md with template sample-size-justification-tmpl.yaml
+  - create-doc doe: run task create-doc.md with template doe-design-tmpl.yaml
+  - create-doc method-dev: run task create-doc.md with template method-development-plan-tmpl.yaml
+  - create-doc method-val-protocol: run task create-doc.md with template method-validation-protocol-tmpl.yaml
+  - create-doc method-val-report: run task create-doc.md with template method-validation-report-tmpl.yaml
+  - create-doc method-transfer: run task create-doc.md with template method-transfer-plan-tmpl.yaml
+  - create-doc sop: run task create-doc.md with template sop-template-tmpl.yaml
+  - create-doc dmp: run task create-doc.md with template data-management-plan-tmpl.yaml
+  - create-doc prereg: run task create-doc.md with template preregistration-package-tmpl.yaml
+  - create-doc biosafety-ethics: run task create-doc.md with template ibc-irb-iacuc-appendix-tmpl.yaml
+  - create-doc codebook: run task create-doc.md with template codebook-dictionary-tmpl.yaml
+  - create-doc metadata: run task create-doc.md with template metadata-schema-tmpl.yaml
+  - create-doc change-plan: run task create-doc.md with template method-change-control-plan-tmpl.yaml
+  - create-doc training-plan: run task create-doc.md with template training-transfer-plan-tmpl.yaml
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/protocol-architecture.md
-    - tasks/sap-build.md
-    - tasks/randomization-build.md
-    - tasks/blinding-setup.md
-    - tasks/sample-size-calc.md
-    - tasks/doe-optimize.md
-    - tasks/pilot-run.md
-    - tasks/method-development.md
-    - tasks/method-validation.md
-    - tasks/method-transfer-exec.md
-    - tasks/method-change-control.md
-    - tasks/data-specs.md
-    - tasks/code-reproducibility.md
-    - tasks/preregistration.md
-    - tasks/ethics-package.md
-    - tasks/training-exec.md
-    - tasks/harmonization-crosssite.md
-    - tasks/deviation-capture.md
-    - tasks/kpi-trending.md
-    - tasks/execute-checklist.md
+    - create-doc.md
+    - protocol-architecture.md
+    - sap-build.md
+    - randomization-build.md
+    - blinding-setup.md
+    - sample-size-calc.md
+    - doe-optimize.md
+    - pilot-run.md
+    - method-development.md
+    - method-validation.md
+    - method-transfer-exec.md
+    - method-change-control.md
+    - data-specs.md
+    - code-reproducibility.md
+    - preregistration.md
+    - ethics-package.md
+    - training-exec.md
+    - harmonization-crosssite.md
+    - deviation-capture.md
+    - kpi-trending.md
+    - execute-checklist.md
   templates:
-    - templates/output/protocol-core-tmpl.yaml
-    - templates/output/statistical-analysis-plan-tmpl.yaml
-    - templates/output/randomization-schedule-tmpl.yaml
-    - templates/output/blinding-plan-tmpl.yaml
-    - templates/output/sample-size-justification-tmpl.yaml
-    - templates/output/doe-design-tmpl.yaml
-    - templates/output/method-development-plan-tmpl.yaml
-    - templates/output/method-validation-protocol-tmpl.yaml
-    - templates/output/method-validation-report-tmpl.yaml
-    - templates/output/method-transfer-plan-tmpl.yaml
-    - templates/output/sop-template-tmpl.yaml
-    - templates/output/data-management-plan-tmpl.yaml
-    - templates/output/preregistration-package-tmpl.yaml
-    - templates/output/ibc-irb-iacuc-appendix-tmpl.yaml
-    - templates/output/codebook-dictionary-tmpl.yaml
-    - templates/output/metadata-schema-tmpl.yaml
-    - templates/output/method-change-control-plan-tmpl.yaml
-    - templates/output/training-transfer-plan-tmpl.yaml
+    - protocol-core-tmpl.yaml
+    - statistical-analysis-plan-tmpl.yaml
+    - randomization-schedule-tmpl.yaml
+    - blinding-plan-tmpl.yaml
+    - sample-size-justification-tmpl.yaml
+    - doe-design-tmpl.yaml
+    - method-development-plan-tmpl.yaml
+    - method-validation-protocol-tmpl.yaml
+    - method-validation-report-tmpl.yaml
+    - method-transfer-plan-tmpl.yaml
+    - sop-template-tmpl.yaml
+    - data-management-plan-tmpl.yaml
+    - preregistration-package-tmpl.yaml
+    - ibc-irb-iacuc-appendix-tmpl.yaml
+    - codebook-dictionary-tmpl.yaml
+    - metadata-schema-tmpl.yaml
+    - method-change-control-plan-tmpl.yaml
+    - training-transfer-plan-tmpl.yaml
   checklists:
-    - checklists/protocol-completeness-checklist.md
-    - checklists/reproducibility-checklist.md
-    - checklists/randomization-blinding-checklist.md
-    - checklists/sample-handling-checklist.md
-    - checklists/method-validation-checklist.md
-    - checklists/method-transfer-checklist.md
-    - checklists/ethics-privacy-checklist.md
-    - checklists/data-metadata-checklist.md
-    - checklists/method-change-control-checklist.md
-    - checklists/training-competency-checklist.md
-  kb:
+    - protocol-completeness-checklist.md
+    - reproducibility-checklist.md
+    - randomization-blinding-checklist.md
+    - sample-handling-checklist.md
+    - method-validation-checklist.md
+    - method-transfer-checklist.md
+    - ethics-privacy-checklist.md
+    - data-metadata-checklist.md
+    - method-change-control-checklist.md
+    - training-competency-checklist.md
+  data:
     - kb/protocol-architecture.md
     - kb/sample-size-power.md
     - kb/randomization-and-blinding.md
@@ -133,26 +133,25 @@ dependencies:
     - kb/prereg-ethics-packaging.md
     - kb/change-control-governance.md
     - kb/training-competency.md
-  data:
-    - templates/data/projects.csv
-    - templates/data/protocols.csv
-    - templates/data/experiments.csv
-    - templates/data/samples.csv
-    - templates/data/instruments.csv
-    - templates/data/calibrations.csv
-    - templates/data/reagents.csv
-    - templates/data/inventory.csv
-    - templates/data/randomization_lists.csv
-    - templates/data/blinding_keys.csv
-    - templates/data/sample_size_records.csv
-    - templates/data/doe_runs.csv
-    - templates/data/validation_results.csv
-    - templates/data/transfer_records.csv
-    - templates/data/changes.csv
-    - templates/data/trainings.csv
-    - templates/data/ethics_approvals.csv
-    - templates/data/consents.csv
-    - templates/data/metadata_registry.csv
-    - templates/data/code_env.csv
-    - templates/data/kpi.csv
+    - projects.csv
+    - protocols.csv
+    - experiments.csv
+    - samples.csv
+    - instruments.csv
+    - calibrations.csv
+    - reagents.csv
+    - inventory.csv
+    - randomization_lists.csv
+    - blinding_keys.csv
+    - sample_size_records.csv
+    - doe_runs.csv
+    - validation_results.csv
+    - transfer_records.csv
+    - changes.csv
+    - trainings.csv
+    - ethics_approvals.csv
+    - consents.csv
+    - metadata_registry.csv
+    - code_env.csv
+    - kpi.csv
 ```

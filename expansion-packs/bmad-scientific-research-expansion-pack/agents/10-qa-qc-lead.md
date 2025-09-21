@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when the user selects them via command or task
   - The agent.customization ALWAYS takes precedence over conflicting instructions
-  - When listing tasks/templates/checklists, ALWAYS show a numbered options list for quick selection
+  - When listing templates/checklists, ALWAYS show a numbered options list for quick selection
   - Process commands that start with * immediately
   - STAY IN CHARACTER! Be the QA/QC Lead
 
@@ -48,150 +48,150 @@ commands:
   - exit: Leave this persona
 
   # —— 基于模板的文档创建 ——
-  - create-doc qa-program: run task tasks/create-doc.md with template templates/output/qa-program-plan-tmpl.yaml
-  - create-doc qc-program: run task tasks/create-doc.md with template templates/output/qc-program-plan-tmpl.yaml
-  - create-doc sampling-plan: run task tasks/create-doc.md with template templates/output/sampling-plan-tmpl.yaml
-  - create-doc mv-protocol: run task tasks/create-doc.md with template templates/output/method-validation-protocol-tmpl.yaml
-  - create-doc mv-report: run task tasks/create-doc.md with template templates/output/method-validation-report-tmpl.yaml
-  - create-doc iqoqpq-protocol: run task tasks/create-doc.md with template templates/output/iqoqpq-protocol-tmpl.yaml
-  - create-doc iqoqpq-report: run task tasks/create-doc.md with template templates/output/iqoqpq-report-tmpl.yaml
-  - create-doc calibration-plan: run task tasks/create-doc.md with template templates/output/calibration-plan-tmpl.yaml
-  - create-doc change-plan: run task tasks/create-doc.md with template templates/output/change-control-plan-tmpl.yaml
-  - create-doc deviation: run task tasks/create-doc.md with template templates/output/deviation-report-tmpl.yaml
-  - create-doc oos: run task tasks/create-doc.md with template templates/output/oos-investigation-report-tmpl.yaml
-  - create-doc capa: run task tasks/create-doc.md with template templates/output/capa-plan-tmpl.yaml
-  - create-doc audit-plan: run task tasks/create-doc.md with template templates/output/audit-plan-tmpl.yaml
-  - create-doc audit-report: run task tasks/create-doc.md with template templates/output/audit-report-tmpl.yaml
-  - create-doc di-plan: run task tasks/create-doc.md with template templates/output/data-integrity-plan-tmpl.yaml
-  - create-doc doc-control: run task tasks/create-doc.md with template templates/output/document-control-procedure-tmpl.yaml
-  - create-doc training-matrix: run task tasks/create-doc.md with template templates/output/training-matrix-tmpl.yaml
-  - create-doc stability-protocol: run task tasks/create-doc.md with template templates/output/stability-protocol-tmpl.yaml
-  - create-doc stability-report: run task tasks/create-doc.md with template templates/output/stability-report-tmpl.yaml
-  - create-doc supplier-quality: run task tasks/create-doc.md with template templates/output/supplier-quality-plan-tmpl.yaml
-  - create-doc batch-record: run task tasks/create-doc.md with template templates/output/batch-record-template-tmpl.yaml
-  - create-doc test-report: run task tasks/create-doc.md with template templates/output/test-report-template-tmpl.yaml
+  - create-doc qa-program: run task create-doc.md with template qa-program-plan-tmpl.yaml
+  - create-doc qc-program: run task create-doc.md with template qc-program-plan-tmpl.yaml
+  - create-doc sampling-plan: run task create-doc.md with template sampling-plan-tmpl.yaml
+  - create-doc mv-protocol: run task create-doc.md with template method-validation-protocol-tmpl.yaml
+  - create-doc mv-report: run task create-doc.md with template method-validation-report-tmpl.yaml
+  - create-doc iqoqpq-protocol: run task create-doc.md with template iqoqpq-protocol-tmpl.yaml
+  - create-doc iqoqpq-report: run task create-doc.md with template iqoqpq-report-tmpl.yaml
+  - create-doc calibration-plan: run task create-doc.md with template calibration-plan-tmpl.yaml
+  - create-doc change-plan: run task create-doc.md with template change-control-plan-tmpl.yaml
+  - create-doc deviation: run task create-doc.md with template deviation-report-tmpl.yaml
+  - create-doc oos: run task create-doc.md with template oos-investigation-report-tmpl.yaml
+  - create-doc capa: run task create-doc.md with template capa-plan-tmpl.yaml
+  - create-doc audit-plan: run task create-doc.md with template audit-plan-tmpl.yaml
+  - create-doc audit-report: run task create-doc.md with template audit-report-tmpl.yaml
+  - create-doc di-plan: run task create-doc.md with template data-integrity-plan-tmpl.yaml
+  - create-doc doc-control: run task create-doc.md with template document-control-procedure-tmpl.yaml
+  - create-doc training-matrix: run task create-doc.md with template training-matrix-tmpl.yaml
+  - create-doc stability-protocol: run task create-doc.md with template stability-protocol-tmpl.yaml
+  - create-doc stability-report: run task create-doc.md with template stability-report-tmpl.yaml
+  - create-doc supplier-quality: run task create-doc.md with template supplier-quality-plan-tmpl.yaml
+  - create-doc batch-record: run task create-doc.md with template batch-record-template-tmpl.yaml
+  - create-doc test-report: run task create-doc.md with template test-report-template-tmpl.yaml
 
   # —— 运行类任务 ——
-  - qms-setup: run task tasks/qms-setup.md
-  - document-control: run task tasks/document-control.md
-  - training-competency: run task tasks/training-competency.md
-  - risk-fmea: run task tasks/risk-assessment-fmea.md
-  - deviation-report: run task tasks/deviation-report.md
-  - oos-investigation: run task tasks/oos-investigation.md
-  - oot-investigation: run task tasks/oot-trend-investigation.md
-  - capa-cycle: run task tasks/capa-cycle.md
-  - change-control: run task tasks/change-control.md
-  - supplier-qualification: run task tasks/supplier-qualification.md
-  - incoming-inspection: run task tasks/incoming-inspection.md
-  - sampling-execute: run task tasks/sampling-plan-execute.md
-  - qc-assay-run: run task tasks/qc-assay-run.md
-  - batch-record-review: run task tasks/batch-record-review.md
-  - method-validation: run task tasks/method-validation.md
-  - stability-setup: run task tasks/stability-study-setup.md
-  - stability-execute: run task tasks/stability-study-execute.md
-  - instrument-iqoqpq: run task tasks/instrument-qualification-iqoqpq.md
-  - calibration-run: run task tasks/calibration-run.md
-  - ref-std-mgmt: run task tasks/reference-standard-management.md
-  - env-monitor-qc: run task tasks/environmental-monitoring-qc.md
-  - data-integrity-check: run task tasks/data-integrity-check.md
-  - audit-internal: run task tasks/audit-internal.md
-  - audit-mock: run task tasks/audit-mock-inspection.md
-  - complaint-handling: run task tasks/complaint-handling.md
-  - lot-release: run task tasks/lot-release-decision.md
-  - kpi-trending: run task tasks/kpi-and-trending.md
-  - continuous-improve: run task tasks/continuous-improvement.md
+  - qms-setup: run task qms-setup.md
+  - document-control: run task document-control.md
+  - training-competency: run task training-competency.md
+  - risk-fmea: run task risk-assessment-fmea.md
+  - deviation-report: run task deviation-report.md
+  - oos-investigation: run task oos-investigation.md
+  - oot-investigation: run task oot-trend-investigation.md
+  - capa-cycle: run task capa-cycle.md
+  - change-control: run task change-control.md
+  - supplier-qualification: run task supplier-qualification.md
+  - incoming-inspection: run task incoming-inspection.md
+  - sampling-execute: run task sampling-plan-execute.md
+  - qc-assay-run: run task qc-assay-run.md
+  - batch-record-review: run task batch-record-review.md
+  - method-validation: run task method-validation.md
+  - stability-setup: run task stability-study-setup.md
+  - stability-execute: run task stability-study-execute.md
+  - instrument-iqoqpq: run task instrument-qualification-iqoqpq.md
+  - calibration-run: run task calibration-run.md
+  - ref-std-mgmt: run task reference-standard-management.md
+  - env-monitor-qc: run task environmental-monitoring-qc.md
+  - data-integrity-check: run task data-integrity-check.md
+  - audit-internal: run task audit-internal.md
+  - audit-mock: run task audit-mock-inspection.md
+  - complaint-handling: run task complaint-handling.md
+  - lot-release: run task lot-release-decision.md
+  - kpi-trending: run task kpi-and-trending.md
+  - continuous-improve: run task continuous-improvement.md
 
   # —— 清单执行 ——
-  - execute-checklist di: run task tasks/execute-checklist.md with checklist checklists/data-integrity-checklist.md
-  - execute-checklist doc: run task tasks/execute-checklist.md with checklist checklists/document-control-checklist.md
-  - execute-checklist mv: run task tasks/execute-checklist.md with checklist checklists/method-validation-checklist.md
-  - execute-checklist iqoqpq: run task tasks/execute-checklist.md with checklist checklists/instrument-qualification-checklist.md
-  - execute-checklist sampling: run task tasks/execute-checklist.md with checklist checklists/sampling-execution-checklist.md
-  - execute-checklist batch: run task tasks/execute-checklist.md with checklist checklists/batch-record-review-checklist.md
-  - execute-checklist change: run task tasks/execute-checklist.md with checklist checklists/change-control-checklist.md
-  - execute-checklist dev-oos: run task tasks/execute-checklist.md with checklist checklists/deviation-oos-checklist.md
-  - execute-checklist audit: run task tasks/execute-checklist.md with checklist checklists/audit-readiness-checklist.md
-  - execute-checklist train: run task tasks/execute-checklist.md with checklist checklists/training-competency-checklist.md
-  - execute-checklist supplier: run task tasks/execute-checklist.md with checklist checklists/supplier-quality-checklist.md
-  - execute-checklist stability: run task tasks/execute-checklist.md with checklist checklists/stability-study-checklist.md
-  - execute-checklist ref-std: run task tasks/execute-checklist.md with checklist checklists/reference-standard-checklist.md
-  - execute-checklist env: run task tasks/execute-checklist.md with checklist checklists/environmental-monitoring-checklist.md
-  - execute-checklist lot: run task tasks/execute-checklist.md with checklist checklists/lot-release-checklist.md
-  - execute-checklist cal: run task tasks/execute-checklist.md with checklist checklists/calibration-checklist.md
+  - execute-checklist di: run task execute-checklist.md with checklist data-integrity-checklist.md
+  - execute-checklist doc: run task execute-checklist.md with checklist document-control-checklist.md
+  - execute-checklist mv: run task execute-checklist.md with checklist method-validation-checklist.md
+  - execute-checklist iqoqpq: run task execute-checklist.md with checklist instrument-qualification-checklist.md
+  - execute-checklist sampling: run task execute-checklist.md with checklist sampling-execution-checklist.md
+  - execute-checklist batch: run task execute-checklist.md with checklist batch-record-review-checklist.md
+  - execute-checklist change: run task execute-checklist.md with checklist change-control-checklist.md
+  - execute-checklist dev-oos: run task execute-checklist.md with checklist deviation-oos-checklist.md
+  - execute-checklist audit: run task execute-checklist.md with checklist audit-readiness-checklist.md
+  - execute-checklist train: run task execute-checklist.md with checklist training-competency-checklist.md
+  - execute-checklist supplier: run task execute-checklist.md with checklist supplier-quality-checklist.md
+  - execute-checklist stability: run task execute-checklist.md with checklist stability-study-checklist.md
+  - execute-checklist ref-std: run task execute-checklist.md with checklist reference-standard-checklist.md
+  - execute-checklist env: run task execute-checklist.md with checklist environmental-monitoring-checklist.md
+  - execute-checklist lot: run task execute-checklist.md with checklist lot-release-checklist.md
+  - execute-checklist cal: run task execute-checklist.md with checklist calibration-checklist.md
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/qms-setup.md
-    - tasks/document-control.md
-    - tasks/training-competency.md
-    - tasks/risk-assessment-fmea.md
-    - tasks/deviation-report.md
-    - tasks/oos-investigation.md
-    - tasks/oot-trend-investigation.md
-    - tasks/capa-cycle.md
-    - tasks/change-control.md
-    - tasks/supplier-qualification.md
-    - tasks/incoming-inspection.md
-    - tasks/sampling-plan-execute.md
-    - tasks/qc-assay-run.md
-    - tasks/batch-record-review.md
-    - tasks/method-validation.md
-    - tasks/stability-study-setup.md
-    - tasks/stability-study-execute.md
-    - tasks/instrument-qualification-iqoqpq.md
-    - tasks/calibration-run.md
-    - tasks/reference-standard-management.md
-    - tasks/environmental-monitoring-qc.md
-    - tasks/data-integrity-check.md
-    - tasks/audit-internal.md
-    - tasks/audit-mock-inspection.md
-    - tasks/complaint-handling.md
-    - tasks/lot-release-decision.md
-    - tasks/kpi-and-trending.md
-    - tasks/continuous-improvement.md
-    - tasks/execute-checklist.md
+    - create-doc.md
+    - qms-setup.md
+    - document-control.md
+    - training-competency.md
+    - risk-assessment-fmea.md
+    - deviation-report.md
+    - oos-investigation.md
+    - oot-trend-investigation.md
+    - capa-cycle.md
+    - change-control.md
+    - supplier-qualification.md
+    - incoming-inspection.md
+    - sampling-plan-execute.md
+    - qc-assay-run.md
+    - batch-record-review.md
+    - method-validation.md
+    - stability-study-setup.md
+    - stability-study-execute.md
+    - instrument-qualification-iqoqpq.md
+    - calibration-run.md
+    - reference-standard-management.md
+    - environmental-monitoring-qc.md
+    - data-integrity-check.md
+    - audit-internal.md
+    - audit-mock-inspection.md
+    - complaint-handling.md
+    - lot-release-decision.md
+    - kpi-and-trending.md
+    - continuous-improvement.md
+    - execute-checklist.md
   templates:
-    - templates/output/qa-program-plan-tmpl.yaml
-    - templates/output/qc-program-plan-tmpl.yaml
-    - templates/output/sampling-plan-tmpl.yaml
-    - templates/output/method-validation-protocol-tmpl.yaml
-    - templates/output/method-validation-report-tmpl.yaml
-    - templates/output/iqoqpq-protocol-tmpl.yaml
-    - templates/output/iqoqpq-report-tmpl.yaml
-    - templates/output/calibration-plan-tmpl.yaml
-    - templates/output/change-control-plan-tmpl.yaml
-    - templates/output/deviation-report-tmpl.yaml
-    - templates/output/oos-investigation-report-tmpl.yaml
-    - templates/output/capa-plan-tmpl.yaml
-    - templates/output/audit-plan-tmpl.yaml
-    - templates/output/audit-report-tmpl.yaml
-    - templates/output/data-integrity-plan-tmpl.yaml
-    - templates/output/document-control-procedure-tmpl.yaml
-    - templates/output/training-matrix-tmpl.yaml
-    - templates/output/stability-protocol-tmpl.yaml
-    - templates/output/stability-report-tmpl.yaml
-    - templates/output/supplier-quality-plan-tmpl.yaml
-    - templates/output/batch-record-template-tmpl.yaml
-    - templates/output/test-report-template-tmpl.yaml
+    - qa-program-plan-tmpl.yaml
+    - qc-program-plan-tmpl.yaml
+    - sampling-plan-tmpl.yaml
+    - method-validation-protocol-tmpl.yaml
+    - method-validation-report-tmpl.yaml
+    - iqoqpq-protocol-tmpl.yaml
+    - iqoqpq-report-tmpl.yaml
+    - calibration-plan-tmpl.yaml
+    - change-control-plan-tmpl.yaml
+    - deviation-report-tmpl.yaml
+    - oos-investigation-report-tmpl.yaml
+    - capa-plan-tmpl.yaml
+    - audit-plan-tmpl.yaml
+    - audit-report-tmpl.yaml
+    - data-integrity-plan-tmpl.yaml
+    - document-control-procedure-tmpl.yaml
+    - training-matrix-tmpl.yaml
+    - stability-protocol-tmpl.yaml
+    - stability-report-tmpl.yaml
+    - supplier-quality-plan-tmpl.yaml
+    - batch-record-template-tmpl.yaml
+    - test-report-template-tmpl.yaml
   checklists:
-    - checklists/data-integrity-checklist.md
-    - checklists/document-control-checklist.md
-    - checklists/method-validation-checklist.md
-    - checklists/instrument-qualification-checklist.md
-    - checklists/sampling-execution-checklist.md
-    - checklists/batch-record-review-checklist.md
-    - checklists/change-control-checklist.md
-    - checklists/deviation-oos-checklist.md
-    - checklists/audit-readiness-checklist.md
-    - checklists/training-competency-checklist.md
-    - checklists/supplier-quality-checklist.md
-    - checklists/stability-study-checklist.md
-    - checklists/reference-standard-checklist.md
-    - checklists/environmental-monitoring-checklist.md
-    - checklists/lot-release-checklist.md
-    - checklists/calibration-checklist.md
-  kb:
+    - data-integrity-checklist.md
+    - document-control-checklist.md
+    - method-validation-checklist.md
+    - instrument-qualification-checklist.md
+    - sampling-execution-checklist.md
+    - batch-record-review-checklist.md
+    - change-control-checklist.md
+    - deviation-oos-checklist.md
+    - audit-readiness-checklist.md
+    - training-competency-checklist.md
+    - supplier-quality-checklist.md
+    - stability-study-checklist.md
+    - reference-standard-checklist.md
+    - environmental-monitoring-checklist.md
+    - lot-release-checklist.md
+    - calibration-checklist.md
+  data:
     - kb/alcoa-plus.md
     - kb/glp-gcp-gclp-overview.md
     - kb/oos-oot-handling.md
@@ -204,35 +204,34 @@ dependencies:
     - kb/change-control-governance.md
     - kb/stability-testing-basics.md
     - kb/supplier-quality-management.md
-  data:
-    - templates/data/projects.csv
-    - templates/data/protocols.csv
-    - templates/data/methods.csv
-    - templates/data/instruments.csv
-    - templates/data/calibrations.csv
-    - templates/data/maintenance.csv
-    - templates/data/reagents.csv
-    - templates/data/inventory.csv
-    - templates/data/samples.csv
-    - templates/data/batches.csv
-    - templates/data/qc_runs.csv
-    - templates/data/test_results.csv
-    - templates/data/reference_standards.csv
-    - templates/data/environmental_monitor.csv
-    - templates/data/stability_studies.csv
-    - templates/data/deviations.csv
-    - templates/data/oos.csv
-    - templates/data/oot.csv
-    - templates/data/capa.csv
-    - templates/data/change_controls.csv
-    - templates/data/audits.csv
-    - templates/data/training.csv
-    - templates/data/document_register.csv
-    - templates/data/sop_register.csv
-    - templates/data/version_history.csv
-    - templates/data/data_integrity_issues.csv
-    - templates/data/supplier_qualifications.csv
-    - templates/data/complaints.csv
-    - templates/data/lot_release.csv
-    - templates/data/kpi.csv
+    - projects.csv
+    - protocols.csv
+    - methods.csv
+    - instruments.csv
+    - calibrations.csv
+    - maintenance.csv
+    - reagents.csv
+    - inventory.csv
+    - samples.csv
+    - batches.csv
+    - qc_runs.csv
+    - test_results.csv
+    - reference_standards.csv
+    - environmental_monitor.csv
+    - stability_studies.csv
+    - deviations.csv
+    - oos.csv
+    - oot.csv
+    - capa.csv
+    - change_controls.csv
+    - audits.csv
+    - training.csv
+    - document_register.csv
+    - sop_register.csv
+    - version_history.csv
+    - data_integrity_issues.csv
+    - supplier_qualifications.csv
+    - complaints.csv
+    - lot_release.csv
+    - kpi.csv
 ```

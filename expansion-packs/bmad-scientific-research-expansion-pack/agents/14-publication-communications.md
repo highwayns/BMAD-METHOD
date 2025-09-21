@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when selected via a command or task
   - The agent.customization ALWAYS takes precedence over any conflicting instruction
-  - When listing tasks/templates/checklists, ALWAYS show a numbered options list (user can reply with a number)
+  - When listing templates/checklists, ALWAYS show a numbered options list (user can reply with a number)
   - Process commands that start with * immediately
   - STAY IN CHARACTER! Be the Publication & Communications Lead
 
@@ -48,149 +48,149 @@ commands:
   - exit: Leave this persona
 
   # —— 文档创建 ——
-  - create-doc manuscript: run task tasks/create-doc.md with template templates/output/manuscript-structure-tmpl.yaml
-  - create-doc cover-letter: run task tasks/create-doc.md with template templates/output/cover-letter-tmpl.yaml
-  - create-doc response-letter: run task tasks/create-doc.md with template templates/output/response-to-reviewers-tmpl.yaml
-  - create-doc das: run task tasks/create-doc.md with template templates/output/data-availability-statement-tmpl.yaml
-  - create-doc cas: run task tasks/create-doc.md with template templates/output/code-availability-statement-tmpl.yaml
-  - create-doc credit: run task tasks/create-doc.md with template templates/output/credit-authorship-statement-tmpl.yaml
-  - create-doc coi: run task tasks/create-doc.md with template templates/output/conflict-of-interest-disclosure-tmpl.yaml
-  - create-doc license: run task tasks/create-doc.md with template templates/output/copyright-license-selection-tmpl.yaml
-  - create-doc oa-plan: run task tasks/create-doc.md with template templates/output/open-access-plan-tmpl.yaml
-  - create-doc prereg: run task tasks/create-doc.md with template templates/output/preregistration-statement-tmpl.yaml
-  - create-doc press-release: run task tasks/create-doc.md with template templates/output/press-release-tmpl.yaml
-  - create-doc media-brief: run task tasks/create-doc.md with template templates/output/media-qa-brief-tmpl.yaml
-  - create-doc lay-summary: run task tasks/create-doc.md with template templates/output/plain-language-summary-tmpl.yaml
-  - create-doc graph-abstract: run task tasks/create-doc.md with template templates/output/graphical-abstract-brief-tmpl.yaml
-  - create-doc social-plan: run task tasks/create-doc.md with template templates/output/social-comms-plan-tmpl.yaml
-  - create-doc conf-abstract: run task tasks/create-doc.md with template templates/output/conference-abstract-tmpl.yaml
-  - create-doc poster: run task tasks/create-doc.md with template templates/output/poster-template-tmpl.yaml
-  - create-doc slides: run task tasks/create-doc.md with template templates/output/talk-slidedeck-tmpl.yaml
-  - create-doc repo-readme: run task tasks/create-doc.md with template templates/output/repository-readme-tmpl.yaml
-  - create-doc dataset-metadata: run task tasks/create-doc.md with template templates/output/dataset-metadata-tmpl.yaml
-  - create-doc code-metadata: run task tasks/create-doc.md with template templates/output/code-metadata-tmpl.yaml
-  - create-doc embargo-plan: run task tasks/create-doc.md with template templates/output/embargo-and-press-plan-tmpl.yaml
-  - create-doc correction: run task tasks/create-doc.md with template templates/output/correction-retraction-notice-tmpl.yaml
+  - create-doc manuscript: run task create-doc.md with template manuscript-structure-tmpl.yaml
+  - create-doc cover-letter: run task create-doc.md with template cover-letter-tmpl.yaml
+  - create-doc response-letter: run task create-doc.md with template response-to-reviewers-tmpl.yaml
+  - create-doc das: run task create-doc.md with template data-availability-statement-tmpl.yaml
+  - create-doc cas: run task create-doc.md with template code-availability-statement-tmpl.yaml
+  - create-doc credit: run task create-doc.md with template credit-authorship-statement-tmpl.yaml
+  - create-doc coi: run task create-doc.md with template conflict-of-interest-disclosure-tmpl.yaml
+  - create-doc license: run task create-doc.md with template copyright-license-selection-tmpl.yaml
+  - create-doc oa-plan: run task create-doc.md with template open-access-plan-tmpl.yaml
+  - create-doc prereg: run task create-doc.md with template preregistration-statement-tmpl.yaml
+  - create-doc press-release: run task create-doc.md with template press-release-tmpl.yaml
+  - create-doc media-brief: run task create-doc.md with template media-qa-brief-tmpl.yaml
+  - create-doc lay-summary: run task create-doc.md with template plain-language-summary-tmpl.yaml
+  - create-doc graph-abstract: run task create-doc.md with template graphical-abstract-brief-tmpl.yaml
+  - create-doc social-plan: run task create-doc.md with template social-comms-plan-tmpl.yaml
+  - create-doc conf-abstract: run task create-doc.md with template conference-abstract-tmpl.yaml
+  - create-doc poster: run task create-doc.md with template poster-template-tmpl.yaml
+  - create-doc slides: run task create-doc.md with template talk-slidedeck-tmpl.yaml
+  - create-doc repo-readme: run task create-doc.md with template repository-readme-tmpl.yaml
+  - create-doc dataset-metadata: run task create-doc.md with template dataset-metadata-tmpl.yaml
+  - create-doc code-metadata: run task create-doc.md with template code-metadata-tmpl.yaml
+  - create-doc embargo-plan: run task create-doc.md with template embargo-and-press-plan-tmpl.yaml
+  - create-doc correction: run task create-doc.md with template correction-retraction-notice-tmpl.yaml
 
   # —— 运行任务 ——
-  - pub-strategy: run task tasks/publication-strategy.md
-  - journal-select: run task tasks/journal-selection.md
-  - authorship-credit: run task tasks/authorship-credit.md
-  - coi-collect: run task tasks/coi-collection.md
-  - ip-rights-review: run task tasks/ip-rights-review.md
-  - oa-compliance: run task tasks/open-access-compliance.md
-  - preprint-decision: run task tasks/preprint-decision.md
-  - manuscript-drafting: run task tasks/manuscript-drafting.md
-  - image-integrity-check: run task tasks/image-integrity-check.md
-  - citation-metadata: run task tasks/citation-and-metadata.md
-  - data-deposit: run task tasks/data-repository-deposit.md
-  - code-deposit: run task tasks/code-repository-deposit.md
-  - license-select: run task tasks/license-selection.md
-  - doi-register: run task tasks/doi-registration.md
-  - submission-package: run task tasks/submission-package-build.md
-  - peer-review-response: run task tasks/peer-review-response.md
-  - revision-tracking: run task tasks/revision-tracking.md
-  - accept-to-publish: run task tasks/acceptance-to-publication.md
-  - embargo-press: run task tasks/embargo-and-press.md
-  - media-outreach: run task tasks/media-outreach.md
-  - social-campaign: run task tasks/social-campaign.md
-  - conf-submission: run task tasks/conference-submission.md
-  - postpub-stewardship: run task tasks/post-publication-stewardship.md
-  - corrections-retractions: run task tasks/corrections-retractions.md
-  - metrics-tracking: run task tasks/metrics-and-altmetrics.md
-  - repository-records: run task tasks/repository-records.md
-  - orcid-linking: run task tasks/orcid-linking.md
-  - funder-mandate-check: run task tasks/funder-mandate-check.md
-  - accessibility-check: run task tasks/accessibility-and-language-check.md
-  - translation-localization: run task tasks/translation-localization.md
-  - ai-disclosure-review: run task tasks/ai-use-disclosure-review.md
-  - plagiarism-check: run task tasks/plagiarism-and-duplicate-check.md
-  - rcr-training-log: run task tasks/rcr-training-log.md
-  - kpi-trending: run task tasks/kpi-trending.md
-  - execute-checklist: run task tasks/execute-checklist.md
+  - pub-strategy: run task publication-strategy.md
+  - journal-select: run task journal-selection.md
+  - authorship-credit: run task authorship-credit.md
+  - coi-collect: run task coi-collection.md
+  - ip-rights-review: run task ip-rights-review.md
+  - oa-compliance: run task open-access-compliance.md
+  - preprint-decision: run task preprint-decision.md
+  - manuscript-drafting: run task manuscript-drafting.md
+  - image-integrity-check: run task image-integrity-check.md
+  - citation-metadata: run task citation-and-metadata.md
+  - data-deposit: run task data-repository-deposit.md
+  - code-deposit: run task code-repository-deposit.md
+  - license-select: run task license-selection.md
+  - doi-register: run task doi-registration.md
+  - submission-package: run task submission-package-build.md
+  - peer-review-response: run task peer-review-response.md
+  - revision-tracking: run task revision-tracking.md
+  - accept-to-publish: run task acceptance-to-publication.md
+  - embargo-press: run task embargo-and-press.md
+  - media-outreach: run task media-outreach.md
+  - social-campaign: run task social-campaign.md
+  - conf-submission: run task conference-submission.md
+  - postpub-stewardship: run task post-publication-stewardship.md
+  - corrections-retractions: run task corrections-retractions.md
+  - metrics-tracking: run task metrics-and-altmetrics.md
+  - repository-records: run task repository-records.md
+  - orcid-linking: run task orcid-linking.md
+  - funder-mandate-check: run task funder-mandate-check.md
+  - accessibility-check: run task accessibility-and-language-check.md
+  - translation-localization: run task translation-localization.md
+  - ai-disclosure-review: run task ai-use-disclosure-review.md
+  - plagiarism-check: run task plagiarism-and-duplicate-check.md
+  - rcr-training-log: run task rcr-training-log.md
+  - kpi-trending: run task kpi-trending.md
+  - execute-checklist: run task execute-checklist.md
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/publication-strategy.md
-    - tasks/journal-selection.md
-    - tasks/authorship-credit.md
-    - tasks/coi-collection.md
-    - tasks/ip-rights-review.md
-    - tasks/open-access-compliance.md
-    - tasks/preprint-decision.md
-    - tasks/manuscript-drafting.md
-    - tasks/image-integrity-check.md
-    - tasks/citation-and-metadata.md
-    - tasks/data-repository-deposit.md
-    - tasks/code-repository-deposit.md
-    - tasks/license-selection.md
-    - tasks/doi-registration.md
-    - tasks/submission-package-build.md
-    - tasks/peer-review-response.md
-    - tasks/revision-tracking.md
-    - tasks/acceptance-to-publication.md
-    - tasks/embargo-and-press.md
-    - tasks/media-outreach.md
-    - tasks/social-campaign.md
-    - tasks/conference-submission.md
-    - tasks/post-publication-stewardship.md
-    - tasks/corrections-retractions.md
-    - tasks/metrics-and-altmetrics.md
-    - tasks/repository-records.md
-    - tasks/orcid-linking.md
-    - tasks/funder-mandate-check.md
-    - tasks/accessibility-and-language-check.md
-    - tasks/translation-localization.md
-    - tasks/ai-use-disclosure-review.md
-    - tasks/plagiarism-and-duplicate-check.md
-    - tasks/rcr-training-log.md
-    - tasks/kpi-trending.md
-    - tasks/execute-checklist.md
+    - create-doc.md
+    - publication-strategy.md
+    - journal-selection.md
+    - authorship-credit.md
+    - coi-collection.md
+    - ip-rights-review.md
+    - open-access-compliance.md
+    - preprint-decision.md
+    - manuscript-drafting.md
+    - image-integrity-check.md
+    - citation-and-metadata.md
+    - data-repository-deposit.md
+    - code-repository-deposit.md
+    - license-selection.md
+    - doi-registration.md
+    - submission-package-build.md
+    - peer-review-response.md
+    - revision-tracking.md
+    - acceptance-to-publication.md
+    - embargo-and-press.md
+    - media-outreach.md
+    - social-campaign.md
+    - conference-submission.md
+    - post-publication-stewardship.md
+    - corrections-retractions.md
+    - metrics-and-altmetrics.md
+    - repository-records.md
+    - orcid-linking.md
+    - funder-mandate-check.md
+    - accessibility-and-language-check.md
+    - translation-localization.md
+    - ai-use-disclosure-review.md
+    - plagiarism-and-duplicate-check.md
+    - rcr-training-log.md
+    - kpi-trending.md
+    - execute-checklist.md
   templates:
-    - templates/output/manuscript-structure-tmpl.yaml
-    - templates/output/cover-letter-tmpl.yaml
-    - templates/output/response-to-reviewers-tmpl.yaml
-    - templates/output/data-availability-statement-tmpl.yaml
-    - templates/output/code-availability-statement-tmpl.yaml
-    - templates/output/credit-authorship-statement-tmpl.yaml
-    - templates/output/conflict-of-interest-disclosure-tmpl.yaml
-    - templates/output/copyright-license-selection-tmpl.yaml
-    - templates/output/open-access-plan-tmpl.yaml
-    - templates/output/preregistration-statement-tmpl.yaml
-    - templates/output/press-release-tmpl.yaml
-    - templates/output/media-qa-brief-tmpl.yaml
-    - templates/output/plain-language-summary-tmpl.yaml
-    - templates/output/graphical-abstract-brief-tmpl.yaml
-    - templates/output/social-comms-plan-tmpl.yaml
-    - templates/output/conference-abstract-tmpl.yaml
-    - templates/output/poster-template-tmpl.yaml
-    - templates/output/talk-slidedeck-tmpl.yaml
-    - templates/output/repository-readme-tmpl.yaml
-    - templates/output/dataset-metadata-tmpl.yaml
-    - templates/output/code-metadata-tmpl.yaml
-    - templates/output/embargo-and-press-plan-tmpl.yaml
-    - templates/output/correction-retraction-notice-tmpl.yaml
+    - manuscript-structure-tmpl.yaml
+    - cover-letter-tmpl.yaml
+    - response-to-reviewers-tmpl.yaml
+    - data-availability-statement-tmpl.yaml
+    - code-availability-statement-tmpl.yaml
+    - credit-authorship-statement-tmpl.yaml
+    - conflict-of-interest-disclosure-tmpl.yaml
+    - copyright-license-selection-tmpl.yaml
+    - open-access-plan-tmpl.yaml
+    - preregistration-statement-tmpl.yaml
+    - press-release-tmpl.yaml
+    - media-qa-brief-tmpl.yaml
+    - plain-language-summary-tmpl.yaml
+    - graphical-abstract-brief-tmpl.yaml
+    - social-comms-plan-tmpl.yaml
+    - conference-abstract-tmpl.yaml
+    - poster-template-tmpl.yaml
+    - talk-slidedeck-tmpl.yaml
+    - repository-readme-tmpl.yaml
+    - dataset-metadata-tmpl.yaml
+    - code-metadata-tmpl.yaml
+    - embargo-and-press-plan-tmpl.yaml
+    - correction-retraction-notice-tmpl.yaml
   checklists:
-    - checklists/authorship-credit-checklist.md
-    - checklists/coi-disclosure-checklist.md
-    - checklists/data-availability-checklist.md
-    - checklists/code-availability-checklist.md
-    - checklists/open-access-compliance-checklist.md
-    - checklists/rights-and-licenses-checklist.md
-    - checklists/image-integrity-checklist.md
-    - checklists/ai-use-disclosure-checklist.md
-    - checklists/submission-package-checklist.md
-    - checklists/cover-letter-checklist.md
-    - checklists/peer-review-response-checklist.md
-    - checklists/embargo-press-checklist.md
-    - checklists/repository-deposition-checklist.md
-    - checklists/preprint-posting-checklist.md
-    - checklists/conference-materials-checklist.md
-    - checklists/lay-summary-quality-checklist.md
-    - checklists/accessibility-language-checklist.md
-    - checklists/orcid-and-funder-mandate-checklist.md
-  kb:
+    - authorship-credit-checklist.md
+    - coi-disclosure-checklist.md
+    - data-availability-checklist.md
+    - code-availability-checklist.md
+    - open-access-compliance-checklist.md
+    - rights-and-licenses-checklist.md
+    - image-integrity-checklist.md
+    - ai-use-disclosure-checklist.md
+    - submission-package-checklist.md
+    - cover-letter-checklist.md
+    - peer-review-response-checklist.md
+    - embargo-press-checklist.md
+    - repository-deposition-checklist.md
+    - preprint-posting-checklist.md
+    - conference-materials-checklist.md
+    - lay-summary-quality-checklist.md
+    - accessibility-language-checklist.md
+    - orcid-and-funder-mandate-checklist.md
+  data:
     - kb/cope-icmje-overview.md
     - kb/credit-taxonomy.md
     - kb/fair-data-sharing.md
@@ -205,31 +205,30 @@ dependencies:
     - kb/embargo-and-press-rules.md
     - kb/orcid-crossref-setup.md
     - kb/accessibility-and-plain-language.md
-  data:
-    - templates/data/publications.csv
-    - templates/data/submissions.csv
-    - templates/data/revisions.csv
-    - templates/data/decisions.csv
-    - templates/data/authors.csv
-    - templates/data/authorship_credit.csv
-    - templates/data/orcid_links.csv
-    - templates/data/conflicts_of_interest.csv
-    - templates/data/licenses.csv
-    - templates/data/open_access_budgets.csv
-    - templates/data/datasets.csv
-    - templates/data/code_repos.csv
-    - templates/data/dois.csv
-    - templates/data/repositories.csv
-    - templates/data/embargoes.csv
-    - templates/data/press_releases.csv
-    - templates/data/media_contacts.csv
-    - templates/data/media_interactions.csv
-    - templates/data/social_posts.csv
-    - templates/data/conference_submissions.csv
-    - templates/data/presentations.csv
-    - templates/data/funder_mandates.csv
-    - templates/data/policies_journals.csv
-    - templates/data/plagiarism_checks.csv
-    - templates/data/image_integrity_checks.csv
-    - templates/data/kpi.csv
+    - publications.csv
+    - submissions.csv
+    - revisions.csv
+    - decisions.csv
+    - authors.csv
+    - authorship_credit.csv
+    - orcid_links.csv
+    - conflicts_of_interest.csv
+    - licenses.csv
+    - open_access_budgets.csv
+    - datasets.csv
+    - code_repos.csv
+    - dois.csv
+    - repositories.csv
+    - embargoes.csv
+    - press_releases.csv
+    - media_contacts.csv
+    - media_interactions.csv
+    - social_posts.csv
+    - conference_submissions.csv
+    - presentations.csv
+    - funder_mandates.csv
+    - policies_journals.csv
+    - plagiarism_checks.csv
+    - image_integrity_checks.csv
+    - kpi.csv
 ```

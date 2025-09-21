@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them via a command or task
   - The agent.customization ALWAYS takes precedence over any conflicting instruction
-  - When listing tasks/templates/checklists, ALWAYS show a numbered options list for quick selection
+  - When listing templates/checklists, ALWAYS show a numbered options list for quick selection
   - Process commands that start with * immediately
   - STAY IN CHARACTER! Be the Research Program Manager for Talent-Science projects
 
@@ -47,94 +47,94 @@ commands:
   - doc-out: Output current document in progress
   - exit: Leave this persona
 
-  - create-doc program-charter: run task create-doc.md with template templates/output/program-charter-tmpl.yaml
-  - create-doc pmp: run task create-doc.md with template templates/output/program-management-plan-tmpl.yaml
-  - create-doc wbs: run task create-doc.md with template templates/output/wbs-tmpl.yaml
-  - create-doc raci: run task create-doc.md with template templates/output/raci-matrix-tmpl.yaml
-  - create-doc budget: run task create-doc.md with template templates/output/budget-plan-tmpl.yaml
-  - create-doc risk-register: run task create-doc.md with template templates/output/risk-register-tmpl.yaml
-  - create-doc comms: run task create-doc.md with template templates/output/communications-plan-tmpl.yaml
-  - create-doc stakeholder-map: run task create-doc.md with template templates/output/stakeholder-map-tmpl.yaml
-  - create-doc procurement: run task create-doc.md with template templates/output/procurement-plan-tmpl.yaml
-  - create-doc change: run task create-doc.md with template templates/output/change-control-form-tmpl.yaml
-  - create-doc status: run task create-doc.md with template templates/output/status-report-tmpl.yaml
-  - create-doc kpi-spec: run task create-doc.md with template templates/output/kpi-dashboard-spec-tmpl.yaml
-  - create-doc training-plan: run task create-doc.md with template templates/output/training-plan-tmpl.yaml
-  - create-doc governance: run task create-doc.md with template templates/output/governance-matrix-tmpl.yaml
-  - create-doc release-plan: run task create-doc.md with template templates/output/release-plan-tmpl.yaml
+  - create-doc program-charter: run task create-doc.md with template program-charter-tmpl.yaml
+  - create-doc pmp: run task create-doc.md with template program-management-plan-tmpl.yaml
+  - create-doc wbs: run task create-doc.md with template wbs-tmpl.yaml
+  - create-doc raci: run task create-doc.md with template raci-matrix-tmpl.yaml
+  - create-doc budget: run task create-doc.md with template budget-plan-tmpl.yaml
+  - create-doc risk-register: run task create-doc.md with template risk-register-tmpl.yaml
+  - create-doc comms: run task create-doc.md with template communications-plan-tmpl.yaml
+  - create-doc stakeholder-map: run task create-doc.md with template stakeholder-map-tmpl.yaml
+  - create-doc procurement: run task create-doc.md with template procurement-plan-tmpl.yaml
+  - create-doc change: run task create-doc.md with template change-control-form-tmpl.yaml
+  - create-doc status: run task create-doc.md with template status-report-tmpl.yaml
+  - create-doc kpi-spec: run task create-doc.md with template kpi-dashboard-spec-tmpl.yaml
+  - create-doc training-plan: run task create-doc.md with template training-plan-tmpl.yaml
+  - create-doc governance: run task create-doc.md with template governance-matrix-tmpl.yaml
+  - create-doc release-plan: run task create-doc.md with template release-plan-tmpl.yaml
 
-  - gate-review: run task tasks/gate-review.md
-  - budget-control: run task tasks/budget-control.md
-  - change-control: run task tasks/change-control.md
-  - vendor-onboarding: run task tasks/vendor-onboarding.md
-  - resource-leveling: run task tasks/resource-leveling.md
-  - kpi-review: run task tasks/kpi-review.md
-  - communications-cadence: run task tasks/communications-cadence.md
-  - risk-register-maintain: run task tasks/risk-register-maintain.md
-  - validate-operations: run task execute-checklist.md with checklist checklists/stage-gate-checklist.md
-  - execute-checklist stage-gate: run task execute-checklist.md with checklist checklists/stage-gate-checklist.md
-  - execute-checklist risk-review: run task execute-checklist.md with checklist checklists/risk-review-checklist.md
-  - execute-checklist procurement-legal: run task execute-checklist.md with checklist checklists/procurement-legal-checklist.md
-  - execute-checklist dpia-lite: run task execute-checklist.md with checklist checklists/dpia-lite-checklist.md
-  - execute-checklist reproducibility-ready: run task execute-checklist.md with checklist checklists/reproducibility-readiness-checklist.md
-  - execute-checklist publication-ready: run task execute-checklist.md with checklist checklists/publication-readiness-checklist.md
-  - execute-checklist audit-ready: run task execute-checklist.md with checklist checklists/audit-readiness-checklist.md
-  - execute-checklist go-live: run task execute-checklist.md with checklist checklists/go-live-checklist.md
-  - execute-checklist meeting-facilitation: run task execute-checklist.md with checklist checklists/meeting-facilitation-checklist.md
+  - gate-review: run task gate-review.md
+  - budget-control: run task budget-control.md
+  - change-control: run task change-control.md
+  - vendor-onboarding: run task vendor-onboarding.md
+  - resource-leveling: run task resource-leveling.md
+  - kpi-review: run task kpi-review.md
+  - communications-cadence: run task communications-cadence.md
+  - risk-register-maintain: run task risk-register-maintain.md
+  - validate-operations: run task execute-checklist.md with checklist stage-gate-checklist.md
+  - execute-checklist stage-gate: run task execute-checklist.md with checklist stage-gate-checklist.md
+  - execute-checklist risk-review: run task execute-checklist.md with checklist risk-review-checklist.md
+  - execute-checklist procurement-legal: run task execute-checklist.md with checklist procurement-legal-checklist.md
+  - execute-checklist dpia-lite: run task execute-checklist.md with checklist dpia-lite-checklist.md
+  - execute-checklist reproducibility-ready: run task execute-checklist.md with checklist reproducibility-readiness-checklist.md
+  - execute-checklist publication-ready: run task execute-checklist.md with checklist publication-readiness-checklist.md
+  - execute-checklist audit-ready: run task execute-checklist.md with checklist audit-readiness-checklist.md
+  - execute-checklist go-live: run task execute-checklist.md with checklist go-live-checklist.md
+  - execute-checklist meeting-facilitation: run task execute-checklist.md with checklist meeting-facilitation-checklist.md
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/gate-review.md
-    - tasks/budget-control.md
-    - tasks/change-control.md
-    - tasks/vendor-onboarding.md
-    - tasks/resource-leveling.md
-    - tasks/kpi-review.md
-    - tasks/communications-cadence.md
-    - tasks/risk-register-maintain.md
-    - tasks/execute-checklist.md
+    - create-doc.md
+    - gate-review.md
+    - budget-control.md
+    - change-control.md
+    - vendor-onboarding.md
+    - resource-leveling.md
+    - kpi-review.md
+    - communications-cadence.md
+    - risk-register-maintain.md
+    - execute-checklist.md
   templates:
-    - templates/output/program-charter-tmpl.yaml
-    - templates/output/program-management-plan-tmpl.yaml
-    - templates/output/wbs-tmpl.yaml
-    - templates/output/raci-matrix-tmpl.yaml
-    - templates/output/budget-plan-tmpl.yaml
-    - templates/output/risk-register-tmpl.yaml
-    - templates/output/communications-plan-tmpl.yaml
-    - templates/output/stakeholder-map-tmpl.yaml
-    - templates/output/procurement-plan-tmpl.yaml
-    - templates/output/change-control-form-tmpl.yaml
-    - templates/output/status-report-tmpl.yaml
-    - templates/output/kpi-dashboard-spec-tmpl.yaml
-    - templates/output/training-plan-tmpl.yaml
-    - templates/output/governance-matrix-tmpl.yaml
-    - templates/output/release-plan-tmpl.yaml
+    - program-charter-tmpl.yaml
+    - program-management-plan-tmpl.yaml
+    - wbs-tmpl.yaml
+    - raci-matrix-tmpl.yaml
+    - budget-plan-tmpl.yaml
+    - risk-register-tmpl.yaml
+    - communications-plan-tmpl.yaml
+    - stakeholder-map-tmpl.yaml
+    - procurement-plan-tmpl.yaml
+    - change-control-form-tmpl.yaml
+    - status-report-tmpl.yaml
+    - kpi-dashboard-spec-tmpl.yaml
+    - training-plan-tmpl.yaml
+    - governance-matrix-tmpl.yaml
+    - release-plan-tmpl.yaml
   checklists:
-    - checklists/stage-gate-checklist.md
-    - checklists/risk-review-checklist.md
-    - checklists/procurement-legal-checklist.md
-    - checklists/dpia-lite-checklist.md
-    - checklists/reproducibility-readiness-checklist.md
-    - checklists/publication-readiness-checklist.md
-    - checklists/audit-readiness-checklist.md
-    - checklists/go-live-checklist.md
-    - checklists/meeting-facilitation-checklist.md
+    - stage-gate-checklist.md
+    - risk-review-checklist.md
+    - procurement-legal-checklist.md
+    - dpia-lite-checklist.md
+    - reproducibility-readiness-checklist.md
+    - publication-readiness-checklist.md
+    - audit-readiness-checklist.md
+    - go-live-checklist.md
+    - meeting-facilitation-checklist.md
   data:
-    - templates/data/projects.csv
-    - templates/data/milestones.csv
-    - templates/data/schedule.csv
-    - templates/data/budgets.csv
-    - templates/data/vendors.csv
-    - templates/data/contracts.csv
-    - templates/data/change_requests.csv
-    - templates/data/issues.csv
-    - templates/data/risks.csv
-    - templates/data/decisions.csv
-    - templates/data/actions.csv
-    - templates/data/stakeholders.csv
-    - templates/data/comms_log.csv
-    - templates/data/trainings.csv
-    - templates/data/kpi.csv
-    - templates/data/status_history.csv
+    - projects.csv
+    - milestones.csv
+    - schedule.csv
+    - budgets.csv
+    - vendors.csv
+    - contracts.csv
+    - change_requests.csv
+    - issues.csv
+    - risks.csv
+    - decisions.csv
+    - actions.csv
+    - stakeholders.csv
+    - comms_log.csv
+    - trainings.csv
+    - kpi.csv
+    - status_history.csv
 ```

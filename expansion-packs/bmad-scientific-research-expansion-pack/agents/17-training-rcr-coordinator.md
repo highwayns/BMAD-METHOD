@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when selected via command or task
   - The agent.customization ALWAYS takes precedence over any conflicting instruction
-  - When listing tasks/templates/checklists, ALWAYS show a numbered options list (user can reply with a number)
+  - When listing templates/checklists, ALWAYS show a numbered options list (user can reply with a number)
   - Process commands that start with * immediately
   - STAY IN CHARACTER! Be the Training & RCR Coordinator
 
@@ -48,141 +48,141 @@ commands:
   - exit: Leave this persona
 
   # —— 文档创建 ——
-  - create-doc training-policy: run task tasks/create-doc.md with template templates/output/training-policy-tmpl.yaml
-  - create-doc rcr-curriculum: run task tasks/create-doc.md with template templates/output/rcr-curriculum-tmpl.yaml
-  - create-doc training-matrix: run task tasks/create-doc.md with template templates/output/training-matrix-tmpl.yaml
-  - create-doc onboarding-plan: run task tasks/create-doc.md with template templates/output/onboarding-plan-tmpl.yaml
-  - create-doc refresher-schedule: run task tasks/create-doc.md with template templates/output/refresher-schedule-tmpl.yaml
-  - create-doc assessment-quiz: run task tasks/create-doc.md with template templates/output/assessment-quiz-tmpl.yaml
-  - create-doc certificate: run task tasks/create-doc.md with template templates/output/certificate-template-tmpl.yaml
-  - create-doc coi-disclosure: run task tasks/create-doc.md with template templates/output/coi-disclosure-form-tmpl.yaml
-  - create-doc authorship-contrib: run task tasks/create-doc.md with template templates/output/authorship-contribution-form-tmpl.yaml
-  - create-doc integrity-pledge: run task tasks/create-doc.md with template templates/output/academic-integrity-pledge-tmpl.yaml
-  - create-doc lab-coc: run task tasks/create-doc.md with template templates/output/lab-code-of-conduct-tmpl.yaml
-  - create-doc dmp-training: run task tasks/create-doc.md with template templates/output/dmp-training-addon-tmpl.yaml
-  - create-doc data-security: run task tasks/create-doc.md with template templates/output/data-security-plan-tmpl.yaml
-  - create-doc data-sharing: run task tasks/create-doc.md with template templates/output/data-sharing-policy-tmpl.yaml
-  - create-doc mentorship-agreement: run task tasks/create-doc.md with template templates/output/mentorship-agreement-tmpl.yaml
-  - create-doc misconduct-procedure: run task tasks/create-doc.md with template templates/output/misconduct-procedure-tmpl.yaml
-  - create-doc incident-capa: run task tasks/create-doc.md with template templates/output/incident-capa-form-tmpl.yaml
-  - create-doc export-training-brief: run task tasks/create-doc.md with template templates/output/export-control-training-brief-tmpl.yaml
-  - create-doc gcp-glp-plan: run task tasks/create-doc.md with template templates/output/gcp-glp-training-plan-tmpl.yaml
+  - create-doc training-policy: run task create-doc.md with template training-policy-tmpl.yaml
+  - create-doc rcr-curriculum: run task create-doc.md with template rcr-curriculum-tmpl.yaml
+  - create-doc training-matrix: run task create-doc.md with template training-matrix-tmpl.yaml
+  - create-doc onboarding-plan: run task create-doc.md with template onboarding-plan-tmpl.yaml
+  - create-doc refresher-schedule: run task create-doc.md with template refresher-schedule-tmpl.yaml
+  - create-doc assessment-quiz: run task create-doc.md with template assessment-quiz-tmpl.yaml
+  - create-doc certificate: run task create-doc.md with template certificate-template-tmpl.yaml
+  - create-doc coi-disclosure: run task create-doc.md with template coi-disclosure-form-tmpl.yaml
+  - create-doc authorship-contrib: run task create-doc.md with template authorship-contribution-form-tmpl.yaml
+  - create-doc integrity-pledge: run task create-doc.md with template academic-integrity-pledge-tmpl.yaml
+  - create-doc lab-coc: run task create-doc.md with template lab-code-of-conduct-tmpl.yaml
+  - create-doc dmp-training: run task create-doc.md with template dmp-training-addon-tmpl.yaml
+  - create-doc data-security: run task create-doc.md with template data-security-plan-tmpl.yaml
+  - create-doc data-sharing: run task create-doc.md with template data-sharing-policy-tmpl.yaml
+  - create-doc mentorship-agreement: run task create-doc.md with template mentorship-agreement-tmpl.yaml
+  - create-doc misconduct-procedure: run task create-doc.md with template misconduct-procedure-tmpl.yaml
+  - create-doc incident-capa: run task create-doc.md with template incident-capa-form-tmpl.yaml
+  - create-doc export-training-brief: run task create-doc.md with template export-control-training-brief-tmpl.yaml
+  - create-doc gcp-glp-plan: run task create-doc.md with template gcp-glp-training-plan-tmpl.yaml
 
   # —— 运行任务 ——
-  - training-needs: run task tasks/training-needs-analysis.md
-  - competency-map: run task tasks/competency-mapping.md
-  - build-curriculum: run task tasks/develop-curriculum.md
-  - build-schedule: run task tasks/build-schedule.md
-  - enroll: run task tasks/enroll-learners.md
-  - track-completions: run task tasks/track-completions.md
-  - reminders: run task tasks/send-reminders.md
-  - audit-compliance: run task tasks/audit-compliance.md
-  - course-evaluation: run task tasks/course-evaluation.md
-  - knowledge-assessment: run task tasks/knowledge-assessment.md
-  - remediation: run task tasks/remediation-plan.md
-  - misconduct-intake: run task tasks/misconduct-intake.md
-  - misconduct-inquiry: run task tasks/misconduct-inquiry-support.md
-  - plagiarism-screen: run task tasks/plagiarism-screening.md
-  - authorship-resolution: run task tasks/authorship-resolution-facilitation.md
-  - coi-collect-review: run task tasks/coi-collection-and-review.md
-  - irb-iacuc-training: run task tasks/irb-iacuc-training-compliance.md
-  - gcp-glp-gxp: run task tasks/gcp-glp-gxp-oversight.md
-  - ehs-alignment: run task tasks/ehs-safety-training-alignment.md
-  - data-privacy-security: run task tasks/data-privacy-security-training.md
-  - export-awareness: run task tasks/export-control-awareness-training.md
-  - reproducibility-program: run task tasks/reproducibility-open-science-program.md
-  - mentorship-program: run task tasks/mentorship-program.md
-  - community-practice: run task tasks/community-of-practice.md
-  - kpi-trending: run task tasks/kpi-trending.md
-  - continuous-improve: run task tasks/continuous-improvement.md
-  - execute-checklist: run task tasks/execute-checklist.md
+  - training-needs: run task training-needs-analysis.md
+  - competency-map: run task competency-mapping.md
+  - build-curriculum: run task develop-curriculum.md
+  - build-schedule: run task build-schedule.md
+  - enroll: run task enroll-learners.md
+  - track-completions: run task track-completions.md
+  - reminders: run task send-reminders.md
+  - audit-compliance: run task audit-compliance.md
+  - course-evaluation: run task course-evaluation.md
+  - knowledge-assessment: run task knowledge-assessment.md
+  - remediation: run task remediation-plan.md
+  - misconduct-intake: run task misconduct-intake.md
+  - misconduct-inquiry: run task misconduct-inquiry-support.md
+  - plagiarism-screen: run task plagiarism-screening.md
+  - authorship-resolution: run task authorship-resolution-facilitation.md
+  - coi-collect-review: run task coi-collection-and-review.md
+  - irb-iacuc-training: run task irb-iacuc-training-compliance.md
+  - gcp-glp-gxp: run task gcp-glp-gxp-oversight.md
+  - ehs-alignment: run task ehs-safety-training-alignment.md
+  - data-privacy-security: run task data-privacy-security-training.md
+  - export-awareness: run task export-control-awareness-training.md
+  - reproducibility-program: run task reproducibility-open-science-program.md
+  - mentorship-program: run task mentorship-program.md
+  - community-practice: run task community-of-practice.md
+  - kpi-trending: run task kpi-trending.md
+  - continuous-improve: run task continuous-improvement.md
+  - execute-checklist: run task execute-checklist.md
 
   # —— 清单执行 ——
-  - execute-checklist onboarding-rcr: run task tasks/execute-checklist.md with checklist checklists/onboarding-rcr-checklist.md
-  - execute-checklist training-quality: run task tasks/execute-checklist.md with checklist checklists/training-plan-quality-checklist.md
-  - execute-checklist irb-iacuc: run task tasks/execute-checklist.md with checklist checklists/irb-iacuc-training-checklist.md
-  - execute-checklist gcp-glp: run task tasks/execute-checklist.md with checklist checklists/gcp-glp-competency-checklist.md
-  - execute-checklist privacy-security: run task tasks/execute-checklist.md with checklist checklists/data-privacy-security-checklist.md
-  - execute-checklist export: run task tasks/execute-checklist.md with checklist checklists/export-control-awareness-checklist.md
-  - execute-checklist lab-coc: run task tasks/execute-checklist.md with checklist checklists/lab-safety-code-of-conduct-checklist.md
-  - execute-checklist authorship: run task tasks/execute-checklist.md with checklist checklists/authorship-plagiarism-checklist.md
-  - execute-checklist coi: run task tasks/execute-checklist.md with checklist checklists/coi-collection-checklist.md
-  - execute-checklist reproducibility: run task tasks/execute-checklist.md with checklist checklists/reproducibility-open-science-checklist.md
-  - execute-checklist quiz-quality: run task tasks/execute-checklist.md with checklist checklists/quiz-assessment-quality-checklist.md
-  - execute-checklist incident-capa: run task tasks/execute-checklist.md with checklist checklists/incident-capa-checklist.md
-  - execute-checklist records-audit: run task tasks/execute-checklist.md with checklist checklists/training-records-audit-checklist.md
-  - execute-checklist refresher-audit: run task tasks/execute-checklist.md with checklist checklists/refresher-compliance-audit-checklist.md
-  - execute-checklist mentorship: run task tasks/execute-checklist.md with checklist checklists/mentorship-agreement-checklist.md
-  - execute-checklist change-control: run task tasks/execute-checklist.md with checklist checklists/change-control-training-content-checklist.md
+  - execute-checklist onboarding-rcr: run task execute-checklist.md with checklist onboarding-rcr-checklist.md
+  - execute-checklist training-quality: run task execute-checklist.md with checklist training-plan-quality-checklist.md
+  - execute-checklist irb-iacuc: run task execute-checklist.md with checklist irb-iacuc-training-checklist.md
+  - execute-checklist gcp-glp: run task execute-checklist.md with checklist gcp-glp-competency-checklist.md
+  - execute-checklist privacy-security: run task execute-checklist.md with checklist data-privacy-security-checklist.md
+  - execute-checklist export: run task execute-checklist.md with checklist export-control-awareness-checklist.md
+  - execute-checklist lab-coc: run task execute-checklist.md with checklist lab-safety-code-of-conduct-checklist.md
+  - execute-checklist authorship: run task execute-checklist.md with checklist authorship-plagiarism-checklist.md
+  - execute-checklist coi: run task execute-checklist.md with checklist coi-collection-checklist.md
+  - execute-checklist reproducibility: run task execute-checklist.md with checklist reproducibility-open-science-checklist.md
+  - execute-checklist quiz-quality: run task execute-checklist.md with checklist quiz-assessment-quality-checklist.md
+  - execute-checklist incident-capa: run task execute-checklist.md with checklist incident-capa-checklist.md
+  - execute-checklist records-audit: run task execute-checklist.md with checklist training-records-audit-checklist.md
+  - execute-checklist refresher-audit: run task execute-checklist.md with checklist refresher-compliance-audit-checklist.md
+  - execute-checklist mentorship: run task execute-checklist.md with checklist mentorship-agreement-checklist.md
+  - execute-checklist change-control: run task execute-checklist.md with checklist change-control-training-content-checklist.md
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/training-needs-analysis.md
-    - tasks/competency-mapping.md
-    - tasks/develop-curriculum.md
-    - tasks/build-schedule.md
-    - tasks/enroll-learners.md
-    - tasks/track-completions.md
-    - tasks/send-reminders.md
-    - tasks/audit-compliance.md
-    - tasks/course-evaluation.md
-    - tasks/knowledge-assessment.md
-    - tasks/remediation-plan.md
-    - tasks/misconduct-intake.md
-    - tasks/misconduct-inquiry-support.md
-    - tasks/plagiarism-screening.md
-    - tasks/authorship-resolution-facilitation.md
-    - tasks/coi-collection-and-review.md
-    - tasks/irb-iacuc-training-compliance.md
-    - tasks/gcp-glp-gxp-oversight.md
-    - tasks/ehs-safety-training-alignment.md
-    - tasks/data-privacy-security-training.md
-    - tasks/export-control-awareness-training.md
-    - tasks/reproducibility-open-science-program.md
-    - tasks/mentorship-program.md
-    - tasks/community-of-practice.md
-    - tasks/kpi-trending.md
-    - tasks/continuous-improvement.md
-    - tasks/execute-checklist.md
+    - create-doc.md
+    - training-needs-analysis.md
+    - competency-mapping.md
+    - develop-curriculum.md
+    - build-schedule.md
+    - enroll-learners.md
+    - track-completions.md
+    - send-reminders.md
+    - audit-compliance.md
+    - course-evaluation.md
+    - knowledge-assessment.md
+    - remediation-plan.md
+    - misconduct-intake.md
+    - misconduct-inquiry-support.md
+    - plagiarism-screening.md
+    - authorship-resolution-facilitation.md
+    - coi-collection-and-review.md
+    - irb-iacuc-training-compliance.md
+    - gcp-glp-gxp-oversight.md
+    - ehs-safety-training-alignment.md
+    - data-privacy-security-training.md
+    - export-control-awareness-training.md
+    - reproducibility-open-science-program.md
+    - mentorship-program.md
+    - community-of-practice.md
+    - kpi-trending.md
+    - continuous-improvement.md
+    - execute-checklist.md
   templates:
-    - templates/output/training-policy-tmpl.yaml
-    - templates/output/rcr-curriculum-tmpl.yaml
-    - templates/output/training-matrix-tmpl.yaml
-    - templates/output/onboarding-plan-tmpl.yaml
-    - templates/output/refresher-schedule-tmpl.yaml
-    - templates/output/assessment-quiz-tmpl.yaml
-    - templates/output/certificate-template-tmpl.yaml
-    - templates/output/coi-disclosure-form-tmpl.yaml
-    - templates/output/authorship-contribution-form-tmpl.yaml
-    - templates/output/academic-integrity-pledge-tmpl.yaml
-    - templates/output/lab-code-of-conduct-tmpl.yaml
-    - templates/output/dmp-training-addon-tmpl.yaml
-    - templates/output/data-security-plan-tmpl.yaml
-    - templates/output/data-sharing-policy-tmpl.yaml
-    - templates/output/mentorship-agreement-tmpl.yaml
-    - templates/output/misconduct-procedure-tmpl.yaml
-    - templates/output/incident-capa-form-tmpl.yaml
-    - templates/output/export-control-training-brief-tmpl.yaml
-    - templates/output/gcp-glp-training-plan-tmpl.yaml
+    - training-policy-tmpl.yaml
+    - rcr-curriculum-tmpl.yaml
+    - training-matrix-tmpl.yaml
+    - onboarding-plan-tmpl.yaml
+    - refresher-schedule-tmpl.yaml
+    - assessment-quiz-tmpl.yaml
+    - certificate-template-tmpl.yaml
+    - coi-disclosure-form-tmpl.yaml
+    - authorship-contribution-form-tmpl.yaml
+    - academic-integrity-pledge-tmpl.yaml
+    - lab-code-of-conduct-tmpl.yaml
+    - dmp-training-addon-tmpl.yaml
+    - data-security-plan-tmpl.yaml
+    - data-sharing-policy-tmpl.yaml
+    - mentorship-agreement-tmpl.yaml
+    - misconduct-procedure-tmpl.yaml
+    - incident-capa-form-tmpl.yaml
+    - export-control-training-brief-tmpl.yaml
+    - gcp-glp-training-plan-tmpl.yaml
   checklists:
-    - checklists/onboarding-rcr-checklist.md
-    - checklists/training-plan-quality-checklist.md
-    - checklists/irb-iacuc-training-checklist.md
-    - checklists/gcp-glp-competency-checklist.md
-    - checklists/data-privacy-security-checklist.md
-    - checklists/export-control-awareness-checklist.md
-    - checklists/lab-safety-code-of-conduct-checklist.md
-    - checklists/authorship-plagiarism-checklist.md
-    - checklists/coi-collection-checklist.md
-    - checklists/reproducibility-open-science-checklist.md
-    - checklists/quiz-assessment-quality-checklist.md
-    - checklists/incident-capa-checklist.md
-    - checklists/training-records-audit-checklist.md
-    - checklists/refresher-compliance-audit-checklist.md
-    - checklists/mentorship-agreement-checklist.md
-    - checklists/change-control-training-content-checklist.md
-  kb:
+    - onboarding-rcr-checklist.md
+    - training-plan-quality-checklist.md
+    - irb-iacuc-training-checklist.md
+    - gcp-glp-competency-checklist.md
+    - data-privacy-security-checklist.md
+    - export-control-awareness-checklist.md
+    - lab-safety-code-of-conduct-checklist.md
+    - authorship-plagiarism-checklist.md
+    - coi-collection-checklist.md
+    - reproducibility-open-science-checklist.md
+    - quiz-assessment-quality-checklist.md
+    - incident-capa-checklist.md
+    - training-records-audit-checklist.md
+    - refresher-compliance-audit-checklist.md
+    - mentorship-agreement-checklist.md
+    - change-control-training-content-checklist.md
+  data:
     - kb/rcr-core-areas.md
     - kb/belmont-icmje-cope-overview.md
     - kb/ori-misconduct-definitions.md
@@ -202,44 +202,43 @@ dependencies:
     - kb/complaint-and-whistleblower-protection.md
     - kb/training-pedagogy-and-adult-learning.md
     - kb/accessibility-and-inclusion-in-training.md
-  data:
-    - templates/data/courses.csv
-    - templates/data/modules.csv
-    - templates/data/learners.csv
-    - templates/data/roles.csv
-    - templates/data/enrollments.csv
-    - templates/data/completions.csv
-    - templates/data/exemptions.csv
-    - templates/data/reminders.csv
-    - templates/data/sessions.csv
-    - templates/data/attendance.csv
-    - templates/data/quizzes.csv
-    - templates/data/questions.csv
-    - templates/data/scores.csv
-    - templates/data/certificates.csv
-    - templates/data/policies.csv
-    - templates/data/sops.csv
-    - templates/data/signoffs.csv
-    - templates/data/coi_disclosures.csv
-    - templates/data/authorship_forms.csv
-    - templates/data/plagiarism_checks.csv
-    - templates/data/misconduct_cases.csv
-    - templates/data/capa.csv
-    - templates/data/audits.csv
-    - templates/data/kpi.csv
-    - templates/data/communications.csv
-    - templates/data/mentorships.csv
-    - templates/data/mentors.csv
-    - templates/data/mentees.csv
-    - templates/data/onboarding_items.csv
-    - templates/data/refresher_schedule.csv
-    - templates/data/irb_iacuc_training.csv
-    - templates/data/ehs_training.csv
-    - templates/data/gcp_glp_training.csv
-    - templates/data/export_control_training.csv
-    - templates/data/data_privacy_training.csv
-    - templates/data/access_requests.csv
-    - templates/data/system_users.csv
+    - courses.csv
+    - modules.csv
+    - learners.csv
+    - roles.csv
+    - enrollments.csv
+    - completions.csv
+    - exemptions.csv
+    - reminders.csv
+    - sessions.csv
+    - attendance.csv
+    - quizzes.csv
+    - questions.csv
+    - scores.csv
+    - certificates.csv
+    - policies.csv
+    - sops.csv
+    - signoffs.csv
+    - coi_disclosures.csv
+    - authorship_forms.csv
+    - plagiarism_checks.csv
+    - misconduct_cases.csv
+    - capa.csv
+    - audits.csv
+    - kpi.csv
+    - communications.csv
+    - mentorships.csv
+    - mentors.csv
+    - mentees.csv
+    - onboarding_items.csv
+    - refresher_schedule.csv
+    - irb_iacuc_training.csv
+    - ehs_training.csv
+    - gcp_glp_training.csv
+    - export_control_training.csv
+    - data_privacy_training.csv
+    - access_requests.csv
+    - system_users.csv
 meta:
   generated_at_utc: '2025-09-16 08:54:43'
 ```

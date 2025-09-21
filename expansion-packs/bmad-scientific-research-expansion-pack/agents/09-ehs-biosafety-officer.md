@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them via a command or task
   - The agent.customization ALWAYS takes precedence over any conflicting instruction
-  - When listing tasks/templates/checklists, ALWAYS show a numbered options list
+  - When listing templates/checklists, ALWAYS show a numbered options list
   - Process commands that start with * immediately
   - STAY IN CHARACTER! Be the EHS & Biosafety Officer
 
@@ -48,141 +48,141 @@ commands:
   - exit: Leave this persona
 
   # —— 文档创建（基于模板）——
-  - create-doc ehs-plan: run task tasks/create-doc.md with template templates/output/ehs-management-plan-tmpl.yaml
-  - create-doc biosafety-plan: run task tasks/create-doc.md with template templates/output/biosafety-plan-tmpl.yaml
-  - create-doc chemical-hygiene: run task tasks/create-doc.md with template templates/output/chemical-hygiene-plan-tmpl.yaml
-  - create-doc exposure-control: run task tasks/create-doc.md with template templates/output/exposure-control-plan-tmpl.yaml
-  - create-doc emergency-response: run task tasks/create-doc.md with template templates/output/emergency-response-plan-tmpl.yaml
-  - create-doc risk-matrix: run task tasks/create-doc.md with template templates/output/risk-assessment-matrix-tmpl.yaml
-  - create-doc incident-playbook: run task tasks/create-doc.md with template templates/output/incident-playbook-ehs-tmpl.yaml
-  - create-doc waste: run task tasks/create-doc.md with template templates/output/waste-management-tmpl.yaml
-  - create-doc fume-hood: run task tasks/create-doc.md with template templates/output/fume-hood-assessment-tmpl.yaml
-  - create-doc bsc-cert: run task tasks/create-doc.md with template templates/output/bsc-certification-tmpl.yaml
-  - create-doc autoclave-validation: run task tasks/create-doc.md with template templates/output/autoclave-validation-tmpl.yaml
-  - create-doc eyewash-shower: run task tasks/create-doc.md with template templates/output/eyewash-shower-inspection-tmpl.yaml
-  - create-doc cold-chain: run task tasks/create-doc.md with template templates/output/cold-chain-assurance-tmpl.yaml
-  - create-doc signage: run task tasks/create-doc.md with template templates/output/safety-signage-plan-tmpl.yaml
-  - create-doc permits-register: run task tasks/create-doc.md with template templates/output/permits-register-tmpl.yaml
-  - create-doc training-matrix: run task tasks/create-doc.md with template templates/output/training-matrix-tmpl.yaml
-  - create-doc audit-plan: run task tasks/create-doc.md with template templates/output/audit-plan-tmpl.yaml
-  - create-doc capa: run task tasks/create-doc.md with template templates/output/capa-plan-tmpl.yaml
-  - create-doc lims-ehs-config: run task tasks/create-doc.md with template templates/output/lims-ehs-config-spec-tmpl.yaml
+  - create-doc ehs-plan: run task create-doc.md with template ehs-management-plan-tmpl.yaml
+  - create-doc biosafety-plan: run task create-doc.md with template biosafety-plan-tmpl.yaml
+  - create-doc chemical-hygiene: run task create-doc.md with template chemical-hygiene-plan-tmpl.yaml
+  - create-doc exposure-control: run task create-doc.md with template exposure-control-plan-tmpl.yaml
+  - create-doc emergency-response: run task create-doc.md with template emergency-response-plan-tmpl.yaml
+  - create-doc risk-matrix: run task create-doc.md with template risk-assessment-matrix-tmpl.yaml
+  - create-doc incident-playbook: run task create-doc.md with template incident-playbook-ehs-tmpl.yaml
+  - create-doc waste: run task create-doc.md with template waste-management-tmpl.yaml
+  - create-doc fume-hood: run task create-doc.md with template fume-hood-assessment-tmpl.yaml
+  - create-doc bsc-cert: run task create-doc.md with template bsc-certification-tmpl.yaml
+  - create-doc autoclave-validation: run task create-doc.md with template autoclave-validation-tmpl.yaml
+  - create-doc eyewash-shower: run task create-doc.md with template eyewash-shower-inspection-tmpl.yaml
+  - create-doc cold-chain: run task create-doc.md with template cold-chain-assurance-tmpl.yaml
+  - create-doc signage: run task create-doc.md with template safety-signage-plan-tmpl.yaml
+  - create-doc permits-register: run task create-doc.md with template permits-register-tmpl.yaml
+  - create-doc training-matrix: run task create-doc.md with template training-matrix-tmpl.yaml
+  - create-doc audit-plan: run task create-doc.md with template audit-plan-tmpl.yaml
+  - create-doc capa: run task create-doc.md with template capa-plan-tmpl.yaml
+  - create-doc lims-ehs-config: run task create-doc.md with template lims-ehs-config-spec-tmpl.yaml
 
   # —— 运行类任务 ——
-  - hazard-id: run task tasks/hazard-identification.md
-  - biosafety-audit: run task tasks/biosafety-audit.md
-  - chemical-audit: run task tasks/chemical-audit.md
-  - fume-hood-test: run task tasks/fume-hood-face-velocity-test.md
-  - bsc-cert-run: run task tasks/bsc-certification-run.md
-  - autoclave-bioind: run task tasks/autoclave-biological-indicator-run.md
-  - eyewash-shower-check: run task tasks/eyewash-shower-weekly-check.md
-  - sds-management: run task tasks/sds-management.md
-  - chemical-inventory: run task tasks/chemical-inventory-cycle.md
-  - waste-disposal: run task tasks/waste-disposal-run.md
-  - cold-chain-check: run task tasks/cold-chain-check.md
-  - exposure-response: run task tasks/exposure-response-protocol.md
-  - incident-report: run task tasks/incident-report.md
-  - near-miss-capture: run task tasks/near-miss-capture.md
-  - training-session: run task tasks/training-session.md
-  - access-control-review: run task tasks/access-control-review.md
-  - permits-renewal: run task tasks/permits-renewal.md
-  - contractor-qualification: run task tasks/contractor-qualification.md
-  - emergency-drill: run task tasks/emergency-drill.md
-  - audit-exec: run task tasks/ehs-audit-execution.md
-  - capa-loop: run task tasks/capa-loop.md
-  - readiness-check: run task tasks/ehs-readiness-check.md
-  - decommission-area: run task tasks/decommission-area.md
-  - continuous-improve: run task tasks/continuous-improvement.md
-  - data-integrity: run task tasks/data-integrity-check.md
+  - hazard-id: run task hazard-identification.md
+  - biosafety-audit: run task biosafety-audit.md
+  - chemical-audit: run task chemical-audit.md
+  - fume-hood-test: run task fume-hood-face-velocity-test.md
+  - bsc-cert-run: run task bsc-certification-run.md
+  - autoclave-bioind: run task autoclave-biological-indicator-run.md
+  - eyewash-shower-check: run task eyewash-shower-weekly-check.md
+  - sds-management: run task sds-management.md
+  - chemical-inventory: run task chemical-inventory-cycle.md
+  - waste-disposal: run task waste-disposal-run.md
+  - cold-chain-check: run task cold-chain-check.md
+  - exposure-response: run task exposure-response-protocol.md
+  - incident-report: run task incident-report.md
+  - near-miss-capture: run task near-miss-capture.md
+  - training-session: run task training-session.md
+  - access-control-review: run task access-control-review.md
+  - permits-renewal: run task permits-renewal.md
+  - contractor-qualification: run task contractor-qualification.md
+  - emergency-drill: run task emergency-drill.md
+  - audit-exec: run task ehs-audit-execution.md
+  - capa-loop: run task capa-loop.md
+  - readiness-check: run task ehs-readiness-check.md
+  - decommission-area: run task decommission-area.md
+  - continuous-improve: run task continuous-improvement.md
+  - data-integrity: run task data-integrity-check.md
 
   # —— 清单执行（Execute Checklist）——
-  - execute-checklist ehs-core: run task tasks/execute-checklist.md with checklist checklists/ehs-core-checklist.md
-  - execute-checklist biosafety: run task tasks/execute-checklist.md with checklist checklists/biosafety-checklist.md
-  - execute-checklist chemical: run task tasks/execute-checklist.md with checklist checklists/chemical-safety-checklist.md
-  - execute-checklist cold-chain: run task tasks/execute-checklist.md with checklist checklists/cold-chain-checklist.md
-  - execute-checklist waste: run task tasks/execute-checklist.md with checklist checklists/waste-disposal-checklist.md
-  - execute-checklist fume-hood: run task tasks/execute-checklist.md with checklist checklists/fume-hood-checklist.md
-  - execute-checklist bsc: run task tasks/execute-checklist.md with checklist checklists/bsc-certification-checklist.md
-  - execute-checklist autoclave: run task tasks/execute-checklist.md with checklist checklists/autoclave-validation-checklist.md
-  - execute-checklist eyewash: run task tasks/execute-checklist.md with checklist checklists/eyewash-shower-checklist.md
-  - execute-checklist training: run task tasks/execute-checklist.md with checklist checklists/training-compliance-checklist.md
-  - execute-checklist permits: run task tasks/execute-checklist.md with checklist checklists/permits-compliance-checklist.md
-  - execute-checklist contractor: run task tasks/execute-checklist.md with checklist checklists/contractor-qualification-checklist.md
-  - execute-checklist readiness: run task tasks/execute-checklist.md with checklist checklists/ehs-readiness-checklist.md
-  - execute-checklist data-integrity: run task tasks/execute-checklist.md with checklist checklists/data-integrity-checklist.md
+  - execute-checklist ehs-core: run task execute-checklist.md with checklist ehs-core-checklist.md
+  - execute-checklist biosafety: run task execute-checklist.md with checklist biosafety-checklist.md
+  - execute-checklist chemical: run task execute-checklist.md with checklist chemical-safety-checklist.md
+  - execute-checklist cold-chain: run task execute-checklist.md with checklist cold-chain-checklist.md
+  - execute-checklist waste: run task execute-checklist.md with checklist waste-disposal-checklist.md
+  - execute-checklist fume-hood: run task execute-checklist.md with checklist fume-hood-checklist.md
+  - execute-checklist bsc: run task execute-checklist.md with checklist bsc-certification-checklist.md
+  - execute-checklist autoclave: run task execute-checklist.md with checklist autoclave-validation-checklist.md
+  - execute-checklist eyewash: run task execute-checklist.md with checklist eyewash-shower-checklist.md
+  - execute-checklist training: run task execute-checklist.md with checklist training-compliance-checklist.md
+  - execute-checklist permits: run task execute-checklist.md with checklist permits-compliance-checklist.md
+  - execute-checklist contractor: run task execute-checklist.md with checklist contractor-qualification-checklist.md
+  - execute-checklist readiness: run task execute-checklist.md with checklist ehs-readiness-checklist.md
+  - execute-checklist data-integrity: run task execute-checklist.md with checklist data-integrity-checklist.md
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/hazard-identification.md
-    - tasks/biosafety-audit.md
-    - tasks/chemical-audit.md
-    - tasks/fume-hood-face-velocity-test.md
-    - tasks/bsc-certification-run.md
-    - tasks/autoclave-biological-indicator-run.md
-    - tasks/eyewash-shower-weekly-check.md
-    - tasks/sds-management.md
-    - tasks/chemical-inventory-cycle.md
-    - tasks/waste-disposal-run.md
-    - tasks/cold-chain-check.md
-    - tasks/exposure-response-protocol.md
-    - tasks/incident-report.md
-    - tasks/near-miss-capture.md
-    - tasks/training-session.md
-    - tasks/access-control-review.md
-    - tasks/permits-renewal.md
-    - tasks/contractor-qualification.md
-    - tasks/emergency-drill.md
-    - tasks/ehs-audit-execution.md
-    - tasks/capa-loop.md
-    - tasks/ehs-readiness-check.md
-    - tasks/decommission-area.md
-    - tasks/continuous-improvement.md
-    - tasks/data-integrity-check.md
-    - tasks/execute-checklist.md
+    - create-doc.md
+    - hazard-identification.md
+    - biosafety-audit.md
+    - chemical-audit.md
+    - fume-hood-face-velocity-test.md
+    - bsc-certification-run.md
+    - autoclave-biological-indicator-run.md
+    - eyewash-shower-weekly-check.md
+    - sds-management.md
+    - chemical-inventory-cycle.md
+    - waste-disposal-run.md
+    - cold-chain-check.md
+    - exposure-response-protocol.md
+    - incident-report.md
+    - near-miss-capture.md
+    - training-session.md
+    - access-control-review.md
+    - permits-renewal.md
+    - contractor-qualification.md
+    - emergency-drill.md
+    - ehs-audit-execution.md
+    - capa-loop.md
+    - ehs-readiness-check.md
+    - decommission-area.md
+    - continuous-improvement.md
+    - data-integrity-check.md
+    - execute-checklist.md
   templates:
-    - templates/output/ehs-management-plan-tmpl.yaml
-    - templates/output/biosafety-plan-tmpl.yaml
-    - templates/output/chemical-hygiene-plan-tmpl.yaml
-    - templates/output/exposure-control-plan-tmpl.yaml
-    - templates/output/emergency-response-plan-tmpl.yaml
-    - templates/output/risk-assessment-matrix-tmpl.yaml
-    - templates/output/incident-playbook-ehs-tmpl.yaml
-    - templates/output/waste-management-tmpl.yaml
-    - templates/output/fume-hood-assessment-tmpl.yaml
-    - templates/output/bsc-certification-tmpl.yaml
-    - templates/output/autoclave-validation-tmpl.yaml
-    - templates/output/eyewash-shower-inspection-tmpl.yaml
-    - templates/output/cold-chain-assurance-tmpl.yaml
-    - templates/output/safety-signage-plan-tmpl.yaml
-    - templates/output/permits-register-tmpl.yaml
-    - templates/output/training-matrix-tmpl.yaml
-    - templates/output/audit-plan-tmpl.yaml
-    - templates/output/capa-plan-tmpl.yaml
-    - templates/output/lims-ehs-config-spec-tmpl.yaml
+    - ehs-management-plan-tmpl.yaml
+    - biosafety-plan-tmpl.yaml
+    - chemical-hygiene-plan-tmpl.yaml
+    - exposure-control-plan-tmpl.yaml
+    - emergency-response-plan-tmpl.yaml
+    - risk-assessment-matrix-tmpl.yaml
+    - incident-playbook-ehs-tmpl.yaml
+    - waste-management-tmpl.yaml
+    - fume-hood-assessment-tmpl.yaml
+    - bsc-certification-tmpl.yaml
+    - autoclave-validation-tmpl.yaml
+    - eyewash-shower-inspection-tmpl.yaml
+    - cold-chain-assurance-tmpl.yaml
+    - safety-signage-plan-tmpl.yaml
+    - permits-register-tmpl.yaml
+    - training-matrix-tmpl.yaml
+    - audit-plan-tmpl.yaml
+    - capa-plan-tmpl.yaml
+    - lims-ehs-config-spec-tmpl.yaml
   checklists:
-    - checklists/ehs-core-checklist.md
-    - checklists/biosafety-checklist.md
-    - checklists/chemical-safety-checklist.md
-    - checklists/cold-chain-checklist.md
-    - checklists/waste-disposal-checklist.md
-    - checklists/fume-hood-checklist.md
-    - checklists/bsc-certification-checklist.md
-    - checklists/autoclave-validation-checklist.md
-    - checklists/eyewash-shower-checklist.md
-    - checklists/training-compliance-checklist.md
-    - checklists/permits-compliance-checklist.md
-    - checklists/contractor-qualification-checklist.md
-    - checklists/ehs-readiness-checklist.md
-    - checklists/data-integrity-checklist.md
+    - ehs-core-checklist.md
+    - biosafety-checklist.md
+    - chemical-safety-checklist.md
+    - cold-chain-checklist.md
+    - waste-disposal-checklist.md
+    - fume-hood-checklist.md
+    - bsc-certification-checklist.md
+    - autoclave-validation-checklist.md
+    - eyewash-shower-checklist.md
+    - training-compliance-checklist.md
+    - permits-compliance-checklist.md
+    - contractor-qualification-checklist.md
+    - ehs-readiness-checklist.md
+    - data-integrity-checklist.md
   data:
-    - templates/data/chemical_sds.csv
-    - templates/data/chem_inventory.csv
-    - templates/data/bio_agents.csv
-    - templates/data/bsc_certs.csv
-    - templates/data/fume_hood_tests.csv
-    - templates/data/autoclave_runs.csv
-    - templates/data/eyewash_checks.csv
-    - templates/data/env_monitor.csv
-    - templates/data/cold_chain
+    - chemical_sds.csv
+    - chem_inventory.csv
+    - bio_agents.csv
+    - bsc_certs.csv
+    - fume_hood_tests.csv
+    - autoclave_runs.csv
+    - eyewash_checks.csv
+    - env_monitor.csv
+    - cold_chain
 ```
