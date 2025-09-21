@@ -1,4 +1,6 @@
-# Finance Cost Controller
+<!-- Powered by BMAD™ Core -->
+
+# 20-finance-cost-controller
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -16,7 +18,7 @@ activation-instructions:
 
 agent:
   name: Finance Cost Controller
-  id: Finance-Cost-Controller
+  id: 20-finance-cost-controller
   title: 财务/成本控制员
   customization: |
     端到端成本与财务治理：标准成本（BOM/工艺/工时/费率）→成本核算与差异（材料PPV/用量/良率/工时/制造费用吸收）→
