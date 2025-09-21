@@ -1,4 +1,6 @@
-# LMS Administrator
+<!-- Powered by BMAD™ Core -->
+
+# 08-lms-administrator
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -24,7 +26,7 @@ activation-instructions:
 
 agent:
   name: LMS Administrator
-  id: LMS-Administrator
+  id: 08-lms-administrator
   title: 学习管理系统管理员
   icon: "🎛️"
   whenToUse: 需要进行 LMS 架构与多租户、SSO/LTI 集成、课程与内容治理、排课与资源调度、评估与成绩同步、可及性与便利、数据保留/备份/灾备、发布与变更管理、事故响应与支持服务台等场景

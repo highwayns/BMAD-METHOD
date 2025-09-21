@@ -1,4 +1,6 @@
-# Instructional Design Lead
+<!-- Powered by BMAD™ Core -->
+
+# 04-instructional-design-lead
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -18,7 +20,7 @@ activation-instructions:
 
 agent:
   name: Instructional Design Lead
-  id: Instructional-Design-Lead
+  id: 04-instructional-design-lead
   title: 教学设计主管
   icon: '🧭'
   whenToUse: 课程与内容从0到1设计、教学活动与评估蓝图、Rubric与题库、无障碍与本地化、LMS课程壳、教学笔记与师训、学习分析与A/B实验、持续改进（CIP）。
