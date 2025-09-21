@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -42,16 +42,16 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/create-doc-snowflake-architecture.md
-    - tasks/review-infrastructure.md
-    - tasks/validate-infrastructure.md
+    - create-doc-snowflake-architecture.md
+    - review-infrastructure.md
+    - validate-infrastructure.md
   templates:
-    - templates/output/snowflake-architecture-tmpl.yaml
-    - templates/output/snowflake-implementation-tmpl.yaml
+    - output/snowflake-architecture-tmpl.yaml
+    - output/snowflake-implementation-tmpl.yaml
   checklists:
-    - checklists/snowflake-infrastructure-checklist.md
+    - snowflake-infrastructure-checklist.md
   data:
-    - templates/data/dq_rules.csv
-    - templates/data/credit_budgets.csv
-    - templates/data/kpi.csv
+    - dq_rules.csv
+    - credit_budgets.csv
+    - kpi.csv
 ```

@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Announce active persona on start and on exit
 
@@ -53,80 +53,80 @@ commands:
   - drift-detection: run task drift-detection.md
   - policy-as-code: run task policy-as-code.md
   - platform-runbook: run task platform-runbook.md
-  - execute-checklist {checklist}: Run a named checklist (default: checklists/devex-readiness-checklist.md)
+  - execute-checklist {checklist}: Run a named checklist (default: devex-readiness-checklist.md)
   - doc-out: Output full document
   - exit: Exit (confirm)
 
 dependencies:
   tasks:
-    - tasks/golden-paths.md
-    - tasks/scaffolding.md
-    - tasks/env-provisioning.md
-    - tasks/secrets-keys.md
-    - tasks/rbac-abac-declarative.md
-    - tasks/contract-ci.md
-    - tasks/elt-pipelines.md
-    - tasks/streaming-pipelines.md
-    - tasks/dynamic-tables-promo.md
-    - tasks/testing-data.md
-    - tasks/gitops-pipelines.md
-    - tasks/release-hooks.md
-    - tasks/selfservice-portal.md
-    - tasks/developer-kpis.md
-    - tasks/drift-detection.md
-    - tasks/policy-as-code.md
-    - tasks/platform-runbook.md
-    - tasks/execute-checklist.md
+    - golden-paths.md
+    - scaffolding.md
+    - env-provisioning.md
+    - secrets-keys.md
+    - rbac-abac-declarative.md
+    - contract-ci.md
+    - elt-pipelines.md
+    - streaming-pipelines.md
+    - dynamic-tables-promo.md
+    - testing-data.md
+    - gitops-pipelines.md
+    - release-hooks.md
+    - selfservice-portal.md
+    - developer-kpis.md
+    - drift-detection.md
+    - policy-as-code.md
+    - platform-runbook.md
+    - execute-checklist.md
   templates:
-    - templates/golden-paths-tmpl.yaml
-    - templates/scaffolding-tmpl.yaml
-    - templates/env-provisioning-tmpl.yaml
-    - templates/secrets-keys-tmpl.yaml
-    - templates/rbac-abac-declarative-tmpl.yaml
-    - templates/contract-ci-tmpl.yaml
-    - templates/elt-pipelines-tmpl.yaml
-    - templates/streaming-pipelines-tmpl.yaml
-    - templates/dynamic-tables-promo-tmpl.yaml
-    - templates/testing-data-tmpl.yaml
-    - templates/gitops-pipelines-tmpl.yaml
-    - templates/release-hooks-tmpl.yaml
-    - templates/selfservice-portal-tmpl.yaml
-    - templates/developer-kpis-tmpl.yaml
-    - templates/drift-detection-tmpl.yaml
-    - templates/policy-as-code-tmpl.yaml
-    - templates/platform-runbook-tmpl.md
+    - golden-paths-tmpl.yaml
+    - scaffolding-tmpl.yaml
+    - env-provisioning-tmpl.yaml
+    - secrets-keys-tmpl.yaml
+    - rbac-abac-declarative-tmpl.yaml
+    - contract-ci-tmpl.yaml
+    - elt-pipelines-tmpl.yaml
+    - streaming-pipelines-tmpl.yaml
+    - dynamic-tables-promo-tmpl.yaml
+    - testing-data-tmpl.yaml
+    - gitops-pipelines-tmpl.yaml
+    - release-hooks-tmpl.yaml
+    - selfservice-portal-tmpl.yaml
+    - developer-kpis-tmpl.yaml
+    - drift-detection-tmpl.yaml
+    - policy-as-code-tmpl.yaml
+    - platform-runbook-tmpl.md
   checklists:
-    - checklists/devex-readiness-checklist.md
-    - checklists/golden-paths-checklist.md
-    - checklists/scaffolding-checklist.md
-    - checklists/env-provisioning-checklist.md
-    - checklists/secrets-keys-checklist.md
-    - checklists/rbac-abac-checklist.md
-    - checklists/contract-ci-checklist.md
-    - checklists/elt-pipelines-checklist.md
-    - checklists/streaming-pipelines-checklist.md
-    - checklists/dynamic-tables-promo-checklist.md
-    - checklists/testing-data-checklist.md
-    - checklists/gitops-pipelines-checklist.md
-    - checklists/release-hooks-checklist.md
-    - checklists/selfservice-portal-checklist.md
-    - checklists/developer-kpis-checklist.md
-    - checklists/drift-detection-checklist.md
-    - checklists/policy-as-code-checklist.md
-    - checklists/platform-runbook-checklist.md
+    - devex-readiness-checklist.md
+    - golden-paths-checklist.md
+    - scaffolding-checklist.md
+    - env-provisioning-checklist.md
+    - secrets-keys-checklist.md
+    - rbac-abac-checklist.md
+    - contract-ci-checklist.md
+    - elt-pipelines-checklist.md
+    - streaming-pipelines-checklist.md
+    - dynamic-tables-promo-checklist.md
+    - testing-data-checklist.md
+    - gitops-pipelines-checklist.md
+    - release-hooks-checklist.md
+    - selfservice-portal-checklist.md
+    - developer-kpis-checklist.md
+    - drift-detection-checklist.md
+    - policy-as-code-checklist.md
+    - platform-runbook-checklist.md
   data:
-    - data/kb-devex.md
-    - data/iac-structure-examples.yaml
-    - data/rbac-abac-examples.sql
-    - data/secrets-keys-examples.md
-    - data/contract-ci-examples.yaml
-    - data/elt-examples.sql
-    - data/streaming-examples.sql
-    - data/dynamic-tables-examples.sql
-    - data/testing-data-examples.sql
-    - data/gitops-pipelines-examples.yaml
-    - data/release-hooks-examples.sql
-    - data/developer-kpis-examples.md
-    - data/drift-detection-examples.sql
-    - data/policy-as-code-repo.yaml
+    - kb-devex.md
+    - iac-structure-examples.yaml
+    - rbac-abac-examples.sql
+    - secrets-keys-examples.md
+    - contract-ci-examples.yaml
+    - elt-examples.sql
+    - streaming-examples.sql
+    - dynamic-tables-examples.sql
+    - testing-data-examples.sql
+    - gitops-pipelines-examples.yaml
+    - release-hooks-examples.sql
+    - developer-kpis-examples.md
+    - drift-detection-examples.sql
+    - policy-as-code-repo.yaml
 ```

@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Announce active persona on start and on exit
 
@@ -19,7 +19,7 @@ agent:
   id: Release-Change-Manager
   title: 发布变更管理人员
   icon: 🧊
-  customization: RFC/CAB · Release Trains · Canary/Blue-Green · DB Change Management · Data Contract Versioning · Streams/Tasks/DT Promotion · BI/ML Release · Freeze/Calendar · Comms/Audit
+  customization: RFC/CAB · Release Trains · Canary/Blue-Green · DB Change Management · Data Contract Versioning · Streams/DT Promotion · BI/ML Release · Freeze/Calendar · Comms/Audit
 
 persona:
   role: Snowflake 发布与变更管理负责人 / Gatekeeper of Production Readiness
@@ -59,90 +59,90 @@ commands:
   - compliance-audit-pack: run task compliance-audit-pack.md
   - o11y-hooks: run task o11y-hooks.md
   - finops-guardrails: run task finops-guardrails.md
-  - execute-checklist {checklist}: Run a named checklist (default: checklists/release-readiness-checklist.md)
+  - execute-checklist {checklist}: Run a named checklist (default: release-readiness-checklist.md)
   - doc-out: Output full document
   - exit: Exit (confirm)
 
 dependencies:
   tasks:
-    - tasks/rfc-new.md
-    - tasks/risk-assessment.md
-    - tasks/release-train-plan.md
-    - tasks/change-calendar.md
-    - tasks/freeze-window.md
-    - tasks/preprod-readiness.md
-    - tasks/gate-check.md
-    - tasks/sql-migration-plan.md
-    - tasks/contract-versioning.md
-    - tasks/streams-tasks-dt-promo.md
-    - tasks/warehouse-policy-change.md
-    - tasks/security-policy-change.md
-    - tasks/bi-release.md
-    - tasks/ml-release.md
-    - tasks/canary-bluegreen.md
-    - tasks/rollback-plan.md
-    - tasks/comms-plan.md
-    - tasks/post-release-verification.md
-    - tasks/postmortem.md
-    - tasks/release-notes.md
-    - tasks/compliance-audit-pack.md
-    - tasks/o11y-hooks.md
-    - tasks/finops-guardrails.md
-    - tasks/execute-checklist.md
+    - rfc-new.md
+    - risk-assessment.md
+    - release-train-plan.md
+    - change-calendar.md
+    - freeze-window.md
+    - preprod-readiness.md
+    - gate-check.md
+    - sql-migration-plan.md
+    - contract-versioning.md
+    - streams-tasks-dt-promo.md
+    - warehouse-policy-change.md
+    - security-policy-change.md
+    - bi-release.md
+    - ml-release.md
+    - canary-bluegreen.md
+    - rollback-plan.md
+    - comms-plan.md
+    - post-release-verification.md
+    - postmortem.md
+    - release-notes.md
+    - compliance-audit-pack.md
+    - o11y-hooks.md
+    - finops-guardrails.md
+    - execute-checklist.md
   templates:
-    - templates/rfc-new-tmpl.yaml
-    - templates/risk-assessment-tmpl.yaml
-    - templates/release-train-plan-tmpl.yaml
-    - templates/change-calendar-tmpl.yaml
-    - templates/freeze-window-tmpl.yaml
-    - templates/preprod-readiness-tmpl.yaml
-    - templates/gate-check-tmpl.yaml
-    - templates/sql-migration-plan-tmpl.yaml
-    - templates/contract-versioning-tmpl.yaml
-    - templates/streams-tasks-dt-promo-tmpl.yaml
-    - templates/warehouse-policy-change-tmpl.yaml
-    - templates/security-policy-change-tmpl.yaml
-    - templates/bi-release-tmpl.yaml
-    - templates/ml-release-tmpl.yaml
-    - templates/canary-bluegreen-tmpl.yaml
-    - templates/rollback-plan-tmpl.yaml
-    - templates/comms-plan-tmpl.yaml
-    - templates/post-release-verification-tmpl.yaml
-    - templates/postmortem-tmpl.md
-    - templates/release-notes-tmpl.md
-    - templates/compliance-audit-pack-tmpl.yaml
-    - templates/o11y-hooks-tmpl.yaml
-    - templates/finops-guardrails-tmpl.yaml
+    - rfc-new-tmpl.yaml
+    - risk-assessment-tmpl.yaml
+    - release-train-plan-tmpl.yaml
+    - change-calendar-tmpl.yaml
+    - freeze-window-tmpl.yaml
+    - preprod-readiness-tmpl.yaml
+    - gate-check-tmpl.yaml
+    - sql-migration-plan-tmpl.yaml
+    - contract-versioning-tmpl.yaml
+    - streams-tasks-dt-promo-tmpl.yaml
+    - warehouse-policy-change-tmpl.yaml
+    - security-policy-change-tmpl.yaml
+    - bi-release-tmpl.yaml
+    - ml-release-tmpl.yaml
+    - canary-bluegreen-tmpl.yaml
+    - rollback-plan-tmpl.yaml
+    - comms-plan-tmpl.yaml
+    - post-release-verification-tmpl.yaml
+    - postmortem-tmpl.md
+    - release-notes-tmpl.md
+    - compliance-audit-pack-tmpl.yaml
+    - o11y-hooks-tmpl.yaml
+    - finops-guardrails-tmpl.yaml
   checklists:
-    - checklists/release-readiness-checklist.md
-    - checklists/risk-assessment-checklist.md
-    - checklists/preprod-readiness-checklist.md
-    - checklists/gate-check-checklist.md
-    - checklists/sql-migration-checklist.md
-    - checklists/contract-versioning-checklist.md
-    - checklists/streams-tasks-dt-promo-checklist.md
-    - checklists/security-policy-change-checklist.md
-    - checklists/warehouse-policy-change-checklist.md
-    - checklists/bi-release-checklist.md
-    - checklists/ml-release-checklist.md
-    - checklists/canary-bluegreen-checklist.md
-    - checklists/rollback-checklist.md
-    - checklists/comms-checklist.md
-    - checklists/post-release-verification-checklist.md
-    - checklists/postmortem-checklist.md
-    - checklists/compliance-audit-checklist.md
-    - checklists/o11y-hooks-checklist.md
-    - checklists/finops-guardrails-checklist.md
+    - release-readiness-checklist.md
+    - risk-assessment-checklist.md
+    - preprod-readiness-checklist.md
+    - gate-check-checklist.md
+    - sql-migration-checklist.md
+    - contract-versioning-checklist.md
+    - streams-tasks-dt-promo-checklist.md
+    - security-policy-change-checklist.md
+    - warehouse-policy-change-checklist.md
+    - bi-release-checklist.md
+    - ml-release-checklist.md
+    - canary-bluegreen-checklist.md
+    - rollback-checklist.md
+    - comms-checklist.md
+    - post-release-verification-checklist.md
+    - postmortem-checklist.md
+    - compliance-audit-checklist.md
+    - o11y-hooks-checklist.md
+    - finops-guardrails-checklist.md
   data:
-    - data/kb-release.md
-    - data/sql-migration-examples.sql
-    - data/contract-versioning-examples.md
-    - data/streams-tasks-dt-promo-examples.sql
-    - data/warehouse-policy-change-examples.sql
-    - data/security-policy-change-examples.sql
-    - data/bi-release-examples.md
-    - data/ml-release-examples.md
-    - data/o11y-hooks-examples.sql
-    - data/finops-guardrails-examples.sql
-    - data/change-calendar-sample.csv
+    - kb-release.md
+    - sql-migration-examples.sql
+    - contract-versioning-examples.md
+    - streams-tasks-dt-promo-examples.sql
+    - warehouse-policy-change-examples.sql
+    - security-policy-change-examples.sql
+    - bi-release-examples.md
+    - ml-release-examples.md
+    - o11y-hooks-examples.sql
+    - finops-guardrails-examples.sql
+    - change-calendar-sample.csv
 ```

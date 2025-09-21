@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Announce active persona on start and on exit
 
@@ -55,80 +55,80 @@ commands:
   - service-catalog: run task service-catalog.md
   - oncall-rotation: run task oncall-rotation.md
   - posture-review: run task posture-review.md
-  - execute-checklist {checklist}: Run a named checklist (default: checklists/sre-readiness-checklist.md)
+  - execute-checklist {checklist}: Run a named checklist (default: sre-readiness-checklist.md)
   - doc-out: Output full document
   - exit: Exit (confirm)
 
 dependencies:
   tasks:
-    - tasks/run-slo-workshop.md
-    - tasks/observability-plan.md
-    - tasks/incident-runbook.md
-    - tasks/change-management.md
-    - tasks/release-gates.md
-    - tasks/capacity-plan.md
-    - tasks/performance-ops.md
-    - tasks/finops-plan.md
-    - tasks/security-governance.md
-    - tasks/dr-bcp-plan.md
-    - tasks/backup-retention.md
-    - tasks/warehouse-ops.md
-    - tasks/task-scheduler-ops.md
-    - tasks/replication-failover.md
-    - tasks/access-review.md
-    - tasks/audit-forensics.md
-    - tasks/service-catalog.md
-    - tasks/oncall-rotation.md
-    - tasks/posture-review.md
-    - tasks/execute-checklist.md
+    - run-slo-workshop.md
+    - observability-plan.md
+    - incident-runbook.md
+    - change-management.md
+    - release-gates.md
+    - capacity-plan.md
+    - performance-ops.md
+    - finops-plan.md
+    - security-governance.md
+    - dr-bcp-plan.md
+    - backup-retention.md
+    - warehouse-ops.md
+    - task-scheduler-ops.md
+    - replication-failover.md
+    - access-review.md
+    - audit-forensics.md
+    - service-catalog.md
+    - oncall-rotation.md
+    - posture-review.md
+    - execute-checklist.md
   templates:
-    - templates/slo-workshop-tmpl.yaml
-    - templates/observability-plan-tmpl.yaml
-    - templates/incident-runbook-tmpl.md
-    - templates/change-management-tmpl.yaml
-    - templates/release-gates-tmpl.yaml
-    - templates/capacity-plan-tmpl.yaml
-    - templates/performance-ops-tmpl.yaml
-    - templates/finops-plan-tmpl.yaml
-    - templates/security-governance-tmpl.yaml
-    - templates/dr-bcp-plan-tmpl.yaml
-    - templates/backup-retention-tmpl.yaml
-    - templates/warehouse-ops-tmpl.yaml
-    - templates/task-scheduler-ops-tmpl.yaml
-    - templates/replication-failover-tmpl.yaml
-    - templates/access-review-tmpl.yaml
-    - templates/audit-forensics-tmpl.yaml
-    - templates/service-catalog-tmpl.yaml
-    - templates/oncall-rotation-tmpl.yaml
-    - templates/posture-review-tmpl.yaml
+    - slo-workshop-tmpl.yaml
+    - observability-plan-tmpl.yaml
+    - incident-runbook-tmpl.md
+    - change-management-tmpl.yaml
+    - release-gates-tmpl.yaml
+    - capacity-plan-tmpl.yaml
+    - performance-ops-tmpl.yaml
+    - finops-plan-tmpl.yaml
+    - security-governance-tmpl.yaml
+    - dr-bcp-plan-tmpl.yaml
+    - backup-retention-tmpl.yaml
+    - warehouse-ops-tmpl.yaml
+    - task-scheduler-ops-tmpl.yaml
+    - replication-failover-tmpl.yaml
+    - access-review-tmpl.yaml
+    - audit-forensics-tmpl.yaml
+    - service-catalog-tmpl.yaml
+    - oncall-rotation-tmpl.yaml
+    - posture-review-tmpl.yaml
   checklists:
-    - checklists/sre-readiness-checklist.md
-    - checklists/observability-checklist.md
-    - checklists/incident-response-checklist.md
-    - checklists/change-release-checklist.md
-    - checklists/capacity-finops-checklist.md
-    - checklists/performance-ops-checklist.md
-    - checklists/security-governance-checklist.md
-    - checklists/dr-bcp-checklist.md
-    - checklists/backup-retention-checklist.md
-    - checklists/warehouse-ops-checklist.md
-    - checklists/task-scheduler-checklist.md
-    - checklists/replication-failover-checklist.md
-    - checklists/access-review-checklist.md
-    - checklists/audit-forensics-checklist.md
-    - checklists/oncall-rotation-checklist.md
-    - checklists/posture-review-checklist.md
+    - sre-readiness-checklist.md
+    - observability-checklist.md
+    - incident-response-checklist.md
+    - change-release-checklist.md
+    - capacity-finops-checklist.md
+    - performance-ops-checklist.md
+    - security-governance-checklist.md
+    - dr-bcp-checklist.md
+    - backup-retention-checklist.md
+    - warehouse-ops-checklist.md
+    - task-scheduler-checklist.md
+    - replication-failover-checklist.md
+    - access-review-checklist.md
+    - audit-forensics-checklist.md
+    - oncall-rotation-checklist.md
+    - posture-review-checklist.md
   data:
-    - data/kb-sre.md
-    - data/account-usage-queries.sql
-    - data/information-schema-queries.sql
-    - data/resource-monitor-examples.sql
-    - data/warehouse-tuning-examples.sql
-    - data/task-history-queries.sql
-    - data/policy-examples.sql
-    - data/replication-failover-examples.sql
-    - data/audit-forensics-queries.sql
-    - data/drill-down-dashboards.md
-    - data/finops-meters.sql
-    - data/service-catalog-example.yaml
+    - kb-sre.md
+    - account-usage-queries.sql
+    - information-schema-queries.sql
+    - resource-monitor-examples.sql
+    - warehouse-tuning-examples.sql
+    - task-history-queries.sql
+    - policy-examples.sql
+    - replication-failover-examples.sql
+    - audit-forensics-queries.sql
+    - drill-down-dashboards.md
+    - finops-meters.sql
+    - service-catalog-example.yaml
 ```

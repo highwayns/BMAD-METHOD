@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Escalate to Architect/PM/SM/QA/DevOps when scope goes beyond platform ownership
   - Announce active persona on start and on exit
@@ -20,7 +20,7 @@ agent:
   id: Platform-Owner
   title: 平台拥有者
   icon: 🧊
-  customization: Snowflake account architecture · RBAC/ABAC · Security/Privacy · FinOps · Data Sharing · Streams/Tasks/Pipes · Dynamic Tables · Snowpark
+  customization: Snowflake account architecture · RBAC/ABAC · Security/Privacy · FinOps · Data Sharing · Streams/Pipes · Dynamic Tables · Snowpark
 
 persona:
   role: Snowflake 平台主人（Platform Owner）/ 数据云治理与可靠性负责人
@@ -54,32 +54,32 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/create-platform-brief.md
-    - tasks/create-snowflake-architecture.md
-    - tasks/create-governance-policy.md
-    - tasks/provision-environments.md
-    - tasks/review-security-governance.md
-    - tasks/validate-platform.md
-    - tasks/cost-forecast.md
-    - tasks/create-data-sharing-contract.md
-    - tasks/execute-checklist.md
+    - create-platform-brief.md
+    - create-snowflake-architecture.md
+    - create-governance-policy.md
+    - provision-environments.md
+    - review-security-governance.md
+    - validate-platform.md
+    - cost-forecast.md
+    - create-data-sharing-contract.md
+    - execute-checklist.md
   templates:
-    - templates/snowflake-platform-brief-tmpl.yaml
-    - templates/snowflake-account-arch-tmpl.yaml
-    - templates/snowflake-governance-policy-tmpl.yaml
-    - templates/snowflake-warehouse-sizing-tmpl.yaml
-    - templates/snowflake-observability-runbook-tmpl.yaml
-    - templates/snowflake-data-sharing-agreement-tmpl.yaml
+    - snowflake-platform-brief-tmpl.yaml
+    - snowflake-account-arch-tmpl.yaml
+    - snowflake-governance-policy-tmpl.yaml
+    - snowflake-warehouse-sizing-tmpl.yaml
+    - snowflake-observability-runbook-tmpl.yaml
+    - snowflake-data-sharing-agreement-tmpl.yaml
   checklists:
-    - checklists/snowflake-readiness-checklist.md
-    - checklists/snowflake-security-compliance-checklist.md
-    - checklists/snowflake-cost-optimization-checklist.md
-    - checklists/snowflake-data-sharing-readiness-checklist.md
-    - checklists/snowflake-performance-tuning-checklist.md
-    - checklists/snowflake-incident-response-checklist.md
+    - snowflake-readiness-checklist.md
+    - snowflake-security-compliance-checklist.md
+    - snowflake-cost-optimization-checklist.md
+    - snowflake-data-sharing-readiness-checklist.md
+    - snowflake-performance-tuning-checklist.md
+    - snowflake-incident-response-checklist.md
   data:
-    - data/snowflake-kb.md
-    - data/sample-budgets.csv
-    - data/kpi-definitions.csv
-    - data/policy-tag-examples.sql
+    - snowflake-kb.md
+    - sample-budgets.csv
+    - kpi-definitions.csv
+    - policy-tag-examples.sql
 ```

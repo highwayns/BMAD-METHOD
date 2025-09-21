@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Announce active persona on start and on exit
 
@@ -19,7 +19,7 @@ agent:
   id: Support-Incident-Manager
   title: 技术支持事故管理人员
   icon: 🧊
-  customization: Oncall · SEV Taxonomy · War Room · Snowflake Ops (Warehouse/Tasks/DT/Snowpipe/Streaming/RBAC) · SLO/SLAs · Runbooks · Comms · PIR/Problem Mgmt · Evidence/Audit
+  customization: Oncall · SEV Taxonomy · War Room · Snowflake Ops (Warehouse/DT/Snowpipe/Streaming/RBAC) · SLO/SLAs · Runbooks · Comms · PIR/Problem Mgmt · Evidence/Audit
 
 persona:
   role: Snowflake 技术支持与事故管理负责人（Major Incident/Oncall）/ 首席协调官（IC）
@@ -61,105 +61,105 @@ commands:
   - resource-monitor-trigger: run task resource-monitor-trigger.md
   - replication-failover: run task replication-failover.md
   - data-corruption: run task data-corruption.md
-  - execute-checklist {checklist}: Run a named checklist (default: checklists/incident-readiness-checklist.md)
+  - execute-checklist {checklist}: Run a named checklist (default: incident-readiness-checklist.md)
   - evidence-pack: run task evidence-pack.md
   - doc-out: Output full document
   - exit: Exit (confirm)
 
 dependencies:
   tasks:
-    - tasks/oncall-setup.md
-    - tasks/sev-matrix.md
-    - tasks/incident-intake.md
-    - tasks/triage.md
-    - tasks/comms-plan.md
-    - tasks/war-room.md
-    - tasks/remediation-plan.md
-    - tasks/rollback-plan.md
-    - tasks/verification.md
-    - tasks/close-incident.md
-    - tasks/post-incident-review.md
-    - tasks/problem-management.md
-    - tasks/status-page.md
-    - tasks/runbooks-index.md
-    - tasks/snowflake-warehouse-incident.md
-    - tasks/snowflake-query-failures.md
-    - tasks/snowflake-task-failures.md
-    - tasks/snowflake-dynamic-table-lag.md
-    - tasks/snowpipe-backlog.md
-    - tasks/streaming-ingest-incident.md
-    - tasks/rbac-lockout-incident.md
-    - tasks/credit-exhaustion.md
-    - tasks/resource-monitor-trigger.md
-    - tasks/replication-failover.md
-    - tasks/data-corruption.md
-    - tasks/evidence-pack.md
-    - tasks/execute-checklist.md
+    - oncall-setup.md
+    - sev-matrix.md
+    - incident-intake.md
+    - triage.md
+    - comms-plan.md
+    - war-room.md
+    - remediation-plan.md
+    - rollback-plan.md
+    - verification.md
+    - close-incident.md
+    - post-incident-review.md
+    - problem-management.md
+    - status-page.md
+    - runbooks-index.md
+    - snowflake-warehouse-incident.md
+    - snowflake-query-failures.md
+    - snowflake-task-failures.md
+    - snowflake-dynamic-table-lag.md
+    - snowpipe-backlog.md
+    - streaming-ingest-incident.md
+    - rbac-lockout-incident.md
+    - credit-exhaustion.md
+    - resource-monitor-trigger.md
+    - replication-failover.md
+    - data-corruption.md
+    - evidence-pack.md
+    - execute-checklist.md
   templates:
-    - templates/oncall-setup-tmpl.yaml
-    - templates/sev-matrix-tmpl.yaml
-    - templates/incident-intake-tmpl.yaml
-    - templates/triage-tmpl.yaml
-    - templates/comms-plan-tmpl.yaml
-    - templates/war-room-tmpl.yaml
-    - templates/remediation-plan-tmpl.yaml
-    - templates/rollback-plan-tmpl.yaml
-    - templates/verification-tmpl.yaml
-    - templates/close-incident-tmpl.yaml
-    - templates/post-incident-review-tmpl.md
-    - templates/problem-management-tmpl.yaml
-    - templates/status-page-tmpl.md
-    - templates/runbooks-index-tmpl.yaml
-    - templates/snowflake-warehouse-incident-tmpl.md
-    - templates/snowflake-query-failures-tmpl.md
-    - templates/snowflake-task-failures-tmpl.md
-    - templates/snowflake-dynamic-table-lag-tmpl.md
-    - templates/snowpipe-backlog-tmpl.md
-    - templates/streaming-ingest-incident-tmpl.md
-    - templates/rbac-lockout-incident-tmpl.md
-    - templates/credit-exhaustion-tmpl.md
-    - templates/resource-monitor-trigger-tmpl.md
-    - templates/replication-failover-tmpl.md
-    - templates/data-corruption-tmpl.md
-    - templates/evidence-pack-tmpl.yaml
+    - oncall-setup-tmpl.yaml
+    - sev-matrix-tmpl.yaml
+    - incident-intake-tmpl.yaml
+    - triage-tmpl.yaml
+    - comms-plan-tmpl.yaml
+    - war-room-tmpl.yaml
+    - remediation-plan-tmpl.yaml
+    - rollback-plan-tmpl.yaml
+    - verification-tmpl.yaml
+    - close-incident-tmpl.yaml
+    - post-incident-review-tmpl.md
+    - problem-management-tmpl.yaml
+    - status-page-tmpl.md
+    - runbooks-index-tmpl.yaml
+    - snowflake-warehouse-incident-tmpl.md
+    - snowflake-query-failures-tmpl.md
+    - snowflake-task-failures-tmpl.md
+    - snowflake-dynamic-table-lag-tmpl.md
+    - snowpipe-backlog-tmpl.md
+    - streaming-ingest-incident-tmpl.md
+    - rbac-lockout-incident-tmpl.md
+    - credit-exhaustion-tmpl.md
+    - resource-monitor-trigger-tmpl.md
+    - replication-failover-tmpl.md
+    - data-corruption-tmpl.md
+    - evidence-pack-tmpl.yaml
   checklists:
-    - checklists/incident-readiness-checklist.md
-    - checklists/incident-intake-checklist.md
-    - checklists/triage-checklist.md
-    - checklists/comms-checklist.md
-    - checklists/war-room-checklist.md
-    - checklists/remediation-checklist.md
-    - checklists/rollback-checklist.md
-    - checklists/verification-checklist.md
-    - checklists/closure-checklist.md
-    - checklists/pir-checklist.md
-    - checklists/problem-management-checklist.md
-    - checklists/status-page-checklist.md
-    - checklists/runbooks-checklist.md
-    - checklists/warehouse-incident-checklist.md
-    - checklists/query-failures-checklist.md
-    - checklists/task-failures-checklist.md
-    - checklists/dynamic-table-lag-checklist.md
-    - checklists/snowpipe-backlog-checklist.md
-    - checklists/streaming-incident-checklist.md
-    - checklists/rbac-lockout-checklist.md
-    - checklists/credit-exhaustion-checklist.md
-    - checklists/resource-monitor-trigger-checklist.md
-    - checklists/replication-failover-checklist.md
-    - checklists/data-corruption-checklist.md
+    - incident-readiness-checklist.md
+    - incident-intake-checklist.md
+    - triage-checklist.md
+    - comms-checklist.md
+    - war-room-checklist.md
+    - remediation-checklist.md
+    - rollback-checklist.md
+    - verification-checklist.md
+    - closure-checklist.md
+    - pir-checklist.md
+    - problem-management-checklist.md
+    - status-page-checklist.md
+    - runbooks-checklist.md
+    - warehouse-incident-checklist.md
+    - query-failures-checklist.md
+    - task-failures-checklist.md
+    - dynamic-table-lag-checklist.md
+    - snowpipe-backlog-checklist.md
+    - streaming-incident-checklist.md
+    - rbac-lockout-checklist.md
+    - credit-exhaustion-checklist.md
+    - resource-monitor-trigger-checklist.md
+    - replication-failover-checklist.md
+    - data-corruption-checklist.md
   data:
-    - data/kb-support.md
-    - data/sev-taxonomy.md
-    - data/o11y-sql-pack.sql
-    - data/warehouse-triage.sql
-    - data/query-failures.sql
-    - data/tasks-dt-triage.sql
-    - data/snowpipe-triage.sql
-    - data/streaming-triage.sql
-    - data/rbac-triage.sql
-    - data/credit-monitoring.sql
-    - data/replication-failover.sql
-    - data/data-corruption-playbook.md
-    - data/comms-templates.md
-    - data/evidence-index.md
+    - kb-support.md
+    - sev-taxonomy.md
+    - o11y-sql-pack.sql
+    - warehouse-triage.sql
+    - query-failures.sql
+    - tasks-dt-triage.sql
+    - snowpipe-triage.sql
+    - streaming-triage.sql
+    - rbac-triage.sql
+    - credit-monitoring.sql
+    - replication-failover.sql
+    - data-corruption-playbook.md
+    - comms-templates.md
+    - evidence-index.md
 ```

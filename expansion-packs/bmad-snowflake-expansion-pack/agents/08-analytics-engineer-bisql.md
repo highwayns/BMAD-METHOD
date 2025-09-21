@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Announce active persona on start and on exit
 
@@ -52,68 +52,68 @@ commands:
   - uat-support: run task uat-support.md
   - marketplace-sharing: run task marketplace-sharing.md
   - lineage-catalog: run task lineage-catalog.md
-  - execute-checklist {checklist}: Run a named checklist (default: checklists/ae-readiness-checklist.md)
+  - execute-checklist {checklist}: Run a named checklist (default: ae-readiness-checklist.md)
   - doc-out: Output full document
   - exit: Exit (confirm)
 
 dependencies:
   tasks:
-    - tasks/semantic-model.md
-    - tasks/metric-layer.md
-    - tasks/dim-fact-modeling.md
-    - tasks/bi-dataset-contract.md
-    - tasks/sql-styleguide.md
-    - tasks/performance-tuning.md
-    - tasks/sos-acceleration.md
-    - tasks/mv-dt-plan.md
-    - tasks/governance-access.md
-    - tasks/testing-plan.md
-    - tasks/docsite-generation.md
-    - tasks/observability-slo.md
-    - tasks/release-plan.md
-    - tasks/uat-support.md
-    - tasks/marketplace-sharing.md
-    - tasks/lineage-catalog.md
-    - tasks/execute-checklist.md
+    - semantic-model.md
+    - metric-layer.md
+    - dim-fact-modeling.md
+    - bi-dataset-contract.md
+    - sql-styleguide.md
+    - performance-tuning.md
+    - sos-acceleration.md
+    - mv-dt-plan.md
+    - governance-access.md
+    - testing-plan.md
+    - docsite-generation.md
+    - observability-slo.md
+    - release-plan.md
+    - uat-support.md
+    - marketplace-sharing.md
+    - lineage-catalog.md
+    - execute-checklist.md
   templates:
-    - templates/semantic-model-tmpl.yaml
-    - templates/metric-layer-tmpl.yaml
-    - templates/dim-fact-modeling-tmpl.yaml
-    - templates/bi-dataset-contract-tmpl.yaml
-    - templates/sql-styleguide-tmpl.md
-    - templates/performance-tuning-tmpl.yaml
-    - templates/sos-acceleration-tmpl.yaml
-    - templates/mv-dt-plan-tmpl.yaml
-    - templates/governance-access-tmpl.yaml
-    - templates/testing-plan-tmpl.yaml
-    - templates/docsite-generation-tmpl.yaml
-    - templates/observability-slo-tmpl.yaml
-    - templates/release-plan-tmpl.yaml
-    - templates/uat-support-tmpl.yaml
-    - templates/marketplace-sharing-tmpl.yaml
-    - templates/lineage-catalog-tmpl.yaml
+    - semantic-model-tmpl.yaml
+    - metric-layer-tmpl.yaml
+    - dim-fact-modeling-tmpl.yaml
+    - bi-dataset-contract-tmpl.yaml
+    - sql-styleguide-tmpl.md
+    - performance-tuning-tmpl.yaml
+    - sos-acceleration-tmpl.yaml
+    - mv-dt-plan-tmpl.yaml
+    - governance-access-tmpl.yaml
+    - testing-plan-tmpl.yaml
+    - docsite-generation-tmpl.yaml
+    - observability-slo-tmpl.yaml
+    - release-plan-tmpl.yaml
+    - uat-support-tmpl.yaml
+    - marketplace-sharing-tmpl.yaml
+    - lineage-catalog-tmpl.yaml
   checklists:
-    - checklists/ae-readiness-checklist.md
-    - checklists/modeling-quality-checklist.md
-    - checklists/metric-definition-checklist.md
-    - checklists/bi-dataset-readiness-checklist.md
-    - checklists/sql-performance-checklist.md
-    - checklists/governance-compliance-checklist.md
-    - checklists/documentation-completeness-checklist.md
-    - checklists/uat-checklist.md
-    - checklists/release-checklist.md
+    - ae-readiness-checklist.md
+    - modeling-quality-checklist.md
+    - metric-definition-checklist.md
+    - bi-dataset-readiness-checklist.md
+    - sql-performance-checklist.md
+    - governance-compliance-checklist.md
+    - documentation-completeness-checklist.md
+    - uat-checklist.md
+    - release-checklist.md
   data:
-    - data/kb-ae.md
-    - data/sql-styleguide.md
-    - data/semantic-model-example.yaml
-    - data/metric-layer-example.yaml
-    - data/perf-examples.sql
-    - data/sos-examples.sql
-    - data/mv-dt-examples.sql
-    - data/governance-examples.sql
-    - data/testing-examples.sql
-    - data/docsite-config.yml
-    - data/observability-queries.sql
-    - data/marketplace-examples.md
-    - data/lineage-catalog-examples.md
+    - kb-ae.md
+    - sql-styleguide.md
+    - semantic-model-example.yaml
+    - metric-layer-example.yaml
+    - perf-examples.sql
+    - sos-examples.sql
+    - mv-dt-examples.sql
+    - governance-examples.sql
+    - testing-examples.sql
+    - docsite-config.yml
+    - observability-queries.sql
+    - marketplace-examples.md
+    - lineage-catalog-examples.md
 ```

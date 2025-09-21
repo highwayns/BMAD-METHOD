@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Announce active persona on start and on exit
 
@@ -48,53 +48,53 @@ commands:
   - stakeholder-map: run task stakeholder-map.md
   - uat-scripts: run task uat-scripts.md
   - dq-rules: run task dq-rules.md
-  - execute-checklist {checklist}: Run a named checklist (default: checklists/ba-readiness-checklist.md)
+  - execute-checklist {checklist}: Run a named checklist (default: ba-readiness-checklist.md)
   - doc-out: Output full document
   - exit: Exit (confirm)
 
 dependencies:
   tasks:
-    - tasks/discovery.md
-    - tasks/kpi-tree.md
-    - tasks/metric-spec.md
-    - tasks/semantic-model.md
-    - tasks/data-contract.md
-    - tasks/dashboard-spec.md
-    - tasks/analysis-plan.md
-    - tasks/acceptance.md
-    - tasks/experiment-plan.md
-    - tasks/stakeholder-map.md
-    - tasks/uat-scripts.md
-    - tasks/dq-rules.md
-    - tasks/execute-checklist.md
+    - discovery.md
+    - kpi-tree.md
+    - metric-spec.md
+    - semantic-model.md
+    - data-contract.md
+    - dashboard-spec.md
+    - analysis-plan.md
+    - acceptance.md
+    - experiment-plan.md
+    - stakeholder-map.md
+    - uat-scripts.md
+    - dq-rules.md
+    - execute-checklist.md
   templates:
-    - templates/discovery-tmpl.yaml
-    - templates/kpi-tree-tmpl.yaml
-    - templates/metric-spec-tmpl.yaml
-    - templates/semantic-model-tmpl.yaml
-    - templates/data-contract-tmpl.yaml
-    - templates/dashboard-spec-tmpl.yaml
-    - templates/analysis-plan-tmpl.yaml
-    - templates/acceptance-criteria-tmpl.yaml
-    - templates/experiment-plan-tmpl.yaml
-    - templates/stakeholder-map-tmpl.yaml
-    - templates/uat-scripts-tmpl.yaml
-    - templates/dq-rules-tmpl.yaml
+    - discovery-tmpl.yaml
+    - kpi-tree-tmpl.yaml
+    - metric-spec-tmpl.yaml
+    - semantic-model-tmpl.yaml
+    - data-contract-tmpl.yaml
+    - dashboard-spec-tmpl.yaml
+    - analysis-plan-tmpl.yaml
+    - acceptance-criteria-tmpl.yaml
+    - experiment-plan-tmpl.yaml
+    - stakeholder-map-tmpl.yaml
+    - uat-scripts-tmpl.yaml
+    - dq-rules-tmpl.yaml
   checklists:
-    - checklists/ba-readiness-checklist.md
-    - checklists/metric-definition-checklist.md
-    - checklists/semantic-layer-checklist.md
-    - checklists/dashboard-readiness-checklist.md
-    - checklists/privacy-compliance-checklist.md
-    - checklists/uat-checklist.md
-    - checklists/post-release-analytics-checklist.md
+    - ba-readiness-checklist.md
+    - metric-definition-checklist.md
+    - semantic-layer-checklist.md
+    - dashboard-readiness-checklist.md
+    - privacy-compliance-checklist.md
+    - uat-checklist.md
+    - post-release-analytics-checklist.md
   data:
-    - data/kb-ba.md
-    - data/personas.csv
-    - data/kpi-dictionary.csv
-    - data/metric-spec.csv
-    - data/semantic-model-example.yaml
-    - data/uat-scripts.csv
-    - data/dq-rules.csv
-    - data/experiment-ideas.csv
+    - kb-ba.md
+    - personas.csv
+    - kpi-dictionary.csv
+    - metric-spec.csv
+    - semantic-model-example.yaml
+    - uat-scripts.csv
+    - dq-rules.csv
+    - experiment-ideas.csv
 ```

@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Announce active persona on start and on exit
 
@@ -19,7 +19,7 @@ agent:
   id: Observability-Reliability
   title: 监控可靠分析人员
   icon: 🧊
-  customization: SLI/SLO · Account Usage · Information Schema · Tasks/DT/Snowpipe · Streaming · Warehouse Ops · Access History · Cost/FinOps Signals · Incident Analytics · Policy/Compliance Signals
+  customization: SLI/SLO · Account Usage · Information Schema · DT/Snowpipe · Streaming · Warehouse Ops · Access History · Cost/FinOps Signals · Incident Analytics · Policy/Compliance Signals
 
 persona:
   role: Snowflake 可观测与可靠性分析师（O11y/SRE-Analytics）/ 平台健康与价值度量 Owner
@@ -52,74 +52,74 @@ commands:
   - o11y-ci-cd: run task o11y-ci-cd.md
   - quarterly-posture-review: run task quarterly-posture-review.md
   - lineage-catalog: run task lineage-catalog.md
-  - execute-checklist {checklist}: Run a named checklist (default: checklists/o11y-readiness-checklist.md)
+  - execute-checklist {checklist}: Run a named checklist (default: o11y-readiness-checklist.md)
   - doc-out: Output full document
   - exit: Exit (confirm)
 
 dependencies:
   tasks:
-    - tasks/slo-workshop.md
-    - tasks/metrics-catalog.md
-    - tasks/dashboards-plan.md
-    - tasks/alerts-routing.md
-    - tasks/warehouse-observability.md
-    - tasks/query-reliability.md
-    - tasks/tasks-dt-observability.md
-    - tasks/snowpipe-streaming-observability.md
-    - tasks/data-quality-observability.md
-    - tasks/access-audit-analytics.md
-    - tasks/cost-reliability-signals.md
-    - tasks/incident-analytics.md
-    - tasks/anomaly-detection.md
-    - tasks/o11y-ci-cd.md
-    - tasks/quarterly-posture-review.md
-    - tasks/lineage-catalog.md
-    - tasks/execute-checklist.md
+    - slo-workshop.md
+    - metrics-catalog.md
+    - dashboards-plan.md
+    - alerts-routing.md
+    - warehouse-observability.md
+    - query-reliability.md
+    - tasks-dt-observability.md
+    - snowpipe-streaming-observability.md
+    - data-quality-observability.md
+    - access-audit-analytics.md
+    - cost-reliability-signals.md
+    - incident-analytics.md
+    - anomaly-detection.md
+    - o11y-ci-cd.md
+    - quarterly-posture-review.md
+    - lineage-catalog.md
+    - execute-checklist.md
   templates:
-    - templates/slo-workshop-tmpl.yaml
-    - templates/metrics-catalog-tmpl.yaml
-    - templates/dashboards-plan-tmpl.yaml
-    - templates/alerts-routing-tmpl.yaml
-    - templates/warehouse-observability-tmpl.yaml
-    - templates/query-reliability-tmpl.yaml
-    - templates/tasks-dt-observability-tmpl.yaml
-    - templates/snowpipe-streaming-observability-tmpl.yaml
-    - templates/data-quality-observability-tmpl.yaml
-    - templates/access-audit-analytics-tmpl.yaml
-    - templates/cost-reliability-signals-tmpl.yaml
-    - templates/incident-analytics-tmpl.md
-    - templates/anomaly-detection-tmpl.yaml
-    - templates/o11y-ci-cd-tmpl.yaml
-    - templates/quarterly-posture-review-tmpl.yaml
-    - templates/lineage-catalog-tmpl.yaml
+    - slo-workshop-tmpl.yaml
+    - metrics-catalog-tmpl.yaml
+    - dashboards-plan-tmpl.yaml
+    - alerts-routing-tmpl.yaml
+    - warehouse-observability-tmpl.yaml
+    - query-reliability-tmpl.yaml
+    - tasks-dt-observability-tmpl.yaml
+    - snowpipe-streaming-observability-tmpl.yaml
+    - data-quality-observability-tmpl.yaml
+    - access-audit-analytics-tmpl.yaml
+    - cost-reliability-signals-tmpl.yaml
+    - incident-analytics-tmpl.md
+    - anomaly-detection-tmpl.yaml
+    - o11y-ci-cd-tmpl.yaml
+    - quarterly-posture-review-tmpl.yaml
+    - lineage-catalog-tmpl.yaml
   checklists:
-    - checklists/o11y-readiness-checklist.md
-    - checklists/slo-checklist.md
-    - checklists/dashboards-checklist.md
-    - checklists/alerts-routing-checklist.md
-    - checklists/warehouse-observability-checklist.md
-    - checklists/query-reliability-checklist.md
-    - checklists/tasks-dt-observability-checklist.md
-    - checklists/snowpipe-streaming-checklist.md
-    - checklists/data-quality-observability-checklist.md
-    - checklists/access-audit-checklist.md
-    - checklists/cost-reliability-checklist.md
-    - checklists/incident-analytics-checklist.md
-    - checklists/anomaly-detection-checklist.md
-    - checklists/o11y-ci-cd-checklist.md
-    - checklists/quarterly-posture-review-checklist.md
+    - o11y-readiness-checklist.md
+    - slo-checklist.md
+    - dashboards-checklist.md
+    - alerts-routing-checklist.md
+    - warehouse-observability-checklist.md
+    - query-reliability-checklist.md
+    - tasks-dt-observability-checklist.md
+    - snowpipe-streaming-checklist.md
+    - data-quality-observability-checklist.md
+    - access-audit-checklist.md
+    - cost-reliability-checklist.md
+    - incident-analytics-checklist.md
+    - anomaly-detection-checklist.md
+    - o11y-ci-cd-checklist.md
+    - quarterly-posture-review-checklist.md
   data:
-    - data/kb-o11y.md
-    - data/account-usage-queries.sql
-    - data/information-schema-queries.sql
-    - data/access-history-queries.sql
-    - data/task-history-queries.sql
-    - data/dynamic-tables-queries.sql
-    - data/snowpipe-queries.sql
-    - data/streaming-queries.sql
-    - data/warehouse-queries.sql
-    - data/dq-sli-queries.sql
-    - data/cost-sli-queries.sql
-    - data/anomaly-sql-examples.sql
-    - data/posture-review-template.md
+    - kb-o11y.md
+    - account-usage-queries.sql
+    - information-schema-queries.sql
+    - access-history-queries.sql
+    - task-history-queries.sql
+    - dynamic-tables-queries.sql
+    - snowpipe-queries.sql
+    - streaming-queries.sql
+    - warehouse-queries.sql
+    - dq-sli-queries.sql
+    - cost-sli-queries.sql
+    - anomaly-sql-examples.sql
+    - posture-review-template.md
 ```

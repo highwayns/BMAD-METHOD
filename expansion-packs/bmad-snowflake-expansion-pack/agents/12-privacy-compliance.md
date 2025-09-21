@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Announce active persona on start and on exit
 
@@ -55,85 +55,85 @@ commands:
   - incident-breach: run task incident-breach.md
   - compliance-calendar: run task compliance-calendar.md
   - lineage-catalog: run task lineage-catalog.md
-  - execute-checklist {checklist}: Run a named checklist (default: checklists/pc-readiness-checklist.md)
+  - execute-checklist {checklist}: Run a named checklist (default: pc-readiness-checklist.md)
   - doc-out: Output full document
   - exit: Exit (confirm)
 
 dependencies:
   tasks:
-    - tasks/data-inventory.md
-    - tasks/ropa-register.md
-    - tasks/lawful-basis-mapping.md
-    - tasks/consent-purpose.md
-    - tasks/dpia-pia.md
-    - tasks/minimization-pseudonymization.md
-    - tasks/masking-row-policy.md
-    - tasks/retention-deletion.md
-    - tasks/cross-border-sharing.md
-    - tasks/vendor-dpa.md
-    - tasks/dsr-handling.md
-    - tasks/training-awareness.md
-    - tasks/audit-reporting.md
-    - tasks/privacy-by-design-review.md
-    - tasks/ai-governance.md
-    - tasks/policy-as-code.md
-    - tasks/incident-breach.md
-    - tasks/compliance-calendar.md
-    - tasks/lineage-catalog.md
-    - tasks/execute-checklist.md
+    - data-inventory.md
+    - ropa-register.md
+    - lawful-basis-mapping.md
+    - consent-purpose.md
+    - dpia-pia.md
+    - minimization-pseudonymization.md
+    - masking-row-policy.md
+    - retention-deletion.md
+    - cross-border-sharing.md
+    - vendor-dpa.md
+    - dsr-handling.md
+    - training-awareness.md
+    - audit-reporting.md
+    - privacy-by-design-review.md
+    - ai-governance.md
+    - policy-as-code.md
+    - incident-breach.md
+    - compliance-calendar.md
+    - lineage-catalog.md
+    - execute-checklist.md
   templates:
-    - templates/data-inventory-tmpl.yaml
-    - templates/ropa-register-tmpl.yaml
-    - templates/lawful-basis-mapping-tmpl.yaml
-    - templates/consent-purpose-tmpl.yaml
-    - templates/dpia-pia-tmpl.yaml
-    - templates/minimization-pseudonymization-tmpl.yaml
-    - templates/masking-row-policy-tmpl.yaml
-    - templates/retention-deletion-tmpl.yaml
-    - templates/cross-border-sharing-tmpl.yaml
-    - templates/vendor-dpa-tmpl.yaml
-    - templates/dsr-handling-tmpl.yaml
-    - templates/training-awareness-tmpl.yaml
-    - templates/audit-reporting-tmpl.yaml
-    - templates/privacy-by-design-review-tmpl.yaml
-    - templates/ai-governance-tmpl.yaml
-    - templates/policy-as-code-tmpl.yaml
-    - templates/incident-breach-tmpl.md
-    - templates/compliance-calendar-tmpl.yaml
-    - templates/lineage-catalog-tmpl.yaml
+    - data-inventory-tmpl.yaml
+    - ropa-register-tmpl.yaml
+    - lawful-basis-mapping-tmpl.yaml
+    - consent-purpose-tmpl.yaml
+    - dpia-pia-tmpl.yaml
+    - minimization-pseudonymization-tmpl.yaml
+    - masking-row-policy-tmpl.yaml
+    - retention-deletion-tmpl.yaml
+    - cross-border-sharing-tmpl.yaml
+    - vendor-dpa-tmpl.yaml
+    - dsr-handling-tmpl.yaml
+    - training-awareness-tmpl.yaml
+    - audit-reporting-tmpl.yaml
+    - privacy-by-design-review-tmpl.yaml
+    - ai-governance-tmpl.yaml
+    - policy-as-code-tmpl.yaml
+    - incident-breach-tmpl.md
+    - compliance-calendar-tmpl.yaml
+    - lineage-catalog-tmpl.yaml
   checklists:
-    - checklists/pc-readiness-checklist.md
-    - checklists/data-inventory-checklist.md
-    - checklists/lawful-basis-checklist.md
-    - checklists/consent-purpose-checklist.md
-    - checklists/dpia-checklist.md
-    - checklists/minimization-checklist.md
-    - checklists/masking-row-policy-checklist.md
-    - checklists/retention-deletion-checklist.md
-    - checklists/cross-border-checklist.md
-    - checklists/vendor-dpa-checklist.md
-    - checklists/dsr-checklist.md
-    - checklists/training-checklist.md
-    - checklists/audit-reporting-checklist.md
-    - checklists/privacy-by-design-checklist.md
-    - checklists/ai-governance-checklist.md
-    - checklists/policy-as-code-checklist.md
-    - checklists/incident-breach-checklist.md
-    - checklists/compliance-calendar-checklist.md
+    - pc-readiness-checklist.md
+    - data-inventory-checklist.md
+    - lawful-basis-checklist.md
+    - consent-purpose-checklist.md
+    - dpia-checklist.md
+    - minimization-checklist.md
+    - masking-row-policy-checklist.md
+    - retention-deletion-checklist.md
+    - cross-border-checklist.md
+    - vendor-dpa-checklist.md
+    - dsr-checklist.md
+    - training-checklist.md
+    - audit-reporting-checklist.md
+    - privacy-by-design-checklist.md
+    - ai-governance-checklist.md
+    - policy-as-code-checklist.md
+    - incident-breach-checklist.md
+    - compliance-calendar-checklist.md
   data:
-    - data/kb-privacy.md
-    - data/tagging-classification.sql
-    - data/masking-examples.sql
-    - data/row-policy-examples.sql
-    - data/purpose-limitation-examples.md
-    - data/retention-strategies.sql
-    - data/deletion-runbook.md
-    - data/dsr-sql-snippets.sql
-    - data/sharing-crossborder-examples.sql
-    - data/vendor-dpa-register.csv
-    - data/audit-queries.sql
-    - data/policy-as-code-repo.yaml
-    - data/privacy-dashboard.md
-    - data/ai-governance-examples.md
-    - data/lineage-catalog-examples.md
+    - kb-privacy.md
+    - tagging-classification.sql
+    - masking-examples.sql
+    - row-policy-examples.sql
+    - purpose-limitation-examples.md
+    - retention-strategies.sql
+    - deletion-runbook.md
+    - dsr-sql-snippets.sql
+    - sharing-crossborder-examples.sql
+    - vendor-dpa-register.csv
+    - audit-queries.sql
+    - policy-as-code-repo.yaml
+    - privacy-dashboard.md
+    - ai-governance-examples.md
+    - lineage-catalog-examples.md
 ```

@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Announce active persona on start and on exit
 
@@ -19,7 +19,7 @@ agent:
   id: Quality-Assurance
   title: 质量保证测试人员
   icon: 🧊
-  customization: Contract Tests · Schema & Data Quality · Freshness/SLAs · Pipeline Reliability (Tasks/DT/Streams) · Security Tests (RBAC/Mask/Row) · Performance/Cost · Evidence & Reporting
+  customization: Contract Tests · Schema & Data Quality · Freshness/SLAs · Pipeline Reliability (DT/Streams) · Security Tests (RBAC/Mask/Row) · Performance/Cost · Evidence & Reporting
 
 persona:
   role: Snowflake 质量保证/测试负责人（QA）/ 数据与代码测试的守门人
@@ -55,90 +55,90 @@ commands:
   - test-cicd: run task test-cicd.md
   - evidence-pack: run task evidence-pack.md
   - bug-triage: run task bug-triage.md
-  - execute-checklist {checklist}: Run a named checklist (default: checklists/qa-readiness-checklist.md)
+  - execute-checklist {checklist}: Run a named checklist (default: qa-readiness-checklist.md)
   - doc-out: Output full document
   - exit: Exit (confirm)
 
 dependencies:
   tasks:
-    - tasks/qa-test-plan.md
-    - tasks/contract-tests.md
-    - tasks/schema-tests.md
-    - tasks/dq-rulebook.md
-    - tasks/freshness-sla.md
-    - tasks/pipeline-tests.md
-    - tasks/security-tests.md
-    - tasks/performance-tests.md
-    - tasks/cost-tests.md
-    - tasks/synthetic-data.md
-    - tasks/test-data-management.md
-    - tasks/uat-signoff.md
-    - tasks/release-gates.md
-    - tasks/post-deploy-verification.md
-    - tasks/flaky-tests.md
-    - tasks/coverage-report.md
-    - tasks/test-cicd.md
-    - tasks/evidence-pack.md
-    - tasks/bug-triage.md
-    - tasks/execute-checklist.md
+    - qa-test-plan.md
+    - contract-tests.md
+    - schema-tests.md
+    - dq-rulebook.md
+    - freshness-sla.md
+    - pipeline-tests.md
+    - security-tests.md
+    - performance-tests.md
+    - cost-tests.md
+    - synthetic-data.md
+    - test-data-management.md
+    - uat-signoff.md
+    - release-gates.md
+    - post-deploy-verification.md
+    - flaky-tests.md
+    - coverage-report.md
+    - test-cicd.md
+    - evidence-pack.md
+    - bug-triage.md
+    - execute-checklist.md
   templates:
-    - templates/qa-test-plan-tmpl.yaml
-    - templates/contract-tests-tmpl.yaml
-    - templates/schema-tests-tmpl.yaml
-    - templates/dq-rulebook-tmpl.yaml
-    - templates/freshness-sla-tmpl.yaml
-    - templates/pipeline-tests-tmpl.yaml
-    - templates/security-tests-tmpl.yaml
-    - templates/performance-tests-tmpl.yaml
-    - templates/cost-tests-tmpl.yaml
-    - templates/synthetic-data-tmpl.yaml
-    - templates/test-data-management-tmpl.yaml
-    - templates/uat-signoff-tmpl.yaml
-    - templates/release-gates-tmpl.yaml
-    - templates/post-deploy-verification-tmpl.yaml
-    - templates/flaky-tests-tmpl.yaml
-    - templates/coverage-report-tmpl.yaml
-    - templates/test-cicd-tmpl.yaml
-    - templates/evidence-pack-tmpl.yaml
-    - templates/bug-triage-tmpl.yaml
+    - qa-test-plan-tmpl.yaml
+    - contract-tests-tmpl.yaml
+    - schema-tests-tmpl.yaml
+    - dq-rulebook-tmpl.yaml
+    - freshness-sla-tmpl.yaml
+    - pipeline-tests-tmpl.yaml
+    - security-tests-tmpl.yaml
+    - performance-tests-tmpl.yaml
+    - cost-tests-tmpl.yaml
+    - synthetic-data-tmpl.yaml
+    - test-data-management-tmpl.yaml
+    - uat-signoff-tmpl.yaml
+    - release-gates-tmpl.yaml
+    - post-deploy-verification-tmpl.yaml
+    - flaky-tests-tmpl.yaml
+    - coverage-report-tmpl.yaml
+    - test-cicd-tmpl.yaml
+    - evidence-pack-tmpl.yaml
+    - bug-triage-tmpl.yaml
   checklists:
-    - checklists/qa-readiness-checklist.md
-    - checklists/contract-tests-checklist.md
-    - checklists/schema-tests-checklist.md
-    - checklists/dq-rulebook-checklist.md
-    - checklists/freshness-sla-checklist.md
-    - checklists/pipeline-tests-checklist.md
-    - checklists/security-tests-checklist.md
-    - checklists/performance-tests-checklist.md
-    - checklists/cost-tests-checklist.md
-    - checklists/synthetic-data-checklist.md
-    - checklists/test-data-management-checklist.md
-    - checklists/uat-signoff-checklist.md
-    - checklists/release-gates-checklist.md
-    - checklists/post-deploy-verification-checklist.md
-    - checklists/flaky-tests-checklist.md
-    - checklists/coverage-report-checklist.md
-    - checklists/test-cicd-checklist.md
-    - checklists/evidence-pack-checklist.md
-    - checklists/bug-triage-checklist.md
+    - qa-readiness-checklist.md
+    - contract-tests-checklist.md
+    - schema-tests-checklist.md
+    - dq-rulebook-checklist.md
+    - freshness-sla-checklist.md
+    - pipeline-tests-checklist.md
+    - security-tests-checklist.md
+    - performance-tests-checklist.md
+    - cost-tests-checklist.md
+    - synthetic-data-checklist.md
+    - test-data-management-checklist.md
+    - uat-signoff-checklist.md
+    - release-gates-checklist.md
+    - post-deploy-verification-checklist.md
+    - flaky-tests-checklist.md
+    - coverage-report-checklist.md
+    - test-cicd-checklist.md
+    - evidence-pack-checklist.md
+    - bug-triage-checklist.md
   data:
-    - data/kb-qa.md
-    - data/contract-tests-examples.yaml
-    - data/schema-tests-examples.sql
-    - data/dq-rules-examples.sql
-    - data/freshness-examples.sql
-    - data/pipeline-tests-examples.sql
-    - data/security-tests-examples.sql
-    - data/performance-tests-examples.sql
-    - data/cost-tests-examples.sql
-    - data/synthetic-data-examples.sql
-    - data/test-data-management-examples.md
-    - data/uat-signoff-template.md
-    - data/release-gates-examples.yaml
-    - data/post-deploy-verification-examples.sql
-    - data/flaky-tests-examples.md
-    - data/coverage-report-template.md
-    - data/test-cicd-pipeline.yaml
-    - data/evidence-pack-index.md
-    - data/bug-triage-template.md
+    - kb-qa.md
+    - contract-tests-examples.yaml
+    - schema-tests-examples.sql
+    - dq-rules-examples.sql
+    - freshness-examples.sql
+    - pipeline-tests-examples.sql
+    - security-tests-examples.sql
+    - performance-tests-examples.sql
+    - cost-tests-examples.sql
+    - synthetic-data-examples.sql
+    - test-data-management-examples.md
+    - uat-signoff-template.md
+    - release-gates-examples.yaml
+    - post-deploy-verification-examples.sql
+    - flaky-tests-examples.md
+    - coverage-report-template.md
+    - test-cicd-pipeline.yaml
+    - evidence-pack-index.md
+    - bug-triage-template.md
 ```

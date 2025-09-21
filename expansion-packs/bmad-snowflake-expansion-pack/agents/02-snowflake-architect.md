@@ -7,7 +7,7 @@ owner: 'Snowflake Data Platform'
 last_updated: '2025-09-10'
 bmad_tags: ['BMAD:Role', 'SFLK:Team']
 inputs_contract:
-  - templates/output/snowflake-architecture-tmpl.yaml
+  - output/snowflake-architecture-tmpl.yaml
 outputs_contract:
   - docs/snowflake-architecture.md
 depends_on: []
@@ -48,7 +48,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Announce active persona on start and on exit
 
@@ -87,46 +87,46 @@ commands:
   - dr-strategy: run task create-dr-strategy.md
   - data-contracts: run task create-data-contracts.md
   - lineage-and-catalog: run task lineage-and-catalog.md
-  - execute-checklist {checklist}: Run a named checklist (default: checklists/snowflake-architecture-checklist.md)
+  - execute-checklist {checklist}: Run a named checklist (default: snowflake-architecture-checklist.md)
   - doc-out: Output full document
   - exit: Exit (confirm)
 
 dependencies:
   tasks:
-    - tasks/create-architect-brief.md
-    - tasks/create-account-architecture.md
-    - tasks/create-engineering-blueprint.md
-    - tasks/create-security-governance.md
-    - tasks/create-observability-plan.md
-    - tasks/create-finops-plan.md
-    - tasks/review-architecture.md
-    - tasks/validate-readiness.md
-    - tasks/create-dr-strategy.md
-    - tasks/create-data-contracts.md
-    - tasks/lineage-and-catalog.md
-    - tasks/execute-checklist.md
+    - create-architect-brief.md
+    - create-account-architecture.md
+    - create-engineering-blueprint.md
+    - create-security-governance.md
+    - create-observability-plan.md
+    - create-finops-plan.md
+    - review-architecture.md
+    - validate-readiness.md
+    - create-dr-strategy.md
+    - create-data-contracts.md
+    - lineage-and-catalog.md
+    - execute-checklist.md
   templates:
-    - templates/architect-brief-tmpl.yaml
-    - templates/account-architecture-tmpl.yaml
-    - templates/engineering-blueprint-tmpl.yaml
-    - templates/security-governance-tmpl.yaml
-    - templates/observability-plan-tmpl.yaml
-    - templates/finops-plan-tmpl.yaml
-    - templates/dr-strategy-tmpl.yaml
-    - templates/data-contracts-tmpl.yaml
-    - templates/lineage-catalog-tmpl.yaml
+    - architect-brief-tmpl.yaml
+    - account-architecture-tmpl.yaml
+    - engineering-blueprint-tmpl.yaml
+    - security-governance-tmpl.yaml
+    - observability-plan-tmpl.yaml
+    - finops-plan-tmpl.yaml
+    - dr-strategy-tmpl.yaml
+    - data-contracts-tmpl.yaml
+    - lineage-catalog-tmpl.yaml
   checklists:
-    - checklists/snowflake-architecture-checklist.md
-    - checklists/snowflake-security-checklist.md
-    - checklists/snowflake-performance-checklist.md
-    - checklists/snowflake-cost-checklist.md
-    - checklists/snowflake-data-engineering-checklist.md
-    - checklists/snowflake-dr-readiness-checklist.md
+    - snowflake-architecture-checklist.md
+    - snowflake-security-checklist.md
+    - snowflake-performance-checklist.md
+    - snowflake-cost-checklist.md
+    - snowflake-data-engineering-checklist.md
+    - snowflake-dr-readiness-checklist.md
   data:
-    - data/kb-snowflake-architect.md
-    - data/kpi-catalog.csv
-    - data/warehouse-profiles.csv
-    - data/credit-budgets.csv
-    - data/policy-examples.sql
-    - data/example-dynamic-tables.sql
+    - kb-snowflake-architect.md
+    - kpi-catalog.csv
+    - warehouse-profiles.csv
+    - credit-budgets.csv
+    - policy-examples.sql
+    - example-dynamic-tables.sql
 ```

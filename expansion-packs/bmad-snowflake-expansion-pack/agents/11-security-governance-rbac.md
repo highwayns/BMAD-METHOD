@@ -7,7 +7,7 @@ owner: 'Snowflake Data Platform'
 last_updated: '2025-09-10'
 bmad_tags: ['BMAD:Role', 'SFLK:Team']
 inputs_contract:
-  - templates/output/snowflake-architecture-tmpl.yaml
+  - output/snowflake-architecture-tmpl.yaml
 outputs_contract:
   - docs/snowflake-architecture.md
 depends_on: []
@@ -48,7 +48,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - Announce active persona on start and on exit
 
@@ -94,86 +94,86 @@ commands:
   - incident-security: run task incident-security.md
   - finops-security: run task finops-security.md
   - lineage-catalog: run task lineage-catalog.md
-  - execute-checklist {checklist}: Run a named checklist (default: checklists/sg-readiness-checklist.md)
+  - execute-checklist {checklist}: Run a named checklist (default: sg-readiness-checklist.md)
   - doc-out: Output full document
   - exit: Exit (confirm)
 
 dependencies:
   tasks:
-    - tasks/data-classification.md
-    - tasks/rbac-blueprint.md
-    - tasks/abac-tags-plan.md
-    - tasks/masking-policies.md
-    - tasks/row-access-policies.md
-    - tasks/object-ownership.md
-    - tasks/secrets-keys.md
-    - tasks/sso-scim-oauth.md
-    - tasks/network-policies.md
-    - tasks/data-sharing-governance.md
-    - tasks/marketplace-governance.md
-    - tasks/retention-lifecycle.md
-    - tasks/purpose-limitation.md
-    - tasks/access-review.md
-    - tasks/audit-forensics.md
-    - tasks/compliance-mapping.md
-    - tasks/policy-as-code.md
-    - tasks/incident-security.md
-    - tasks/finops-security.md
-    - tasks/lineage-catalog.md
-    - tasks/execute-checklist.md
+    - data-classification.md
+    - rbac-blueprint.md
+    - abac-tags-plan.md
+    - masking-policies.md
+    - row-access-policies.md
+    - object-ownership.md
+    - secrets-keys.md
+    - sso-scim-oauth.md
+    - network-policies.md
+    - data-sharing-governance.md
+    - marketplace-governance.md
+    - retention-lifecycle.md
+    - purpose-limitation.md
+    - access-review.md
+    - audit-forensics.md
+    - compliance-mapping.md
+    - policy-as-code.md
+    - incident-security.md
+    - finops-security.md
+    - lineage-catalog.md
+    - execute-checklist.md
   templates:
-    - templates/data-classification-tmpl.yaml
-    - templates/rbac-blueprint-tmpl.yaml
-    - templates/abac-tags-plan-tmpl.yaml
-    - templates/masking-policies-tmpl.yaml
-    - templates/row-access-policies-tmpl.yaml
-    - templates/object-ownership-tmpl.yaml
-    - templates/secrets-keys-tmpl.yaml
-    - templates/sso-scim-oauth-tmpl.yaml
-    - templates/network-policies-tmpl.yaml
-    - templates/data-sharing-governance-tmpl.yaml
-    - templates/marketplace-governance-tmpl.yaml
-    - templates/retention-lifecycle-tmpl.yaml
-    - templates/purpose-limitation-tmpl.yaml
-    - templates/access-review-tmpl.yaml
-    - templates/audit-forensics-tmpl.yaml
-    - templates/compliance-mapping-tmpl.yaml
-    - templates/policy-as-code-tmpl.yaml
-    - templates/incident-security-tmpl.md
-    - templates/finops-security-tmpl.yaml
-    - templates/lineage-catalog-tmpl.yaml
+    - data-classification-tmpl.yaml
+    - rbac-blueprint-tmpl.yaml
+    - abac-tags-plan-tmpl.yaml
+    - masking-policies-tmpl.yaml
+    - row-access-policies-tmpl.yaml
+    - object-ownership-tmpl.yaml
+    - secrets-keys-tmpl.yaml
+    - sso-scim-oauth-tmpl.yaml
+    - network-policies-tmpl.yaml
+    - data-sharing-governance-tmpl.yaml
+    - marketplace-governance-tmpl.yaml
+    - retention-lifecycle-tmpl.yaml
+    - purpose-limitation-tmpl.yaml
+    - access-review-tmpl.yaml
+    - audit-forensics-tmpl.yaml
+    - compliance-mapping-tmpl.yaml
+    - policy-as-code-tmpl.yaml
+    - incident-security-tmpl.md
+    - finops-security-tmpl.yaml
+    - lineage-catalog-tmpl.yaml
   checklists:
-    - checklists/sg-readiness-checklist.md
-    - checklists/data-classification-checklist.md
-    - checklists/rbac-checklist.md
-    - checklists/abac-tags-checklist.md
-    - checklists/masking-checklist.md
-    - checklists/row-access-checklist.md
-    - checklists/identity-network-checklist.md
-    - checklists/sharing-marketplace-checklist.md
-    - checklists/retention-purpose-checklist.md
-    - checklists/access-review-checklist.md
-    - checklists/audit-forensics-checklist.md
-    - checklists/compliance-checklist.md
-    - checklists/policy-as-code-checklist.md
-    - checklists/incident-security-checklist.md
-    - checklists/finops-security-checklist.md
+    - sg-readiness-checklist.md
+    - data-classification-checklist.md
+    - rbac-checklist.md
+    - abac-tags-checklist.md
+    - masking-checklist.md
+    - row-access-checklist.md
+    - identity-network-checklist.md
+    - sharing-marketplace-checklist.md
+    - retention-purpose-checklist.md
+    - access-review-checklist.md
+    - audit-forensics-checklist.md
+    - compliance-checklist.md
+    - policy-as-code-checklist.md
+    - incident-security-checklist.md
+    - finops-security-checklist.md
   data:
-    - data/kb-security.md
-    - data/rbac-examples.sql
-    - data/tagging-examples.sql
-    - data/masking-examples.sql
-    - data/row-access-examples.sql
-    - data/access-history-queries.sql
-    - data/account-usage-queries.sql
-    - data/network-policy-examples.sql
-    - data/sharing-examples.sql
-    - data/marketplace-examples.md
-    - data/retention-policy-examples.sql
-    - data/purpose-limitation-examples.md
-    - data/secrets-keys-examples.md
-    - data/sso-scim-oauth-examples.md
-    - data/policy-as-code-repo.yaml
-    - data/compliance-mapping.md
-    - data/lineage-catalog-examples.md
+    - kb-security.md
+    - rbac-examples.sql
+    - tagging-examples.sql
+    - masking-examples.sql
+    - row-access-examples.sql
+    - access-history-queries.sql
+    - account-usage-queries.sql
+    - network-policy-examples.sql
+    - sharing-examples.sql
+    - marketplace-examples.md
+    - retention-policy-examples.sql
+    - purpose-limitation-examples.md
+    - secrets-keys-examples.md
+    - sso-scim-oauth-examples.md
+    - policy-as-code-repo.yaml
+    - compliance-mapping.md
+    - lineage-catalog-examples.md
 ```
