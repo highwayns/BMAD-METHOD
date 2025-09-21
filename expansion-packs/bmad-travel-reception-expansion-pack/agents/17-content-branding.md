@@ -135,5 +135,5 @@ dependencies:
     - crisis-readiness-check.md
     - email-deliverability-check.md
   data:
-    - kb/jp-content-branding-kb.md
+    - jp-content-branding-kb.md
 ```

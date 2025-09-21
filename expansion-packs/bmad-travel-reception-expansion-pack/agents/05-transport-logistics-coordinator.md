@@ -117,5 +117,5 @@ dependencies:
     - road-closure-diversion-check.md
     - lost-found-process.md
   data:
-    - kb/jp-transport-logistics-kb.md
+    - jp-transport-logistics-kb.md
 ```

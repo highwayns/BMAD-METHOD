@@ -113,5 +113,5 @@ dependencies:
     - qa-sampling-check.md
     - privacy-appi-check.md
   data:
-    - kb/jp-customer-care-kb.md
+    - jp-customer-care-kb.md
 ```

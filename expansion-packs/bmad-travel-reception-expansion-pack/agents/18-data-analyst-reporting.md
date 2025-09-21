@@ -123,5 +123,5 @@ dependencies:
     - forecast-backtest-check.md
     - dashboard-a11y-i18n-check.md
   data:
-    - kb/jp-analytics-kb.md
+    - jp-analytics-kb.md
 ```

@@ -119,5 +119,5 @@ dependencies:
     - courier-tracking-check.md
     - privacy-appi-check.md
   data:
-    - kb/jp-visa-insurance-kb.md
+    - jp-visa-insurance-kb.md
 ```

@@ -167,5 +167,5 @@ dependencies:
     - signage-readability-check.md
     - alcohol-policy-check.md
   data:
-    - kb/jp-mice-kb.md
+    - jp-mice-kb.md
 ```

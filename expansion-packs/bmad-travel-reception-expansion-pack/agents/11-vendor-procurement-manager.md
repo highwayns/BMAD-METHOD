@@ -119,5 +119,5 @@ dependencies:
     - data-contract-check.md
     - api-go-live-check.md
   data:
-    - kb/jp-vendor-procurement-kb.md
+    - jp-vendor-procurement-kb.md
 ```

@@ -133,5 +133,5 @@ dependencies:
     - invoice-qa-checklist.md
     - churn-risk-watch.md
   data:
-    - kb/jp-sales-account-kb.md
+    - jp-sales-account-kb.md
 ```

@@ -106,5 +106,5 @@ dependencies:
     - photo-evidence-check.md
     - radio-comms-check.md
   data:
-    - kb/jp-onsite-ops-kb.md
+    - jp-onsite-ops-kb.md
 ```

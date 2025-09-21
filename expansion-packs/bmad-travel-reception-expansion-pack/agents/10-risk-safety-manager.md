@@ -128,5 +128,5 @@ dependencies:
     - data-breach-check.md
     - ppe-daily-check.md
   data:
-    - kb/jp-risk-safety-kb.md
+    - jp-risk-safety-kb.md
 ```

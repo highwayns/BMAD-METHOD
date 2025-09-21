@@ -135,5 +135,5 @@ dependencies:
     - backup-recovery-check.md
     - slo-monitoring-check.md
   data:
-    - kb/jp-tech-dms-crm-kb.md
+    - jp-tech-dms-crm-kb.md
 ```

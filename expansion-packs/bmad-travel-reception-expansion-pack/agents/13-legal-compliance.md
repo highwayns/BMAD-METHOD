@@ -135,5 +135,5 @@ dependencies:
     - cookie-consent-check.md
     - tos-policy-check.md
   data:
-    - kb/jp-legal-compliance-kb.md
+    - jp-legal-compliance-kb.md
 ```

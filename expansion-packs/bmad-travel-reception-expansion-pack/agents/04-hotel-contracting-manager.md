@@ -100,5 +100,5 @@ dependencies:
     - invoice-qa-checklist.md
     - appi-data-sharing-check.md
   data:
-    - kb/jp-hotel-contracting-kb.md
+    - jp-hotel-contracting-kb.md
 ```

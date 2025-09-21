@@ -108,5 +108,5 @@ dependencies:
     - complaint-intake-check.md
     - payroll-audit-check.md
   data:
-    - kb/jp-guide-leader-kb.md
+    - jp-guide-leader-kb.md
 ```

@@ -135,5 +135,5 @@ dependencies:
     - regression-scope-check.md
     - release-gate-check.md
   data:
-    - kb/jp-qa-kb.md
+    - jp-qa-kb.md
 ```

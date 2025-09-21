@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -42,24 +42,24 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/create-doc-travel-architecture.md
-    - tasks/review-operations.md
-    - tasks/validate-operations.md
+    - create-doc-travel-architecture.md
+    - review-operations.md
+    - validate-operations.md
   templates:
-    - templates/output/travel-architecture-tmpl.yaml
-    - templates/output/travel-implementation-tmpl.yaml
+    - travel-architecture-tmpl.yaml
+    - travel-implementation-tmpl.yaml
   checklists:
-    - checklists/travel-operations-checklist.md
+    - travel-operations-checklist.md
   data:
-    - templates/data/clients.csv
-    - templates/data/travelers.csv
-    - templates/data/itineraries.csv
-    - templates/data/bookings.csv
-    - templates/data/rooming_list.csv
-    - templates/data/transport_plan.csv
-    - templates/data/vendor_accounts.csv
-    - templates/data/guide_roster.csv
-    - templates/data/incidents.csv
-    - templates/data/kpi.csv
-    - templates/data/invoices.csv
+    - samples/clients.csv
+    - samples/travelers.csv
+    - samples/itineraries.csv
+    - samples/bookings.csv
+    - samples/rooming_list.csv
+    - samples/transport_plan.csv
+    - samples/vendor_accounts.csv
+    - samples/guide_roster.csv
+    - samples/incidents.csv
+    - samples/kpi.csv
+    - samples/invoices.csv
 ```

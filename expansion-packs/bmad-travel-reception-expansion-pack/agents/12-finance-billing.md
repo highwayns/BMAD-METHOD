@@ -126,5 +126,5 @@ dependencies:
     - privacy-appi-check.md
     - anti-fraud-check.md
   data:
-    - kb/jp-finance-billing-kb.md
+    - jp-finance-billing-kb.md
 ```
