@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -61,61 +61,61 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/execute-checklist.md
-    - tasks/correct-course.md
-    - tasks/review-interview-ops.md
-    - tasks/validate-interview-ops.md
-    - tasks/scheduling-playbook.md
-    - tasks/communication-kit.md
-    - tasks/interview-day-runbook.md
-    - tasks/interviewer-roster.md
-    - tasks/accessibility-plan.md
-    - tasks/debrief-calibration.md
-    - tasks/calendar-integration.md
-    - tasks/onsite-logistics.md
-    - tasks/incident-escalation.md
-    - tasks/ats-data-contract.md
-    - tasks/kpi-dashboard-setup.md
-    - tasks/compliance-privacy-setup.md
+    - create-doc.md
+    - execute-checklist.md
+    - correct-course.md
+    - review-interview-ops.md
+    - validate-interview-ops.md
+    - scheduling-playbook.md
+    - communication-kit.md
+    - interview-day-runbook.md
+    - interviewer-roster.md
+    - accessibility-plan.md
+    - debrief-calibration.md
+    - calendar-integration.md
+    - onsite-logistics.md
+    - incident-escalation.md
+    - ats-data-contract.md
+    - kpi-dashboard-setup.md
+    - compliance-privacy-setup.md
   templates:
-    - templates/isc/scheduling-playbook-tmpl.yaml
-    - templates/isc/communication-kit-tmpl.yaml
-    - templates/isc/interview-day-runbook-tmpl.yaml
-    - templates/isc/interviewer-roster-tmpl.yaml
-    - templates/isc/accessibility-plan-tmpl.yaml
-    - templates/isc/debrief-calibration-tmpl.yaml
-    - templates/isc/calendar-integration-tmpl.yaml
-    - templates/isc/onsite-logistics-tmpl.yaml
-    - templates/isc/incident-escalation-tmpl.yaml
-    - templates/isc/kpi-dictionary-tmpl.yaml
-    - templates/isc/sla-sop-tmpl.yaml
-    - templates/isc/risk-register-tmpl.yaml
-    - templates/isc/privacy-compliance-tmpl.yaml
+    - isc/scheduling-playbook-tmpl.yaml
+    - isc/communication-kit-tmpl.yaml
+    - isc/interview-day-runbook-tmpl.yaml
+    - isc/interviewer-roster-tmpl.yaml
+    - isc/accessibility-plan-tmpl.yaml
+    - isc/debrief-calibration-tmpl.yaml
+    - isc/calendar-integration-tmpl.yaml
+    - isc/onsite-logistics-tmpl.yaml
+    - isc/incident-escalation-tmpl.yaml
+    - isc/kpi-dictionary-tmpl.yaml
+    - isc/sla-sop-tmpl.yaml
+    - isc/risk-register-tmpl.yaml
+    - isc/privacy-compliance-tmpl.yaml
   checklists:
-    - checklists/pre-interview-readiness-checklist.md
-    - checklists/scheduling-sla-checklist.md
-    - checklists/timezone-conflict-checklist.md
-    - checklists/virtual-tech-check-checklist.md
-    - checklists/onsite-ops-checklist.md
-    - checklists/accessibility-accommodation-checklist.md
-    - checklists/candidate-communication-checklist.md
-    - checklists/debrief-recordkeeping-checklist.md
-    - checklists/privacy-consent-checklist.md
-    - checklists/change-management-checklist.md
+    - pre-interview-readiness-checklist.md
+    - scheduling-sla-checklist.md
+    - timezone-conflict-checklist.md
+    - virtual-tech-check-checklist.md
+    - onsite-ops-checklist.md
+    - accessibility-accommodation-checklist.md
+    - candidate-communication-checklist.md
+    - debrief-recordkeeping-checklist.md
+    - privacy-consent-checklist.md
+    - change-management-checklist.md
   data:
-    - data/dictionaries/email_templates.csv
-    - data/dictionaries/sms_templates.csv
-    - data/dictionaries/scheduling_codes.csv
-    - data/dictionaries/rooms_resources.csv
-    - data/dictionaries/interviewer_roster.csv
-    - data/dictionaries/timezones.csv
-    - data/dictionaries/kpi_targets.csv
-    - data/dictionaries/sla_targets.csv
-    - data/samples/schedule_requests.csv
-    - data/samples/interview_events.csv
-    - data/samples/incident_log.csv
-    - data/samples/accommodations.csv
+    - dictionaries/email_templates.csv
+    - dictionaries/sms_templates.csv
+    - dictionaries/scheduling_codes.csv
+    - dictionaries/rooms_resources.csv
+    - dictionaries/interviewer_roster.csv
+    - dictionaries/timezones.csv
+    - dictionaries/kpi_targets.csv
+    - dictionaries/sla_targets.csv
+    - samples/schedule_requests.csv
+    - samples/interview_events.csv
+    - samples/incident_log.csv
+    - samples/accommodations.csv
 
 outputs:
   main_documents:
@@ -152,24 +152,24 @@ collaboration:
 
 quality_gates:
   - name: 合规关
-    checklists: [checklists/privacy-consent-checklist.md]
+    checklists: [privacy-consent-checklist.md]
     must_pass: true
   - name: 准备关
     checklists:
       [
-        checklists/pre-interview-readiness-checklist.md,
-        checklists/scheduling-sla-checklist.md,
-        checklists/timezone-conflict-checklist.md,
+        pre-interview-readiness-checklist.md,
+        scheduling-sla-checklist.md,
+        timezone-conflict-checklist.md,
       ]
     must_pass: true
   - name: 技术关
-    checklists: [checklists/virtual-tech-check-checklist.md, checklists/onsite-ops-checklist.md]
+    checklists: [virtual-tech-check-checklist.md, onsite-ops-checklist.md]
     must_pass: true
   - name: 沟通关
-    checklists: [checklists/candidate-communication-checklist.md]
+    checklists: [candidate-communication-checklist.md]
     must_pass: true
   - name: 回写关
-    checklists: [checklists/debrief-recordkeeping-checklist.md]
+    checklists: [debrief-recordkeeping-checklist.md]
     must_pass: true
 
 examples:
@@ -179,5 +179,5 @@ examples:
     - 无障碍场景：字幕/口译/轮椅通道/阅读器→隐私与尊重→体验回访→改进闭环
 
 notes:
-  - 运行 `tasks/create-doc.md` 时，采用 BMAD 逐节 Elicitation（强制 1–9 选项）。
+  - 运行 `create-doc.md` 时，采用 BMAD 逐节 Elicitation（强制 1–9 选项）。
 ```

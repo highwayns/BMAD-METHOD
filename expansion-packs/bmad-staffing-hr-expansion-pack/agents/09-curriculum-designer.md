@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -64,76 +64,76 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/execute-checklist.md
-    - tasks/correct-course.md
-    - tasks/review-curriculum-ops.md
-    - tasks/validate-curriculum-ops.md
-    - tasks/id-brief.md
-    - tasks/learning-objectives.md
-    - tasks/curriculum-blueprint.md
-    - tasks/storyboard.md
-    - tasks/assessment-alignment.md
-    - tasks/media-spec.md
-    - tasks/scorm-xapi-spec.md
-    - tasks/localization-plan.md
-    - tasks/accessibility-plan.md
-    - tasks/instructor-guide.md
-    - tasks/learner-guide.md
-    - tasks/rollout-plan.md
-    - tasks/analytics-plan.md
-    - tasks/content-qa.md
-    - tasks/versioning-governance.md
-    - tasks/vendor-management.md
+    - create-doc.md
+    - execute-checklist.md
+    - correct-course.md
+    - review-curriculum-ops.md
+    - validate-curriculum-ops.md
+    - id-brief.md
+    - learning-objectives.md
+    - curriculum-blueprint.md
+    - storyboard.md
+    - assessment-alignment.md
+    - media-spec.md
+    - scorm-xapi-spec.md
+    - localization-plan.md
+    - accessibility-plan.md
+    - instructor-guide.md
+    - learner-guide.md
+    - rollout-plan.md
+    - analytics-plan.md
+    - content-qa.md
+    - versioning-governance.md
+    - vendor-management.md
   templates:
-    - templates/cd/id-brief-tmpl.yaml
-    - templates/cd/learning-objectives-tmpl.yaml
-    - templates/cd/curriculum-blueprint-tmpl.yaml
-    - templates/cd/storyboard-tmpl.yaml
-    - templates/cd/assessment-alignment-tmpl.yaml
-    - templates/cd/media-spec-tmpl.yaml
-    - templates/cd/scorm-xapi-spec-tmpl.yaml
-    - templates/cd/localization-plan-tmpl.yaml
-    - templates/cd/accessibility-plan-tmpl.yaml
-    - templates/cd/instructor-guide-tmpl.yaml
-    - templates/cd/learner-guide-tmpl.yaml
-    - templates/cd/rollout-plan-tmpl.yaml
-    - templates/cd/analytics-plan-tmpl.yaml
-    - templates/cd/kpi-dictionary-tmpl.yaml
-    - templates/cd/sla-sop-tmpl.yaml
-    - templates/cd/risk-register-tmpl.yaml
-    - templates/cd/privacy-compliance-tmpl.yaml
+    - cd/id-brief-tmpl.yaml
+    - cd/learning-objectives-tmpl.yaml
+    - cd/curriculum-blueprint-tmpl.yaml
+    - cd/storyboard-tmpl.yaml
+    - cd/assessment-alignment-tmpl.yaml
+    - cd/media-spec-tmpl.yaml
+    - cd/scorm-xapi-spec-tmpl.yaml
+    - cd/localization-plan-tmpl.yaml
+    - cd/accessibility-plan-tmpl.yaml
+    - cd/instructor-guide-tmpl.yaml
+    - cd/learner-guide-tmpl.yaml
+    - cd/rollout-plan-tmpl.yaml
+    - cd/analytics-plan-tmpl.yaml
+    - cd/kpi-dictionary-tmpl.yaml
+    - cd/sla-sop-tmpl.yaml
+    - cd/risk-register-tmpl.yaml
+    - cd/privacy-compliance-tmpl.yaml
   checklists:
-    - checklists/design-readiness-checklist.md
-    - checklists/objectives-quality-checklist.md
-    - checklists/blueprint-coverage-checklist.md
-    - checklists/storyboard-quality-checklist.md
-    - checklists/content-qa-checklist.md
-    - checklists/accessibility-wcag-checklist.md
-    - checklists/localization-qa-checklist.md
-    - checklists/assessment-alignment-checklist.md
-    - checklists/media-production-checklist.md
-    - checklists/scorm-xapi-package-checklist.md
-    - checklists/instructor-readiness-checklist.md
-    - checklists/rollout-pilot-checklist.md
-    - checklists/privacy-ip-checklist.md
-    - checklists/change-management-checklist.md
+    - design-readiness-checklist.md
+    - objectives-quality-checklist.md
+    - blueprint-coverage-checklist.md
+    - storyboard-quality-checklist.md
+    - content-qa-checklist.md
+    - accessibility-wcag-checklist.md
+    - localization-qa-checklist.md
+    - assessment-alignment-checklist.md
+    - media-production-checklist.md
+    - scorm-xapi-package-checklist.md
+    - instructor-readiness-checklist.md
+    - rollout-pilot-checklist.md
+    - privacy-ip-checklist.md
+    - change-management-checklist.md
   data:
-    - data/dictionaries/bloom_verbs.csv
-    - data/dictionaries/abcdn_objectives.csv
-    - data/dictionaries/course_catalog.csv
-    - data/dictionaries/module_outline.csv
-    - data/dictionaries/media_inventory.csv
-    - data/dictionaries/assessment_map.csv
-    - data/dictionaries/scorm_xapi_events.csv
-    - data/dictionaries/languages_locales.csv
-    - data/dictionaries/kpi_targets.csv
-    - data/dictionaries/sla_targets.csv
-    - data/samples/storyboards.csv
-    - data/samples/objectives_samples.csv
-    - data/samples/pilot_plan.csv
-    - data/samples/qa_issues.csv
-    - data/samples/vendor_list.csv
+    - dictionaries/bloom_verbs.csv
+    - dictionaries/abcdn_objectives.csv
+    - dictionaries/course_catalog.csv
+    - dictionaries/module_outline.csv
+    - dictionaries/media_inventory.csv
+    - dictionaries/assessment_map.csv
+    - dictionaries/scorm_xapi_events.csv
+    - dictionaries/languages_locales.csv
+    - dictionaries/kpi_targets.csv
+    - dictionaries/sla_targets.csv
+    - samples/storyboards.csv
+    - samples/objectives_samples.csv
+    - samples/pilot_plan.csv
+    - samples/qa_issues.csv
+    - samples/vendor_list.csv
 
 outputs:
   main_documents:
@@ -174,27 +174,25 @@ collaboration:
 
 quality_gates:
   - name: 合规关
-    checklists: [checklists/privacy-ip-checklist.md, checklists/accessibility-wcag-checklist.md]
+    checklists: [privacy-ip-checklist.md, accessibility-wcag-checklist.md]
     must_pass: true
   - name: 设计关
     checklists:
       [
-        checklists/design-readiness-checklist.md,
-        checklists/objectives-quality-checklist.md,
-        checklists/blueprint-coverage-checklist.md,
-        checklists/storyboard-quality-checklist.md,
+        design-readiness-checklist.md,
+        objectives-quality-checklist.md,
+        blueprint-coverage-checklist.md,
+        storyboard-quality-checklist.md,
       ]
     must_pass: true
   - name: 评估关
-    checklists: [checklists/assessment-alignment-checklist.md]
+    checklists: [assessment-alignment-checklist.md]
     must_pass: true
   - name: 打包关
-    checklists:
-      [checklists/media-production-checklist.md, checklists/scorm-xapi-package-checklist.md]
+    checklists: [media-production-checklist.md, scorm-xapi-package-checklist.md]
     must_pass: true
   - name: 发布关
-    checklists:
-      [checklists/instructor-readiness-checklist.md, checklists/rollout-pilot-checklist.md]
+    checklists: [instructor-readiness-checklist.md, rollout-pilot-checklist.md]
     must_pass: true
 
 examples:
@@ -204,5 +202,5 @@ examples:
     - 快速迭代：SAM 原型→试点→数据→迭代→标准化发布
 
 notes:
-  - 运行 `tasks/create-doc.md` 时，采用 BMAD 逐节 Elicitation（强制 1–9 选项）。
+  - 运行 `create-doc.md` 时，采用 BMAD 逐节 Elicitation（强制 1–9 选项）。
 ```

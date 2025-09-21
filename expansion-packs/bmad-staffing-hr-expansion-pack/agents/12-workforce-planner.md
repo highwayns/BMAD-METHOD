@@ -46,10 +46,10 @@ commands:
   - exit: 退出（需确认）
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/execute-checklist.md
-    - tasks/simulate-scenarios.md
-    - tasks/build-dashboard.md
+    - create-doc.md
+    - execute-checklist.md
+    - simulate-scenarios.md
+    - build-dashboard.md
   templates:
     - workforce-plan-tmpl.yaml
     - demand-forecast-tmpl.yaml

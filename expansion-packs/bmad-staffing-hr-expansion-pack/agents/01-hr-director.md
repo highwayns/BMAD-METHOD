@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -56,47 +56,47 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/execute-checklist.md
-    - tasks/correct-course.md
-    - tasks/review-operations.md
-    - tasks/validate-operations.md
+    - create-doc.md
+    - execute-checklist.md
+    - correct-course.md
+    - review-operations.md
+    - validate-operations.md
   templates:
-    - templates/hr/ops-architecture-tmpl.yaml
-    - templates/hr/ats-integration-tmpl.yaml
-    - templates/hr/job-family-competency-tmpl.yaml
-    - templates/hr/recruiting-funnel-tmpl.yaml
-    - templates/hr/interview-kit-tmpl.yaml
-    - templates/hr/ld-catalog-tmpl.yaml
-    - templates/hr/training-program-tmpl.yaml
-    - templates/hr/dispatch-ops-tmpl.yaml
-    - templates/hr/contract-compliance-tmpl.yaml
-    - templates/hr/payroll-attendance-map-tmpl.yaml
-    - templates/hr/privacy-compliance-tmpl.yaml
-    - templates/hr/kpi-dictionary-tmpl.yaml
-    - templates/hr/sla-sop-tmpl.yaml
-    - templates/hr/vendor-management-tmpl.yaml
-    - templates/hr/risk-register-tmpl.yaml
+    - hr/ops-architecture-tmpl.yaml
+    - hr/ats-integration-tmpl.yaml
+    - hr/job-family-competency-tmpl.yaml
+    - hr/recruiting-funnel-tmpl.yaml
+    - hr/interview-kit-tmpl.yaml
+    - hr/ld-catalog-tmpl.yaml
+    - hr/training-program-tmpl.yaml
+    - hr/dispatch-ops-tmpl.yaml
+    - hr/contract-compliance-tmpl.yaml
+    - hr/payroll-attendance-map-tmpl.yaml
+    - hr/privacy-compliance-tmpl.yaml
+    - hr/kpi-dictionary-tmpl.yaml
+    - hr/sla-sop-tmpl.yaml
+    - hr/vendor-management-tmpl.yaml
+    - hr/risk-register-tmpl.yaml
   checklists:
-    - checklists/hr-ops-16point-checklist.md
-    - checklists/ats-integration-checklist.md
-    - checklists/recruiting-assessment-checklist.md
-    - checklists/training-lifecycle-checklist.md
-    - checklists/dispatch-ops-checklist.md
-    - checklists/payroll-integration-checklist.md
-    - checklists/privacy-appi-gdpr-checklist.md
-    - checklists/vendor-due-diligence-checklist.md
-    - checklists/change-management-checklist.md
+    - hr-ops-16point-checklist.md
+    - ats-integration-checklist.md
+    - recruiting-assessment-checklist.md
+    - training-lifecycle-checklist.md
+    - dispatch-ops-checklist.md
+    - payroll-integration-checklist.md
+    - privacy-appi-gdpr-checklist.md
+    - vendor-due-diligence-checklist.md
+    - change-management-checklist.md
   data:
-    - data/dictionaries/competency.csv
-    - data/dictionaries/job_families.csv
-    - data/samples/candidates.csv
-    - data/samples/jobs.csv
-    - data/samples/training_catalog.csv
-    - data/samples/training_sessions.csv
-    - data/samples/placements.csv
-    - data/samples/client_accounts.csv
-    - data/samples/sla_kpi.csv
+    - dictionaries/competency.csv
+    - dictionaries/job_families.csv
+    - samples/candidates.csv
+    - samples/jobs.csv
+    - samples/training_catalog.csv
+    - samples/training_sessions.csv
+    - samples/placements.csv
+    - samples/client_accounts.csv
+    - samples/sla_kpi.csv
 
 outputs:
   main_documents:
@@ -128,17 +128,16 @@ collaboration:
 
 quality_gates:
   - name: 合规关
-    checklists:
-      [checklists/privacy-appi-gdpr-checklist.md, checklists/vendor-due-diligence-checklist.md]
+    checklists: [privacy-appi-gdpr-checklist.md, vendor-due-diligence-checklist.md]
     must_pass: true
   - name: 计薪关
-    checklists: [checklists/payroll-integration-checklist.md]
+    checklists: [payroll-integration-checklist.md]
     must_pass: true
   - name: 派遣关
-    checklists: [checklists/dispatch-ops-checklist.md]
+    checklists: [dispatch-ops-checklist.md]
     must_pass: true
   - name: 文档关
-    checklists: [checklists/change-management-checklist.md, checklists/hr-ops-16point-checklist.md]
+    checklists: [change-management-checklist.md, hr-ops-16point-checklist.md]
     must_pass: true
 
 examples:
@@ -149,5 +148,5 @@ examples:
     - Payroll：考勤→计薪→个税/社保→发薪→对账→异常闭环
 
 notes:
-  - 当以 `tasks/create-doc.md` 运行模板时，需按 BMAD 的交互式分节-Elicitation 规则执行（逐节确认）。
+  - 当以 `create-doc.md` 运行模板时，需按 BMAD 的交互式分节-Elicitation 规则执行（逐节确认）。
 ```

@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -59,61 +59,61 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/execute-checklist.md
-    - tasks/correct-course.md
-    - tasks/review-recruiting-ops.md
-    - tasks/validate-recruiting-ops.md
-    - tasks/requisition-intake.md
-    - tasks/job-brief-calibration.md
-    - tasks/pipeline-hygiene.md
-    - tasks/phone-screen.md
-    - tasks/interview-scheduling.md
-    - tasks/interview-kit-runner.md
-    - tasks/offer-pack-prep.md
-    - tasks/onboarding-bridge.md
-    - tasks/dispatch-handoff.md
-    - tasks/candidate-experience.md
-    - tasks/ats-data-contract.md
-    - tasks/compliance-privacy-setup.md
-    - tasks/kpi-dashboard-setup.md
+    - create-doc.md
+    - execute-checklist.md
+    - correct-course.md
+    - review-recruiting-ops.md
+    - validate-recruiting-ops.md
+    - requisition-intake.md
+    - job-brief-calibration.md
+    - pipeline-hygiene.md
+    - phone-screen.md
+    - interview-scheduling.md
+    - interview-kit-runner.md
+    - offer-pack-prep.md
+    - onboarding-bridge.md
+    - dispatch-handoff.md
+    - candidate-experience.md
+    - ats-data-contract.md
+    - compliance-privacy-setup.md
+    - kpi-dashboard-setup.md
   templates:
-    - templates/recruiter/requisition-brief-tmpl.yaml
-    - templates/recruiter/job-brief-calibration-tmpl.yaml
-    - templates/recruiter/phone-screen-script-tmpl.yaml
-    - templates/recruiter/interview-loop-plan-tmpl.yaml
-    - templates/recruiter/scheduling-playbook-tmpl.yaml
-    - templates/recruiter/offer-pack-tmpl.yaml
-    - templates/recruiter/onboarding-bridge-tmpl.yaml
-    - templates/recruiter/dispatch-handoff-tmpl.yaml
-    - templates/recruiter/rejection-templates-tmpl.yaml
-    - templates/recruiter/kpi-dictionary-tmpl.yaml
-    - templates/recruiter/sla-sop-tmpl.yaml
-    - templates/recruiter/risk-register-tmpl.yaml
-    - templates/recruiter/privacy-compliance-tmpl.yaml
+    - recruiter/requisition-brief-tmpl.yaml
+    - recruiter/job-brief-calibration-tmpl.yaml
+    - recruiter/phone-screen-script-tmpl.yaml
+    - recruiter/interview-loop-plan-tmpl.yaml
+    - recruiter/scheduling-playbook-tmpl.yaml
+    - recruiter/offer-pack-tmpl.yaml
+    - recruiter/onboarding-bridge-tmpl.yaml
+    - recruiter/dispatch-handoff-tmpl.yaml
+    - recruiter/rejection-templates-tmpl.yaml
+    - recruiter/kpi-dictionary-tmpl.yaml
+    - recruiter/sla-sop-tmpl.yaml
+    - recruiter/risk-register-tmpl.yaml
+    - recruiter/privacy-compliance-tmpl.yaml
   checklists:
-    - checklists/requisition-intake-checklist.md
-    - checklists/screening-fairness-checklist.md
-    - checklists/interview-readiness-checklist.md
-    - checklists/scheduling-sla-checklist.md
-    - checklists/offer-pack-checklist.md
-    - checklists/onboarding-readiness-checklist.md
-    - checklists/candidate-experience-checklist.md
-    - checklists/ats-hygiene-checklist.md
-    - checklists/privacy-appi-gdpr-checklist.md
-    - checklists/change-management-checklist.md
+    - requisition-intake-checklist.md
+    - screening-fairness-checklist.md
+    - interview-readiness-checklist.md
+    - scheduling-sla-checklist.md
+    - offer-pack-checklist.md
+    - onboarding-readiness-checklist.md
+    - candidate-experience-checklist.md
+    - ats-hygiene-checklist.md
+    - privacy-appi-gdpr-checklist.md
+    - change-management-checklist.md
   data:
-    - data/dictionaries/stage_codes.csv
-    - data/dictionaries/phone_screen_questions.csv
-    - data/dictionaries/email_templates.csv
-    - data/dictionaries/kpi_targets.csv
-    - data/dictionaries/sla_targets.csv
-    - data/samples/candidates.csv
-    - data/samples/jobs.csv
-    - data/samples/interviews.csv
-    - data/samples/offers.csv
-    - data/samples/onboarding_tasks.csv
-    - data/samples/dispatch_assignments.csv
+    - dictionaries/stage_codes.csv
+    - dictionaries/phone_screen_questions.csv
+    - dictionaries/email_templates.csv
+    - dictionaries/kpi_targets.csv
+    - dictionaries/sla_targets.csv
+    - samples/candidates.csv
+    - samples/jobs.csv
+    - samples/interviews.csv
+    - samples/offers.csv
+    - samples/onboarding_tasks.csv
+    - samples/dispatch_assignments.csv
 
 outputs:
   main_documents:
@@ -150,21 +150,19 @@ collaboration:
 
 quality_gates:
   - name: 合规关
-    checklists: [checklists/privacy-appi-gdpr-checklist.md, checklists/ats-hygiene-checklist.md]
+    checklists: [privacy-appi-gdpr-checklist.md, ats-hygiene-checklist.md]
     must_pass: true
   - name: 面试关
-    checklists:
-      [checklists/interview-readiness-checklist.md, checklists/scheduling-sla-checklist.md]
+    checklists: [interview-readiness-checklist.md, scheduling-sla-checklist.md]
     must_pass: true
   - name: 入职关
-    checklists: [checklists/onboarding-readiness-checklist.md, checklists/offer-pack-checklist.md]
+    checklists: [onboarding-readiness-checklist.md, offer-pack-checklist.md]
     must_pass: true
   - name: 体验关
-    checklists: [checklists/candidate-experience-checklist.md]
+    checklists: [candidate-experience-checklist.md]
     must_pass: true
   - name: 文档关
-    checklists:
-      [checklists/change-management-checklist.md, checklists/requisition-intake-checklist.md]
+    checklists: [change-management-checklist.md, requisition-intake-checklist.md]
     must_pass: true
 
 examples:
@@ -174,5 +172,5 @@ examples:
     - 体验：节奏/反馈/拒信与保温→NPS→改进闭环
 
 notes:
-  - 运行 `tasks/create-doc.md` 时，采用 BMAD 逐节 Elicitation（强制 1–9 选项）。
+  - 运行 `create-doc.md` 时，采用 BMAD 逐节 Elicitation（强制 1–9 选项）。
 ```

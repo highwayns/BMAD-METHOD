@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -64,73 +64,73 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/execute-checklist.md
-    - tasks/correct-course.md
-    - tasks/review-assessment-ops.md
-    - tasks/validate-assessment-ops.md
-    - tasks/assessment-framework.md
-    - tasks/competency-rubric.md
-    - tasks/test-blueprint.md
-    - tasks/item-bank-builder.md
-    - tasks/interview-kit-builder.md
-    - tasks/proctoring-sop.md
-    - tasks/remote-proctoring-setup.md
-    - tasks/scoring-calibration.md
-    - tasks/cutscore-study.md
-    - tasks/psychometric-analysis.md
-    - tasks/adverse-impact-analysis.md
-    - tasks/localization-accessibility.md
-    - tasks/integration-spec.md
-    - tasks/kpi-dashboard-setup.md
-    - tasks/privacy-compliance-setup.md
+    - create-doc.md
+    - execute-checklist.md
+    - correct-course.md
+    - review-assessment-ops.md
+    - validate-assessment-ops.md
+    - assessment-framework.md
+    - competency-rubric.md
+    - test-blueprint.md
+    - item-bank-builder.md
+    - interview-kit-builder.md
+    - proctoring-sop.md
+    - remote-proctoring-setup.md
+    - scoring-calibration.md
+    - cutscore-study.md
+    - psychometric-analysis.md
+    - adverse-impact-analysis.md
+    - localization-accessibility.md
+    - integration-spec.md
+    - kpi-dashboard-setup.md
+    - privacy-compliance-setup.md
   templates:
-    - templates/assess/assessment-framework-tmpl.yaml
-    - templates/assess/competency-rubric-tmpl.yaml
-    - templates/assess/test-blueprint-tmpl.yaml
-    - templates/assess/item-bank-schema-tmpl.yaml
-    - templates/assess/interview-kit-tmpl.yaml
-    - templates/assess/assessor-training-tmpl.yaml
-    - templates/assess/proctoring-sop-tmpl.yaml
-    - templates/assess/remote-proctoring-tmpl.yaml
-    - templates/assess/scoring-calibration-tmpl.yaml
-    - templates/assess/cutscore-study-tmpl.yaml
-    - templates/assess/psychometric-report-tmpl.yaml
-    - templates/assess/adverse-impact-report-tmpl.yaml
-    - templates/assess/kpi-dictionary-tmpl.yaml
-    - templates/assess/sla-sop-tmpl.yaml
-    - templates/assess/risk-register-tmpl.yaml
-    - templates/assess/privacy-compliance-tmpl.yaml
-    - templates/assess/integration-spec-tmpl.yaml
+    - assess/assessment-framework-tmpl.yaml
+    - assess/competency-rubric-tmpl.yaml
+    - assess/test-blueprint-tmpl.yaml
+    - assess/item-bank-schema-tmpl.yaml
+    - assess/interview-kit-tmpl.yaml
+    - assess/assessor-training-tmpl.yaml
+    - assess/proctoring-sop-tmpl.yaml
+    - assess/remote-proctoring-tmpl.yaml
+    - assess/scoring-calibration-tmpl.yaml
+    - assess/cutscore-study-tmpl.yaml
+    - assess/psychometric-report-tmpl.yaml
+    - assess/adverse-impact-report-tmpl.yaml
+    - assess/kpi-dictionary-tmpl.yaml
+    - assess/sla-sop-tmpl.yaml
+    - assess/risk-register-tmpl.yaml
+    - assess/privacy-compliance-tmpl.yaml
+    - assess/integration-spec-tmpl.yaml
   checklists:
-    - checklists/assessment-design-readiness-checklist.md
-    - checklists/item-writing-quality-checklist.md
-    - checklists/interview-structure-bias-checklist.md
-    - checklists/proctoring-security-checklist.md
-    - checklists/remote-proctoring-checklist.md
-    - checklists/scoring-qc-checklist.md
-    - checklists/psychometric-quality-checklist.md
-    - checklists/adverse-impact-checklist.md
-    - checklists/localization-qa-checklist.md
-    - checklists/accessibility-accommodation-checklist.md
-    - checklists/privacy-appi-gdpr-checklist.md
-    - checklists/change-management-checklist.md
+    - assessment-design-readiness-checklist.md
+    - item-writing-quality-checklist.md
+    - interview-structure-bias-checklist.md
+    - proctoring-security-checklist.md
+    - remote-proctoring-checklist.md
+    - scoring-qc-checklist.md
+    - psychometric-quality-checklist.md
+    - adverse-impact-checklist.md
+    - localization-qa-checklist.md
+    - accessibility-accommodation-checklist.md
+    - privacy-appi-gdpr-checklist.md
+    - change-management-checklist.md
   data:
-    - data/dictionaries/competency.csv
-    - data/dictionaries/rubric_levels.csv
-    - data/dictionaries/item_bank.csv
-    - data/dictionaries/interview_questions.csv
-    - data/dictionaries/scoring_scales.csv
-    - data/dictionaries/assessor_roster.csv
-    - data/dictionaries/kpi_targets.csv
-    - data/dictionaries/sla_targets.csv
-    - data/dictionaries/cutscore_config.csv
-    - data/samples/test_attempts.csv
-    - data/samples/item_responses.csv
-    - data/samples/proctoring_incidents.csv
-    - data/samples/accommodations.csv
-    - data/samples/interviewer_feedback.csv
-    - data/samples/adverse_impact_sample.csv
+    - dictionaries/competency.csv
+    - dictionaries/rubric_levels.csv
+    - dictionaries/item_bank.csv
+    - dictionaries/interview_questions.csv
+    - dictionaries/scoring_scales.csv
+    - dictionaries/assessor_roster.csv
+    - dictionaries/kpi_targets.csv
+    - dictionaries/sla_targets.csv
+    - dictionaries/cutscore_config.csv
+    - samples/test_attempts.csv
+    - samples/item_responses.csv
+    - samples/proctoring_incidents.csv
+    - samples/accommodations.csv
+    - samples/interviewer_feedback.csv
+    - samples/adverse_impact_sample.csv
 
 outputs:
   main_documents:
@@ -170,32 +170,27 @@ collaboration:
 
 quality_gates:
   - name: 合规关
-    checklists:
-      [
-        checklists/privacy-appi-gdpr-checklist.md,
-        checklists/accessibility-accommodation-checklist.md,
-      ]
+    checklists: [privacy-appi-gdpr-checklist.md, accessibility-accommodation-checklist.md]
     must_pass: true
   - name: 设计关
     checklists:
       [
-        checklists/assessment-design-readiness-checklist.md,
-        checklists/item-writing-quality-checklist.md,
-        checklists/interview-structure-bias-checklist.md,
+        assessment-design-readiness-checklist.md,
+        item-writing-quality-checklist.md,
+        interview-structure-bias-checklist.md,
       ]
     must_pass: true
   - name: 安保关
-    checklists:
-      [checklists/proctoring-security-checklist.md, checklists/remote-proctoring-checklist.md]
+    checklists: [proctoring-security-checklist.md, remote-proctoring-checklist.md]
     must_pass: true
   - name: 评分与心理测量关
-    checklists: [checklists/scoring-qc-checklist.md, checklists/psychometric-quality-checklist.md]
+    checklists: [scoring-qc-checklist.md, psychometric-quality-checklist.md]
     must_pass: true
   - name: 公平关
-    checklists: [checklists/adverse-impact-checklist.md]
+    checklists: [adverse-impact-checklist.md]
     must_pass: true
   - name: 本地化关
-    checklists: [checklists/localization-qa-checklist.md]
+    checklists: [localization-qa-checklist.md]
     must_pass: true
 
 examples:
@@ -206,5 +201,5 @@ examples:
     - 本地化与无障碍：翻译→术语表→对照测试→WCAG→盲评→回访
 
 notes:
-  - 运行 `tasks/create-doc.md` 时，采用 BMAD 逐节 Elicitation（强制 1–9 选项）。
+  - 运行 `create-doc.md` 时，采用 BMAD 逐节 Elicitation（强制 1–9 选项）。
 ```

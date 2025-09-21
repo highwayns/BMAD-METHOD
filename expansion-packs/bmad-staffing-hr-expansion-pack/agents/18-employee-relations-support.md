@@ -50,20 +50,20 @@ commands:
   - exit: 退出（需确认）
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/intake-and-triage.md
-    - tasks/investigate-case.md
-    - tasks/mediate-conflict.md
-    - tasks/disciplinary-procedure.md
-    - tasks/pip-coaching.md
-    - tasks/accommodation-review.md
-    - tasks/leave-management.md
-    - tasks/return-to-work.md
-    - tasks/run-hotline.md
-    - tasks/pulse-survey-and-sentiment.md
-    - tasks/build-dashboard.md
-    - tasks/collect-evidence.md
-    - tasks/execute-checklist.md
+    - create-doc.md
+    - intake-and-triage.md
+    - investigate-case.md
+    - mediate-conflict.md
+    - disciplinary-procedure.md
+    - pip-coaching.md
+    - accommodation-review.md
+    - leave-management.md
+    - return-to-work.md
+    - run-hotline.md
+    - pulse-survey-and-sentiment.md
+    - build-dashboard.md
+    - collect-evidence.md
+    - execute-checklist.md
   templates:
     - er-case-intake-tmpl.yaml
     - er-triage-matrix-tmpl.yaml

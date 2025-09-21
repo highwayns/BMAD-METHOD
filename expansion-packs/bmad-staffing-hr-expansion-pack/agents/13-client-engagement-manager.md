@@ -47,12 +47,12 @@ commands:
   - exit: 退出（需确认）
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/execute-checklist.md
-    - tasks/validate-sow.md
-    - tasks/build-dashboard.md
-    - tasks/review-health.md
-    - tasks/schedule-cadence.md
+    - create-doc.md
+    - execute-checklist.md
+    - validate-sow.md
+    - build-dashboard.md
+    - review-health.md
+    - schedule-cadence.md
   templates:
     - client-intake-tmpl.yaml
     - engagement-plan-tmpl.yaml

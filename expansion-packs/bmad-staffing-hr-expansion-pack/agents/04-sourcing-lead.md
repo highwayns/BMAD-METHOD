@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -61,60 +61,60 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/execute-checklist.md
-    - tasks/correct-course.md
-    - tasks/review-sourcing-ops.md
-    - tasks/validate-sourcing-ops.md
-    - tasks/build-sourcing-strategy.md
-    - tasks/market-mapping.md
-    - tasks/boolean-xray-builder.md
-    - tasks/talent-pool-crm.md
-    - tasks/outreach-sequences.md
-    - tasks/event-campus-plan.md
-    - tasks/referral-program.md
-    - tasks/channel-ab-test.md
-    - tasks/enrichment-dedup-policy.md
-    - tasks/compliance-privacy-setup.md
-    - tasks/kpi-dashboard-setup.md
+    - create-doc.md
+    - execute-checklist.md
+    - correct-course.md
+    - review-sourcing-ops.md
+    - validate-sourcing-ops.md
+    - build-sourcing-strategy.md
+    - market-mapping.md
+    - boolean-xray-builder.md
+    - talent-pool-crm.md
+    - outreach-sequences.md
+    - event-campus-plan.md
+    - referral-program.md
+    - channel-ab-test.md
+    - enrichment-dedup-policy.md
+    - compliance-privacy-setup.md
+    - kpi-dashboard-setup.md
   templates:
-    - templates/sourcing/sourcing-ops-architecture-tmpl.yaml
-    - templates/sourcing/market-map-tmpl.yaml
-    - templates/sourcing/persona-cards-tmpl.yaml
-    - templates/sourcing/channel-plan-tmpl.yaml
-    - templates/sourcing/boolean-xray-library-tmpl.yaml
-    - templates/sourcing/outreach-sequence-tmpl.yaml
-    - templates/sourcing/recruiter-crm-schema-tmpl.yaml
-    - templates/sourcing/event-campus-plan-tmpl.yaml
-    - templates/sourcing/referral-program-tmpl.yaml
-    - templates/sourcing/enrichment-dedup-policy-tmpl.yaml
-    - templates/sourcing/kpi-dictionary-tmpl.yaml
-    - templates/sourcing/sla-sop-tmpl.yaml
-    - templates/sourcing/risk-register-tmpl.yaml
-    - templates/sourcing/privacy-compliance-tmpl.yaml
+    - sourcing/sourcing-ops-architecture-tmpl.yaml
+    - sourcing/market-map-tmpl.yaml
+    - sourcing/persona-cards-tmpl.yaml
+    - sourcing/channel-plan-tmpl.yaml
+    - sourcing/boolean-xray-library-tmpl.yaml
+    - sourcing/outreach-sequence-tmpl.yaml
+    - sourcing/recruiter-crm-schema-tmpl.yaml
+    - sourcing/event-campus-plan-tmpl.yaml
+    - sourcing/referral-program-tmpl.yaml
+    - sourcing/enrichment-dedup-policy-tmpl.yaml
+    - sourcing/kpi-dictionary-tmpl.yaml
+    - sourcing/sla-sop-tmpl.yaml
+    - sourcing/risk-register-tmpl.yaml
+    - sourcing/privacy-compliance-tmpl.yaml
   checklists:
-    - checklists/sourcing-12point-checklist.md
-    - checklists/compliance-email-consent-checklist.md
-    - checklists/enrichment-dedup-checklist.md
-    - checklists/outreach-quality-checklist.md
-    - checklists/event-ops-checklist.md
-    - checklists/campus-hiring-checklist.md
-    - checklists/vendor-due-diligence-checklist.md
-    - checklists/data-security-checklist.md
-    - checklists/change-management-checklist.md
+    - sourcing-12point-checklist.md
+    - compliance-email-consent-checklist.md
+    - enrichment-dedup-checklist.md
+    - outreach-quality-checklist.md
+    - event-ops-checklist.md
+    - campus-hiring-checklist.md
+    - vendor-due-diligence-checklist.md
+    - data-security-checklist.md
+    - change-management-checklist.md
   data:
-    - data/dictionaries/personas.csv
-    - data/dictionaries/channels.csv
-    - data/dictionaries/keywords.csv
-    - data/dictionaries/sequences.csv
-    - data/dictionaries/kpi_targets.csv
-    - data/dictionaries/org_targets.csv
-    - data/samples/prospects.csv
-    - data/samples/events.csv
-    - data/samples/referrals.csv
-    - data/samples/outreach_log.csv
-    - data/samples/do_not_contact.csv
-    - data/samples/boolean_library.csv
+    - dictionaries/personas.csv
+    - dictionaries/channels.csv
+    - dictionaries/keywords.csv
+    - dictionaries/sequences.csv
+    - dictionaries/kpi_targets.csv
+    - dictionaries/org_targets.csv
+    - samples/prospects.csv
+    - samples/events.csv
+    - samples/referrals.csv
+    - samples/outreach_log.csv
+    - samples/do_not_contact.csv
+    - samples/boolean_library.csv
 
 outputs:
   main_documents:
@@ -154,23 +154,22 @@ quality_gates:
   - name: 合规关
     checklists:
       [
-        checklists/compliance-email-consent-checklist.md,
-        checklists/vendor-due-diligence-checklist.md,
-        checklists/privacy-compliance-tmpl.yaml,
+        compliance-email-consent-checklist.md,
+        vendor-due-diligence-checklist.md,
+        privacy-compliance-tmpl.yaml,
       ]
     must_pass: true
   - name: 数据关
-    checklists: [checklists/enrichment-dedup-checklist.md, checklists/data-security-checklist.md]
+    checklists: [enrichment-dedup-checklist.md, data-security-checklist.md]
     must_pass: true
   - name: 外联关
-    checklists: [checklists/outreach-quality-checklist.md]
+    checklists: [outreach-quality-checklist.md]
     must_pass: true
   - name: 活动关
-    checklists: [checklists/event-ops-checklist.md, checklists/campus-hiring-checklist.md]
+    checklists: [event-ops-checklist.md, campus-hiring-checklist.md]
     must_pass: true
   - name: 文档关
-    checklists:
-      [checklists/change-management-checklist.md, checklists/sourcing-12point-checklist.md]
+    checklists: [change-management-checklist.md, sourcing-12point-checklist.md]
     must_pass: true
 
 examples:
@@ -181,5 +180,5 @@ examples:
     - 内推引擎：倡导者识别→激励→UGC→线索→转化
 
 notes:
-  - 运行 `tasks/create-doc.md` 时，采用 BMAD 逐节 Elicitation（强制 1–9 选项）。
+  - 运行 `create-doc.md` 时，采用 BMAD 逐节 Elicitation（强制 1–9 选项）。
 ```

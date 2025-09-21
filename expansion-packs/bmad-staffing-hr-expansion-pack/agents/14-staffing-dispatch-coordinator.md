@@ -46,12 +46,12 @@ commands:
   - exit: 退出（需确认）
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/execute-checklist.md
-    - tasks/simulate-what-if.md
-    - tasks/build-dashboard.md
-    - tasks/optimize-roster.md
-    - tasks/reconcile-timesheet.md
+    - create-doc.md
+    - execute-checklist.md
+    - simulate-what-if.md
+    - build-dashboard.md
+    - optimize-roster.md
+    - reconcile-timesheet.md
   templates:
     - roster-plan-tmpl.yaml
     - dispatch-plan-tmpl.yaml

@@ -49,15 +49,15 @@ commands:
   - exit: 退出（需确认）
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/execute-checklist.md
-    - tasks/validate-contract.md
-    - tasks/run-dpia.md
-    - tasks/map-data-flow.md
-    - tasks/review-vendor.md
-    - tasks/manage-incident.md
-    - tasks/collect-evidence.md
-    - tasks/build-dashboard.md
+    - create-doc.md
+    - execute-checklist.md
+    - validate-contract.md
+    - run-dpia.md
+    - map-data-flow.md
+    - review-vendor.md
+    - manage-incident.md
+    - collect-evidence.md
+    - build-dashboard.md
   templates:
     - sow-legal-review-tmpl.yaml
     - dpa-tmpl.yaml

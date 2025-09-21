@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -63,79 +63,79 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/execute-checklist.md
-    - tasks/correct-course.md
-    - tasks/review-ld-ops.md
-    - tasks/validate-ld-ops.md
-    - tasks/ld-architecture.md
-    - tasks/skills-taxonomy.md
-    - tasks/curriculum-blueprint.md
-    - tasks/course-design-spec.md
-    - tasks/instructor-kit.md
-    - tasks/schedule-runbook.md
-    - tasks/compliance-calendar.md
-    - tasks/certification-program.md
-    - tasks/mentoring-program.md
-    - tasks/idp-template.md
-    - tasks/analytics-plan.md
-    - tasks/integration-spec.md
-    - tasks/privacy-accessibility-setup.md
-    - tasks/kpi-dashboard-setup.md
-    - tasks/vendor-budget-management.md
+    - create-doc.md
+    - execute-checklist.md
+    - correct-course.md
+    - review-ld-ops.md
+    - validate-ld-ops.md
+    - ld-architecture.md
+    - skills-taxonomy.md
+    - curriculum-blueprint.md
+    - course-design-spec.md
+    - instructor-kit.md
+    - schedule-runbook.md
+    - compliance-calendar.md
+    - certification-program.md
+    - mentoring-program.md
+    - idp-template.md
+    - analytics-plan.md
+    - integration-spec.md
+    - privacy-accessibility-setup.md
+    - kpi-dashboard-setup.md
+    - vendor-budget-management.md
   templates:
-    - templates/ld/ld-architecture-tmpl.yaml
-    - templates/ld/skills-taxonomy-tmpl.yaml
-    - templates/ld/curriculum-blueprint-tmpl.yaml
-    - templates/ld/course-design-spec-tmpl.yaml
-    - templates/ld/instructor-guide-tmpl.yaml
-    - templates/ld/learner-guide-tmpl.yaml
-    - templates/ld/schedule-runbook-tmpl.yaml
-    - templates/ld/compliance-calendar-tmpl.yaml
-    - templates/ld/certification-program-tmpl.yaml
-    - templates/ld/mentoring-program-tmpl.yaml
-    - templates/ld/idp-tmpl.yaml
-    - templates/ld/analytics-plan-tmpl.yaml
-    - templates/ld/kpi-dictionary-tmpl.yaml
-    - templates/ld/sla-sop-tmpl.yaml
-    - templates/ld/risk-register-tmpl.yaml
-    - templates/ld/privacy-accessibility-tmpl.yaml
-    - templates/ld/integration-spec-tmpl.yaml
+    - ld/ld-architecture-tmpl.yaml
+    - ld/skills-taxonomy-tmpl.yaml
+    - ld/curriculum-blueprint-tmpl.yaml
+    - ld/course-design-spec-tmpl.yaml
+    - ld/instructor-guide-tmpl.yaml
+    - ld/learner-guide-tmpl.yaml
+    - ld/schedule-runbook-tmpl.yaml
+    - ld/compliance-calendar-tmpl.yaml
+    - ld/certification-program-tmpl.yaml
+    - ld/mentoring-program-tmpl.yaml
+    - ld/idp-tmpl.yaml
+    - ld/analytics-plan-tmpl.yaml
+    - ld/kpi-dictionary-tmpl.yaml
+    - ld/sla-sop-tmpl.yaml
+    - ld/risk-register-tmpl.yaml
+    - ld/privacy-accessibility-tmpl.yaml
+    - ld/integration-spec-tmpl.yaml
   checklists:
-    - checklists/ld-readiness-checklist.md
-    - checklists/skills-taxonomy-quality-checklist.md
-    - checklists/curriculum-alignment-checklist.md
-    - checklists/course-quality-checklist.md
-    - checklists/instructor-readiness-checklist.md
-    - checklists/classroom-virtual-tech-checklist.md
-    - checklists/compliance-coverage-checklist.md
-    - checklists/certification-expiry-checklist.md
-    - checklists/mentoring-program-checklist.md
-    - checklists/idp-quality-checklist.md
-    - checklists/localization-qa-checklist.md
-    - checklists/accessibility-wcag-checklist.md
-    - checklists/privacy-ip-compliance-checklist.md
-    - checklists/lms-integration-checklist.md
-    - checklists/analytics-kirkpatrick-checklist.md
-    - checklists/change-management-checklist.md
+    - ld-readiness-checklist.md
+    - skills-taxonomy-quality-checklist.md
+    - curriculum-alignment-checklist.md
+    - course-quality-checklist.md
+    - instructor-readiness-checklist.md
+    - classroom-virtual-tech-checklist.md
+    - compliance-coverage-checklist.md
+    - certification-expiry-checklist.md
+    - mentoring-program-checklist.md
+    - idp-quality-checklist.md
+    - localization-qa-checklist.md
+    - accessibility-wcag-checklist.md
+    - privacy-ip-compliance-checklist.md
+    - lms-integration-checklist.md
+    - analytics-kirkpatrick-checklist.md
+    - change-management-checklist.md
   data:
-    - data/dictionaries/skills.csv
-    - data/dictionaries/role_skill_matrix.csv
-    - data/dictionaries/course_catalog.csv
-    - data/dictionaries/learning_paths.csv
-    - data/dictionaries/instructors.csv
-    - data/dictionaries/rooms_resources.csv
-    - data/dictionaries/kpi_targets.csv
-    - data/dictionaries/sla_targets.csv
-    - data/samples/sessions.csv
-    - data/samples/enrollments.csv
-    - data/samples/attendance.csv
-    - data/samples/evaluations_l1_l4.csv
-    - data/samples/certifications.csv
-    - data/samples/idp_samples.csv
-    - data/samples/mentoring_pairs.csv
-    - data/samples/vendors.csv
-    - data/samples/budget.csv
+    - dictionaries/skills.csv
+    - dictionaries/role_skill_matrix.csv
+    - dictionaries/course_catalog.csv
+    - dictionaries/learning_paths.csv
+    - dictionaries/instructors.csv
+    - dictionaries/rooms_resources.csv
+    - dictionaries/kpi_targets.csv
+    - dictionaries/sla_targets.csv
+    - samples/sessions.csv
+    - samples/enrollments.csv
+    - samples/attendance.csv
+    - samples/evaluations_l1_l4.csv
+    - samples/certifications.csv
+    - samples/idp_samples.csv
+    - samples/mentoring_pairs.csv
+    - samples/vendors.csv
+    - samples/budget.csv
 
 outputs:
   main_documents:
@@ -176,26 +176,20 @@ collaboration:
 
 quality_gates:
   - name: 合规关
-    checklists:
-      [checklists/privacy-ip-compliance-checklist.md, checklists/accessibility-wcag-checklist.md]
+    checklists: [privacy-ip-compliance-checklist.md, accessibility-wcag-checklist.md]
     must_pass: true
   - name: 内容关
     checklists:
-      [
-        checklists/curriculum-alignment-checklist.md,
-        checklists/course-quality-checklist.md,
-        checklists/localization-qa-checklist.md,
-      ]
+      [curriculum-alignment-checklist.md, course-quality-checklist.md, localization-qa-checklist.md]
     must_pass: true
   - name: 集成关
-    checklists: [checklists/lms-integration-checklist.md]
+    checklists: [lms-integration-checklist.md]
     must_pass: true
   - name: 运营关
-    checklists:
-      [checklists/instructor-readiness-checklist.md, checklists/classroom-virtual-tech-checklist.md]
+    checklists: [instructor-readiness-checklist.md, classroom-virtual-tech-checklist.md]
     must_pass: true
   - name: 成效关
-    checklists: [checklists/analytics-kirkpatrick-checklist.md, checklists/idp-quality-checklist.md]
+    checklists: [analytics-kirkpatrick-checklist.md, idp-quality-checklist.md]
     must_pass: true
 
 examples:
@@ -206,5 +200,5 @@ examples:
     - 混合式培训：VILT+微课+在岗任务+教练→Kirkpatrick L1~L4 评估
 
 notes:
-  - 运行 `tasks/create-doc.md` 时，采用 BMAD 逐节 Elicitation（强制 1–9 选项）。
+  - 运行 `create-doc.md` 时，采用 BMAD 逐节 Elicitation（强制 1–9 选项）。
 ```

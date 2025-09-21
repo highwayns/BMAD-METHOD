@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -59,51 +59,51 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/execute-checklist.md
-    - tasks/correct-course.md
-    - tasks/review-ta-operations.md
-    - tasks/validate-ta-operations.md
-    - tasks/pipeline-design.md
-    - tasks/jd-and-competency-model.md
-    - tasks/channel-ab-test.md
-    - tasks/interview-kit-builder.md
-    - tasks/offer-approval-flow.md
-    - tasks/onboarding-bridge.md
-    - tasks/compliance-privacy-setup.md
+    - create-doc.md
+    - execute-checklist.md
+    - correct-course.md
+    - review-ta-operations.md
+    - validate-ta-operations.md
+    - pipeline-design.md
+    - jd-and-competency-model.md
+    - channel-ab-test.md
+    - interview-kit-builder.md
+    - offer-approval-flow.md
+    - onboarding-bridge.md
+    - compliance-privacy-setup.md
   templates:
-    - templates/ta/ta-ops-architecture-tmpl.yaml
-    - templates/ta/jd-competency-tmpl.yaml
-    - templates/ta/recruiting-funnel-tmpl.yaml
-    - templates/ta/interview-kit-tmpl.yaml
-    - templates/ta/offer-approval-tmpl.yaml
-    - templates/ta/onboarding-bridge-tmpl.yaml
-    - templates/ta/channel-abtest-plan-tmpl.yaml
-    - templates/ta/kpi-dictionary-tmpl.yaml
-    - templates/ta/sla-sop-tmpl.yaml
-    - templates/ta/risk-register-tmpl.yaml
-    - templates/ta/privacy-compliance-tmpl.yaml
-    - templates/ta/ats-integration-tmpl.yaml
+    - ta/ta-ops-architecture-tmpl.yaml
+    - ta/jd-competency-tmpl.yaml
+    - ta/recruiting-funnel-tmpl.yaml
+    - ta/interview-kit-tmpl.yaml
+    - ta/offer-approval-tmpl.yaml
+    - ta/onboarding-bridge-tmpl.yaml
+    - ta/channel-abtest-plan-tmpl.yaml
+    - ta/kpi-dictionary-tmpl.yaml
+    - ta/sla-sop-tmpl.yaml
+    - ta/risk-register-tmpl.yaml
+    - ta/privacy-compliance-tmpl.yaml
+    - ta/ats-integration-tmpl.yaml
   checklists:
-    - checklists/ta-funnel-12point-checklist.md
-    - checklists/interview-structure-bias-checklist.md
-    - checklists/ats-integration-checklist.md
-    - checklists/offer-approval-checklist.md
-    - checklists/onboarding-readiness-checklist.md
-    - checklists/vendor-channel-due-diligence-checklist.md
-    - checklists/privacy-appi-gdpr-checklist.md
-    - checklists/change-management-checklist.md
+    - ta-funnel-12point-checklist.md
+    - interview-structure-bias-checklist.md
+    - ats-integration-checklist.md
+    - offer-approval-checklist.md
+    - onboarding-readiness-checklist.md
+    - vendor-channel-due-diligence-checklist.md
+    - privacy-appi-gdpr-checklist.md
+    - change-management-checklist.md
   data:
-    - data/dictionaries/competency.csv
-    - data/dictionaries/grading_rubric.csv
-    - data/dictionaries/interview_questions.csv
-    - data/dictionaries/sourcing_channels.csv
-    - data/dictionaries/kpi_targets.csv
-    - data/samples/candidates.csv
-    - data/samples/jobs.csv
-    - data/samples/interview_feedback.csv
-    - data/samples/offers.csv
-    - data/samples/onboarding_tasks.csv
+    - dictionaries/competency.csv
+    - dictionaries/grading_rubric.csv
+    - dictionaries/interview_questions.csv
+    - dictionaries/sourcing_channels.csv
+    - dictionaries/kpi_targets.csv
+    - samples/candidates.csv
+    - samples/jobs.csv
+    - samples/interview_feedback.csv
+    - samples/offers.csv
+    - samples/onboarding_tasks.csv
 
 outputs:
   main_documents:
@@ -138,21 +138,16 @@ collaboration:
 
 quality_gates:
   - name: 合规关
-    checklists:
-      [
-        checklists/privacy-appi-gdpr-checklist.md,
-        checklists/vendor-channel-due-diligence-checklist.md,
-      ]
+    checklists: [privacy-appi-gdpr-checklist.md, vendor-channel-due-diligence-checklist.md]
     must_pass: true
   - name: 漏斗关
-    checklists: [checklists/ta-funnel-12point-checklist.md, checklists/ats-integration-checklist.md]
+    checklists: [ta-funnel-12point-checklist.md, ats-integration-checklist.md]
     must_pass: true
   - name: 面试关
-    checklists: [checklists/interview-structure-bias-checklist.md]
+    checklists: [interview-structure-bias-checklist.md]
     must_pass: true
   - name: 入职关
-    checklists:
-      [checklists/onboarding-readiness-checklist.md, checklists/offer-approval-checklist.md]
+    checklists: [onboarding-readiness-checklist.md, offer-approval-checklist.md]
     must_pass: true
 
 examples:
@@ -163,5 +158,5 @@ examples:
     - Onboarding：设备/账户/培训/证照→一键就绪清单
 
 notes:
-  - 运行 `tasks/create-doc.md` 时，遵循 BMAD 逐节 Elicitation（强制 1–9 选项）。
+  - 运行 `create-doc.md` 时，遵循 BMAD 逐节 Elicitation（强制 1–9 选项）。
 ```

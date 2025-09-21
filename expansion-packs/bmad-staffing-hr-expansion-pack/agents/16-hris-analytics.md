@@ -50,15 +50,15 @@ commands:
   - exit: 退出（需确认）
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/ingest-snapshot.md
-    - tasks/run-dq.md
-    - tasks/build-mart.md
-    - tasks/build-dashboard.md
-    - tasks/reconcile-payroll.md
-    - tasks/privacy-audit.md
-    - tasks/forecast-modeling.md
-    - tasks/execute-checklist.md
+    - create-doc.md
+    - ingest-snapshot.md
+    - run-dq.md
+    - build-mart.md
+    - build-dashboard.md
+    - reconcile-payroll.md
+    - privacy-audit.md
+    - forecast-modeling.md
+    - execute-checklist.md
   templates:
     - data-contract-tmpl.yaml
     - schema-catalog-tmpl.yaml

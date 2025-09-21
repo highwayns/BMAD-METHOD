@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -63,66 +63,66 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/execute-checklist.md
-    - tasks/correct-course.md
-    - tasks/review-delivery-ops.md
-    - tasks/validate-delivery-ops.md
-    - tasks/session-plan.md
-    - tasks/facilitator-guide.md
-    - tasks/learner-communication-kit.md
-    - tasks/virtual-class-runbook.md
-    - tasks/classroom-ops.md
-    - tasks/coaching-program.md
-    - tasks/observation-rubric.md
-    - tasks/assessment-pack.md
-    - tasks/transfer-plan.md
-    - tasks/evaluation-forms.md
-    - tasks/integration-spec.md
-    - tasks/privacy-accessibility-setup.md
-    - tasks/kpi-dashboard-setup.md
+    - create-doc.md
+    - execute-checklist.md
+    - correct-course.md
+    - review-delivery-ops.md
+    - validate-delivery-ops.md
+    - session-plan.md
+    - facilitator-guide.md
+    - learner-communication-kit.md
+    - virtual-class-runbook.md
+    - classroom-ops.md
+    - coaching-program.md
+    - observation-rubric.md
+    - assessment-pack.md
+    - transfer-plan.md
+    - evaluation-forms.md
+    - integration-spec.md
+    - privacy-accessibility-setup.md
+    - kpi-dashboard-setup.md
   templates:
-    - templates/tc/session-plan-tmpl.yaml
-    - templates/tc/facilitator-guide-tmpl.yaml
-    - templates/tc/learner-communication-kit-tmpl.yaml
-    - templates/tc/virtual-class-runbook-tmpl.yaml
-    - templates/tc/classroom-ops-tmpl.yaml
-    - templates/tc/coaching-program-tmpl.yaml
-    - templates/tc/observation-rubric-tmpl.yaml
-    - templates/tc/assessment-pack-tmpl.yaml
-    - templates/tc/transfer-plan-tmpl.yaml
-    - templates/tc/evaluation-forms-tmpl.yaml
-    - templates/tc/kpi-dictionary-tmpl.yaml
-    - templates/tc/sla-sop-tmpl.yaml
-    - templates/tc/risk-register-tmpl.yaml
-    - templates/tc/privacy-accessibility-tmpl.yaml
-    - templates/tc/integration-spec-tmpl.yaml
+    - tc/session-plan-tmpl.yaml
+    - tc/facilitator-guide-tmpl.yaml
+    - tc/learner-communication-kit-tmpl.yaml
+    - tc/virtual-class-runbook-tmpl.yaml
+    - tc/classroom-ops-tmpl.yaml
+    - tc/coaching-program-tmpl.yaml
+    - tc/observation-rubric-tmpl.yaml
+    - tc/assessment-pack-tmpl.yaml
+    - tc/transfer-plan-tmpl.yaml
+    - tc/evaluation-forms-tmpl.yaml
+    - tc/kpi-dictionary-tmpl.yaml
+    - tc/sla-sop-tmpl.yaml
+    - tc/risk-register-tmpl.yaml
+    - tc/privacy-accessibility-tmpl.yaml
+    - tc/integration-spec-tmpl.yaml
   checklists:
-    - checklists/pre-class-readiness-checklist.md
-    - checklists/virtual-tech-check-checklist.md
-    - checklists/classroom-safety-checklist.md
-    - checklists/accessibility-accommodation-checklist.md
-    - checklists/facilitator-readiness-checklist.md
-    - checklists/engagement-techniques-checklist.md
-    - checklists/assessment-integrity-checklist.md
-    - checklists/coaching-quality-checklist.md
-    - checklists/transfer-followup-checklist.md
-    - checklists/privacy-consent-checklist.md
-    - checklists/change-management-checklist.md
+    - pre-class-readiness-checklist.md
+    - virtual-tech-check-checklist.md
+    - classroom-safety-checklist.md
+    - accessibility-accommodation-checklist.md
+    - facilitator-readiness-checklist.md
+    - engagement-techniques-checklist.md
+    - assessment-integrity-checklist.md
+    - coaching-quality-checklist.md
+    - transfer-followup-checklist.md
+    - privacy-consent-checklist.md
+    - change-management-checklist.md
   data:
-    - data/dictionaries/email_templates.csv
-    - data/dictionaries/sms_templates.csv
-    - data/dictionaries/rooms_resources.csv
-    - data/dictionaries/equipment.csv
-    - data/dictionaries/rubric_scales.csv
-    - data/dictionaries/kpi_targets.csv
-    - data/dictionaries/sla_targets.csv
-    - data/samples/session_roster.csv
-    - data/samples/enrollments.csv
-    - data/samples/attendance.csv
-    - data/samples/assignments.csv
-    - data/samples/evaluations_l1_l3.csv
-    - data/samples/coaching_logs.csv
+    - dictionaries/email_templates.csv
+    - dictionaries/sms_templates.csv
+    - dictionaries/rooms_resources.csv
+    - dictionaries/equipment.csv
+    - dictionaries/rubric_scales.csv
+    - dictionaries/kpi_targets.csv
+    - dictionaries/sla_targets.csv
+    - samples/session_roster.csv
+    - samples/enrollments.csv
+    - samples/attendance.csv
+    - samples/assignments.csv
+    - samples/evaluations_l1_l3.csv
+    - samples/coaching_logs.csv
 
 outputs:
   main_documents:
@@ -161,27 +161,24 @@ collaboration:
 
 quality_gates:
   - name: 合规关
-    checklists:
-      [checklists/privacy-consent-checklist.md, checklists/accessibility-accommodation-checklist.md]
+    checklists: [privacy-consent-checklist.md, accessibility-accommodation-checklist.md]
     must_pass: true
   - name: 准备关
     checklists:
       [
-        checklists/pre-class-readiness-checklist.md,
-        checklists/virtual-tech-check-checklist.md,
-        checklists/classroom-safety-checklist.md,
+        pre-class-readiness-checklist.md,
+        virtual-tech-check-checklist.md,
+        classroom-safety-checklist.md,
       ]
     must_pass: true
   - name: 课堂关
-    checklists:
-      [checklists/facilitator-readiness-checklist.md, checklists/engagement-techniques-checklist.md]
+    checklists: [facilitator-readiness-checklist.md, engagement-techniques-checklist.md]
     must_pass: true
   - name: 教练关
-    checklists:
-      [checklists/coaching-quality-checklist.md, checklists/transfer-followup-checklist.md]
+    checklists: [coaching-quality-checklist.md, transfer-followup-checklist.md]
     must_pass: true
   - name: 评估关
-    checklists: [checklists/assessment-integrity-checklist.md]
+    checklists: [assessment-integrity-checklist.md]
     must_pass: true
 
 examples:
@@ -191,5 +188,5 @@ examples:
     - 教练：目标设定(GROW)→观察与证据→练习与反馈→行动承诺→追踪→复盘与再教练
 
 notes:
-  - 运行 `tasks/create-doc.md` 时，采用 BMAD 逐节 Elicitation（强制 1–9 选项）。
+  - 运行 `create-doc.md` 时，采用 BMAD 逐节 Elicitation（强制 1–9 选项）。
 ```

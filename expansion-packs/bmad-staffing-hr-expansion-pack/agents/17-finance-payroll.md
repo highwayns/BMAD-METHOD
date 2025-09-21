@@ -46,17 +46,17 @@ commands:
   - exit: 退出（需确认）
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/run-payroll.md
-    - tasks/reconcile-timesheets.md
-    - tasks/process-expenses.md
-    - tasks/generate-invoices.md
-    - tasks/ar-ap-aging.md
-    - tasks/tax-compliance.md
-    - tasks/fx-revalue.md
-    - tasks/close-month.md
-    - tasks/build-dashboard.md
-    - tasks/collect-evidence.md
+    - create-doc.md
+    - run-payroll.md
+    - reconcile-timesheets.md
+    - process-expenses.md
+    - generate-invoices.md
+    - ar-ap-aging.md
+    - tax-compliance.md
+    - fx-revalue.md
+    - close-month.md
+    - build-dashboard.md
+    - collect-evidence.md
   templates:
     - payroll-runbook-tmpl.yaml
     - payslip-tmpl.md

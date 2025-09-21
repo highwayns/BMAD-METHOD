@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
 
 agent:
@@ -58,53 +58,53 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/create-doc.md
-    - tasks/execute-checklist.md
-    - tasks/correct-course.md
-    - tasks/review-brand-operations.md
-    - tasks/validate-brand-operations.md
-    - tasks/evp-co-create.md
-    - tasks/persona-research.md
-    - tasks/content-calendar.md
-    - tasks/campaign-brief.md
-    - tasks/career-site-spec.md
-    - tasks/advocacy-program.md
-    - tasks/seo-sem-plan.md
-    - tasks/analytics-measurement.md
-    - tasks/social-governance.md
-    - tasks/crisis-plan.md
+    - create-doc.md
+    - execute-checklist.md
+    - correct-course.md
+    - review-brand-operations.md
+    - validate-brand-operations.md
+    - evp-co-create.md
+    - persona-research.md
+    - content-calendar.md
+    - campaign-brief.md
+    - career-site-spec.md
+    - advocacy-program.md
+    - seo-sem-plan.md
+    - analytics-measurement.md
+    - social-governance.md
+    - crisis-plan.md
   templates:
-    - templates/eb/evp-playbook-tmpl.yaml
-    - templates/eb/brand-guidelines-tmpl.yaml
-    - templates/eb/persona-research-tmpl.yaml
-    - templates/eb/content-calendar-tmpl.yaml
-    - templates/eb/campaign-brief-tmpl.yaml
-    - templates/eb/career-site-spec-tmpl.yaml
-    - templates/eb/advocacy-program-tmpl.yaml
-    - templates/eb/measurement-plan-tmpl.yaml
-    - templates/eb/kpi-dictionary-tmpl.yaml
-    - templates/eb/sla-sop-tmpl.yaml
-    - templates/eb/risk-register-tmpl.yaml
-    - templates/eb/privacy-compliance-tmpl.yaml
+    - eb/evp-playbook-tmpl.yaml
+    - eb/brand-guidelines-tmpl.yaml
+    - eb/persona-research-tmpl.yaml
+    - eb/content-calendar-tmpl.yaml
+    - eb/campaign-brief-tmpl.yaml
+    - eb/career-site-spec-tmpl.yaml
+    - eb/advocacy-program-tmpl.yaml
+    - eb/measurement-plan-tmpl.yaml
+    - eb/kpi-dictionary-tmpl.yaml
+    - eb/sla-sop-tmpl.yaml
+    - eb/risk-register-tmpl.yaml
+    - eb/privacy-compliance-tmpl.yaml
   checklists:
-    - checklists/brand-governance-checklist.md
-    - checklists/content-quality-checklist.md
-    - checklists/legal-privacy-checklist.md
-    - checklists/accessibility-checklist.md
-    - checklists/dei-fairness-checklist.md
-    - checklists/social-crisis-checklist.md
-    - checklists/vendor-agency-dd-checklist.md
-    - checklists/change-management-checklist.md
+    - brand-governance-checklist.md
+    - content-quality-checklist.md
+    - legal-privacy-checklist.md
+    - accessibility-checklist.md
+    - dei-fairness-checklist.md
+    - social-crisis-checklist.md
+    - vendor-agency-dd-checklist.md
+    - change-management-checklist.md
   data:
-    - data/dictionaries/personas.csv
-    - data/dictionaries/channels.csv
-    - data/dictionaries/hashtags.csv
-    - data/dictionaries/kpi_targets.csv
-    - data/samples/content_calendar.csv
-    - data/samples/campaign_assets.csv
-    - data/samples/press_list.csv
-    - data/samples/influencer_list.csv
-    - data/samples/abtest_plan.csv
+    - dictionaries/personas.csv
+    - dictionaries/channels.csv
+    - dictionaries/hashtags.csv
+    - dictionaries/kpi_targets.csv
+    - samples/content_calendar.csv
+    - samples/campaign_assets.csv
+    - samples/press_list.csv
+    - samples/influencer_list.csv
+    - samples/abtest_plan.csv
 
 outputs:
   main_documents:
@@ -140,19 +140,19 @@ collaboration:
 
 quality_gates:
   - name: 品牌治理关
-    checklists: [checklists/brand-governance-checklist.md, checklists/vendor-agency-dd-checklist.md]
+    checklists: [brand-governance-checklist.md, vendor-agency-dd-checklist.md]
     must_pass: true
   - name: 内容质量关
-    checklists: [checklists/content-quality-checklist.md]
+    checklists: [content-quality-checklist.md]
     must_pass: true
   - name: 合规关
-    checklists: [checklists/legal-privacy-checklist.md, checklists/dei-fairness-checklist.md]
+    checklists: [legal-privacy-checklist.md, dei-fairness-checklist.md]
     must_pass: true
   - name: 无障碍关
-    checklists: [checklists/accessibility-checklist.md]
+    checklists: [accessibility-checklist.md]
     must_pass: true
   - name: 危机关
-    checklists: [checklists/social-crisis-checklist.md]
+    checklists: [social-crisis-checklist.md]
     must_pass: true
 
 examples:
@@ -163,5 +163,5 @@ examples:
     - 危机响应：监测→分级→脚本→发布→回溯与改进
 
 notes:
-  - 运行 `tasks/create-doc.md` 时，采用 BMAD 逐节 Elicitation（强制 1–9 选项）。
+  - 运行 `create-doc.md` 时，采用 BMAD 逐节 Elicitation（强制 1–9 选项）。
 ```
