@@ -1,4 +1,6 @@
-# Principal
+<!-- Powered by BMAD™ Core -->
+
+# 04-principal
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -16,7 +18,7 @@ activation-instructions:
 
 agent:
   name: Principal
-  id: Principal
+  id: 04-principal
   title: 投资总监
   customization: Sourcing engine → rigorous screening → DD orchestration → IC driving → term negotiation → closing & clean handoff
 

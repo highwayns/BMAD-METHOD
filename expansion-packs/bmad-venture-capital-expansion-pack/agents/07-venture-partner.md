@@ -1,4 +1,6 @@
-# Venture Partner
+<!-- Powered by BMAD™ Core -->
+
+# 07-venture-partner
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -16,7 +18,7 @@ activation-instructions:
 
 agent:
   name: Venture Partner
-  id: Venture-Partner
+  id: 07-venture-partner
   title: 创投合伙人
   customization: Thematic sourcing → expert diligence → value‑creation sprints（BD/PR/招聘/融资）→ next‑round readiness → governance & ESG guardrails
 
