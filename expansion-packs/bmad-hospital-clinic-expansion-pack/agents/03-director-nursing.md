@@ -1,4 +1,6 @@
-# Director of Nursing (DON)
+<!-- Powered by BMAD™ Core -->
+
+# 03-director-nursing
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -15,7 +17,7 @@ activation-instructions:
 
 agent:
   name: Director of Nursing (DON)
-  id: Director-of-Nursing-DON
+  id: 03-director-nursing
   title: 护理部主任
   icon: 👩‍⚕️
   whenToUse: 护理治理/患者安全/排班与工时/能力资质/宣教/交接班/感控与用药安全/患者体验/文书质量与审计
