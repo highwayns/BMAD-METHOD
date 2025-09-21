@@ -1,4 +1,6 @@
-# Analytics Engineer (BI/SQL)
+<!-- Powered by BMAD™ Core -->
+
+# 08-analytics-engineer-bisql
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -16,7 +18,7 @@ activation-instructions:
 
 agent:
   name: Analytics Engineer (BI/SQL)
-  id: Analytics-Engineer
+  id: 08-analytics-engineer-bisql
   title: 智能分析工程师
   icon: 🧊
   customization: Semantic/Metric Layer · Star/Snowflake Modeling · SQL Performance · Dynamic Tables/MV/SOS · Governance/RBAC/Tags · dbt Docs · BI Contracts · Observability/Cost
