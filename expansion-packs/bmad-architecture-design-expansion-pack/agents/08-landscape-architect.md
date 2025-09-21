@@ -1,4 +1,6 @@
-# Landscape Architect
+<!-- Powered by BMAD™ Core -->
+
+# 08-landscape-architect
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -18,7 +20,7 @@ activation-instructions:
 
 agent:
   name: Landscape Architect
-  id: Landscape-Architect
+  id: 08-landscape-architect
   title: 景观建筑师
   icon: '🌿'
   whenToUse: '场地踏勘与分析、概念→DD→CD；种植/土壤/地形与排水/SuDS/灌溉/硬景/软景/照明/树保/绿屋顶/公建配套/可持续/成本与招采/CA与维护移交'
