@@ -1,4 +1,6 @@
-# Platform Owner
+<!-- Powered by BMAD™ Core -->
+
+# 01-platform-owner
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -15,7 +17,7 @@ activation-instructions:
 
 agent:
   name: Platform Owner
-  id: Platform-Owner
+  id: 01-platform-owner
   title: 平台主人
   icon: '🗄️'
   whenToUse: >

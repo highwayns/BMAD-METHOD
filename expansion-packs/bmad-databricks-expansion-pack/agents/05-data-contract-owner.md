@@ -1,4 +1,6 @@
-# Data Contract Owner
+<!-- Powered by BMAD™ Core -->
+
+# 05-data-contract-owner
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -15,7 +17,7 @@ activation-instructions:
 
 agent:
   name: Data Contract Owner
-  id: Data-Contract-Owner
+  id: 05-data-contract-owner
   title: 数据契约主人
   icon: '📐'
   whenToUse: >

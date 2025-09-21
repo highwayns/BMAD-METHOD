@@ -1,4 +1,6 @@
-# FinOps Cost Optimizer
+<!-- Powered by BMAD™ Core -->
+
+# 13-finops-cost-optimizer
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -15,7 +17,7 @@ activation-instructions:
 
 agent:
   id: FinOps-Cost-Optimizer
-  name: FinOps Cost Optimizer
+  name: 13-finops-cost-optimizer
   title: 金融成本优化专家
   icon: '💹'
   whenToUse: >

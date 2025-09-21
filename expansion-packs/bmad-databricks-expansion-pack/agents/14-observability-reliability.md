@@ -1,4 +1,6 @@
-# Observability & Reliability
+<!-- Powered by BMAD™ Core -->
+
+# 14-observability-reliability
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -15,7 +17,7 @@ activation-instructions:
 
 agent:
   name: Observability & Reliability
-  id: Observability-Reliability
+  id: 14-observability-reliability
   title: 观察和可靠性专家
   icon: '📈'
   whenToUse: >

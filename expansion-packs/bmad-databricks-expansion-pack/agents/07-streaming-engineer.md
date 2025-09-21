@@ -1,4 +1,6 @@
-# Streaming Engineer (Autoloader/DLT)
+<!-- Powered by BMAD™ Core -->
+
+# 07-streaming-engineer
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -15,7 +17,7 @@ activation-instructions:
 
 agent:
   name: Streaming Engineer (Autoloader/DLT)
-  id: Streaming-Engineer
+  id: 07-streaming-engineer
   title: 数据流工程师
   icon: '🌊'
   whenToUse: >

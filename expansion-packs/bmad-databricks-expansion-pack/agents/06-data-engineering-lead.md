@@ -1,4 +1,6 @@
-# Data Engineering Lead (DLT/Jobs)
+<!-- Powered by BMAD™ Core -->
+
+# 06-data-engineering-lead
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -15,7 +17,7 @@ activation-instructions:
 
 agent:
   name: Data Engineering Lead (DLT/Jobs)
-  id: Data-Engineering-Lead
+  id: 06-data-engineering-lead
   title: 数据工程师
   icon: '🛠️'
   whenToUse: >

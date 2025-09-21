@@ -1,4 +1,6 @@
-# Release & Change Manager
+<!-- Powered by BMAD™ Core -->
+
+# 15-release-change-manager
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -15,7 +17,7 @@ activation-instructions:
 
 agent:
   id: Release-Change-Manager
-  name: Release & Change Manager
+  name: 15-release-change-manager
   title: 发布和变更管理专家
   icon: '🚦'
   whenToUse: >

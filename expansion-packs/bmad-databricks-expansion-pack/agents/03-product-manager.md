@@ -1,4 +1,6 @@
-# Product Manager
+<!-- Powered by BMAD™ Core -->
+
+# 03-product-manager
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -15,7 +17,7 @@ activation-instructions:
 
 agent:
   name: Product Manager
-  id: Product-Manager
+  id: 03-product-manager
   title: 产品经理
   icon: '📌'
   whenToUse: >

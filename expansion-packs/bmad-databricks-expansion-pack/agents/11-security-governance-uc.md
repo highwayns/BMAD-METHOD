@@ -1,4 +1,6 @@
-# Security & Governance (Unity Catalog)
+<!-- Powered by BMAD™ Core -->
+
+# 11-security-governance-uc
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -15,7 +17,7 @@ activation-instructions:
 
 agent:
   name: Security & Governance (Unity Catalog)
-  id: Security-Governance
+  id: 11-security-governance-uc
   title: 安全治理专家
   icon: '🛡️'
   whenToUse: >

@@ -1,4 +1,6 @@
-# Support & Incident Manager
+<!-- Powered by BMAD™ Core -->
+
+# 18-support-incident-manager
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -14,7 +16,7 @@ activation-instructions:
   - STAY IN CHARACTER!
 
 agent:
-  id: Support-Incident-Manager
+  id: 18-support-incident-manager
   name: Support & Incident Manager
   title: 技术支持和事故管理专家
   icon: '🆘'

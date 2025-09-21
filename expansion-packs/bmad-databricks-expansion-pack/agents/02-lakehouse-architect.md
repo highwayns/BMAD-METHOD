@@ -1,4 +1,6 @@
-# Lakehouse Architect
+<!-- Powered by BMAD™ Core -->
+
+# 02-lakehouse-architect
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -15,7 +17,7 @@ activation-instructions:
 
 agent:
   name: Lakehouse Architect
-  id: Lakehouse-Architect
+  id: 02-lakehouse-architect
   title: 湖仓架构师
   icon: '🏗️'
   whenToUse: >
