@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - 对任何影响安全/质量/合规的动作，必须先引用对应 SOP/Checklist 并逐条确认；若缺失先创建模板再执行
 
@@ -60,63 +60,62 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/doc-control-program.md
-    - tasks/deviation-intake.md
-    - tasks/capa-plan-and-effectiveness.md
-    - tasks/change-control.md
-    - tasks/audit-program-annual.md
-    - tasks/supplier-qualification-and-audit.md
-    - tasks/training-and-competency.md
-    - tasks/qc-method-validation.md
-    - tasks/batch-record-review.md
-    - tasks/qc-release-coa.md
-    - tasks/data-integrity-audit.md
-    - tasks/csv-validation-plan.md
-    - tasks/risk-management-fmea.md
-    - tasks/management-review-pack.md
-    - tasks/kpi-trending.md
-    - tasks/complaint-handling.md
+    - doc-control-program.md
+    - deviation-intake.md
+    - capa-plan-and-effectiveness.md
+    - change-control.md
+    - audit-program-annual.md
+    - supplier-qualification-and-audit.md
+    - training-and-competency.md
+    - qc-method-validation.md
+    - batch-record-review.md
+    - qc-release-coa.md
+    - data-integrity-audit.md
+    - csv-validation-plan.md
+    - risk-management-fmea.md
+    - management-review-pack.md
+    - kpi-trending.md
+    - complaint-handling.md
   templates:
-    - templates/qms-manual-tmpl.md
-    - templates/qms-procedure-tmpl.md
-    - templates/sop-tmpl.md
-    - templates/form-template-tmpl.md
-    - templates/deviation-report-tmpl.yaml
-    - templates/capa-record-tmpl.yaml
-    - templates/change-control-record-tmpl.yaml
-    - templates/audit-plan-tmpl.yaml
-    - templates/audit-report-tmpl.md
-    - templates/supplier-qualification-questionnaire-tmpl.yaml
-    - templates/quality-agreement-tmpl.md
-    - templates/training-matrix-tmpl.csv
-    - templates/calibration-schedule-tmpl.csv
-    - templates/method-validation-plan-tmpl.yaml
-    - templates/batch-record-tmpl.md
-    - templates/coa-release-certificate-tmpl.md
-    - templates/risk-register-fmea-tmpl.csv
-    - templates/management-review-minutes-tmpl.md
-    - templates/csv-validation-plan-tmpl.yaml
-    - templates/csv-validation-report-tmpl.md
-    - templates/complaint-log-tmpl.csv
+    - qms-manual-tmpl.md
+    - qms-procedure-tmpl.md
+    - sop-tmpl.md
+    - form-template-tmpl.md
+    - deviation-report-tmpl.yaml
+    - capa-record-tmpl.yaml
+    - change-control-record-tmpl.yaml
+    - audit-plan-tmpl.yaml
+    - audit-report-tmpl.md
+    - supplier-qualification-questionnaire-tmpl.yaml
+    - quality-agreement-tmpl.md
+    - training-matrix-tmpl.csv
+    - calibration-schedule-tmpl.csv
+    - method-validation-plan-tmpl.yaml
+    - batch-record-tmpl.md
+    - coa-release-certificate-tmpl.md
+    - risk-register-fmea-tmpl.csv
+    - management-review-minutes-tmpl.md
+    - csv-validation-plan-tmpl.yaml
+    - csv-validation-report-tmpl.md
+    - complaint-log-tmpl.csv
   checklists:
-    - checklists/document-control.md
-    - checklists/deviation-handling.md
-    - checklists/capa-effectiveness.md
-    - checklists/change-control.md
-    - checklists/data-integrity-alcoa.md
-    - checklists/audit-readiness-quality.md
-    - checklists/training-compliance.md
-    - checklists/supplier-audit.md
-    - checklists/batch-record-review.md
-    - checklists/risk-management-fmea.md
-    - checklists/csv-validation.md
-  kb:
-    - kb/quality-manager-kb.md
+    - document-control.md
+    - deviation-handling.md
+    - capa-effectiveness.md
+    - change-control.md
+    - data-integrity-alcoa.md
+    - audit-readiness-quality.md
+    - training-compliance.md
+    - supplier-audit.md
+    - batch-record-review.md
+    - risk-management-fmea.md
+    - csv-validation.md
   data:
-    - data/equipment-master.csv
-    - data/training-records.csv
-    - data/suppliers.csv
-    - data/deviations.csv
-    - data/change-log.csv
-    - data/kpi-catalog.csv
+    - kb/quality-manager-kb.md
+    - equipment-master.csv
+    - training-records.csv
+    - suppliers.csv
+    - deviations.csv
+    - change-log.csv
+    - kpi-catalog.csv
 ```

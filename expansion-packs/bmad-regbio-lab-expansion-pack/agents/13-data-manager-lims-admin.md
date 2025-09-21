@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - 对任何涉及人类数据/样本/隐私/电子签名/放行记录的操作，先引用对应 SOP/Checklist 并逐条确认；若缺失先创建模板再执行
 
@@ -64,60 +64,59 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/schema-and-migration.md
-    - tasks/rbac-and-esign-policy.md
-    - tasks/instrument-and-middleware-integration.md
-    - tasks/barcode-numbering-and-labeling.md
-    - tasks/sample-lifecycle-and-coldchain.md
-    - tasks/inventory-and-expiry-control.md
-    - tasks/eclinical-and-systems-integration.md
-    - tasks/esign-audit-and-part11.md
-    - tasks/data-quality-rules-and-monitoring.md
-    - tasks/backup-and-disaster-recovery.md
-    - tasks/dashboard-and-kpis.md
-    - tasks/change-control-and-revalidation.md
-    - tasks/tech-transfer-and-master-data-sync.md
-    - tasks/kpi-dashboard-update.md
+    - schema-and-migration.md
+    - rbac-and-esign-policy.md
+    - instrument-and-middleware-integration.md
+    - barcode-numbering-and-labeling.md
+    - sample-lifecycle-and-coldchain.md
+    - inventory-and-expiry-control.md
+    - eclinical-and-systems-integration.md
+    - esign-audit-and-part11.md
+    - data-quality-rules-and-monitoring.md
+    - backup-and-disaster-recovery.md
+    - dashboard-and-kpis.md
+    - change-control-and-revalidation.md
+    - tech-transfer-and-master-data-sync.md
+    - kpi-dashboard-update.md
   templates:
-    - templates/lims-domain-model-tmpl.yaml
-    - templates/schema-migration-plan-tmpl.md
-    - templates/rbac-policy-tmpl.yaml
-    - templates/esign-policy-tmpl.yaml
-    - templates/instrument-interface-spec-tmpl.yaml
-    - templates/middleware-contract-tmpl.yaml
-    - templates/barcode-and-label-spec-tmpl.yaml
-    - templates/sample-lifecycle-map-tmpl.md
-    - templates/coldchain-log-tmpl.csv
-    - templates/inventory-policy-tmpl.md
-    - templates/expiry-monitor-sheet-tmpl.csv
-    - templates/interop-architecture-tmpl.md
-    - templates/part11-annex11-gap-tmpl.md
-    - templates/data-quality-rules-tmpl.csv
-    - templates/dq-monitor-dashboard-tmpl.csv
-    - templates/backup-dr-policy-tmpl.md
-    - templates/backup-dr-runbook-tmpl.md
-    - templates/dashboard-kpi-config-tmpl.csv
-    - templates/change-control-plan-tmpl.md
-    - templates/tech-transfer-plan-tmpl.yaml
-    - templates/kpi-dashboard-tmpl.csv
+    - lims-domain-model-tmpl.yaml
+    - schema-migration-plan-tmpl.md
+    - rbac-policy-tmpl.yaml
+    - esign-policy-tmpl.yaml
+    - instrument-interface-spec-tmpl.yaml
+    - middleware-contract-tmpl.yaml
+    - barcode-and-label-spec-tmpl.yaml
+    - sample-lifecycle-map-tmpl.md
+    - coldchain-log-tmpl.csv
+    - inventory-policy-tmpl.md
+    - expiry-monitor-sheet-tmpl.csv
+    - interop-architecture-tmpl.md
+    - part11-annex11-gap-tmpl.md
+    - data-quality-rules-tmpl.csv
+    - dq-monitor-dashboard-tmpl.csv
+    - backup-dr-policy-tmpl.md
+    - backup-dr-runbook-tmpl.md
+    - dashboard-kpi-config-tmpl.csv
+    - change-control-plan-tmpl.md
+    - tech-transfer-plan-tmpl.yaml
+    - kpi-dashboard-tmpl.csv
   checklists:
-    - checklists/part11-annex11-compliance.md
-    - checklists/rbac-and-esign.md
-    - checklists/instrument-integration.md
-    - checklists/barcode-and-labeling.md
-    - checklists/sample-coldchain-and-coi-coc.md
-    - checklists/inventory-and-expiry.md
-    - checklists/data-quality-and-mdm.md
-    - checklists/backup-and-drill.md
-    - checklists/change-control-revalidation.md
-    - checklists/lims-data-integrity.md
-  kb:
-    - kb/lims-admin-kb.md
+    - part11-annex11-compliance.md
+    - rbac-and-esign.md
+    - instrument-integration.md
+    - barcode-and-labeling.md
+    - sample-coldchain-and-coi-coc.md
+    - inventory-and-expiry.md
+    - data-quality-and-mdm.md
+    - backup-and-drill.md
+    - change-control-revalidation.md
+    - lims-data-integrity.md
   data:
-    - data/master-data-dictionary.csv
-    - data/barcode-prefixes.csv
-    - data/rbac-roles.csv
-    - data/instrument-catalog.csv
-    - data/dq-metrics.csv
-    - data/kpi-catalog.csv
+    - kb/lims-admin-kb.md
+    - master-data-dictionary.csv
+    - barcode-prefixes.csv
+    - rbac-roles.csv
+    - instrument-catalog.csv
+    - dq-metrics.csv
+    - kpi-catalog.csv
 ```

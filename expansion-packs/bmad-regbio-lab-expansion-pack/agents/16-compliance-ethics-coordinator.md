@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - 对任何涉及人体样本/动物/病原/隐私/跨境数据/电子签名的操作，先引用对应 SOP/Checklist 并逐条确认；若缺失先创建模板再执行
 
@@ -61,65 +61,64 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/ethics-scoping-and-risk-matrix.md
-    - tasks/irb-iacuc-ibc-approvals-pack.md
-    - tasks/informed-consent-and-dpia.md
-    - tasks/privacy-and-crossborder-compliance.md
-    - tasks/mta-dta-dua-baa-and-ip.md
-    - tasks/coi-coc-governance-and-permissions.md
-    - tasks/training-authorization-and-renewals.md
-    - tasks/deviation-adverse-events-and-capa.md
-    - tasks/audit-readiness-and-site-visit.md
-    - tasks/transparency-publication-and-comms.md
-    - tasks/policy-harmonization-and-change-control.md
-    - tasks/kpi-dashboard-update.md
+    - ethics-scoping-and-risk-matrix.md
+    - irb-iacuc-ibc-approvals-pack.md
+    - informed-consent-and-dpia.md
+    - privacy-and-crossborder-compliance.md
+    - mta-dta-dua-baa-and-ip.md
+    - coi-coc-governance-and-permissions.md
+    - training-authorization-and-renewals.md
+    - deviation-adverse-events-and-capa.md
+    - audit-readiness-and-site-visit.md
+    - transparency-publication-and-comms.md
+    - policy-harmonization-and-change-control.md
+    - kpi-dashboard-update.md
   templates:
-    - templates/ethics-scope-tmpl.md
-    - templates/risk-matrix-tmpl.csv
-    - templates/irb-protocol-tmpl.md
-    - templates/iacuc-protocol-tmpl.md
-    - templates/ibc-biosafety-app-tmpl.md
-    - templates/informed-consent-form-tmpl.md
-    - templates/consent-withdrawal-form-tmpl.md
-    - templates/dpia-template-tmpl.md
-    - templates/privacy-policy-tmpl.md
-    - templates/crossborder-assessment-tmpl.md
-    - templates/mta-tmpl.md
-    - templates/dta-dua-tmpl.md
-    - templates/baa-tmpl.md
-    - templates/ip-and-publication-policy-tmpl.md
-    - templates/coi-coc-matrix-tmpl.csv
-    - templates/access-permission-matrix-tmpl.csv
-    - templates/training-matrix-tmpl.csv
-    - templates/authorization-record-tmpl.csv
-    - templates/deviation-report-tmpl.md
-    - templates/adverse-event-report-tmpl.md
-    - templates/capa-plan-tmpl.md
-    - templates/audit-plan-tmpl.md
-    - templates/evidence-index-tmpl.md
-    - templates/site-visit-agenda-tmpl.md
-    - templates/registration-and-disclosure-tmpl.md
-    - templates/external-communication-plan-tmpl.md
-    - templates/policy-register-tmpl.csv
-    - templates/policy-change-control-tmpl.md
-    - templates/kpi-dashboard-tmpl.csv
+    - ethics-scope-tmpl.md
+    - risk-matrix-tmpl.csv
+    - irb-protocol-tmpl.md
+    - iacuc-protocol-tmpl.md
+    - ibc-biosafety-app-tmpl.md
+    - informed-consent-form-tmpl.md
+    - consent-withdrawal-form-tmpl.md
+    - dpia-template-tmpl.md
+    - privacy-policy-tmpl.md
+    - crossborder-assessment-tmpl.md
+    - mta-tmpl.md
+    - dta-dua-tmpl.md
+    - baa-tmpl.md
+    - ip-and-publication-policy-tmpl.md
+    - coi-coc-matrix-tmpl.csv
+    - access-permission-matrix-tmpl.csv
+    - training-matrix-tmpl.csv
+    - authorization-record-tmpl.csv
+    - deviation-report-tmpl.md
+    - adverse-event-report-tmpl.md
+    - capa-plan-tmpl.md
+    - audit-plan-tmpl.md
+    - evidence-index-tmpl.md
+    - site-visit-agenda-tmpl.md
+    - registration-and-disclosure-tmpl.md
+    - external-communication-plan-tmpl.md
+    - policy-register-tmpl.csv
+    - policy-change-control-tmpl.md
+    - kpi-dashboard-tmpl.csv
   checklists:
-    - checklists/ethics-scope-and-risk.md
-    - checklists/irb-iacuc-ibc-submission.md
-    - checklists/consent-and-privacy.md
-    - checklists/pii-phi-deid-and-access.md
-    - checklists/mta-dta-dua-baa.md
-    - checklists/coi-coc-governance.md
-    - checklists/training-and-authorization.md
-    - checklists/deviation-adverse-events.md
-    - checklists/audit-readiness.md
-    - checklists/transparency-and-communications.md
-    - checklists/policy-harmonization.md
-    - checklists/kpi-and-maturity.md
-  kb:
-    - kb/compliance-ethics-kb.md
+    - ethics-scope-and-risk.md
+    - irb-iacuc-ibc-submission.md
+    - consent-and-privacy.md
+    - pii-phi-deid-and-access.md
+    - mta-dta-dua-baa.md
+    - coi-coc-governance.md
+    - training-and-authorization.md
+    - deviation-adverse-events.md
+    - audit-readiness.md
+    - transparency-and-communications.md
+    - policy-harmonization.md
+    - kpi-and-maturity.md
   data:
-    - data/risk-register.csv
-    - data/training-catalog.csv
-    - data/ethics-kpi-catalog.csv
+    - kb/compliance-ethics-kb.md
+    - risk-register.csv
+    - training-catalog.csv
+    - ethics-kpi-catalog.csv
 ```

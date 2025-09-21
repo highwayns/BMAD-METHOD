@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - 对任何涉及人类样本/隐私/安全的数据与实验，先引用对应 SOP/Checklist 并逐条确认；若缺失先创建模板再执行
 
@@ -61,68 +61,67 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/run-planning.md
-    - tasks/sample-intake-and-na-qc.md
-    - tasks/library-prep-design.md
-    - tasks/instrument-qc-and-maintenance.md
-    - tasks/sequencing-execution.md
-    - tasks/demultiplexing-and-fastqc.md
-    - tasks/variant-calling-annotation.md
-    - tasks/rna-expression-analysis.md
-    - tasks/scRNA-ATAC-pipeline.md
-    - tasks/spatial-transcriptomics-pipeline.md
-    - tasks/off-target-evaluation.md
-    - tasks/lowpass-wgs-cnv.md
-    - tasks/qc-gating-and-multiqc.md
-    - tasks/data-governance-and-retention.md
-    - tasks/lims-eln-integration.md
-    - tasks/tech-transfer-plan.md
-    - tasks/kpi-dashboard-update.md
+    - run-planning.md
+    - sample-intake-and-na-qc.md
+    - library-prep-design.md
+    - instrument-qc-and-maintenance.md
+    - sequencing-execution.md
+    - demultiplexing-and-fastqc.md
+    - variant-calling-annotation.md
+    - rna-expression-analysis.md
+    - scRNA-ATAC-pipeline.md
+    - spatial-transcriptomics-pipeline.md
+    - off-target-evaluation.md
+    - lowpass-wgs-cnv.md
+    - qc-gating-and-multiqc.md
+    - data-governance-and-retention.md
+    - lims-eln-integration.md
+    - tech-transfer-plan.md
+    - kpi-dashboard-update.md
   templates:
-    - templates/sample-manifest-tmpl.csv
-    - templates/sample-intake-form-tmpl.yaml
-    - templates/na-qc-record-tmpl.csv
-    - templates/library-design-tmpl.yaml
-    - templates/library-batch-sheet-tmpl.csv
-    - templates/barcode-allocation-tmpl.csv
-    - templates/run-plan-tmpl.yaml
-    - templates/instrument-qc-log-tmpl.csv
-    - templates/sequencing-run-sheet-tmpl.csv
-    - templates/demux-summary-tmpl.csv
-    - templates/qc-metrics-tmpl.csv
-    - templates/multiqc-summary-tmpl.md
-    - templates/variant-report-tmpl.md
-    - templates/rna-report-tmpl.md
-    - templates/singlecell-report-tmpl.md
-    - templates/spatial-report-tmpl.md
-    - templates/off-target-report-tmpl.md
-    - templates/cnv-report-tmpl.md
-    - templates/pipeline-config-tmpl.yaml
-    - templates/data-transfer-checklist-tmpl.md
-    - templates/data-retention-policy-tmpl.md
-    - templates/data-dictionary-tmpl.md
-    - templates/data-sharing-agreement-tmpl.md
-    - templates/kpi-dashboard-tmpl.csv
+    - sample-manifest-tmpl.csv
+    - sample-intake-form-tmpl.yaml
+    - na-qc-record-tmpl.csv
+    - library-design-tmpl.yaml
+    - library-batch-sheet-tmpl.csv
+    - barcode-allocation-tmpl.csv
+    - run-plan-tmpl.yaml
+    - instrument-qc-log-tmpl.csv
+    - sequencing-run-sheet-tmpl.csv
+    - demux-summary-tmpl.csv
+    - qc-metrics-tmpl.csv
+    - multiqc-summary-tmpl.md
+    - variant-report-tmpl.md
+    - rna-report-tmpl.md
+    - singlecell-report-tmpl.md
+    - spatial-report-tmpl.md
+    - off-target-report-tmpl.md
+    - cnv-report-tmpl.md
+    - pipeline-config-tmpl.yaml
+    - data-transfer-checklist-tmpl.md
+    - data-retention-policy-tmpl.md
+    - data-dictionary-tmpl.md
+    - data-sharing-agreement-tmpl.md
+    - kpi-dashboard-tmpl.csv
   checklists:
-    - checklists/ethics-consent-privacy.md
-    - checklists/sample-receiving-coi-coc.md
-    - checklists/nucleic-acid-qc.md
-    - checklists/library-prep-by-assay.md
-    - checklists/lane-balancing-and-indexing.md
-    - checklists/run-readiness-illumina-ont.md
-    - checklists/demux-qc-and-contamination.md
-    - checklists/variant-calling-qc.md
-    - checklists/rna-analysis-qc.md
-    - checklists/singlecell-qc.md
-    - checklists/spatial-qc.md
-    - checklists/data-integrity-alcoa.md
-    - checklists/pii-phi-governance.md
-    - checklists/tech-transfer-validation.md
-  kb:
-    - kb/genomics-kb.md
+    - ethics-consent-privacy.md
+    - sample-receiving-coi-coc.md
+    - nucleic-acid-qc.md
+    - library-prep-by-assay.md
+    - lane-balancing-and-indexing.md
+    - run-readiness-illumina-ont.md
+    - demux-qc-and-contamination.md
+    - variant-calling-qc.md
+    - rna-analysis-qc.md
+    - singlecell-qc.md
+    - spatial-qc.md
+    - data-integrity-alcoa.md
+    - pii-phi-governance.md
+    - tech-transfer-validation.md
   data:
-    - data/qc-thresholds.csv
-    - data/barcode-catalog.csv
-    - data/reference-genomes.csv
-    - data/kpi-catalog.csv
+    - kb/genomics-kb.md
+    - qc-thresholds.csv
+    - barcode-catalog.csv
+    - reference-genomes.csv
+    - kpi-catalog.csv
 ```

@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - 对任何涉及专利/材料或数据转移/对外披露/跨境/商业化的操作，必须先引用对应 SOP/Checklist 并逐条确认；若缺失先创建模板再执行
 
@@ -59,60 +59,59 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/invention-disclosure-and-evaluation.md
-    - tasks/prior-art-and-fto-assessment.md
-    - tasks/ip-strategy-and-portfolio.md
-    - tasks/patent-brief-and-claiming.md
-    - tasks/mta-dta-and-licenses.md
-    - tasks/transfer-package-and-versioning.md
-    - tasks/receiver-enablement-and-revalidation.md
-    - tasks/valuation-deal-and-royalty.md
-    - tasks/infringement-monitoring-and-litigation-ready.md
-    - tasks/disclosure-and-publication-governance.md
-    - tasks/kpi-dashboard-update.md
+    - invention-disclosure-and-evaluation.md
+    - prior-art-and-fto-assessment.md
+    - ip-strategy-and-portfolio.md
+    - patent-brief-and-claiming.md
+    - mta-dta-and-licenses.md
+    - transfer-package-and-versioning.md
+    - receiver-enablement-and-revalidation.md
+    - valuation-deal-and-royalty.md
+    - infringement-monitoring-and-litigation-ready.md
+    - disclosure-and-publication-governance.md
+    - kpi-dashboard-update.md
   templates:
-    - templates/invention-disclosure-form-tmpl.md
-    - templates/patentability-scorecard-tmpl.csv
-    - templates/fto-search-plan-tmpl.md
-    - templates/prior-art-comparison-tmpl.csv
-    - templates/ip-strategy-roadmap-tmpl.md
-    - templates/portfolio-register-tmpl.csv
-    - templates/patent-brief-tmpl.md
-    - templates/claim-skeleton-tmpl.md
-    - templates/mta-template-tmpl.md
-    - templates/dta-template-tmpl.md
-    - templates/software-license-terms-tmpl.md
-    - templates/nda-template-tmpl.md
-    - templates/transfer-package-index-tmpl.md
-    - templates/sop-spec-param-window-tmpl.md
-    - templates/bom-and-materials-tmpl.csv
-    - templates/validation-evidence-index-tmpl.md
-    - templates/training-and-enablement-plan-tmpl.md
-    - templates/iq-oq-pq-plan-tmpl.md
-    - templates/deal-structure-and-valuation-tmpl.md
-    - templates/milestones-and-royalties-tmpl.csv
-    - templates/infringement-monitoring-plan-tmpl.md
-    - templates/evidence-preservation-log-tmpl.csv
-    - templates/disclosure-window-and-approval-tmpl.md
-    - templates/publication-abstract-tmpl.md
-    - templates/kpi-dashboard-tmpl.csv
+    - invention-disclosure-form-tmpl.md
+    - patentability-scorecard-tmpl.csv
+    - fto-search-plan-tmpl.md
+    - prior-art-comparison-tmpl.csv
+    - ip-strategy-roadmap-tmpl.md
+    - portfolio-register-tmpl.csv
+    - patent-brief-tmpl.md
+    - claim-skeleton-tmpl.md
+    - mta-template-tmpl.md
+    - dta-template-tmpl.md
+    - software-license-terms-tmpl.md
+    - nda-template-tmpl.md
+    - transfer-package-index-tmpl.md
+    - sop-spec-param-window-tmpl.md
+    - bom-and-materials-tmpl.csv
+    - validation-evidence-index-tmpl.md
+    - training-and-enablement-plan-tmpl.md
+    - iq-oq-pq-plan-tmpl.md
+    - deal-structure-and-valuation-tmpl.md
+    - milestones-and-royalties-tmpl.csv
+    - infringement-monitoring-plan-tmpl.md
+    - evidence-preservation-log-tmpl.csv
+    - disclosure-window-and-approval-tmpl.md
+    - publication-abstract-tmpl.md
+    - kpi-dashboard-tmpl.csv
   checklists:
-    - checklists/invention-disclosure-intake.md
-    - checklists/prior-art-and-fto-review.md
-    - checklists/ip-portfolio-triage.md
-    - checklists/patent-brief-quality-gates.md
-    - checklists/mta-dta-nda-license-clauses.md
-    - checklists/transfer-package-completeness.md
-    - checklists/receiver-enablement-and-iq-oq-pq.md
-    - checklists/deal-valuation-and-royalty.md
-    - checklists/infringement-monitoring-and-response.md
-    - checklists/disclosure-and-publication.md
-    - checklists/kpi-and-maturity.md
-  kb:
-    - kb/tech-transfer-ip-kb.md
+    - invention-disclosure-intake.md
+    - prior-art-and-fto-review.md
+    - ip-portfolio-triage.md
+    - patent-brief-quality-gates.md
+    - mta-dta-nda-license-clauses.md
+    - transfer-package-completeness.md
+    - receiver-enablement-and-iq-oq-pq.md
+    - deal-valuation-and-royalty.md
+    - infringement-monitoring-and-response.md
+    - disclosure-and-publication.md
+    - kpi-and-maturity.md
   data:
-    - data/ip-portfolio-register.csv
-    - data/invention-pipeline.csv
-    - data/standard-royalty-benchmarks.csv
-    - data/kpi-catalog.csv
+    - kb/tech-transfer-ip-kb.md
+    - ip-portfolio-register.csv
+    - invention-pipeline.csv
+    - standard-royalty-benchmarks.csv
+    - kpi-catalog.csv
 ```

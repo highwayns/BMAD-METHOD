@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - For any study design/统计结论，提供功效与样本量计算证据与分析脚本位置
 
@@ -57,52 +57,51 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/design-experiment.md
-    - tasks/calc-power.md
-    - tasks/assay-development.md
-    - tasks/validate-method.md
-    - tasks/register-study.md
-    - tasks/build-analysis-pipeline.md
-    - tasks/run-qc-omics.md
-    - tasks/run-qc-imaging.md
-    - tasks/cell-line-authentication.md
-    - tasks/preclinical-study-protocol.md
-    - tasks/stability-study-plan.md
-    - tasks/prepare-sap.md
-    - tasks/create-reproducible-package.md
-    - tasks/draft-manuscript.md
-    - tasks/draft-grant.md
+    - design-experiment.md
+    - calc-power.md
+    - assay-development.md
+    - validate-method.md
+    - register-study.md
+    - build-analysis-pipeline.md
+    - run-qc-omics.md
+    - run-qc-imaging.md
+    - cell-line-authentication.md
+    - preclinical-study-protocol.md
+    - stability-study-plan.md
+    - prepare-sap.md
+    - create-reproducible-package.md
+    - draft-manuscript.md
+    - draft-grant.md
   templates:
-    - templates/experimental-plan-tmpl.yaml
-    - templates/statistical-analysis-plan-tmpl.yaml
-    - templates/protocol-tmpl.md
-    - templates/assay-validation-report-tmpl.yaml
-    - templates/reagent-lot-tracking-tmpl.csv
-    - templates/cell-line-characterization-tmpl.md
-    - templates/crispr-design-record-tmpl.yaml
-    - templates/imaging-analysis-report-tmpl.md
-    - templates/scrnaseq-pipeline-spec-tmpl.yaml
-    - templates/figure-legend-tmpl.md
-    - templates/manuscript-outline-tmpl.md
-    - templates/grant-proposal-tmpl.md
-    - templates/dataset-metadata-schema.json
-    - templates/data-dictionary-tmpl.csv
-    - templates/eln-entry-tmpl.md
+    - experimental-plan-tmpl.yaml
+    - statistical-analysis-plan-tmpl.yaml
+    - protocol-tmpl.md
+    - assay-validation-report-tmpl.yaml
+    - reagent-lot-tracking-tmpl.csv
+    - cell-line-characterization-tmpl.md
+    - crispr-design-record-tmpl.yaml
+    - imaging-analysis-report-tmpl.md
+    - scrnaseq-pipeline-spec-tmpl.yaml
+    - figure-legend-tmpl.md
+    - manuscript-outline-tmpl.md
+    - grant-proposal-tmpl.md
+    - dataset-metadata-schema.json
+    - data-dictionary-tmpl.csv
+    - eln-entry-tmpl.md
   checklists:
-    - checklists/exp-design-rigor.md
-    - checklists/randomization-blinding.md
-    - checklists/reagent-qc-lot-tracking.md
-    - checklists/cell-line-authentication.md
-    - checklists/data-integrity-research.md
-    - checklists/stat-plan-completeness.md
-    - checklists/image-integrity.md
-    - checklists/omics-qc.md
-    - checklists/preclinical-glp-lite.md
-    - checklists/reproducibility-readiness.md
-  kb:
-    - kb/chief-researcher-kb.md
+    - exp-design-rigor.md
+    - randomization-blinding.md
+    - reagent-qc-lot-tracking.md
+    - cell-line-authentication.md
+    - data-integrity-research.md
+    - stat-plan-completeness.md
+    - image-integrity.md
+    - omics-qc.md
+    - preclinical-glp-lite.md
+    - reproducibility-readiness.md
   data:
-    - data/sample-size-examples.csv
-    - data/variable-dictionary.csv
-    - data/figure-styles.csv
+    - kb/chief-researcher-kb.md
+    - sample-size-examples.csv
+    - variable-dictionary.csv
+    - figure-styles.csv
 ```

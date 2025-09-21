@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - 对任何涉及冷链/危化/合规/放行的物资操作，先引用对应 SOP/Checklist 并逐条确认；若缺失先创建模板再执行
 
@@ -64,73 +64,72 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/demand-plan-and-mrp.md
-    - tasks/vendor-qualification-and-asl.md
-    - tasks/rfq-comparison-and-po.md
-    - tasks/receiving-quarantine-release.md
-    - tasks/coa-verification-and-sampling.md
-    - tasks/coldchain-transport-and-storage.md
-    - tasks/controlled-substances-and_hazmat.md
-    - tasks/inventory-fefo-cycle-count.md
-    - tasks/labeling-serialization-and-barcodes.md
-    - tasks/kitting-issue-return.md
-    - tasks/recall-returns-and-disposal.md
-    - tasks/contracts-and-esg-compliance.md
-    - tasks/systems-integration-lims-erp-wms.md
-    - tasks/change-control-and-revalidation.md
-    - tasks/tech-transfer-plan.md
-    - tasks/kpi-dashboard-update.md
+    - demand-plan-and-mrp.md
+    - vendor-qualification-and-asl.md
+    - rfq-comparison-and-po.md
+    - receiving-quarantine-release.md
+    - coa-verification-and-sampling.md
+    - coldchain-transport-and-storage.md
+    - controlled-substances-and_hazmat.md
+    - inventory-fefo-cycle-count.md
+    - labeling-serialization-and-barcodes.md
+    - kitting-issue-return.md
+    - recall-returns-and-disposal.md
+    - contracts-and-esg-compliance.md
+    - systems-integration-lims-erp-wms.md
+    - change-control-and-revalidation.md
+    - tech-transfer-plan.md
+    - kpi-dashboard-update.md
   templates:
-    - templates/demand-plan-tmpl.csv
-    - templates/mrp-policy-tmpl.md
-    - templates/vendor-qual-questionnaire-tmpl.md
-    - templates/supplier-audit-plan-tmpl.yaml
-    - templates/asl-register-tmpl.csv
-    - templates/rfq-sheet-tmpl.csv
-    - templates/price-comparison-tmpl.csv
-    - templates/po-template-tmpl.md
-    - templates/receiving-log-tmpl.csv
-    - templates/quarantine-release-record-tmpl.csv
-    - templates/coa-verification-sheet-tmpl.csv
-    - templates/sampling-plan-tmpl.yaml
-    - templates/coldchain-plan-tmpl.yaml
-    - templates/temp-log-tmpl.csv
-    - templates/controlled-substances-register-tmpl.csv
-    - templates/hazmat-emergency-plan-tmpl.md
-    - templates/fefo-policy-tmpl.md
-    - templates/cycle-count-sheet-tmpl.csv
-    - templates/label-spec-tmpl.yaml
-    - templates/serialization-map-tmpl.md
-    - templates/kitting-issue-return-tmpl.md
-    - templates/recall-plan-tmpl.md
-    - templates/returns-rma-form-tmpl.md
-    - templates/disposal-record-tmpl.csv
-    - templates/contract-clauses-esg-tmpl.md
-    - templates/integration-architecture-tmpl.md
-    - templates/change-control-plan-tmpl.md
-    - templates/tech-transfer-plan-tmpl.yaml
-    - templates/kpi-dashboard-tmpl.csv
+    - demand-plan-tmpl.csv
+    - mrp-policy-tmpl.md
+    - vendor-qual-questionnaire-tmpl.md
+    - supplier-audit-plan-tmpl.yaml
+    - asl-register-tmpl.csv
+    - rfq-sheet-tmpl.csv
+    - price-comparison-tmpl.csv
+    - po-template-tmpl.md
+    - receiving-log-tmpl.csv
+    - quarantine-release-record-tmpl.csv
+    - coa-verification-sheet-tmpl.csv
+    - sampling-plan-tmpl.yaml
+    - coldchain-plan-tmpl.yaml
+    - temp-log-tmpl.csv
+    - controlled-substances-register-tmpl.csv
+    - hazmat-emergency-plan-tmpl.md
+    - fefo-policy-tmpl.md
+    - cycle-count-sheet-tmpl.csv
+    - label-spec-tmpl.yaml
+    - serialization-map-tmpl.md
+    - kitting-issue-return-tmpl.md
+    - recall-plan-tmpl.md
+    - returns-rma-form-tmpl.md
+    - disposal-record-tmpl.csv
+    - contract-clauses-esg-tmpl.md
+    - integration-architecture-tmpl.md
+    - change-control-plan-tmpl.md
+    - tech-transfer-plan-tmpl.yaml
+    - kpi-dashboard-tmpl.csv
   checklists:
-    - checklists/po-to-receiving-threeway.md
-    - checklists/vendor-qualification.md
-    - checklists/material-identity-and-labels.md
-    - checklists/coa-verification.md
-    - checklists/coldchain-and-temp-excursion.md
-    - checklists/controlled-substances.md
-    - checklists/fefo-and-expiry.md
-    - checklists/cycle-count-and-reconciliation.md
-    - checklists/kitting-and-issuing.md
-    - checklists/recall-and-returns.md
-    - checklists/contracts-and-esg.md
-    - checklists/systems-integration.md
-    - checklists/change-control-and-revalidation.md
-    - checklists/kpi-and-cost-review.md
-  kb:
-    - kb/procurement-inventory-kb.md
+    - po-to-receiving-threeway.md
+    - vendor-qualification.md
+    - material-identity-and-labels.md
+    - coa-verification.md
+    - coldchain-and-temp-excursion.md
+    - controlled-substances.md
+    - fefo-and-expiry.md
+    - cycle-count-and-reconciliation.md
+    - kitting-and-issuing.md
+    - recall-and-returns.md
+    - contracts-and-esg.md
+    - systems-integration.md
+    - change-control-and-revalidation.md
+    - kpi-and-cost-review.md
   data:
-    - data/uom-and-conversions.csv
-    - data/asl-register-example.csv
-    - data/hazmat-classes.csv
-    - data/controlled-substances-categories.csv
-    - data/kpi-catalog.csv
+    - kb/procurement-inventory-kb.md
+    - uom-and-conversions.csv
+    - asl-register-example.csv
+    - hazmat-classes.csv
+    - controlled-substances-categories.csv
+    - kpi-catalog.csv
 ```

@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - 对任何涉及人身安全/生物危害/化学危害/气体/低温/电气/火灾/应急响应/外包施工/访客进入的操作，先引用对应 SOP/Checklist 并逐条确认；若缺失先创建模板再执行
 
@@ -63,68 +63,67 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/training-matrix-and-renewals.md
-    - tasks/lms-and-assessment-setup.md
-    - tasks/biosafety-and-bbp-program.md
-    - tasks/chemical-hygiene-and-sds.md
-    - tasks/cryo-and-compressed-gas-safety.md
-    - tasks/ppe-fit-testing-and-immunization.md
-    - tasks/permit-to-work-and-loto.md
-    - tasks/iata-un3373-and-dry-ice.md
-    - tasks/waste-management-and-decontamination.md
-    - tasks/emergency-preparedness-and-drills.md
-    - tasks/incident-reporting-investigation-and-capa.md
-    - tasks/contractor-and-visitor-onboarding.md
-    - tasks/ehs-audit-and-kpi-dashboard.md
-    - tasks/kpi-dashboard-update.md
+    - training-matrix-and-renewals.md
+    - lms-and-assessment-setup.md
+    - biosafety-and-bbp-program.md
+    - chemical-hygiene-and-sds.md
+    - cryo-and-compressed-gas-safety.md
+    - ppe-fit-testing-and-immunization.md
+    - permit-to-work-and-loto.md
+    - iata-un3373-and-dry-ice.md
+    - waste-management-and-decontamination.md
+    - emergency-preparedness-and-drills.md
+    - incident-reporting-investigation-and-capa.md
+    - contractor-and-visitor-onboarding.md
+    - ehs-audit-and-kpi-dashboard.md
+    - kpi-dashboard-update.md
   templates:
-    - templates/training-matrix-tmpl.csv
-    - templates/authorization-record-tmpl.csv
-    - templates/assessment-bank-tmpl.csv
-    - templates/lms-config-tmpl.yaml
-    - templates/biosafety-program-tmpl.md
-    - templates/bbp-exposure-control-plan-tmpl.md
-    - templates/chemical-hygiene-plan-tmpl.md
-    - templates/sds-register-tmpl.csv
-    - templates/cryo-lN2-safety-plan-tmpl.md
-    - templates/compressed-gas-register-tmpl.csv
-    - templates/ppe-selection-guide-tmpl.md
-    - templates/fit-test-record-tmpl.csv
-    - templates/immunization-record-tmpl.csv
-    - templates/permit-to-work-form-tmpl.md
-    - templates/loto-procedure-tmpl.md
-    - templates/iata-training-record-tmpl.csv
-    - templates/biological-shipping-checklist-tmpl.md
-    - templates/waste-stream-map-tmpl.csv
-    - templates/decon-sop-tmpl.md
-    - templates/emergency-drill-plan-tmpl.md
-    - templates/incident-report-tmpl.md
-    - templates/rcfa-template-tmpl.md
-    - templates/capa-plan-tmpl.md
-    - templates/contractor-onboarding-pack-tmpl.md
-    - templates/visitor-briefing-card-tmpl.md
-    - templates/ehs-audit-plan-tmpl.md
-    - templates/kpi-dashboard-tmpl.csv
+    - training-matrix-tmpl.csv
+    - authorization-record-tmpl.csv
+    - assessment-bank-tmpl.csv
+    - lms-config-tmpl.yaml
+    - biosafety-program-tmpl.md
+    - bbp-exposure-control-plan-tmpl.md
+    - chemical-hygiene-plan-tmpl.md
+    - sds-register-tmpl.csv
+    - cryo-lN2-safety-plan-tmpl.md
+    - compressed-gas-register-tmpl.csv
+    - ppe-selection-guide-tmpl.md
+    - fit-test-record-tmpl.csv
+    - immunization-record-tmpl.csv
+    - permit-to-work-form-tmpl.md
+    - loto-procedure-tmpl.md
+    - iata-training-record-tmpl.csv
+    - biological-shipping-checklist-tmpl.md
+    - waste-stream-map-tmpl.csv
+    - decon-sop-tmpl.md
+    - emergency-drill-plan-tmpl.md
+    - incident-report-tmpl.md
+    - rcfa-template-tmpl.md
+    - capa-plan-tmpl.md
+    - contractor-onboarding-pack-tmpl.md
+    - visitor-briefing-card-tmpl.md
+    - ehs-audit-plan-tmpl.md
+    - kpi-dashboard-tmpl.csv
   checklists:
-    - checklists/new-hire-safety-induction.md
-    - checklists/bsl2-and-bbp-operations.md
-    - checklists/chemical-storage-and-ventilation.md
-    - checklists/cryo-and-ln2-operations.md
-    - checklists/compressed-gas-handling.md
-    - checklists/ppe-donning-and-doffing.md
-    - checklists/permit-to-work-and-loto.md
-    - checklists/iata-shipping-and-packaging.md
-    - checklists/waste-segregation-and-labeling.md
-    - checklists/spill-response-bio-chem.md
-    - checklists/incident-investigation.md
-    - checklists/contractor-visitor-control.md
-    - checklists/ehs-audit-readiness.md
-  kb:
-    - kb/training-safety-kb.md
+    - new-hire-safety-induction.md
+    - bsl2-and-bbp-operations.md
+    - chemical-storage-and-ventilation.md
+    - cryo-and-ln2-operations.md
+    - compressed-gas-handling.md
+    - ppe-donning-and-doffing.md
+    - permit-to-work-and-loto.md
+    - iata-shipping-and-packaging.md
+    - waste-segregation-and-labeling.md
+    - spill-response-bio-chem.md
+    - incident-investigation.md
+    - contractor-visitor-control.md
+    - ehs-audit-readiness.md
   data:
-    - data/training-catalog.csv
-    - data/hazard-inventory.csv
-    - data/ppe-catalog.csv
-    - data/permit-types.csv
-    - data/kpi-catalog.csv
+    - kb/training-safety-kb.md
+    - training-catalog.csv
+    - hazard-inventory.csv
+    - ppe-catalog.csv
+    - permit-types.csv
+    - kpi-catalog.csv
 ```

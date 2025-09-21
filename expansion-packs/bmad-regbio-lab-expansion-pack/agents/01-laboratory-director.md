@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - For safety-critical actions, always reference an approved SOP/checklist before proceeding
 
@@ -54,53 +54,52 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/create-lab-ops-plan.md
-    - tasks/review-operations.md
-    - tasks/validate-operations.md
-    - tasks/run-biosafety-risk-assessment.md
-    - tasks/prepare-irb-ibc-submission.md
-    - tasks/create-sop.md
-    - tasks/update-training-competency.md
-    - tasks/open-change-control.md
-    - tasks/report-deviation-capa.md
-    - tasks/audit-chain-of-custody.md
-    - tasks/schedule-equipment-pm.md
-    - tasks/generate-lims-eln-spec.md
-    - tasks/define-qc-assays.md
-    - tasks/update-kpi-dashboard.md
-    - tasks/plan-tech-transfer.md
-    - tasks/run-data-protection-impact-assessment.md
+    - create-lab-ops-plan.md
+    - review-operations.md
+    - validate-operations.md
+    - run-biosafety-risk-assessment.md
+    - prepare-irb-ibc-submission.md
+    - create-sop.md
+    - update-training-competency.md
+    - open-change-control.md
+    - report-deviation-capa.md
+    - audit-chain-of-custody.md
+    - schedule-equipment-pm.md
+    - generate-lims-eln-spec.md
+    - define-qc-assays.md
+    - update-kpi-dashboard.md
+    - plan-tech-transfer.md
+    - run-data-protection-impact-assessment.md
   templates:
-    - templates/regbio-lab-ops-plan-tmpl.yaml
-    - templates/biosafety-risk-assessment-tmpl.yaml
-    - templates/irb-ibc-submission-tmpl.yaml
-    - templates/sop-tmpl.md
-    - templates/training-competency-matrix-tmpl.csv
-    - templates/change-control-record-tmpl.yaml
-    - templates/deviation-capa-report-tmpl.yaml
-    - templates/chain-of-custody-tmpl.csv
-    - templates/equipment-pm-schedule-tmpl.csv
-    - templates/lims-eln-spec-tmpl.yaml
-    - templates/qc-assay-panel-tmpl.csv
-    - templates/kpi-dashboard-tmpl.csv
-    - templates/tech-transfer-plan-tmpl.yaml
-    - templates/data-protection-impact-assessment-tmpl.yaml
+    - regbio-lab-ops-plan-tmpl.yaml
+    - biosafety-risk-assessment-tmpl.yaml
+    - irb-ibc-submission-tmpl.yaml
+    - sop-tmpl.md
+    - training-competency-matrix-tmpl.csv
+    - change-control-record-tmpl.yaml
+    - deviation-capa-report-tmpl.yaml
+    - chain-of-custody-tmpl.csv
+    - equipment-pm-schedule-tmpl.csv
+    - lims-eln-spec-tmpl.yaml
+    - qc-assay-panel-tmpl.csv
+    - kpi-dashboard-tmpl.csv
+    - tech-transfer-plan-tmpl.yaml
+    - data-protection-impact-assessment-tmpl.yaml
   checklists:
-    - checklists/lab-operations-16-section.md
-    - checklists/biosafety-bsl2-readiness.md
-    - checklists/gxp-readiness.md
-    - checklists/irb-ibc-submission.md
-    - checklists/data-governance-audit.md
-    - checklists/equipment-calibration-maintenance.md
-    - checklists/inventory-control-expiry.md
-    - checklists/incident-accident-triage.md
-    - checklists/training-compliance.md
-  kb:
-    - kb/regbio-lab-kb.md
+    - lab-operations-16-section.md
+    - biosafety-bsl2-readiness.md
+    - gxp-readiness.md
+    - irb-ibc-submission.md
+    - data-governance-audit.md
+    - equipment-calibration-maintenance.md
+    - inventory-control-expiry.md
+    - incident-accident-triage.md
+    - training-compliance.md
   data:
-    - data/code-lists.csv
-    - data/assay-panels.csv
-    - data/equipment-master.csv
-    - data/role-competency.csv
-    - data/kpi-catalog.csv
+    - kb/regbio-lab-kb.md
+    - code-lists.csv
+    - assay-panels.csv
+    - equipment-master.csv
+    - role-competency.csv
+    - kpi-catalog.csv
 ```

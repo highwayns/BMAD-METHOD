@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - 对任何涉及动物伦理/动物福利/生物安全的操作，必须先引用对应 SOP/Checklist 并逐条确认；若缺失先创建模板再执行
 
@@ -65,66 +65,65 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/iacuc-protocol-package.md
-    - tasks/barrier-zoning-and-airflow-plan.md
-    - tasks/health-monitoring-and-sentinel.md
-    - tasks/colony-management-and-genotyping.md
-    - tasks/surgery-analgesia-and_postop.md
-    - tasks/humane-endpoints-and-scoring.md
-    - tasks/quarantine-and-import-export.md
-    - tasks/biosafety-zoonosis-waste.md
-    - tasks/cagewash-and-autoclave-validation.md
-    - tasks/hvac-env-monitoring-and-alarms.md
-    - tasks/inventory-census-and-billing.md
-    - tasks/aaalac-readiness-package.md
-    - tasks/lims-domain-spec.md
-    - tasks/tech-transfer-plan.md
-    - tasks/kpi-dashboard-update.md
+    - iacuc-protocol-package.md
+    - barrier-zoning-and-airflow-plan.md
+    - health-monitoring-and-sentinel.md
+    - colony-management-and-genotyping.md
+    - surgery-analgesia-and_postop.md
+    - humane-endpoints-and-scoring.md
+    - quarantine-and-import-export.md
+    - biosafety-zoonosis-waste.md
+    - cagewash-and-autoclave-validation.md
+    - hvac-env-monitoring-and-alarms.md
+    - inventory-census-and-billing.md
+    - aaalac-readiness-package.md
+    - lims-domain-spec.md
+    - tech-transfer-plan.md
+    - kpi-dashboard-update.md
   templates:
-    - templates/iacuc-protocol-tmpl.md
-    - templates/animal-use-justification-tmpl.md
-    - templates/analgesia-anesthesia-tmpl.yaml
-    - templates/surgery-checklist-tmpl.md
-    - templates/postop-monitoring-sheet-tmpl.csv
-    - templates/humane-endpoint-scorecard-tmpl.csv
-    - templates/quarantine-plan-tmpl.yaml
-    - templates/health-monitoring-panel-tmpl.csv
-    - templates/sentinel-plan-tmpl.yaml
-    - templates/barrier-map-and-pressure-tmpl.yaml
-    - templates/cage-change-log-tmpl.csv
-    - templates/cagewash-validation-tmpl.yaml
-    - templates/autoclave-bowie-dick-tmpl.csv
-    - templates/hvac-monitoring-log-tmpl.csv
-    - templates/ammonia-monitoring-log-tmpl.csv
-    - templates/biosafety-exposure-report-tmpl.md
-    - templates/waste-management-plan-tmpl.yaml
-    - templates/colony-breeding-plan-tmpl.yaml
-    - templates/genotyping-record-tmpl.csv
-    - templates/animal-order-form-tmpl.csv
-    - templates/animal-receiving-log-tmpl.csv
-    - templates/aaalac-self-eval-tmpl.md
-    - templates/lims-domain-model-tmpl.yaml
-    - templates/inventory-billing-policy-tmpl.md
-    - templates/kpi-dashboard-tmpl.csv
+    - iacuc-protocol-tmpl.md
+    - animal-use-justification-tmpl.md
+    - analgesia-anesthesia-tmpl.yaml
+    - surgery-checklist-tmpl.md
+    - postop-monitoring-sheet-tmpl.csv
+    - humane-endpoint-scorecard-tmpl.csv
+    - quarantine-plan-tmpl.yaml
+    - health-monitoring-panel-tmpl.csv
+    - sentinel-plan-tmpl.yaml
+    - barrier-map-and-pressure-tmpl.yaml
+    - cage-change-log-tmpl.csv
+    - cagewash-validation-tmpl.yaml
+    - autoclave-bowie-dick-tmpl.csv
+    - hvac-monitoring-log-tmpl.csv
+    - ammonia-monitoring-log-tmpl.csv
+    - biosafety-exposure-report-tmpl.md
+    - waste-management-plan-tmpl.yaml
+    - colony-breeding-plan-tmpl.yaml
+    - genotyping-record-tmpl.csv
+    - animal-order-form-tmpl.csv
+    - animal-receiving-log-tmpl.csv
+    - aaalac-self-eval-tmpl.md
+    - lims-domain-model-tmpl.yaml
+    - inventory-billing-policy-tmpl.md
+    - kpi-dashboard-tmpl.csv
   checklists:
-    - checklists/iacuc-submission.md
-    - checklists/barrier-integrity.md
-    - checklists/health-monitoring.md
-    - checklists/quarantine-intake.md
-    - checklists/surgery-analgesia.md
-    - checklists/humane-endpoints.md
-    - checklists/cagewash-autoclave.md
-    - checklists/hvac-alarms-response.md
-    - checklists/biosafety-zoonosis.md
-    - checklists/inventory-billing.md
-    - checklists/aaalac-site-visit.md
-    - checklists/lims-data-integrity.md
-  kb:
-    - kb/animal-facility-kb.md
+    - iacuc-submission.md
+    - barrier-integrity.md
+    - health-monitoring.md
+    - quarantine-intake.md
+    - surgery-analgesia.md
+    - humane-endpoints.md
+    - cagewash-autoclave.md
+    - hvac-alarms-response.md
+    - biosafety-zoonosis.md
+    - inventory-billing.md
+    - aaalac-site-visit.md
+    - lims-data-integrity.md
   data:
-    - data/pathogen-exclusion-list.csv
-    - data/sentinel-schedule.csv
-    - data/analgesia-guide.csv
-    - data/housing-density.csv
-    - data/kpi-catalog.csv
+    - kb/animal-facility-kb.md
+    - pathogen-exclusion-list.csv
+    - sentinel-schedule.csv
+    - analgesia-guide.csv
+    - housing-density.csv
+    - kpi-catalog.csv
 ```

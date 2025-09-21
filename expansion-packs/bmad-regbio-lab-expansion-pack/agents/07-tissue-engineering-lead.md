@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - 对任何影响安全/质量/伦理/无菌的动作，先引用对应 SOP/Checklist 并逐条确认；若缺失先创建模板再执行
 
@@ -60,60 +60,59 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/scaffold-design-spec.md
-    - tasks/bioink-formulation-doe.md
-    - tasks/bioprinting-runbook.md
-    - tasks/seeding-perfusion-plan.md
-    - tasks/bioreactor-ops-and-controls.md
-    - tasks/characterization-structure.md
-    - tasks/characterization-mechanical.md
-    - tasks/characterization-functional.md
-    - tasks/decell-recell-protocol.md
-    - tasks/sterilization-validation.md
-    - tasks/release-specification.md
-    - tasks/shelf-life-and-packaging.md
-    - tasks/lims-domain-spec.md
-    - tasks/tech-transfer-plan.md
-    - tasks/kpi-dashboard-update.md
+    - scaffold-design-spec.md
+    - bioink-formulation-doe.md
+    - bioprinting-runbook.md
+    - seeding-perfusion-plan.md
+    - bioreactor-ops-and-controls.md
+    - characterization-structure.md
+    - characterization-mechanical.md
+    - characterization-functional.md
+    - decell-recell-protocol.md
+    - sterilization-validation.md
+    - release-specification.md
+    - shelf-life-and-packaging.md
+    - lims-domain-spec.md
+    - tech-transfer-plan.md
+    - kpi-dashboard-update.md
   templates:
-    - templates/scaffold-design-inputs-tmpl.yaml
-    - templates/bioink-formula-tmpl.yaml
-    - templates/bioink-doe-matrix-tmpl.csv
-    - templates/print-parameters-gcode-tmpl.csv
-    - templates/bioprint-fai-report-tmpl.md
-    - templates/seeding-perfusion-plan-tmpl.yaml
-    - templates/bioreactor-run-log-tmpl.csv
-    - templates/imaging-morphometry-report-tmpl.md
-    - templates/mechanical-test-report-tmpl.md
-    - templates/functional-assay-report-tmpl.md
-    - templates/decell-recell-protocol-tmpl.md
-    - templates/sterilization-validation-report-tmpl.md
-    - templates/iso10993-biocmp-plan-tmpl.yaml
-    - templates/release-spec-tmpl.yaml
-    - templates/shelf-life-packaging-protocol-tmpl.yaml
-    - templates/lims-domain-model-tmpl.yaml
-    - templates/tech-transfer-plan-tmpl.yaml
-    - templates/kpi-dashboard-tmpl.csv
+    - scaffold-design-inputs-tmpl.yaml
+    - bioink-formula-tmpl.yaml
+    - bioink-doe-matrix-tmpl.csv
+    - print-parameters-gcode-tmpl.csv
+    - bioprint-fai-report-tmpl.md
+    - seeding-perfusion-plan-tmpl.yaml
+    - bioreactor-run-log-tmpl.csv
+    - imaging-morphometry-report-tmpl.md
+    - mechanical-test-report-tmpl.md
+    - functional-assay-report-tmpl.md
+    - decell-recell-protocol-tmpl.md
+    - sterilization-validation-report-tmpl.md
+    - iso10993-biocmp-plan-tmpl.yaml
+    - release-spec-tmpl.yaml
+    - shelf-life-packaging-protocol-tmpl.yaml
+    - lims-domain-model-tmpl.yaml
+    - tech-transfer-plan-tmpl.yaml
+    - kpi-dashboard-tmpl.csv
   checklists:
-    - checklists/design-inputs-vs-cqa.md
-    - checklists/bioink-readiness.md
-    - checklists/bioprinting-readiness.md
-    - checklists/aseptic-closed-system.md
-    - checklists/seeding-uniformity.md
-    - checklists/perfusion-bioreactor-ops.md
-    - checklists/sterility-endotoxin.md
-    - checklists/mechanical-testing-sop.md
-    - checklists/imaging-histology-ihc.md
-    - checklists/iso10993-panel.md
-    - checklists/release-readiness.md
-    - checklists/shelf-life-and-packaging.md
-    - checklists/lims-eln-data-integrity.md
-  kb:
-    - kb/tissue-engineering-kb.md
+    - design-inputs-vs-cqa.md
+    - bioink-readiness.md
+    - bioprinting-readiness.md
+    - aseptic-closed-system.md
+    - seeding-uniformity.md
+    - perfusion-bioreactor-ops.md
+    - sterility-endotoxin.md
+    - mechanical-testing-sop.md
+    - imaging-histology-ihc.md
+    - iso10993-panel.md
+    - release-readiness.md
+    - shelf-life-and-packaging.md
+    - lims-eln-data-integrity.md
   data:
-    - data/bioink-rheology-examples.csv
-    - data/mechanical-targets.csv
-    - data/functional-assays.csv
-    - data/bioreactor-params.csv
-    - data/kpi-catalog.csv
+    - kb/tissue-engineering-kb.md
+    - bioink-rheology-examples.csv
+    - mechanical-targets.csv
+    - functional-assays.csv
+    - bioreactor-params.csv
+    - kpi-catalog.csv
 ```

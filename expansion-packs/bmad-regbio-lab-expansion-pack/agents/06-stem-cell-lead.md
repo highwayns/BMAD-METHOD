@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - 对任何影响细胞安全/质量/伦理的操作，先引用对应 SOP/Checklist 并逐条确认；若缺失先创建模板再执行
 
@@ -61,69 +61,68 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/design-reprogramming-editing.md
-    - tasks/clonal-screening-plan.md
-    - tasks/differentiation-and-scaleup-plan.md
-    - tasks/define-release-spec.md
-    - tasks/qc-panel-execution.md
-    - tasks/cell-bank-build-and-qualify.md
-    - tasks/cell-bank-release-testing.md
-    - tasks/raw-materials-qualification.md
-    - tasks/equivalence-assessment-raw-materials.md
-    - tasks/cryostorage-management.md
-    - tasks/coi-coc-audit.md
-    - tasks/lims-domain-spec.md
-    - tasks/tech-transfer-plan.md
-    - tasks/karyotype-and_genomic-stability.md
-    - tasks/mycoplasma-sterility-endotoxin.md
-    - tasks/identity-str-and-ploidy.md
-    - tasks/potency-assays-design.md
-    - tasks/troubleshoot-culture-contamination.md
+    - design-reprogramming-editing.md
+    - clonal-screening-plan.md
+    - differentiation-and-scaleup-plan.md
+    - define-release-spec.md
+    - qc-panel-execution.md
+    - cell-bank-build-and-qualify.md
+    - cell-bank-release-testing.md
+    - raw-materials-qualification.md
+    - equivalence-assessment-raw-materials.md
+    - cryostorage-management.md
+    - coi-coc-audit.md
+    - lims-domain-spec.md
+    - tech-transfer-plan.md
+    - karyotype-and_genomic-stability.md
+    - mycoplasma-sterility-endotoxin.md
+    - identity-str-and-ploidy.md
+    - potency-assays-design.md
+    - troubleshoot-culture-contamination.md
   templates:
-    - templates/reprogramming-editing-protocol-tmpl.md
-    - templates/clonal-screening-matrix-tmpl.csv
-    - templates/differentiation-plan-tmpl.yaml
-    - templates/release-spec-tmpl.yaml
-    - templates/qc-assay-panel-tmpl.csv
-    - templates/qc-batch-sheet-tmpl.csv
-    - templates/cell-bank-plan-tmpl.yaml
-    - templates/cell-bank-qualification-report-tmpl.md
-    - templates/cell-bank-sample-map-tmpl.csv
-    - templates/raw-materials-qualification-form-tmpl.yaml
-    - templates/equivalence-assessment-tmpl.md
-    - templates/cryostorage-inventory-tmpl.csv
-    - templates/cryostorage-alarm-response-tmpl.md
-    - templates/coi-coc-trace-log-tmpl.csv
-    - templates/lims-domain-model-tmpl.yaml
-    - templates/tech-transfer-plan-tmpl.yaml
-    - templates/karyotype-report-tmpl.md
-    - templates/myco-sterility-endotoxin-report-tmpl.md
-    - templates/identity-report-tmpl.md
-    - templates/potency-assay-report-tmpl.md
-    - templates/kpi-dashboard-tmpl.csv
+    - reprogramming-editing-protocol-tmpl.md
+    - clonal-screening-matrix-tmpl.csv
+    - differentiation-plan-tmpl.yaml
+    - release-spec-tmpl.yaml
+    - qc-assay-panel-tmpl.csv
+    - qc-batch-sheet-tmpl.csv
+    - cell-bank-plan-tmpl.yaml
+    - cell-bank-qualification-report-tmpl.md
+    - cell-bank-sample-map-tmpl.csv
+    - raw-materials-qualification-form-tmpl.yaml
+    - equivalence-assessment-tmpl.md
+    - cryostorage-inventory-tmpl.csv
+    - cryostorage-alarm-response-tmpl.md
+    - coi-coc-trace-log-tmpl.csv
+    - lims-domain-model-tmpl.yaml
+    - tech-transfer-plan-tmpl.yaml
+    - karyotype-report-tmpl.md
+    - myco-sterility-endotoxin-report-tmpl.md
+    - identity-report-tmpl.md
+    - potency-assay-report-tmpl.md
+    - kpi-dashboard-tmpl.csv
   checklists:
-    - checklists/donor-eligibility-consent.md
-    - checklists/reprogramming-safety-qc.md
-    - checklists/crispr-design-and-offtarget.md
-    - checklists/clonal-screening-gates.md
-    - checklists/aseptic-and-media-prep.md
-    - checklists/closed-system-readiness.md
-    - checklists/differentiation-readiness.md
-    - checklists/qc-identity-potency.md
-    - checklists/myco-sterility-endotoxin.md
-    - checklists/karyotype-genomic-stability.md
-    - checklists/cell-bank-build-and-release.md
-    - checklists/cryostorage-and-alarm.md
-    - checklists/coi-coc-governance.md
-    - checklists/raw-materials-gmp-xf.md
-    - checklists/lims-eln-data-integrity.md
-  kb:
-    - kb/stem-cell-kb.md
+    - donor-eligibility-consent.md
+    - reprogramming-safety-qc.md
+    - crispr-design-and-offtarget.md
+    - clonal-screening-gates.md
+    - aseptic-and-media-prep.md
+    - closed-system-readiness.md
+    - differentiation-readiness.md
+    - qc-identity-potency.md
+    - myco-sterility-endotoxin.md
+    - karyotype-genomic-stability.md
+    - cell-bank-build-and-release.md
+    - cryostorage-and-alarm.md
+    - coi-coc-governance.md
+    - raw-materials-gmp-xf.md
+    - lims-eln-data-integrity.md
   data:
-    - data/qc-reference-ranges.csv
-    - data/raw-materials-master.csv
-    - data/assay-catalog.csv
-    - data/differentiation-lineages.csv
-    - data/cryostorage-locations.csv
-    - data/kpi-catalog.csv
+    - kb/stem-cell-kb.md
+    - qc-reference-ranges.csv
+    - raw-materials-master.csv
+    - assay-catalog.csv
+    - differentiation-lineages.csv
+    - cryostorage-locations.csv
+    - kpi-catalog.csv
 ```

@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - 对任何涉及人类数据/隐私/安全/合规的操作，先引用对应 SOP/Checklist 并逐条确认；若缺失先创建模板再执行
 
@@ -60,59 +60,58 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/data-intake-and-metadata-mapping.md
-    - tasks/qc-gates-and-dashboards.md
-    - tasks/pipeline-architecture-and-lock.md
-    - tasks/hpc-cloud-resourcing-and-scheduling.md
-    - tasks/limS-eln-domain-and-apis.md
-    - tasks/variant-expression-omics-pipelines.md
-    - tasks/singlecell-and-spatial-pipelines.md
-    - tasks/image-derived-features-pipeline.md
-    - tasks/multi-omics-integration-and-stats.md
-    - tasks/notebook-report-and-signoff.md
-    - tasks/data-governance-and-security.md
-    - tasks/data-retention-and-reprocessing.md
-    - tasks/mlops-and-model-validation.md
-    - tasks/tech-transfer-plan.md
-    - tasks/kpi-dashboard-update.md
+    - data-intake-and-metadata-mapping.md
+    - qc-gates-and-dashboards.md
+    - pipeline-architecture-and-lock.md
+    - hpc-cloud-resourcing-and-scheduling.md
+    - limS-eln-domain-and-apis.md
+    - variant-expression-omics-pipelines.md
+    - singlecell-and-spatial-pipelines.md
+    - image-derived-features-pipeline.md
+    - multi-omics-integration-and-stats.md
+    - notebook-report-and-signoff.md
+    - data-governance-and-security.md
+    - data-retention-and-reprocessing.md
+    - mlops-and-model-validation.md
+    - tech-transfer-plan.md
+    - kpi-dashboard-update.md
   templates:
-    - templates/intake-spec-tmpl.yaml
-    - templates/metadata-mapping-dict-tmpl.md
-    - templates/ro-crate-readme-tmpl.md
-    - templates/qc-gates-tmpl.csv
-    - templates/multiqc-panel-config-tmpl.yaml
-    - templates/pipeline-config-tmpl.yaml
-    - templates/container-lockfile-tmpl.yaml
-    - templates/scheduler-profile-tmpl.yaml
-    - templates/limS-domain-model-tmpl.yaml
-    - templates/eln-sync-spec-tmpl.yaml
-    - templates/notebook-template-tmpl.ipynb
-    - templates/report-template-tmpl.md
-    - templates/signoff-record-tmpl.md
-    - templates/governance-policy-tmpl.md
-    - templates/security-controls-tmpl.yaml
-    - templates/retention-policy-tmpl.md
-    - templates/reprocessing-playbook-tmpl.md
-    - templates/mlops-validation-plan-tmpl.yaml
-    - templates/mlops-report-tmpl.md
-    - templates/kpi-dashboard-tmpl.csv
+    - intake-spec-tmpl.yaml
+    - metadata-mapping-dict-tmpl.md
+    - ro-crate-readme-tmpl.md
+    - qc-gates-tmpl.csv
+    - multiqc-panel-config-tmpl.yaml
+    - pipeline-config-tmpl.yaml
+    - container-lockfile-tmpl.yaml
+    - scheduler-profile-tmpl.yaml
+    - limS-domain-model-tmpl.yaml
+    - eln-sync-spec-tmpl.yaml
+    - notebook-template-tmpl.ipynb
+    - report-template-tmpl.md
+    - signoff-record-tmpl.md
+    - governance-policy-tmpl.md
+    - security-controls-tmpl.yaml
+    - retention-policy-tmpl.md
+    - reprocessing-playbook-tmpl.md
+    - mlops-validation-plan-tmpl.yaml
+    - mlops-report-tmpl.md
+    - kpi-dashboard-tmpl.csv
   checklists:
-    - checklists/pii-phi-ethics.md
-    - checklists/data-intake-and-validation.md
-    - checklists/qc-gates-and-outliers.md
-    - checklists/pipeline-reproducibility.md
-    - checklists/hpc-cloud-security.md
-    - checklists/lims-eln-integration.md
-    - checklists/multi-omics-integration.md
-    - checklists/notebook-and-report-review.md
-    - checklists/data-governance-and-retention.md
-    - checklists/mlops-validation-and-drift.md
-  kb:
-    - kb/bioinformatics-kb.md
+    - pii-phi-ethics.md
+    - data-intake-and-validation.md
+    - qc-gates-and-outliers.md
+    - pipeline-reproducibility.md
+    - hpc-cloud-security.md
+    - lims-eln-integration.md
+    - multi-omics-integration.md
+    - notebook-and-report-review.md
+    - data-governance-and-retention.md
+    - mlops-validation-and-drift.md
   data:
-    - data/ontologies-and-ids.csv
-    - data/qc-thresholds.csv
-    - data/pipeline-catalog.csv
-    - data/scheduler-profiles.csv
-    - data/kpi-catalog.csv
+    - kb/bioinformatics-kb.md
+    - ontologies-and-ids.csv
+    - qc-thresholds.csv
+    - pipeline-catalog.csv
+    - scheduler-profiles.csv
+    - kpi-catalog.csv
 ```

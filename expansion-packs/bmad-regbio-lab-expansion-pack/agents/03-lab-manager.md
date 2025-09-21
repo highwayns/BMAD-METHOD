@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - For any safety/质量关键动作，先引用对应 SOP/清单并进行逐条确认
 
@@ -57,60 +57,59 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/plan-weekly-ops.md
-    - tasks/schedule-equipment-pm.md
-    - tasks/audit-readiness-pack.md
-    - tasks/inventory-replenishment.md
-    - tasks/run-biosafety-training.md
-    - tasks/run-waste-disposal-cycle.md
-    - tasks/chain-of-custody-audit.md
-    - tasks/environmental-monitoring-run.md
-    - tasks/cleaning-and-disinfection.md
-    - tasks/lims-admin-ops.md
-    - tasks/vendor-qualification.md
-    - tasks/deviation-capa-coordination.md
-    - tasks/kpi-dashboard-update.md
-    - tasks/budget-and-procurement.md
-    - tasks/visitor-and-contractor-control.md
-    - tasks/closing-opening-routine.md
+    - plan-weekly-ops.md
+    - schedule-equipment-pm.md
+    - audit-readiness-pack.md
+    - inventory-replenishment.md
+    - run-biosafety-training.md
+    - run-waste-disposal-cycle.md
+    - chain-of-custody-audit.md
+    - environmental-monitoring-run.md
+    - cleaning-and-disinfection.md
+    - lims-admin-ops.md
+    - vendor-qualification.md
+    - deviation-capa-coordination.md
+    - kpi-dashboard-update.md
+    - budget-and-procurement.md
+    - visitor-and-contractor-control.md
+    - closing-opening-routine.md
   templates:
-    - templates/weekly-ops-plan-tmpl.yaml
-    - templates/pm-schedule-tmpl.csv
-    - templates/audit-readiness-index-tmpl.yaml
-    - templates/replenishment-order-tmpl.csv
-    - templates/training-plan-tmpl.csv
-    - templates/incident-report-tmpl.yaml
-    - templates/waste-disposal-log-tmpl.csv
-    - templates/chain-of-custody-log-tmpl.csv
-    - templates/env-monitoring-plan-tmpl.yaml
-    - templates/env-monitoring-log-tmpl.csv
-    - templates/cleaning-log-tmpl.csv
-    - templates/procurement-request-tmpl.yaml
-    - templates/kpi-dashboard-tmpl.csv
-    - templates/visitor-log-tmpl.csv
-    - templates/vendor-qualification-form-tmpl.yaml
-    - templates/lims-access-matrix-tmpl.csv
+    - weekly-ops-plan-tmpl.yaml
+    - pm-schedule-tmpl.csv
+    - audit-readiness-index-tmpl.yaml
+    - replenishment-order-tmpl.csv
+    - training-plan-tmpl.csv
+    - incident-report-tmpl.yaml
+    - waste-disposal-log-tmpl.csv
+    - chain-of-custody-log-tmpl.csv
+    - env-monitoring-plan-tmpl.yaml
+    - env-monitoring-log-tmpl.csv
+    - cleaning-log-tmpl.csv
+    - procurement-request-tmpl.yaml
+    - kpi-dashboard-tmpl.csv
+    - visitor-log-tmpl.csv
+    - vendor-qualification-form-tmpl.yaml
+    - lims-access-matrix-tmpl.csv
   checklists:
-    - checklists/opening-closing-daily.md
-    - checklists/bs2-readiness.md
-    - checklists/ppe-and-waste.md
-    - checklists/inventory-expiry-fefo.md
-    - checklists/equipment-calibration-maintenance.md
-    - checklists/env-monitoring.md
-    - checklists/chain-of-custody.md
-    - checklists/data-governance-ops.md
-    - checklists/emergency-response-drill.md
-    - checklists/visitor-contractor-control.md
-    - checklists/vendor-qualification.md
-    - checklists/audit-readiness.md
-  kb:
-    - kb/lab-ops-kb.md
+    - opening-closing-daily.md
+    - bs2-readiness.md
+    - ppe-and-waste.md
+    - inventory-expiry-fefo.md
+    - equipment-calibration-maintenance.md
+    - env-monitoring.md
+    - chain-of-custody.md
+    - data-governance-ops.md
+    - emergency-response-drill.md
+    - visitor-contractor-control.md
+    - vendor-qualification.md
+    - audit-readiness.md
   data:
-    - data/equipment-master.csv
-    - data/inventory-master.csv
-    - data/training-records.csv
-    - data/env-monitoring-points.csv
-    - data/kpi-catalog.csv
-    - data/vendors.csv
-    - data/cleaning-schedule.csv
+    - kb/lab-ops-kb.md
+    - equipment-master.csv
+    - inventory-master.csv
+    - training-records.csv
+    - env-monitoring-points.csv
+    - kpi-catalog.csv
+    - vendors.csv
+    - cleaning-schedule.csv
 ```

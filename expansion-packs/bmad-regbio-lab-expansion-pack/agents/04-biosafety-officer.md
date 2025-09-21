@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - For任何与安全相关的建议，先引用对应的 SOP/Checklist，并进行逐条确认；如缺失，先创建模板后再执行
 
@@ -56,57 +56,56 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/bua-prep-and-tracking.md
-    - tasks/run-biosafety-risk-assessment.md
-    - tasks/jha-job-safety-analysis.md
-    - tasks/coshh-assessment.md
-    - tasks/ppe-program-setup.md
-    - tasks/waste-management-cycle.md
-    - tasks/incident-intake-and-classification.md
-    - tasks/incident-investigation-capa.md
-    - tasks/bsc-verification-and-maintenance.md
-    - tasks/pressure-ventilation-monitoring.md
-    - tasks/cleaning-disinfection-program.md
-    - tasks/training-and-competency-program.md
-    - tasks/emergency-drill-program.md
-    - tasks/safety-audit-readiness-pack.md
-    - tasks/data-governance-for-safety.md
+    - bua-prep-and-tracking.md
+    - run-biosafety-risk-assessment.md
+    - jha-job-safety-analysis.md
+    - coshh-assessment.md
+    - ppe-program-setup.md
+    - waste-management-cycle.md
+    - incident-intake-and-classification.md
+    - incident-investigation-capa.md
+    - bsc-verification-and-maintenance.md
+    - pressure-ventilation-monitoring.md
+    - cleaning-disinfection-program.md
+    - training-and-competency-program.md
+    - emergency-drill-program.md
+    - safety-audit-readiness-pack.md
+    - data-governance-for-safety.md
   templates:
-    - templates/bua-dossier-tmpl.yaml
-    - templates/risk-assessment-tmpl.yaml
-    - templates/jha-form-tmpl.yaml
-    - templates/coshh-form-tmpl.yaml
-    - templates/ppe-matrix-tmpl.csv
-    - templates/waste-log-tmpl.csv
-    - templates/incident-report-tmpl.yaml
-    - templates/incident-investigation-tmpl.md
-    - templates/capa-record-tmpl.yaml
-    - templates/bsc-verification-log-tmpl.csv
-    - templates/pressure-ventilation-log-tmpl.csv
-    - templates/cleaning-disinfection-log-tmpl.csv
-    - templates/training-plan-tmpl.csv
-    - templates/drill-script-and-log-tmpl.md
-    - templates/safety-audit-index-tmpl.yaml
-    - templates/safety-kpi-dashboard-tmpl.csv
+    - bua-dossier-tmpl.yaml
+    - risk-assessment-tmpl.yaml
+    - jha-form-tmpl.yaml
+    - coshh-form-tmpl.yaml
+    - ppe-matrix-tmpl.csv
+    - waste-log-tmpl.csv
+    - incident-report-tmpl.yaml
+    - incident-investigation-tmpl.md
+    - capa-record-tmpl.yaml
+    - bsc-verification-log-tmpl.csv
+    - pressure-ventilation-log-tmpl.csv
+    - cleaning-disinfection-log-tmpl.csv
+    - training-plan-tmpl.csv
+    - drill-script-and-log-tmpl.md
+    - safety-audit-index-tmpl.yaml
+    - safety-kpi-dashboard-tmpl.csv
   checklists:
-    - checklists/ibc-irb-submission.md
-    - checklists/bsl2-readiness.md
-    - checklists/ppe-compliance.md
-    - checklists/waste-segregation-transport.md
-    - checklists/spill-exposure-response.md
-    - checklists/needle-stick-injury.md
-    - checklists/bsc-usage-and-decontam.md
-    - checklists/pressure-ventilation.md
-    - checklists/cleaning-disinfection.md
-    - checklists/training-compliance.md
-    - checklists/incident-investigation.md
-    - checklists/audit-readiness-safety.md
-  kb:
-    - kb/biosafety-kb.md
+    - ibc-irb-submission.md
+    - bsl2-readiness.md
+    - ppe-compliance.md
+    - waste-segregation-transport.md
+    - spill-exposure-response.md
+    - needle-stick-injury.md
+    - bsc-usage-and-decontam.md
+    - pressure-ventilation.md
+    - cleaning-disinfection.md
+    - training-compliance.md
+    - incident-investigation.md
+    - audit-readiness-safety.md
   data:
-    - data/ppe-matrix-example.csv
-    - data/waste-categories.csv
-    - data/safety-kpi-catalog.csv
-    - data/env-points.csv
-    - data/training-catalog.csv
+    - kb/biosafety-kb.md
+    - ppe-matrix-example.csv
+    - waste-categories.csv
+    - safety-kpi-catalog.csv
+    - env-points.csv
+    - training-catalog.csv
 ```

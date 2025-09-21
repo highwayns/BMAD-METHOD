@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - 对任何影响安全/质量/伦理/无菌的动作，先引用对应 SOP/Checklist 并逐条确认；若缺失先创建模板再执行
 
@@ -61,63 +61,62 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/induction-and-maturation-plan.md
-    - tasks/matrix-and-microenvironment-design.md
-    - tasks/culture-system-selection.md
-    - tasks/characterization-structure.md
-    - tasks/characterization-functional.md
-    - tasks/characterization-omics.md
-    - tasks/release-specification.md
-    - tasks/scaleup-and-automation.md
-    - tasks/scRNAseq-qc-and-integration.md
-    - tasks/cryo-storage-and-logistics.md
-    - tasks/coi-coc-audit.md
-    - tasks/lims-domain-spec.md
-    - tasks/tech-transfer-plan.md
-    - tasks/mycoplasma-sterility-endotoxin.md
-    - tasks/troubleshoot-heterogeneity-contamination.md
-    - tasks/barrier-function-assays.md
-    - tasks/neural-electrophysiology-mea.md
+    - induction-and-maturation-plan.md
+    - matrix-and-microenvironment-design.md
+    - culture-system-selection.md
+    - characterization-structure.md
+    - characterization-functional.md
+    - characterization-omics.md
+    - release-specification.md
+    - scaleup-and-automation.md
+    - scRNAseq-qc-and-integration.md
+    - cryo-storage-and-logistics.md
+    - coi-coc-audit.md
+    - lims-domain-spec.md
+    - tech-transfer-plan.md
+    - mycoplasma-sterility-endotoxin.md
+    - troubleshoot-heterogeneity-contamination.md
+    - barrier-function-assays.md
+    - neural-electrophysiology-mea.md
   templates:
-    - templates/induction-plan-tmpl.yaml
-    - templates/matrix-formulation-tmpl.yaml
-    - templates/microenvironment-gradient-tmpl.md
-    - templates/culture-system-config-tmpl.yaml
-    - templates/organoid-batch-record-tmpl.md
-    - templates/imaging-morphometry-report-tmpl.md
-    - templates/functional-assay-report-tmpl.md
-    - templates/barrier-assay-report-tmpl.md
-    - templates/mea-report-tmpl.md
-    - templates/omics-plan-tmpl.yaml
-    - templates/omics-qc-metrics-tmpl.csv
-    - templates/release-spec-tmpl.yaml
-    - templates/qc-batch-sheet-tmpl.csv
-    - templates/cryo-plan-and-shipping-tmpl.yaml
-    - templates/coi-coc-trace-log-tmpl.csv
-    - templates/lims-domain-model-tmpl.yaml
-    - templates/tech-transfer-plan-tmpl.yaml
-    - templates/kpi-dashboard-tmpl.csv
+    - induction-plan-tmpl.yaml
+    - matrix-formulation-tmpl.yaml
+    - microenvironment-gradient-tmpl.md
+    - culture-system-config-tmpl.yaml
+    - organoid-batch-record-tmpl.md
+    - imaging-morphometry-report-tmpl.md
+    - functional-assay-report-tmpl.md
+    - barrier-assay-report-tmpl.md
+    - mea-report-tmpl.md
+    - omics-plan-tmpl.yaml
+    - omics-qc-metrics-tmpl.csv
+    - release-spec-tmpl.yaml
+    - qc-batch-sheet-tmpl.csv
+    - cryo-plan-and-shipping-tmpl.yaml
+    - coi-coc-trace-log-tmpl.csv
+    - lims-domain-model-tmpl.yaml
+    - tech-transfer-plan-tmpl.yaml
+    - kpi-dashboard-tmpl.csv
   checklists:
-    - checklists/donor-eligibility-consent.md
-    - checklists/matrix-xf-readiness.md
-    - checklists/aseptic-and-endotoxin.md
-    - checklists/induction-readiness.md
-    - checklists/culture-system-ready.md
-    - checklists/identity-marker-panel.md
-    - checklists/myco-sterility-endotoxin.md
-    - checklists/barrier-assay-qc.md
-    - checklists/electrophysiology-qc.md
-    - checklists/scRNAseq-qc.md
-    - checklists/release-readiness.md
-    - checklists/cryo-and-shipping.md
-    - checklists/coi-coc-governance.md
-    - checklists/lims-eln-data-integrity.md
-  kb:
-    - kb/organoid-kb.md
+    - donor-eligibility-consent.md
+    - matrix-xf-readiness.md
+    - aseptic-and-endotoxin.md
+    - induction-readiness.md
+    - culture-system-ready.md
+    - identity-marker-panel.md
+    - myco-sterility-endotoxin.md
+    - barrier-assay-qc.md
+    - electrophysiology-qc.md
+    - scRNAseq-qc.md
+    - release-readiness.md
+    - cryo-and-shipping.md
+    - coi-coc-governance.md
+    - lims-eln-data-integrity.md
   data:
-    - data/marker-panels.csv
-    - data/functional-assays.csv
-    - data/omics-qc-thresholds.csv
-    - data/culture-systems.csv
-    - data/kpi-catalog.csv
+    - kb/organoid-kb.md
+    - marker-panels.csv
+    - functional-assays.csv
+    - omics-qc-thresholds.csv
+    - culture-systems.csv
+    - kpi-catalog.csv
 ```

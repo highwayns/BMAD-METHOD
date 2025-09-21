@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - 对任何涉及安全/合规/验证/停机影响的操作，必须先引用对应 SOP/Checklist 并逐条确认；若缺失先创建模板再执行
 
@@ -65,71 +65,70 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/urs-fs-ds-and-selection.md
-    - tasks/validation-master-plan-and-protocols.md
-    - tasks/calibration-and-measurement-uncertainty.md
-    - tasks/env-monitoring-and-alarms.md
-    - tasks/hvac-design-balance-and-pressures.md
-    - tasks/cleanroom-classification-and-requal.md
-    - tasks/utilities-water-steam-gases-qc.md
-    - tasks/sterilization-and-wash-validation.md
-    - tasks/cryo-and-coldchain-resilience.md
-    - tasks/bsc-certification-and-incubator-qc.md
-    - tasks/bioreactor-and-process-equip-validation.md
-    - tasks/cmms-pm-spares-and-vendors.md
-    - tasks/alarm-response-and-emergency-runbook.md
-    - tasks/change-deviation-and-capa.md
-    - tasks/validation-revalidation-and-tech-transfer.md
-    - tasks/kpi-dashboard-update.md
+    - urs-fs-ds-and-selection.md
+    - validation-master-plan-and-protocols.md
+    - calibration-and-measurement-uncertainty.md
+    - env-monitoring-and-alarms.md
+    - hvac-design-balance-and-pressures.md
+    - cleanroom-classification-and-requal.md
+    - utilities-water-steam-gases-qc.md
+    - sterilization-and-wash-validation.md
+    - cryo-and-coldchain-resilience.md
+    - bsc-certification-and-incubator-qc.md
+    - bioreactor-and-process-equip-validation.md
+    - cmms-pm-spares-and-vendors.md
+    - alarm-response-and-emergency-runbook.md
+    - change-deviation-and-capa.md
+    - validation-revalidation-and-tech-transfer.md
+    - kpi-dashboard-update.md
   templates:
-    - templates/urs-template-tmpl.md
-    - templates/fs-ds-template-tmpl.md
-    - templates/selection-matrix-tmpl.csv
-    - templates/vmp-template-tmpl.md
-    - templates/iq-oq-pq-protocol-tmpl.md
-    - templates/calibration-plan-tmpl.yaml
-    - templates/uncertainty-budget-tmpl.csv
-    - templates/em-plan-tmpl.yaml
-    - templates/em-thresholds-tmpl.csv
-    - templates/hvac-balance-sheet-tmpl.csv
-    - templates/pressure-map-tmpl.yaml
-    - templates/cleanroom-requal-plan-tmpl.md
-    - templates/water-qc-plan-tmpl.yaml
-    - templates/clean-steam-qc-plan-tmpl.yaml
-    - templates/gases-qc-plan-tmpl.yaml
-    - templates/sterilization-validation-plan-tmpl.md
-    - templates/bsc-cert-record-tmpl.csv
-    - templates/co2-incubator-stability-tmpl.csv
-    - templates/freezer-ln2-monitor-log-tmpl.csv
-    - templates/cryo-safety-plan-tmpl.md
-    - templates/bioreactor-validation-plan-tmpl.md
-    - templates/cmms-master-data-tmpl.csv
-    - templates/pm-schedule-tmpl.csv
-    - templates/spares-register-tmpl.csv
-    - templates/vendor-kpi-tmpl.csv
-    - templates/alarm-runbook-tmpl.md
-    - templates/change-control-form-tmpl.md
-    - templates/deviation-report-tmpl.md
-    - templates/capa-plan-tmpl.md
-    - templates/kpi-dashboard-tmpl.csv
+    - urs-template-tmpl.md
+    - fs-ds-template-tmpl.md
+    - selection-matrix-tmpl.csv
+    - vmp-template-tmpl.md
+    - iq-oq-pq-protocol-tmpl.md
+    - calibration-plan-tmpl.yaml
+    - uncertainty-budget-tmpl.csv
+    - em-plan-tmpl.yaml
+    - em-thresholds-tmpl.csv
+    - hvac-balance-sheet-tmpl.csv
+    - pressure-map-tmpl.yaml
+    - cleanroom-requal-plan-tmpl.md
+    - water-qc-plan-tmpl.yaml
+    - clean-steam-qc-plan-tmpl.yaml
+    - gases-qc-plan-tmpl.yaml
+    - sterilization-validation-plan-tmpl.md
+    - bsc-cert-record-tmpl.csv
+    - co2-incubator-stability-tmpl.csv
+    - freezer-ln2-monitor-log-tmpl.csv
+    - cryo-safety-plan-tmpl.md
+    - bioreactor-validation-plan-tmpl.md
+    - cmms-master-data-tmpl.csv
+    - pm-schedule-tmpl.csv
+    - spares-register-tmpl.csv
+    - vendor-kpi-tmpl.csv
+    - alarm-runbook-tmpl.md
+    - change-control-form-tmpl.md
+    - deviation-report-tmpl.md
+    - capa-plan-tmpl.md
+    - kpi-dashboard-tmpl.csv
   checklists:
-    - checklists/loto-permit-to-work.md
-    - checklists/cleanroom-entry-and-gmp-behavior.md
-    - checklists/hvac-balance-and-pressures.md
-    - checklists/water-steam-gases-qc.md
-    - checklists/autoclave-cagewash-cip-sip.md
-    - checklists/bsc-cert-and-incubator-qc.md
-    - checklists/freezer-ln2-safety.md
-    - checklists/bioreactor-and-centrifuge.md
-    - checklists/cmms-and-pm-compliance.md
-    - checklists/alarm-and-power-failure.md
-    - checklists/change-deviation-capa.md
-    - checklists/data-integrity-and-time-sync.md
-  kb:
-    - kb/equipment-facilities-kb.md
+    - loto-permit-to-work.md
+    - cleanroom-entry-and-gmp-behavior.md
+    - hvac-balance-and-pressures.md
+    - water-steam-gases-qc.md
+    - autoclave-cagewash-cip-sip.md
+    - bsc-cert-and-incubator-qc.md
+    - freezer-ln2-safety.md
+    - bioreactor-and-centrifuge.md
+    - cmms-and-pm-compliance.md
+    - alarm-and-power-failure.md
+    - change-deviation-capa.md
+    - data-integrity-and-time-sync.md
   data:
-    - data/em-thresholds-default.csv
-    - data/hvac-iso-classes.csv
-    - data/utilities-qc-panels.csv
-    - data/pm-kpi-catalog.csv
+    - kb/equipment-facilities-kb.md
+    - em-thresholds-default.csv
+    - hvac-iso-classes.csv
+    - utilities-qc-panels.csv
+    - pm-kpi-catalog.csv
 ```

@@ -10,7 +10,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 activation-instructions:
   - ONLY load dependency files when user selects them for execution via command or request of a task
   - The agent.customization field ALWAYS takes precedence over any conflicting instructions
-  - When listing tasks/templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
+  - When listing templates or presenting options during conversations, always show as numbered options list, allowing the user to type a number to select or execute
   - STAY IN CHARACTER!
   - 对任何影响安全/质量/伦理/无菌的动作，先引用对应 SOP/Checklist 并逐条确认；若缺失先创建模板再执行
 
@@ -59,63 +59,62 @@ commands:
 
 dependencies:
   tasks:
-    - tasks/sample-chain-of-custody.md
-    - tasks/fix-process-embed-section.md
-    - tasks/stain-batch-design.md
-    - tasks/ihc-optimization-and-validation.md
-    - tasks/if-panel-design-and_bleedthrough.md
-    - tasks/ish-probe-plan.md
-    - tasks/wsi-scan-plan.md
-    - tasks/imaging-plan-confocal-twophoton.md
-    - tasks/lightsheet-clearing-3d.md
-    - tasks/calibration-and-qc.md
-    - tasks/analysis-pipeline-cellprofiler-qupath.md
-    - tasks/stereology-and-morphometry.md
-    - tasks/color-normalization-and-batch-effect.md
-    - tasks/ai-model-validation.md
-    - tasks/report-and-coa.md
-    - tasks/lims-eln-dicom-spec.md
-    - tasks/tech-transfer-plan.md
-    - tasks/kpi-dashboard-update.md
+    - sample-chain-of-custody.md
+    - fix-process-embed-section.md
+    - stain-batch-design.md
+    - ihc-optimization-and-validation.md
+    - if-panel-design-and_bleedthrough.md
+    - ish-probe-plan.md
+    - wsi-scan-plan.md
+    - imaging-plan-confocal-twophoton.md
+    - lightsheet-clearing-3d.md
+    - calibration-and-qc.md
+    - analysis-pipeline-cellprofiler-qupath.md
+    - stereology-and-morphometry.md
+    - color-normalization-and-batch-effect.md
+    - ai-model-validation.md
+    - report-and-coa.md
+    - lims-eln-dicom-spec.md
+    - tech-transfer-plan.md
+    - kpi-dashboard-update.md
   templates:
-    - templates/sample-receipt-and-fixation-tmpl.yaml
-    - templates/processing-embed-section-tmpl.yaml
-    - templates/stain-batch-sheet-tmpl.csv
-    - templates/ihc-optimization-plan-tmpl.yaml
-    - templates/if-panel-plan-tmpl.yaml
-    - templates/ish-probe-design-tmpl.yaml
-    - templates/wsi-scan-sheet-tmpl.csv
-    - templates/imaging-settings-tmpl.yaml
-    - templates/calibration-qc-log-tmpl.csv
-    - templates/analysis-pipeline-config-tmpl.yaml
-    - templates/stereology-plan-tmpl.yaml
-    - templates/morphometry-report-tmpl.md
-    - templates/color-normalization-plan-tmpl.md
-    - templates/ai-validation-plan-tmpl.yaml
-    - templates/ai-validation-report-tmpl.md
-    - templates/histology-report-coa-tmpl.md
-    - templates/lims-domain-model-tmpl.yaml
-    - templates/tech-transfer-plan-tmpl.yaml
-    - templates/kpi-dashboard-tmpl.csv
+    - sample-receipt-and-fixation-tmpl.yaml
+    - processing-embed-section-tmpl.yaml
+    - stain-batch-sheet-tmpl.csv
+    - ihc-optimization-plan-tmpl.yaml
+    - if-panel-plan-tmpl.yaml
+    - ish-probe-design-tmpl.yaml
+    - wsi-scan-sheet-tmpl.csv
+    - imaging-settings-tmpl.yaml
+    - calibration-qc-log-tmpl.csv
+    - analysis-pipeline-config-tmpl.yaml
+    - stereology-plan-tmpl.yaml
+    - morphometry-report-tmpl.md
+    - color-normalization-plan-tmpl.md
+    - ai-validation-plan-tmpl.yaml
+    - ai-validation-report-tmpl.md
+    - histology-report-coa-tmpl.md
+    - lims-domain-model-tmpl.yaml
+    - tech-transfer-plan-tmpl.yaml
+    - kpi-dashboard-tmpl.csv
   checklists:
-    - checklists/ethics-consent-anonymization.md
-    - checklists/sample-fixation-processing.md
-    - checklists/embedding-sectioning.md
-    - checklists/stain-readiness.md
-    - checklists/wsi-scan-readiness.md
-    - checklists/imaging-readiness.md
-    - checklists/fluorescence-cross-talk.md
-    - checklists/calibration-and-pm.md
-    - checklists/analysis-qc-and-versioning.md
-    - checklists/ai-validation-and-bias.md
-    - checklists/release-readiness.md
-    - checklists/lims-eln-dicom-data-integrity.md
-  kb:
-    - kb/imaging-histology-kb.md
+    - ethics-consent-anonymization.md
+    - sample-fixation-processing.md
+    - embedding-sectioning.md
+    - stain-readiness.md
+    - wsi-scan-readiness.md
+    - imaging-readiness.md
+    - fluorescence-cross-talk.md
+    - calibration-and-pm.md
+    - analysis-qc-and-versioning.md
+    - ai-validation-and-bias.md
+    - release-readiness.md
+    - lims-eln-dicom-data-integrity.md
   data:
-    - data/stain-panels.csv
-    - data/wsi-scan-profiles.csv
-    - data/imaging-presets.csv
-    - data/calibration-standards.csv
-    - data/kpi-catalog.csv
+    - kb/imaging-histology-kb.md
+    - stain-panels.csv
+    - wsi-scan-profiles.csv
+    - imaging-presets.csv
+    - calibration-standards.csv
+    - kpi-catalog.csv
 ```
