@@ -9,7 +9,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 ```yaml
 activation-instructions:
   - ONLY load dependency files when user explicitly runs a command or task
-  - When listing tasks/templates/checklists, ALWAYS show numbered options (the user can reply with a number)
+  - When listing templates/checklists, ALWAYS show numbered options (the user can reply with a number)
   - Registrar is the System of Record (SoR) for student, course, section, term, grade; treat SoR invariants as immovable unless a formal change-request passes all gates
   - When `elicit: true`, enforce BMAD 1–9 elicitation loop per section
   - Calendar/term/section once published requires ripple-impact checks before change
@@ -69,56 +69,56 @@ help-display-template: |
 
 dependencies:
   tasks:
-    - tasks/create-academic-calendar.md
-    - tasks/build-timetable.md
-    - tasks/schedule-exams.md
-    - tasks/run-enrollment.md
-    - tasks/grade-ingest-and-close.md
-    - tasks/transcript-generate-and-verify.md
-    - tasks/degree-audit.md
-    - tasks/change-request-and-impact.md
-    - tasks/records-retention-and-disposal.md
-    - tasks/reporting-compliance-dashboard.md
+    - create-academic-calendar.md
+    - build-timetable.md
+    - schedule-exams.md
+    - run-enrollment.md
+    - grade-ingest-and-close.md
+    - transcript-generate-and-verify.md
+    - degree-audit.md
+    - change-request-and-impact.md
+    - records-retention-and-disposal.md
+    - reporting-compliance-dashboard.md
   templates:
-    - templates/output/academic-calendar-reg-tmpl.yaml
-    - templates/output/timetable-spec-tmpl.yaml
-    - templates/output/exam-schedule-tmpl.yaml
-    - templates/output/enrollment-sop-tmpl.yaml
-    - templates/output/grade-close-sop-tmpl.yaml
-    - templates/output/transcript-tmpl.yaml
-    - templates/output/degree-audit-report-tmpl.yaml
-    - templates/output/change-request-tmpl.yaml
-    - templates/output/rpl-transfer-eval-tmpl.yaml
-    - templates/output/loa-withdrawal-form-tmpl.yaml
-    - templates/output/add-drop-form-tmpl.yaml
-    - templates/output/data-retention-plan-tmpl.yaml
-    - templates/output/reporting-spec-tmpl.yaml
+    - academic-calendar-reg-tmpl.yaml
+    - timetable-spec-tmpl.yaml
+    - exam-schedule-tmpl.yaml
+    - enrollment-sop-tmpl.yaml
+    - grade-close-sop-tmpl.yaml
+    - transcript-tmpl.yaml
+    - degree-audit-report-tmpl.yaml
+    - change-request-tmpl.yaml
+    - rpl-transfer-eval-tmpl.yaml
+    - loa-withdrawal-form-tmpl.yaml
+    - add-drop-form-tmpl.yaml
+    - data-retention-plan-tmpl.yaml
+    - reporting-spec-tmpl.yaml
   checklists:
-    - checklists/registrar-operations-checklist.md
-    - checklists/scheduling-conflict-checklist.md
-    - checklists/exam-operations-checklist.md
-    - checklists/grades-and-transcript-integrity-checklist.md
-    - checklists/enrollment-and-waitlist-checklist.md
-    - checklists/privacy-and-retention-checklist.md
-    - checklists/degree-audit-checklist.md
+    - registrar-operations-checklist.md
+    - scheduling-conflict-checklist.md
+    - exam-operations-checklist.md
+    - grades-and-transcript-integrity-checklist.md
+    - enrollment-and-waitlist-checklist.md
+    - privacy-and-retention-checklist.md
+    - degree-audit-checklist.md
   data:
-    - templates/data/students.csv
-    - templates/data/programs.csv
-    - templates/data/courses.csv
-    - templates/data/sections.csv
-    - templates/data/terms.csv
-    - templates/data/classrooms.csv
-    - templates/data/instructors.csv
-    - templates/data/enrollments.csv
-    - templates/data/waitlists.csv
-    - templates/data/exams.csv
-    - templates/data/accommodations.csv
-    - templates/data/grades.csv
-    - templates/data/grade_changes.csv
-    - templates/data/transcripts.csv
-    - templates/data/credentials.csv
-    - templates/data/rpl_transfer.csv
-    - templates/data/retention_schedule.csv
+    - students.csv
+    - programs.csv
+    - courses.csv
+    - sections.csv
+    - terms.csv
+    - classrooms.csv
+    - instructors.csv
+    - enrollments.csv
+    - waitlists.csv
+    - exams.csv
+    - accommodations.csv
+    - grades.csv
+    - grade_changes.csv
+    - transcripts.csv
+    - credentials.csv
+    - rpl_transfer.csv
+    - retention_schedule.csv
     - kb/policies-and-codes.md
     - kb/grade-and-gpa-rules.md
     - kb/exam-and-invigilation.md

@@ -9,7 +9,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 ```yaml
 activation-instructions:
   - ONLY load dependency files when user explicitly runs a command or task
-  - When listing tasks/templates/checklists, ALWAYS show numbered options (user can reply with a number)
+  - When listing templates/checklists, ALWAYS show numbered options (user can reply with a number)
   - Keep SoR boundaries clear: program治理交由 *Curriculum Director；学籍/日历/成绩归档交由 *Registrar
   - When `elicit: true`, enforce BMAD 1–9 elicitation loop per section
   - Default-on: UDL/WCAG, integrity, privacy (APPI/GDPR/FERPA), versioning & audit logs
@@ -79,72 +79,71 @@ help-display-template: |
 
 dependencies:
   tasks:
-    - tasks/create-id-brief.md
-    - tasks/create-storyboard.md
-    - tasks/create-syllabus-supplement.md
-    - tasks/create-assessment-blueprint.md
-    - tasks/build-rubric-library.md
-    - tasks/build-item-bank.md
-    - tasks/build-a11y-remediation-plan.md
-    - tasks/build-assessment-integrity-plan.md
-    - tasks/build-lms-shell.md
-    - tasks/map-analytics-outcomes.md
-    - tasks/create-ab-test-plan.md
-    - tasks/create-faculty-teaching-notes.md
-    - tasks/create-media-production-brief.md
-    - tasks/create-localization-plan.md
-    - tasks/content-governance-lifecycle.md
-    - tasks/cip-continuous-improvement-report.md
+    - create-id-brief.md
+    - create-storyboard.md
+    - create-syllabus-supplement.md
+    - create-assessment-blueprint.md
+    - build-rubric-library.md
+    - build-item-bank.md
+    - build-a11y-remediation-plan.md
+    - build-assessment-integrity-plan.md
+    - build-lms-shell.md
+    - map-analytics-outcomes.md
+    - create-ab-test-plan.md
+    - create-faculty-teaching-notes.md
+    - create-media-production-brief.md
+    - create-localization-plan.md
+    - content-governance-lifecycle.md
+    - cip-continuous-improvement-report.md
   templates:
-    - templates/output/id-brief-tmpl.yaml
-    - templates/output/storyboard-tmpl.yaml
-    - templates/output/syllabus-supplement-tmpl.yaml
-    - templates/output/assessment-blueprint-tmpl.yaml
-    - templates/output/rubric-template-tmpl.yaml
-    - templates/output/item-bank-spec-tmpl.yaml
-    - templates/output/a11y-remediation-plan-tmpl.yaml
-    - templates/output/assessment-integrity-plan-tmpl.yaml
-    - templates/output/lms-shell-spec-tmpl.yaml
-    - templates/output/analytics-outcome-map-tmpl.yaml
-    - templates/output/ab-test-plan-tmpl.yaml
-    - templates/output/faculty-teaching-notes-tmpl.yaml
-    - templates/output/media-production-brief-tmpl.yaml
-    - templates/output/localization-plan-tmpl.yaml
-    - templates/output/content-governance-tmpl.yaml
-    - templates/output/cip-report-tmpl.yaml
+    - id-brief-tmpl.yaml
+    - storyboard-tmpl.yaml
+    - syllabus-supplement-tmpl.yaml
+    - assessment-blueprint-tmpl.yaml
+    - rubric-template-tmpl.yaml
+    - item-bank-spec-tmpl.yaml
+    - a11y-remediation-plan-tmpl.yaml
+    - assessment-integrity-plan-tmpl.yaml
+    - lms-shell-spec-tmpl.yaml
+    - analytics-outcome-map-tmpl.yaml
+    - ab-test-plan-tmpl.yaml
+    - faculty-teaching-notes-tmpl.yaml
+    - media-production-brief-tmpl.yaml
+    - localization-plan-tmpl.yaml
+    - content-governance-tmpl.yaml
+    - cip-report-tmpl.yaml
   checklists:
-    - checklists/id-quality-checklist.md
-    - checklists/wcag-a11y-checklist.md
-    - checklists/assessment-validity-checklist.md
-    - checklists/item-writing-checklist.md
-    - checklists/integrity-proctoring-checklist.md
-    - checklists/lms-shell-readiness-checklist.md
-    - checklists/localization-qa-checklist.md
-    - checklists/media-production-qc-checklist.md
-    - checklists/analytics-readiness-checklist.md
-    - checklists/change-control-checklist.md
+    - id-quality-checklist.md
+    - wcag-a11y-checklist.md
+    - assessment-validity-checklist.md
+    - item-writing-checklist.md
+    - integrity-proctoring-checklist.md
+    - lms-shell-readiness-checklist.md
+    - localization-qa-checklist.md
+    - media-production-qc-checklist.md
+    - analytics-readiness-checklist.md
+    - change-control-checklist.md
   data:
-    - templates/data/courses.csv
-    - templates/data/modules.csv
-    - templates/data/activities.csv
-    - templates/data/learning_objects.csv
-    - templates/data/rubrics.csv
-    - templates/data/item_bank.csv
-    - templates/data/blueprints.csv
-    - templates/data/lo_po_map.csv
-    - templates/data/media_assets.csv
-    - templates/data/captions.csv
-    - templates/data/alt_text.csv
-    - templates/data/translations.csv
-    - templates/data/a11y_issues.csv
-    - templates/data/usability_findings.csv
-    - templates/data/ab_tests.csv
-    - templates/data/analytics_metrics.csv
-    - templates/data/lms_events.csv
-    - templates/data/lti_tools.csv
-    - templates/data/content_versions.csv
-    - templates/data/licenses.csv
-  kb:
+    - courses.csv
+    - modules.csv
+    - activities.csv
+    - learning_objects.csv
+    - rubrics.csv
+    - item_bank.csv
+    - blueprints.csv
+    - lo_po_map.csv
+    - media_assets.csv
+    - captions.csv
+    - alt_text.csv
+    - translations.csv
+    - a11y_issues.csv
+    - usability_findings.csv
+    - ab_tests.csv
+    - analytics_metrics.csv
+    - lms_events.csv
+    - lti_tools.csv
+    - content_versions.csv
+    - licenses.csv
     - kb/pedagogy-and-addie.md
     - kb/udl-wcag-accessibility.md
     - kb/assessment-blueprint-and-rubrics.md

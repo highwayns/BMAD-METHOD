@@ -9,7 +9,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 ```yaml
 activation-instructions:
   - ONLY load dependency files when user explicitly runs a command or task
-  - Show tasks/templates/checklists as a numbered list to allow quick selection
+  - Show templates/checklists as a numbered list to allow quick selection
   - Respect SoR boundaries:
       - *Dean / Academic Head 负责学术战略与治理
       - *Curriculum Director 负责项目/课程与 PO/LO 对齐
@@ -84,87 +84,86 @@ help-display-template: |
 
 dependencies:
   tasks:
-    - tasks/create-analytics-strategy.md
-    - tasks/build-metric-catalog.md
-    - tasks/create-event-spec.md
-    - tasks/create-data-contract.md
-    - tasks/build-data-pipeline-dag.md
-    - tasks/create-dashboard-spec.md
-    - tasks/create-early-alert-model-card.md
-    - tasks/run-bias-audit.md
-    - tasks/review-analytics-validity.md
-    - tasks/create-ab-test-plan.md
-    - tasks/create-privacy-dpia.md
-    - tasks/create-access-control-matrix.md
-    - tasks/create-data-quality-plan.md
-    - tasks/create-sla-runbook.md
-    - tasks/cip-continuous-improvement-report.md
+    - create-analytics-strategy.md
+    - build-metric-catalog.md
+    - create-event-spec.md
+    - create-data-contract.md
+    - build-data-pipeline-dag.md
+    - create-dashboard-spec.md
+    - create-early-alert-model-card.md
+    - run-bias-audit.md
+    - review-analytics-validity.md
+    - create-ab-test-plan.md
+    - create-privacy-dpia.md
+    - create-access-control-matrix.md
+    - create-data-quality-plan.md
+    - create-sla-runbook.md
+    - cip-continuous-improvement-report.md
   templates:
-    - templates/output/analytics-strategy-tmpl.yaml
-    - templates/output/metric-catalog-tmpl.yaml
-    - templates/output/event-spec-tmpl.yaml
-    - templates/output/data-contract-tmpl.yaml
-    - templates/output/data-pipeline-dag-tmpl.yaml
-    - templates/output/dashboard-spec-tmpl.yaml
-    - templates/output/early-alert-model-card-tmpl.yaml
-    - templates/output/bias-audit-report-tmpl.yaml
-    - templates/output/analytics-validity-tmpl.yaml
-    - templates/output/ab-test-plan-tmpl.yaml
-    - templates/output/privacy-dpia-tmpl.yaml
-    - templates/output/access-control-matrix-tmpl.yaml
-    - templates/output/data-quality-plan-tmpl.yaml
-    - templates/output/analytics-sla-runbook-tmpl.yaml
-    - templates/output/cip-report-tmpl.yaml
+    - analytics-strategy-tmpl.yaml
+    - metric-catalog-tmpl.yaml
+    - event-spec-tmpl.yaml
+    - data-contract-tmpl.yaml
+    - data-pipeline-dag-tmpl.yaml
+    - dashboard-spec-tmpl.yaml
+    - early-alert-model-card-tmpl.yaml
+    - bias-audit-report-tmpl.yaml
+    - analytics-validity-tmpl.yaml
+    - ab-test-plan-tmpl.yaml
+    - privacy-dpia-tmpl.yaml
+    - access-control-matrix-tmpl.yaml
+    - data-quality-plan-tmpl.yaml
+    - analytics-sla-runbook-tmpl.yaml
+    - cip-report-tmpl.yaml
   checklists:
-    - checklists/data-governance-checklist.md
-    - checklists/metric-definition-checklist.md
-    - checklists/event-instrumentation-checklist.md
-    - checklists/data-contract-checklist.md
-    - checklists/data-quality-checklist.md
-    - checklists/pii-privacy-consent-checklist.md
-    - checklists/access-security-checklist.md
-    - checklists/model-governance-checklist.md
-    - checklists/dashboard-qa-checklist.md
-    - checklists/experiment-ab-checklist.md
-    - checklists/analytics-validity-checklist.md
-    - checklists/incident-response-checklist.md
-    - checklists/retention-deletion-checklist.md
-    - checklists/change-control-checklist.md
+    - data-governance-checklist.md
+    - metric-definition-checklist.md
+    - event-instrumentation-checklist.md
+    - data-contract-checklist.md
+    - data-quality-checklist.md
+    - pii-privacy-consent-checklist.md
+    - access-security-checklist.md
+    - model-governance-checklist.md
+    - dashboard-qa-checklist.md
+    - experiment-ab-checklist.md
+    - analytics-validity-checklist.md
+    - incident-response-checklist.md
+    - retention-deletion-checklist.md
+    - change-control-checklist.md
   data:
-    - templates/data/programs.csv
-    - templates/data/courses.csv
-    - templates/data/modules.csv
-    - templates/data/sessions.csv
-    - templates/data/cohorts.csv
-    - templates/data/learners.csv
-    - templates/data/enrollments.csv
-    - templates/data/attendance.csv
-    - templates/data/assessments.csv
-    - templates/data/grades.csv
-    - templates/data/rubrics.csv
-    - templates/data/feedback.csv
-    - templates/data/lms_events.csv
-    - templates/data/event_schema.csv
-    - templates/data/metric_definitions.csv
-    - templates/data/dashboard_catalog.csv
-    - templates/data/data_contracts.csv
-    - templates/data/schemas.csv
-    - templates/data/roles_permissions.csv
-    - templates/data/pii_register.csv
-    - templates/data/consent_log.csv
-    - templates/data/retention_policies.csv
-    - templates/data/alerts.csv
-    - templates/data/alert_thresholds.csv
-    - templates/data/interventions.csv
-    - templates/data/model_predictions.csv
-    - templates/data/feature_store.csv
-    - templates/data/experiments.csv
-    - templates/data/ab_assignments.csv
-    - templates/data/ab_results.csv
-    - templates/data/etl_jobs.csv
-    - templates/data/pipeline_status.csv
-    - templates/data/audit_logs.csv
-  kb:
+    - programs.csv
+    - courses.csv
+    - modules.csv
+    - sessions.csv
+    - cohorts.csv
+    - learners.csv
+    - enrollments.csv
+    - attendance.csv
+    - assessments.csv
+    - grades.csv
+    - rubrics.csv
+    - feedback.csv
+    - lms_events.csv
+    - event_schema.csv
+    - metric_definitions.csv
+    - dashboard_catalog.csv
+    - data_contracts.csv
+    - schemas.csv
+    - roles_permissions.csv
+    - pii_register.csv
+    - consent_log.csv
+    - retention_policies.csv
+    - alerts.csv
+    - alert_thresholds.csv
+    - interventions.csv
+    - model_predictions.csv
+    - feature_store.csv
+    - experiments.csv
+    - ab_assignments.csv
+    - ab_results.csv
+    - etl_jobs.csv
+    - pipeline_status.csv
+    - audit_logs.csv
     - kb/analytics-governance.md
     - kb/metric-design.md
     - kb/event-modeling.md

@@ -9,7 +9,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 ```yaml
 activation-instructions:
   - ONLY load dependency files when user explicitly runs a command or task
-  - Show tasks/templates/checklists as a numbered list to allow quick selection
+  - Show templates/checklists as a numbered list to allow quick selection
   - Respect SoR boundaries:
       - *Dean/Academic Head 负责学术战略与治理
       - *Curriculum Director 负责项目/课程与 PO/LO 对齐
@@ -90,99 +90,98 @@ help-display-template: |
 
 dependencies:
   tasks:
-    - tasks/create-admissions-strategy.md
-    - tasks/create-funnel-crm-ops.md
-    - tasks/create-events-campaigns-plan.md
-    - tasks/create-partner-ops-plan.md
-    - tasks/create-application-ops.md
-    - tasks/create-verification-rpl-plan.md
-    - tasks/create-admissions-assessment-plan.md
-    - tasks/create-scholarships-aid-policy.md
-    - tasks/create-offer-issuance-policy.md
-    - tasks/create-deposits-refunds-sop.md
-    - tasks/create-waitlist-deferral-policy.md
-    - tasks/create-enrollment-onboarding-plan.md
-    - tasks/create-international-visa-guide.md
-    - tasks/create-admissions-comms-cadence.md
-    - tasks/create-admissions-equity-audit.md
-    - tasks/create-dashboard-forecast-spec.md
+    - create-admissions-strategy.md
+    - create-funnel-crm-ops.md
+    - create-events-campaigns-plan.md
+    - create-partner-ops-plan.md
+    - create-application-ops.md
+    - create-verification-rpl-plan.md
+    - create-admissions-assessment-plan.md
+    - create-scholarships-aid-policy.md
+    - create-offer-issuance-policy.md
+    - create-deposits-refunds-sop.md
+    - create-waitlist-deferral-policy.md
+    - create-enrollment-onboarding-plan.md
+    - create-international-visa-guide.md
+    - create-admissions-comms-cadence.md
+    - create-admissions-equity-audit.md
+    - create-dashboard-forecast-spec.md
   templates:
-    - templates/output/admissions-strategy-tmpl.yaml
-    - templates/output/funnel-crm-ops-tmpl.yaml
-    - templates/output/events-campaigns-plan-tmpl.yaml
-    - templates/output/partner-ops-plan-tmpl.yaml
-    - templates/output/application-ops-tmpl.yaml
-    - templates/output/verification-rpl-plan-tmpl.yaml
-    - templates/output/admissions-assessment-plan-tmpl.yaml
-    - templates/output/scholarships-aid-policy-tmpl.yaml
-    - templates/output/offer-issuance-policy-tmpl.yaml
-    - templates/output/deposits-refunds-sop-tmpl.yaml
-    - templates/output/waitlist-deferral-policy-tmpl.yaml
-    - templates/output/enrollment-onboarding-plan-tmpl.yaml
-    - templates/output/international-visa-guide-tmpl.yaml
-    - templates/output/admissions-comms-cadence-tmpl.yaml
-    - templates/output/admissions-equity-audit-tmpl.yaml
-    - templates/output/dashboard-forecast-spec-tmpl.yaml
-    - templates/output/event-brief-tmpl.yaml
-    - templates/output/partner-agreement-mou-tmpl.yaml
+    - admissions-strategy-tmpl.yaml
+    - funnel-crm-ops-tmpl.yaml
+    - events-campaigns-plan-tmpl.yaml
+    - partner-ops-plan-tmpl.yaml
+    - application-ops-tmpl.yaml
+    - verification-rpl-plan-tmpl.yaml
+    - admissions-assessment-plan-tmpl.yaml
+    - scholarships-aid-policy-tmpl.yaml
+    - offer-issuance-policy-tmpl.yaml
+    - deposits-refunds-sop-tmpl.yaml
+    - waitlist-deferral-policy-tmpl.yaml
+    - enrollment-onboarding-plan-tmpl.yaml
+    - international-visa-guide-tmpl.yaml
+    - admissions-comms-cadence-tmpl.yaml
+    - admissions-equity-audit-tmpl.yaml
+    - dashboard-forecast-spec-tmpl.yaml
+    - event-brief-tmpl.yaml
+    - partner-agreement-mou-tmpl.yaml
   checklists:
-    - checklists/admissions-governance-checklist.md
-    - checklists/crm-data-hygiene-checklist.md
-    - checklists/events-ops-checklist.md
-    - checklists/partner-due-diligence-checklist.md
-    - checklists/application-completeness-checklist.md
-    - checklists/verification-rpl-checklist.md
-    - checklists/interview-portfolio-checklist.md
-    - checklists/scholarship-review-checklist.md
-    - checklists/offer-issuance-checklist.md
-    - checklists/deposits-refunds-checklist.md
-    - checklists/waitlist-deferral-checklist.md
-    - checklists/enrollment-onboarding-checklist.md
-    - checklists/international-visa-checklist.md
-    - checklists/comms-cadence-checklist.md
-    - checklists/admissions-equity-checklist.md
-    - checklists/dashboard-forecast-checklist.md
-    - checklists/marketing-consent-privacy-checklist.md
+    - admissions-governance-checklist.md
+    - crm-data-hygiene-checklist.md
+    - events-ops-checklist.md
+    - partner-due-diligence-checklist.md
+    - application-completeness-checklist.md
+    - verification-rpl-checklist.md
+    - interview-portfolio-checklist.md
+    - scholarship-review-checklist.md
+    - offer-issuance-checklist.md
+    - deposits-refunds-checklist.md
+    - waitlist-deferral-checklist.md
+    - enrollment-onboarding-checklist.md
+    - international-visa-checklist.md
+    - comms-cadence-checklist.md
+    - admissions-equity-checklist.md
+    - dashboard-forecast-checklist.md
+    - marketing-consent-privacy-checklist.md
   data:
-    - templates/data/programs.csv
-    - templates/data/courses.csv
-    - templates/data/cohorts.csv
-    - templates/data/capacity.csv
-    - templates/data/schedules.csv
-    - templates/data/leads.csv
-    - templates/data/lead_scores.csv
-    - templates/data/lead_sources.csv
-    - templates/data/campaigns.csv
-    - templates/data/campaign_messages.csv
-    - templates/data/events.csv
-    - templates/data/event_attendance.csv
-    - templates/data/agents.csv
-    - templates/data/partner_contracts.csv
-    - templates/data/articulation_paths.csv
-    - templates/data/applications.csv
-    - templates/data/application_docs.csv
-    - templates/data/application_reviews.csv
-    - templates/data/eligibility_rpl.csv
-    - templates/data/interviews.csv
-    - templates/data/portfolios.csv
-    - templates/data/decisions.csv
-    - templates/data/offers.csv
-    - templates/data/deposits.csv
-    - templates/data/payments.csv
-    - templates/data/refunds.csv
-    - templates/data/waitlist.csv
-    - templates/data/deferrals.csv
-    - templates/data/scholarships.csv
-    - templates/data/aid_awards.csv
-    - templates/data/onboarding_tasks.csv
-    - templates/data/consent_log.csv
-    - templates/data/privacy_incidents.csv
-    - templates/data/comms_email_logs.csv
-    - templates/data/comms_sms_logs.csv
-    - templates/data/comms_call_logs.csv
-    - templates/data/kpi.csv
-    - templates/data/audit_logs.csv
-  kb:
+    - programs.csv
+    - courses.csv
+    - cohorts.csv
+    - capacity.csv
+    - schedules.csv
+    - leads.csv
+    - lead_scores.csv
+    - lead_sources.csv
+    - campaigns.csv
+    - campaign_messages.csv
+    - events.csv
+    - event_attendance.csv
+    - agents.csv
+    - partner_contracts.csv
+    - articulation_paths.csv
+    - applications.csv
+    - application_docs.csv
+    - application_reviews.csv
+    - eligibility_rpl.csv
+    - interviews.csv
+    - portfolios.csv
+    - decisions.csv
+    - offers.csv
+    - deposits.csv
+    - payments.csv
+    - refunds.csv
+    - waitlist.csv
+    - deferrals.csv
+    - scholarships.csv
+    - aid_awards.csv
+    - onboarding_tasks.csv
+    - consent_log.csv
+    - privacy_incidents.csv
+    - comms_email_logs.csv
+    - comms_sms_logs.csv
+    - comms_call_logs.csv
+    - kpi.csv
+    - audit_logs.csv
     - kb/admissions-strategy-basics.md
     - kb/crm-practices-and-scoring.md
     - kb/events-and-campus-tours.md

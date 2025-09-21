@@ -9,7 +9,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 ```yaml
 activation-instructions:
   - ONLY load dependency files when user explicitly runs a command or task
-  - When listing tasks/templates/checklists, ALWAYS show numbered options (user can reply with a number)
+  - When listing templates/checklists, ALWAYS show numbered options (user can reply with a number)
   - Curriculum is not a calendar or records system: hand off term/排考/成绩归档到 *Registrar；保持 SoR 边界清晰
   - When `elicit: true`, enforce BMAD 1–9 elicitation loop per section
   - Any curriculum change after publication requires governance & ripple-impact checks
@@ -73,65 +73,64 @@ help-display-template: |
 
 dependencies:
   tasks:
-    - tasks/create-program-framework.md
-    - tasks/create-curriculum-map.md
-    - tasks/create-syllabus-kit.md
-    - tasks/build-rubric-library.md
-    - tasks/build-item-bank.md
-    - tasks/design-learning-pathway.md
-    - tasks/design-micro-credential.md
-    - tasks/design-capstone-projects.md
-    - tasks/content-repo-governance.md
-    - tasks/faculty-development-plan.md
-    - tasks/assessment-blueprint.md
-    - tasks/lms-outcome-mapping.md
-    - tasks/curriculum-quality-review.md
-    - tasks/cip-continuous-improvement-report.md
+    - create-program-framework.md
+    - create-curriculum-map.md
+    - create-syllabus-kit.md
+    - build-rubric-library.md
+    - build-item-bank.md
+    - design-learning-pathway.md
+    - design-micro-credential.md
+    - design-capstone-projects.md
+    - content-repo-governance.md
+    - faculty-development-plan.md
+    - assessment-blueprint.md
+    - lms-outcome-mapping.md
+    - curriculum-quality-review.md
+    - cip-continuous-improvement-report.md
   templates:
-    - templates/output/program-framework-tmpl.yaml
-    - templates/output/curriculum-map-tmpl.yaml
-    - templates/output/syllabus-kit-tmpl.yaml
-    - templates/output/rubric-template-tmpl.yaml
-    - templates/output/item-bank-spec-tmpl.yaml
-    - templates/output/assessment-blueprint-tmpl.yaml
-    - templates/output/learning-pathway-tmpl.yaml
-    - templates/output/micro-credential-spec-tmpl.yaml
-    - templates/output/capstone-spec-tmpl.yaml
-    - templates/output/content-repo-governance-tmpl.yaml
-    - templates/output/faculty-development-plan-tmpl.yaml
-    - templates/output/lms-analytics-outcome-map-tmpl.yaml
-    - templates/output/cip-report-tmpl.yaml
+    - program-framework-tmpl.yaml
+    - curriculum-map-tmpl.yaml
+    - syllabus-kit-tmpl.yaml
+    - rubric-template-tmpl.yaml
+    - item-bank-spec-tmpl.yaml
+    - assessment-blueprint-tmpl.yaml
+    - learning-pathway-tmpl.yaml
+    - micro-credential-spec-tmpl.yaml
+    - capstone-spec-tmpl.yaml
+    - content-repo-governance-tmpl.yaml
+    - faculty-development-plan-tmpl.yaml
+    - lms-analytics-outcome-map-tmpl.yaml
+    - cip-report-tmpl.yaml
   checklists:
-    - checklists/curriculum-governance-checklist.md
-    - checklists/syllabus-quality-checklist.md
-    - checklists/rubric-quality-checklist.md
-    - checklists/item-bank-quality-checklist.md
-    - checklists/content-accessibility-checklist.md
-    - checklists/micro-credential-design-checklist.md
-    - checklists/capstone-readiness-checklist.md
-    - checklists/faculty-onboarding-checklist.md
-    - checklists/curriculum-change-control-checklist.md
+    - curriculum-governance-checklist.md
+    - syllabus-quality-checklist.md
+    - rubric-quality-checklist.md
+    - item-bank-quality-checklist.md
+    - content-accessibility-checklist.md
+    - micro-credential-design-checklist.md
+    - capstone-readiness-checklist.md
+    - faculty-onboarding-checklist.md
+    - curriculum-change-control-checklist.md
   data:
-    - templates/data/programs.csv
-    - templates/data/outcomes_po.csv
-    - templates/data/outcomes_lo.csv
-    - templates/data/po_lo_map.csv
-    - templates/data/courses.csv
-    - templates/data/modules.csv
-    - templates/data/activities.csv
-    - templates/data/rubrics.csv
-    - templates/data/item_bank.csv
-    - templates/data/blueprints.csv
-    - templates/data/badges.csv
-    - templates/data/pathways.csv
-    - templates/data/content_repo.csv
-    - templates/data/licenses.csv
-    - templates/data/capstone_partners.csv
-    - templates/data/faculty_skills.csv
-    - templates/data/training_modules.csv
-    - templates/data/lms_events.csv
-    - templates/data/kpi_dictionary.csv
-  kb:
+    - programs.csv
+    - outcomes_po.csv
+    - outcomes_lo.csv
+    - po_lo_map.csv
+    - courses.csv
+    - modules.csv
+    - activities.csv
+    - rubrics.csv
+    - item_bank.csv
+    - blueprints.csv
+    - badges.csv
+    - pathways.csv
+    - content_repo.csv
+    - licenses.csv
+    - capstone_partners.csv
+    - faculty_skills.csv
+    - training_modules.csv
+    - lms_events.csv
+    - kpi_dictionary.csv
     - kb/pedagogy-and-id.md
     - kb/curriculum-governance.md
     - kb/assessment-design.md

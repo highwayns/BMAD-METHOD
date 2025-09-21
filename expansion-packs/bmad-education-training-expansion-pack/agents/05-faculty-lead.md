@@ -9,7 +9,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 ```yaml
 activation-instructions:
   - ONLY load dependency files when user explicitly runs a command or task
-  - When listing tasks/templates/checklists, ALWAYS present as numbered options so user can reply with a number
+  - When listing templates/checklists, ALWAYS present as numbered options so user can reply with a number
   - Keep SoR boundaries clear:
       - *Curriculum Director 负责项目/课程产出治理与对齐（PO/LO）
       - *Instructional Design Lead 负责教学设计、蓝图与课程壳
@@ -79,64 +79,63 @@ help-display-template: |
 
 dependencies:
   tasks:
-    - tasks/create-lesson-plan.md
-    - tasks/create-weekly-plan.md
-    - tasks/run-class-observation.md
-    - tasks/build-grading-qa-plan.md
-    - tasks/run-feedback-cycle.md
-    - tasks/create-intervention-plan.md
-    - tasks/build-attendance-ops.md
-    - tasks/build-exam-runbook.md
-    - tasks/file-integrity-incident.md
-    - tasks/create-office-hours-plan.md
-    - tasks/run-lms-hygiene.md
-    - tasks/create-reflective-report.md
-    - tasks/build-teaching-portfolio.md
-    - tasks/cip-continuous-improvement-report.md
+    - create-lesson-plan.md
+    - create-weekly-plan.md
+    - run-class-observation.md
+    - build-grading-qa-plan.md
+    - run-feedback-cycle.md
+    - create-intervention-plan.md
+    - build-attendance-ops.md
+    - build-exam-runbook.md
+    - file-integrity-incident.md
+    - create-office-hours-plan.md
+    - run-lms-hygiene.md
+    - create-reflective-report.md
+    - build-teaching-portfolio.md
+    - cip-continuous-improvement-report.md
   templates:
-    - templates/output/lesson-plan-tmpl.yaml
-    - templates/output/weekly-plan-tmpl.yaml
-    - templates/output/class-observation-tmpl.yaml
-    - templates/output/grading-qa-plan-tmpl.yaml
-    - templates/output/feedback-cycle-tmpl.yaml
-    - templates/output/intervention-plan-tmpl.yaml
-    - templates/output/attendance-ops-tmpl.yaml
-    - templates/output/exam-runbook-tmpl.yaml
-    - templates/output/integrity-incident-report-tmpl.yaml
-    - templates/output/office-hours-plan-tmpl.yaml
-    - templates/output/lms-hygiene-check-tmpl.yaml
-    - templates/output/reflective-report-tmpl.yaml
-    - templates/output/teaching-portfolio-tmpl.yaml
-    - templates/output/cip-report-tmpl.yaml
+    - lesson-plan-tmpl.yaml
+    - weekly-plan-tmpl.yaml
+    - class-observation-tmpl.yaml
+    - grading-qa-plan-tmpl.yaml
+    - feedback-cycle-tmpl.yaml
+    - intervention-plan-tmpl.yaml
+    - attendance-ops-tmpl.yaml
+    - exam-runbook-tmpl.yaml
+    - integrity-incident-report-tmpl.yaml
+    - office-hours-plan-tmpl.yaml
+    - lms-hygiene-check-tmpl.yaml
+    - reflective-report-tmpl.yaml
+    - teaching-portfolio-tmpl.yaml
+    - cip-report-tmpl.yaml
   checklists:
-    - checklists/classroom-readiness-checklist.md
-    - checklists/lesson-delivery-checklist.md
-    - checklists/wcag-a11y-in-practice.md
-    - checklists/grading-consistency-checklist.md
-    - checklists/academic-integrity-proctoring.md
-    - checklists/attendance-and-engagement.md
-    - checklists/student-support-escalation.md
-    - checklists/lms-hygiene-checklist.md
-    - checklists/safety-and-wellbeing-checklist.md
-    - checklists/change-control-checklist.md
+    - classroom-readiness-checklist.md
+    - lesson-delivery-checklist.md
+    - wcag-a11y-in-practice.md
+    - grading-consistency-checklist.md
+    - academic-integrity-proctoring.md
+    - attendance-and-engagement.md
+    - student-support-escalation.md
+    - lms-hygiene-checklist.md
+    - safety-and-wellbeing-checklist.md
+    - change-control-checklist.md
   data:
-    - templates/data/rosters.csv
-    - templates/data/attendance.csv
-    - templates/data/participation.csv
-    - templates/data/assignments.csv
-    - templates/data/gradebook.csv
-    - templates/data/rubrics.csv
-    - templates/data/feedback.csv
-    - templates/data/interventions.csv
-    - templates/data/accommodations.csv
-    - templates/data/incidents.csv
-    - templates/data/office_hours.csv
-    - templates/data/tutoring.csv
-    - templates/data/lms_events.csv
-    - templates/data/alerts.csv
-    - templates/data/surveys.csv
-    - templates/data/resources.csv
-  kb:
+    - rosters.csv
+    - attendance.csv
+    - participation.csv
+    - assignments.csv
+    - gradebook.csv
+    - rubrics.csv
+    - feedback.csv
+    - interventions.csv
+    - accommodations.csv
+    - incidents.csv
+    - office_hours.csv
+    - tutoring.csv
+    - lms_events.csv
+    - alerts.csv
+    - surveys.csv
+    - resources.csv
     - kb/pedagogy-quickref.md
     - kb/questioning-techniques.md
     - kb/differentiation-udl.md

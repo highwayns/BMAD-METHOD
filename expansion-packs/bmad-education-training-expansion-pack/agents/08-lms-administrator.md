@@ -9,7 +9,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 ```yaml
 activation-instructions:
   - ONLY load dependency files when user explicitly runs a command or task
-  - Show tasks/templates/checklists as a numbered list to allow quick selection
+  - Show templates/checklists as a numbered list to allow quick selection
   - Respect SoR boundaries:
       - *Dean/Academic Head 负责学术战略与治理
       - *Curriculum Director 负责项目/课程与 PO/LO 对齐
@@ -85,95 +85,94 @@ help-display-template: |
 
 dependencies:
   tasks:
-    - tasks/create-lms-architecture.md
-    - tasks/create-sso-lti-plan.md
-    - tasks/create-course-lifecycle.md
-    - tasks/create-content-governance.md
-    - tasks/create-enrollment-workflows.md
-    - tasks/create-scheduling-plan.md
-    - tasks/create-assessment-gradebook-sync.md
-    - tasks/create-proctoring-integration.md
-    - tasks/create-a11y-plan.md
-    - tasks/create-data-retention-dpia.md
-    - tasks/create-backup-dr-plan.md
-    - tasks/create-release-change-plan.md
-    - tasks/create-incident-runbook.md
-    - tasks/create-support-sla.md
-    - tasks/create-integration-api-catalog.md
+    - create-lms-architecture.md
+    - create-sso-lti-plan.md
+    - create-course-lifecycle.md
+    - create-content-governance.md
+    - create-enrollment-workflows.md
+    - create-scheduling-plan.md
+    - create-assessment-gradebook-sync.md
+    - create-proctoring-integration.md
+    - create-a11y-plan.md
+    - create-data-retention-dpia.md
+    - create-backup-dr-plan.md
+    - create-release-change-plan.md
+    - create-incident-runbook.md
+    - create-support-sla.md
+    - create-integration-api-catalog.md
   templates:
-    - templates/output/lms-architecture-tmpl.yaml
-    - templates/output/sso-lti-integration-plan-tmpl.yaml
-    - templates/output/course-lifecycle-tmpl.yaml
-    - templates/output/content-governance-tmpl.yaml
-    - templates/output/enrollment-workflows-tmpl.yaml
-    - templates/output/scheduling-plan-tmpl.yaml
-    - templates/output/assessment-gradebook-sync-tmpl.yaml
-    - templates/output/proctoring-integration-tmpl.yaml
-    - templates/output/lms-a11y-plan-tmpl.yaml
-    - templates/output/data-retention-dpia-tmpl.yaml
-    - templates/output/backup-dr-plan-tmpl.yaml
-    - templates/output/release-change-plan-tmpl.yaml
-    - templates/output/incident-runbook-tmpl.yaml
-    - templates/output/support-sla-tmpl.yaml
-    - templates/output/integration-api-catalog-tmpl.yaml
+    - lms-architecture-tmpl.yaml
+    - sso-lti-integration-plan-tmpl.yaml
+    - course-lifecycle-tmpl.yaml
+    - content-governance-tmpl.yaml
+    - enrollment-workflows-tmpl.yaml
+    - scheduling-plan-tmpl.yaml
+    - assessment-gradebook-sync-tmpl.yaml
+    - proctoring-integration-tmpl.yaml
+    - lms-a11y-plan-tmpl.yaml
+    - data-retention-dpia-tmpl.yaml
+    - backup-dr-plan-tmpl.yaml
+    - release-change-plan-tmpl.yaml
+    - incident-runbook-tmpl.yaml
+    - support-sla-tmpl.yaml
+    - integration-api-catalog-tmpl.yaml
   checklists:
-    - checklists/lms-governance-checklist.md
-    - checklists/rbac-security-checklist.md
-    - checklists/sso-lti-checklist.md
-    - checklists/course-lifecycle-checklist.md
-    - checklists/content-qa-checklist.md
-    - checklists/enrollment-billing-checklist.md
-    - checklists/scheduling-checklist.md
-    - checklists/assessment-sync-checklist.md
-    - checklists/proctoring-integrity-checklist.md
-    - checklists/a11y-accommodation-checklist.md
-    - checklists/data-privacy-checklist.md
-    - checklists/backup-dr-checklist.md
-    - checklists/release-change-checklist.md
-    - checklists/incident-response-checklist.md
-    - checklists/support-sla-checklist.md
-    - checklists/integration-api-checklist.md
-    - checklists/monitoring-observability-checklist.md
+    - lms-governance-checklist.md
+    - rbac-security-checklist.md
+    - sso-lti-checklist.md
+    - course-lifecycle-checklist.md
+    - content-qa-checklist.md
+    - enrollment-billing-checklist.md
+    - scheduling-checklist.md
+    - assessment-sync-checklist.md
+    - proctoring-integrity-checklist.md
+    - a11y-accommodation-checklist.md
+    - data-privacy-checklist.md
+    - backup-dr-checklist.md
+    - release-change-checklist.md
+    - incident-response-checklist.md
+    - support-sla-checklist.md
+    - integration-api-checklist.md
+    - monitoring-observability-checklist.md
   data:
-    - templates/data/programs.csv
-    - templates/data/courses.csv
-    - templates/data/modules.csv
-    - templates/data/sessions.csv
-    - templates/data/instructors.csv
-    - templates/data/learners.csv
-    - templates/data/enrollments.csv
-    - templates/data/payments.csv
-    - templates/data/refunds.csv
-    - templates/data/attendance.csv
-    - templates/data/assessments.csv
-    - templates/data/gradebook.csv
-    - templates/data/rubrics.csv
-    - templates/data/proctor_logs.csv
-    - templates/data/accommodations.csv
-    - templates/data/content_repo.csv
-    - templates/data/scorm_packages.csv
-    - templates/data/lti_tools.csv
-    - templates/data/sso_providers.csv
-    - templates/data/calendars.csv
-    - templates/data/schedules.csv
-    - templates/data/classrooms.csv
-    - templates/data/resources.csv
-    - templates/data/licenses.csv
-    - templates/data/support_tickets.csv
-    - templates/data/knowledge_base.csv
-    - templates/data/interventions.csv
-    - templates/data/cohorts.csv
-    - templates/data/groups.csv
-    - templates/data/roles_permissions.csv
-    - templates/data/user_accounts.csv
-    - templates/data/api_clients.csv
-    - templates/data/webhooks.csv
-    - templates/data/integrations.csv
-    - templates/data/retention_policies.csv
-    - templates/data/backups.csv
-    - templates/data/restores.csv
-    - templates/data/audit_logs.csv
-  kb:
+    - programs.csv
+    - courses.csv
+    - modules.csv
+    - sessions.csv
+    - instructors.csv
+    - learners.csv
+    - enrollments.csv
+    - payments.csv
+    - refunds.csv
+    - attendance.csv
+    - assessments.csv
+    - gradebook.csv
+    - rubrics.csv
+    - proctor_logs.csv
+    - accommodations.csv
+    - content_repo.csv
+    - scorm_packages.csv
+    - lti_tools.csv
+    - sso_providers.csv
+    - calendars.csv
+    - schedules.csv
+    - classrooms.csv
+    - resources.csv
+    - licenses.csv
+    - support_tickets.csv
+    - knowledge_base.csv
+    - interventions.csv
+    - cohorts.csv
+    - groups.csv
+    - roles_permissions.csv
+    - user_accounts.csv
+    - api_clients.csv
+    - webhooks.csv
+    - integrations.csv
+    - retention_policies.csv
+    - backups.csv
+    - restores.csv
+    - audit_logs.csv
     - kb/lms-architecture-and-tenant.md
     - kb/rbac-and-sod.md
     - kb/sso-oidc-saml-lti-basics.md

@@ -75,49 +75,49 @@ help-display-template: |
 
 dependencies:
   tasks:
-    - tasks/create-program-catalog.md
-    - tasks/create-course-syllabus.md
-    - tasks/map-curriculum-outcomes.md
-    - tasks/generate-assessment-plan.md
-    - tasks/plan-academic-calendar.md
-    - tasks/observe-instructor.md
-    - tasks/lms-analytics-review.md
-    - tasks/student-success-intervention.md
-    - tasks/review-operations.md
-    - tasks/validate-operations.md
-    - .bmad-core/tasks/create-doc.md # 复用 BMAD 通用模板驱动创建
+    - create-program-catalog.md
+    - create-course-syllabus.md
+    - map-curriculum-outcomes.md
+    - generate-assessment-plan.md
+    - plan-academic-calendar.md
+    - observe-instructor.md
+    - lms-analytics-review.md
+    - student-success-intervention.md
+    - review-operations.md
+    - validate-operations.md
+    - .bmad-core/create-doc.md # 复用 BMAD 通用模板驱动创建
   templates:
-    - templates/output/program-catalog-tmpl.yaml
-    - templates/output/course-syllabus-tmpl.yaml
-    - templates/output/curriculum-map-tmpl.yaml
-    - templates/output/assessment-plan-tmpl.yaml
-    - templates/output/academic-calendar-tmpl.yaml
-    - templates/output/instructor-observation-report-tmpl.yaml
-    - templates/output/lms-analytics-dashboard-spec-tmpl.yaml
-    - templates/output/student-success-playbook-tmpl.yaml
+    - program-catalog-tmpl.yaml
+    - course-syllabus-tmpl.yaml
+    - curriculum-map-tmpl.yaml
+    - assessment-plan-tmpl.yaml
+    - academic-calendar-tmpl.yaml
+    - instructor-observation-report-tmpl.yaml
+    - lms-analytics-dashboard-spec-tmpl.yaml
+    - student-success-playbook-tmpl.yaml
   checklists:
-    - checklists/accreditation-readiness-checklist.md
-    - checklists/curriculum-governance-checklist.md
-    - checklists/assessment-quality-checklist.md
-    - checklists/academic-calendar-checklist.md
-    - checklists/lms-data-quality-checklist.md
-    - checklists/academic-integrity-checklist.md
-    - checklists/edu-operations-checklist.md
+    - accreditation-readiness-checklist.md
+    - curriculum-governance-checklist.md
+    - assessment-quality-checklist.md
+    - academic-calendar-checklist.md
+    - lms-data-quality-checklist.md
+    - academic-integrity-checklist.md
+    - edu-operations-checklist.md
   data:
-    - templates/data/programs.csv
-    - templates/data/courses.csv
-    - templates/data/modules.csv
-    - templates/data/sessions.csv
-    - templates/data/instructors.csv
-    - templates/data/learners.csv
-    - templates/data/enrollments.csv
-    - templates/data/assessments.csv
-    - templates/data/grades.csv
-    - templates/data/rubrics.csv
-    - templates/data/policies.csv
-    - templates/data/accreditation_standards.csv
-    - templates/data/kpi_dictionary.csv
-    - templates/data/risk_register.csv
+    - programs.csv
+    - courses.csv
+    - modules.csv
+    - sessions.csv
+    - instructors.csv
+    - learners.csv
+    - enrollments.csv
+    - assessments.csv
+    - grades.csv
+    - rubrics.csv
+    - policies.csv
+    - accreditation_standards.csv
+    - kpi_dictionary.csv
+    - risk_register.csv
     - kb/academic-standards.md
     - kb/assessment-methods.md
     - kb/lms-analytics-dictionary.md

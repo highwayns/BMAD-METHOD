@@ -9,7 +9,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 ```yaml
 activation-instructions:
   - ONLY load dependency files when user explicitly runs a command or task
-  - Show tasks/templates/checklists as a numbered list to allow quick selection
+  - Show templates/checklists as a numbered list to allow quick selection
   - Respect SoR boundaries:
       - *Curriculum Director 负责项目/课程与 PO/LO 对齐
       - *Instructional Design Lead 负责教学设计与课程壳
@@ -79,63 +79,62 @@ help-display-template: |
 
 dependencies:
   tasks:
-    - tasks/create-assessment-blueprint.md
-    - tasks/run-item-qa.md
-    - tasks/build-form-assembly.md
-    - tasks/create-proctoring-plan.md
-    - tasks/build-grading-qa-plan.md
-    - tasks/run-psychometrics.md
-    - tasks/create-equating-plan.md
-    - tasks/create-a11y-accommodation.md
-    - tasks/file-integrity-incident.md
-    - tasks/create-accreditation-selfstudy.md
-    - tasks/review-analytics-validity.md
-    - tasks/run-assessment-change-control.md
-    - tasks/cip-continuous-improvement-report.md
+    - create-assessment-blueprint.md
+    - run-item-qa.md
+    - build-form-assembly.md
+    - create-proctoring-plan.md
+    - build-grading-qa-plan.md
+    - run-psychometrics.md
+    - create-equating-plan.md
+    - create-a11y-accommodation.md
+    - file-integrity-incident.md
+    - create-accreditation-selfstudy.md
+    - review-analytics-validity.md
+    - run-assessment-change-control.md
+    - cip-continuous-improvement-report.md
   templates:
-    - templates/output/assessment-blueprint-tmpl.yaml
-    - templates/output/item-qa-report-tmpl.yaml
-    - templates/output/form-assembly-tmpl.yaml
-    - templates/output/proctoring-plan-tmpl.yaml
-    - templates/output/grading-qa-plan-tmpl.yaml
-    - templates/output/psychometrics-report-tmpl.yaml
-    - templates/output/equating-plan-tmpl.yaml
-    - templates/output/a11y-accommodation-tmpl.yaml
-    - templates/output/integrity-incident-report-tmpl.yaml
-    - templates/output/accreditation-selfstudy-tmpl.yaml
-    - templates/output/analytics-validity-tmpl.yaml
-    - templates/output/assessment-change-control-tmpl.yaml
-    - templates/output/cip-report-tmpl.yaml
+    - assessment-blueprint-tmpl.yaml
+    - item-qa-report-tmpl.yaml
+    - form-assembly-tmpl.yaml
+    - proctoring-plan-tmpl.yaml
+    - grading-qa-plan-tmpl.yaml
+    - psychometrics-report-tmpl.yaml
+    - equating-plan-tmpl.yaml
+    - a11y-accommodation-tmpl.yaml
+    - integrity-incident-report-tmpl.yaml
+    - accreditation-selfstudy-tmpl.yaml
+    - analytics-validity-tmpl.yaml
+    - assessment-change-control-tmpl.yaml
+    - cip-report-tmpl.yaml
   checklists:
-    - checklists/assessment-governance-checklist.md
-    - checklists/item-writing-checklist.md
-    - checklists/form-assembly-checklist.md
-    - checklists/proctoring-ops-checklist.md
-    - checklists/grading-consistency-checklist.md
-    - checklists/psychometrics-readiness-checklist.md
-    - checklists/equating-readiness-checklist.md
-    - checklists/a11y-accommodation-checklist.md
-    - checklists/analytics-validity-checklist.md
-    - checklists/accreditation-evidence-checklist.md
-    - checklists/change-control-checklist.md
+    - assessment-governance-checklist.md
+    - item-writing-checklist.md
+    - form-assembly-checklist.md
+    - proctoring-ops-checklist.md
+    - grading-consistency-checklist.md
+    - psychometrics-readiness-checklist.md
+    - equating-readiness-checklist.md
+    - a11y-accommodation-checklist.md
+    - analytics-validity-checklist.md
+    - accreditation-evidence-checklist.md
+    - change-control-checklist.md
   data:
-    - templates/data/outcomes.csv
-    - templates/data/blueprints.csv
-    - templates/data/item_bank.csv
-    - templates/data/forms.csv
-    - templates/data/exposure.csv
-    - templates/data/assessments.csv
-    - templates/data/responses.csv
-    - templates/data/gradebook.csv
-    - templates/data/rubrics.csv
-    - templates/data/proctor_logs.csv
-    - templates/data/incidents.csv
-    - templates/data/accommodations.csv
-    - templates/data/equating_links.csv
-    - templates/data/psychometrics.csv
-    - templates/data/analytics_events.csv
-    - templates/data/audit_logs.csv
-  kb:
+    - outcomes.csv
+    - blueprints.csv
+    - item_bank.csv
+    - forms.csv
+    - exposure.csv
+    - assessments.csv
+    - responses.csv
+    - gradebook.csv
+    - rubrics.csv
+    - proctor_logs.csv
+    - incidents.csv
+    - accommodations.csv
+    - equating_links.csv
+    - psychometrics.csv
+    - analytics_events.csv
+    - audit_logs.csv
     - kb/assessment-governance.md
     - kb/item-writing-standards.md
     - kb/proctoring-and-integrity.md

@@ -9,7 +9,7 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 ```yaml
 activation-instructions:
   - ONLY load dependency files when user explicitly runs a command or task
-  - Show tasks/templates/checklists as a numbered list to allow quick selection
+  - Show templates/checklists as a numbered list to allow quick selection
   - Respect SoR boundaries:
       - *Dean/Academic Head 负责学术战略与治理
       - *Curriculum Director 负责项目/课程与 PO/LO 对齐
@@ -93,99 +93,98 @@ help-display-template: |
 
 dependencies:
   tasks:
-    - tasks/create-a11y-strategy.md
-    - tasks/create-a11y-policy.md
-    - tasks/create-inclusive-design-guide.md
-    - tasks/create-wcag-audit-plan.md
-    - tasks/create-alt-text-guide.md
-    - tasks/create-media-captioning-plan.md
-    - tasks/create-document-accessibility.md
-    - tasks/create-assessment-a11y-plan.md
-    - tasks/create-accommodations-sop.md
-    - tasks/create-sr-keyboard-compat-plan.md
-    - tasks/create-color-motion-guidelines.md
-    - tasks/create-stem-a11y-guide.md
-    - tasks/create-procurement-vpat-plan.md
-    - tasks/create-event-accessibility-checklist.md
-    - tasks/create-inclusive-language-style.md
-    - tasks/create-equity-impact-assessment.md
-    - tasks/create-a11y-training-plan.md
-    - tasks/create-a11y-incident-response.md
-    - tasks/create-a11y-monitoring-report.md
-    - tasks/create-a11y-cip-report.md
+    - create-a11y-strategy.md
+    - create-a11y-policy.md
+    - create-inclusive-design-guide.md
+    - create-wcag-audit-plan.md
+    - create-alt-text-guide.md
+    - create-media-captioning-plan.md
+    - create-document-accessibility.md
+    - create-assessment-a11y-plan.md
+    - create-accommodations-sop.md
+    - create-sr-keyboard-compat-plan.md
+    - create-color-motion-guidelines.md
+    - create-stem-a11y-guide.md
+    - create-procurement-vpat-plan.md
+    - create-event-accessibility-checklist.md
+    - create-inclusive-language-style.md
+    - create-equity-impact-assessment.md
+    - create-a11y-training-plan.md
+    - create-a11y-incident-response.md
+    - create-a11y-monitoring-report.md
+    - create-a11y-cip-report.md
   templates:
-    - templates/output/a11y-strategy-tmpl.yaml
-    - templates/output/a11y-policy-statement-tmpl.yaml
-    - templates/output/inclusive-design-guide-tmpl.yaml
-    - templates/output/wcag-audit-plan-tmpl.yaml
-    - templates/output/alt-text-guide-tmpl.yaml
-    - templates/output/media-captioning-plan-tmpl.yaml
-    - templates/output/document-accessibility-tmpl.yaml
-    - templates/output/assessment-a11y-plan-tmpl.yaml
-    - templates/output/accommodations-sop-tmpl.yaml
-    - templates/output/sr-keyboard-compat-plan-tmpl.yaml
-    - templates/output/color-motion-guidelines-tmpl.yaml
-    - templates/output/stem-a11y-guide-tmpl.yaml
-    - templates/output/procurement-vpat-plan-tmpl.yaml
-    - templates/output/event-accessibility-checklist-tmpl.yaml
-    - templates/output/inclusive-language-style-tmpl.yaml
-    - templates/output/equity-impact-assessment-tmpl.yaml
-    - templates/output/a11y-training-plan-tmpl.yaml
-    - templates/output/a11y-incident-response-tmpl.yaml
-    - templates/output/a11y-monitoring-report-tmpl.yaml
-    - templates/output/a11y-cip-report-tmpl.yaml
+    - a11y-strategy-tmpl.yaml
+    - a11y-policy-statement-tmpl.yaml
+    - inclusive-design-guide-tmpl.yaml
+    - wcag-audit-plan-tmpl.yaml
+    - alt-text-guide-tmpl.yaml
+    - media-captioning-plan-tmpl.yaml
+    - document-accessibility-tmpl.yaml
+    - assessment-a11y-plan-tmpl.yaml
+    - accommodations-sop-tmpl.yaml
+    - sr-keyboard-compat-plan-tmpl.yaml
+    - color-motion-guidelines-tmpl.yaml
+    - stem-a11y-guide-tmpl.yaml
+    - procurement-vpat-plan-tmpl.yaml
+    - event-accessibility-checklist-tmpl.yaml
+    - inclusive-language-style-tmpl.yaml
+    - equity-impact-assessment-tmpl.yaml
+    - a11y-training-plan-tmpl.yaml
+    - a11y-incident-response-tmpl.yaml
+    - a11y-monitoring-report-tmpl.yaml
+    - a11y-cip-report-tmpl.yaml
   checklists:
-    - checklists/a11y-governance-checklist.md
-    - checklists/wcag-quick-checklist.md
-    - checklists/keyboard-only-checklist.md
-    - checklists/screenreader-flow-checklist.md
-    - checklists/media-captions-checklist.md
-    - checklists/document-pdf-checklist.md
-    - checklists/assessment-a11y-checklist.md
-    - checklists/accommodations-process-checklist.md
-    - checklists/procurement-vpat-checklist.md
-    - checklists/event-accessibility-checklist.md
-    - checklists/inclusive-language-checklist.md
-    - checklists/color-contrast-motion-checklist.md
-    - checklists/stem-math-code-checklist.md
-    - checklists/communications-accessibility-checklist.md
-    - checklists/training-competency-checklist.md
-    - checklists/incident-response-checklist.md
-    - checklists/monitoring-reporting-checklist.md
-    - checklists/equity-impact-checklist.md
-    - checklists/change-control-checklist.md
+    - a11y-governance-checklist.md
+    - wcag-quick-checklist.md
+    - keyboard-only-checklist.md
+    - screenreader-flow-checklist.md
+    - media-captions-checklist.md
+    - document-pdf-checklist.md
+    - assessment-a11y-checklist.md
+    - accommodations-process-checklist.md
+    - procurement-vpat-checklist.md
+    - event-accessibility-checklist.md
+    - inclusive-language-checklist.md
+    - color-contrast-motion-checklist.md
+    - stem-math-code-checklist.md
+    - communications-accessibility-checklist.md
+    - training-competency-checklist.md
+    - incident-response-checklist.md
+    - monitoring-reporting-checklist.md
+    - equity-impact-checklist.md
+    - change-control-checklist.md
   data:
-    - templates/data/policies.csv
-    - templates/data/a11y_statements.csv
-    - templates/data/a11y_audits.csv
-    - templates/data/a11y_findings.csv
-    - templates/data/a11y_remediation.csv
-    - templates/data/alt_text_backlog.csv
-    - templates/data/captioning_tasks.csv
-    - templates/data/transcripts.csv
-    - templates/data/sign_language_requests.csv
-    - templates/data/document_remediation.csv
-    - templates/data/assessment_exceptions.csv
-    - templates/data/accommodations.csv
-    - templates/data/accommodation_access.csv
-    - templates/data/sr_tests.csv
-    - templates/data/keyboard_tests.csv
-    - templates/data/color_contrast.csv
-    - templates/data/reduced_motion_prefs.csv
-    - templates/data/math_code_access.csv
-    - templates/data/procurement_vpat.csv
-    - templates/data/vendor_risk.csv
-    - templates/data/event_access_requests.csv
-    - templates/data/inclusive_language.csv
-    - templates/data/equity_impact.csv
-    - templates/data/trainings.csv
-    - templates/data/certifications.csv
-    - templates/data/incidents.csv
-    - templates/data/grievances.csv
-    - templates/data/monitoring_metrics.csv
-    - templates/data/cip_actions.csv
-    - templates/data/audit_logs.csv
-  kb:
+    - policies.csv
+    - a11y_statements.csv
+    - a11y_audits.csv
+    - a11y_findings.csv
+    - a11y_remediation.csv
+    - alt_text_backlog.csv
+    - captioning_tasks.csv
+    - transcripts.csv
+    - sign_language_requests.csv
+    - document_remediation.csv
+    - assessment_exceptions.csv
+    - accommodations.csv
+    - accommodation_access.csv
+    - sr_tests.csv
+    - keyboard_tests.csv
+    - color_contrast.csv
+    - reduced_motion_prefs.csv
+    - math_code_access.csv
+    - procurement_vpat.csv
+    - vendor_risk.csv
+    - event_access_requests.csv
+    - inclusive_language.csv
+    - equity_impact.csv
+    - trainings.csv
+    - certifications.csv
+    - incidents.csv
+    - grievances.csv
+    - monitoring_metrics.csv
+    - cip_actions.csv
+    - audit_logs.csv
     - kb/wcag-essentials.md
     - kb/udl-principles.md
     - kb/aria-and-sr-basics.md
