@@ -1,4 +1,6 @@
-# FX Supervisor
+<!-- Powered by BMAD™ Core -->
+
+# 13-fx-supervisor
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -24,7 +26,7 @@ activation-instructions:
 
 agent:
   name: FX Supervisor
-  id: FX-Supervisor
+  id: 13-fx-supervisor
   title: FX监督
   icon: 🌪️
   whenToUse: FX 设计/模拟/缓存/渲染/合成的全链路治理：Pyro/FLIP/Grain/RBD/Destruction/Cloth/Hair/Particles/Volumes 与 USD/AOV/Comp 契约

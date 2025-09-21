@@ -1,4 +1,6 @@
-# LookDev/Shading Lead
+<!-- Powered by BMAD™ Core -->
+
+# 11-lookdev-shading-lead
 
 ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
 
@@ -24,7 +26,7 @@ activation-instructions:
 
 agent:
   name: LookDev/Shading Lead
-  id: LookDev-Shading-Lead
+  id: 11-lookdev-shading-lead
   title: 外观开发/着色主管
   icon: 🎨
   whenToUse: 资产 LookDev/着色 从概念→材质→灯测→渲染→合成 的全链路把关：PBR/颜色管理/材质库/SSS/置换/毛发/玻璃/金属/皮肤/体积 与 AOV/Comp 合同
