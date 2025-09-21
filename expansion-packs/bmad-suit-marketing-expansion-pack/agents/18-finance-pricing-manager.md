@@ -42,24 +42,24 @@ persona:
 commands:
   help: 显示可用命令（编号选择）
   kb-mode: 浏览知识库主题
-  fpna: 执行 ./tasks/fpa-budget-and-rolling-forecast.md
-  unit-econ: 执行 ./tasks/unit-economics-and-margin-waterfall.md
-  costing: 执行 ./tasks/standard-and-landed-cost.md
-  price-arch: 执行 ./tasks/price-architecture-and-bands.md
-  promo: 执行 ./tasks/promo-guardrails-and-roi.md
-  markdown: 执行 ./tasks/markdown-planning-and-clearance.md
-  price-change: 执行 ./tasks/price-change-governance-and-approval.md
-  terms: 执行 ./tasks/channel-terms-and-fees-governance.md
-  revenue: 执行 ./tasks/revenue-recognition-and-discounts.md
-  settlement: 执行 ./tasks/channel-settlement-and-reconciliation.md
-  inventory: 执行 ./tasks/inventory-valuation-and-aging.md
-  cash: 执行 ./tasks/cashflow-forecast-and-working-capital.md
-  otb: 执行 ./tasks/open-to-buy-and-buy-budget.md
-  scenario: 执行 ./tasks/scenario-planning-and-sensitivity.md
-  capex: 执行 ./tasks/capex-request-and-payback.md
-  compliance: 执行 ./tasks/compliance-and-tax-notes.md
-  controls: 执行 ./tasks/internal-controls-and-approval-matrix.md
-  kpi: 执行 ./tasks/finance-kpi-dashboard-and-monthly-close.md
+  fpna: 执行 fpa-budget-and-rolling-forecast.md
+  unit-econ: 执行 unit-economics-and-margin-waterfall.md
+  costing: 执行 standard-and-landed-cost.md
+  price-arch: 执行 price-architecture-and-bands.md
+  promo: 执行 promo-guardrails-and-roi.md
+  markdown: 执行 markdown-planning-and-clearance.md
+  price-change: 执行 price-change-governance-and-approval.md
+  terms: 执行 channel-terms-and-fees-governance.md
+  revenue: 执行 revenue-recognition-and-discounts.md
+  settlement: 执行 channel-settlement-and-reconciliation.md
+  inventory: 执行 inventory-valuation-and-aging.md
+  cash: 执行 cashflow-forecast-and-working-capital.md
+  otb: 执行 open-to-buy-and-buy-budget.md
+  scenario: 执行 scenario-planning-and-sensitivity.md
+  capex: 执行 capex-request-and-payback.md
+  compliance: 执行 compliance-and-tax-notes.md
+  controls: 执行 internal-controls-and-approval-matrix.md
+  kpi: 执行 finance-kpi-dashboard-and-monthly-close.md
   create-doc {template}: 基于模板生成文档（见 dependencies.templates）
   execute-checklist {checklist}: 运行检查清单（见 dependencies.checklists）
   doc-out: 输出当前文档
@@ -67,72 +67,72 @@ commands:
 
 dependencies:
   tasks:
-    - ./tasks/fpa-budget-and-rolling-forecast.md
-    - ./tasks/unit-economics-and-margin-waterfall.md
-    - ./tasks/standard-and-landed-cost.md
-    - ./tasks/price-architecture-and-bands.md
-    - ./tasks/promo-guardrails-and-roi.md
-    - ./tasks/markdown-planning-and-clearance.md
-    - ./tasks/price-change-governance-and-approval.md
-    - ./tasks/channel-terms-and-fees-governance.md
-    - ./tasks/revenue-recognition-and-discounts.md
-    - ./tasks/channel-settlement-and-reconciliation.md
-    - ./tasks/inventory-valuation-and-aging.md
-    - ./tasks/cashflow-forecast-and-working-capital.md
-    - ./tasks/open-to-buy-and-buy-budget.md
-    - ./tasks/scenario-planning-and-sensitivity.md
-    - ./tasks/capex-request-and-payback.md
-    - ./tasks/compliance-and-tax-notes.md
-    - ./tasks/internal-controls-and-approval-matrix.md
-    - ./tasks/finance-kpi-dashboard-and-monthly-close.md
+    - fpa-budget-and-rolling-forecast.md
+    - unit-economics-and-margin-waterfall.md
+    - standard-and-landed-cost.md
+    - price-architecture-and-bands.md
+    - promo-guardrails-and-roi.md
+    - markdown-planning-and-clearance.md
+    - price-change-governance-and-approval.md
+    - channel-terms-and-fees-governance.md
+    - revenue-recognition-and-discounts.md
+    - channel-settlement-and-reconciliation.md
+    - inventory-valuation-and-aging.md
+    - cashflow-forecast-and-working-capital.md
+    - open-to-buy-and-buy-budget.md
+    - scenario-planning-and-sensitivity.md
+    - capex-request-and-payback.md
+    - compliance-and-tax-notes.md
+    - internal-controls-and-approval-matrix.md
+    - finance-kpi-dashboard-and-monthly-close.md
   templates:
-    - ./templates/pnl-bridge-template.yaml
-    - ./templates/margin-waterfall-template.yaml
-    - ./templates/standard-cost-bom.yaml
-    - ./templates/landed-cost-calculator.yaml
-    - ./templates/price-ladder-and-bands.yaml
-    - ./templates/promo-guardrails.yaml
-    - ./templates/markdown-playbook.yaml
-    - ./templates/price-change-request.yaml
-    - ./templates/approval-matrix.yaml
-    - ./templates/channel-fee-schedule.yaml
-    - ./templates/revenue-recognition-map.yaml
-    - ./templates/settlement-recon-template.yaml
-    - ./templates/inventory-valuation-report.yaml
-    - ./templates/cashflow-forecast.yaml
-    - ./templates/otb-plan.yaml
-    - ./templates/scenario-sensitivity-model.yaml
-    - ./templates/capex-business-case.yaml
-    - ./templates/discount-policy.yaml
-    - ./templates/refund-exception-gate.yaml
-    - ./templates/finance-kpi-dashboard-spec.yaml
+    - pnl-bridge-template.yaml
+    - margin-waterfall-template.yaml
+    - standard-cost-bom.yaml
+    - landed-cost-calculator.yaml
+    - price-ladder-and-bands.yaml
+    - promo-guardrails.yaml
+    - markdown-playbook.yaml
+    - price-change-request.yaml
+    - approval-matrix.yaml
+    - channel-fee-schedule.yaml
+    - revenue-recognition-map.yaml
+    - settlement-recon-template.yaml
+    - inventory-valuation-report.yaml
+    - cashflow-forecast.yaml
+    - otb-plan.yaml
+    - scenario-sensitivity-model.yaml
+    - capex-business-case.yaml
+    - discount-policy.yaml
+    - refund-exception-gate.yaml
+    - finance-kpi-dashboard-spec.yaml
   data:
-    - ./kb/finance-glossary-and-formulas.md
-    - ./kb/price-elasticity-and-cross-effects.md
-    - ./kb/markdown-and-inventory-aging-notes.md
-    - ./kb/landed-cost-components.md
-    - ./kb/revenue-recognition-notes.md
-    - ./kb/channel-fees-and-payment-gateways.md
-    - ./kb/discount-and-coupon-types.md
-    - ./kb/otb-and-merch-calendar.md
-    - ./kb/compliance-and-tax-basics.md
-    - ./kb/internal-controls-basics.md
+    - kb/finance-glossary-and-formulas.md
+    - kb/price-elasticity-and-cross-effects.md
+    - kb/markdown-and-inventory-aging-notes.md
+    - kb/landed-cost-components.md
+    - kb/revenue-recognition-notes.md
+    - kb/channel-fees-and-payment-gateways.md
+    - kb/discount-and-coupon-types.md
+    - kb/otb-and-merch-calendar.md
+    - kb/compliance-and-tax-basics.md
+    - kb/internal-controls-basics.md
   checklists:
-    - ./checklists/month-end-close.md
-    - ./checklists/price-change-go-live.md
-    - ./checklists/promo-calendar-gate.md
-    - ./checklists/standard-cost-update.md
-    - ./checklists/landed-cost-refresh.md
-    - ./checklists/settlement-reconciliation.md
-    - ./checklists/inventory-valuation-close.md
-    - ./checklists/revenue-recognition-check.md
-    - ./checklists/returns-reserve-rollforward.md
-    - ./checklists/cash-forecast-cycle.md
-    - ./checklists/otb-review.md
-    - ./checklists/capex-approval.md
-    - ./checklists/approval-matrix-audit.md
-    - ./checklists/compliance-and-tax-sanity.md
-    - ./checklists/fraud-and-exception-monitoring.md
+    - month-end-close.md
+    - price-change-go-live.md
+    - promo-calendar-gate.md
+    - standard-cost-update.md
+    - landed-cost-refresh.md
+    - settlement-reconciliation.md
+    - inventory-valuation-close.md
+    - revenue-recognition-check.md
+    - returns-reserve-rollforward.md
+    - cash-forecast-cycle.md
+    - otb-review.md
+    - capex-approval.md
+    - approval-matrix-audit.md
+    - compliance-and-tax-sanity.md
+    - fraud-and-exception-monitoring.md
 
 meta:
   version: '2025-09-17 v1.0'

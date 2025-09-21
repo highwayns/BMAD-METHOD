@@ -43,23 +43,23 @@ persona:
 commands:
   help: 显示可用命令（编号选择）
   kb-mode: 浏览知识库主题
-  lineplan: 执行 ./tasks/season-lineplan-and-assortment.md
-  skumap: 执行 ./tasks/sku-architecture-and-mdm.md
-  fabrics: 执行 ./tasks/fabric-and-trims-library.md
-  bom: 执行 ./tasks/bom-costing-and-target-margin.md
-  vendors: 执行 ./tasks/vendor-sourcing-and-qc.md
-  sizing: 执行 ./tasks/size-curve-and-grading.md
-  otb: 执行 ./tasks/otb-planning-and-replenishment.md
-  allocation: 执行 ./tasks/allocation-and-replen-rules.md
-  pricing: 执行 ./tasks/price-architecture-and-promo-guardrails.md
-  npi: 执行 ./tasks/new-product-intro-gates.md
-  samples: 执行 ./tasks/sample-management-and-fit-approval.md
-  pdp-spec: 执行 ./tasks/pdp-content-and-asset-spec.md
-  returns: 执行 ./tasks/returns-analysis-to-product.md
-  sustainability: 执行 ./tasks/sustainability-and-compliance.md
-  markdown: 执行 ./tasks/markdown-and-exit-strategy.md
-  review: 执行 ./tasks/seasonal-buy-review-and-hindsights.md
-  dashboard: 执行 ./tasks/product-analytics-dashboard.md
+  lineplan: 执行 season-lineplan-and-assortment.md
+  skumap: 执行 sku-architecture-and-mdm.md
+  fabrics: 执行 fabric-and-trims-library.md
+  bom: 执行 bom-costing-and-target-margin.md
+  vendors: 执行 vendor-sourcing-and-qc.md
+  sizing: 执行 size-curve-and-grading.md
+  otb: 执行 otb-planning-and-replenishment.md
+  allocation: 执行 allocation-and-replen-rules.md
+  pricing: 执行 price-architecture-and-promo-guardrails.md
+  npi: 执行 new-product-intro-gates.md
+  samples: 执行 sample-management-and-fit-approval.md
+  pdp-spec: 执行 pdp-content-and-asset-spec.md
+  returns: 执行 returns-analysis-to-product.md
+  sustainability: 执行 sustainability-and-compliance.md
+  markdown: 执行 markdown-and-exit-strategy.md
+  review: 执行 seasonal-buy-review-and-hindsights.md
+  dashboard: 执行 product-analytics-dashboard.md
   create-doc {template}: 基于模板生成文档（见 dependencies.templates）
   execute-checklist {checklist}: 运行检查清单（见 dependencies.checklists）
   doc-out: 输出当前文档
@@ -67,74 +67,74 @@ commands:
 
 dependencies:
   tasks:
-    - ./tasks/season-lineplan-and-assortment.md
-    - ./tasks/sku-architecture-and-mdm.md
-    - ./tasks/fabric-and-trims-library.md
-    - ./tasks/bom-costing-and-target-margin.md
-    - ./tasks/vendor-sourcing-and-qc.md
-    - ./tasks/size-curve-and-grading.md
-    - ./tasks/otb-planning-and-replenishment.md
-    - ./tasks/allocation-and-replen-rules.md
-    - ./tasks/price-architecture-and-promo-guardrails.md
-    - ./tasks/new-product-intro-gates.md
-    - ./tasks/sample-management-and-fit-approval.md
-    - ./tasks/pdp-content-and-asset-spec.md
-    - ./tasks/returns-analysis-to-product.md
-    - ./tasks/sustainability-and-compliance.md
-    - ./tasks/markdown-and-exit-strategy.md
-    - ./tasks/seasonal-buy-review-and-hindsights.md
-    - ./tasks/product-analytics-dashboard.md
+    - season-lineplan-and-assortment.md
+    - sku-architecture-and-mdm.md
+    - fabric-and-trims-library.md
+    - bom-costing-and-target-margin.md
+    - vendor-sourcing-and-qc.md
+    - size-curve-and-grading.md
+    - otb-planning-and-replenishment.md
+    - allocation-and-replen-rules.md
+    - price-architecture-and-promo-guardrails.md
+    - new-product-intro-gates.md
+    - sample-management-and-fit-approval.md
+    - pdp-content-and-asset-spec.md
+    - returns-analysis-to-product.md
+    - sustainability-and-compliance.md
+    - markdown-and-exit-strategy.md
+    - seasonal-buy-review-and-hindsights.md
+    - product-analytics-dashboard.md
   templates:
-    - ./templates/lineplan-matrix.yaml
-    - ./templates/assortment-distribution.yaml
-    - ./templates/sku-schema.yaml
-    - ./templates/mdm-attributes.yaml
-    - ./templates/fabric-library.yaml
-    - ./templates/bom-template.yaml
-    - ./templates/cost-sheet.yaml
-    - ./templates/vendor-scorecard.yaml
-    - ./templates/size-curve-spec.yaml
-    - ./templates/grading-rules.yaml
-    - ./templates/otb-workbook-spec.yaml
-    - ./templates/allocation-rules.yaml
-    - ./templates/price-ladder.yaml
-    - ./templates/promo-guardrails.yaml
-    - ./templates/npi-gate-checklist.yaml
-    - ./templates/sample-tracker.yaml
-    - ./templates/fit-approval-form.yaml
-    - ./templates/pdp-asset-copy-spec.yaml
-    - ./templates/returns-rootcause-schema.yaml
-    - ./templates/sustainability-checklist.yaml
-    - ./templates/markdown-plan.yaml
-    - ./templates/buy-review-deck.yaml
-    - ./templates/product-dashboard-spec.yaml
-    - ./templates/lifecycle-calendar.yaml
+    - lineplan-matrix.yaml
+    - assortment-distribution.yaml
+    - sku-schema.yaml
+    - mdm-attributes.yaml
+    - fabric-library.yaml
+    - bom-template.yaml
+    - cost-sheet.yaml
+    - vendor-scorecard.yaml
+    - size-curve-spec.yaml
+    - grading-rules.yaml
+    - otb-workbook-spec.yaml
+    - allocation-rules.yaml
+    - price-ladder.yaml
+    - promo-guardrails.yaml
+    - npi-gate-checklist.yaml
+    - sample-tracker.yaml
+    - fit-approval-form.yaml
+    - pdp-asset-copy-spec.yaml
+    - returns-rootcause-schema.yaml
+    - sustainability-checklist.yaml
+    - markdown-plan.yaml
+    - buy-review-deck.yaml
+    - product-dashboard-spec.yaml
+    - lifecycle-calendar.yaml
   data:
-    - ./kb/fabric-glossary.md
-    - ./kb/suiting-construction-glossary.md
-    - ./kb/fit-block-library.md
-    - ./kb/grading-guide.md
-    - ./kb/qa-defect-codes.md
-    - ./kb/care-labeling-notes.md
-    - ./kb/sustainability-materials-notes.md
-    - ./kb/assortment-breadth-depth-heuristics.md
-    - ./kb/returns-feedback-taxonomy.md
-    - ./kb/packaging-spec-notes.md
+    - kb/fabric-glossary.md
+    - kb/suiting-construction-glossary.md
+    - kb/fit-block-library.md
+    - kb/grading-guide.md
+    - kb/qa-defect-codes.md
+    - kb/care-labeling-notes.md
+    - kb/sustainability-materials-notes.md
+    - kb/assortment-breadth-depth-heuristics.md
+    - kb/returns-feedback-taxonomy.md
+    - kb/packaging-spec-notes.md
   checklists:
-    - ./checklists/preseason-planning-checklist.md
-    - ./checklists/assortment-review-checklist.md
-    - ./checklists/sample-in-handling-checklist.md
-    - ./checklists/fit-session-checklist.md
-    - ./checklists/qc-incoming-inspection-checklist.md
-    - ./checklists/pre-po-readiness-checklist.md
-    - ./checklists/cost-negotiation-checklist.md
-    - ./checklists/otb-signoff-checklist.md
-    - ./checklists/price-change-governance-checklist.md
-    - ./checklists/markdown-execution-checklist.md
-    - ./checklists/end-of-season-hindsights-checklist.md
-    - ./checklists/mdm-data-quality-checklist.md
-    - ./checklists/compliance-labeling-checklist.md
-    - ./checklists/packaging-qa-checklist.md
+    - preseason-planning-checklist.md
+    - assortment-review-checklist.md
+    - sample-in-handling-checklist.md
+    - fit-session-checklist.md
+    - qc-incoming-inspection-checklist.md
+    - pre-po-readiness-checklist.md
+    - cost-negotiation-checklist.md
+    - otb-signoff-checklist.md
+    - price-change-governance-checklist.md
+    - markdown-execution-checklist.md
+    - end-of-season-hindsights-checklist.md
+    - mdm-data-quality-checklist.md
+    - compliance-labeling-checklist.md
+    - packaging-qa-checklist.md
 meta:
   version: '2025-09-17 v1.0'
 ```

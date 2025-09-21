@@ -41,22 +41,22 @@ persona:
 commands:
   help: 显示可用命令（编号选择）
   kb-mode: 浏览知识库主题
-  qa-standards: 执行 ./tasks/qa-strategy-and-standards.md
-  intake: 执行 ./tasks/intake-alterations-sop.md
-  measure-check: 执行 ./tasks/measurement-verification.md
-  diagnosis: 执行 ./tasks/alteration-diagnosis-and-routing.md
-  price-sla: 执行 ./tasks/pricebook-and-sla-governance.md
-  workshop: 执行 ./tasks/tailoring-workshop-operations.md
-  needle: 执行 ./tasks/needle-sharp-safety.md
-  pressing: 执行 ./tasks/garment-pressing-and-finish-qa.md
-  final-qc: 执行 ./tasks/final-qc-and-fit-approval.md
-  returns: 执行 ./tasks/returns-triage-and-warranty.md
-  repair: 执行 ./tasks/repair-and-restoration.md
-  consent: 执行 ./tasks/customer-communication-and-consent.md
-  complaints: 执行 ./tasks/complaint-escalation-and-resolution.md
-  dashboard: 执行 ./tasks/quality-analytics-dashboard.md
-  training: 执行 ./tasks/knowledge-capture-and-training.md
-  compliance: 执行 ./tasks/policy-and-compliance-notes.md
+  qa-standards: 执行 qa-strategy-and-standards.md
+  intake: 执行 intake-alterations-sop.md
+  measure-check: 执行 measurement-verification.md
+  diagnosis: 执行 alteration-diagnosis-and-routing.md
+  price-sla: 执行 pricebook-and-sla-governance.md
+  workshop: 执行 tailoring-workshop-operations.md
+  needle: 执行 needle-sharp-safety.md
+  pressing: 执行 garment-pressing-and-finish-qa.md
+  final-qc: 执行 final-qc-and-fit-approval.md
+  returns: 执行 returns-triage-and-warranty.md
+  repair: 执行 repair-and-restoration.md
+  consent: 执行 customer-communication-and-consent.md
+  complaints: 执行 complaint-escalation-and-resolution.md
+  dashboard: 执行 quality-analytics-dashboard.md
+  training: 执行 knowledge-capture-and-training.md
+  compliance: 执行 policy-and-compliance-notes.md
   create-doc {template}: 基于模板生成文档（见 dependencies.templates）
   execute-checklist {checklist}: 运行检查清单（见 dependencies.checklists）
   doc-out: 输出当前文档
@@ -64,71 +64,71 @@ commands:
 
 dependencies:
   tasks:
-    - ./tasks/qa-strategy-and-standards.md
-    - ./tasks/intake-alterations-sop.md
-    - ./tasks/measurement-verification.md
-    - ./tasks/alteration-diagnosis-and-routing.md
-    - ./tasks/pricebook-and-sla-governance.md
-    - ./tasks/tailoring-workshop-operations.md
-    - ./tasks/needle-sharp-safety.md
-    - ./tasks/garment-pressing-and-finish-qa.md
-    - ./tasks/final-qc-and-fit-approval.md
-    - ./tasks/returns-triage-and-warranty.md
-    - ./tasks/repair-and-restoration.md
-    - ./tasks/customer-communication-and-consent.md
-    - ./tasks/complaint-escalation-and-resolution.md
-    - ./tasks/quality-analytics-dashboard.md
-    - ./tasks/knowledge-capture-and-training.md
-    - ./tasks/policy-and-compliance-notes.md
+    - qa-strategy-and-standards.md
+    - intake-alterations-sop.md
+    - measurement-verification.md
+    - alteration-diagnosis-and-routing.md
+    - pricebook-and-sla-governance.md
+    - tailoring-workshop-operations.md
+    - needle-sharp-safety.md
+    - garment-pressing-and-finish-qa.md
+    - final-qc-and-fit-approval.md
+    - returns-triage-and-warranty.md
+    - repair-and-restoration.md
+    - customer-communication-and-consent.md
+    - complaint-escalation-and-resolution.md
+    - quality-analytics-dashboard.md
+    - knowledge-capture-and-training.md
+    - policy-and-compliance-notes.md
   templates:
-    - ./templates/alteration-ticket.yaml
-    - ./templates/alteration-pricebook.yaml
-    - ./templates/alteration-sla-matrix.yaml
-    - ./templates/measurement-recheck-sheet.yaml
-    - ./templates/fit-issue-matrix.yaml
-    - ./templates/consent-and-asset-use.yaml
-    - ./templates/final-qc-form.yaml
-    - ./templates/repair-order.yaml
-    - ./templates/returns-triage-form.yaml
-    - ./templates/refund-exception-gate.yaml
-    - ./templates/rework-authorization.yaml
-    - ./templates/nps-callback-script.yaml
-    - ./templates/photo-evidence-naming.yaml
-    - ./templates/defect-codes.yaml
-    - ./templates/pressing-standards.yaml
-    - ./templates/workshop-daily-report.yaml
-    - ./templates/training-module.yaml
-    - ./templates/quality-dashboard-spec.yaml
-    - ./templates/qa-aql-plan.yaml
-    - ./templates/pinning-safety-guide.yaml
+    - alteration-ticket.yaml
+    - alteration-pricebook.yaml
+    - alteration-sla-matrix.yaml
+    - measurement-recheck-sheet.yaml
+    - fit-issue-matrix.yaml
+    - consent-and-asset-use.yaml
+    - final-qc-form.yaml
+    - repair-order.yaml
+    - returns-triage-form.yaml
+    - refund-exception-gate.yaml
+    - rework-authorization.yaml
+    - nps-callback-script.yaml
+    - photo-evidence-naming.yaml
+    - defect-codes.yaml
+    - pressing-standards.yaml
+    - workshop-daily-report.yaml
+    - training-module.yaml
+    - quality-dashboard-spec.yaml
+    - qa-aql-plan.yaml
+    - pinning-safety-guide.yaml
   data:
-    - ./kb/alteration-limits-and-risks.md
-    - ./kb/stitch-types-and-repair-techniques.md
-    - ./kb/fabric-behavior-under-heat-steam.md
-    - ./kb/measurement-points-and-tolerances.md
-    - ./kb/fit-diagnosis-playbook.md
-    - ./kb/garment-care-and-aftercare.md
-    - ./kb/hygiene-and-safety.md
-    - ./kb/accessibility-in-service.md
-    - ./kb/consumer-policy-and-warranty-notes.md
-    - ./kb/photo-guidelines.md
+    - kb/alteration-limits-and-risks.md
+    - kb/stitch-types-and-repair-techniques.md
+    - kb/fabric-behavior-under-heat-steam.md
+    - kb/measurement-points-and-tolerances.md
+    - kb/fit-diagnosis-playbook.md
+    - kb/garment-care-and-aftercare.md
+    - kb/hygiene-and-safety.md
+    - kb/accessibility-in-service.md
+    - kb/consumer-policy-and-warranty-notes.md
+    - kb/photo-guidelines.md
   checklists:
-    - ./checklists/intake-qc.md
-    - ./checklists/measurement-verification.md
-    - ./checklists/pinning-safety.md
-    - ./checklists/risk-disclosure-and-consent.md
-    - ./checklists/workshop-setup.md
-    - ./checklists/needle-and-tool-control.md
-    - ./checklists/pressing-safety.md
-    - ./checklists/pre-delivery-qc.md
-    - ./checklists/delivery-handover.md
-    - ./checklists/returns-triage.md
-    - ./checklists/refund-exception-gate.md
-    - ./checklists/rework-and-repair-gate.md
-    - ./checklists/complaint-escalation.md
-    - ./checklists/hygiene-protocol.md
-    - ./checklists/training-competency-checkoff.md
-    - ./checklists/incident-reporting.md
+    - intake-qc.md
+    - measurement-verification.md
+    - pinning-safety.md
+    - risk-disclosure-and-consent.md
+    - workshop-setup.md
+    - needle-and-tool-control.md
+    - pressing-safety.md
+    - pre-delivery-qc.md
+    - delivery-handover.md
+    - returns-triage.md
+    - refund-exception-gate.md
+    - rework-and-repair-gate.md
+    - complaint-escalation.md
+    - hygiene-protocol.md
+    - training-competency-checkoff.md
+    - incident-reporting.md
 
 meta:
   version: '2025-09-17 v1.0'

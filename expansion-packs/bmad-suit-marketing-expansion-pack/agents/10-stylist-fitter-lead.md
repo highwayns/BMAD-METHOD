@@ -43,20 +43,20 @@ persona:
 commands:
   help: 显示可用命令（编号选择）
   kb-mode: 浏览知识库主题
-  style-standards: 执行 ./tasks/style-strategy-and-standards.md
-  intake: 执行 ./tasks/client-styling-intake.md
-  measurement: 执行 ./tasks/measurement-protocols.md
-  fitting: 执行 ./tasks/fitting-session-sop.md
-  alterations: 执行 ./tasks/alteration-diagnosis-and-workorders.md
-  outfits: 执行 ./tasks/suit-capsule-and-lookbook.md
-  events: 执行 ./tasks/event-styling-workflows.md
-  shoot: 执行 ./tasks/shoot-pinning-and-prep.md
-  aftercare: 执行 ./tasks/wardrobe-care-and-aftercare.md
-  training: 执行 ./tasks/training-and-certification.md
-  vip: 执行 ./tasks/vip-concierge-and-clientbook.md
-  crm-notes: 执行 ./tasks/crm-integration-and-notes.md
-  complaints: 执行 ./tasks/qa-and-complaints-resolution.md
-  dashboard: 执行 ./tasks/styling-metrics-and-dashboard.md
+  style-standards: 执行 style-strategy-and-standards.md
+  intake: 执行 client-styling-intake.md
+  measurement: 执行 measurement-protocols.md
+  fitting: 执行 fitting-session-sop.md
+  alterations: 执行 alteration-diagnosis-and-workorders.md
+  outfits: 执行 suit-capsule-and-lookbook.md
+  events: 执行 event-styling-workflows.md
+  shoot: 执行 shoot-pinning-and-prep.md
+  aftercare: 执行 wardrobe-care-and-aftercare.md
+  training: 执行 training-and-certification.md
+  vip: 执行 vip-concierge-and-clientbook.md
+  crm-notes: 执行 crm-integration-and-notes.md
+  complaints: 执行 qa-and-complaints-resolution.md
+  dashboard: 执行 styling-metrics-and-dashboard.md
   create-doc {template}: 基于模板生成文档（见 dependencies.templates）
   execute-checklist {checklist}: 运行检查清单（见 dependencies.checklists）
   doc-out: 输出当前文档
@@ -64,65 +64,65 @@ commands:
 
 dependencies:
   tasks:
-    - ./tasks/style-strategy-and-standards.md
-    - ./tasks/client-styling-intake.md
-    - ./tasks/measurement-protocols.md
-    - ./tasks/fitting-session-sop.md
-    - ./tasks/alteration-diagnosis-and-workorders.md
-    - ./tasks/suit-capsule-and-lookbook.md
-    - ./tasks/event-styling-workflows.md
-    - ./tasks/shoot-pinning-and-prep.md
-    - ./tasks/wardrobe-care-and-aftercare.md
-    - ./tasks/training-and-certification.md
-    - ./tasks/vip-concierge-and-clientbook.md
-    - ./tasks/crm-integration-and-notes.md
-    - ./tasks/qa-and-complaints-resolution.md
-    - ./tasks/styling-metrics-and-dashboard.md
+    - style-strategy-and-standards.md
+    - client-styling-intake.md
+    - measurement-protocols.md
+    - fitting-session-sop.md
+    - alteration-diagnosis-and-workorders.md
+    - suit-capsule-and-lookbook.md
+    - event-styling-workflows.md
+    - shoot-pinning-and-prep.md
+    - wardrobe-care-and-aftercare.md
+    - training-and-certification.md
+    - vip-concierge-and-clientbook.md
+    - crm-integration-and-notes.md
+    - qa-and-complaints-resolution.md
+    - styling-metrics-and-dashboard.md
   templates:
-    - ./templates/style-profile-form.yaml
-    - ./templates/pre-appointment-questionnaire.yaml
-    - ./templates/measurement-sheet.yaml
-    - ./templates/fitting-checklist-sheet.yaml
-    - ./templates/alteration-workorder.yaml
-    - ./templates/alteration-price-guide.yaml
-    - ./templates/outfit-card.yaml
-    - ./templates/capsule-plan.yaml
-    - ./templates/event-dresscode-guide.yaml
-    - ./templates/shoot-prep-checklist.yaml
-    - ./templates/aftercare-guide.yaml
-    - ./templates/training-module.yaml
-    - ./templates/clientbook-note-template.yaml
-    - ./templates/styling-dashboard-spec.yaml
-    - ./templates/fitting-scripts.yaml
+    - style-profile-form.yaml
+    - pre-appointment-questionnaire.yaml
+    - measurement-sheet.yaml
+    - fitting-checklist-sheet.yaml
+    - alteration-workorder.yaml
+    - alteration-price-guide.yaml
+    - outfit-card.yaml
+    - capsule-plan.yaml
+    - event-dresscode-guide.yaml
+    - shoot-prep-checklist.yaml
+    - aftercare-guide.yaml
+    - training-module.yaml
+    - clientbook-note-template.yaml
+    - styling-dashboard-spec.yaml
+    - fitting-scripts.yaml
   data:
-    - ./kb/body-shape-guide.md
-    - ./kb/fabric-drape-and-structure.md
-    - ./kb/fit-issues-matrix.md
-    - ./kb/color-palette-by-skin-tone.md
-    - ./kb/tie-knots-and-collars.md
-    - ./kb/event-dresscodes.md
-    - ./kb/measurement-common-errors.md
-    - ./kb/alteration-limits-and-risks.md
-    - ./kb/garment-care-basics.md
-    - ./kb/hygiene-and-safety.md
-    - ./kb/accessibility-in-fittings.md
-    - ./kb/wedding-group-coordination.md
+    - kb/body-shape-guide.md
+    - kb/fabric-drape-and-structure.md
+    - kb/fit-issues-matrix.md
+    - kb/color-palette-by-skin-tone.md
+    - kb/tie-knots-and-collars.md
+    - kb/event-dresscodes.md
+    - kb/measurement-common-errors.md
+    - kb/alteration-limits-and-risks.md
+    - kb/garment-care-basics.md
+    - kb/hygiene-and-safety.md
+    - kb/accessibility-in-fittings.md
+    - kb/wedding-group-coordination.md
   checklists:
-    - ./checklists/pre-appointment-kit.md
-    - ./checklists/fitting-room-setup.md
-    - ./checklists/measurement-accuracy-checklist.md
-    - ./checklists/pinning-safety-checklist.md
-    - ./checklists/alteration-intake-qc.md
-    - ./checklists/alteration-final-qc.md
-    - ./checklists/delivery-handover-checklist.md
-    - ./checklists/photo-consent-and-asset-use.md
-    - ./checklists/shoot-prep-checklist.md
-    - ./checklists/hygiene-protocol-checklist.md
-    - ./checklists/accessibility-accommodations-checklist.md
-    - ./checklists/incident-escalation-checklist.md
-    - ./checklists/training-competency-checkoff.md
-    - ./checklists/styling-recommendation-quality.md
-    - ./checklists/post-fitting-followup-checklist.md
+    - pre-appointment-kit.md
+    - fitting-room-setup.md
+    - measurement-accuracy-checklist.md
+    - pinning-safety-checklist.md
+    - alteration-intake-qc.md
+    - alteration-final-qc.md
+    - delivery-handover-checklist.md
+    - photo-consent-and-asset-use.md
+    - shoot-prep-checklist.md
+    - hygiene-protocol-checklist.md
+    - accessibility-accommodations-checklist.md
+    - incident-escalation-checklist.md
+    - training-competency-checkoff.md
+    - styling-recommendation-quality.md
+    - post-fitting-followup-checklist.md
 meta:
   version: '2025-09-17 v1.0'
 ```

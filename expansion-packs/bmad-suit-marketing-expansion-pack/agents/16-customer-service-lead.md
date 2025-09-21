@@ -41,22 +41,22 @@ persona:
 commands:
   help: 显示可用命令（编号选择）
   kb-mode: 浏览知识库主题
-  cs-strategy: 执行 ./tasks/cs-strategy-and-standards.md
-  omni-sla: 执行 ./tasks/omnichannel-routing-and-sla.md
-  contact-center: 执行 ./tasks/contact-center-operations.md
-  bopis: 执行 ./tasks/bopis-appointments-and-store-support.md
-  alterations: 执行 ./tasks/alterations-liaison-and-fit-communications.md
-  returns: 执行 ./tasks/returns-exchanges-policy-and-triage.md
-  warranty: 执行 ./tasks/warranty-repairs-and-claims.md
-  address: 执行 ./tasks/address-correction-and-redelivery.md
-  fraud: 执行 ./tasks/fraud-prevention-and-order-holds.md
-  chatbot: 执行 ./tasks/chatbot-and-automation-flows.md
-  qa: 执行 ./tasks/cs-quality-audit-and-calibration.md
-  voc: 执行 ./tasks/voice-of-customer-and-nps.md
-  wfm: 执行 ./tasks/workforce-management-and-forecasting.md
-  training: 执行 ./tasks/training-and-coaching-program.md
-  privacy: 执行 ./tasks/compliance-and-privacy-notes.md
-  kpi: 执行 ./tasks/kpi-dashboard-and-reporting.md
+  cs-strategy: 执行 cs-strategy-and-standards.md
+  omni-sla: 执行 omnichannel-routing-and-sla.md
+  contact-center: 执行 contact-center-operations.md
+  bopis: 执行 bopis-appointments-and-store-support.md
+  alterations: 执行 alterations-liaison-and-fit-communications.md
+  returns: 执行 returns-exchanges-policy-and-triage.md
+  warranty: 执行 warranty-repairs-and-claims.md
+  address: 执行 address-correction-and-redelivery.md
+  fraud: 执行 fraud-prevention-and-order-holds.md
+  chatbot: 执行 chatbot-and-automation-flows.md
+  qa: 执行 cs-quality-audit-and-calibration.md
+  voc: 执行 voice-of-customer-and-nps.md
+  wfm: 执行 workforce-management-and-forecasting.md
+  training: 执行 training-and-coaching-program.md
+  privacy: 执行 compliance-and-privacy-notes.md
+  kpi: 执行 kpi-dashboard-and-reporting.md
   create-doc {template}: 基于模板生成文档（见 dependencies.templates）
   execute-checklist {checklist}: 运行检查清单（见 dependencies.checklists）
   doc-out: 输出当前文档
@@ -64,84 +64,84 @@ commands:
 
 dependencies:
   tasks:
-    - ./tasks/cs-strategy-and-standards.md
-    - ./tasks/omnichannel-routing-and-sla.md
-    - ./tasks/contact-center-operations.md
-    - ./tasks/bopis-appointments-and-store-support.md
-    - ./tasks/alterations-liaison-and-fit-communications.md
-    - ./tasks/returns-exchanges-policy-and-triage.md
-    - ./tasks/warranty-repairs-and-claims.md
-    - ./tasks/address-correction-and-redelivery.md
-    - ./tasks/fraud-prevention-and-order-holds.md
-    - ./tasks/chatbot-and-automation-flows.md
-    - ./tasks/cs-quality-audit-and-calibration.md
-    - ./tasks/voice-of-customer-and-nps.md
-    - ./tasks/workforce-management-and-forecasting.md
-    - ./tasks/training-and-coaching-program.md
-    - ./tasks/compliance-and-privacy-notes.md
-    - ./tasks/kpi-dashboard-and-reporting.md
+    - cs-strategy-and-standards.md
+    - omnichannel-routing-and-sla.md
+    - contact-center-operations.md
+    - bopis-appointments-and-store-support.md
+    - alterations-liaison-and-fit-communications.md
+    - returns-exchanges-policy-and-triage.md
+    - warranty-repairs-and-claims.md
+    - address-correction-and-redelivery.md
+    - fraud-prevention-and-order-holds.md
+    - chatbot-and-automation-flows.md
+    - cs-quality-audit-and-calibration.md
+    - voice-of-customer-and-nps.md
+    - workforce-management-and-forecasting.md
+    - training-and-coaching-program.md
+    - compliance-and-privacy-notes.md
+    - kpi-dashboard-and-reporting.md
   templates:
-    - ./templates/cs-sla-matrix.yaml
-    - ./templates/contact-reason-taxonomy.yaml
-    - ./templates/macro-template.yaml
-    - ./templates/escalation-playbook.yaml
-    - ./templates/appeasement-guidelines.yaml
-    - ./templates/refund-exception-gate.yaml
-    - ./templates/exchange-like-for-like-rules.yaml
-    - ./templates/appointment-script.yaml
-    - ./templates/alteration-intake-brief.yaml
-    - ./templates/warranty-claim-form.yaml
-    - ./templates/rma-form.yaml
-    - ./templates/redelivery-request.yaml
-    - ./templates/carrier-claim-packet.yaml
-    - ./templates/nps-callback-script.yaml
-    - ./templates/voc-theming-schema.yaml
-    - ./templates/cs-qa-scorecard.yaml
-    - ./templates/training-module.yaml
-    - ./templates/adherence-and-staffing-plan.yaml
-    - ./templates/chatbot-flow-spec.yaml
-    - ./templates/data-retention-and-access.yaml
-    - ./templates/privacy-consent-log.yaml
-    - ./templates/sensitive-case-handling.yaml
-    - ./templates/service-recovery-lexicon.yaml
+    - cs-sla-matrix.yaml
+    - contact-reason-taxonomy.yaml
+    - macro-template.yaml
+    - escalation-playbook.yaml
+    - appeasement-guidelines.yaml
+    - refund-exception-gate.yaml
+    - exchange-like-for-like-rules.yaml
+    - appointment-script.yaml
+    - alteration-intake-brief.yaml
+    - warranty-claim-form.yaml
+    - rma-form.yaml
+    - redelivery-request.yaml
+    - carrier-claim-packet.yaml
+    - nps-callback-script.yaml
+    - voc-theming-schema.yaml
+    - cs-qa-scorecard.yaml
+    - training-module.yaml
+    - adherence-and-staffing-plan.yaml
+    - chatbot-flow-spec.yaml
+    - data-retention-and-access.yaml
+    - privacy-consent-log.yaml
+    - sensitive-case-handling.yaml
+    - service-recovery-lexicon.yaml
   data:
-    - ./kb/sizing-and-fit-faq.md
-    - ./kb/measurement-instructions.md
-    - ./kb/alteration-scope-and-risks.md
-    - ./kb/garment-care-and-wrinkle.md
-    - ./kb/packaging-expectations.md
-    - ./kb/shipping-sla-and-zones.md
-    - ./kb/address-format-by-region.md
-    - ./kb/returns-policy-summary.md
-    - ./kb/warranty-and-repair-policy.md
-    - ./kb/refund-timelines-by-payment.md
-    - ./kb/platform-policy-notes.md
-    - ./kb/accessibility-service-standards.md
-    - ./kb/privacy-basics.md
-    - ./kb/troubleshooting-order-issues.md
-    - ./kb/store-services-and-bopis-faq.md
-    - ./kb/vip-service-playbook.md
-    - ./kb/holiday-peak-faq.md
+    - kb/sizing-and-fit-faq.md
+    - kb/measurement-instructions.md
+    - kb/alteration-scope-and-risks.md
+    - kb/garment-care-and-wrinkle.md
+    - kb/packaging-expectations.md
+    - kb/shipping-sla-and-zones.md
+    - kb/address-format-by-region.md
+    - kb/returns-policy-summary.md
+    - kb/warranty-and-repair-policy.md
+    - kb/refund-timelines-by-payment.md
+    - kb/platform-policy-notes.md
+    - kb/accessibility-service-standards.md
+    - kb/privacy-basics.md
+    - kb/troubleshooting-order-issues.md
+    - kb/store-services-and-bopis-faq.md
+    - kb/vip-service-playbook.md
+    - kb/holiday-peak-faq.md
   checklists:
-    - ./checklists/intake-contact-checklist.md
-    - ./checklists/authentication-and-privacy-checklist.md
-    - ./checklists/address-validation-checklist.md
-    - ./checklists/bowtie-resolution-checklist.md
-    - ./checklists/redelivery-checklist.md
-    - ./checklists/return-triage-checklist.md
-    - ./checklists/exchange-processing-checklist.md
-    - ./checklists/alteration-liaison-checklist.md
-    - ./checklists/warranty-claim-checklist.md
-    - ./checklists/complaint-escalation-checklist.md
-    - ./checklists/appeasement-approval-checklist.md
-    - ./checklists/cs-qa-audit-checklist.md
-    - ./checklists/wfm-forecasting-checklist.md
-    - ./checklists/outage-incident-comms-checklist.md
-    - ./checklists/dsar-data-request-checklist.md
-    - ./checklists/chatbot-training-and-test-checklist.md
-    - ./checklists/store-handoff-bopis-checklist.md
-    - ./checklists/carrier-claim-checklist.md
-    - ./checklists/fraud-risk-screening-checklist.md
+    - intake-contact-checklist.md
+    - authentication-and-privacy-checklist.md
+    - address-validation-checklist.md
+    - bowtie-resolution-checklist.md
+    - redelivery-checklist.md
+    - return-triage-checklist.md
+    - exchange-processing-checklist.md
+    - alteration-liaison-checklist.md
+    - warranty-claim-checklist.md
+    - complaint-escalation-checklist.md
+    - appeasement-approval-checklist.md
+    - cs-qa-audit-checklist.md
+    - wfm-forecasting-checklist.md
+    - outage-incident-comms-checklist.md
+    - dsar-data-request-checklist.md
+    - chatbot-training-and-test-checklist.md
+    - store-handoff-bopis-checklist.md
+    - carrier-claim-checklist.md
+    - fraud-risk-screening-checklist.md
 
 meta:
   version: '2025-09-17 v1.0'

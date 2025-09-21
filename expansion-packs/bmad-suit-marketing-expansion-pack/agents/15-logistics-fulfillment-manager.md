@@ -42,20 +42,20 @@ persona:
 commands:
   help: 显示可用命令（编号选择）
   kb-mode: 浏览知识库主题
-  inbound: 执行 ./tasks/inbound-asn-receiving-and-qc.md
-  storage: 执行 ./tasks/location-slotting-and-inventory-sync.md
-  pickpack: 执行 ./tasks/picking-packing-accuracy-and-fec.md
-  packaging: 执行 ./tasks/suit-packaging-and-label-compliance.md
-  orchestration: 执行 ./tasks/order-orchestration-and-sla.md
-  bopis: 执行 ./tasks/bopis-and-appointment-fulfillment.md
-  sfs: 执行 ./tasks/ship-from-store-and-replenishment.md
-  routing: 执行 ./tasks/carrier-selection-and-routing-guide.md
-  address: 执行 ./tasks/address-validation-and-fraud-signal.md
-  exceptions: 执行 ./tasks/exception-management-and-claims.md
-  returns: 执行 ./tasks/returns-reverse-and-refurb.md
-  kpi: 执行 ./tasks/fulfillment-analytics-and-costing.md
-  continuity: 执行 ./tasks/peak-playbook-and-bcp.md
-  sustainability: 执行 ./tasks/sustainable-packaging-and-carbon-notes.md
+  inbound: 执行 inbound-asn-receiving-and-qc.md
+  storage: 执行 location-slotting-and-inventory-sync.md
+  pickpack: 执行 picking-packing-accuracy-and-fec.md
+  packaging: 执行 suit-packaging-and-label-compliance.md
+  orchestration: 执行 order-orchestration-and-sla.md
+  bopis: 执行 bopis-and-appointment-fulfillment.md
+  sfs: 执行 ship-from-store-and-replenishment.md
+  routing: 执行 carrier-selection-and-routing-guide.md
+  address: 执行 address-validation-and-fraud-signal.md
+  exceptions: 执行 exception-management-and-claims.md
+  returns: 执行 returns-reverse-and-refurb.md
+  kpi: 执行 fulfillment-analytics-and-costing.md
+  continuity: 执行 peak-playbook-and-bcp.md
+  sustainability: 执行 sustainable-packaging-and-carbon-notes.md
   create-doc {template}: 基于模板生成文档（见 dependencies.templates）
   execute-checklist {checklist}: 运行检查清单（见 dependencies.checklists）
   doc-out: 输出当前文档
@@ -63,70 +63,70 @@ commands:
 
 dependencies:
   tasks:
-    - ./tasks/inbound-asn-receiving-and-qc.md
-    - ./tasks/location-slotting-and-inventory-sync.md
-    - ./tasks/picking-packing-accuracy-and-fec.md
-    - ./tasks/suit-packaging-and-label-compliance.md
-    - ./tasks/order-orchestration-and-sla.md
-    - ./tasks/bopis-and-appointment-fulfillment.md
-    - ./tasks/ship-from-store-and-replenishment.md
-    - ./tasks/carrier-selection-and-routing-guide.md
-    - ./tasks/address-validation-and-fraud-signal.md
-    - ./tasks/exception-management-and-claims.md
-    - ./tasks/returns-reverse-and-refurb.md
-    - ./tasks/fulfillment-analytics-and-costing.md
-    - ./tasks/peak-playbook-and-bcp.md
-    - ./tasks/sustainable-packaging-and-carbon-notes.md
+    - inbound-asn-receiving-and-qc.md
+    - location-slotting-and-inventory-sync.md
+    - picking-packing-accuracy-and-fec.md
+    - suit-packaging-and-label-compliance.md
+    - order-orchestration-and-sla.md
+    - bopis-and-appointment-fulfillment.md
+    - ship-from-store-and-replenishment.md
+    - carrier-selection-and-routing-guide.md
+    - address-validation-and-fraud-signal.md
+    - exception-management-and-claims.md
+    - returns-reverse-and-refurb.md
+    - fulfillment-analytics-and-costing.md
+    - peak-playbook-and-bcp.md
+    - sustainable-packaging-and-carbon-notes.md
   templates:
-    - ./templates/asn-receiving-checksheet.yaml
-    - ./templates/carton-pallet-label-spec.yaml
-    - ./templates/putaway-plan.yaml
-    - ./templates/slotting-strategy.yaml
-    - ./templates/pick-list-batch-wave.yaml
-    - ./templates/pack-verification-form.yaml
-    - ./templates/suit-packaging-spec.yaml
-    - ./templates/cartonization-rules.yaml
-    - ./templates/shipping-label-fields.yaml
-    - ./templates/bopis-pickup-brief.yaml
-    - ./templates/store-ship-brief.yaml
-    - ./templates/carrier-rate-card.yaml
-    - ./templates/routing-guide.yaml
-    - ./templates/address-validation-sop.yaml
-    - ./templates/exception-codes.yaml
-    - ./templates/claims-file-template.yaml
-    - ./templates/returns-triage-form.yaml
-    - ./templates/refurb-workorder.yaml
-    - ./templates/fulfillment-sla-matrix.yaml
-    - ./templates/kpi-dashboard-spec.yaml
-    - ./templates/bcp-playbook.yaml
-    - ./templates/sustainable-packaging-guide.yaml
+    - asn-receiving-checksheet.yaml
+    - carton-pallet-label-spec.yaml
+    - putaway-plan.yaml
+    - slotting-strategy.yaml
+    - pick-list-batch-wave.yaml
+    - pack-verification-form.yaml
+    - suit-packaging-spec.yaml
+    - cartonization-rules.yaml
+    - shipping-label-fields.yaml
+    - bopis-pickup-brief.yaml
+    - store-ship-brief.yaml
+    - carrier-rate-card.yaml
+    - routing-guide.yaml
+    - address-validation-sop.yaml
+    - exception-codes.yaml
+    - claims-file-template.yaml
+    - returns-triage-form.yaml
+    - refurb-workorder.yaml
+    - fulfillment-sla-matrix.yaml
+    - kpi-dashboard-spec.yaml
+    - bcp-playbook.yaml
+    - sustainable-packaging-guide.yaml
   data:
-    - ./kb/garment-on-hanger-vs-flat.md
-    - ./kb/wms-wcs-basics.md
-    - ./kb/volumetric-weight-and-zoning.md
-    - ./kb/carton-marking-andcompliance.md
-    - ./kb/picking-methods-and-errors.md
-    - ./kb/anti-wrinkle-and-dehumid.md
-    - ./kb/address-normalization-and-check.md
-    - ./kb/returns-disposition-options.md
-    - ./kb/claims-and-proof-of-delivery.md
-    - ./kb/kpi-and-cost-metrics.md
+    - kb/garment-on-hanger-vs-flat.md
+    - kb/wms-wcs-basics.md
+    - kb/volumetric-weight-and-zoning.md
+    - kb/carton-marking-andcompliance.md
+    - kb/picking-methods-and-errors.md
+    - kb/anti-wrinkle-and-dehumid.md
+    - kb/address-normalization-and-check.md
+    - kb/returns-disposition-options.md
+    - kb/claims-and-proof-of-delivery.md
+    - kb/kpi-and-cost-metrics.md
   checklists:
-    - ./checklists/asn-prep-and-booking.md
-    - ./checklists/receiving-and-qc.md
-    - ./checklists/putaway-and-slotting.md
-    - ./checklists/cycle-count-and-inventory.md
-    - ./checklists/picking-accuracy.md
-    - ./checklists/packing-quality-and-label.md
-    - ./checklists/bopis-pickup-experience.md
-    - ./checklists/ship-from-store.md
-    - ./checklists/routing-and-dispatch.md
-    - ./checklists/address-validation.md
-    - ./checklists/exception-capture-and-ota.md
-    - ./checklists/claims-and-rto.md
-    - ./checklists/returns-triage-and-refurb.md
-    - ./checklists/peak-and-bcp-drill.md
-    - ./checklists/hsse-and-ergonomics.md
+    - asn-prep-and-booking.md
+    - receiving-and-qc.md
+    - putaway-and-slotting.md
+    - cycle-count-and-inventory.md
+    - picking-accuracy.md
+    - packing-quality-and-label.md
+    - bopis-pickup-experience.md
+    - ship-from-store.md
+    - routing-and-dispatch.md
+    - address-validation.md
+    - exception-capture-and-ota.md
+    - claims-and-rto.md
+    - returns-triage-and-refurb.md
+    - peak-and-bcp-drill.md
+    - hsse-and-ergonomics.md
 
 meta:
   version: '2025-09-17 v1.0'

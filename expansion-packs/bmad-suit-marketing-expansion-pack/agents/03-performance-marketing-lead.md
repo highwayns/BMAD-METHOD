@@ -40,70 +40,70 @@ persona:
 commands:
   help: 显示可用命令（编号选择）
   kb-mode: 浏览知识库主题
-  acq-strategy: 执行 ./tasks/acq-strategy.md
-  tracking: 执行 ./tasks/tracking-implementation.md
-  feed: 执行 ./tasks/feed-optimization.md
-  search-structure: 执行 ./tasks/campaign-structure-search.md
-  social-structure: 执行 ./tasks/campaign-structure-paid-social.md
-  pmax: 执行 ./tasks/pmax-and-shopping.md
-  creative: 执行 ./tasks/creative-iteration-system.md
-  cro: 执行 ./tasks/cro-and-landing-tests.md
-  audience: 执行 ./tasks/audience-segmentation-sync.md
-  budget: 执行 ./tasks/budget-pacing-bidding.md
-  attribution: 执行 ./tasks/attribution-incrementality.md
-  crm: 执行 ./tasks/crm-lifecycle-remarketing.md
-  ops: 执行 ./tasks/weekly-ops-ritual.md
+  acq-strategy: 执行 acq-strategy.md
+  tracking: 执行 tracking-implementation.md
+  feed: 执行 feed-optimization.md
+  search-structure: 执行 campaign-structure-search.md
+  social-structure: 执行 campaign-structure-paid-social.md
+  pmax: 执行 pmax-and-shopping.md
+  creative: 执行 creative-iteration-system.md
+  cro: 执行 cro-and-landing-tests.md
+  audience: 执行 audience-segmentation-sync.md
+  budget: 执行 budget-pacing-bidding.md
+  attribution: 执行 attribution-incrementality.md
+  crm: 执行 crm-lifecycle-remarketing.md
+  ops: 执行 weekly-ops-ritual.md
   create-doc {template}: 基于模板生成文档（见 dependencies.templates）
   execute-checklist {checklist}: 运行检查清单（见 dependencies.checklists）
   doc-out: 输出当前文档
   exit: 退出本Agent
 dependencies:
   tasks:
-    - ./tasks/acq-strategy.md
-    - ./tasks/tracking-implementation.md
-    - ./tasks/feed-optimization.md
-    - ./tasks/campaign-structure-search.md
-    - ./tasks/campaign-structure-paid-social.md
-    - ./tasks/pmax-and-shopping.md
-    - ./tasks/creative-iteration-system.md
-    - ./tasks/cro-and-landing-tests.md
-    - ./tasks/audience-segmentation-sync.md
-    - ./tasks/budget-pacing-bidding.md
-    - ./tasks/attribution-incrementality.md
-    - ./tasks/crm-lifecycle-remarketing.md
-    - ./tasks/weekly-ops-ritual.md
+    - acq-strategy.md
+    - tracking-implementation.md
+    - feed-optimization.md
+    - campaign-structure-search.md
+    - campaign-structure-paid-social.md
+    - pmax-and-shopping.md
+    - creative-iteration-system.md
+    - cro-and-landing-tests.md
+    - audience-segmentation-sync.md
+    - budget-pacing-bidding.md
+    - attribution-incrementality.md
+    - crm-lifecycle-remarketing.md
+    - weekly-ops-ritual.md
   templates:
-    - ./templates/channel-plan-tmpl.yaml
-    - ./templates/campaign-structure-search-tmpl.yaml
-    - ./templates/campaign-structure-social-tmpl.yaml
-    - ./templates/pmax-structure-tmpl.yaml
-    - ./templates/feed-mapping-tmpl.yaml
-    - ./templates/tracking-spec-tmpl.yaml
-    - ./templates/experiment-brief-tmpl.yaml
-    - ./templates/landing-test-plan-tmpl.yaml
-    - ./templates/audience-segmentation-tmpl.yaml
-    - ./templates/budget-plan-tmpl.yaml
-    - ./templates/dashboard-spec-tmpl.yaml
-    - ./templates/weekly-report-tmpl.yaml
-    - ./templates/ad-copy-bundle-tmpl.yaml
-    - ./templates/creative-iteration-board-tmpl.yaml
-    - ./templates/geo-lift-test-plan-tmpl.yaml
+    - channel-plan-tmpl.yaml
+    - campaign-structure-search-tmpl.yaml
+    - campaign-structure-social-tmpl.yaml
+    - pmax-structure-tmpl.yaml
+    - feed-mapping-tmpl.yaml
+    - tracking-spec-tmpl.yaml
+    - experiment-brief-tmpl.yaml
+    - landing-test-plan-tmpl.yaml
+    - audience-segmentation-tmpl.yaml
+    - budget-plan-tmpl.yaml
+    - dashboard-spec-tmpl.yaml
+    - weekly-report-tmpl.yaml
+    - ad-copy-bundle-tmpl.yaml
+    - creative-iteration-board-tmpl.yaml
+    - geo-lift-test-plan-tmpl.yaml
   data:
-    - ./kb/menswear-conversion-drivers.md
-    - ./kb/sizing-and-returns.md
-    - ./kb/attribution-models.md
-    - ./kb/bid-strategy-cheatsheet.md
-    - ./kb/seasonal-promo-triggers.md
-    - ./kb/kpi-glossary.md
+    - kb/menswear-conversion-drivers.md
+    - kb/sizing-and-returns.md
+    - kb/attribution-models.md
+    - kb/bid-strategy-cheatsheet.md
+    - kb/seasonal-promo-triggers.md
+    - kb/kpi-glossary.md
   checklists:
-    - ./checklists/perf-tracking-qa-checklist.md
-    - ./checklists/feed-health-checklist.md
-    - ./checklists/campaign-launch-checklist.md
-    - ./checklists/budget-pacing-daily-checklist.md
-    - ./checklists/cro-heuristic-checklist.md
-    - ./checklists/experiment-design-checklist.md
-    - ./checklists/platform-compliance-checklist.md
-    - ./checklists/data-governance-checklist.md
+    - perf-tracking-qa-checklist.md
+    - feed-health-checklist.md
+    - campaign-launch-checklist.md
+    - budget-pacing-daily-checklist.md
+    - cro-heuristic-checklist.md
+    - experiment-design-checklist.md
+    - platform-compliance-checklist.md
+    - data-governance-checklist.md
 meta:
   version: '2025-09-17 v1.0'
 ```

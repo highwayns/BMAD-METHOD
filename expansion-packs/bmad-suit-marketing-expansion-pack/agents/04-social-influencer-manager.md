@@ -43,19 +43,19 @@ persona:
 commands:
   help: 显示可用命令（编号选择）
   kb-mode: 浏览知识库主题
-  social-strategy: 执行 ./tasks/social-strategy.md
-  channel-playbooks: 执行 ./tasks/channel-playbooks.md
-  calendar: 执行 ./tasks/content-calendar.md
-  influencer-sourcing: 执行 ./tasks/influencer-sourcing-and-vetting.md
-  brief: 执行 ./tasks/creator-brief-and-shotlist.md
-  ugc-governance: 执行 ./tasks/ugc-governance-and-rights.md
-  disclosure: 执行 ./tasks/disclosure-and-compliance.md
-  live: 执行 ./tasks/live-commerce-playbook.md
-  gifting: 执行 ./tasks/gifting-and-seeding.md
-  launch: 执行 ./tasks/social-launch-plan.md
-  community: 执行 ./tasks/community-and-moderation.md
-  measurement: 执行 ./tasks/social-measurement-framework.md
-  crisis: 执行 ./tasks/social-crisis-playbook.md
+  social-strategy: 执行 social-strategy.md
+  channel-playbooks: 执行 channel-playbooks.md
+  calendar: 执行 content-calendar.md
+  influencer-sourcing: 执行 influencer-sourcing-and-vetting.md
+  brief: 执行 creator-brief-and-shotlist.md
+  ugc-governance: 执行 ugc-governance-and-rights.md
+  disclosure: 执行 disclosure-and-compliance.md
+  live: 执行 live-commerce-playbook.md
+  gifting: 执行 gifting-and-seeding.md
+  launch: 执行 social-launch-plan.md
+  community: 执行 community-and-moderation.md
+  measurement: 执行 social-measurement-framework.md
+  crisis: 执行 social-crisis-playbook.md
   create-doc {template}: 基于模板生成文档（见 dependencies.templates）
   execute-checklist {checklist}: 运行检查清单（见 dependencies.checklists）
   doc-out: 输出当前文档
@@ -63,50 +63,50 @@ commands:
 
 dependencies:
   tasks:
-    - ./tasks/social-strategy.md
-    - ./tasks/channel-playbooks.md
-    - ./tasks/content-calendar.md
-    - ./tasks/influencer-sourcing-and-vetting.md
-    - ./tasks/creator-brief-and-shotlist.md
-    - ./tasks/ugc-governance-and-rights.md
-    - ./tasks/disclosure-and-compliance.md
-    - ./tasks/live-commerce-playbook.md
-    - ./tasks/gifting-and-seeding.md
-    - ./tasks/social-launch-plan.md
-    - ./tasks/community-and-moderation.md
-    - ./tasks/social-measurement-framework.md
-    - ./tasks/social-crisis-playbook.md
+    - social-strategy.md
+    - channel-playbooks.md
+    - content-calendar.md
+    - influencer-sourcing-and-vetting.md
+    - creator-brief-and-shotlist.md
+    - ugc-governance-and-rights.md
+    - disclosure-and-compliance.md
+    - live-commerce-playbook.md
+    - gifting-and-seeding.md
+    - social-launch-plan.md
+    - community-and-moderation.md
+    - social-measurement-framework.md
+    - social-crisis-playbook.md
   templates:
-    - ./templates/social-strategy-tmpl.yaml
-    - ./templates/channel-playbook-tmpl.yaml
-    - ./templates/content-calendar-tmpl.yaml
-    - ./templates/influencer-brief-tmpl.yaml
-    - ./templates/shotlist-tmpl.yaml
-    - ./templates/hashtag-caption-tmpl.yaml
-    - ./templates/usage-rights-grid.yaml
-    - ./templates/live-run-of-show-tmpl.yaml
-    - ./templates/gifting-seeding-tmpl.yaml
-    - ./templates/social-launch-plan-tmpl.yaml
-    - ./templates/community-sop-tmpl.yaml
-    - ./templates/social-kpi-dashboard-spec.yaml
-    - ./templates/post-campaign-report-tmpl.yaml
+    - social-strategy-tmpl.yaml
+    - channel-playbook-tmpl.yaml
+    - content-calendar-tmpl.yaml
+    - influencer-brief-tmpl.yaml
+    - shotlist-tmpl.yaml
+    - hashtag-caption-tmpl.yaml
+    - usage-rights-grid.yaml
+    - live-run-of-show-tmpl.yaml
+    - gifting-seeding-tmpl.yaml
+    - social-launch-plan-tmpl.yaml
+    - community-sop-tmpl.yaml
+    - social-kpi-dashboard-spec.yaml
+    - post-campaign-report-tmpl.yaml
   data:
-    - ./kb/platform-specs.md
-    - ./kb/menswear-visual-style.md
-    - ./kb/suit-fit-talking-points.md
-    - ./kb/influencer-tiers-and-pricing.md
-    - ./kb/disclosure-notes.md
-    - ./kb/live-best-practices.md
-    - ./kb/crisis-scenarios.md
+    - kb/platform-specs.md
+    - kb/menswear-visual-style.md
+    - kb/suit-fit-talking-points.md
+    - kb/influencer-tiers-and-pricing.md
+    - kb/disclosure-notes.md
+    - kb/live-best-practices.md
+    - kb/crisis-scenarios.md
   checklists:
-    - ./checklists/preflight-content-qa.md
-    - ./checklists/influencer-vetting-checklist.md
-    - ./checklists/disclosure-compliance-checklist.md
-    - ./checklists/usage-rights-checklist.md
-    - ./checklists/live-session-checklist.md
-    - ./checklists/community-safety-checklist.md
-    - ./checklists/crisis-response-checklist.md
-    - ./checklists/post-campaign-measurement-checklist.md
+    - preflight-content-qa.md
+    - influencer-vetting-checklist.md
+    - disclosure-compliance-checklist.md
+    - usage-rights-checklist.md
+    - live-session-checklist.md
+    - community-safety-checklist.md
+    - crisis-response-checklist.md
+    - post-campaign-measurement-checklist.md
 meta:
   version: '2025-09-17 v1.0'
 ```

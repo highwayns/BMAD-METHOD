@@ -43,26 +43,26 @@ persona:
 commands:
   help: 显示可用命令（编号选择）
   kb-mode: 浏览知识库主题
-  strategy: 执行 ./tasks/production-strategy-and-standards.md
-  tna: 执行 ./tasks/tna-and-scheduling.md
-  cutplan: 执行 ./tasks/cutplan-and-marker-making.md
-  linebalance: 执行 ./tasks/line-balance-and-smv.md
-  wip: 执行 ./tasks/wip-tracking-and-andon.md
-  qa: 执行 ./tasks/inline-quality-and-defect-codes.md
-  needle: 执行 ./tasks/needle-sharp-tool-control.md
-  pressing: 执行 ./tasks/pressing-and-finishing-standards.md
-  fit-approval: 执行 ./tasks/measurement-tolerance-and-fit-approval.md
-  mtm-mto: 执行 ./tasks/mtm-mto-workflow.md
-  alterations: 执行 ./tasks/alterations-hub-operations.md
-  rework: 执行 ./tasks/rework-and-recut-management.md
-  final: 执行 ./tasks/final-inspection-and-aql.md
-  pack: 执行 ./tasks/packing-carton-marking-and-handover.md
-  ecom: 执行 ./tasks/ecom-fulfillment-sop.md
-  stores: 执行 ./tasks/store-fulfillment-sop.md
-  safety: 执行 ./tasks/maintenance-and-safety.md
-  training: 执行 ./tasks/training-and-skill-matrix.md
-  dashboard: 执行 ./tasks/production-analytics-dashboard.md
-  escalation: 执行 ./tasks/escalations-and-incident-management.md
+  strategy: 执行 production-strategy-and-standards.md
+  tna: 执行 tna-and-scheduling.md
+  cutplan: 执行 cutplan-and-marker-making.md
+  linebalance: 执行 line-balance-and-smv.md
+  wip: 执行 wip-tracking-and-andon.md
+  qa: 执行 inline-quality-and-defect-codes.md
+  needle: 执行 needle-sharp-tool-control.md
+  pressing: 执行 pressing-and-finishing-standards.md
+  fit-approval: 执行 measurement-tolerance-and-fit-approval.md
+  mtm-mto: 执行 mtm-mto-workflow.md
+  alterations: 执行 alterations-hub-operations.md
+  rework: 执行 rework-and-recut-management.md
+  final: 执行 final-inspection-and-aql.md
+  pack: 执行 packing-carton-marking-and-handover.md
+  ecom: 执行 ecom-fulfillment-sop.md
+  stores: 执行 store-fulfillment-sop.md
+  safety: 执行 maintenance-and-safety.md
+  training: 执行 training-and-skill-matrix.md
+  dashboard: 执行 production-analytics-dashboard.md
+  escalation: 执行 escalations-and-incident-management.md
   create-doc {template}: 基于模板生成文档（见 dependencies.templates）
   execute-checklist {checklist}: 运行检查清单（见 dependencies.checklists）
   doc-out: 输出当前文档
@@ -70,94 +70,94 @@ commands:
 
 dependencies:
   tasks:
-    - ./tasks/production-strategy-and-standards.md
-    - ./tasks/tna-and-scheduling.md
-    - ./tasks/cutplan-and-marker-making.md
-    - ./tasks/line-balance-and-smv.md
-    - ./tasks/wip-tracking-and-andon.md
-    - ./tasks/inline-quality-and-defect-codes.md
-    - ./tasks/needle-sharp-tool-control.md
-    - ./tasks/pressing-and-finishing-standards.md
-    - ./tasks/measurement-tolerance-and-fit-approval.md
-    - ./tasks/mtm-mto-workflow.md
-    - ./tasks/alterations-hub-operations.md
-    - ./tasks/rework-and-recut-management.md
-    - ./tasks/final-inspection-and-aql.md
-    - ./tasks/packing-carton-marking-and-handover.md
-    - ./tasks/ecom-fulfillment-sop.md
-    - ./tasks/store-fulfillment-sop.md
-    - ./tasks/maintenance-and-safety.md
-    - ./tasks/training-and-skill-matrix.md
-    - ./tasks/production-analytics-dashboard.md
-    - ./tasks/escalations-and-incident-management.md
+    - production-strategy-and-standards.md
+    - tna-and-scheduling.md
+    - cutplan-and-marker-making.md
+    - line-balance-and-smv.md
+    - wip-tracking-and-andon.md
+    - inline-quality-and-defect-codes.md
+    - needle-sharp-tool-control.md
+    - pressing-and-finishing-standards.md
+    - measurement-tolerance-and-fit-approval.md
+    - mtm-mto-workflow.md
+    - alterations-hub-operations.md
+    - rework-and-recut-management.md
+    - final-inspection-and-aql.md
+    - packing-carton-marking-and-handover.md
+    - ecom-fulfillment-sop.md
+    - store-fulfillment-sop.md
+    - maintenance-and-safety.md
+    - training-and-skill-matrix.md
+    - production-analytics-dashboard.md
+    - escalations-and-incident-management.md
   templates:
-    - ./templates/techpack-change-log.yaml
-    - ./templates/operation-bom-smv.yaml
-    - ./templates/cut-sheet.yaml
-    - ./templates/marker-plan.yaml
-    - ./templates/bundle-ticket.yaml
-    - ./templates/line-balance-sheet.yaml
-    - ./templates/wip-board-spec.yaml
-    - ./templates/defect-codes.yaml
-    - ./templates/inline-audit-form.yaml
-    - ./templates/needle-tool-policy.yaml
-    - ./templates/pressing-standard.yaml
-    - ./templates/measurement-tolerance-table.yaml
-    - ./templates/fit-approval-record.yaml
-    - ./templates/mtm-measure-sheet.yaml
-    - ./templates/mto-order-brief.yaml
-    - ./templates/alteration-workorder.yaml
-    - ./templates/rework-form.yaml
-    - ./templates/final-inspection-aql.yaml
-    - ./templates/packing-spec.yaml
-    - ./templates/carton-marking.yaml
-    - ./templates/handover-checklist.yaml
-    - ./templates/skill-matrix.yaml
-    - ./templates/training-module.yaml
-    - ./templates/maintenance-log.yaml
-    - ./templates/machine-settings-sheet.yaml
-    - ./templates/sla-matrix.yaml
+    - techpack-change-log.yaml
+    - operation-bom-smv.yaml
+    - cut-sheet.yaml
+    - marker-plan.yaml
+    - bundle-ticket.yaml
+    - line-balance-sheet.yaml
+    - wip-board-spec.yaml
+    - defect-codes.yaml
+    - inline-audit-form.yaml
+    - needle-tool-policy.yaml
+    - pressing-standard.yaml
+    - measurement-tolerance-table.yaml
+    - fit-approval-record.yaml
+    - mtm-measure-sheet.yaml
+    - mto-order-brief.yaml
+    - alteration-workorder.yaml
+    - rework-form.yaml
+    - final-inspection-aql.yaml
+    - packing-spec.yaml
+    - carton-marking.yaml
+    - handover-checklist.yaml
+    - skill-matrix.yaml
+    - training-module.yaml
+    - maintenance-log.yaml
+    - machine-settings-sheet.yaml
+    - sla-matrix.yaml
   data:
-    - ./kb/suit-construction-steps.md
-    - ./kb/seam-types-and-stitches.md
-    - ./kb/fusing-and-interlining-guide.md
-    - ./kb/sleeve-setting-and-shoulder.md
-    - ./kb/lapel-roll-and-front-shaping.md
-    - ./kb/pressing-techniques.md
-    - ./kb/measurement-points-and-tolerances.md
-    - ./kb/needle-size-fabric-match.md
-    - ./kb/defect-taxonomy.md
-    - ./kb/shrinkage-relaxation-and-care.md
-    - ./kb/packaging-guidelines.md
-    - ./kb/health-safety-basics.md
+    - kb/suit-construction-steps.md
+    - kb/seam-types-and-stitches.md
+    - kb/fusing-and-interlining-guide.md
+    - kb/sleeve-setting-and-shoulder.md
+    - kb/lapel-roll-and-front-shaping.md
+    - kb/pressing-techniques.md
+    - kb/measurement-points-and-tolerances.md
+    - kb/needle-size-fabric-match.md
+    - kb/defect-taxonomy.md
+    - kb/shrinkage-relaxation-and-care.md
+    - kb/packaging-guidelines.md
+    - kb/health-safety-basics.md
   checklists:
-    - ./checklists/ppm-preproduction-checklist.md
-    - ./checklists/cut-room-setup.md
-    - ./checklists/fabric-spreading-and-marker.md
-    - ./checklists/cutting-qc.md
-    - ./checklists/bundle-integrity-and-tracking.md
-    - ./checklists/line-start-readiness.md
-    - ./checklists/first-piece-approval.md
-    - ./checklists/inline-quality-dupro.md
-    - ./checklists/end-of-line-audit.md
-    - ./checklists/pressing-safety-and-quality.md
-    - ./checklists/measurement-tolerance-verification.md
-    - ./checklists/trims-issuance-and-reconciliation.md
-    - ./checklists/needle-policy-control.md
-    - ./checklists/tool-count-and-sharp-control.md
-    - ./checklists/operator-training-signoff.md
-    - ./checklists/maintenance-daily-weekly.md
-    - ./checklists/mtm-intake-qc.md
-    - ./checklists/mto-scheduling-gates.md
-    - ./checklists/alteration-intake-qc.md
-    - ./checklists/rework-gate-and-risk.md
-    - ./checklists/final-inspection-and-packing.md
-    - ./checklists/handover-to-logistics.md
-    - ./checklists/misship-prevention.md
-    - ./checklists/ecom-sample-qa.md
-    - ./checklists/store-shipment-qa.md
-    - ./checklists/returns-triage-and-repair.md
-    - ./checklists/incident-escalation.md
+    - ppm-preproduction-checklist.md
+    - cut-room-setup.md
+    - fabric-spreading-and-marker.md
+    - cutting-qc.md
+    - bundle-integrity-and-tracking.md
+    - line-start-readiness.md
+    - first-piece-approval.md
+    - inline-quality-dupro.md
+    - end-of-line-audit.md
+    - pressing-safety-and-quality.md
+    - measurement-tolerance-verification.md
+    - trims-issuance-and-reconciliation.md
+    - needle-policy-control.md
+    - tool-count-and-sharp-control.md
+    - operator-training-signoff.md
+    - maintenance-daily-weekly.md
+    - mtm-intake-qc.md
+    - mto-scheduling-gates.md
+    - alteration-intake-qc.md
+    - rework-gate-and-risk.md
+    - final-inspection-and-packing.md
+    - handover-to-logistics.md
+    - misship-prevention.md
+    - ecom-sample-qa.md
+    - store-shipment-qa.md
+    - returns-triage-and-repair.md
+    - incident-escalation.md
 meta:
   version: '2025-09-17 v1.0'
 ```

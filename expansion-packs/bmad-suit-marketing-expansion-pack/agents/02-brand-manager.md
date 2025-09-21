@@ -39,71 +39,71 @@ persona:
 commands:
   help: 以编号列表显示可用命令
   kb-mode: 浏览知识库主题与要点
-  positioning: 执行任务 ./tasks/brand-positioning-workshop.md
-  brand-book: 执行任务 ./tasks/brand-book-build.md
-  vis-guidelines: 执行任务 ./tasks/visual-identity-system.md
-  tonality: 执行任务 ./tasks/tone-of-voice.md
-  naming: 执行任务 ./tasks/naming-taxonomy.md
-  messaging: 执行任务 ./tasks/messaging-house.md
-  pr-plan: 执行任务 ./tasks/pr-launch-plan.md
-  influencer: 执行任务 ./tasks/influencer-governance.md
-  social-calendar: 执行任务 ./tasks/social-content-calendar.md
-  vm: 执行任务 ./tasks/retail-vm-guidelines.md
-  packaging: 执行任务 ./tasks/packaging-experience.md
-  csr-comms: 执行任务 ./tasks/csr-esg-comms.md
-  crisis: 执行任务 ./tasks/crisis-comms-playbook.md
-  measure: 执行任务 ./tasks/brand-measurement-framework.md
+  positioning: 执行任务 brand-positioning-workshop.md
+  brand-book: 执行任务 brand-book-build.md
+  vis-guidelines: 执行任务 visual-identity-system.md
+  tonality: 执行任务 tone-of-voice.md
+  naming: 执行任务 naming-taxonomy.md
+  messaging: 执行任务 messaging-house.md
+  pr-plan: 执行任务 pr-launch-plan.md
+  influencer: 执行任务 influencer-governance.md
+  social-calendar: 执行任务 social-content-calendar.md
+  vm: 执行任务 retail-vm-guidelines.md
+  packaging: 执行任务 packaging-experience.md
+  csr-comms: 执行任务 csr-esg-comms.md
+  crisis: 执行任务 crisis-comms-playbook.md
+  measure: 执行任务 brand-measurement-framework.md
   create-doc {template}: 基于模板生成文档（见 dependencies.templates）
   execute-checklist {checklist}: 运行检查清单（见 dependencies.checklists）
   doc-out: 输出当前文档
   exit: 退出本Agent
 dependencies:
   tasks:
-    - ./tasks/brand-positioning-workshop.md
-    - ./tasks/brand-book-build.md
-    - ./tasks/visual-identity-system.md
-    - ./tasks/tone-of-voice.md
-    - ./tasks/naming-taxonomy.md
-    - ./tasks/messaging-house.md
-    - ./tasks/pr-launch-plan.md
-    - ./tasks/influencer-governance.md
-    - ./tasks/social-content-calendar.md
-    - ./tasks/retail-vm-guidelines.md
-    - ./tasks/packaging-experience.md
-    - ./tasks/csr-esg-comms.md
-    - ./tasks/crisis-comms-playbook.md
-    - ./tasks/brand-measurement-framework.md
+    - brand-positioning-workshop.md
+    - brand-book-build.md
+    - visual-identity-system.md
+    - tone-of-voice.md
+    - naming-taxonomy.md
+    - messaging-house.md
+    - pr-launch-plan.md
+    - influencer-governance.md
+    - social-content-calendar.md
+    - retail-vm-guidelines.md
+    - packaging-experience.md
+    - csr-esg-comms.md
+    - crisis-comms-playbook.md
+    - brand-measurement-framework.md
   templates:
-    - ./templates/brand-strategy-tmpl.yaml
-    - ./templates/brand-book-tmpl.yaml
-    - ./templates/visual-identity-tmpl.yaml
-    - ./templates/tone-of-voice-tmpl.yaml
-    - ./templates/naming-spec-tmpl.yaml
-    - ./templates/messaging-house-tmpl.yaml
-    - ./templates/press-release-tmpl.yaml
-    - ./templates/influencer-brief-tmpl.yaml
-    - ./templates/social-post-brief-tmpl.yaml
-    - ./templates/brand-audit-report-tmpl.yaml
-    - ./templates/vm-guide-tmpl.yaml
-    - ./templates/packaging-guide-tmpl.yaml
-    - ./templates/csr-comm-plan-tmpl.yaml
-    - ./templates/crisis-comm-plan-tmpl.yaml
-    - ./templates/brand-kpi-dashboard-spec.yaml
+    - brand-strategy-tmpl.yaml
+    - brand-book-tmpl.yaml
+    - visual-identity-tmpl.yaml
+    - tone-of-voice-tmpl.yaml
+    - naming-spec-tmpl.yaml
+    - messaging-house-tmpl.yaml
+    - press-release-tmpl.yaml
+    - influencer-brief-tmpl.yaml
+    - social-post-brief-tmpl.yaml
+    - brand-audit-report-tmpl.yaml
+    - vm-guide-tmpl.yaml
+    - packaging-guide-tmpl.yaml
+    - csr-comm-plan-tmpl.yaml
+    - crisis-comm-plan-tmpl.yaml
+    - brand-kpi-dashboard-spec.yaml
   data:
-    - ./kb/archetypes.md
-    - ./kb/suit-style-language.md
-    - ./kb/color-psychology-menswear.md
-    - ./kb/typography-basics.md
-    - ./kb/influencer-compliance-notes.md
-    - ./kb/seasonal-calendar-examples.md
+    - kb/archetypes.md
+    - kb/suit-style-language.md
+    - kb/color-psychology-menswear.md
+    - kb/typography-basics.md
+    - kb/influencer-compliance-notes.md
+    - kb/seasonal-calendar-examples.md
   checklists:
-    - ./checklists/brand-compliance-checklist.md
-    - ./checklists/asset-spec-checklist.md
-    - ./checklists/accessibility-checklist.md
-    - ./checklists/pr-launch-readiness-checklist.md
-    - ./checklists/influencer-compliance-checklist.md
-    - ./checklists/brand-governance-checklist.md
-    - ./checklists/crisis-drill-checklist.md
+    - brand-compliance-checklist.md
+    - asset-spec-checklist.md
+    - accessibility-checklist.md
+    - pr-launch-readiness-checklist.md
+    - influencer-compliance-checklist.md
+    - brand-governance-checklist.md
+    - crisis-drill-checklist.md
 meta:
   version: '2025-09-17 v1.0'
 ```

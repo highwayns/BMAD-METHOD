@@ -43,19 +43,19 @@ persona:
 commands:
   help: 显示可用命令（编号选择）
   kb-mode: 浏览知识库主题
-  north-star: 执行 ./tasks/creative-north-star.md
-  season-concept: 执行 ./tasks/seasonal-campaign-concept.md
-  photoshoot: 执行 ./tasks/photoshoot-plan.md
-  video: 执行 ./tasks/video-script-and-storyboard.md
-  lookbook: 执行 ./tasks/lookbook-design.md
-  pdp-upgrade: 执行 ./tasks/pdp-and-landing-upgrade.md
-  vm-sync: 执行 ./tasks/retail-vm-creative-sync.md
-  ugc-codirect: 执行 ./tasks/ugc-co-direction.md
-  motion-pack: 执行 ./tasks/motion-design-pack.md
-  localization: 执行 ./tasks/localization-guidelines.md
-  asset-governance: 执行 ./tasks/asset-governance-and-workflow.md
-  accessibility: 执行 ./tasks/creative-accessibility.md
-  measurement: 执行 ./tasks/creative-measurement-and-learnings.md
+  north-star: 执行 creative-north-star.md
+  season-concept: 执行 seasonal-campaign-concept.md
+  photoshoot: 执行 photoshoot-plan.md
+  video: 执行 video-script-and-storyboard.md
+  lookbook: 执行 lookbook-design.md
+  pdp-upgrade: 执行 pdp-and-landing-upgrade.md
+  vm-sync: 执行 retail-vm-creative-sync.md
+  ugc-codirect: 执行 ugc-co-direction.md
+  motion-pack: 执行 motion-design-pack.md
+  localization: 执行 localization-guidelines.md
+  asset-governance: 执行 asset-governance-and-workflow.md
+  accessibility: 执行 creative-accessibility.md
+  measurement: 执行 creative-measurement-and-learnings.md
   create-doc {template}: 基于模板生成文档（见 dependencies.templates）
   execute-checklist {checklist}: 运行检查清单（见 dependencies.checklists）
   doc-out: 输出当前文档
@@ -63,51 +63,51 @@ commands:
 
 dependencies:
   tasks:
-    - ./tasks/creative-north-star.md
-    - ./tasks/seasonal-campaign-concept.md
-    - ./tasks/photoshoot-plan.md
-    - ./tasks/video-script-and-storyboard.md
-    - ./tasks/lookbook-design.md
-    - ./tasks/pdp-and-landing-upgrade.md
-    - ./tasks/retail-vm-creative-sync.md
-    - ./tasks/ugc-co-direction.md
-    - ./tasks/motion-design-pack.md
-    - ./tasks/localization-guidelines.md
-    - ./tasks/asset-governance-and-workflow.md
-    - ./tasks/creative-accessibility.md
-    - ./tasks/creative-measurement-and-learnings.md
+    - creative-north-star.md
+    - seasonal-campaign-concept.md
+    - photoshoot-plan.md
+    - video-script-and-storyboard.md
+    - lookbook-design.md
+    - pdp-and-landing-upgrade.md
+    - retail-vm-creative-sync.md
+    - ugc-co-direction.md
+    - motion-design-pack.md
+    - localization-guidelines.md
+    - asset-governance-and-workflow.md
+    - creative-accessibility.md
+    - creative-measurement-and-learnings.md
   templates:
-    - ./templates/creative-brief-tmpl.yaml
-    - ./templates/seasonal-campaign-brief-tmpl.yaml
-    - ./templates/photoshoot-brief-tmpl.yaml
-    - ./templates/shotlist-tmpl.yaml
-    - ./templates/video-script-tmpl.yaml
-    - ./templates/storyboard-tmpl.yaml
-    - ./templates/lookbook-layout-tmpl.yaml
-    - ./templates/pdp-asset-spec-tmpl.yaml
-    - ./templates/landing-wireframe-tmpl.yaml
-    - ./templates/motion-styleframes-tmpl.yaml
-    - ./templates/localization-style-guide.yaml
-    - ./templates/asset-governance-spec.yaml
-    - ./templates/creative-kpi-dashboard-spec.yaml
-    - ./templates/postmortem-report-tmpl.yaml
+    - creative-brief-tmpl.yaml
+    - seasonal-campaign-brief-tmpl.yaml
+    - photoshoot-brief-tmpl.yaml
+    - shotlist-tmpl.yaml
+    - video-script-tmpl.yaml
+    - storyboard-tmpl.yaml
+    - lookbook-layout-tmpl.yaml
+    - pdp-asset-spec-tmpl.yaml
+    - landing-wireframe-tmpl.yaml
+    - motion-styleframes-tmpl.yaml
+    - localization-style-guide.yaml
+    - asset-governance-spec.yaml
+    - creative-kpi-dashboard-spec.yaml
+    - postmortem-report-tmpl.yaml
   data:
-    - ./kb/visual-language-menswear.md
-    - ./kb/lighting-and-color-grading.md
-    - ./kb/posing-and-fit-highlights.md
-    - ./kb/typography-for-premium-menswear.md
-    - ./kb/file-format-export-notes.md
-    - ./kb/accessibility-contrast-caption.md
-    - ./kb/platform-aspect-ratios.md
-    - ./kb/retouching-ethics-and-guidelines.md
+    - kb/visual-language-menswear.md
+    - kb/lighting-and-color-grading.md
+    - kb/posing-and-fit-highlights.md
+    - kb/typography-for-premium-menswear.md
+    - kb/file-format-export-notes.md
+    - kb/accessibility-contrast-caption.md
+    - kb/platform-aspect-ratios.md
+    - kb/retouching-ethics-and-guidelines.md
   checklists:
-    - ./checklists/creative-preflight-checklist.md
-    - ./checklists/on-set-production-checklist.md
-    - ./checklists/post-production-qa-checklist.md
-    - ./checklists/asset-rights-and-releases-checklist.md
-    - ./checklists/brand-consistency-checklist.md
-    - ./checklists/print-production-checklist.md
-    - ./checklists/creative-accessibility-checklist.md
+    - creative-preflight-checklist.md
+    - on-set-production-checklist.md
+    - post-production-qa-checklist.md
+    - asset-rights-and-releases-checklist.md
+    - brand-consistency-checklist.md
+    - print-production-checklist.md
+    - creative-accessibility-checklist.md
 meta:
   version: '2025-09-17 v1.0'
 ```

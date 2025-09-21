@@ -38,13 +38,13 @@ persona:
 commands:
   help: 以编号列表显示所有可用命令
   kb-mode: 进入知识库模式，按专题编号浏览
-  create-g2m: 执行任务 ./tasks/create-g2m-plan.md（季度GTM）
-  plan-seasonal: 执行任务 ./tasks/plan-seasonal-campaign.md（季节战役）
-  personas: 执行任务 ./tasks/define-personas.md（人群细分与画像）
-  pricing: 执行任务 ./tasks/pricing-and-promo.md（定价与促销）
-  crm-journey: 执行任务 ./tasks/crm-journey.md（私域旅程与自动化）
-  seo-brief: 执行任务 ./tasks/seo-content-brief.md（SEO/内容）
-  retail-activation: 执行任务 ./tasks/retail-activation-plan.md（门店/快闪拉动）
+  create-g2m: 执行任务 create-g2m-plan.md（季度GTM）
+  plan-seasonal: 执行任务 plan-seasonal-campaign.md（季节战役）
+  personas: 执行任务 define-personas.md（人群细分与画像）
+  pricing: 执行任务 pricing-and-promo.md（定价与促销）
+  crm-journey: 执行任务 crm-journey.md（私域旅程与自动化）
+  seo-brief: 执行任务 seo-content-brief.md（SEO/内容）
+  retail-activation: 执行任务 retail-activation-plan.md（门店/快闪拉动）
   create-doc {template}: 基于模板生成文档（列举见 dependencies.templates）
   execute-checklist {checklist}: 运行检查清单（列举见 dependencies.checklists）
   doc-out: 输出当前文档
@@ -52,33 +52,33 @@ commands:
   exit: 退出本Agent
 dependencies:
   tasks:
-    - ./tasks/create-g2m-plan.md
-    - ./tasks/plan-seasonal-campaign.md
-    - ./tasks/define-personas.md
-    - ./tasks/pricing-and-promo.md
-    - ./tasks/crm-journey.md
-    - ./tasks/seo-content-brief.md
-    - ./tasks/retail-activation-plan.md
+    - create-g2m-plan.md
+    - plan-seasonal-campaign.md
+    - define-personas.md
+    - pricing-and-promo.md
+    - crm-journey.md
+    - seo-content-brief.md
+    - retail-activation-plan.md
   templates:
-    - ./templates/suit-marketing-plan-tmpl.yaml
-    - ./templates/seasonal-campaign-brief-tmpl.yaml
-    - ./templates/buyer-persona-tmpl.yaml
-    - ./templates/pricing-promo-strategy-tmpl.yaml
-    - ./templates/crm-journey-tmpl.yaml
-    - ./templates/ad-copy-bundle-tmpl.yaml
-    - ./templates/landing-page-tmpl.yaml
-    - ./templates/content-calendar-tmpl.yaml
+    - suit-marketing-plan-tmpl.yaml
+    - seasonal-campaign-brief-tmpl.yaml
+    - buyer-persona-tmpl.yaml
+    - pricing-promo-strategy-tmpl.yaml
+    - crm-journey-tmpl.yaml
+    - ad-copy-bundle-tmpl.yaml
+    - landing-page-tmpl.yaml
+    - content-calendar-tmpl.yaml
   data:
-    - ./kb/menswear-glossary.md
-    - ./kb/fabrics-guide.md
-    - ./kb/sizing-fit-kb.md
-    - ./kb/customer-segmentation.md
-    - ./kb/seasonal-promo-calendar.md
+    - kb/menswear-glossary.md
+    - kb/fabrics-guide.md
+    - kb/sizing-fit-kb.md
+    - kb/customer-segmentation.md
+    - kb/seasonal-promo-calendar.md
   checklists:
-    - ./checklists/marketing-readiness-checklist.md
-    - ./checklists/campaign-qa-checklist.md
-    - ./checklists/brand-compliance-checklist.md
-    - ./checklists/ecommerce-asset-checklist.md
+    - marketing-readiness-checklist.md
+    - campaign-qa-checklist.md
+    - brand-compliance-checklist.md
+    - ecommerce-asset-checklist.md
 meta:
   version: '2025-09-17 v1.0'
 ```

@@ -43,22 +43,22 @@ persona:
 commands:
   help: 显示可用命令（编号选择）
   kb-mode: 浏览知识库主题
-  crm-arch: 执行 ./tasks/crm-architecture-and-contracts.md
-  consent: 执行 ./tasks/consent-and-preference-center.md
-  events: 执行 ./tasks/event-taxonomy-and-tracking.md
-  segmentation: 执行 ./tasks/segmentation-and-scoring.md
-  lifecycle: 执行 ./tasks/lifecycle-journeys-suite.md
-  tailoring: 执行 ./tasks/tailoring-and-alteration-journeys.md
-  orchestration: 执行 ./tasks/channel-orchestration-and-capping.md
-  deliverability: 执行 ./tasks/email-deliverability-and-reputation.md
-  offers: 执行 ./tasks/offer-engine-and-coupons.md
-  loyalty: 执行 ./tasks/loyalty-program-spec.md
-  reverse-etl: 执行 ./tasks/reverse-etl-and-platform-sync.md
-  offline-upload: 执行 ./tasks/offline-conversion-uploads.md
-  dashboards: 执行 ./tasks/kpi-dashboard-and-holdouts.md
-  abtest: 执行 ./tasks/ab-testing-and-holdout-design.md
-  ops: 执行 ./tasks/weekly-ops-ritual.md
-  security: 执行 ./tasks/privacy-security-and-retention.md
+  crm-arch: 执行 crm-architecture-and-contracts.md
+  consent: 执行 consent-and-preference-center.md
+  events: 执行 event-taxonomy-and-tracking.md
+  segmentation: 执行 segmentation-and-scoring.md
+  lifecycle: 执行 lifecycle-journeys-suite.md
+  tailoring: 执行 tailoring-and-alteration-journeys.md
+  orchestration: 执行 channel-orchestration-and-capping.md
+  deliverability: 执行 email-deliverability-and-reputation.md
+  offers: 执行 offer-engine-and-coupons.md
+  loyalty: 执行 loyalty-program-spec.md
+  reverse-etl: 执行 reverse-etl-and-platform-sync.md
+  offline-upload: 执行 offline-conversion-uploads.md
+  dashboards: 执行 kpi-dashboard-and-holdouts.md
+  abtest: 执行 ab-testing-and-holdout-design.md
+  ops: 执行 weekly-ops-ritual.md
+  security: 执行 privacy-security-and-retention.md
   create-doc {template}: 基于模板生成文档（见 dependencies.templates）
   execute-checklist {checklist}: 运行检查清单（见 dependencies.checklists）
   doc-out: 输出当前文档
@@ -66,63 +66,63 @@ commands:
 
 dependencies:
   tasks:
-    - ./tasks/crm-architecture-and-contracts.md
-    - ./tasks/consent-and-preference-center.md
-    - ./tasks/event-taxonomy-and-tracking.md
-    - ./tasks/segmentation-and-scoring.md
-    - ./tasks/lifecycle-journeys-suite.md
-    - ./tasks/tailoring-and-alteration-journeys.md
-    - ./tasks/channel-orchestration-and-capping.md
-    - ./tasks/email-deliverability-and-reputation.md
-    - ./tasks/offer-engine-and-coupons.md
-    - ./tasks/loyalty-program-spec.md
-    - ./tasks/reverse-etl-and-platform-sync.md
-    - ./tasks/offline-conversion-uploads.md
-    - ./tasks/kpi-dashboard-and-holdouts.md
-    - ./tasks/ab-testing-and-holdout-design.md
-    - ./tasks/weekly-ops-ritual.md
-    - ./tasks/privacy-security-and-retention.md
+    - crm-architecture-and-contracts.md
+    - consent-and-preference-center.md
+    - event-taxonomy-and-tracking.md
+    - segmentation-and-scoring.md
+    - lifecycle-journeys-suite.md
+    - tailoring-and-alteration-journeys.md
+    - channel-orchestration-and-capping.md
+    - email-deliverability-and-reputation.md
+    - offer-engine-and-coupons.md
+    - loyalty-program-spec.md
+    - reverse-etl-and-platform-sync.md
+    - offline-conversion-uploads.md
+    - kpi-dashboard-and-holdouts.md
+    - ab-testing-and-holdout-design.md
+    - weekly-ops-ritual.md
+    - privacy-security-and-retention.md
   templates:
-    - ./templates/data-model-customer.yaml
-    - ./templates/event-taxonomy.yaml
-    - ./templates/segmentation-spec.yaml
-    - ./templates/journey-brief-tmpl.yaml
-    - ./templates/message-copy-pack-tmpl.yaml
-    - ./templates/channel-orchestration-tmpl.yaml
-    - ./templates/offer-catalog-tmpl.yaml
-    - ./templates/coupon-rules-tmpl.yaml
-    - ./templates/loyalty-spec-tmpl.yaml
-    - ./templates/deliverability-playbook.yaml
-    - ./templates/abtest-brief-tmpl.yaml
-    - ./templates/dashboard-spec-tmpl.yaml
-    - ./templates/runbook-weekly-ops.yaml
-    - ./templates/reverse-etl-mapping.yaml
-    - ./templates/privacy-consent-records.yaml
-    - ./templates/preference-center-spec.yaml
+    - data-model-customer.yaml
+    - event-taxonomy.yaml
+    - segmentation-spec.yaml
+    - journey-brief-tmpl.yaml
+    - message-copy-pack-tmpl.yaml
+    - channel-orchestration-tmpl.yaml
+    - offer-catalog-tmpl.yaml
+    - coupon-rules-tmpl.yaml
+    - loyalty-spec-tmpl.yaml
+    - deliverability-playbook.yaml
+    - abtest-brief-tmpl.yaml
+    - dashboard-spec-tmpl.yaml
+    - runbook-weekly-ops.yaml
+    - reverse-etl-mapping.yaml
+    - privacy-consent-records.yaml
+    - preference-center-spec.yaml
   data:
-    - ./kb/menswear-lifecycle-insights.md
-    - ./kb/tailoring-journeys.md
-    - ./kb/deliverability-best-practices.md
-    - ./kb/consent-and-privacy-basics.md
-    - ./kb/messaging-cadence-benchmarks.md
-    - ./kb/campaign-ideas-calendar.md
-    - ./kb/coupon-abuse-prevention.md
-    - ./kb/data-quality-qa.md
-    - ./kb/channel-tips.md
-    - ./kb/personalization-blocks-library.md
+    - kb/menswear-lifecycle-insights.md
+    - kb/tailoring-journeys.md
+    - kb/deliverability-best-practices.md
+    - kb/consent-and-privacy-basics.md
+    - kb/messaging-cadence-benchmarks.md
+    - kb/campaign-ideas-calendar.md
+    - kb/coupon-abuse-prevention.md
+    - kb/data-quality-qa.md
+    - kb/channel-tips.md
+    - kb/personalization-blocks-library.md
   checklists:
-    - ./checklists/crm-architecture-checklist.md
-    - ./checklists/data-contracts-checklist.md
-    - ./checklists/consent-compliance-checklist.md
-    - ./checklists/deliverability-checklist.md
-    - ./checklists/journey-qc-checklist.md
-    - ./checklists/message-preflight-checklist.md
-    - ./checklists/offer-rules-checklist.md
-    - ./checklists/loyalty-program-checklist.md
-    - ./checklists/reverse-etl-checklist.md
-    - ./checklists/offline-upload-checklist.md
-    - ./checklists/dashboard-qc-checklist.md
-    - ./checklists/incident-response-checklist.md
+    - crm-architecture-checklist.md
+    - data-contracts-checklist.md
+    - consent-compliance-checklist.md
+    - deliverability-checklist.md
+    - journey-qc-checklist.md
+    - message-preflight-checklist.md
+    - offer-rules-checklist.md
+    - loyalty-program-checklist.md
+    - reverse-etl-checklist.md
+    - offline-upload-checklist.md
+    - dashboard-qc-checklist.md
+    - incident-response-checklist.md
 meta:
   version: '2025-09-17 v1.0'
 ```

@@ -42,23 +42,23 @@ persona:
 commands:
   help: 显示可用命令（编号选择）
   kb-mode: 浏览知识库主题
-  strategy: 执行 ./tasks/sourcing-strategy-and-vendor-portfolio.md
-  fabrics: 执行 ./tasks/fabric-library-and-testing.md
-  costing: 执行 ./tasks/costing-and-negotiation-playbook.md
-  moq-yield: 执行 ./tasks/moq-mcq-and-yield-optimization.md
-  sampling: 执行 ./tasks/sampling-labdip-strikeoff-and-sealing.md
-  tna: 执行 ./tasks/tna-calendar-and-wip-tracking.md
-  po-capacity: 执行 ./tasks/po-and-capacity-allocation.md
-  qc: 执行 ./tasks/qc-aql-and-four-point-inspection.md
-  rsl: 执行 ./tasks/rsl-and-chemical-compliance.md
-  labeling: 执行 ./tasks/care-label-packaging-and-labeling.md
-  sustainability: 执行 ./tasks/sustainability-traceability-and-certifications.md
-  risk: 执行 ./tasks/risk-management-and-contingency.md
-  logistics: 执行 ./tasks/inbound-logistics-and-incoterms.md
-  scorecard: 执行 ./tasks/vendor-scorecard-and-qbr.md
-  substitution: 执行 ./tasks/fabric-substitution-and-availability-plan.md
-  techpack: 执行 ./tasks/techpack-and-bom-governance.md
-  returns: 执行 ./tasks/returns-defects-feedback-loop.md
+  strategy: 执行 sourcing-strategy-and-vendor-portfolio.md
+  fabrics: 执行 fabric-library-and-testing.md
+  costing: 执行 costing-and-negotiation-playbook.md
+  moq-yield: 执行 moq-mcq-and-yield-optimization.md
+  sampling: 执行 sampling-labdip-strikeoff-and-sealing.md
+  tna: 执行 tna-calendar-and-wip-tracking.md
+  po-capacity: 执行 po-and-capacity-allocation.md
+  qc: 执行 qc-aql-and-four-point-inspection.md
+  rsl: 执行 rsl-and-chemical-compliance.md
+  labeling: 执行 care-label-packaging-and-labeling.md
+  sustainability: 执行 sustainability-traceability-and-certifications.md
+  risk: 执行 risk-management-and-contingency.md
+  logistics: 执行 inbound-logistics-and-incoterms.md
+  scorecard: 执行 vendor-scorecard-and-qbr.md
+  substitution: 执行 fabric-substitution-and-availability-plan.md
+  techpack: 执行 techpack-and-bom-governance.md
+  returns: 执行 returns-defects-feedback-loop.md
   create-doc {template}: 基于模板生成文档（见 dependencies.templates）
   execute-checklist {checklist}: 运行检查清单（见 dependencies.checklists）
   doc-out: 输出当前文档
@@ -66,87 +66,87 @@ commands:
 
 dependencies:
   tasks:
-    - ./tasks/sourcing-strategy-and-vendor-portfolio.md
-    - ./tasks/fabric-library-and-testing.md
-    - ./tasks/costing-and-negotiation-playbook.md
-    - ./tasks/moq-mcq-and-yield-optimization.md
-    - ./tasks/sampling-labdip-strikeoff-and-sealing.md
-    - ./tasks/tna-calendar-and-wip-tracking.md
-    - ./tasks/po-and-capacity-allocation.md
-    - ./tasks/qc-aql-and-four-point-inspection.md
-    - ./tasks/rsl-and-chemical-compliance.md
-    - ./tasks/care-label-packaging-and-labeling.md
-    - ./tasks/sustainability-traceability-and-certifications.md
-    - ./tasks/risk-management-and-contingency.md
-    - ./tasks/inbound-logistics-and-incoterms.md
-    - ./tasks/vendor-scorecard-and-qbr.md
-    - ./tasks/fabric-substitution-and-availability-plan.md
-    - ./tasks/techpack-and-bom-governance.md
-    - ./tasks/returns-defects-feedback-loop.md
+    - sourcing-strategy-and-vendor-portfolio.md
+    - fabric-library-and-testing.md
+    - costing-and-negotiation-playbook.md
+    - moq-mcq-and-yield-optimization.md
+    - sampling-labdip-strikeoff-and-sealing.md
+    - tna-calendar-and-wip-tracking.md
+    - po-and-capacity-allocation.md
+    - qc-aql-and-four-point-inspection.md
+    - rsl-and-chemical-compliance.md
+    - care-label-packaging-and-labeling.md
+    - sustainability-traceability-and-certifications.md
+    - risk-management-and-contingency.md
+    - inbound-logistics-and-incoterms.md
+    - vendor-scorecard-and-qbr.md
+    - fabric-substitution-and-availability-plan.md
+    - techpack-and-bom-governance.md
+    - returns-defects-feedback-loop.md
   templates:
-    - ./templates/vendor-master.yaml
-    - ./templates/vendor-onboarding-checklist.yaml
-    - ./templates/contract-clauses-outline.yaml
-    - ./templates/fabric-spec-sheet.yaml
-    - ./templates/trim-spec-sheet.yaml
-    - ./templates/test-plan-rsl.yaml
-    - ./templates/bom-template.yaml
-    - ./templates/cost-breakdown-sheet.yaml
-    - ./templates/moq-mcq-calculator.yaml
-    - ./templates/yield-consumption-spec.yaml
-    - ./templates/lab-dip-approval-form.yaml
-    - ./templates/strike-off-approval-form.yaml
-    - ./templates/pp-seal-record.yaml
-    - ./templates/tna-calendar.yaml
-    - ./templates/po-template.yaml
-    - ./templates/capacity-plan.yaml
-    - ./templates/aql-plan.yaml
-    - ./templates/four-point-inspection-sheet.yaml
-    - ./templates/care-label-spec.yaml
-    - ./templates/packaging-spec.yaml
-    - ./templates/rsl-declaration-form.yaml
-    - ./templates/supplier-scorecard.yaml
-    - ./templates/qbr-deck.yaml
-    - ./templates/risk-register.yaml
-    - ./templates/logistics-booking-sheet.yaml
-    - ./templates/incoterms-policy.yaml
-    - ./templates/coa-coc-template.yaml
-    - ./templates/sustainability-evidence-log.yaml
-    - ./templates/traceability-bom.yaml
-    - ./templates/fabric-substitution-matrix.yaml
+    - vendor-master.yaml
+    - vendor-onboarding-checklist.yaml
+    - contract-clauses-outline.yaml
+    - fabric-spec-sheet.yaml
+    - trim-spec-sheet.yaml
+    - test-plan-rsl.yaml
+    - bom-template.yaml
+    - cost-breakdown-sheet.yaml
+    - moq-mcq-calculator.yaml
+    - yield-consumption-spec.yaml
+    - lab-dip-approval-form.yaml
+    - strike-off-approval-form.yaml
+    - pp-seal-record.yaml
+    - tna-calendar.yaml
+    - po-template.yaml
+    - capacity-plan.yaml
+    - aql-plan.yaml
+    - four-point-inspection-sheet.yaml
+    - care-label-spec.yaml
+    - packaging-spec.yaml
+    - rsl-declaration-form.yaml
+    - supplier-scorecard.yaml
+    - qbr-deck.yaml
+    - risk-register.yaml
+    - logistics-booking-sheet.yaml
+    - incoterms-policy.yaml
+    - coa-coc-template.yaml
+    - sustainability-evidence-log.yaml
+    - traceability-bom.yaml
+    - fabric-substitution-matrix.yaml
   data:
-    - ./kb/suiting-fabric-glossary.md
-    - ./kb/weave-and-finish-guide.md
-    - ./kb/trims-compatibility-guide.md
-    - ./kb/testing-basics-iso-astm.md
-    - ./kb/rsl-overview-and-sources.md
-    - ./kb/four-point-system-guide.md
-    - ./kb/yield-calculation-for-suits.md
-    - ./kb/moq-mcq-leadtime-patterns.md
-    - ./kb/incoterms-quickref.md
-    - ./kb/sourcing-risk-patterns.md
-    - ./kb/fabric-storage-and-shade-bands.md
-    - ./kb/sustainability-standards.md
+    - kb/suiting-fabric-glossary.md
+    - kb/weave-and-finish-guide.md
+    - kb/trims-compatibility-guide.md
+    - kb/testing-basics-iso-astm.md
+    - kb/rsl-overview-and-sources.md
+    - kb/four-point-system-guide.md
+    - kb/yield-calculation-for-suits.md
+    - kb/moq-mcq-leadtime-patterns.md
+    - kb/incoterms-quickref.md
+    - kb/sourcing-risk-patterns.md
+    - kb/fabric-storage-and-shade-bands.md
+    - kb/sustainability-standards.md
   checklists:
-    - ./checklists/vendor-onboarding.md
-    - ./checklists/mill-audit-capability.md
-    - ./checklists/lab-dip-submission-review.md
-    - ./checklists/bulk-shade-approval.md
-    - ./checklists/test-report-review.md
-    - ./checklists/ppm-preproduction-meeting.md
-    - ./checklists/inline-dupro-checklist.md
-    - ./checklists/pre-shipment-inspection.md
-    - ./checklists/roll-inspection-receiving.md
-    - ./checklists/fabric-storage-housekeeping.md
-    - ./checklists/po-release-readiness.md
-    - ./checklists/packing-confirmation.md
-    - ./checklists/rsl-compliance-checklist.md
-    - ./checklists/traceability-audit.md
-    - ./checklists/risk-escalation-playbook.md
-    - ./checklists/shipment-booking-cutoffs.md
-    - ./checklists/coa-coc-completeness.md
-    - ./checklists/shade-band-build-and-control.md
-    - ./checklists/fabric-substitution-decision.md
+    - vendor-onboarding.md
+    - mill-audit-capability.md
+    - lab-dip-submission-review.md
+    - bulk-shade-approval.md
+    - test-report-review.md
+    - ppm-preproduction-meeting.md
+    - inline-dupro-checklist.md
+    - pre-shipment-inspection.md
+    - roll-inspection-receiving.md
+    - fabric-storage-housekeeping.md
+    - po-release-readiness.md
+    - packing-confirmation.md
+    - rsl-compliance-checklist.md
+    - traceability-audit.md
+    - risk-escalation-playbook.md
+    - shipment-booking-cutoffs.md
+    - coa-coc-completeness.md
+    - shade-band-build-and-control.md
+    - fabric-substitution-decision.md
 meta:
   version: '2025-09-17 v1.0'
 ```

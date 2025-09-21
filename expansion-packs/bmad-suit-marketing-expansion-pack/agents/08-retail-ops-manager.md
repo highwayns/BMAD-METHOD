@@ -44,20 +44,20 @@ persona:
 commands:
   help: 显示可用命令（编号选择）
   kb-mode: 浏览知识库主题
-  sop-store: 执行 ./tasks/store-sop-suite.md
-  appointment: 执行 ./tasks/appointment-and-fittings-ops.md
-  alterations: 执行 ./tasks/alterations-workflow-and-sla.md
-  vm: 执行 ./tasks/vm-and-merchandising.md
-  inventory: 执行 ./tasks/inventory-receiving-counting-transfers.md
-  omnichannel: 执行 ./tasks/omnichannel-flows-bopis-rtv.md
-  service: 执行 ./tasks/service-nps-and-complaints.md
-  staffing: 执行 ./tasks/workforce-skills-and-scheduling.md
-  training: 执行 ./tasks/training-and-certification-program.md
-  promo: 执行 ./tasks/promo-execution-and-store-readiness.md
-  safety: 执行 ./tasks/safety-cash-and-compliance.md
-  audit: 执行 ./tasks/store-audit-and-scorecard.md
-  dashboard: 执行 ./tasks/retail-kpi-dashboard-and-alerts.md
-  peak: 执行 ./tasks/peak-season-operations-plan.md
+  sop-store: 执行 store-sop-suite.md
+  appointment: 执行 appointment-and-fittings-ops.md
+  alterations: 执行 alterations-workflow-and-sla.md
+  vm: 执行 vm-and-merchandising.md
+  inventory: 执行 inventory-receiving-counting-transfers.md
+  omnichannel: 执行 omnichannel-flows-bopis-rtv.md
+  service: 执行 service-nps-and-complaints.md
+  staffing: 执行 workforce-skills-and-scheduling.md
+  training: 执行 training-and-certification-program.md
+  promo: 执行 promo-execution-and-store-readiness.md
+  safety: 执行 safety-cash-and-compliance.md
+  audit: 执行 store-audit-and-scorecard.md
+  dashboard: 执行 retail-kpi-dashboard-and-alerts.md
+  peak: 执行 peak-season-operations-plan.md
   create-doc {template}: 基于模板生成文档（见 dependencies.templates）
   execute-checklist {checklist}: 运行检查清单（见 dependencies.checklists）
   doc-out: 输出当前文档
@@ -65,77 +65,77 @@ commands:
 
 dependencies:
   tasks:
-    - ./tasks/store-sop-suite.md
-    - ./tasks/appointment-and-fittings-ops.md
-    - ./tasks/alterations-workflow-and-sla.md
-    - ./tasks/vm-and-merchandising.md
-    - ./tasks/inventory-receiving-counting-transfers.md
-    - ./tasks/omnichannel-flows-bopis-rtv.md
-    - ./tasks/service-nps-and-complaints.md
-    - ./tasks/workforce-skills-and-scheduling.md
-    - ./tasks/training-and-certification-program.md
-    - ./tasks/promo-execution-and-store-readiness.md
-    - ./tasks/safety-cash-and-compliance.md
-    - ./tasks/store-audit-and-scorecard.md
-    - ./tasks/retail-kpi-dashboard-and-alerts.md
-    - ./tasks/peak-season-operations-plan.md
+    - store-sop-suite.md
+    - appointment-and-fittings-ops.md
+    - alterations-workflow-and-sla.md
+    - vm-and-merchandising.md
+    - inventory-receiving-counting-transfers.md
+    - omnichannel-flows-bopis-rtv.md
+    - service-nps-and-complaints.md
+    - workforce-skills-and-scheduling.md
+    - training-and-certification-program.md
+    - promo-execution-and-store-readiness.md
+    - safety-cash-and-compliance.md
+    - store-audit-and-scorecard.md
+    - retail-kpi-dashboard-and-alerts.md
+    - peak-season-operations-plan.md
   templates:
-    - ./templates/store-open-close-sop.yaml
-    - ./templates/daily-operations-runbook.yaml
-    - ./templates/appointment-sop.yaml
-    - ./templates/fitting-room-checklist.yaml
-    - ./templates/alteration-job-ticket.yaml
-    - ./templates/alteration-tracking-log.yaml
-    - ./templates/vm-planogram.yaml
-    - ./templates/look-coordination-guide.yaml
-    - ./templates/inventory-receiving-sop.yaml
-    - ./templates/cycle-count-plan.yaml
-    - ./templates/transfer-rtv-sop.yaml
-    - ./templates/omnichannel-bopis-sop.yaml
-    - ./templates/returns-and-exchanges-sop.yaml
-    - ./templates/service-scripts-and-faq.yaml
-    - ./templates/nps-callback-script.yaml
-    - ./templates/complaint-escalation-sop.yaml
-    - ./templates/skills-matrix-template.yaml
-    - ./templates/scheduling-template.yaml
-    - ./templates/training-tracker.yaml
-    - ./templates/promo-execution-brief.yaml
-    - ./templates/store-readiness-checklist.yaml
-    - ./templates/safety-and-cash-handling-sop.yaml
-    - ./templates/store-audit-scorecard.yaml
-    - ./templates/retail-dashboard-spec.yaml
-    - ./templates/peak-operations-plan.yaml
+    - store-open-close-sop.yaml
+    - daily-operations-runbook.yaml
+    - appointment-sop.yaml
+    - fitting-room-checklist.yaml
+    - alteration-job-ticket.yaml
+    - alteration-tracking-log.yaml
+    - vm-planogram.yaml
+    - look-coordination-guide.yaml
+    - inventory-receiving-sop.yaml
+    - cycle-count-plan.yaml
+    - transfer-rtv-sop.yaml
+    - omnichannel-bopis-sop.yaml
+    - returns-and-exchanges-sop.yaml
+    - service-scripts-and-faq.yaml
+    - nps-callback-script.yaml
+    - complaint-escalation-sop.yaml
+    - skills-matrix-template.yaml
+    - scheduling-template.yaml
+    - training-tracker.yaml
+    - promo-execution-brief.yaml
+    - store-readiness-checklist.yaml
+    - safety-and-cash-handling-sop.yaml
+    - store-audit-scorecard.yaml
+    - retail-dashboard-spec.yaml
+    - peak-operations-plan.yaml
   data:
-    - ./kb/alteration-common-issues.md
-    - ./kb/measurement-basics.md
-    - ./kb/fabric-handling-and-care.md
-    - ./kb/stain-removal-quickref.md
-    - ./kb/customer-scenarios-and-scripts.md
-    - ./kb/vm-color-stories.md
-    - ./kb/bopis-pitfalls.md
-    - ./kb/fraud-and-lp-signs.md
-    - ./kb/store-safety-basics.md
+    - kb/alteration-common-issues.md
+    - kb/measurement-basics.md
+    - kb/fabric-handling-and-care.md
+    - kb/stain-removal-quickref.md
+    - kb/customer-scenarios-and-scripts.md
+    - kb/vm-color-stories.md
+    - kb/bopis-pitfalls.md
+    - kb/fraud-and-lp-signs.md
+    - kb/store-safety-basics.md
   checklists:
-    - ./checklists/opening-checklist.md
-    - ./checklists/closing-checklist.md
-    - ./checklists/daily-housekeeping-checklist.md
-    - ./checklists/cash-reconciliation-checklist.md
-    - ./checklists/pos-daily-qa-checklist.md
-    - ./checklists/appointment-day-checklist.md
-    - ./checklists/fitting-room-checklist.md
-    - ./checklists/alterations-intake-checklist.md
-    - ./checklists/alterations-delivery-checklist.md
-    - ./checklists/inventory-receiving-checklist.md
-    - ./checklists/cycle-count-checklist.md
-    - ./checklists/transfer-dispatch-checklist.md
-    - ./checklists/bopis-handoff-checklist.md
-    - ./checklists/returns-exchanges-checklist.md
-    - ./checklists/nps-callback-checklist.md
-    - ./checklists/promo-tagup-checklist.md
-    - ./checklists/vm-weekly-audit-checklist.md
-    - ./checklists/safety-compliance-audit.md
-    - ./checklists/incident-escalation-checklist.md
-    - ./checklists/store-audit-scorecard.md
+    - opening-checklist.md
+    - closing-checklist.md
+    - daily-housekeeping-checklist.md
+    - cash-reconciliation-checklist.md
+    - pos-daily-qa-checklist.md
+    - appointment-day-checklist.md
+    - fitting-room-checklist.md
+    - alterations-intake-checklist.md
+    - alterations-delivery-checklist.md
+    - inventory-receiving-checklist.md
+    - cycle-count-checklist.md
+    - transfer-dispatch-checklist.md
+    - bopis-handoff-checklist.md
+    - returns-exchanges-checklist.md
+    - nps-callback-checklist.md
+    - promo-tagup-checklist.md
+    - vm-weekly-audit-checklist.md
+    - safety-compliance-audit.md
+    - incident-escalation-checklist.md
+    - store-audit-scorecard.md
 meta:
   version: '2025-09-17 v1.0'
 ```

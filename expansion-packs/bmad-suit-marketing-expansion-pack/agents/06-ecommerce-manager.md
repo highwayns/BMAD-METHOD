@@ -42,24 +42,24 @@ persona:
 commands:
   help: 显示可用命令（编号选择）
   kb-mode: 浏览知识库主题
-  arch: 执行 ./tasks/ecom-architecture-and-systems.md
-  merch: 执行 ./tasks/merchandising-plan.md
-  taxonomy: 执行 ./tasks/catalog-and-taxonomy.md
-  promo: 执行 ./tasks/pricing-and-promo-calendar.md
-  seo-search: 执行 ./tasks/seo-and-site-search.md
-  plp-pdp: 执行 ./tasks/plp-pdp-optimization.md
-  checkout: 执行 ./tasks/checkout-and-payments.md
-  shipping-returns: 执行 ./tasks/shipping-and-returns.md
-  reviews-ugc: 执行 ./tasks/reviews-and-ugc-management.md
-  loyalty: 执行 ./tasks/loyalty-and-membership.md
-  personalization: 执行 ./tasks/personalization-and-recos.md
-  abtest: 执行 ./tasks/ab-testing-program.md
-  marketplace: 执行 ./tasks/marketplace-integration.md
-  inventory-oms: 执行 ./tasks/inventory-and-oms-sync.md
-  cs-sop: 执行 ./tasks/customer-service-sop.md
-  analytics: 执行 ./tasks/analytics-and-monitoring.md
-  security: 执行 ./tasks/fraud-and-privacy-controls.md
-  accessibility: 执行 ./tasks/ecom-accessibility.md
+  arch: 执行 ecom-architecture-and-systems.md
+  merch: 执行 merchandising-plan.md
+  taxonomy: 执行 catalog-and-taxonomy.md
+  promo: 执行 pricing-and-promo-calendar.md
+  seo-search: 执行 seo-and-site-search.md
+  plp-pdp: 执行 plp-pdp-optimization.md
+  checkout: 执行 checkout-and-payments.md
+  shipping-returns: 执行 shipping-and-returns.md
+  reviews-ugc: 执行 reviews-and-ugc-management.md
+  loyalty: 执行 loyalty-and-membership.md
+  personalization: 执行 personalization-and-recos.md
+  abtest: 执行 ab-testing-program.md
+  marketplace: 执行 marketplace-integration.md
+  inventory-oms: 执行 inventory-and-oms-sync.md
+  cs-sop: 执行 customer-service-sop.md
+  analytics: 执行 analytics-and-monitoring.md
+  security: 执行 fraud-and-privacy-controls.md
+  accessibility: 执行 ecom-accessibility.md
   create-doc {template}: 基于模板生成文档（见 dependencies.templates）
   execute-checklist {checklist}: 运行检查清单（见 dependencies.checklists）
   doc-out: 输出当前文档
@@ -67,67 +67,67 @@ commands:
 
 dependencies:
   tasks:
-    - ./tasks/ecom-architecture-and-systems.md
-    - ./tasks/merchandising-plan.md
-    - ./tasks/catalog-and-taxonomy.md
-    - ./tasks/pricing-and-promo-calendar.md
-    - ./tasks/seo-and-site-search.md
-    - ./tasks/plp-pdp-optimization.md
-    - ./tasks/checkout-and-payments.md
-    - ./tasks/shipping-and-returns.md
-    - ./tasks/reviews-and-ugc-management.md
-    - ./tasks/loyalty-and-membership.md
-    - ./tasks/personalization-and-recos.md
-    - ./tasks/ab-testing-program.md
-    - ./tasks/marketplace-integration.md
-    - ./tasks/inventory-and-oms-sync.md
-    - ./tasks/customer-service-sop.md
-    - ./tasks/analytics-and-monitoring.md
-    - ./tasks/fraud-and-privacy-controls.md
-    - ./tasks/ecom-accessibility.md
+    - ecom-architecture-and-systems.md
+    - merchandising-plan.md
+    - catalog-and-taxonomy.md
+    - pricing-and-promo-calendar.md
+    - seo-and-site-search.md
+    - plp-pdp-optimization.md
+    - checkout-and-payments.md
+    - shipping-and-returns.md
+    - reviews-and-ugc-management.md
+    - loyalty-and-membership.md
+    - personalization-and-recos.md
+    - ab-testing-program.md
+    - marketplace-integration.md
+    - inventory-and-oms-sync.md
+    - customer-service-sop.md
+    - analytics-and-monitoring.md
+    - fraud-and-privacy-controls.md
+    - ecom-accessibility.md
   templates:
-    - ./templates/site-architecture-tmpl.yaml
-    - ./templates/merch-calendar-tmpl.yaml
-    - ./templates/taxonomy-spec-tmpl.yaml
-    - ./templates/promo-campaign-tmpl.yaml
-    - ./templates/seo-brief-tmpl.yaml
-    - ./templates/plp-layout-tmpl.yaml
-    - ./templates/pdp-template-tmpl.yaml
-    - ./templates/checkout-flow-tmpl.yaml
-    - ./templates/shipping-returns-policy-tmpl.yaml
-    - ./templates/reviews-ugc-sop-tmpl.yaml
-    - ./templates/loyalty-program-tmpl.yaml
-    - ./templates/personalization-rules-tmpl.yaml
-    - ./templates/ab-test-brief-tmpl.yaml
-    - ./templates/marketplace-feed-mapping-tmpl.yaml
-    - ./templates/oms-sync-spec-tmpl.yaml
-    - ./templates/cs-response-scripts-tmpl.yaml
-    - ./templates/ecom-dashboard-spec.yaml
+    - site-architecture-tmpl.yaml
+    - merch-calendar-tmpl.yaml
+    - taxonomy-spec-tmpl.yaml
+    - promo-campaign-tmpl.yaml
+    - seo-brief-tmpl.yaml
+    - plp-layout-tmpl.yaml
+    - pdp-template-tmpl.yaml
+    - checkout-flow-tmpl.yaml
+    - shipping-returns-policy-tmpl.yaml
+    - reviews-ugc-sop-tmpl.yaml
+    - loyalty-program-tmpl.yaml
+    - personalization-rules-tmpl.yaml
+    - ab-test-brief-tmpl.yaml
+    - marketplace-feed-mapping-tmpl.yaml
+    - oms-sync-spec-tmpl.yaml
+    - cs-response-scripts-tmpl.yaml
+    - ecom-dashboard-spec.yaml
   data:
-    - ./kb/pdp-structure-best-practices.md
-    - ./kb/fit-guide-writing.md
-    - ./kb/fabric-and-construction-glossary.md
-    - ./kb/size-chart-and-returns.md
-    - ./kb/ecom-photography-specs.md
-    - ./kb/seo-keyword-map-suits.md
-    - ./kb/site-search-synonyms.md
-    - ./kb/returns-policy-examples.md
-    - ./kb/packaging-and-unboxing.md
-    - ./kb/omnichannel-flows.md
+    - kb/pdp-structure-best-practices.md
+    - kb/fit-guide-writing.md
+    - kb/fabric-and-construction-glossary.md
+    - kb/size-chart-and-returns.md
+    - kb/ecom-photography-specs.md
+    - kb/seo-keyword-map-suits.md
+    - kb/site-search-synonyms.md
+    - kb/returns-policy-examples.md
+    - kb/packaging-and-unboxing.md
+    - kb/omnichannel-flows.md
   checklists:
-    - ./checklists/prelaunch-site-checklist.md
-    - ./checklists/catalog-data-quality-checklist.md
-    - ./checklists/seo-tech-checklist.md
-    - ./checklists/pdp-ux-checklist.md
-    - ./checklists/checkout-qa-checklist.md
-    - ./checklists/payments-risk-checklist.md
-    - ./checklists/shipping-returns-checklist.md
-    - ./checklists/promo-rules-checklist.md
-    - ./checklists/marketplace-feed-checklist.md
-    - ./checklists/accessibility-checklist.md
-    - ./checklists/privacy-cookie-consent-checklist.md
-    - ./checklists/customer-support-sop-checklist.md
-    - ./checklists/monitoring-alerts-checklist.md
+    - prelaunch-site-checklist.md
+    - catalog-data-quality-checklist.md
+    - seo-tech-checklist.md
+    - pdp-ux-checklist.md
+    - checkout-qa-checklist.md
+    - payments-risk-checklist.md
+    - shipping-returns-checklist.md
+    - promo-rules-checklist.md
+    - marketplace-feed-checklist.md
+    - accessibility-checklist.md
+    - privacy-cookie-consent-checklist.md
+    - customer-support-sop-checklist.md
+    - monitoring-alerts-checklist.md
 meta:
   version: '2025-09-17 v1.0'
 ```
