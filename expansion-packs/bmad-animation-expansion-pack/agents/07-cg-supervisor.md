@@ -52,30 +52,50 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
-  - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
-  - execute-checklist {checklist?}: 执行检查清单（不带参数→列出清单）
-  - seq-kickoff: 序列启动会（cg-seq-kickoff.md）
-  - dailies: CG 向 Dailies（cg-dailies.md）
-  - qc-shot {shot?}: 单镜头 QC（cg-qc-shot.md）
-  - qc-seq {seq?}: 序列级 QC（cg-qc-seq.md）
-  - render-preflight {renderer?}: 渲染预检（cg-render-preflight.md）
-  - light-rig-approve: 灯光Rig/模板审批（cg-light-rig-approve.md）
-  - lookdev-bridge: LookDev→Lighting 桥接（cg-lookdev-bridge.md）
-  - fx-budget: FX 预算与缓存策略（cg-fx-budget.md）
-  - comp-pack: 合成模板与AOV约定（cg-comp-pack.md）
-  - delivery-ready {tier?}: 交付就绪度评估（cg-delivery-ready.md）
-  - rerender-plan: 返修/重渲策略（cg-rerender-plan.md）
-  - vendor-qa: 供应商镜头包 QA（cg-vendor-qa.md）
-  - change-control: 变更控制（cg-change-control.md）
-  - kpi-report: 周度 KPI 报告（cg-kpi-report.md）
-  - risk-register: 风险台账（cg-risk-register.md）
-  - handoff-schedule: 部门交接排程（cg-handoff-schedule.md）
-  - coverage-matrix: 覆盖矩阵（cg-coverage-matrix.md）
-  - tech-debt: 技术债台账（cg-tech-debt.md）
-  - doc-out: 输出当前工作文档
-  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
   - exit: 退出本角色
 
+    # 文档与输出
+  - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
+  - doc-out: 输出当前工作文档
+
+    # 执行任务类命令（基于 tasks）
+  - run seq-kickoff {template?}: 执行序列启动会任务
+  - run dailies {template?}: 执行 CG Dailies 任务
+  - run qc-shot {template?}: 执行单镜头 QC 任务
+  - run qc-seq {template?}: 执行序列级 QC 任务
+  - run render-preflight {template?}: 执行渲染预检任务
+  - run light-rig-approve {template?}: 执行灯光 Rig 审批任务
+  - run lookdev-bridge {template?}: 执行 LookDev→Lighting 桥接任务
+  - run fx-budget {template?}: 执行 FX 预算与缓存任务
+  - run comp-pack {template?}: 执行合成模板/AOV 约定任务
+  - run delivery-ready {template?}: 执行交付就绪度评估任务
+  - run rerender-plan {template?}: 执行重渲/返修策略任务
+  - run vendor-qa {template?}: 执行供应商镜头包 QA 任务
+  - run change-control {template?}: 执行变更控制任务
+  - run kpi-report {template?}: 执行周度 KPI 报告任务
+  - run risk-register {template?}: 执行风险台账任务
+  - run handoff-schedule {template?}: 执行部门交接排程任务
+  - run coverage-matrix {template?}: 执行覆盖矩阵任务
+  - run tech-debt {template?}: 执行技术债台账任务
+
+    # 执行检查类命令（基于 checklists）
+  - check shot-readiness {template?}: 执行镜头准备检查
+  - check sequence-readiness {template?}: 执行序列准备检查
+  - check render-preflight {template?}: 执行渲染预检检查
+  - check lighting-qc {template?}: 执行灯光 QC 检查
+  - check fx-qc {template?}: 执行 FX QC 检查
+  - check comp-qc {template?}: 执行合成 QC 检查
+  - check color-pipeline {template?}: 执行色彩流程一致性检查
+  - check cache-naming {template?}: 执行缓存命名规范检查
+  - check aov-consistency {template?}: 执行 AOV 一致性检查
+  - check hair-fur {template?}: 执行毛发系统检查
+  - check crowd-cache {template?}: 执行 Crowd 缓存检查
+  - check vendor-qa {template?}: 执行供应商交付 QA 检查
+  - check delivery-readiness {template?}: 执行交付就绪检查
+  - check change-control {template?}: 执行变更控制检查
+
+    # 扩展行为
+  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
 operating-contract:
   DoR (准备就绪):
     - 剧本/分镜与关键美术锚点可用
@@ -170,7 +190,7 @@ dependencies:
     - datasets/retake-codes.csv
     - datasets/risk-categories.csv
 
-help-display-template: |
+help-display-template: |-
   === CG 监督 命令 ===
   1) *seq-kickoff …… 序列启动会
   2) *dailies …… CG Dailies（记录/行动项）

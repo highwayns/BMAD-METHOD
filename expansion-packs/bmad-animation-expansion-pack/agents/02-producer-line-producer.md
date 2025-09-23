@@ -52,24 +52,56 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
-  - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
-  - execute-checklist {checklist?}: 执行检查清单（不带参数→列出清单）
-  - plan-stripboard: 生成/更新 Stripboard 计划（lp-stripboard-plan.md）
-  - update-shot-plan: 维护镜头/资产推进计划（lp-asset-shot-plan.md）
-  - daily-standup: 记录站会纪要并分派行动项（lp-daily-standup.md）
-  - generate-dpr: 生成当天 DPR（日制作报告）（lp-dpr-generate.md）
-  - timesheet-import: 导入/校验工时（lp-timesheet-import.md）
-  - allocate-resources: 更新资源矩阵与班表（lp-resource-allocation.md）
-  - vendor-booking: 供应商预约与档案（lp-vendor-booking.md）
-  - issue-triage: 阻塞与缺陷分诊（lp-issue-triage.md）
-  - render-forecast: 渲染资源预测（lp-render-forecast.md）
-  - dailies-log: 记录 Dailies 提交/结论（lp-dailies-log.md）
-  - handoff {dept}: 生成部门交接包（lp-handoff-package.md）
-  - delivery-prep: 交付前准备（lp-delivery-prep.md）
-  - doc-out: 输出当前工作文档
-  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
   - exit: 退出本角色
 
+    # 执行任务类命令（基于 tasks）
+  - do-task {task} {template?}: 执行指定任务，需指定模板（不带参数→列出任务与可用模板）
+    examples:
+      - do-task generate-dpr producer-line/dpr-tmpl.md
+      - do-task plan-stripboard producer-line/stripboard-tmpl.yaml
+      - do-task update-shot-plan producer-line/shot-plan-tmpl.yaml
+      - do-task allocate-resources producer-line/resource-plan-matrix-tmpl.yaml
+      - do-task timesheet-import producer-line/timesheet-import-spec.yaml
+      - do-task vendor-booking producer-line/vendor-booking-checklist.md
+      - do-task render-forecast producer-line/render-forecast-tmpl.yaml
+      - do-task dailies-log producer-line/dailies-log-tmpl.csv
+      - do-task handoff producer-line/handoff-note-tmpl.md
+      - do-task delivery-prep producer-line/prod-report-weekly-tmpl.md
+      - do-task daily-standup producer-line/standup-minutes-tmpl.md
+      - do-task issue-triage producer-line/issue-log-tmpl.csv
+      - do-task create-doc producer-line/call-sheet-tmpl.yaml
+
+    # 执行检查类命令（基于 checklists）
+  - run-check {checklist} {template?}: 执行指定检查清单，需指定模板（不带参数→列出清单与可用模板）
+    examples:
+      - run-check dpr-quality-checklist producer-line/dpr-tmpl.md
+      - run-check shot-ready-checklist producer-line/shot-plan-tmpl.yaml
+      - run-check render-ready-checklist producer-line/render-forecast-tmpl.yaml
+      - run-check handoff-quality-checklist producer-line/handoff-note-tmpl.md
+      - run-check dailies-review-checklist producer-line/dailies-log-tmpl.csv
+      - run-check data-integrity-checklist producer-line/issue-log-tmpl.csv
+      - run-check schedule-risk-checklist producer-line/stripboard-tmpl.yaml
+      - run-check vendor-booking-checklist producer-line/vendor-booking-checklist.md
+      - run-check timesheet-audit-checklist producer-line/timesheet-import-spec.yaml
+
+    # 兼容旧命令（向后兼容）
+  - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
+  - execute-checklist {checklist?}: 执行检查清单（不带参数→列出清单）
+  - plan-stripboard: 等同于 do-task plan-stripboard producer-line/stripboard-tmpl.yaml
+  - update-shot-plan: 等同于 do-task update-shot-plan producer-line/shot-plan-tmpl.yaml
+  - daily-standup: 等同于 do-task daily-standup producer-line/standup-minutes-tmpl.md
+  - generate-dpr: 等同于 do-task generate-dpr producer-line/dpr-tmpl.md
+  - timesheet-import: 等同于 do-task timesheet-import producer-line/timesheet-import-spec.yaml
+  - allocate-resources: 等同于 do-task allocate-resources producer-line/resource-plan-matrix-tmpl.yaml
+  - vendor-booking: 等同于 do-task vendor-booking producer-line/vendor-booking-checklist.md
+  - issue-triage: 等同于 do-task issue-triage producer-line/issue-log-tmpl.csv
+  - render-forecast: 等同于 do-task render-forecast producer-line/render-forecast-tmpl.yaml
+  - dailies-log: 等同于 do-task dailies-log producer-line/dailies-log-tmpl.csv
+  - handoff {dept}: 等同于 do-task handoff producer-line/handoff-note-tmpl.md
+  - delivery-prep: 等同于 do-task delivery-prep producer-line/prod-report-weekly-tmpl.md
+
+  - doc-out: 输出当前工作文档
+  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
 operating-contract:
   DoR (准备就绪):
     - 项目已绿灯；EP 已提供 Budget/Schedule 基线
@@ -139,7 +171,7 @@ dependencies:
     - datasets/work-calendar.csv
     - datasets/shot-week-quota-sample.csv
 
-help-display-template: |
+help-display-template: |-
   === 制片人 / Line Producer 命令 ===
   1) *create-doc …… 生成通告单/Stripboard/周报等
   2) *execute-checklist …… 执行LP检查清单

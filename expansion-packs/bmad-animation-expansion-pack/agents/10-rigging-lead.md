@@ -54,29 +54,45 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
-  - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
-  - execute-checklist {checklist?}: 执行检查清单（不带参数→列出清单）
-  - rig-brief: 绑定简报/骨架需求（rl-rig-brief.md）
-  - skeleton-spec: 骨架/朝向/命名规范（rl-skeleton-spec.md）
-  - control-layout: 控制器设计与颜色/层级（rl-control-layout.md）
-  - skinning-plan: Skin 权重策略（rl-skinning-plan.md）
-  - space-switch-map: 空间切换/父子约定（rl-space-switch-map.md）
-  - fkik-design: FK/IK 与 Twist 方案（rl-fkik-design.md）
-  - corrective-shapes: 纠正形态/PSD/驱动（rl-corrective-shapes.md）
-  - facial-rig-plan: 面部绑定与 FACS/ARKit（rl-facial-rig-plan.md）
-  - muscle-sim-bridge: 肌肉/CFX 接口（rl-muscle-sim-bridge.md）
-  - picker-ui: 选择器/热区/PickWalk（rl-picker-ui.md）
-  - retarget-setup: 动补/重定向（rl-retarget-setup.md）
-  - export-spec: 导出规范（USD/FBX/ABC）（rl-export-spec.md）
-  - rig-qc: 绑定门禁/QC（rl-rig-qc.md）
-  - perf-bench: 性能基准/优化建议（rl-perf-bench.md）
-  - rig-publish: 发布/版本/打包（rl-rig-publish.md）
-  - vendor-qa: 供应商绑定 QA（rl-vendor-qa.md）
-  - change-control: 变更控制与迁移（rl-change-control.md）
-  - doc-out: 输出当前工作文档
-  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
   - exit: 退出本角色
 
+    # === 执行任务类命令 - 以任务名为命令 ===
+  - rig-brief {template?}: 执行任务：生成绑定简报（使用 rig-brief-tmpl.md）
+  - skeleton-spec {template?}: 执行任务：生成骨架规范（使用 skeleton-spec-tmpl.yaml）
+  - control-layout {template?}: 执行任务：生成控制器设计方案（使用 control-layout-tmpl.md）
+  - skinning-plan {template?}: 执行任务：生成权重策略文档（使用 skinning-plan-tmpl.md）
+  - space-switch-map {template?}: 执行任务：生成空间切换映射（使用 space-switch-map-tmpl.md）
+  - fkik-design {template?}: 执行任务：生成 FK/IK/Twist 方案（使用 fkik-design-tmpl.md）
+  - corrective-shapes {template?}: 执行任务：生成纠正形态方案（使用 corrective-shapes-tmpl.md）
+  - facial-rig-plan {template?}: 执行任务：生成面部绑定方案（使用 facial-rig-plan-tmpl.md）
+  - muscle-sim-bridge {template?}: 执行任务：生成肌肉CFX接口文档（使用 muscle-sim-bridge-tmpl.md）
+  - picker-ui {template?}: 执行任务：生成选择器UI配置（使用 picker-ui-tmpl.md）
+  - retarget-setup {template?}: 执行任务：生成重定向方案（使用 retarget-setup-tmpl.md）
+  - export-spec {template?}: 执行任务：生成导出规范（使用 export-spec-tmpl.yaml）
+  - rig-qc {template?}: 执行任务：生成绑定QC报告（使用 rig-qc-report-tmpl.md）
+  - perf-bench {template?}: 执行任务：生成性能基准文档（使用 perf-bench-plan-tmpl.md）
+  - rig-publish {template?}: 执行任务：生成发布/打包信息（使用 rig-publish-manifest-tmpl.yaml）
+  - vendor-qa {template?}: 执行任务：生成供应商 QA 交接文档（使用 vendor-handoff-tmpl.md）
+  - change-control {template?}: 执行任务：生成变更控制请求（使用 change-request-tmpl.md）
+
+    # === 执行检查类命令 - 以检查项为命令 ===
+  - check-skeleton-hygiene {template?}: 执行检查：骨架命名/朝向清洁度（使用 skeleton-hygiene-checklist.md）
+  - check-control-naming-color {template?}: 执行检查：控制器命名与颜色规范（使用 control-naming-color-checklist.md）
+  - check-space-switch {template?}: 执行检查：空间切换一致性（使用 space-switch-checklist.md）
+  - check-skinning-quality {template?}: 执行检查：权重品质与体积控制（使用 skinning-quality-checklist.md）
+  - check-corrective-shapes {template?}: 执行检查：纠正形态驱动与效果（使用 corrective-shapes-checklist.md）
+  - check-facial-facs-arkit {template?}: 执行检查：面部驱动与FACS/ARKit映射（使用 facial-facs-arkit-checklist.md）
+  - check-retarget-qc {template?}: 执行检查：重定向质量控制（使用 retarget-qc-checklist.md）
+  - check-export-compliance {template?}: 执行检查：导出文件结构与合规性（使用 export-compliance-checklist.md）
+  - check-perf-budget {template?}: 执行检查：性能预算符合性（使用 perf-budget-checklist.md）
+  - check-vendor-qa {template?}: 执行检查：供应商绑定交付质量（使用 vendor-qa-checklist.md）
+  - check-rigging-qc-master {template?}: 执行检查：绑定总体质量门禁（使用 rigging-qc-master-checklist.md）
+
+    # === 通用文档生成命令 ===
+  - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
+  - execute-checklist {checklist?}: 执行检查清单（不带参数→列出清单）
+  - doc-out: 输出当前工作文档
+  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
 operating-contract:
   DoR (准备就绪):
     - 模型拓扑/比例/UDIM 与变形区通过建模QC
@@ -160,7 +176,7 @@ dependencies:
     - datasets/export-codecs.csv
     - datasets/rig-status-codes.csv
 
-help-display-template: |
+help-display-template: |-
   === 绑定主管（Rigging Lead）命令 ===
   1) *rig-brief / *skeleton-spec …… 绑定简报与骨架规范
   2) *control-layout / *skinning-plan …… 控件与权重策略

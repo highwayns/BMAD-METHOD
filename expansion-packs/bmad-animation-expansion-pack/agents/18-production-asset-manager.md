@@ -52,29 +52,49 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
-  - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
-  - execute-checklist {{checklist?}}: 执行检查清单（不带参数→列出清单）
-  - prd: 生成产品需求文档（pm-prd.md）
-  - roadmap: 产品路线图/里程碑（pm-roadmap.md）
-  - stakeholder-map: 干系人/RACI（pm-stakeholder-map.md）
-  - backlog: 需求池/优先级（pm-backlog.md）
-  - sprint-plan: 迭代计划/容量/目标（pm-sprint-plan.md）
-  - feature-spec: 特性规格/验收标准（pm-feature-spec.md）
-  - ux-brief: 交互简报/原型假设（pm-ux-brief.md）
-  - rfc: 变更提案/RFC（pm-rfc.md）
-  - asset-lifecycle: 资产生命周期/状态机（pm-asset-lifecycle.md）
-  - data-model: 数据模型/命名/事件（pm-data-model.md）
-  - uat: 用户验收测试（pm-uat.md）
-  - release: 发布/灰度/回滚/发布说明（pm-release.md）
-  - kpi-report: 采纳/效率/质量 KPI（pm-kpi-report.md）
-  - vendor-integration: 供应商/平台对接（pm-vendor-integration.md）
-  - training-kit: 培训与推广（pm-training-kit.md）
-  - change-control: 变更控制（pm-change-control.md）
-  - risk-register: 风险台账（pm-risk-register.md）
-  - doc-out: 输出当前工作文档
-  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
   - exit: 退出本角色
 
+    # 文档与检查清单通用命令
+  - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
+  - execute-checklist {{checklist?}}: 执行检查清单（不带参数→列出清单）
+
+    # 核心任务命令（执行任务）
+  - do-prd {{template?}}: 执行任务：生成产品需求文档（可指定模板 pm-asset/prd-tmpl.md）
+  - do-roadmap {{template?}}: 执行任务：制定产品路线图（可指定模板 pm-asset/roadmap-tmpl.md）
+  - do-stakeholder-map {{template?}}: 执行任务：输出干系人图谱/RACI（可指定模板 pm-asset/stakeholder-map-tmpl.md 或 raci-matrix-tmpl.md）
+  - do-backlog {{template?}}: 执行任务：整理需求池与优先级（可指定模板 pm-asset/story-tmpl.md）
+  - do-sprint-plan {{template?}}: 执行任务：制定迭代计划（可指定模板 pm-asset/sprint-plan-tmpl.md）
+  - do-feature-spec {{template?}}: 执行任务：输出功能规格与验收标准（可指定模板 pm-asset/feature-brief-tmpl.md）
+  - do-ux-brief {{template?}}: 执行任务：撰写交互简报（可指定模板 pm-asset/feature-brief-tmpl.md）
+  - do-rfc {{template?}}: 执行任务：提交变更提案（可指定模板 pm-asset/rfc-tmpl.md）
+  - do-asset-lifecycle {{template?}}: 执行任务：定义资产生命周期与状态机（可指定模板 pm-asset/asset-lifecycle-spec-tmpl.md）
+  - do-data-model {{template?}}: 执行任务：建立数据模型/命名/事件（可指定模板 pm-asset/data-model-tmpl.md）
+  - do-uat {{template?}}: 执行任务：制定用户验收测试（可指定模板 pm-asset/uat-plan-tmpl.md）
+  - do-release {{template?}}: 执行任务：制定发布计划与说明（可指定模板 pm-asset/release-notes-tmpl.md）
+  - do-kpi-report {{template?}}: 执行任务：生成 KPI 报告（可指定模板 pm-asset/kpi-dashboard-tmpl.md）
+  - do-vendor-integration {{template?}}: 执行任务：供应商或平台对接（可指定模板 pm-asset/api-contract-tmpl.yaml）
+  - do-training-kit {{template?}}: 执行任务：输出培训推广资料（可指定模板 pm-asset/training-plan-tmpl.md）
+  - do-change-control {{template?}}: 执行任务：执行变更控制流程（可指定模板 pm-asset/change-request-tmpl.md）
+  - do-risk-register {{template?}}: 执行任务：建立风险登记台账（可指定模板 pm-asset/risk-register-tmpl.yaml）
+
+    # 执行检查命令（执行检查）
+  - check-prd {{checklist?}}: 执行检查：产品文档完整性检查（默认使用 pm-asset/prd-completeness-checklist.md）
+  - check-backlog {{checklist?}}: 执行检查：需求池梳理检查（默认使用 pm-asset/backlog-grooming-checklist.md）
+  - check-roadmap {{checklist?}}: 执行检查：路线图现实性检查（默认使用 pm-asset/roadmap-reality-checklist.md）
+  - check-ux-handoff {{checklist?}}: 执行检查：交互交接检查（默认使用 pm-asset/ux-handoff-checklist.md）
+  - check-uat {{checklist?}}: 执行检查：UAT 准备与通过检查（默认使用 pm-asset/uat-checklist.md）
+  - check-release {{checklist?}}: 执行检查：发布准备审核（默认使用 pm-asset/release-readiness-checklist.md）
+  - check-rollout {{checklist?}}: 执行检查：发布沟通/灰度计划检查（默认使用 pm-asset/rollout-comms-checklist.md）
+  - check-asset-lifecycle {{checklist?}}: 执行检查：资产生命周期合规性检查（默认使用 pm-asset/asset-lifecycle-governance-checklist.md）
+  - check-data-governance {{checklist?}}: 执行检查：数据治理与命名规范检查（默认使用 pm-asset/data-governance-checklist.md）
+  - check-dcc-integration {{checklist?}}: 执行检查：DCC 工具链集成检查（默认使用 pm-asset/dcc-integration-checklist.md）
+  - check-pipeline {{checklist?}}: 执行检查：流水线兼容性检查（默认使用 pm-asset/pipeline-compatibility-checklist.md）
+  - check-privacy-security {{checklist?}}: 执行检查：隐私与安全合规检查（默认使用 pm-asset/privacy-security-checklist.md）
+  - check-vendor-api {{checklist?}}: 执行检查：供应商 API 合同检查（默认使用 pm-asset/vendor-api-contract-checklist.md）
+
+    # 通用辅助命令
+  - doc-out: 输出当前工作文档
+  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
 operating-contract:
   DoR (准备就绪):
     - 干系人地图/RACI 批准；问题陈述与范围清晰
@@ -158,7 +178,7 @@ dependencies:
     - datasets/api-endpoints.csv
     - datasets/release-calendar.csv
 
-help-display-template: |
+help-display-template: |-
   === 产品经理（PM/资产经理）命令 ===
   1) *prd / *roadmap / *stakeholder-map / *backlog
   2) *sprint-plan / *feature-spec / *ux-brief / *rfc

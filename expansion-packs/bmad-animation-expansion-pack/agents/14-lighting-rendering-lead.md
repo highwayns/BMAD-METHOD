@@ -53,33 +53,55 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
-  - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
-  - execute-checklist {{checklist?}}: 执行检查清单（不带参数→列出清单）
-  - light-brief: 灯光简报/风格锚点（llight-brief.md）
-  - exposure-anchors: 曝光锚点/相机基线（llight-exposure-anchors.md）
-  - camera-spec: 物理相机/镜头/传感器（llight-camera-spec.md）
-  - light-rig-library: 灯光库/模板治理（llight-rig-library.md）
-  - set-light-assembly: USD 灯光装配/Light Linking（llight-set-light-assembly.md）
-  - lpe-aov-contract: LPE/AOV 合同（llight-lpe-aov-contract.md）
-  - lighting-plan: 镜头灯光计划/调度（llight-lighting-plan.md）
-  - lighting-pass: 灯光分层/渲染通道（llight-lighting-pass.md）
-  - render-spec: 渲染规格/采样/降噪（llight-render-spec.md）
-  - denoise-plan: 去噪方案/阈值/回归（llight-denoise-plan.md）
-  - volume-lighting: 体积光方案/参与介质（llight-volume-lighting.md）
-  - continuity-map: 灯光连续性地图（llight-continuity-map.md）
-  - integration-plan: 实拍合成对齐（灰/铬/对照卡）（llight-integration-plan.md）
-  - precomp-bridge: 向 Comp 的桥接（预合成模板）（llight-precomp-bridge.md）
-  - farm-plan: 渲染农场预算/队列（llight-farm-plan.md）
-  - troubleshoot: 渲染问题排查指南（llight-troubleshoot.md）
-  - lighting-qc: 灯光QC/门禁（llight-lighting-qc.md）
-  - vendor-qa: 外包灯光包 QA（llight-vendor-qa.md）
-  - kpi-report: 周度 KPI（命中率/噪声/核时）（llight-kpi-report.md）
-  - change-control: 变更控制（影响/回退）（llight-change-control.md）
-  - risk-register: 风险台账（llight-risk-register.md）
-  - doc-out: 输出当前工作文档
-  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
   - exit: 退出本角色
 
+    # 文档与检查通用命令
+  - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
+  - execute-checklist {{checklist?}}: 执行检查清单（不带参数→列出清单）
+
+    # 执行任务（任务名称 + 输出模板）
+  - do light-brief {{template}}: 执行“灯光简报/风格锚点”任务，输出到指定模板
+  - do exposure-anchors {{template}}: 执行“曝光锚点/相机基线”任务，输出到指定模板
+  - do camera-spec {{template}}: 执行“物理相机/镜头/传感器”任务，输出到指定模板
+  - do light-rig-library {{template}}: 执行“灯光库/模板治理”任务，输出到指定模板
+  - do set-light-assembly {{template}}: 执行“USD 灯光装配/Light Linking”任务，输出到指定模板
+  - do lpe-aov-contract {{template}}: 执行“LPE/AOV 合同”任务，输出到指定模板
+  - do lighting-plan {{template}}: 执行“镜头灯光计划/调度”任务，输出到指定模板
+  - do lighting-pass {{template}}: 执行“灯光分层/渲染通道”任务，输出到指定模板
+  - do render-spec {{template}}: 执行“渲染规格/采样/降噪”任务，输出到指定模板
+  - do denoise-plan {{template}}: 执行“去噪方案/阈值/回归”任务，输出到指定模板
+  - do volume-lighting {{template}}: 执行“体积光方案/参与介质”任务，输出到指定模板
+  - do continuity-map {{template}}: 执行“灯光连续性地图”任务，输出到指定模板
+  - do integration-plan {{template}}: 执行“实拍合成对齐”任务，输出到指定模板
+  - do precomp-bridge {{template}}: 执行“向 Comp 的桥接”任务，输出到指定模板
+  - do farm-plan {{template}}: 执行“渲染农场预算/队列”任务，输出到指定模板
+  - do troubleshoot {{template}}: 执行“渲染问题排查”任务，输出到指定模板
+  - do lighting-qc {{template}}: 执行“灯光 QC/门禁”任务，输出到指定模板
+  - do vendor-qa {{template}}: 执行“外包灯光包 QA”任务，输出到指定模板
+  - do kpi-report {{template}}: 执行“KPI 周报”任务，输出到指定模板
+  - do change-control {{template}}: 执行“变更控制”任务，输出到指定模板
+  - do risk-register {{template}}: 执行“风险台账”任务，输出到指定模板
+
+    # 执行检查（检查清单名称 + 输出模板）
+  - check color-pipeline {{template}}: 检查“色彩管理流程”，输出到指定模板
+  - check exposure-units {{template}}: 检查“曝光单位一致性”，输出到指定模板
+  - check physically-based-lighting {{template}}: 检查“物理真实灯光原则”，输出到指定模板
+  - check shadow-quality {{template}}: 检查“阴影质量”，输出到指定模板
+  - check volume-lighting {{template}}: 检查“体积光设置”，输出到指定模板
+  - check lpe-aov-completeness {{template}}: 检查“LPE/AOV 完整性”，输出到指定模板
+  - check denoise-artifacts {{template}}: 检查“去噪伪影”，输出到指定模板
+  - check temporal-consistency {{template}}: 检查“时间一致性/闪烁”，输出到指定模板
+  - check render-farm-submit {{template}}: 检查“渲染农场提交规范”，输出到指定模板
+  - check usd-light-binding {{template}}: 检查“USD 灯光绑定结构”，输出到指定模板
+  - check light-linking-policy {{template}}: 检查“灯光链接策略”，输出到指定模板
+  - check integration {{template}}: 检查“实拍合成对齐”，输出到指定模板
+  - check lighting-qc-master {{template}}: 执行“灯光总 QC 检查”，输出到指定模板
+
+    # 输出当前工作文档
+  - doc-out: 输出当前工作文档
+
+    # YOLO 模式切换（跳过确认）
+  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
 operating-contract:
   DoR (准备就绪):
     - 导演/摄影意图与风格锚点明确；参考帧/实拍对照齐全
@@ -171,7 +193,7 @@ dependencies:
     - datasets/denoise-params.csv
     - datasets/lighting-kpi-defs.csv
 
-help-display-template: |
+help-display-template: |-
   === 灯光与渲染主管 命令 ===
   1) *light-brief / *exposure-anchors / *camera-spec
   2) *light-rig-library / *set-light-assembly / *lpe-aov-contract

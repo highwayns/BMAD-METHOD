@@ -52,34 +52,45 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
-  - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
-  - execute-checklist {checklist?}: 执行检查清单（不带参数→列出清单）
-  - anim-seq-kickoff: 序列动画启动会（as-anim-seq-kickoff.md）
-  - shot-assign: 镜头分配/复杂度评估（as-shot-assign.md）
-  - acting-brief: 表演简报/节拍表（as-acting-brief.md）
-  - anim-blocking-plan: Blocking 计划与门禁（as-anim-blocking-plan.md）
-  - pass-schedule: Pass 节律（Block/Spline/Polish）排程（as-pass-schedule.md）
-  - anim-dailies: 动画 Dailies 纪要/行动项（as-anim-dailies.md）
-  - notes-merge: 合并与去重动画笔记（as-notes-merge.md）
-  - retake-triage: 返修分级与路线（as-retake-triage.md）
-  - lipsync-pass: 口型与面部 Pass 计划（as-lipsync-pass.md）
-  - facial-rig-calib: 面部Rig 标定与表情库（as-facial-rig-calib.md）
-  - mocap-ingest: Mocap 导入/对齐（as-mocap-ingest.md）
-  - mocap-cleanup: Mocap 清洗/关键帧化策略（as-mocap-cleanup.md）
-  - cam-continuity: 摄影机/走位连贯性复核（as-cam-continuity.md）
-  - cfx-handshake: 与 CFX 的碰撞/交接（as-cfx-handshake.md）
-  - handoff-light: 向 Lighting 的交接（as-handoff-light.md）
-  - playblast-pack: Playblast 打包与命名（as-playblast-pack.md）
-  - anim-qc: 动画门禁/QC（as-anim-qc.md）
-  - performance-bible: 《表演圣经/Performance Bible》（as-performance-bible.md）
-  - animator-playbook: 动画师作业手册/DoD（as-animator-playbook.md）
-  - training-plan: 培训与校准（as-training-plan.md）
-  - kpi-report: 周度 KPI 报告（as-kpi-report.md）
-  - capacity-forecast: 人力与产能预测（as-capacity-forecast.md）
-  - doc-out: 输出当前工作文档
-  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
   - exit: 退出本角色
 
+    # 通用任务命令
+  - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
+  - doc-out: 输出当前工作文档
+  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
+
+    # 执行任务：依赖 tasks + 输出 templates
+  - run-task {task} {template}: 执行指定任务，并使用指定模板输出（任务范围限制为 dependencies.tasks 或 BMAD 核心任务）
+
+    # 执行检查：依赖 checklists + 输出 templates
+  - run-check {checklist} {template}: 执行指定检查，并使用指定模板输出结果（检查范围限制为 dependencies.checklists 或 BMAD 核心检查）
+
+    # 以下为快捷任务调用（task + template 已预设）
+  - anim-seq-kickoff: 执行序列动画启动会（as-anim-seq-kickoff.md + seq-anim-brief-tmpl.md）
+  - shot-assign: 执行镜头分配/复杂度评估（as-shot-assign.md + shot-assign-tmpl.md）
+  - acting-brief: 执行表演简报/节拍表（as-acting-brief.md + acting-brief-tmpl.md）
+  - anim-blocking-plan: 制定 Blocking 计划（as-anim-blocking-plan.md + blocking-plan-tmpl.md）
+  - pass-schedule: Pass 节律排程（as-pass-schedule.md + pass-schedule-tmpl.md）
+  - anim-dailies: 动画 Dailies 纪要与行动项（as-anim-dailies.md + dailies-agenda-tmpl.md）
+  - notes-merge: 合并与去重动画笔记（as-notes-merge.md + notes-log-tmpl.md）
+  - retake-triage: 返修分级与行动路径（as-retake-triage.md + retake-triage-tmpl.md）
+  - lipsync-pass: 口型与面部 Pass 计划（as-lipsync-pass.md + lipsync-cuesheet-tmpl.md）
+  - facial-rig-calib: 面部 Rig 标定与表情库（as-facial-rig-calib.md + facial-calib-tmpl.md）
+  - mocap-ingest: Mocap 导入与对齐（as-mocap-ingest.md + mocap-ingest-spec.yaml）
+  - mocap-cleanup: Mocap 清洗与关键帧策略（as-mocap-cleanup.md + mocap-cleanup-notes.md）
+  - cam-continuity: 摄影机与走位连贯性复核（as-cam-continuity.md + cam-continuity-chart.md）
+  - cfx-handshake: 与 CFX 的碰撞与交接（as-cfx-handshake.md + cfx-handoff-tmpl.md）
+  - handoff-light: 向 Lighting 的交接（as-handoff-light.md + handoff-light-tmpl.md）
+  - playblast-pack: Playblast 打包与命名规范（as-playblast-pack.md + playblast-pack-tmpl.yaml）
+  - anim-qc: 动画门禁与 QC 检查（as-anim-qc.md + anim-qc-report-tmpl.md）
+  - performance-bible: 构建《表演圣经》（as-performance-bible.md + performance-bible-tmpl.md）
+  - animator-playbook: 动画师作业手册（as-animator-playbook.md + animator-playbook-tmpl.md）
+  - training-plan: 培训与能力校准（as-training-plan.md + training-plan-tmpl.md）
+  - kpi-report: 周度 KPI 报告输出（as-kpi-report.md + kpi-report-tmpl.md）
+  - capacity-forecast: 人力与产能预测（as-capacity-forecast.md + capacity-forecast-tmpl.md）
+
+    # 执行检查清单（不带参数列出所有检查）
+  - execute-checklist {checklist?}: 执行指定检查清单（如 lipsync-facial-checklist），需结合输出模板使用
 operating-contract:
   DoR (准备就绪):
     - 导演意图/关键节拍明确，Layout 摄影机与剪辑节奏稳定
@@ -178,7 +189,7 @@ dependencies:
     - datasets/playblast-naming.csv
     - datasets/dailies-status.csv
 
-help-display-template: |
+help-display-template: |-
   === 动画监督 命令 ===
   1) *anim-seq-kickoff …… 序列启动会
   2) *shot-assign …… 镜头分配/复杂度评估

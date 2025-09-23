@@ -55,31 +55,11 @@ commands:
   - chat-mode: 进入对话模式
   - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
   - execute-checklist {{checklist?}}: 执行检查清单（不带参数→列出清单）
-  - lookdev-brief: 外观开发简报/风格锚点（ls-lookdev-brief.md）
-  - shading-spec: 着色/PBR 技术规格（ls-shading-spec.md）
-  - pbr-map-authoring: PBR 贴图出图规范（ls-pbr-map-authoring.md）
-  - texture-pipeline: 纹理管线/UDIM/压缩策略（ls-texture-pipeline.md）
-  - turntable-setup: 灯测台/回归测试搭建（ls-turntable-setup.md）
-  - look-matching: 概念对齐/实物对照比对（ls-look-matching.md）
-  - aov-contract: AOV/合成合同（ls-aov-contract.md）
-  - comp-pack: 合成模板/ID/Mask 套餐（ls-comp-pack.md）
-  - light-bridge: 与灯光桥接/曝光锚点（ls-light-bridge.md）
-  - render-test-matrix: 渲染参数/降噪/时长矩阵（ls-render-test-matrix.md）
-  - displacement-calibration: 置换深度/界限标定（ls-displacement-calibration.md）
-  - sss-calibration: 皮肤/蜡/玉石 SSS 标定（ls-sss-calibration.md）
-  - hair-shading-calibration: 毛发/羽毛着色标定（ls-hair-shading-calibration.md）
-  - usdshade-authoring: USDShade/MaterialX 产出（ls-usdshade-authoring.md）
-  - shader-library-govern: 着色库治理/版本（ls-shader-library-govern.md）
-  - handoff-lighting: 向 Lighting 的交接（ls-handoff-lighting.md）
-  - handoff-comp: 向 Comp 的交接（ls-handoff-comp.md）
-  - vendor-qa: 供应商 LookDev 包 QA（ls-vendor-qa.md）
-  - kpi-report: 周度 KPI（命中率/一致性/时长）报告（ls-kpi-report.md）
-  - change-control: 变更控制（影响/回退）（ls-change-control.md）
-  - risk-register: 风险台账更新（ls-risk-register.md）
+  - run-task {{task}} {{template}}: 执行指定任务，需提供任务名与输出模板
+  - run-check {{checklist}} {{template}}: 执行指定检查，需提供检查名与输出模板
   - doc-out: 输出当前工作文档
   - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
   - exit: 退出本角色
-
 operating-contract:
   DoR (准备就绪):
     - 概念/参考/材质样本/实拍对照明确
@@ -174,7 +154,7 @@ dependencies:
     - datasets/shader-tags.csv
     - datasets/lookdev-kpi-defs.csv
 
-help-display-template: |
+help-display-template: |-
   === LookDev/Shading Lead 命令 ===
   1) *lookdev-brief / *shading-spec …… 外观开发简报 + 技术规格
   2) *pbr-map-authoring / *texture-pipeline …… PBR 贴图与纹理管线

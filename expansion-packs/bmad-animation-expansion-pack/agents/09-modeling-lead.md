@@ -53,32 +53,52 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
-  - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
-  - execute-checklist {checklist?}: 执行检查清单（不带参数→列出清单）
-  - model-brief: 建模简报/尺寸/造型锚点（ml-model-brief.md）
-  - asset-spec: 资产技术规格（ml-asset-spec.md）
-  - sculpt-plan: 雕刻/形体分级计划（ml-sculpt-plan.md）
-  - retopo-plan: 重拓扑方案（ml-retopo-plan.md）
-  - uv-layout: UV/UDIM 规划（ml-uv-layout.md）
-  - texel-density: Texel Density 目标与检测（ml-texel-density.md）
-  - bake-suite: 高低模烘焙与PBR输出（ml-bake-suite.md）
-  - lod-plan: LOD/代理/实例化策略（ml-lod-plan.md）
-  - scale-check: 实尺/单位/比例锁定（ml-scale-check.md）
-  - naming-audit: 命名/版本/令牌审计（ml-naming-audit.md）
-  - deform-topology-qc: 变形友好拓扑QC（ml-deform-topology-qc.md）
-  - hard-surface-qc: 硬表面品质QC（ml-hard-surface-qc.md）
-  - hair-fur-cards: 发卡/羽毛/布料几何策略（ml-hair-fur-cards.md）
-  - scan-ingest: 扫描/摄影测量导入与重建（ml-scan-ingest.md）
-  - usd-asset-structure: USD 资产结构/Variant/绑定（ml-usd-asset-structure.md）
-  - lookdev-handoff: 向 LookDev 交接（ml-lookdev-handoff.md）
-  - rig-handoff: 向 Rig 交接（ml-rig-handoff.md）
-  - vendor-qa: 外包网格 QA（ml-vendor-qa.md）
-  - library-governance: 资产库治理/标签/复用（ml-library-governance.md）
-  - modeling-qc: 建模综合门禁/QC（ml-modeling-qc.md）
-  - doc-out: 输出当前工作文档
-  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
   - exit: 退出本角色
 
+    # 文档与检查通用命令
+  - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
+  - execute-checklist {checklist?}: 执行检查清单（不带参数→列出清单）
+  - doc-out: 输出当前工作文档
+  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
+
+    # 执行任务类命令（基于 tasks / 核心模块任务）
+  - model-brief {template=modeling-lead/asset-brief-tmpl.md}: 执行建模简报任务，输出建模简报
+  - asset-spec {template=modeling-lead/asset-spec-tmpl.yaml}: 执行资产技术规格制定任务，输出规格文档
+  - sculpt-plan {template=modeling-lead/sculpt-plan-tmpl.md}: 执行雕刻/形体规划任务，输出雕刻计划
+  - retopo-plan {template=modeling-lead/retopo-plan-tmpl.md}: 执行重拓扑方案制定任务，输出拓扑计划
+  - uv-layout {template=modeling-lead/uv-udim-plan-tmpl.yaml}: 执行UV/UDIM布局规划任务，输出UV布局方案
+  - texel-density {template=modeling-lead/td-targets-sheet.yaml}: 执行Texel Density目标设定任务，输出TD配置表
+  - bake-suite {template=modeling-lead/bake-suite-config.yaml}: 执行烘焙与PBR输出任务，输出烘焙矩阵配置
+  - lod-plan {template=modeling-lead/lod-table-tmpl.md}: 执行LOD与代理策略制定任务，输出LOD策略表
+  - scale-check {template=modeling-lead/scale-check-form.md}: 执行实尺单位比例锁定任务，输出检查表
+  - naming-audit {template=modeling-lead/naming-tokens-tmpl.yaml}: 执行命名/版本/令牌审核任务，输出命名模板
+  - deform-topology-qc {template=modeling-lead/modeling-qc-report-tmpl.md}: 执行拓扑变形友好性检查任务，输出QC报告
+  - hard-surface-qc {template=modeling-lead/modeling-qc-report-tmpl.md}: 执行硬表面建模质量检查任务，输出QC报告
+  - hair-fur-cards {template=modeling-lead/modeling-qc-report-tmpl.md}: 执行发卡羽毛布料策略任务，输出建模策略报告
+  - scan-ingest {template=modeling-lead/modeling-qc-report-tmpl.md}: 执行扫描/摄影测量导入任务，输出导入重建记录
+  - usd-asset-structure {template=modeling-lead/usd-asset-structure.yaml}: 执行USD资产结构配置任务，输出结构定义
+  - lookdev-handoff {template=modeling-lead/lookdev-handoff-tmpl.md}: 执行向LookDev部门交接任务，输出交接文档
+  - rig-handoff {template=modeling-lead/rig-handoff-tmpl.md}: 执行向Rig部门交接任务，输出交接文档
+  - vendor-qa {template=modeling-lead/vendor-handoff-tmpl.md}: 执行外包资产QA任务，输出交接审核表
+  - library-governance {template=modeling-lead/library-policy-tmpl.md}: 执行资产库治理任务，输出资产策略文档
+  - modeling-qc {template=modeling-lead/modeling-qc-report-tmpl.md}: 执行建模综合QC任务，输出综合QC报告
+
+    # 执行检查类命令（基于 checklists / 核心模块检查）
+  - check-topology {checklist=modeling-lead/topology-checklist.md}: 检查拓扑结构质量
+  - check-deformation {checklist=modeling-lead/deformation-checklist.md}: 检查变形友好性
+  - check-uv-layout {checklist=modeling-lead/uv-udim-checklist.md}: 检查UV/UDIM布局
+  - check-texel-density {checklist=modeling-lead/texel-density-checklist.md}: 检查TD一致性
+  - check-bake-quality {checklist=modeling-lead/bake-quality-checklist.md}: 检查烘焙质量
+  - check-scale-units {checklist=modeling-lead/scale-units-checklist.md}: 检查单位和比例锁定
+  - check-hard-surface {checklist=modeling-lead/hard-surface-checklist.md}: 检查硬表面处理质量
+  - check-hair-fur-cards {checklist=modeling-lead/hair-fur-cards-checklist.md}: 检查发卡/羽毛/布料策略
+  - check-lod-strategy {checklist=modeling-lead/lod-strategy-checklist.md}: 检查LOD与代理策略有效性
+  - check-naming-version {checklist=modeling-lead/naming-version-checklist.md}: 检查命名/版本/令牌一致性
+  - check-usd-structure {checklist=modeling-lead/usd-structure-checklist.md}: 检查USD资产结构规范性
+  - check-rig-handoff {checklist=modeling-lead/rig-handoff-checklist.md}: 检查Rig交接完整性
+  - check-lookdev-handoff {checklist=modeling-lead/lookdev-handoff-checklist.md}: 检查LookDev交接完整性
+  - check-vendor-qa {checklist=modeling-lead/vendor-qa-checklist.md}: 检查外包资产质量
+  - check-modeling-qc {checklist=modeling-lead/modeling-qc-checklist.md}: 执行综合建模质量门禁检查
 operating-contract:
   DoR (准备就绪):
     - 美术/比例参考与风格锚点明确（比例/尺寸/尺度单位）
@@ -170,7 +190,7 @@ dependencies:
     - datasets/default-pivots.csv
     - datasets/modeling-status-codes.csv
 
-help-display-template: |
+help-display-template: |-
   === 建模主管（Modeling Lead）命令 ===
   1) *model-brief / *asset-spec …… 建模简报与技术规格
   2) *sculpt-plan / *retopo-plan …… 雕刻与重拓扑

@@ -52,32 +52,43 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
-  - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
-  - execute-checklist {{checklist?}}: 执行检查清单（不带参数→列出清单）
-  - layout-brief: 布局简报/编辑对账（ll-layout-brief.md）
-  - edit-conform: EDL/AAF 对账与镜头映射（ll-edit-conform.md）
-  - seq-breakdown: 序列拆解/coverage 设计（ll-seq-breakdown.md）
-  - shot-plan: 镜头设计计划（blocking/coverage）（ll-shot-plan.md）
-  - camera-spec: 相机/镜头/传感器规范（ll-camera-spec.md）
-  - lens-db: 镜头库与DoF/FOV 计算（ll-lens-db.md）
-  - camera-blocking: 机位/轨迹/速度曲线（ll-camera-blocking.md）
-  - staging-blocking: 角色走位/屏幕方向（ll-staging-blocking.md）
-  - set-assembly: 场景组装/USD 装配（ll-set-assembly.md）
-  - proxy-visibility: 代理/实例/可见性层策略（ll-proxy-visibility.md）
-  - continuity-map: 连贯性（眼线/动作/道具/朝向）（ll-continuity-map.md）
-  - stereo-plan: 立体布局/深度预算（可选）（ll-stereo-plan.md）
-  - scale-check: 实尺/单位/比例对账（ll-scale-check.md）
-  - collisions-pass: 碰撞/穿帮检测（ll-collisions-pass.md）
-  - layout-qc: 布局门禁/QC（ll-layout-qc.md）
-  - handoff-animation: 向 Animation 交接（ll-handoff-animation.md）
-  - handoff-lighting: 向 Lighting 交接（ll-handoff-lighting.md）
-  - publish: 发布/版本/打包（ll-publish.md）
-  - vendor-qa: 外包布局 QA（ll-vendor-qa.md）
-  - perf-bench: 性能基准与优化（ll-perf-bench.md）
-  - doc-out: 输出当前工作文档
-  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
   - exit: 退出本角色
 
+    # 通用任务命令（执行任务）
+  - run-task {{task}} {{template?}}: 执行指定任务，输出指定模板（任务名必须来自 dependencies.tasks 或核心模块通用任务）
+
+    # 通用检查命令（执行检查）
+  - run-check {{checklist}} {{template?}}: 执行指定检查，输出指定模板（检查名必须来自 dependencies.checklists 或核心模块通用检查）
+
+    # 任务快捷命令（符合依赖 tasks 中定义）
+  - layout-brief {{template?}}: 执行布局简报任务（ll-layout-brief.md），可指定输出模板
+  - edit-conform {{template?}}: 执行剪辑对账任务（ll-edit-conform.md），可指定输出模板
+  - seq-breakdown {{template?}}: 执行序列拆解任务（ll-seq-breakdown.md），可指定输出模板
+  - shot-plan {{template?}}: 执行镜头计划任务（ll-shot-plan.md），可指定输出模板
+  - camera-spec {{template?}}: 执行相机镜头规格任务（ll-camera-spec.md），可指定输出模板
+  - lens-db {{template?}}: 执行镜头库/景深视场计算任务（ll-lens-db.md），可指定输出模板
+  - camera-blocking {{template?}}: 执行机位/轨迹设计任务（ll-camera-blocking.md），可指定输出模板
+  - staging-blocking {{template?}}: 执行角色走位/调度任务（ll-staging-blocking.md），可指定输出模板
+  - set-assembly {{template?}}: 执行场景装配/USD结构任务（ll-set-assembly.md），可指定输出模板
+  - proxy-visibility {{template?}}: 执行代理/可见性层策略任务（ll-proxy-visibility.md），可指定输出模板
+  - continuity-map {{template?}}: 执行连贯性标注任务（ll-continuity-map.md），可指定输出模板
+  - stereo-plan {{template?}}: 执行立体深度预算任务（ll-stereo-plan.md），可指定输出模板
+  - handoff-animation {{template?}}: 执行向动画交接任务（ll-handoff-animation.md），可指定输出模板
+  - handoff-lighting {{template?}}: 执行向灯光交接任务（ll-handoff-lighting.md），可指定输出模板
+  - publish {{template?}}: 执行发布/版本打包任务（ll-publish.md），可指定输出模板
+  - perf-bench {{template?}}: 执行性能基准与优化任务（ll-perf-bench.md），可指定输出模板
+  - vendor-qa {{template?}}: 执行外包 QA 任务（ll-vendor-qa.md），可指定输出模板
+
+    # 检查快捷命令（符合依赖 checklists 中定义）
+  - scale-check {{template?}}: 执行单位/比例对账检查（ll-scale-check.md），可指定输出模板
+  - collisions-pass {{template?}}: 执行碰撞/穿帮检查（ll-collisions-pass.md），可指定输出模板
+  - layout-qc {{template?}}: 执行布局质量检查任务（ll-layout-qc.md），可指定输出模板
+
+    # 通用文档任务
+  - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
+  - execute-checklist {{checklist?}}: 执行检查清单（不带参数→列出清单）
+  - doc-out: 输出当前工作文档
+  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
 operating-contract:
   DoR (准备就绪):
     - 剪辑时间线/分镜批准，EDL/AAF 与镜头表可用
@@ -170,7 +181,7 @@ dependencies:
     - datasets/edl-sample-fields.csv
     - datasets/screen-direction-codes.csv
 
-help-display-template: |
+help-display-template: |-
   === 布局主管（Layout Lead）命令 ===
   1) *layout-brief / *edit-conform …… 布局简报与剪辑对账
   2) *seq-breakdown / *shot-plan …… 序列拆解与镜头计划

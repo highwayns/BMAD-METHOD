@@ -52,31 +52,47 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
-  - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
-  - execute-checklist {{checklist?}}: 执行检查清单（不带参数→列出清单）
-  - post-brief: 后期简报/范围/风险（ps-post-brief.md）
-  - editorial-plan: 剪辑计划/锁定策略（ps-editorial-plan.md）
-  - reconform: Re-conform/EDL/XML/AAF 对账（ps-reconform.md）
-  - turnover-vfx: VFX 交接包（ps-turnover-vfx.md）
-  - turnover-sound: 声音交接包/ADR/VO（ps-turnover-sound.md）
-  - turnover-color: 调色交接/参考/色管（ps-turnover-color.md）
-  - subtitles-plan: 字幕/本地化计划（ps-subtitles-plan.md）
-  - music-rights: 音乐与版权清单（ps-music-rights.md）
-  - review-schedule: Review/Dailies 周期与议程（ps-review-schedule.md）
-  - mastering-spec: 母版规格（IMF/DCP/Broadcast/Streamer）（ps-mastering-spec.md）
-  - delivery: 交付包生成（ps-delivery.md）
-  - qc-tech: 技术 QC（画/声/字幕/容器）（ps-qc-tech.md）
-  - kpi-report: 周度 KPI（进度/返修/合规/预算）（ps-kpi-report.md）
-  - change-control: 变更控制（影响/回退）（ps-change-control.md）
-  - risk-register: 风险台账（ps-risk-register.md）
-  - archive-plan: 归档与安全（ps-archive-plan.md）
-  - vendor-onboard: 供应商入驻（ps-vendor-onboard.md）
-  - cost-report: 成本与燃尽（ps-cost-report.md）
-  - publish: 发布/打包与签名（ps-publish.md）
-  - doc-out: 输出当前工作文档
-  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
   - exit: 退出本角色
 
+    # 文档输出
+  - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
+  - doc-out: 输出当前工作文档
+
+    # 执行任务类命令（基于 tasks 或核心模块任务 + 指定输出模板）
+  - run-post-brief {{template?}}: 执行“后期简报/范围/风险”任务（需指定模板）
+  - run-editorial-plan {{template?}}: 执行“剪辑计划/锁定策略”任务（需指定模板）
+  - run-reconform {{template?}}: 执行“Re-conform/EDL/XML/AAF 对账”任务（需指定模板）
+  - run-turnover-vfx {{template?}}: 执行“VFX 交接包”任务（需指定模板）
+  - run-turnover-sound {{template?}}: 执行“声音交接包/ADR/VO”任务（需指定模板）
+  - run-turnover-color {{template?}}: 执行“调色交接/参考/色管”任务（需指定模板）
+  - run-subtitles-plan {{template?}}: 执行“字幕/本地化计划”任务（需指定模板）
+  - run-music-rights {{template?}}: 执行“音乐与版权清单”任务（需指定模板）
+  - run-review-schedule {{template?}}: 执行“Review/Dailies 周期与议程”任务（需指定模板）
+  - run-mastering-spec {{template?}}: 执行“母版规格制定”任务（需指定模板）
+  - run-delivery {{template?}}: 执行“交付包生成”任务（需指定模板）
+  - run-qc-tech {{template?}}: 执行“技术 QC 报告”任务（需指定模板）
+  - run-kpi-report {{template?}}: 执行“周度 KPI 生成”任务（需指定模板）
+  - run-change-control {{template?}}: 执行“变更控制”任务（需指定模板）
+  - run-risk-register {{template?}}: 执行“风险台账记录”任务（需指定模板）
+  - run-archive-plan {{template?}}: 执行“归档与安全计划”任务（需指定模板）
+  - run-vendor-onboard {{template?}}: 执行“供应商入驻流程”任务（需指定模板）
+  - run-cost-report {{template?}}: 执行“成本与燃尽报告”任务（需指定模板）
+  - run-publish {{template?}}: 执行“发布/打包与签名”任务（需指定模板）
+
+    # 执行检查类命令（基于 checklists 或核心模块检查 + 指定输出模板）
+  - check-editorial-conform {{template?}}: 执行“剪辑对账检查”清单（需指定模板）
+  - check-color-handoff {{template?}}: 执行“调色交接检查”清单（需指定模板）
+  - check-sound-turnover {{template?}}: 执行“声音交接检查”清单（需指定模板）
+  - check-subtitles-qc {{template?}}: 执行“字幕 QC 检查”清单（需指定模板）
+  - check-imf-dcp-delivery {{template?}}: 执行“IMF/DCP 交付检查”清单（需指定模板）
+  - check-broadcast-delivery {{template?}}: 执行“广电交付检查”清单（需指定模板）
+  - check-security-distribution {{template?}}: 执行“安全/发行检查”清单（需指定模板）
+  - check-vendor-onboard {{template?}}: 执行“供应商入驻检查”清单（需指定模板）
+  - check-post-qc-master {{template?}}: 执行“最终母版 QC 检查”清单（需指定模板）
+  - check-change-control {{template?}}: 执行“变更控制检查”清单（需指定模板）
+
+    # YOLO 模式（不变）
+  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
 operating-contract:
   DoR (准备就绪):
     - 交付规范/命名合同批准（tokens/versioning/TC/色管）
@@ -160,7 +176,7 @@ dependencies:
     - datasets/naming-tokens.csv
     - datasets/post-kpi-defs.csv
 
-help-display-template: |
+help-display-template: |-
   === 后期制作监督（Post Supervisor）命令 ===
   1) *post-brief / *editorial-plan / *reconform
   2) *turnover-vfx / *turnover-sound / *turnover-color / *subtitles-plan / *music-rights

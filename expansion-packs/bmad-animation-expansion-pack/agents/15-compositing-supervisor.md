@@ -52,35 +52,55 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
+  - exit: 退出本角色
   - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
   - execute-checklist {{checklist?}}: 执行检查清单（不带参数→列出清单）
-  - comp-brief: 合成简报/风格锚点（cs-comp-brief.md）
-  - plate-conform: 素材对账/时基/畸变（cs-plate-conform.md）
-  - comp-io-spec: 合成 I/O/容器/色彩规范（cs-comp-io-spec.md）
-  - aov-rebuild: AOV 重建/重建误差报告（cs-aov-rebuild.md）
-  - precomp-template: 预合成模板/节点库（cs-precomp-template.md）
-  - matte-id-policy: 抠像/ID/遮罩政策（cs-matte-id-policy.md）
-  - cryptoid-policy: CryptoID 命名/稳定性（cs-cryptoid-policy.md）
-  - grade-matching: 颜色匹配/参考/校正（cs-grade-matching.md）
-  - cg-integration: CG/Plate 对账（灰/铬/阴影/接触）（cs-cg-integration.md）
-  - deep-comp: Deep 合成/体积重建（cs-deep-comp.md）
-  - lens-distortion: 镜头畸变/回灌（cs-lens-distortion.md）
-  - defocus-plan: Defocus/Bokeh/光斑（cs-defocus-plan.md）
-  - grain-regrain: 去噪/重加颗粒策略（cs-grain-regrain.md）
-  - retime-integration: 重定时/运动模糊一致（cs-retime-integration.md）
-  - stereo-comp: 立体合成/视差预算（cs-stereo-comp.md）
-  - edge-blending: 边缘/溢色/半透明处理（cs-edge-blending.md）
-  - render-pull: 渲染拉取/版本对账（cs-render-pull.md）
-  - publish: 发布/版本/打包（cs-publish.md）
-  - comp-qc: 合成门禁/QC（cs-comp-qc.md）
-  - vendor-qa: 外包合成包 QA（cs-vendor-qa.md）
-  - kpi-report: 周度 KPI（重建误差/返修/时长）（cs-kpi-report.md）
-  - change-control: 变更控制（影响/回退）（cs-change-control.md）
-  - risk-register: 风险台账（cs-risk-register.md）
+
+    # 任务执行命令（来源于 tasks）
+  - run-task aov-rebuild {{template}}: 执行 AOV 重建任务，基于指定模板输出
+  - run-task precomp-template {{template}}: 执行预合成模板任务，生成节点结构
+  - run-task comp-brief {{template}}: 执行合成简报任务，生成风格锚点
+  - run-task plate-conform {{template}}: 执行素材对账任务，处理时基/畸变
+  - run-task comp-io-spec {{template}}: 执行合成 I/O/色彩规范任务
+  - run-task matte-id-policy {{template}}: 执行抠像/ID/遮罩策略任务
+  - run-task cryptoid-policy {{template}}: 执行 CryptoID 策略任务
+  - run-task grade-matching {{template}}: 执行颜色匹配与校正任务
+  - run-task cg-integration {{template}}: 执行 CG 与实拍对账任务
+  - run-task deep-comp {{template}}: 执行 Deep 合成任务
+  - run-task lens-distortion {{template}}: 执行镜头畸变任务
+  - run-task defocus-plan {{template}}: 执行 Defocus 与光斑设计任务
+  - run-task grain-regrain {{template}}: 执行颗粒管理任务
+  - run-task retime-integration {{template}}: 执行重定时/运动模糊一致性任务
+  - run-task stereo-comp {{template}}: 执行立体合成任务
+  - run-task edge-blending {{template}}: 执行边缘融合处理任务
+  - run-task render-pull {{template}}: 执行渲染拉取与核对任务
+  - run-task publish {{template}}: 执行发布打包任务
+  - run-task comp-qc {{template}}: 执行合成 QC 门禁任务
+  - run-task vendor-qa {{template}}: 执行外包 QA 任务
+  - run-task kpi-report {{template}}: 执行 KPI 统计任务
+  - run-task change-control {{template}}: 执行变更控制任务
+  - run-task risk-register {{template}}: 执行风险登记任务
+
+    # 检查执行命令（来源于 checklists）
+  - run-check color-pipeline: 执行色彩流程检查
+  - run-check plate-hygiene: 执行素材清洁性检查
+  - run-check lens-distortion: 执行镜头畸变检查
+  - run-check aov-mapping: 执行 AOV 映射一致性检查
+  - run-check cryptoid-consistency: 执行 CryptoID 命名一致性检查
+  - run-check matte-integrity: 执行遮罩/抠像完整性检查
+  - run-check deep-pipeline: 执行 Deep 流程完整性检查
+  - run-check defocus-bokeh: 执行 Defocus/Bokeh 检查
+  - run-check grain-management: 执行颗粒管理检查
+  - run-check temporal-consistency: 执行时间一致性检查
+  - run-check stereo-consistency: 执行立体一致性检查
+  - run-check edge-artifacts: 执行边缘伪影检查
+  - run-check publish-package: 执行交付包合规性检查
+  - run-check review-package: 执行审片包完整性检查
+  - run-check comp-qc-master: 执行合成 QC 总检查
+
+    # 通用文档输出与模式控制
   - doc-out: 输出当前工作文档
   - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
-  - exit: 退出本角色
-
 operating-contract:
   DoR (准备就绪):
     - AOV/LPE 合同草案与 comp I/O 规范批准
@@ -179,7 +199,7 @@ dependencies:
     - datasets/review-resolutions.csv
     - datasets/file-containers.csv
 
-help-display-template: |
+help-display-template: |-
   === 合成监督（Comp Supe）命令 ===
   1) *comp-brief / *comp-io-spec / *plate-conform
   2) *aov-rebuild / *precomp-template / *matte-id-policy / *cryptoid-policy
