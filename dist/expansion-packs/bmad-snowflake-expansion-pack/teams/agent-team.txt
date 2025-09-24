@@ -4150,6 +4150,154 @@ Version: 1.0 · Updated: 2025-09-18
 - 数据共享：安全共享/Marketplace；合同与撤销流程配套；Provider/Consumer 双端演练
 ==================== END: .bmad-snowflake-expansion-pack/data/snowflake-kb.md ====================
 
+==================== START: .bmad-snowflake-expansion-pack/tasks/create-doc-snowflake-architecture.md ====================
+# Create Document: Snowflake Architecture Overview
+
+type: task
+id: pm-create-doc-snowflake-architecture
+owner: Product Manager
+updated: 2025-09-24
+
+intent: |
+Produce a business-facing architecture overview that ties features to Snowflake components
+(accounts, databases/schemas, warehouses, security model, data products, SLAs).
+
+inputs:
+
+- product-requirements.md
+- business-process-map.md
+- target-architecture.md (if exists; else capture assumptions)
+
+steps:
+
+- Gather: consolidate diagrams and decisions from Architect & Platform Owner
+- Structure: use the provided template sections (scope, topology, security, SLAs, risks)
+- Validate: review with Architect/Security/Privacy for accuracy and feasibility
+- Publish: commit to docs/architecture/overview.md and link in PRD
+
+outputs:
+
+- docs/architecture/overview.md
+
+evidence:
+
+- Sign-offs from Architect, Security, Privacy
+- Links to source diagrams and ADRs
+
+acceptance_criteria:
+
+- ✅ Covers topology (envs/regions), warehouses, storage, governance, DR
+- ✅ Maps features↔components and lists non-functional requirements
+- ✅ All risks and open questions captured with owners and due dates
+==================== END: .bmad-snowflake-expansion-pack/tasks/create-doc-snowflake-architecture.md ====================
+
+==================== START: .bmad-snowflake-expansion-pack/tasks/review-infrastructure.md ====================
+# Review Infrastructure Design (Snowflake & Surrounding IaC)
+
+type: task
+id: pm-review-infrastructure
+owner: Product Manager
+updated: 2025-09-24
+
+intent: |
+Facilitate a cross-functional review of infrastructure plans (IaC blueprints, RBAC model,
+networking, observability, budgets), ensuring alignment with PRD and customer SLAs.
+
+inputs:
+
+- iac-blueprints.yaml
+- security-model.md
+- o11y-slo-pack.md
+- finops-guardrails.md
+
+steps:
+
+- Schedule review: invite Architect, DevEx, Security, Privacy, SRE, FinOps
+- Readiness check: ensure all artifacts and diagrams are linked
+- Run review: capture decisions, risks, actions, owners, ETA
+- Output: `docs/reviews/infrastructure-review-2025-09-24.md`
+
+outputs:
+
+- docs/reviews/infrastructure-review-2025-09-24.md
+
+evidence:
+
+- Attendance, decisions, and sign-offs archived
+- Links to impacted ADRs and tickets
+
+acceptance_criteria:
+
+- ✅ Gaps and risks tracked to closure
+- ✅ SLAs/SLOs and budgets feasible with proposed design
+- ✅ Clear ownership for follow-ups
+==================== END: .bmad-snowflake-expansion-pack/tasks/review-infrastructure.md ====================
+
+==================== START: .bmad-snowflake-expansion-pack/tasks/validate-infrastructure.md ====================
+# Validate Infrastructure Readiness (Pre-Prod Gate)
+
+type: task
+id: pm-validate-infrastructure
+owner: Product Manager
+updated: 2025-09-24
+
+intent: |
+Validate that Snowflake infrastructure and guardrails are ready for feature delivery,
+passing the PM-owned pre-production gate.
+
+inputs:
+
+- checklists/snowflake-infrastructure-checklist.md
+- evidence from DevEx/SRE/Security/FinOps (dashboards, monitors, policies)
+
+steps:
+
+- Execute checklist with owners
+- Collect evidence links (dashboards, resource monitors, RBAC audits)
+- Record GO/NO-GO and remediation plan
+- Publish `docs/gates/preprod-infra-validation-2025-09-24.md`
+
+outputs:
+
+- docs/gates/preprod-infra-validation-2025-09-24.md
+
+acceptance_criteria:
+
+- ✅ All MUST items passed; SHOULD items have owners/ETA
+- ✅ Evidence attached and traceable
+- ✅ Decision communicated to release/change manager
+==================== END: .bmad-snowflake-expansion-pack/tasks/validate-infrastructure.md ====================
+
+==================== START: .bmad-snowflake-expansion-pack/checklists/snowflake-infrastructure-checklist.md ====================
+# Snowflake Infrastructure Checklist (PM Gate)
+
+updated: 2025-09-24
+scope:
+
+- Accounts & Regions
+- Databases/Schemas/Stages
+- Warehouses/Sizing/Auto suspend-resume
+- Security/RBAC/ABAC/Tags/Masking/Row Policies
+- Observability (SLIs/SLOs/Dashboards/Alerts/Runbooks)
+- FinOps (Budgets/Resource Monitors/Unit Cost KPIs)
+- DR/Replication/Failover
+- CI/CD & GitOps integration
+
+checks:
+topology: - [ ] Account topology documented and approved - [ ] Environments (dev/preview/staging/prod) provisioned via IaC with rollback - [ ] Network & access patterns documented (privatelink/sgw as applicable)
+security: - [ ] RBAC roles & grants reviewed; least-privilege verified - [ ] Data classifications tagged; masking/row policies attached & tested - [ ] Access History/Audit queries available to PM on request
+observability: - [ ] SLIs/SLOs defined for availability/latency/freshness/error-rate/cost - [ ] Dashboards & alert routing configured with runbook links - [ ] Query tags convention agreed (release/build/owner)
+finops: - [ ] Resource monitors created with thresholds & actions - [ ] Warehouse sizing policy documented (min/max/queues strategy) - [ ] Unit-cost KPIs & budget alerts wired to stakeholders
+reliability: - [ ] DR/replication/backup strategy documented and tested - [ ] Canary/blue-green or rollback approach rehearsed
+cicd: - [ ] GitOps pipelines (lint/test/plan/apply/verify/rollback) in place - [ ] Policy-as-code & contract tests block breaking changes
+evidence: - [ ] Evidence pack (links/screenshots/SQL) attached - [ ] Owners & ETAs for remaining items
+
+decision:
+
+- [ ] GO
+- [ ] NO-GO (list blockers and remediation plan)
+==================== END: .bmad-snowflake-expansion-pack/checklists/snowflake-infrastructure-checklist.md ====================
+
 ==================== START: .bmad-snowflake-expansion-pack/templates/abac-tags-plan-tmpl.yaml ====================
 template:
   id: sg-abac-tags-plan-v1
@@ -9287,6 +9435,47 @@ usage: Use create-doc with templates/snowflake-data-sharing-agreement-tmpl.yaml
 run: create-doc templates/snowflake-data-sharing-agreement-tmpl.yaml
 ==================== END: .bmad-snowflake-expansion-pack/tasks/create-data-sharing-contract.md ====================
 
+==================== START: .bmad-snowflake-expansion-pack/tasks/create-doc-snowflake-architecture.md ====================
+# Create Document: Snowflake Architecture Overview
+
+type: task
+id: pm-create-doc-snowflake-architecture
+owner: Product Manager
+updated: 2025-09-24
+
+intent: |
+Produce a business-facing architecture overview that ties features to Snowflake components
+(accounts, databases/schemas, warehouses, security model, data products, SLAs).
+
+inputs:
+
+- product-requirements.md
+- business-process-map.md
+- target-architecture.md (if exists; else capture assumptions)
+
+steps:
+
+- Gather: consolidate diagrams and decisions from Architect & Platform Owner
+- Structure: use the provided template sections (scope, topology, security, SLAs, risks)
+- Validate: review with Architect/Security/Privacy for accuracy and feasibility
+- Publish: commit to docs/architecture/overview.md and link in PRD
+
+outputs:
+
+- docs/architecture/overview.md
+
+evidence:
+
+- Sign-offs from Architect, Security, Privacy
+- Links to source diagrams and ADRs
+
+acceptance_criteria:
+
+- ✅ Covers topology (envs/regions), warehouses, storage, governance, DR
+- ✅ Maps features↔components and lists non-functional requirements
+- ✅ All risks and open questions captured with owners and due dates
+==================== END: .bmad-snowflake-expansion-pack/tasks/create-doc-snowflake-architecture.md ====================
+
 ==================== START: .bmad-snowflake-expansion-pack/tasks/create-dr-strategy.md ====================
 # Create Disaster Recovery Strategy
 
@@ -10304,6 +10493,48 @@ run:
   output: docs/reports/architecture-review-report.md
 ==================== END: .bmad-snowflake-expansion-pack/tasks/review-architecture.md ====================
 
+==================== START: .bmad-snowflake-expansion-pack/tasks/review-infrastructure.md ====================
+# Review Infrastructure Design (Snowflake & Surrounding IaC)
+
+type: task
+id: pm-review-infrastructure
+owner: Product Manager
+updated: 2025-09-24
+
+intent: |
+Facilitate a cross-functional review of infrastructure plans (IaC blueprints, RBAC model,
+networking, observability, budgets), ensuring alignment with PRD and customer SLAs.
+
+inputs:
+
+- iac-blueprints.yaml
+- security-model.md
+- o11y-slo-pack.md
+- finops-guardrails.md
+
+steps:
+
+- Schedule review: invite Architect, DevEx, Security, Privacy, SRE, FinOps
+- Readiness check: ensure all artifacts and diagrams are linked
+- Run review: capture decisions, risks, actions, owners, ETA
+- Output: `docs/reviews/infrastructure-review-2025-09-24.md`
+
+outputs:
+
+- docs/reviews/infrastructure-review-2025-09-24.md
+
+evidence:
+
+- Attendance, decisions, and sign-offs archived
+- Links to impacted ADRs and tickets
+
+acceptance_criteria:
+
+- ✅ Gaps and risks tracked to closure
+- ✅ SLAs/SLOs and budgets feasible with proposed design
+- ✅ Clear ownership for follow-ups
+==================== END: .bmad-snowflake-expansion-pack/tasks/review-infrastructure.md ====================
+
 ==================== START: .bmad-snowflake-expansion-pack/tasks/review-security-governance.md ====================
 # Review Security & Governance
 
@@ -10730,6 +10961,41 @@ run: create-doc templates/uat-signoff-tmpl.yaml
 usage: Use create-doc with templates/uat-support-tmpl.yaml
 run: create-doc templates/uat-support-tmpl.yaml
 ==================== END: .bmad-snowflake-expansion-pack/tasks/uat-support.md ====================
+
+==================== START: .bmad-snowflake-expansion-pack/tasks/validate-infrastructure.md ====================
+# Validate Infrastructure Readiness (Pre-Prod Gate)
+
+type: task
+id: pm-validate-infrastructure
+owner: Product Manager
+updated: 2025-09-24
+
+intent: |
+Validate that Snowflake infrastructure and guardrails are ready for feature delivery,
+passing the PM-owned pre-production gate.
+
+inputs:
+
+- checklists/snowflake-infrastructure-checklist.md
+- evidence from DevEx/SRE/Security/FinOps (dashboards, monitors, policies)
+
+steps:
+
+- Execute checklist with owners
+- Collect evidence links (dashboards, resource monitors, RBAC audits)
+- Record GO/NO-GO and remediation plan
+- Publish `docs/gates/preprod-infra-validation-2025-09-24.md`
+
+outputs:
+
+- docs/gates/preprod-infra-validation-2025-09-24.md
+
+acceptance_criteria:
+
+- ✅ All MUST items passed; SHOULD items have owners/ETA
+- ✅ Evidence attached and traceable
+- ✅ Decision communicated to release/change manager
+==================== END: .bmad-snowflake-expansion-pack/tasks/validate-infrastructure.md ====================
 
 ==================== START: .bmad-snowflake-expansion-pack/tasks/validate-platform.md ====================
 # Validate Platform End-to-End
@@ -12480,6 +12746,36 @@ Version: 1.0 · Updated: 2025-09-18
 - 初步分诊→回退策略→变更冻结
 - 事故通报模板与复盘会议排程
 ==================== END: .bmad-snowflake-expansion-pack/checklists/snowflake-incident-response-checklist.md ====================
+
+==================== START: .bmad-snowflake-expansion-pack/checklists/snowflake-infrastructure-checklist.md ====================
+# Snowflake Infrastructure Checklist (PM Gate)
+
+updated: 2025-09-24
+scope:
+
+- Accounts & Regions
+- Databases/Schemas/Stages
+- Warehouses/Sizing/Auto suspend-resume
+- Security/RBAC/ABAC/Tags/Masking/Row Policies
+- Observability (SLIs/SLOs/Dashboards/Alerts/Runbooks)
+- FinOps (Budgets/Resource Monitors/Unit Cost KPIs)
+- DR/Replication/Failover
+- CI/CD & GitOps integration
+
+checks:
+topology: - [ ] Account topology documented and approved - [ ] Environments (dev/preview/staging/prod) provisioned via IaC with rollback - [ ] Network & access patterns documented (privatelink/sgw as applicable)
+security: - [ ] RBAC roles & grants reviewed; least-privilege verified - [ ] Data classifications tagged; masking/row policies attached & tested - [ ] Access History/Audit queries available to PM on request
+observability: - [ ] SLIs/SLOs defined for availability/latency/freshness/error-rate/cost - [ ] Dashboards & alert routing configured with runbook links - [ ] Query tags convention agreed (release/build/owner)
+finops: - [ ] Resource monitors created with thresholds & actions - [ ] Warehouse sizing policy documented (min/max/queues strategy) - [ ] Unit-cost KPIs & budget alerts wired to stakeholders
+reliability: - [ ] DR/replication/backup strategy documented and tested - [ ] Canary/blue-green or rollback approach rehearsed
+cicd: - [ ] GitOps pipelines (lint/test/plan/apply/verify/rollback) in place - [ ] Policy-as-code & contract tests block breaking changes
+evidence: - [ ] Evidence pack (links/screenshots/SQL) attached - [ ] Owners & ETAs for remaining items
+
+decision:
+
+- [ ] GO
+- [ ] NO-GO (list blockers and remediation plan)
+==================== END: .bmad-snowflake-expansion-pack/checklists/snowflake-infrastructure-checklist.md ====================
 
 ==================== START: .bmad-snowflake-expansion-pack/checklists/snowflake-performance-checklist.md ====================
 # 性能优化清单

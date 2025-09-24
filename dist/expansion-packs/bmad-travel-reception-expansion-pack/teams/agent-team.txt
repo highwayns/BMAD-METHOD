@@ -4169,6 +4169,92 @@ sections:
 - `reports/` 对账/回款/QBR
 ==================== END: .bmad-travel-reception-expansion-pack/data/jp-sales-account-kb.md ====================
 
+==================== START: .bmad-travel-reception-expansion-pack/tasks/create-doc-travel-architecture.md ====================
+# task: create-doc-travel-architecture
+
+version: 1.0
+role: itinerary-designer
+purpose: 基于旅程架构（Day-by-Day/City-by-City/Resource Blocks）生成结构化文档与可复用片段。
+inputs:
+
+- 客户Brief/预算/人数/偏好/禁忌
+- 行程结构（城市/天数/交通/房型/活动）
+  outputs:
+- docs/itinerary/travel-architecture-<project>.md
+- docs/itinerary/day-by-day-<project>.md
+  steps:
+- 解析行程骨架（城市→天→段→资源）
+- 关联价格与毛利目标，标记P0/P1体验
+- 渲染模板并生成可复用片段（住宿/交通/活动）
+  acceptance:
+- 结构完整（城市/天/段/资源齐全）
+- 与预算/毛利边界一致
+  checklists:
+- travel-operations-checklist.md
+==================== END: .bmad-travel-reception-expansion-pack/tasks/create-doc-travel-architecture.md ====================
+
+==================== START: .bmad-travel-reception-expansion-pack/tasks/review-operations.md ====================
+# task: review-operations
+
+version: 1.0
+role: itinerary-designer
+purpose: 与运营/供应/运输/导游跨域评审行程的可执行性与风险。
+inputs:
+
+- 行程提案/资源锁定状态/释放曲线
+- 高风险点（旺季/禁行/施工/天气）
+  outputs:
+- docs/itinerary/review-minutes-<project>.md
+- risk/ops-review-actions-<project>.md
+  steps:
+- 逐日逐段过表：房配/车配/导游/票务
+- 校验停卖/封控/时段与容量限制
+- 形成整改与责任人/期限
+  acceptance:
+- P0 风险均有缓解方案和负责人
+- 决议形成并回执
+  checklists:
+- travel-operations-checklist.md
+==================== END: .bmad-travel-reception-expansion-pack/tasks/review-operations.md ====================
+
+==================== START: .bmad-travel-reception-expansion-pack/tasks/validate-operations.md ====================
+# task: validate-operations
+
+version: 1.0
+role: itinerary-designer
+purpose: 行前最终验证（Rooming/Transport/Guide/Tickets）与发布闸门前置检查。
+inputs:
+
+- 最新 Rooming/Transport/Guide/Tickets 清单
+- 异常/替代/回滚预案
+  outputs:
+- docs/itinerary/ops-validation-<project>.md
+- qa/release-gate-precheck-<date>.md
+  steps:
+- 核对房单与连通/无障碍/过敏备注
+- 校验排车/上客点/车流时序与司机名册
+- 校验导游排班/禁排与升级矩阵
+- 校验票务/时段/二维码与退改规则
+  acceptance:
+- 关键证据齐全（回执/截图/合同）
+- 未解决阻塞项为0
+  checklists:
+- travel-operations-checklist.md
+==================== END: .bmad-travel-reception-expansion-pack/tasks/validate-operations.md ====================
+
+==================== START: .bmad-travel-reception-expansion-pack/checklists/travel-operations-checklist.md ====================
+# travel-operations-checklist
+
+- [ ] 行程与日程：到分到小时的抵达/离开/换乘节点清晰
+- [ ] 酒店：房型/连通/无障碍/过敏备注/释放曲线一致
+- [ ] 交通：车型/承载/上客点/调度/极端天气替代
+- [ ] 导游：资质/语言/排班/禁排/升级矩阵可用
+- [ ] 票务：时段/二维码/退改/停卖联动
+- [ ] 法务与合规：许可/保险/APPI最小必要与撤回
+- [ ] 沟通：行前包/紧急联系人树/口径一致
+- [ ] 证据：合同/回执/截图/台账已归档
+==================== END: .bmad-travel-reception-expansion-pack/checklists/travel-operations-checklist.md ====================
+
 ==================== START: .bmad-travel-reception-expansion-pack/tasks/hotel-rfp.md ====================
 # task: hotel-rfp
 
@@ -17815,6 +17901,30 @@ steps:
 - 截止可追踪
 ==================== END: .bmad-travel-reception-expansion-pack/tasks/cost-variance.md ====================
 
+==================== START: .bmad-travel-reception-expansion-pack/tasks/create-doc-travel-architecture.md ====================
+# task: create-doc-travel-architecture
+
+version: 1.0
+role: itinerary-designer
+purpose: 基于旅程架构（Day-by-Day/City-by-City/Resource Blocks）生成结构化文档与可复用片段。
+inputs:
+
+- 客户Brief/预算/人数/偏好/禁忌
+- 行程结构（城市/天数/交通/房型/活动）
+  outputs:
+- docs/itinerary/travel-architecture-<project>.md
+- docs/itinerary/day-by-day-<project>.md
+  steps:
+- 解析行程骨架（城市→天→段→资源）
+- 关联价格与毛利目标，标记P0/P1体验
+- 渲染模板并生成可复用片段（住宿/交通/活动）
+  acceptance:
+- 结构完整（城市/天/段/资源齐全）
+- 与预算/毛利边界一致
+  checklists:
+- travel-operations-checklist.md
+==================== END: .bmad-travel-reception-expansion-pack/tasks/create-doc-travel-architecture.md ====================
+
 ==================== START: .bmad-travel-reception-expansion-pack/tasks/create-doc.md ====================
 # task: create-doc.md
 
@@ -19660,6 +19770,30 @@ steps:
 - 销毁可审计
 ==================== END: .bmad-travel-reception-expansion-pack/tasks/retention-schedule.md ====================
 
+==================== START: .bmad-travel-reception-expansion-pack/tasks/review-operations.md ====================
+# task: review-operations
+
+version: 1.0
+role: itinerary-designer
+purpose: 与运营/供应/运输/导游跨域评审行程的可执行性与风险。
+inputs:
+
+- 行程提案/资源锁定状态/释放曲线
+- 高风险点（旺季/禁行/施工/天气）
+  outputs:
+- docs/itinerary/review-minutes-<project>.md
+- risk/ops-review-actions-<project>.md
+  steps:
+- 逐日逐段过表：房配/车配/导游/票务
+- 校验停卖/封控/时段与容量限制
+- 形成整改与责任人/期限
+  acceptance:
+- P0 风险均有缓解方案和负责人
+- 决议形成并回执
+  checklists:
+- travel-operations-checklist.md
+==================== END: .bmad-travel-reception-expansion-pack/tasks/review-operations.md ====================
+
 ==================== START: .bmad-travel-reception-expansion-pack/tasks/rfp-rfq.md ====================
 # task: rfp-rfq
 
@@ -20281,6 +20415,31 @@ steps:
 - 活动目标与KPI明确
 - 复盘输出并入知识库
 ==================== END: .bmad-travel-reception-expansion-pack/tasks/upsell-campaign.md ====================
+
+==================== START: .bmad-travel-reception-expansion-pack/tasks/validate-operations.md ====================
+# task: validate-operations
+
+version: 1.0
+role: itinerary-designer
+purpose: 行前最终验证（Rooming/Transport/Guide/Tickets）与发布闸门前置检查。
+inputs:
+
+- 最新 Rooming/Transport/Guide/Tickets 清单
+- 异常/替代/回滚预案
+  outputs:
+- docs/itinerary/ops-validation-<project>.md
+- qa/release-gate-precheck-<date>.md
+  steps:
+- 核对房单与连通/无障碍/过敏备注
+- 校验排车/上客点/车流时序与司机名册
+- 校验导游排班/禁排与升级矩阵
+- 校验票务/时段/二维码与退改规则
+  acceptance:
+- 关键证据齐全（回执/截图/合同）
+- 未解决阻塞项为0
+  checklists:
+- travel-operations-checklist.md
+==================== END: .bmad-travel-reception-expansion-pack/tasks/validate-operations.md ====================
 
 ==================== START: .bmad-travel-reception-expansion-pack/tasks/vehicle-maintenance-check.md ====================
 # task: vehicle-maintenance-check
@@ -21986,6 +22145,19 @@ steps:
 - [ ] 批次/车流/排队
 - [ ] 调度/备援
 ==================== END: .bmad-travel-reception-expansion-pack/checklists/transport-staging-check.md ====================
+
+==================== START: .bmad-travel-reception-expansion-pack/checklists/travel-operations-checklist.md ====================
+# travel-operations-checklist
+
+- [ ] 行程与日程：到分到小时的抵达/离开/换乘节点清晰
+- [ ] 酒店：房型/连通/无障碍/过敏备注/释放曲线一致
+- [ ] 交通：车型/承载/上客点/调度/极端天气替代
+- [ ] 导游：资质/语言/排班/禁排/升级矩阵可用
+- [ ] 票务：时段/二维码/退改/停卖联动
+- [ ] 法务与合规：许可/保险/APPI最小必要与撤回
+- [ ] 沟通：行前包/紧急联系人树/口径一致
+- [ ] 证据：合同/回执/截图/台账已归档
+==================== END: .bmad-travel-reception-expansion-pack/checklists/travel-operations-checklist.md ====================
 
 ==================== START: .bmad-travel-reception-expansion-pack/checklists/triage-check.md ====================
 # 分诊（Triage）检查

@@ -77,20 +77,22 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
+  - exit: 退出本角色
+  - run-task {task} {template?}: 执行指定任务，可选指定输出模板（不带参数→列出可用任务）
+  - run-check {checklist} {template?}: 执行指定检查清单，可选指定输出模板（不带参数→列出可用检查）
+  - greenlight: 生成并推进《绿灯包》→ 任务 greenlight-package.md + 清单 greenlight-checklist.md + 模板 exec-producer/greenlight-package-tmpl.yaml
+  - review-production: 执行生产健康巡检 → 任务 production-health-review.md + 清单 production-health-checklist.md
+  - validate-production: 执行生产交付就绪检查 → 清单 delivery-readiness-checklist.md
+  - handoff {dept}: 生成部门交接包（handoff-package.md）并执行 handoff-quality-checklist，dept ∈ {Art,Model,Rig,Layout,Anim,FX,Light,Comp,Edit,Sound}
+  - delivery {package?}: 生成交付包（delivery-package.md）并执行 delivery-readiness-checklist，可选 {offline,online,studio,streamer,broadcast}
+  - vendor-onboard: 执行供应商入驻任务 vendor-onboarding.md 并执行 vendor-contract-checklist.md
+  - cost-report: 执行成本与燃尽周报任务 cost-report.md（输出模板：exec-producer/budget-plan-tmpl.yaml）
+  - change-request: 执行变更提报任务 change-request.md 并执行 change-control-checklist.md（输出模板：exec-producer/change-request-tmpl.yaml）
+  - risk-register: 执行风险登记任务 risk-register.md（输出模板：exec-producer/risk-register-tmpl.yaml）
   - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
   - execute-checklist {checklist?}: 执行检查清单（不带参数→列出清单）
-  - greenlight: 生成并推进《绿灯包》→ 运行任务 greenlight-package.md + 清单 greenlight-checklist.md
-  - review-production: 运行生产健康巡检（production-health-review.md）
-  - validate-production: 执行 生产健康度/交付就绪 评分清单
-  - handoff {dept}: 生成部门交接包（handoff-package.md），dept ∈ {Art,Model,Rig,Layout,Anim,FX,Light,Comp,Edit,Sound}
-  - delivery {package?}: 生成交付包（delivery-package.md），可选 {offline,online,studio,streamer,broadcast}
-  - vendor-onboard: 供应商入驻（vendor-onboarding.md + vendor-contract-checklist.md）
-  - cost-report: 生成成本与燃尽周报（cost-report.md）
-  - change-request: 提交变更（change-request.md + change-control-checklist.md）
-  - risk-register: 生成/更新风险台账（create-doc risk-register-tmpl.yaml）
   - doc-out: 输出当前工作文档
-  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
-  - exit: 退出本角色
+  - yolo: 切换 YOLO 模式（跳过确认，仅对非 elicit=true 生效）
 operating-contract:
   DoR (准备就绪):
     - 创意/剧本简报批准 & 关键美术基调确定
@@ -148,7 +150,7 @@ dependencies:
     - datasets/budget-categories.csv
     - datasets/rate-card.csv
     - datasets/delivery-codec-matrix.csv
-help-display-template: |
+help-display-template: |-
   === 执行制片（EP）命令 ===
   *help …… 查看本帮助
   *create-doc …… 基于模板创建（将列出 EP 模板索引）

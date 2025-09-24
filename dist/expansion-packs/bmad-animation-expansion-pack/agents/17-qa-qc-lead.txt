@@ -77,34 +77,37 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
-  - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
-  - execute-checklist {{checklist?}}: 执行检查清单（不带参数→列出清单）
-  - qa-brief: 质量简报/范围/风险（qa-brief.md）
-  - qa-policy: 质量政策/门禁等级（qa-policy.md）
-  - acceptance-criteria: 验收标准/签收口径（acceptance-criteria.md）
-  - gate-pass: 主门禁（跨部门综合 QC）（gate-pass.md）
-  - plate-qc: 素材技术 QC（plate-qc.md）
-  - model-qc: 模型标准 QC（model-qc.md）
-  - rig-qc: 绑定标准 QC（rig-qc.md）
-  - layout-qc: 布局/相机/镜头 QC（layout-qc.md）
-  - animation-qc: 动画物理性/一致性 QC（animation-qc.md）
-  - crowd-qc: 群众系统 QC（crowd-qc.md）
-  - fx-qc: 特效缓存/再现性 QC（fx-qc.md）
-  - lighting-qc: 灯光/曝光/一致性 QC（lighting-qc.md）
-  - render-integrity: 渲染完整性（AOV/LPE/Crypto）(render-integrity.md)
-  - comp-qc: 合成 QC（颜色/重建/边缘/时间一致）（comp-qc.md）
-  - editorial-qc: 剪辑/对账/时间码 QC（editorial-qc.md）
-  - delivery-qc: 交付 QC（容器/响度/字幕/校验）（delivery-qc.md）
-  - performance-audit: 性能审计（场景/缓存/农场）（performance-audit.md）
-  - vendor-qa: 供应商 QA（vendor-qa.md）
-  - kpi-report: 周度 KPI（通过率/缺陷率/返工/时效）（kpi-report.md）
-  - change-control: 变更控制（影响/回退）（change-control.md）
-  - risk-register: 风险台账（risk-register.md）
-  - training-kit: 质量培训包（training-kit.md）
-  - publish: 发布/打包/签名（publish.md）
-  - doc-out: 输出当前工作文档
-  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
   - exit: 退出本角色
+  - run-task {{task}} {{output}}: 执行指定任务并生成输出（task 必须来自 dependencies.tasks 或核心任务，output 必须为模板之一）
+  - check-task {{task}} {{output}}: 执行指定任务的验证/检查流程（task 必须来自 dependencies.tasks 或核心任务，output 必须为模板之一）
+  - run-check {{checklist}} {{output}}: 执行指定检查并生成报告（checklist 必须来自 dependencies.checklists 或核心检查，output 必须为模板之一）
+  - check-check {{checklist}} {{output}}: 对指定检查进行复核或再验证（checklist 必须来自 dependencies.checklists 或核心检查，output 必须为模板之一）
+  - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
+  - doc-out: 输出当前工作文档
+  - qa-brief: '= run-task qa-brief.md qa-qc-lead/qa-brief-tmpl.md'
+  - qa-policy: '= run-task qa-policy.md qa-qc-lead/qa-policy-tmpl.md'
+  - acceptance-criteria: '= run-task acceptance-criteria.md qa-qc-lead/acceptance-criteria-tmpl.md'
+  - gate-pass: '= run-task gate-pass.md qa-qc-lead/gate-pass-report-tmpl.md'
+  - plate-qc: '= run-task plate-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - model-qc: '= run-task model-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - rig-qc: '= run-task rig-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - layout-qc: '= run-task layout-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - animation-qc: '= run-task animation-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - crowd-qc: '= run-task crowd-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - fx-qc: '= run-task fx-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - lighting-qc: '= run-task lighting-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - render-integrity: '= run-task render-integrity.md qa-qc-lead/qc-runbook-tmpl.md'
+  - comp-qc: '= run-task comp-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - editorial-qc: '= run-task editorial-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - delivery-qc: '= run-task delivery-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - performance-audit: '= run-task performance-audit.md qa-qc-lead/qc-runbook-tmpl.md'
+  - vendor-qa: '= run-task vendor-qa.md qa-qc-lead/vendor-qa-report-tmpl.md'
+  - kpi-report: '= run-task kpi-report.md qa-qc-lead/weekly-kpi-report-tmpl.md'
+  - change-control: '= run-task change-control.md qa-qc-lead/change-request-tmpl.md'
+  - risk-register: '= run-task risk-register.md qa-qc-lead/risk-register-tmpl.yaml'
+  - training-kit: '= run-task training-kit.md qa-qc-lead/training-outline-tmpl.md'
+  - publish: '= run-task publish.md qa-qc-lead/publish-manifest-tmpl.yaml'
+  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
 operating-contract:
   DoR (准备就绪):
     - 质量政策/验收标准批准；阈值与抽样计划版本化
@@ -191,7 +194,7 @@ dependencies:
     - datasets/review-resolutions.csv
     - datasets/file-containers.csv
     - datasets/loudness-targets.csv
-help-display-template: |
+help-display-template: |-
   === QA/QC Lead 命令 ===
   1) *qa-brief / *qa-policy / *acceptance-criteria
   2) *gate-pass / *plate-qc / *model-qc / *rig-qc / *layout-qc / *animation-qc / *crowd-qc / *fx-qc

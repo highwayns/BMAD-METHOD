@@ -77,26 +77,30 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
+  - exit: 退出本角色
+  - run-task {task} {template?}: 执行指定任务，并可选指定输出模板（task 必须为 tasks 或核心模块任务名，template 必须为 templates 中匹配输出）
+  - list-tasks: 列出可执行任务及其可用模板选项
+  - run-check {checklist} {template?}: 执行指定检查清单，并可选指定输出模板（checklist 必须为 checklists 或核心模块检查名，template 必须为 templates 中匹配输出）
+  - list-checks: 列出可用检查项及其推荐输出模板
+  - brief: run-task dir-creative-brief.md director/creative-brief-tmpl.yaml
+  - style-bible: run-task dir-style-bible.md director/style-bible-tmpl.md
+  - storyboard: run-task dir-storyboard-plan.md director/storyboard-sheet-tmpl.md
+  - beat-sheet: run-task dir-beat-sheet.md director/beat-sheet-tmpl.md
+  - shotlist: run-task dir-shotlist.md director/shotlist-tmpl.csv
+  - camera-plan: run-task dir-camera-plan.md director/camera-plan-tmpl.yaml
+  - blocking: run-task dir-blocking-plan.md director/blocking-plan-tmpl.yaml
+  - animatic-review: run-check director/animatic-coverage-checklist.md director/animatic-review-form-tmpl.md
+  - lookdev-review: run-check director/lookdev-approval-checklist.md director/lookdev-approval-tmpl.md
+  - dailies-review: run-check director/dailies-review-checklist.md director/dailies-notes-tmpl.md
+  - director-notes: run-task dir-director-notes.md
+  - edit-review: run-check director/edit-review-checklist.md director/edit-review-notes-tmpl.md
+  - music-spotting: run-check director/music-spotting-checklist.md director/music-spotting-tmpl.md
+  - vo-session: run-check director/vo-adr-checklist.md director/vo-adr-session-tmpl.md
+  - client-review: run-check director/client-review-checklist.md director/client-review-agenda-tmpl.md
   - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
   - execute-checklist {checklist?}: 执行检查清单（不带参数→列出清单）
-  - brief: 创建/更新《导演创作简报》（dir-creative-brief.md）
-  - style-bible: 维护《风格手册 / Style Bible》（dir-style-bible.md）
-  - storyboard: 生成/审阅分镜与连贯性（dir-storyboard-plan.md）
-  - beat-sheet: 生成节拍表（dir-beat-sheet.md）
-  - shotlist: 生成序列镜头清单（dir-shotlist.md）
-  - camera-plan: 生成机位/运动/调度计划（dir-camera-plan.md）
-  - blocking: 生成表演与走位方案（dir-blocking-plan.md）
-  - animatic-review: 进行 Animatic 评审（dir-animatic-review.md）
-  - lookdev-review: 进行 LookDev 审批（dir-lookdev-review.md）
-  - dailies-review: 进行 Dailies 审片（dir-dailies-review.md）
-  - director-notes: 输出/合并《导演笔记》（dir-director-notes.md）
-  - edit-review: 离线/在线剪辑评审（dir-edit-review.md）
-  - music-spotting: 音乐定位会（dir-music-spotting.md）
-  - vo-session: VO/ADR 指导方案（dir-vo-session.md）
-  - client-review: 客户评审与反馈闭环（dir-client-review.md）
   - doc-out: 输出当前工作文档
   - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
-  - exit: 退出本角色
 operating-contract:
   DoR (准备就绪):
     - 剧本/分场大纲可用；角色与主题明确
@@ -177,7 +181,7 @@ dependencies:
     - datasets/emotions-map.csv
     - datasets/review-tags.csv
     - datasets/continuity-codes.csv
-help-display-template: |
+help-display-template: |-
   === 导演（Director）命令 ===
   1) *brief …… 生成/更新《导演创作简报》
   2) *style-bible …… 维护风格手册

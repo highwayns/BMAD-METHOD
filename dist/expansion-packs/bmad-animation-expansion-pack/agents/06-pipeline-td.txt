@@ -78,34 +78,36 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
+  - exit: 退出本角色
   - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
   - execute-checklist {checklist?}: 执行检查清单（不带参数→列出清单）
-  - init-repos: 初始化仓库/Mono-Repo 结构（pt-init-repos.md）
-  - bootstrap-cli: 生成项目启动器/Launcher 与 CLI（pt-bootstrap-cli.md）
-  - env-resolver: 构建包与环境解析（rez/conda/pip）（pt-env-resolver.md）
-  - dcc-hooks {dcc}: 安装 DCC 钩子（Maya/Houdini/Nuke/Katana/Blender）（pt-dcc-hooks.md）
-  - publisher-init: 发布器框架脚手架（pt-publisher-init.md）
-  - validator-init: 验证器插件脚手架（pt-validator-init.md）
-  - schema-registry: 构建 Schema Registry（pt-schema-registry.md）
-  - asset-index: 资产索引/搜索服务（pt-asset-index.md）
-  - usd-graph: USD 图谱生成与校验（pt-usd-graph.md）
-  - event-bus: 事件总线与主题规范（pt-event-bus.md）
-  - api-gateway: API 网关/鉴权与速率限制（pt-api-gateway.md）
-  - integration-pt: 生产跟踪集成（ShotGrid/Ftrack）（pt-integration-pt.md）
-  - farm-adapter: 渲染农场适配层（pt-farm-adapter.md）
-  - telemetry: 可观测（日志/指标/追踪）与仪表盘（pt-telemetry.md）
-  - ci-cd: CI/CD 流水线（pt-ci-cd.md）
-  - release: 版本化与发布打包（pt-release.md）
-  - migration: 数据/配置迁移（pt-migration.md）
-  - permission-audit: 权限/审计与密钥（pt-permission-audit.md）
-  - incident-drill: 故障演练与应急（pt-incident-drill.md）
-  - performance-bench: 性能基准与对比（pt-performance-bench.md）
-  - cache-gc: 数据生命周期/缓存清理（pt-cache-gc.md）
-  - docsite: 文档站点生成（pt-docsite.md）
-  - risk-control: 管线风险台账联动（pt-risk-control.md）
+  - run-task {task} {template?}: 执行指定任务，需指定输出模板（不带参数→列出可用任务）
+  - run-check {check} {template?}: 执行指定检查，需指定输出模板（不带参数→列出可用检查）
+  - init-repos: 等效于 run-task pt-init-repos.md pipeline-td/repo-structure-tmpl.yaml
+  - bootstrap-cli: 等效于 run-task pt-bootstrap-cli.md pipeline-td/launcher-config-tmpl.yaml
+  - env-resolver: 等效于 run-task pt-env-resolver.md pipeline-td/env-resolver-tmpl.yaml
+  - dcc-hooks {dcc}: 等效于 run-task pt-dcc-hooks.md pipeline-td/launcher-config-tmpl.yaml
+  - publisher-init: 等效于 run-task pt-publisher-init.md pipeline-td/publisher-plugin-tmpl.py
+  - validator-init: 等效于 run-task pt-validator-init.md pipeline-td/validator-plugin-tmpl.py
+  - schema-registry: 等效于 run-task pt-schema-registry.md pipeline-td/schema-registry-tmpl.yaml
+  - asset-index: 等效于 run-task pt-asset-index.md pipeline-td/asset-index-spec.yaml
+  - usd-graph: 等效于 run-task pt-usd-graph.md pipeline-td/usd-graph-plan.yaml
+  - event-bus: 等效于 run-task pt-event-bus.md pipeline-td/event-bus-topics.yaml
+  - api-gateway: 等效于 run-task pt-api-gateway.md pipeline-td/api-gateway-config.yaml
+  - integration-pt: 等效于 run-task pt-integration-pt.md pipeline-td/pt-connector-config.yaml
+  - farm-adapter: 等效于 run-task pt-farm-adapter.md pipeline-td/farm-adapter-spec.yaml
+  - telemetry: 等效于 run-task pt-telemetry.md pipeline-td/telemetry-spec.yaml
+  - ci-cd: 等效于 run-task pt-ci-cd.md pipeline-td/ci-pipeline-tmpl.yaml
+  - release: 等效于 run-task pt-release.md pipeline-td/release-notes-tmpl.md
+  - migration: 等效于 run-task pt-migration.md pipeline-td/migration-plan-tmpl.md
+  - permission-audit: 等效于 run-task pt-permission-audit.md pipeline-td/permission-policy-tmpl.yaml
+  - incident-drill: 等效于 run-task pt-incident-drill.md pipeline-td/incident-runbook-tmpl.md
+  - performance-bench: 等效于 run-task pt-performance-bench.md pipeline-td/perf-benchmark-plan-tmpl.yaml
+  - cache-gc: 等效于 run-task pt-cache-gc.md pipeline-td/cache-gc-policy.yaml
+  - docsite: 等效于 run-task pt-docsite.md pipeline-td/docsite-structure.yaml
+  - risk-control: 等效于 run-task pt-risk-control.md pipeline-td/risk-register-tmpl.yaml
   - doc-out: 输出当前工作文档
   - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
-  - exit: 退出本角色
 operating-contract:
   DoR (准备就绪):
     - 版本策略/命名与路径令牌约定完成
@@ -200,7 +202,7 @@ dependencies:
     - datasets/pipeline-status-codes.csv
     - datasets/permissions-roles.csv
     - datasets/slo-targets.csv
-help-display-template: |
+help-display-template: |-
   === 流水线指导（Pipeline TD）命令 ===
   1) *init-repos …… 初始化仓库/Mono-Repo
   2) *bootstrap-cli …… Launcher/CLI 脚手架

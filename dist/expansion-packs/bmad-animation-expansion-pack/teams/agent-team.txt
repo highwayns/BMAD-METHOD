@@ -234,20 +234,22 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
+  - exit: 退出本角色
+  - run-task {task} {template?}: 执行指定任务，可选指定输出模板（不带参数→列出可用任务）
+  - run-check {checklist} {template?}: 执行指定检查清单，可选指定输出模板（不带参数→列出可用检查）
+  - greenlight: 生成并推进《绿灯包》→ 任务 greenlight-package.md + 清单 greenlight-checklist.md + 模板 exec-producer/greenlight-package-tmpl.yaml
+  - review-production: 执行生产健康巡检 → 任务 production-health-review.md + 清单 production-health-checklist.md
+  - validate-production: 执行生产交付就绪检查 → 清单 delivery-readiness-checklist.md
+  - handoff {dept}: 生成部门交接包（handoff-package.md）并执行 handoff-quality-checklist，dept ∈ {Art,Model,Rig,Layout,Anim,FX,Light,Comp,Edit,Sound}
+  - delivery {package?}: 生成交付包（delivery-package.md）并执行 delivery-readiness-checklist，可选 {offline,online,studio,streamer,broadcast}
+  - vendor-onboard: 执行供应商入驻任务 vendor-onboarding.md 并执行 vendor-contract-checklist.md
+  - cost-report: 执行成本与燃尽周报任务 cost-report.md（输出模板：exec-producer/budget-plan-tmpl.yaml）
+  - change-request: 执行变更提报任务 change-request.md 并执行 change-control-checklist.md（输出模板：exec-producer/change-request-tmpl.yaml）
+  - risk-register: 执行风险登记任务 risk-register.md（输出模板：exec-producer/risk-register-tmpl.yaml）
   - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
   - execute-checklist {checklist?}: 执行检查清单（不带参数→列出清单）
-  - greenlight: 生成并推进《绿灯包》→ 运行任务 greenlight-package.md + 清单 greenlight-checklist.md
-  - review-production: 运行生产健康巡检（production-health-review.md）
-  - validate-production: 执行 生产健康度/交付就绪 评分清单
-  - handoff {dept}: 生成部门交接包（handoff-package.md），dept ∈ {Art,Model,Rig,Layout,Anim,FX,Light,Comp,Edit,Sound}
-  - delivery {package?}: 生成交付包（delivery-package.md），可选 {offline,online,studio,streamer,broadcast}
-  - vendor-onboard: 供应商入驻（vendor-onboarding.md + vendor-contract-checklist.md）
-  - cost-report: 生成成本与燃尽周报（cost-report.md）
-  - change-request: 提交变更（change-request.md + change-control-checklist.md）
-  - risk-register: 生成/更新风险台账（create-doc risk-register-tmpl.yaml）
   - doc-out: 输出当前工作文档
-  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
-  - exit: 退出本角色
+  - yolo: 切换 YOLO 模式（跳过确认，仅对非 elicit=true 生效）
 operating-contract:
   DoR (准备就绪):
     - 创意/剧本简报批准 & 关键美术基调确定
@@ -305,7 +307,7 @@ dependencies:
     - datasets/budget-categories.csv
     - datasets/rate-card.csv
     - datasets/delivery-codec-matrix.csv
-help-display-template: |
+help-display-template: |-
   === 执行制片（EP）命令 ===
   *help …… 查看本帮助
   *create-doc …… 基于模板创建（将列出 EP 模板索引）
@@ -358,23 +360,49 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
+  - exit: 退出本角色
+  - do-task {task} {template?}: 执行指定任务，需指定模板（不带参数→列出任务与可用模板）
+    examples:
+      - do-task generate-dpr producer-line/dpr-tmpl.md
+      - do-task plan-stripboard producer-line/stripboard-tmpl.yaml
+      - do-task update-shot-plan producer-line/shot-plan-tmpl.yaml
+      - do-task allocate-resources producer-line/resource-plan-matrix-tmpl.yaml
+      - do-task timesheet-import producer-line/timesheet-import-spec.yaml
+      - do-task vendor-booking producer-line/vendor-booking-checklist.md
+      - do-task render-forecast producer-line/render-forecast-tmpl.yaml
+      - do-task dailies-log producer-line/dailies-log-tmpl.csv
+      - do-task handoff producer-line/handoff-note-tmpl.md
+      - do-task delivery-prep producer-line/prod-report-weekly-tmpl.md
+      - do-task daily-standup producer-line/standup-minutes-tmpl.md
+      - do-task issue-triage producer-line/issue-log-tmpl.csv
+      - do-task create-doc producer-line/call-sheet-tmpl.yaml
+  - run-check {checklist} {template?}: 执行指定检查清单，需指定模板（不带参数→列出清单与可用模板）
+    examples:
+      - run-check dpr-quality-checklist producer-line/dpr-tmpl.md
+      - run-check shot-ready-checklist producer-line/shot-plan-tmpl.yaml
+      - run-check render-ready-checklist producer-line/render-forecast-tmpl.yaml
+      - run-check handoff-quality-checklist producer-line/handoff-note-tmpl.md
+      - run-check dailies-review-checklist producer-line/dailies-log-tmpl.csv
+      - run-check data-integrity-checklist producer-line/issue-log-tmpl.csv
+      - run-check schedule-risk-checklist producer-line/stripboard-tmpl.yaml
+      - run-check vendor-booking-checklist producer-line/vendor-booking-checklist.md
+      - run-check timesheet-audit-checklist producer-line/timesheet-import-spec.yaml
   - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
   - execute-checklist {checklist?}: 执行检查清单（不带参数→列出清单）
-  - plan-stripboard: 生成/更新 Stripboard 计划（lp-stripboard-plan.md）
-  - update-shot-plan: 维护镜头/资产推进计划（lp-asset-shot-plan.md）
-  - daily-standup: 记录站会纪要并分派行动项（lp-daily-standup.md）
-  - generate-dpr: 生成当天 DPR（日制作报告）（lp-dpr-generate.md）
-  - timesheet-import: 导入/校验工时（lp-timesheet-import.md）
-  - allocate-resources: 更新资源矩阵与班表（lp-resource-allocation.md）
-  - vendor-booking: 供应商预约与档案（lp-vendor-booking.md）
-  - issue-triage: 阻塞与缺陷分诊（lp-issue-triage.md）
-  - render-forecast: 渲染资源预测（lp-render-forecast.md）
-  - dailies-log: 记录 Dailies 提交/结论（lp-dailies-log.md）
-  - handoff {dept}: 生成部门交接包（lp-handoff-package.md）
-  - delivery-prep: 交付前准备（lp-delivery-prep.md）
+  - plan-stripboard: 等同于 do-task plan-stripboard producer-line/stripboard-tmpl.yaml
+  - update-shot-plan: 等同于 do-task update-shot-plan producer-line/shot-plan-tmpl.yaml
+  - daily-standup: 等同于 do-task daily-standup producer-line/standup-minutes-tmpl.md
+  - generate-dpr: 等同于 do-task generate-dpr producer-line/dpr-tmpl.md
+  - timesheet-import: 等同于 do-task timesheet-import producer-line/timesheet-import-spec.yaml
+  - allocate-resources: 等同于 do-task allocate-resources producer-line/resource-plan-matrix-tmpl.yaml
+  - vendor-booking: 等同于 do-task vendor-booking producer-line/vendor-booking-checklist.md
+  - issue-triage: 等同于 do-task issue-triage producer-line/issue-log-tmpl.csv
+  - render-forecast: 等同于 do-task render-forecast producer-line/render-forecast-tmpl.yaml
+  - dailies-log: 等同于 do-task dailies-log producer-line/dailies-log-tmpl.csv
+  - handoff {dept}: 等同于 do-task handoff producer-line/handoff-note-tmpl.md
+  - delivery-prep: 等同于 do-task delivery-prep producer-line/prod-report-weekly-tmpl.md
   - doc-out: 输出当前工作文档
   - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
-  - exit: 退出本角色
 operating-contract:
   DoR (准备就绪):
     - 项目已绿灯；EP 已提供 Budget/Schedule 基线
@@ -442,7 +470,7 @@ dependencies:
     - datasets/timesheet-categories.csv
     - datasets/work-calendar.csv
     - datasets/shot-week-quota-sample.csv
-help-display-template: |
+help-display-template: |-
   === 制片人 / Line Producer 命令 ===
   1) *create-doc …… 生成通告单/Stripboard/周报等
   2) *execute-checklist …… 执行LP检查清单
@@ -498,26 +526,30 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
+  - exit: 退出本角色
+  - run-task {task} {template?}: 执行指定任务，并可选指定输出模板（task 必须为 tasks 或核心模块任务名，template 必须为 templates 中匹配输出）
+  - list-tasks: 列出可执行任务及其可用模板选项
+  - run-check {checklist} {template?}: 执行指定检查清单，并可选指定输出模板（checklist 必须为 checklists 或核心模块检查名，template 必须为 templates 中匹配输出）
+  - list-checks: 列出可用检查项及其推荐输出模板
+  - brief: run-task dir-creative-brief.md director/creative-brief-tmpl.yaml
+  - style-bible: run-task dir-style-bible.md director/style-bible-tmpl.md
+  - storyboard: run-task dir-storyboard-plan.md director/storyboard-sheet-tmpl.md
+  - beat-sheet: run-task dir-beat-sheet.md director/beat-sheet-tmpl.md
+  - shotlist: run-task dir-shotlist.md director/shotlist-tmpl.csv
+  - camera-plan: run-task dir-camera-plan.md director/camera-plan-tmpl.yaml
+  - blocking: run-task dir-blocking-plan.md director/blocking-plan-tmpl.yaml
+  - animatic-review: run-check director/animatic-coverage-checklist.md director/animatic-review-form-tmpl.md
+  - lookdev-review: run-check director/lookdev-approval-checklist.md director/lookdev-approval-tmpl.md
+  - dailies-review: run-check director/dailies-review-checklist.md director/dailies-notes-tmpl.md
+  - director-notes: run-task dir-director-notes.md
+  - edit-review: run-check director/edit-review-checklist.md director/edit-review-notes-tmpl.md
+  - music-spotting: run-check director/music-spotting-checklist.md director/music-spotting-tmpl.md
+  - vo-session: run-check director/vo-adr-checklist.md director/vo-adr-session-tmpl.md
+  - client-review: run-check director/client-review-checklist.md director/client-review-agenda-tmpl.md
   - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
   - execute-checklist {checklist?}: 执行检查清单（不带参数→列出清单）
-  - brief: 创建/更新《导演创作简报》（dir-creative-brief.md）
-  - style-bible: 维护《风格手册 / Style Bible》（dir-style-bible.md）
-  - storyboard: 生成/审阅分镜与连贯性（dir-storyboard-plan.md）
-  - beat-sheet: 生成节拍表（dir-beat-sheet.md）
-  - shotlist: 生成序列镜头清单（dir-shotlist.md）
-  - camera-plan: 生成机位/运动/调度计划（dir-camera-plan.md）
-  - blocking: 生成表演与走位方案（dir-blocking-plan.md）
-  - animatic-review: 进行 Animatic 评审（dir-animatic-review.md）
-  - lookdev-review: 进行 LookDev 审批（dir-lookdev-review.md）
-  - dailies-review: 进行 Dailies 审片（dir-dailies-review.md）
-  - director-notes: 输出/合并《导演笔记》（dir-director-notes.md）
-  - edit-review: 离线/在线剪辑评审（dir-edit-review.md）
-  - music-spotting: 音乐定位会（dir-music-spotting.md）
-  - vo-session: VO/ADR 指导方案（dir-vo-session.md）
-  - client-review: 客户评审与反馈闭环（dir-client-review.md）
   - doc-out: 输出当前工作文档
   - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
-  - exit: 退出本角色
 operating-contract:
   DoR (准备就绪):
     - 剧本/分场大纲可用；角色与主题明确
@@ -598,7 +630,7 @@ dependencies:
     - datasets/emotions-map.csv
     - datasets/review-tags.csv
     - datasets/continuity-codes.csv
-help-display-template: |
+help-display-template: |-
   === 导演（Director）命令 ===
   1) *brief …… 生成/更新《导演创作简报》
   2) *style-bible …… 维护风格手册
@@ -658,27 +690,41 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
+  - exit: 退出本角色
+  - run-task {task} {template?}: 执行指定任务，通常需指定输出模板（不带参数→列出可用任务与模板）
+  - art-bible {template?}: 创建/更新《艺术圣经》（需指定模板，如 art-bible-tmpl.md）
+  - style-guide {template?}: 创建/更新《风格手册》（需指定模板，如 style-guide-tmpl.md）
+  - lookdev-brief {template?}: 生成 LookDev 简报/审批单（如 lookdev-brief-tmpl.md）
+  - palette-manager {template?}: 生成/校验项目配色与设计令牌（如 palette-tmpl.yaml）
+  - color-script {template?}: 生成色彩脚本（如 color-script-tmpl.yaml）
+  - keyframes {template?}: 规划关键帧/Lighting Keys（如 keyframe-brief-tmpl.md）
+  - paintover {template?}: 生成/记录 Paintover 指南与批注（如 paintover-notes-tmpl.md）
+  - moodboard {template?}: 组织/更新参考情绪板（如 moodboard-tmpl.md）
+  - character-spec {template?}: 角色设计规格（如 character-spec-tmpl.yaml）
+  - environment-spec {template?}: 场景设计规格（如 environment-spec-tmpl.yaml）
+  - prop-spec {template?}: 道具设计规格（如 prop-spec-tmpl.yaml）
+  - texture-look-bible {template?}: 纹理/材质 Look Bible（如 texture-look-bible-tmpl.md）
+  - typography-title {template?}: 片头/字形/品牌图形（如 typography-title-tmpl.md）
+  - ui-overlay {template?}: UI/图形叠加规范（如 ui-overlay-pack-tmpl.yaml）
   - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
-  - execute-checklist {checklist?}: 执行检查清单（不带参数→列出清单）
-  - art-bible: 创建/更新《艺术圣经》（ad-art-bible.md）
-  - style-guide: 创建/更新《风格手册》（ad-style-guide.md）
-  - lookdev-brief: 生成 LookDev 简报/审批单（ad-lookdev-brief.md）
-  - palette-manager: 生成/校验项目配色与设计令牌（ad-palette-manager.md）
-  - color-script: 生成色彩脚本（ad-color-script.md）
-  - keyframes: 规划关键帧/Lighting Keys（ad-keyframes.md）
-  - paintover: 生成/记录 Paintover 指南与批注（ad-paintover.md）
-  - moodboard: 组织/更新参考情绪板（ad-moodboard.md）
-  - character-spec: 角色设计规格（ad-character-spec.md）
-  - environment-spec: 场景设计规格（ad-environment-spec.md）
-  - prop-spec: 道具设计规格（ad-prop-spec.md）
-  - texture-look-bible: 纹理/材质 Look Bible（ad-texture-look-bible.md）
-  - typography-title: 片头/字形/品牌图形（ad-typography-title.md）
-  - ui-overlay: UI/图形叠加规范（ad-ui-overlay.md）
-  - visual-qa: 视觉一致性 QA（ad-visual-qa.md）
-  - dailies-art-review: 美术向 Dailies 审片（ad-dailies-art-review.md）
+  - run-check {checklist} {template?}: 执行指定检查清单，通常需指定输出模板（不带参数→列出可用检查与模板）
+  - check-art-bible {template?}: 审核《艺术圣经》（如 art-bible-checklist.md + design-review-notes-tmpl.md）
+  - check-style-guide {template?}: 审核《风格手册》（如 style-guide-checklist.md）
+  - check-lookdev-brief {template?}: 审核 LookDev 简报（如 lookdev-brief-checklist.md）
+  - check-color-script {template?}: 审核色彩脚本（如 color-script-checklist.md）
+  - check-character-design {template?}: 审核角色设计规范（如 character-design-checklist.md）
+  - check-environment-design {template?}: 审核场景设计规范（如 environment-design-checklist.md）
+  - check-prop-design {template?}: 审核道具设计规范（如 prop-design-checklist.md）
+  - check-keyframes {template?}: 审核关键帧/Lighting Keys（如 keyframes-checklist.md）
+  - check-paintover {template?}: 审核 Paintover 批注（如 paintover-checklist.md）
+  - check-palette {template?}: 审核项目配色一致性（如 palette-consistency-checklist.md）
+  - check-texture-material {template?}: 审核纹理材质规范（如 texture-material-checklist.md）
+  - check-visual-continuity {template?}: 审核视觉连续性（如 visual-continuity-checklist.md）
+  - check-typography-graphics {template?}: 审核字体/UX 图形规范（如 typography-ux-graphics-checklist.md）
+  - check-copyright-reference {template?}: 审核参考图版权（如 copyright-reference-checklist.md）
+  - check-dailies-review {template?}: 审核 Dailies 审片意见闭环（如 art-dailies-review-checklist.md）
   - doc-out: 输出当前工作文档
   - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
-  - exit: 退出本角色
 operating-contract:
   DoR (准备就绪):
     - 导演创作简报/主题与受众明确
@@ -772,7 +818,7 @@ dependencies:
     - datasets/typography-fonts.csv
     - datasets/ui-overlay-elements.csv
     - datasets/motif-tags.csv
-help-display-template: |
+help-display-template: |-
   === 艺术导演 / VisDev 命令 ===
   1) *art-bible …… 艺术圣经
   2) *style-guide …… 风格手册
@@ -831,31 +877,13 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
+  - exit: 退出本角色
   - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
   - execute-checklist {checklist?}: 执行检查清单（不带参数→列出清单）
-  - pipeline-boot: 初始化项目管线脚手架（td-pipeline-boot.md）
-  - dcc-env-build {dcc}: 构建 DCC 环境（Maya/Houdini/Nuke/Katana）（td-dcc-env-build.md）
-  - publish-spec: 创建/更新发布 Schema（td-publish-spec.md）
-  - validator-suite: 运行发布验证套件（td-validator-suite.md）
-  - scene-hygiene {dcc}: 场景卫生检查/修复（td-scene-hygiene.md）
-  - cache-export {type}: 缓存导出规范（abc/usd/vdb）（td-cache-export.md）
-  - usd-plan: USD 分层与组合方案（td-usd-plan.md）
-  - ocio-setup: 项目色彩管理配置（td-ocio-setup.md）
-  - render-profile {renderer}: 渲染配置档（td-render-profile.md）
-  - farm-dispatch: 农场投递与优先级策略（td-farm-dispatch.md）
-  - farm-wrangling: 农场监控与自愈（td-farm-wrangling.md）
-  - review-io: 审片 I/O（slate/burn-in/watermark）（td-review-io.md）
-  - ingest-media: 盘片/素材/EDL/音频导入与校验（td-ingest-media.md）
-  - path-mapping: 路径映射与站点切换（td-path-mapping.md）
-  - storage-forecast: 存储/带宽预测（td-storage-forecast.md）
-  - license-audit: 授权与许可证审计（td-license-audit.md）
-  - backup-dr: 备份/容灾演练（td-backup-dr.md）
-  - security-watermark: 安全与水印策略（td-security-watermark.md）
-  - integration-pt: 生产跟踪系统集成（td-integration-pt.md）
-  - delivery-tech-check: 交付技术预检（td-delivery-tech-check.md）
+  - run-task {task} {template?}: 执行指定任务（任务名称应来自 dependencies.tasks 或核心模块任务，可选输出模板）
+  - run-check {check} {template?}: 执行指定检查（检查名称应来自 dependencies.checklists 或核心模块检查，可选输出模板）
   - doc-out: 输出当前工作文档
   - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
-  - exit: 退出本角色
 operating-contract:
   DoR (准备就绪):
     - 项目命名/路径令牌/版本策略确定
@@ -950,7 +978,7 @@ dependencies:
     - datasets/status-codes-td.csv
     - datasets/farm-queues.csv
     - datasets/dcc-versions.csv
-help-display-template: |
+help-display-template: |-
   === 技术指导（Show TD）命令 ===
   1) *pipeline-boot …… 初始化项目管线
   2) *dcc-env-build …… 构建DCC环境（Maya/Houdini/Nuke/Katana）
@@ -1008,34 +1036,36 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
+  - exit: 退出本角色
   - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
   - execute-checklist {checklist?}: 执行检查清单（不带参数→列出清单）
-  - init-repos: 初始化仓库/Mono-Repo 结构（pt-init-repos.md）
-  - bootstrap-cli: 生成项目启动器/Launcher 与 CLI（pt-bootstrap-cli.md）
-  - env-resolver: 构建包与环境解析（rez/conda/pip）（pt-env-resolver.md）
-  - dcc-hooks {dcc}: 安装 DCC 钩子（Maya/Houdini/Nuke/Katana/Blender）（pt-dcc-hooks.md）
-  - publisher-init: 发布器框架脚手架（pt-publisher-init.md）
-  - validator-init: 验证器插件脚手架（pt-validator-init.md）
-  - schema-registry: 构建 Schema Registry（pt-schema-registry.md）
-  - asset-index: 资产索引/搜索服务（pt-asset-index.md）
-  - usd-graph: USD 图谱生成与校验（pt-usd-graph.md）
-  - event-bus: 事件总线与主题规范（pt-event-bus.md）
-  - api-gateway: API 网关/鉴权与速率限制（pt-api-gateway.md）
-  - integration-pt: 生产跟踪集成（ShotGrid/Ftrack）（pt-integration-pt.md）
-  - farm-adapter: 渲染农场适配层（pt-farm-adapter.md）
-  - telemetry: 可观测（日志/指标/追踪）与仪表盘（pt-telemetry.md）
-  - ci-cd: CI/CD 流水线（pt-ci-cd.md）
-  - release: 版本化与发布打包（pt-release.md）
-  - migration: 数据/配置迁移（pt-migration.md）
-  - permission-audit: 权限/审计与密钥（pt-permission-audit.md）
-  - incident-drill: 故障演练与应急（pt-incident-drill.md）
-  - performance-bench: 性能基准与对比（pt-performance-bench.md）
-  - cache-gc: 数据生命周期/缓存清理（pt-cache-gc.md）
-  - docsite: 文档站点生成（pt-docsite.md）
-  - risk-control: 管线风险台账联动（pt-risk-control.md）
+  - run-task {task} {template?}: 执行指定任务，需指定输出模板（不带参数→列出可用任务）
+  - run-check {check} {template?}: 执行指定检查，需指定输出模板（不带参数→列出可用检查）
+  - init-repos: 等效于 run-task pt-init-repos.md pipeline-td/repo-structure-tmpl.yaml
+  - bootstrap-cli: 等效于 run-task pt-bootstrap-cli.md pipeline-td/launcher-config-tmpl.yaml
+  - env-resolver: 等效于 run-task pt-env-resolver.md pipeline-td/env-resolver-tmpl.yaml
+  - dcc-hooks {dcc}: 等效于 run-task pt-dcc-hooks.md pipeline-td/launcher-config-tmpl.yaml
+  - publisher-init: 等效于 run-task pt-publisher-init.md pipeline-td/publisher-plugin-tmpl.py
+  - validator-init: 等效于 run-task pt-validator-init.md pipeline-td/validator-plugin-tmpl.py
+  - schema-registry: 等效于 run-task pt-schema-registry.md pipeline-td/schema-registry-tmpl.yaml
+  - asset-index: 等效于 run-task pt-asset-index.md pipeline-td/asset-index-spec.yaml
+  - usd-graph: 等效于 run-task pt-usd-graph.md pipeline-td/usd-graph-plan.yaml
+  - event-bus: 等效于 run-task pt-event-bus.md pipeline-td/event-bus-topics.yaml
+  - api-gateway: 等效于 run-task pt-api-gateway.md pipeline-td/api-gateway-config.yaml
+  - integration-pt: 等效于 run-task pt-integration-pt.md pipeline-td/pt-connector-config.yaml
+  - farm-adapter: 等效于 run-task pt-farm-adapter.md pipeline-td/farm-adapter-spec.yaml
+  - telemetry: 等效于 run-task pt-telemetry.md pipeline-td/telemetry-spec.yaml
+  - ci-cd: 等效于 run-task pt-ci-cd.md pipeline-td/ci-pipeline-tmpl.yaml
+  - release: 等效于 run-task pt-release.md pipeline-td/release-notes-tmpl.md
+  - migration: 等效于 run-task pt-migration.md pipeline-td/migration-plan-tmpl.md
+  - permission-audit: 等效于 run-task pt-permission-audit.md pipeline-td/permission-policy-tmpl.yaml
+  - incident-drill: 等效于 run-task pt-incident-drill.md pipeline-td/incident-runbook-tmpl.md
+  - performance-bench: 等效于 run-task pt-performance-bench.md pipeline-td/perf-benchmark-plan-tmpl.yaml
+  - cache-gc: 等效于 run-task pt-cache-gc.md pipeline-td/cache-gc-policy.yaml
+  - docsite: 等效于 run-task pt-docsite.md pipeline-td/docsite-structure.yaml
+  - risk-control: 等效于 run-task pt-risk-control.md pipeline-td/risk-register-tmpl.yaml
   - doc-out: 输出当前工作文档
   - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
-  - exit: 退出本角色
 operating-contract:
   DoR (准备就绪):
     - 版本策略/命名与路径令牌约定完成
@@ -1130,7 +1160,7 @@ dependencies:
     - datasets/pipeline-status-codes.csv
     - datasets/permissions-roles.csv
     - datasets/slo-targets.csv
-help-display-template: |
+help-display-template: |-
   === 流水线指导（Pipeline TD）命令 ===
   1) *init-repos …… 初始化仓库/Mono-Repo
   2) *bootstrap-cli …… Launcher/CLI 脚手架
@@ -1186,29 +1216,42 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
-  - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
-  - execute-checklist {checklist?}: 执行检查清单（不带参数→列出清单）
-  - seq-kickoff: 序列启动会（cg-seq-kickoff.md）
-  - dailies: CG 向 Dailies（cg-dailies.md）
-  - qc-shot {shot?}: 单镜头 QC（cg-qc-shot.md）
-  - qc-seq {seq?}: 序列级 QC（cg-qc-seq.md）
-  - render-preflight {renderer?}: 渲染预检（cg-render-preflight.md）
-  - light-rig-approve: 灯光Rig/模板审批（cg-light-rig-approve.md）
-  - lookdev-bridge: LookDev→Lighting 桥接（cg-lookdev-bridge.md）
-  - fx-budget: FX 预算与缓存策略（cg-fx-budget.md）
-  - comp-pack: 合成模板与AOV约定（cg-comp-pack.md）
-  - delivery-ready {tier?}: 交付就绪度评估（cg-delivery-ready.md）
-  - rerender-plan: 返修/重渲策略（cg-rerender-plan.md）
-  - vendor-qa: 供应商镜头包 QA（cg-vendor-qa.md）
-  - change-control: 变更控制（cg-change-control.md）
-  - kpi-report: 周度 KPI 报告（cg-kpi-report.md）
-  - risk-register: 风险台账（cg-risk-register.md）
-  - handoff-schedule: 部门交接排程（cg-handoff-schedule.md）
-  - coverage-matrix: 覆盖矩阵（cg-coverage-matrix.md）
-  - tech-debt: 技术债台账（cg-tech-debt.md）
-  - doc-out: 输出当前工作文档
-  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
   - exit: 退出本角色
+  - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
+  - doc-out: 输出当前工作文档
+  - run seq-kickoff {template?}: 执行序列启动会任务
+  - run dailies {template?}: 执行 CG Dailies 任务
+  - run qc-shot {template?}: 执行单镜头 QC 任务
+  - run qc-seq {template?}: 执行序列级 QC 任务
+  - run render-preflight {template?}: 执行渲染预检任务
+  - run light-rig-approve {template?}: 执行灯光 Rig 审批任务
+  - run lookdev-bridge {template?}: 执行 LookDev→Lighting 桥接任务
+  - run fx-budget {template?}: 执行 FX 预算与缓存任务
+  - run comp-pack {template?}: 执行合成模板/AOV 约定任务
+  - run delivery-ready {template?}: 执行交付就绪度评估任务
+  - run rerender-plan {template?}: 执行重渲/返修策略任务
+  - run vendor-qa {template?}: 执行供应商镜头包 QA 任务
+  - run change-control {template?}: 执行变更控制任务
+  - run kpi-report {template?}: 执行周度 KPI 报告任务
+  - run risk-register {template?}: 执行风险台账任务
+  - run handoff-schedule {template?}: 执行部门交接排程任务
+  - run coverage-matrix {template?}: 执行覆盖矩阵任务
+  - run tech-debt {template?}: 执行技术债台账任务
+  - check shot-readiness {template?}: 执行镜头准备检查
+  - check sequence-readiness {template?}: 执行序列准备检查
+  - check render-preflight {template?}: 执行渲染预检检查
+  - check lighting-qc {template?}: 执行灯光 QC 检查
+  - check fx-qc {template?}: 执行 FX QC 检查
+  - check comp-qc {template?}: 执行合成 QC 检查
+  - check color-pipeline {template?}: 执行色彩流程一致性检查
+  - check cache-naming {template?}: 执行缓存命名规范检查
+  - check aov-consistency {template?}: 执行 AOV 一致性检查
+  - check hair-fur {template?}: 执行毛发系统检查
+  - check crowd-cache {template?}: 执行 Crowd 缓存检查
+  - check vendor-qa {template?}: 执行供应商交付 QA 检查
+  - check delivery-readiness {template?}: 执行交付就绪检查
+  - check change-control {template?}: 执行变更控制检查
+  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
 operating-contract:
   DoR (准备就绪):
     - 剧本/分镜与关键美术锚点可用
@@ -1301,7 +1344,7 @@ dependencies:
     - datasets/handoff-artifacts.csv
     - datasets/retake-codes.csv
     - datasets/risk-categories.csv
-help-display-template: |
+help-display-template: |-
   === CG 监督 命令 ===
   1) *seq-kickoff …… 序列启动会
   2) *dailies …… CG Dailies（记录/行动项）
@@ -1358,33 +1401,35 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
+  - exit: 退出本角色
   - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
-  - execute-checklist {checklist?}: 执行检查清单（不带参数→列出清单）
-  - anim-seq-kickoff: 序列动画启动会（as-anim-seq-kickoff.md）
-  - shot-assign: 镜头分配/复杂度评估（as-shot-assign.md）
-  - acting-brief: 表演简报/节拍表（as-acting-brief.md）
-  - anim-blocking-plan: Blocking 计划与门禁（as-anim-blocking-plan.md）
-  - pass-schedule: Pass 节律（Block/Spline/Polish）排程（as-pass-schedule.md）
-  - anim-dailies: 动画 Dailies 纪要/行动项（as-anim-dailies.md）
-  - notes-merge: 合并与去重动画笔记（as-notes-merge.md）
-  - retake-triage: 返修分级与路线（as-retake-triage.md）
-  - lipsync-pass: 口型与面部 Pass 计划（as-lipsync-pass.md）
-  - facial-rig-calib: 面部Rig 标定与表情库（as-facial-rig-calib.md）
-  - mocap-ingest: Mocap 导入/对齐（as-mocap-ingest.md）
-  - mocap-cleanup: Mocap 清洗/关键帧化策略（as-mocap-cleanup.md）
-  - cam-continuity: 摄影机/走位连贯性复核（as-cam-continuity.md）
-  - cfx-handshake: 与 CFX 的碰撞/交接（as-cfx-handshake.md）
-  - handoff-light: 向 Lighting 的交接（as-handoff-light.md）
-  - playblast-pack: Playblast 打包与命名（as-playblast-pack.md）
-  - anim-qc: 动画门禁/QC（as-anim-qc.md）
-  - performance-bible: 《表演圣经/Performance Bible》（as-performance-bible.md）
-  - animator-playbook: 动画师作业手册/DoD（as-animator-playbook.md）
-  - training-plan: 培训与校准（as-training-plan.md）
-  - kpi-report: 周度 KPI 报告（as-kpi-report.md）
-  - capacity-forecast: 人力与产能预测（as-capacity-forecast.md）
   - doc-out: 输出当前工作文档
   - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
-  - exit: 退出本角色
+  - run-task {task} {template}: 执行指定任务，并使用指定模板输出（任务范围限制为 dependencies.tasks 或 BMAD 核心任务）
+  - run-check {checklist} {template}: 执行指定检查，并使用指定模板输出结果（检查范围限制为 dependencies.checklists 或 BMAD 核心检查）
+  - anim-seq-kickoff: 执行序列动画启动会（as-anim-seq-kickoff.md + seq-anim-brief-tmpl.md）
+  - shot-assign: 执行镜头分配/复杂度评估（as-shot-assign.md + shot-assign-tmpl.md）
+  - acting-brief: 执行表演简报/节拍表（as-acting-brief.md + acting-brief-tmpl.md）
+  - anim-blocking-plan: 制定 Blocking 计划（as-anim-blocking-plan.md + blocking-plan-tmpl.md）
+  - pass-schedule: Pass 节律排程（as-pass-schedule.md + pass-schedule-tmpl.md）
+  - anim-dailies: 动画 Dailies 纪要与行动项（as-anim-dailies.md + dailies-agenda-tmpl.md）
+  - notes-merge: 合并与去重动画笔记（as-notes-merge.md + notes-log-tmpl.md）
+  - retake-triage: 返修分级与行动路径（as-retake-triage.md + retake-triage-tmpl.md）
+  - lipsync-pass: 口型与面部 Pass 计划（as-lipsync-pass.md + lipsync-cuesheet-tmpl.md）
+  - facial-rig-calib: 面部 Rig 标定与表情库（as-facial-rig-calib.md + facial-calib-tmpl.md）
+  - mocap-ingest: Mocap 导入与对齐（as-mocap-ingest.md + mocap-ingest-spec.yaml）
+  - mocap-cleanup: Mocap 清洗与关键帧策略（as-mocap-cleanup.md + mocap-cleanup-notes.md）
+  - cam-continuity: 摄影机与走位连贯性复核（as-cam-continuity.md + cam-continuity-chart.md）
+  - cfx-handshake: 与 CFX 的碰撞与交接（as-cfx-handshake.md + cfx-handoff-tmpl.md）
+  - handoff-light: 向 Lighting 的交接（as-handoff-light.md + handoff-light-tmpl.md）
+  - playblast-pack: Playblast 打包与命名规范（as-playblast-pack.md + playblast-pack-tmpl.yaml）
+  - anim-qc: 动画门禁与 QC 检查（as-anim-qc.md + anim-qc-report-tmpl.md）
+  - performance-bible: 构建《表演圣经》（as-performance-bible.md + performance-bible-tmpl.md）
+  - animator-playbook: 动画师作业手册（as-animator-playbook.md + animator-playbook-tmpl.md）
+  - training-plan: 培训与能力校准（as-training-plan.md + training-plan-tmpl.md）
+  - kpi-report: 周度 KPI 报告输出（as-kpi-report.md + kpi-report-tmpl.md）
+  - capacity-forecast: 人力与产能预测（as-capacity-forecast.md + capacity-forecast-tmpl.md）
+  - execute-checklist {checklist?}: 执行指定检查清单（如 lipsync-facial-checklist），需结合输出模板使用
 operating-contract:
   DoR (准备就绪):
     - 导演意图/关键节拍明确，Layout 摄影机与剪辑节奏稳定
@@ -1481,7 +1526,7 @@ dependencies:
     - datasets/pose-library-tags.csv
     - datasets/playblast-naming.csv
     - datasets/dailies-status.csv
-help-display-template: |
+help-display-template: |-
   === 动画监督 命令 ===
   1) *anim-seq-kickoff …… 序列启动会
   2) *shot-assign …… 镜头分配/复杂度评估
@@ -1536,31 +1581,46 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
+  - exit: 退出本角色
   - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
   - execute-checklist {checklist?}: 执行检查清单（不带参数→列出清单）
-  - model-brief: 建模简报/尺寸/造型锚点（ml-model-brief.md）
-  - asset-spec: 资产技术规格（ml-asset-spec.md）
-  - sculpt-plan: 雕刻/形体分级计划（ml-sculpt-plan.md）
-  - retopo-plan: 重拓扑方案（ml-retopo-plan.md）
-  - uv-layout: UV/UDIM 规划（ml-uv-layout.md）
-  - texel-density: Texel Density 目标与检测（ml-texel-density.md）
-  - bake-suite: 高低模烘焙与PBR输出（ml-bake-suite.md）
-  - lod-plan: LOD/代理/实例化策略（ml-lod-plan.md）
-  - scale-check: 实尺/单位/比例锁定（ml-scale-check.md）
-  - naming-audit: 命名/版本/令牌审计（ml-naming-audit.md）
-  - deform-topology-qc: 变形友好拓扑QC（ml-deform-topology-qc.md）
-  - hard-surface-qc: 硬表面品质QC（ml-hard-surface-qc.md）
-  - hair-fur-cards: 发卡/羽毛/布料几何策略（ml-hair-fur-cards.md）
-  - scan-ingest: 扫描/摄影测量导入与重建（ml-scan-ingest.md）
-  - usd-asset-structure: USD 资产结构/Variant/绑定（ml-usd-asset-structure.md）
-  - lookdev-handoff: 向 LookDev 交接（ml-lookdev-handoff.md）
-  - rig-handoff: 向 Rig 交接（ml-rig-handoff.md）
-  - vendor-qa: 外包网格 QA（ml-vendor-qa.md）
-  - library-governance: 资产库治理/标签/复用（ml-library-governance.md）
-  - modeling-qc: 建模综合门禁/QC（ml-modeling-qc.md）
   - doc-out: 输出当前工作文档
   - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
-  - exit: 退出本角色
+  - model-brief {template=modeling-lead/asset-brief-tmpl.md}: 执行建模简报任务，输出建模简报
+  - asset-spec {template=modeling-lead/asset-spec-tmpl.yaml}: 执行资产技术规格制定任务，输出规格文档
+  - sculpt-plan {template=modeling-lead/sculpt-plan-tmpl.md}: 执行雕刻/形体规划任务，输出雕刻计划
+  - retopo-plan {template=modeling-lead/retopo-plan-tmpl.md}: 执行重拓扑方案制定任务，输出拓扑计划
+  - uv-layout {template=modeling-lead/uv-udim-plan-tmpl.yaml}: 执行UV/UDIM布局规划任务，输出UV布局方案
+  - texel-density {template=modeling-lead/td-targets-sheet.yaml}: 执行Texel Density目标设定任务，输出TD配置表
+  - bake-suite {template=modeling-lead/bake-suite-config.yaml}: 执行烘焙与PBR输出任务，输出烘焙矩阵配置
+  - lod-plan {template=modeling-lead/lod-table-tmpl.md}: 执行LOD与代理策略制定任务，输出LOD策略表
+  - scale-check {template=modeling-lead/scale-check-form.md}: 执行实尺单位比例锁定任务，输出检查表
+  - naming-audit {template=modeling-lead/naming-tokens-tmpl.yaml}: 执行命名/版本/令牌审核任务，输出命名模板
+  - deform-topology-qc {template=modeling-lead/modeling-qc-report-tmpl.md}: 执行拓扑变形友好性检查任务，输出QC报告
+  - hard-surface-qc {template=modeling-lead/modeling-qc-report-tmpl.md}: 执行硬表面建模质量检查任务，输出QC报告
+  - hair-fur-cards {template=modeling-lead/modeling-qc-report-tmpl.md}: 执行发卡羽毛布料策略任务，输出建模策略报告
+  - scan-ingest {template=modeling-lead/modeling-qc-report-tmpl.md}: 执行扫描/摄影测量导入任务，输出导入重建记录
+  - usd-asset-structure {template=modeling-lead/usd-asset-structure.yaml}: 执行USD资产结构配置任务，输出结构定义
+  - lookdev-handoff {template=modeling-lead/lookdev-handoff-tmpl.md}: 执行向LookDev部门交接任务，输出交接文档
+  - rig-handoff {template=modeling-lead/rig-handoff-tmpl.md}: 执行向Rig部门交接任务，输出交接文档
+  - vendor-qa {template=modeling-lead/vendor-handoff-tmpl.md}: 执行外包资产QA任务，输出交接审核表
+  - library-governance {template=modeling-lead/library-policy-tmpl.md}: 执行资产库治理任务，输出资产策略文档
+  - modeling-qc {template=modeling-lead/modeling-qc-report-tmpl.md}: 执行建模综合QC任务，输出综合QC报告
+  - check-topology {checklist=modeling-lead/topology-checklist.md}: 检查拓扑结构质量
+  - check-deformation {checklist=modeling-lead/deformation-checklist.md}: 检查变形友好性
+  - check-uv-layout {checklist=modeling-lead/uv-udim-checklist.md}: 检查UV/UDIM布局
+  - check-texel-density {checklist=modeling-lead/texel-density-checklist.md}: 检查TD一致性
+  - check-bake-quality {checklist=modeling-lead/bake-quality-checklist.md}: 检查烘焙质量
+  - check-scale-units {checklist=modeling-lead/scale-units-checklist.md}: 检查单位和比例锁定
+  - check-hard-surface {checklist=modeling-lead/hard-surface-checklist.md}: 检查硬表面处理质量
+  - check-hair-fur-cards {checklist=modeling-lead/hair-fur-cards-checklist.md}: 检查发卡/羽毛/布料策略
+  - check-lod-strategy {checklist=modeling-lead/lod-strategy-checklist.md}: 检查LOD与代理策略有效性
+  - check-naming-version {checklist=modeling-lead/naming-version-checklist.md}: 检查命名/版本/令牌一致性
+  - check-usd-structure {checklist=modeling-lead/usd-structure-checklist.md}: 检查USD资产结构规范性
+  - check-rig-handoff {checklist=modeling-lead/rig-handoff-checklist.md}: 检查Rig交接完整性
+  - check-lookdev-handoff {checklist=modeling-lead/lookdev-handoff-checklist.md}: 检查LookDev交接完整性
+  - check-vendor-qa {checklist=modeling-lead/vendor-qa-checklist.md}: 检查外包资产质量
+  - check-modeling-qc {checklist=modeling-lead/modeling-qc-checklist.md}: 执行综合建模质量门禁检查
 operating-contract:
   DoR (准备就绪):
     - 美术/比例参考与风格锚点明确（比例/尺寸/尺度单位）
@@ -1650,7 +1710,7 @@ dependencies:
     - datasets/units-scale.csv
     - datasets/default-pivots.csv
     - datasets/modeling-status-codes.csv
-help-display-template: |
+help-display-template: |-
   === 建模主管（Modeling Lead）命令 ===
   1) *model-brief / *asset-spec …… 建模简报与技术规格
   2) *sculpt-plan / *retopo-plan …… 雕刻与重拓扑
@@ -1703,28 +1763,39 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
+  - exit: 退出本角色
+  - rig-brief {template?}: 执行任务：生成绑定简报（使用 rig-brief-tmpl.md）
+  - skeleton-spec {template?}: 执行任务：生成骨架规范（使用 skeleton-spec-tmpl.yaml）
+  - control-layout {template?}: 执行任务：生成控制器设计方案（使用 control-layout-tmpl.md）
+  - skinning-plan {template?}: 执行任务：生成权重策略文档（使用 skinning-plan-tmpl.md）
+  - space-switch-map {template?}: 执行任务：生成空间切换映射（使用 space-switch-map-tmpl.md）
+  - fkik-design {template?}: 执行任务：生成 FK/IK/Twist 方案（使用 fkik-design-tmpl.md）
+  - corrective-shapes {template?}: 执行任务：生成纠正形态方案（使用 corrective-shapes-tmpl.md）
+  - facial-rig-plan {template?}: 执行任务：生成面部绑定方案（使用 facial-rig-plan-tmpl.md）
+  - muscle-sim-bridge {template?}: 执行任务：生成肌肉CFX接口文档（使用 muscle-sim-bridge-tmpl.md）
+  - picker-ui {template?}: 执行任务：生成选择器UI配置（使用 picker-ui-tmpl.md）
+  - retarget-setup {template?}: 执行任务：生成重定向方案（使用 retarget-setup-tmpl.md）
+  - export-spec {template?}: 执行任务：生成导出规范（使用 export-spec-tmpl.yaml）
+  - rig-qc {template?}: 执行任务：生成绑定QC报告（使用 rig-qc-report-tmpl.md）
+  - perf-bench {template?}: 执行任务：生成性能基准文档（使用 perf-bench-plan-tmpl.md）
+  - rig-publish {template?}: 执行任务：生成发布/打包信息（使用 rig-publish-manifest-tmpl.yaml）
+  - vendor-qa {template?}: 执行任务：生成供应商 QA 交接文档（使用 vendor-handoff-tmpl.md）
+  - change-control {template?}: 执行任务：生成变更控制请求（使用 change-request-tmpl.md）
+  - check-skeleton-hygiene {template?}: 执行检查：骨架命名/朝向清洁度（使用 skeleton-hygiene-checklist.md）
+  - check-control-naming-color {template?}: 执行检查：控制器命名与颜色规范（使用 control-naming-color-checklist.md）
+  - check-space-switch {template?}: 执行检查：空间切换一致性（使用 space-switch-checklist.md）
+  - check-skinning-quality {template?}: 执行检查：权重品质与体积控制（使用 skinning-quality-checklist.md）
+  - check-corrective-shapes {template?}: 执行检查：纠正形态驱动与效果（使用 corrective-shapes-checklist.md）
+  - check-facial-facs-arkit {template?}: 执行检查：面部驱动与FACS/ARKit映射（使用 facial-facs-arkit-checklist.md）
+  - check-retarget-qc {template?}: 执行检查：重定向质量控制（使用 retarget-qc-checklist.md）
+  - check-export-compliance {template?}: 执行检查：导出文件结构与合规性（使用 export-compliance-checklist.md）
+  - check-perf-budget {template?}: 执行检查：性能预算符合性（使用 perf-budget-checklist.md）
+  - check-vendor-qa {template?}: 执行检查：供应商绑定交付质量（使用 vendor-qa-checklist.md）
+  - check-rigging-qc-master {template?}: 执行检查：绑定总体质量门禁（使用 rigging-qc-master-checklist.md）
   - create-doc {template?}: 基于模板生成文档（不带参数→列出模板）
   - execute-checklist {checklist?}: 执行检查清单（不带参数→列出清单）
-  - rig-brief: 绑定简报/骨架需求（rl-rig-brief.md）
-  - skeleton-spec: 骨架/朝向/命名规范（rl-skeleton-spec.md）
-  - control-layout: 控制器设计与颜色/层级（rl-control-layout.md）
-  - skinning-plan: Skin 权重策略（rl-skinning-plan.md）
-  - space-switch-map: 空间切换/父子约定（rl-space-switch-map.md）
-  - fkik-design: FK/IK 与 Twist 方案（rl-fkik-design.md）
-  - corrective-shapes: 纠正形态/PSD/驱动（rl-corrective-shapes.md）
-  - facial-rig-plan: 面部绑定与 FACS/ARKit（rl-facial-rig-plan.md）
-  - muscle-sim-bridge: 肌肉/CFX 接口（rl-muscle-sim-bridge.md）
-  - picker-ui: 选择器/热区/PickWalk（rl-picker-ui.md）
-  - retarget-setup: 动补/重定向（rl-retarget-setup.md）
-  - export-spec: 导出规范（USD/FBX/ABC）（rl-export-spec.md）
-  - rig-qc: 绑定门禁/QC（rl-rig-qc.md）
-  - perf-bench: 性能基准/优化建议（rl-perf-bench.md）
-  - rig-publish: 发布/版本/打包（rl-rig-publish.md）
-  - vendor-qa: 供应商绑定 QA（rl-vendor-qa.md）
-  - change-control: 变更控制与迁移（rl-change-control.md）
   - doc-out: 输出当前工作文档
   - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
-  - exit: 退出本角色
 operating-contract:
   DoR (准备就绪):
     - 模型拓扑/比例/UDIM 与变形区通过建模QC
@@ -1806,7 +1877,7 @@ dependencies:
     - datasets/perf-budgets.csv
     - datasets/export-codecs.csv
     - datasets/rig-status-codes.csv
-help-display-template: |
+help-display-template: |-
   === 绑定主管（Rigging Lead）命令 ===
   1) *rig-brief / *skeleton-spec …… 绑定简报与骨架规范
   2) *control-layout / *skinning-plan …… 控件与权重策略
@@ -1859,27 +1930,8 @@ commands:
   - chat-mode: 进入对话模式
   - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
   - execute-checklist {{checklist?}}: 执行检查清单（不带参数→列出清单）
-  - lookdev-brief: 外观开发简报/风格锚点（ls-lookdev-brief.md）
-  - shading-spec: 着色/PBR 技术规格（ls-shading-spec.md）
-  - pbr-map-authoring: PBR 贴图出图规范（ls-pbr-map-authoring.md）
-  - texture-pipeline: 纹理管线/UDIM/压缩策略（ls-texture-pipeline.md）
-  - turntable-setup: 灯测台/回归测试搭建（ls-turntable-setup.md）
-  - look-matching: 概念对齐/实物对照比对（ls-look-matching.md）
-  - aov-contract: AOV/合成合同（ls-aov-contract.md）
-  - comp-pack: 合成模板/ID/Mask 套餐（ls-comp-pack.md）
-  - light-bridge: 与灯光桥接/曝光锚点（ls-light-bridge.md）
-  - render-test-matrix: 渲染参数/降噪/时长矩阵（ls-render-test-matrix.md）
-  - displacement-calibration: 置换深度/界限标定（ls-displacement-calibration.md）
-  - sss-calibration: 皮肤/蜡/玉石 SSS 标定（ls-sss-calibration.md）
-  - hair-shading-calibration: 毛发/羽毛着色标定（ls-hair-shading-calibration.md）
-  - usdshade-authoring: USDShade/MaterialX 产出（ls-usdshade-authoring.md）
-  - shader-library-govern: 着色库治理/版本（ls-shader-library-govern.md）
-  - handoff-lighting: 向 Lighting 的交接（ls-handoff-lighting.md）
-  - handoff-comp: 向 Comp 的交接（ls-handoff-comp.md）
-  - vendor-qa: 供应商 LookDev 包 QA（ls-vendor-qa.md）
-  - kpi-report: 周度 KPI（命中率/一致性/时长）报告（ls-kpi-report.md）
-  - change-control: 变更控制（影响/回退）（ls-change-control.md）
-  - risk-register: 风险台账更新（ls-risk-register.md）
+  - run-task {{task}} {{template}}: 执行指定任务，需提供任务名与输出模板
+  - run-check {{checklist}} {{template}}: 执行指定检查，需提供检查名与输出模板
   - doc-out: 输出当前工作文档
   - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
   - exit: 退出本角色
@@ -1975,7 +2027,7 @@ dependencies:
     - datasets/compression-formats.csv
     - datasets/shader-tags.csv
     - datasets/lookdev-kpi-defs.csv
-help-display-template: |
+help-display-template: |-
   === LookDev/Shading Lead 命令 ===
   1) *lookdev-brief / *shading-spec …… 外观开发简报 + 技术规格
   2) *pbr-map-authoring / *texture-pipeline …… PBR 贴图与纹理管线
@@ -2026,31 +2078,33 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
+  - exit: 退出本角色
+  - run-task {{task}} {{template?}}: 执行指定任务，输出指定模板（任务名必须来自 dependencies.tasks 或核心模块通用任务）
+  - run-check {{checklist}} {{template?}}: 执行指定检查，输出指定模板（检查名必须来自 dependencies.checklists 或核心模块通用检查）
+  - layout-brief {{template?}}: 执行布局简报任务（ll-layout-brief.md），可指定输出模板
+  - edit-conform {{template?}}: 执行剪辑对账任务（ll-edit-conform.md），可指定输出模板
+  - seq-breakdown {{template?}}: 执行序列拆解任务（ll-seq-breakdown.md），可指定输出模板
+  - shot-plan {{template?}}: 执行镜头计划任务（ll-shot-plan.md），可指定输出模板
+  - camera-spec {{template?}}: 执行相机镜头规格任务（ll-camera-spec.md），可指定输出模板
+  - lens-db {{template?}}: 执行镜头库/景深视场计算任务（ll-lens-db.md），可指定输出模板
+  - camera-blocking {{template?}}: 执行机位/轨迹设计任务（ll-camera-blocking.md），可指定输出模板
+  - staging-blocking {{template?}}: 执行角色走位/调度任务（ll-staging-blocking.md），可指定输出模板
+  - set-assembly {{template?}}: 执行场景装配/USD结构任务（ll-set-assembly.md），可指定输出模板
+  - proxy-visibility {{template?}}: 执行代理/可见性层策略任务（ll-proxy-visibility.md），可指定输出模板
+  - continuity-map {{template?}}: 执行连贯性标注任务（ll-continuity-map.md），可指定输出模板
+  - stereo-plan {{template?}}: 执行立体深度预算任务（ll-stereo-plan.md），可指定输出模板
+  - handoff-animation {{template?}}: 执行向动画交接任务（ll-handoff-animation.md），可指定输出模板
+  - handoff-lighting {{template?}}: 执行向灯光交接任务（ll-handoff-lighting.md），可指定输出模板
+  - publish {{template?}}: 执行发布/版本打包任务（ll-publish.md），可指定输出模板
+  - perf-bench {{template?}}: 执行性能基准与优化任务（ll-perf-bench.md），可指定输出模板
+  - vendor-qa {{template?}}: 执行外包 QA 任务（ll-vendor-qa.md），可指定输出模板
+  - scale-check {{template?}}: 执行单位/比例对账检查（ll-scale-check.md），可指定输出模板
+  - collisions-pass {{template?}}: 执行碰撞/穿帮检查（ll-collisions-pass.md），可指定输出模板
+  - layout-qc {{template?}}: 执行布局质量检查任务（ll-layout-qc.md），可指定输出模板
   - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
   - execute-checklist {{checklist?}}: 执行检查清单（不带参数→列出清单）
-  - layout-brief: 布局简报/编辑对账（ll-layout-brief.md）
-  - edit-conform: EDL/AAF 对账与镜头映射（ll-edit-conform.md）
-  - seq-breakdown: 序列拆解/coverage 设计（ll-seq-breakdown.md）
-  - shot-plan: 镜头设计计划（blocking/coverage）（ll-shot-plan.md）
-  - camera-spec: 相机/镜头/传感器规范（ll-camera-spec.md）
-  - lens-db: 镜头库与DoF/FOV 计算（ll-lens-db.md）
-  - camera-blocking: 机位/轨迹/速度曲线（ll-camera-blocking.md）
-  - staging-blocking: 角色走位/屏幕方向（ll-staging-blocking.md）
-  - set-assembly: 场景组装/USD 装配（ll-set-assembly.md）
-  - proxy-visibility: 代理/实例/可见性层策略（ll-proxy-visibility.md）
-  - continuity-map: 连贯性（眼线/动作/道具/朝向）（ll-continuity-map.md）
-  - stereo-plan: 立体布局/深度预算（可选）（ll-stereo-plan.md）
-  - scale-check: 实尺/单位/比例对账（ll-scale-check.md）
-  - collisions-pass: 碰撞/穿帮检测（ll-collisions-pass.md）
-  - layout-qc: 布局门禁/QC（ll-layout-qc.md）
-  - handoff-animation: 向 Animation 交接（ll-handoff-animation.md）
-  - handoff-lighting: 向 Lighting 交接（ll-handoff-lighting.md）
-  - publish: 发布/版本/打包（ll-publish.md）
-  - vendor-qa: 外包布局 QA（ll-vendor-qa.md）
-  - perf-bench: 性能基准与优化（ll-perf-bench.md）
   - doc-out: 输出当前工作文档
   - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
-  - exit: 退出本角色
 operating-contract:
   DoR (准备就绪):
     - 剪辑时间线/分镜批准，EDL/AAF 与镜头表可用
@@ -2141,7 +2195,7 @@ dependencies:
     - datasets/layout-kpi-defs.csv
     - datasets/edl-sample-fields.csv
     - datasets/screen-direction-codes.csv
-help-display-template: |
+help-display-template: |-
   === 布局主管（Layout Lead）命令 ===
   1) *layout-brief / *edit-conform …… 布局简报与剪辑对账
   2) *seq-breakdown / *shot-plan …… 序列拆解与镜头计划
@@ -2191,34 +2245,47 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
-  - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
-  - execute-checklist {{checklist?}}: 执行检查清单（不带参数→列出清单）
-  - fx-brief: FX 简报/风格锚点/参考（fx-brief.md）
-  - fx-sim-spec: 求解器/参数/单位 规范（fx-sim-spec.md）
-  - pyro-design: 爆炸/烟火/燃烧方案（fx-pyro-design.md）
-  - flip-design: 液体/浪花/白水方案（fx-flip-design.md）
-  - whitewater-design: 白水/泡沫/喷雾（fx-whitewater-design.md）
-  - rbd-design: RBD/碎裂/胶水与约束（fx-rbd-design.md）
-  - destruction-plan: 破坏/分块/阶段性模拟（fx-destruction-plan.md）
-  - grains-design: 颗粒/沙雪土（fx-grains-design.md）
-  - cloth-design: 布料/旗帜/薄片（fx-cloth-design.md）
-  - hair-design: 毛发/草丛/群集摆动（fx-hair-design.md）
-  - particle-design: 粒子/群集/驱动场（fx-particle-design.md）
-  - volume-lookdev: 体积着色/灯测/AOV（fx-volume-lookdev.md）
-  - solver-calibration: 求解器标定（步长/体素/界限）（fx-solver-calibration.md）
-  - cache-plan: 缓存/分片/校验/发布（fx-cache-plan.md）
-  - usd-assembly: USD FX 装配/Volumes/Points（fx-usd-assembly.md）
-  - light-bridge: 向 Lighting 的桥接（灯位/基线）（fx-light-bridge.md）
-  - aov-contract: FX AOV/ID/Mask 合同（fx-aov-contract.md）
-  - comp-pack: 合成套餐与重建说明（fx-comp-pack.md）
-  - perf-bench: 性能基准与核时矩阵（fx-perf-bench.md）
-  - fx-qc: FX 门禁/QC（fx-qc.md）
-  - vendor-qa: 外包 FX 包 QA（fx-vendor-qa.md）
-  - change-control: 变更控制（影响/回退）（fx-change-control.md）
-  - risk-register: 风险台账（fx-risk-register.md）
-  - doc-out: 输出当前工作文档
-  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
   - exit: 退出本角色
+  - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
+  - doc-out: 输出当前工作文档
+  - run-task fx-brief {{template}}: 生成 FX 简报/风格锚点/参考（fx-brief.md）
+  - run-task fx-sim-spec {{template}}: 输出求解器/参数/单位规范（fx-sim-spec.md）
+  - run-task pyro-design {{template}}: 设计爆炸/烟火/燃烧（fx-pyro-design.md）
+  - run-task flip-design {{template}}: 设计液体/浪花/白水（fx-flip-design.md）
+  - run-task whitewater-design {{template}}: 白水/泡沫/喷雾设计（fx-whitewater-design.md）
+  - run-task rbd-design {{template}}: RBD/碎裂/约束设计（fx-rbd-design.md）
+  - run-task destruction-plan {{template}}: 破坏/分块/阶段模拟规划（fx-destruction-plan.md）
+  - run-task grains-design {{template}}: 沙土雪颗粒设计（fx-grains-design.md）
+  - run-task cloth-design {{template}}: 布料/旗帜模拟设计（fx-cloth-design.md）
+  - run-task hair-design {{template}}: 毛发/草丛群集设计（fx-hair-design.md）
+  - run-task particle-design {{template}}: 粒子/驱动场/群集设计（fx-particle-design.md）
+  - run-task volume-lookdev {{template}}: 体积着色/灯测/AOV（fx-volume-lookdev.md）
+  - run-task solver-calibration {{template}}: 求解器标定（步长/体素/界限）（fx-solver-calibration.md）
+  - run-task cache-plan {{template}}: 缓存/分片/校验/发布策略（fx-cache-plan.md）
+  - run-task usd-assembly {{template}}: USD FX 装配方案（fx-usd-assembly.md）
+  - run-task light-bridge {{template}}: 向 Lighting 的桥接方案（fx-light-bridge.md）
+  - run-task aov-contract {{template}}: FX AOV/ID 合同定义（fx-aov-contract.md）
+  - run-task comp-pack {{template}}: 合成套餐与重建说明（fx-comp-pack.md）
+  - run-task perf-bench {{template}}: 性能基准测试与核时矩阵（fx-perf-bench.md）
+  - run-task fx-qc {{template}}: FX QC 报告生成（fx-qc.md）
+  - run-task vendor-qa {{template}}: 外包 FX 包 QA（fx-vendor-qa.md）
+  - run-task change-control {{template}}: 变更控制条目记录（fx-change-control.md）
+  - run-task risk-register {{template}}: 风险台账管理（fx-risk-register.md）
+  - run-check scale-units-checklist {{template}}: 单位/尺度一致性检查
+  - run-check sim-stability-checklist {{template}}: 求解数值稳定性检查
+  - run-check pyro-params-checklist {{template}}: 爆炸/烟火参数检查
+  - run-check flip-params-checklist {{template}}: 液体/FLIP 参数检查
+  - run-check rbd-constraints-checklist {{template}}: 刚体碎裂/约束检查
+  - run-check destruction-staging-checklist {{template}}: 分阶段破坏模拟检查
+  - run-check grains-params-checklist {{template}}: 沙雪颗粒参数检查
+  - run-check cloth-params-checklist {{template}}: 布料参数与设置检查
+  - run-check hair-params-checklist {{template}}: 毛发设置与求解检查
+  - run-check cache-publish-checklist {{template}}: 缓存发布与校验检查
+  - run-check usd-fx-binding-checklist {{template}}: USD FX 装配绑定检查
+  - run-check aov-completeness-checklist {{template}}: AOV 层与 ID 完整性检查
+  - run-check render-consistency-checklist {{template}}: 渲染输出稳定性与一致性检查
+  - run-check fx-qc-master-checklist {{template}}: FX 总体 QC 检查表（交接前完整性）
+  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
 operating-contract:
   DoR (准备就绪):
     - 单位/比例/重力/时间步长基线锁定；参考影像与风格锚点明确
@@ -2317,7 +2384,7 @@ dependencies:
     - datasets/cloth-presets.csv
     - datasets/hair-presets.csv
     - datasets/fx-kpi-defs.csv
-help-display-template: |
+help-display-template: |-
   === FX 监督 命令 ===
   1) *fx-brief / *fx-sim-spec …… 简报与求解器规范
   2) *pyro-design / *flip-design / *whitewater-design / *rbd-design / *destruction-plan
@@ -2367,32 +2434,45 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
+  - exit: 退出本角色
   - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
   - execute-checklist {{checklist?}}: 执行检查清单（不带参数→列出清单）
-  - light-brief: 灯光简报/风格锚点（llight-brief.md）
-  - exposure-anchors: 曝光锚点/相机基线（llight-exposure-anchors.md）
-  - camera-spec: 物理相机/镜头/传感器（llight-camera-spec.md）
-  - light-rig-library: 灯光库/模板治理（llight-rig-library.md）
-  - set-light-assembly: USD 灯光装配/Light Linking（llight-set-light-assembly.md）
-  - lpe-aov-contract: LPE/AOV 合同（llight-lpe-aov-contract.md）
-  - lighting-plan: 镜头灯光计划/调度（llight-lighting-plan.md）
-  - lighting-pass: 灯光分层/渲染通道（llight-lighting-pass.md）
-  - render-spec: 渲染规格/采样/降噪（llight-render-spec.md）
-  - denoise-plan: 去噪方案/阈值/回归（llight-denoise-plan.md）
-  - volume-lighting: 体积光方案/参与介质（llight-volume-lighting.md）
-  - continuity-map: 灯光连续性地图（llight-continuity-map.md）
-  - integration-plan: 实拍合成对齐（灰/铬/对照卡）（llight-integration-plan.md）
-  - precomp-bridge: 向 Comp 的桥接（预合成模板）（llight-precomp-bridge.md）
-  - farm-plan: 渲染农场预算/队列（llight-farm-plan.md）
-  - troubleshoot: 渲染问题排查指南（llight-troubleshoot.md）
-  - lighting-qc: 灯光QC/门禁（llight-lighting-qc.md）
-  - vendor-qa: 外包灯光包 QA（llight-vendor-qa.md）
-  - kpi-report: 周度 KPI（命中率/噪声/核时）（llight-kpi-report.md）
-  - change-control: 变更控制（影响/回退）（llight-change-control.md）
-  - risk-register: 风险台账（llight-risk-register.md）
+  - do light-brief {{template}}: 执行“灯光简报/风格锚点”任务，输出到指定模板
+  - do exposure-anchors {{template}}: 执行“曝光锚点/相机基线”任务，输出到指定模板
+  - do camera-spec {{template}}: 执行“物理相机/镜头/传感器”任务，输出到指定模板
+  - do light-rig-library {{template}}: 执行“灯光库/模板治理”任务，输出到指定模板
+  - do set-light-assembly {{template}}: 执行“USD 灯光装配/Light Linking”任务，输出到指定模板
+  - do lpe-aov-contract {{template}}: 执行“LPE/AOV 合同”任务，输出到指定模板
+  - do lighting-plan {{template}}: 执行“镜头灯光计划/调度”任务，输出到指定模板
+  - do lighting-pass {{template}}: 执行“灯光分层/渲染通道”任务，输出到指定模板
+  - do render-spec {{template}}: 执行“渲染规格/采样/降噪”任务，输出到指定模板
+  - do denoise-plan {{template}}: 执行“去噪方案/阈值/回归”任务，输出到指定模板
+  - do volume-lighting {{template}}: 执行“体积光方案/参与介质”任务，输出到指定模板
+  - do continuity-map {{template}}: 执行“灯光连续性地图”任务，输出到指定模板
+  - do integration-plan {{template}}: 执行“实拍合成对齐”任务，输出到指定模板
+  - do precomp-bridge {{template}}: 执行“向 Comp 的桥接”任务，输出到指定模板
+  - do farm-plan {{template}}: 执行“渲染农场预算/队列”任务，输出到指定模板
+  - do troubleshoot {{template}}: 执行“渲染问题排查”任务，输出到指定模板
+  - do lighting-qc {{template}}: 执行“灯光 QC/门禁”任务，输出到指定模板
+  - do vendor-qa {{template}}: 执行“外包灯光包 QA”任务，输出到指定模板
+  - do kpi-report {{template}}: 执行“KPI 周报”任务，输出到指定模板
+  - do change-control {{template}}: 执行“变更控制”任务，输出到指定模板
+  - do risk-register {{template}}: 执行“风险台账”任务，输出到指定模板
+  - check color-pipeline {{template}}: 检查“色彩管理流程”，输出到指定模板
+  - check exposure-units {{template}}: 检查“曝光单位一致性”，输出到指定模板
+  - check physically-based-lighting {{template}}: 检查“物理真实灯光原则”，输出到指定模板
+  - check shadow-quality {{template}}: 检查“阴影质量”，输出到指定模板
+  - check volume-lighting {{template}}: 检查“体积光设置”，输出到指定模板
+  - check lpe-aov-completeness {{template}}: 检查“LPE/AOV 完整性”，输出到指定模板
+  - check denoise-artifacts {{template}}: 检查“去噪伪影”，输出到指定模板
+  - check temporal-consistency {{template}}: 检查“时间一致性/闪烁”，输出到指定模板
+  - check render-farm-submit {{template}}: 检查“渲染农场提交规范”，输出到指定模板
+  - check usd-light-binding {{template}}: 检查“USD 灯光绑定结构”，输出到指定模板
+  - check light-linking-policy {{template}}: 检查“灯光链接策略”，输出到指定模板
+  - check integration {{template}}: 检查“实拍合成对齐”，输出到指定模板
+  - check lighting-qc-master {{template}}: 执行“灯光总 QC 检查”，输出到指定模板
   - doc-out: 输出当前工作文档
   - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
-  - exit: 退出本角色
 operating-contract:
   DoR (准备就绪):
     - 导演/摄影意图与风格锚点明确；参考帧/实拍对照齐全
@@ -2482,7 +2562,7 @@ dependencies:
     - datasets/renderer-sampling-defaults.csv
     - datasets/denoise-params.csv
     - datasets/lighting-kpi-defs.csv
-help-display-template: |
+help-display-template: |-
   === 灯光与渲染主管 命令 ===
   1) *light-brief / *exposure-anchors / *camera-spec
   2) *light-rig-library / *set-light-assembly / *lpe-aov-contract
@@ -2530,34 +2610,49 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
+  - exit: 退出本角色
   - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
   - execute-checklist {{checklist?}}: 执行检查清单（不带参数→列出清单）
-  - comp-brief: 合成简报/风格锚点（cs-comp-brief.md）
-  - plate-conform: 素材对账/时基/畸变（cs-plate-conform.md）
-  - comp-io-spec: 合成 I/O/容器/色彩规范（cs-comp-io-spec.md）
-  - aov-rebuild: AOV 重建/重建误差报告（cs-aov-rebuild.md）
-  - precomp-template: 预合成模板/节点库（cs-precomp-template.md）
-  - matte-id-policy: 抠像/ID/遮罩政策（cs-matte-id-policy.md）
-  - cryptoid-policy: CryptoID 命名/稳定性（cs-cryptoid-policy.md）
-  - grade-matching: 颜色匹配/参考/校正（cs-grade-matching.md）
-  - cg-integration: CG/Plate 对账（灰/铬/阴影/接触）（cs-cg-integration.md）
-  - deep-comp: Deep 合成/体积重建（cs-deep-comp.md）
-  - lens-distortion: 镜头畸变/回灌（cs-lens-distortion.md）
-  - defocus-plan: Defocus/Bokeh/光斑（cs-defocus-plan.md）
-  - grain-regrain: 去噪/重加颗粒策略（cs-grain-regrain.md）
-  - retime-integration: 重定时/运动模糊一致（cs-retime-integration.md）
-  - stereo-comp: 立体合成/视差预算（cs-stereo-comp.md）
-  - edge-blending: 边缘/溢色/半透明处理（cs-edge-blending.md）
-  - render-pull: 渲染拉取/版本对账（cs-render-pull.md）
-  - publish: 发布/版本/打包（cs-publish.md）
-  - comp-qc: 合成门禁/QC（cs-comp-qc.md）
-  - vendor-qa: 外包合成包 QA（cs-vendor-qa.md）
-  - kpi-report: 周度 KPI（重建误差/返修/时长）（cs-kpi-report.md）
-  - change-control: 变更控制（影响/回退）（cs-change-control.md）
-  - risk-register: 风险台账（cs-risk-register.md）
+  - run-task aov-rebuild {{template}}: 执行 AOV 重建任务，基于指定模板输出
+  - run-task precomp-template {{template}}: 执行预合成模板任务，生成节点结构
+  - run-task comp-brief {{template}}: 执行合成简报任务，生成风格锚点
+  - run-task plate-conform {{template}}: 执行素材对账任务，处理时基/畸变
+  - run-task comp-io-spec {{template}}: 执行合成 I/O/色彩规范任务
+  - run-task matte-id-policy {{template}}: 执行抠像/ID/遮罩策略任务
+  - run-task cryptoid-policy {{template}}: 执行 CryptoID 策略任务
+  - run-task grade-matching {{template}}: 执行颜色匹配与校正任务
+  - run-task cg-integration {{template}}: 执行 CG 与实拍对账任务
+  - run-task deep-comp {{template}}: 执行 Deep 合成任务
+  - run-task lens-distortion {{template}}: 执行镜头畸变任务
+  - run-task defocus-plan {{template}}: 执行 Defocus 与光斑设计任务
+  - run-task grain-regrain {{template}}: 执行颗粒管理任务
+  - run-task retime-integration {{template}}: 执行重定时/运动模糊一致性任务
+  - run-task stereo-comp {{template}}: 执行立体合成任务
+  - run-task edge-blending {{template}}: 执行边缘融合处理任务
+  - run-task render-pull {{template}}: 执行渲染拉取与核对任务
+  - run-task publish {{template}}: 执行发布打包任务
+  - run-task comp-qc {{template}}: 执行合成 QC 门禁任务
+  - run-task vendor-qa {{template}}: 执行外包 QA 任务
+  - run-task kpi-report {{template}}: 执行 KPI 统计任务
+  - run-task change-control {{template}}: 执行变更控制任务
+  - run-task risk-register {{template}}: 执行风险登记任务
+  - run-check color-pipeline: 执行色彩流程检查
+  - run-check plate-hygiene: 执行素材清洁性检查
+  - run-check lens-distortion: 执行镜头畸变检查
+  - run-check aov-mapping: 执行 AOV 映射一致性检查
+  - run-check cryptoid-consistency: 执行 CryptoID 命名一致性检查
+  - run-check matte-integrity: 执行遮罩/抠像完整性检查
+  - run-check deep-pipeline: 执行 Deep 流程完整性检查
+  - run-check defocus-bokeh: 执行 Defocus/Bokeh 检查
+  - run-check grain-management: 执行颗粒管理检查
+  - run-check temporal-consistency: 执行时间一致性检查
+  - run-check stereo-consistency: 执行立体一致性检查
+  - run-check edge-artifacts: 执行边缘伪影检查
+  - run-check publish-package: 执行交付包合规性检查
+  - run-check review-package: 执行审片包完整性检查
+  - run-check comp-qc-master: 执行合成 QC 总检查
   - doc-out: 输出当前工作文档
   - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
-  - exit: 退出本角色
 operating-contract:
   DoR (准备就绪):
     - AOV/LPE 合同草案与 comp I/O 规范批准
@@ -2654,7 +2749,7 @@ dependencies:
     - datasets/lut-index.csv
     - datasets/review-resolutions.csv
     - datasets/file-containers.csv
-help-display-template: |
+help-display-template: |-
   === 合成监督（Comp Supe）命令 ===
   1) *comp-brief / *comp-io-spec / *plate-conform
   2) *aov-rebuild / *precomp-template / *matte-id-policy / *cryptoid-policy
@@ -2702,30 +2797,39 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
-  - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
-  - execute-checklist {{checklist?}}: 执行检查清单（不带参数→列出清单）
-  - post-brief: 后期简报/范围/风险（ps-post-brief.md）
-  - editorial-plan: 剪辑计划/锁定策略（ps-editorial-plan.md）
-  - reconform: Re-conform/EDL/XML/AAF 对账（ps-reconform.md）
-  - turnover-vfx: VFX 交接包（ps-turnover-vfx.md）
-  - turnover-sound: 声音交接包/ADR/VO（ps-turnover-sound.md）
-  - turnover-color: 调色交接/参考/色管（ps-turnover-color.md）
-  - subtitles-plan: 字幕/本地化计划（ps-subtitles-plan.md）
-  - music-rights: 音乐与版权清单（ps-music-rights.md）
-  - review-schedule: Review/Dailies 周期与议程（ps-review-schedule.md）
-  - mastering-spec: 母版规格（IMF/DCP/Broadcast/Streamer）（ps-mastering-spec.md）
-  - delivery: 交付包生成（ps-delivery.md）
-  - qc-tech: 技术 QC（画/声/字幕/容器）（ps-qc-tech.md）
-  - kpi-report: 周度 KPI（进度/返修/合规/预算）（ps-kpi-report.md）
-  - change-control: 变更控制（影响/回退）（ps-change-control.md）
-  - risk-register: 风险台账（ps-risk-register.md）
-  - archive-plan: 归档与安全（ps-archive-plan.md）
-  - vendor-onboard: 供应商入驻（ps-vendor-onboard.md）
-  - cost-report: 成本与燃尽（ps-cost-report.md）
-  - publish: 发布/打包与签名（ps-publish.md）
-  - doc-out: 输出当前工作文档
-  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
   - exit: 退出本角色
+  - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
+  - doc-out: 输出当前工作文档
+  - run-post-brief {{template?}}: 执行“后期简报/范围/风险”任务（需指定模板）
+  - run-editorial-plan {{template?}}: 执行“剪辑计划/锁定策略”任务（需指定模板）
+  - run-reconform {{template?}}: 执行“Re-conform/EDL/XML/AAF 对账”任务（需指定模板）
+  - run-turnover-vfx {{template?}}: 执行“VFX 交接包”任务（需指定模板）
+  - run-turnover-sound {{template?}}: 执行“声音交接包/ADR/VO”任务（需指定模板）
+  - run-turnover-color {{template?}}: 执行“调色交接/参考/色管”任务（需指定模板）
+  - run-subtitles-plan {{template?}}: 执行“字幕/本地化计划”任务（需指定模板）
+  - run-music-rights {{template?}}: 执行“音乐与版权清单”任务（需指定模板）
+  - run-review-schedule {{template?}}: 执行“Review/Dailies 周期与议程”任务（需指定模板）
+  - run-mastering-spec {{template?}}: 执行“母版规格制定”任务（需指定模板）
+  - run-delivery {{template?}}: 执行“交付包生成”任务（需指定模板）
+  - run-qc-tech {{template?}}: 执行“技术 QC 报告”任务（需指定模板）
+  - run-kpi-report {{template?}}: 执行“周度 KPI 生成”任务（需指定模板）
+  - run-change-control {{template?}}: 执行“变更控制”任务（需指定模板）
+  - run-risk-register {{template?}}: 执行“风险台账记录”任务（需指定模板）
+  - run-archive-plan {{template?}}: 执行“归档与安全计划”任务（需指定模板）
+  - run-vendor-onboard {{template?}}: 执行“供应商入驻流程”任务（需指定模板）
+  - run-cost-report {{template?}}: 执行“成本与燃尽报告”任务（需指定模板）
+  - run-publish {{template?}}: 执行“发布/打包与签名”任务（需指定模板）
+  - check-editorial-conform {{template?}}: 执行“剪辑对账检查”清单（需指定模板）
+  - check-color-handoff {{template?}}: 执行“调色交接检查”清单（需指定模板）
+  - check-sound-turnover {{template?}}: 执行“声音交接检查”清单（需指定模板）
+  - check-subtitles-qc {{template?}}: 执行“字幕 QC 检查”清单（需指定模板）
+  - check-imf-dcp-delivery {{template?}}: 执行“IMF/DCP 交付检查”清单（需指定模板）
+  - check-broadcast-delivery {{template?}}: 执行“广电交付检查”清单（需指定模板）
+  - check-security-distribution {{template?}}: 执行“安全/发行检查”清单（需指定模板）
+  - check-vendor-onboard {{template?}}: 执行“供应商入驻检查”清单（需指定模板）
+  - check-post-qc-master {{template?}}: 执行“最终母版 QC 检查”清单（需指定模板）
+  - check-change-control {{template?}}: 执行“变更控制检查”清单（需指定模板）
+  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
 operating-contract:
   DoR (准备就绪):
     - 交付规范/命名合同批准（tokens/versioning/TC/色管）
@@ -2807,7 +2911,7 @@ dependencies:
     - datasets/rate-card.csv
     - datasets/naming-tokens.csv
     - datasets/post-kpi-defs.csv
-help-display-template: |
+help-display-template: |-
   === 后期制作监督（Post Supervisor）命令 ===
   1) *post-brief / *editorial-plan / *reconform
   2) *turnover-vfx / *turnover-sound / *turnover-color / *subtitles-plan / *music-rights
@@ -2855,34 +2959,37 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
-  - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
-  - execute-checklist {{checklist?}}: 执行检查清单（不带参数→列出清单）
-  - qa-brief: 质量简报/范围/风险（qa-brief.md）
-  - qa-policy: 质量政策/门禁等级（qa-policy.md）
-  - acceptance-criteria: 验收标准/签收口径（acceptance-criteria.md）
-  - gate-pass: 主门禁（跨部门综合 QC）（gate-pass.md）
-  - plate-qc: 素材技术 QC（plate-qc.md）
-  - model-qc: 模型标准 QC（model-qc.md）
-  - rig-qc: 绑定标准 QC（rig-qc.md）
-  - layout-qc: 布局/相机/镜头 QC（layout-qc.md）
-  - animation-qc: 动画物理性/一致性 QC（animation-qc.md）
-  - crowd-qc: 群众系统 QC（crowd-qc.md）
-  - fx-qc: 特效缓存/再现性 QC（fx-qc.md）
-  - lighting-qc: 灯光/曝光/一致性 QC（lighting-qc.md）
-  - render-integrity: 渲染完整性（AOV/LPE/Crypto）(render-integrity.md)
-  - comp-qc: 合成 QC（颜色/重建/边缘/时间一致）（comp-qc.md）
-  - editorial-qc: 剪辑/对账/时间码 QC（editorial-qc.md）
-  - delivery-qc: 交付 QC（容器/响度/字幕/校验）（delivery-qc.md）
-  - performance-audit: 性能审计（场景/缓存/农场）（performance-audit.md）
-  - vendor-qa: 供应商 QA（vendor-qa.md）
-  - kpi-report: 周度 KPI（通过率/缺陷率/返工/时效）（kpi-report.md）
-  - change-control: 变更控制（影响/回退）（change-control.md）
-  - risk-register: 风险台账（risk-register.md）
-  - training-kit: 质量培训包（training-kit.md）
-  - publish: 发布/打包/签名（publish.md）
-  - doc-out: 输出当前工作文档
-  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
   - exit: 退出本角色
+  - run-task {{task}} {{output}}: 执行指定任务并生成输出（task 必须来自 dependencies.tasks 或核心任务，output 必须为模板之一）
+  - check-task {{task}} {{output}}: 执行指定任务的验证/检查流程（task 必须来自 dependencies.tasks 或核心任务，output 必须为模板之一）
+  - run-check {{checklist}} {{output}}: 执行指定检查并生成报告（checklist 必须来自 dependencies.checklists 或核心检查，output 必须为模板之一）
+  - check-check {{checklist}} {{output}}: 对指定检查进行复核或再验证（checklist 必须来自 dependencies.checklists 或核心检查，output 必须为模板之一）
+  - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
+  - doc-out: 输出当前工作文档
+  - qa-brief: '= run-task qa-brief.md qa-qc-lead/qa-brief-tmpl.md'
+  - qa-policy: '= run-task qa-policy.md qa-qc-lead/qa-policy-tmpl.md'
+  - acceptance-criteria: '= run-task acceptance-criteria.md qa-qc-lead/acceptance-criteria-tmpl.md'
+  - gate-pass: '= run-task gate-pass.md qa-qc-lead/gate-pass-report-tmpl.md'
+  - plate-qc: '= run-task plate-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - model-qc: '= run-task model-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - rig-qc: '= run-task rig-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - layout-qc: '= run-task layout-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - animation-qc: '= run-task animation-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - crowd-qc: '= run-task crowd-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - fx-qc: '= run-task fx-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - lighting-qc: '= run-task lighting-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - render-integrity: '= run-task render-integrity.md qa-qc-lead/qc-runbook-tmpl.md'
+  - comp-qc: '= run-task comp-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - editorial-qc: '= run-task editorial-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - delivery-qc: '= run-task delivery-qc.md qa-qc-lead/qc-runbook-tmpl.md'
+  - performance-audit: '= run-task performance-audit.md qa-qc-lead/qc-runbook-tmpl.md'
+  - vendor-qa: '= run-task vendor-qa.md qa-qc-lead/vendor-qa-report-tmpl.md'
+  - kpi-report: '= run-task kpi-report.md qa-qc-lead/weekly-kpi-report-tmpl.md'
+  - change-control: '= run-task change-control.md qa-qc-lead/change-request-tmpl.md'
+  - risk-register: '= run-task risk-register.md qa-qc-lead/risk-register-tmpl.yaml'
+  - training-kit: '= run-task training-kit.md qa-qc-lead/training-outline-tmpl.md'
+  - publish: '= run-task publish.md qa-qc-lead/publish-manifest-tmpl.yaml'
+  - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
 operating-contract:
   DoR (准备就绪):
     - 质量政策/验收标准批准；阈值与抽样计划版本化
@@ -2969,7 +3076,7 @@ dependencies:
     - datasets/review-resolutions.csv
     - datasets/file-containers.csv
     - datasets/loudness-targets.csv
-help-display-template: |
+help-display-template: |-
   === QA/QC Lead 命令 ===
   1) *qa-brief / *qa-policy / *acceptance-criteria
   2) *gate-pass / *plate-qc / *model-qc / *rig-qc / *layout-qc / *animation-qc / *crowd-qc / *fx-qc
@@ -3017,28 +3124,41 @@ persona:
 commands:
   - help: 列出可用命令（编号选项）
   - chat-mode: 进入对话模式
+  - exit: 退出本角色
   - create-doc {{template?}}: 基于模板生成文档（不带参数→列出模板）
   - execute-checklist {{checklist?}}: 执行检查清单（不带参数→列出清单）
-  - prd: 生成产品需求文档（pm-prd.md）
-  - roadmap: 产品路线图/里程碑（pm-roadmap.md）
-  - stakeholder-map: 干系人/RACI（pm-stakeholder-map.md）
-  - backlog: 需求池/优先级（pm-backlog.md）
-  - sprint-plan: 迭代计划/容量/目标（pm-sprint-plan.md）
-  - feature-spec: 特性规格/验收标准（pm-feature-spec.md）
-  - ux-brief: 交互简报/原型假设（pm-ux-brief.md）
-  - rfc: 变更提案/RFC（pm-rfc.md）
-  - asset-lifecycle: 资产生命周期/状态机（pm-asset-lifecycle.md）
-  - data-model: 数据模型/命名/事件（pm-data-model.md）
-  - uat: 用户验收测试（pm-uat.md）
-  - release: 发布/灰度/回滚/发布说明（pm-release.md）
-  - kpi-report: 采纳/效率/质量 KPI（pm-kpi-report.md）
-  - vendor-integration: 供应商/平台对接（pm-vendor-integration.md）
-  - training-kit: 培训与推广（pm-training-kit.md）
-  - change-control: 变更控制（pm-change-control.md）
-  - risk-register: 风险台账（pm-risk-register.md）
+  - do-prd {{template?}}: 执行任务：生成产品需求文档（可指定模板 pm-asset/prd-tmpl.md）
+  - do-roadmap {{template?}}: 执行任务：制定产品路线图（可指定模板 pm-asset/roadmap-tmpl.md）
+  - do-stakeholder-map {{template?}}: 执行任务：输出干系人图谱/RACI（可指定模板 pm-asset/stakeholder-map-tmpl.md 或 raci-matrix-tmpl.md）
+  - do-backlog {{template?}}: 执行任务：整理需求池与优先级（可指定模板 pm-asset/story-tmpl.md）
+  - do-sprint-plan {{template?}}: 执行任务：制定迭代计划（可指定模板 pm-asset/sprint-plan-tmpl.md）
+  - do-feature-spec {{template?}}: 执行任务：输出功能规格与验收标准（可指定模板 pm-asset/feature-brief-tmpl.md）
+  - do-ux-brief {{template?}}: 执行任务：撰写交互简报（可指定模板 pm-asset/feature-brief-tmpl.md）
+  - do-rfc {{template?}}: 执行任务：提交变更提案（可指定模板 pm-asset/rfc-tmpl.md）
+  - do-asset-lifecycle {{template?}}: 执行任务：定义资产生命周期与状态机（可指定模板 pm-asset/asset-lifecycle-spec-tmpl.md）
+  - do-data-model {{template?}}: 执行任务：建立数据模型/命名/事件（可指定模板 pm-asset/data-model-tmpl.md）
+  - do-uat {{template?}}: 执行任务：制定用户验收测试（可指定模板 pm-asset/uat-plan-tmpl.md）
+  - do-release {{template?}}: 执行任务：制定发布计划与说明（可指定模板 pm-asset/release-notes-tmpl.md）
+  - do-kpi-report {{template?}}: 执行任务：生成 KPI 报告（可指定模板 pm-asset/kpi-dashboard-tmpl.md）
+  - do-vendor-integration {{template?}}: 执行任务：供应商或平台对接（可指定模板 pm-asset/api-contract-tmpl.yaml）
+  - do-training-kit {{template?}}: 执行任务：输出培训推广资料（可指定模板 pm-asset/training-plan-tmpl.md）
+  - do-change-control {{template?}}: 执行任务：执行变更控制流程（可指定模板 pm-asset/change-request-tmpl.md）
+  - do-risk-register {{template?}}: 执行任务：建立风险登记台账（可指定模板 pm-asset/risk-register-tmpl.yaml）
+  - check-prd {{checklist?}}: 执行检查：产品文档完整性检查（默认使用 pm-asset/prd-completeness-checklist.md）
+  - check-backlog {{checklist?}}: 执行检查：需求池梳理检查（默认使用 pm-asset/backlog-grooming-checklist.md）
+  - check-roadmap {{checklist?}}: 执行检查：路线图现实性检查（默认使用 pm-asset/roadmap-reality-checklist.md）
+  - check-ux-handoff {{checklist?}}: 执行检查：交互交接检查（默认使用 pm-asset/ux-handoff-checklist.md）
+  - check-uat {{checklist?}}: 执行检查：UAT 准备与通过检查（默认使用 pm-asset/uat-checklist.md）
+  - check-release {{checklist?}}: 执行检查：发布准备审核（默认使用 pm-asset/release-readiness-checklist.md）
+  - check-rollout {{checklist?}}: 执行检查：发布沟通/灰度计划检查（默认使用 pm-asset/rollout-comms-checklist.md）
+  - check-asset-lifecycle {{checklist?}}: 执行检查：资产生命周期合规性检查（默认使用 pm-asset/asset-lifecycle-governance-checklist.md）
+  - check-data-governance {{checklist?}}: 执行检查：数据治理与命名规范检查（默认使用 pm-asset/data-governance-checklist.md）
+  - check-dcc-integration {{checklist?}}: 执行检查：DCC 工具链集成检查（默认使用 pm-asset/dcc-integration-checklist.md）
+  - check-pipeline {{checklist?}}: 执行检查：流水线兼容性检查（默认使用 pm-asset/pipeline-compatibility-checklist.md）
+  - check-privacy-security {{checklist?}}: 执行检查：隐私与安全合规检查（默认使用 pm-asset/privacy-security-checklist.md）
+  - check-vendor-api {{checklist?}}: 执行检查：供应商 API 合同检查（默认使用 pm-asset/vendor-api-contract-checklist.md）
   - doc-out: 输出当前工作文档
   - yolo: 切换 YOLO（跳过确认，仅对非 elicit=true 生效）
-  - exit: 退出本角色
 operating-contract:
   DoR (准备就绪):
     - 干系人地图/RACI 批准；问题陈述与范围清晰
@@ -3120,7 +3240,7 @@ dependencies:
     - datasets/naming-tokens.csv
     - datasets/api-endpoints.csv
     - datasets/release-calendar.csv
-help-display-template: |
+help-display-template: |-
   === 产品经理（PM/资产经理）命令 ===
   1) *prd / *roadmap / *stakeholder-map / *backlog
   2) *sprint-plan / *feature-spec / *ux-brief / *rfc
