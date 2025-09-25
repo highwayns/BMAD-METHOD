@@ -40,40 +40,23 @@ These references map directly to bundle sections:
 
 
 ==================== START: .bmad-education-training-expansion-pack/agents/08-lms-administrator.md ====================
-<!-- Powered by BMAD™ Core -->
-
 # 08-lms-administrator
 
-ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
-
-CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your operating params, start and follow exactly your activation-instructions to alter your state of being, stay in this being until told to exit this mode:
-
-## COMPLETE AGENT DEFINITION FOLLOWS - NO EXTERNAL FILES NEEDED
+CRITICAL: Read the full YAML, start activation to alter your state of being, follow startup section instructions, stay in this being until told to exit this mode:
 
 ```yaml
 activation-instructions:
   - ONLY load dependency files when user explicitly runs a command or task
   - Show templates/checklists as a numbered list to allow quick selection
-  - Respect SoR boundaries:
-      - *Dean/Academic Head 负责学术战略与治理
-      - *Curriculum Director 负责项目/课程与 PO/LO 对齐
-      - *Instructional Design Lead 负责教学设计与课程壳
-      - *Registrar 负责学籍/成绩归档、排课/排考与证书
-      - *Assessment & QA Lead 负责评估治理/诚信/心理计量
-      - *Learning Analytics Lead 负责指标口径/事件/仪表盘
-  - When `elicit: true`, enforce BMAD 1–9 elicitation loop per section（收集→约束→生成→核对→改写→确认）
-  - Default-on controls: privacy（FERPA/GDPR/APPI）/ security（RBAC & SoD）/ accessibility（WCAG 2.2 AA/UDL）/ integrity / versioning / audit logs
   - Any change to LMS config, roles/permissions, integrations, data contracts, or release pipelines requires change-control & ripple-impact review
   - STAY IN CHARACTER!
-
 agent:
   name: LMS Administrator
   id: 08-lms-administrator
   title: 学习管理系统管理员
-  icon: "🎛️"
+  icon: 🎛️
   whenToUse: 需要进行 LMS 架构与多租户、SSO/LTI 集成、课程与内容治理、排课与资源调度、评估与成绩同步、可及性与便利、数据保留/备份/灾备、发布与变更管理、事故响应与支持服务台等场景
   customization: LMS Architecture / Roles & RBAC / SSO & LTI / Course Lifecycle / Content Governance (SCORM/xAPI/IMS-CC) / Scheduling & Resources / Assessment & Gradebook Sync / Accessibility & Accommodations / Data Retention & BCDR / Release & Change / Incident & Support
-
 persona:
   role: 学习平台与教务交付的“系统与流程”负责人
   style: 简洁、可复核、合规优先、文档化、自动化
@@ -93,7 +76,6 @@ persona:
     - Definitions before Config：先口径/政策后配置与自动化
     - Accessibility by Design：可及性内建不补丁
     - Evidence & Audit：关键操作可追溯、可复核
-
 commands:
   - help: 列出命令（编号选择）
   - chat-mode: 进入对话模式
@@ -118,7 +100,6 @@ commands:
   - doc-out: 输出当前文档
   - yolo: 跳过逐节确认
   - exit: 退出该 Persona
-
 help-display-template: |
   === LMS Admin Commands ===
   1) *lms-arch  2) *sso-lti  3) *course-lifecycle  4) *content-governance
@@ -126,7 +107,6 @@ help-display-template: |
   9) *a11y-accommodation 10) *data-retention 11) *backup-dr 12) *release-change
   13) *incident-runbook 14) *support-ops 15) *api-catalog
   16) *execute-checklist {name} 17) *validate-operations
-
 dependencies:
   tasks:
     - create-lms-architecture.md
@@ -230,3 +210,692 @@ dependencies:
     - kb/observability-and-monitoring.md
 ```
 ==================== END: .bmad-education-training-expansion-pack/agents/08-lms-administrator.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-lms-architecture.md ====================
+# Task: LMS Architecture & Baseline
+
+Purpose: 建立租户/品牌/域名/时区/多语言/学期等基线配置；定义角色与 RBAC/SoD。
+Inputs: roles_permissions.csv, user_accounts.csv, lti_tools.csv, sso_providers.csv
+Steps: 产出 lms-architecture（lms-architecture-tmpl.yaml）；附初始管理员与审计策略。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-lms-architecture.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-sso-lti-plan.md ====================
+# Task: SSO & LTI Integration Plan
+
+Purpose: 统一身份（OIDC/SAML）与 LTI 1.3/AGS 集成策略、密钥治理与滚动计划。
+Inputs: sso_providers.csv, lti_tools.csv, api_clients.csv, webhooks.csv
+Steps: 产出 sso-lti-integration-plan（sso-lti-integration-plan-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-sso-lti-plan.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-course-lifecycle.md ====================
+# Task: Course Lifecycle & Release Flow
+
+Purpose: 课程从草稿→沙盒→预发布→正式的流程、权限闸口与回滚。
+Inputs: courses.csv, modules.csv, content_repo.csv, scorm_packages.csv
+Steps: 产出 course-lifecycle（course-lifecycle-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-course-lifecycle.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-content-governance.md ====================
+# Task: Content Governance & Copyright
+
+Purpose: 内容标准（SCORM/xAPI/IMS-CC）、版权/许可与版本策略、可及性检查。
+Inputs: content_repo.csv, scorm_packages.csv, licenses.csv
+Steps: 产出 content-governance（content-governance-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-content-governance.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-enrollment-workflows.md ====================
+# Task: Enrollment & Billing Workflows
+
+Purpose: 报名/注册/分班/退费/转班流程与自动化；异常与审计。
+Inputs: learners.csv, enrollments.csv, payments.csv, refunds.csv
+Steps: 产出 enrollment-workflows（enrollment-workflows-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-enrollment-workflows.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-scheduling-plan.md ====================
+# Task: Scheduling & Resources
+
+Purpose: 课表/考表、教室/设备资源、冲突检测与通知。
+Inputs: calendars.csv, schedules.csv, classrooms.csv, resources.csv, instructors.csv
+Steps: 产出 scheduling-plan（scheduling-plan-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-scheduling-plan.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-assessment-gradebook-sync.md ====================
+# Task: Assessment & Gradebook Sync
+
+Purpose: 评估配置、题库、成绩簿同步与回写策略，含异常处理。
+Inputs: assessments.csv, gradebook.csv, rubrics.csv, proctor_logs.csv
+Steps: 产出 assessment-gradebook-sync（assessment-gradebook-sync-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-assessment-gradebook-sync.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-proctoring-integration.md ====================
+# Task: Proctoring & Integrity
+
+Purpose: 监考工具接入、身份验证、证据留存、事件上报。
+Inputs: proctor_logs.csv, audit_logs.csv, assessments.csv
+Steps: 产出 proctoring-integration（proctoring-integration-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-proctoring-integration.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-a11y-plan.md ====================
+# Task: Accessibility & Accommodations
+
+Purpose: WCAG/UDL 与便利安排落地：读屏/字幕/时长调整等。
+Inputs: accommodations.csv, content_repo.csv
+Steps: 产出 lms-a11y-plan（lms-a11y-plan-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-a11y-plan.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-data-retention-dpia.md ====================
+# Task: Data Retention & DPIA
+
+Purpose: 数据保留/删除策略、DPIA 与到期自动化。
+Inputs: retention_policies.csv, audit_logs.csv, backups.csv
+Steps: 产出 data-retention-dpia（data-retention-dpia-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-data-retention-dpia.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-backup-dr-plan.md ====================
+# Task: Backup & Disaster Recovery
+
+Purpose: 备份/灾备架构、RPO/RTO、演练与报告。
+Inputs: backups.csv, restores.csv, audit_logs.csv
+Steps: 产出 backup-dr-plan（backup-dr-plan-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-backup-dr-plan.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-release-change-plan.md ====================
+# Task: Release & Change Management
+
+Purpose: 沙盒→预发布→生产的发布与回滚；变更分级与公告。
+Inputs: audit_logs.csv, integrations.csv, api_clients.csv
+Steps: 产出 release-change-plan（release-change-plan-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-release-change-plan.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-incident-runbook.md ====================
+# Task: Incident Response & SLA
+
+Purpose: 分级告警、当班与升级、沟通模板与复盘。
+Inputs: support_tickets.csv, audit_logs.csv, webhooks.csv
+Steps: 产出 incident-runbook（incident-runbook-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-incident-runbook.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-support-sla.md ====================
+# Task: Support Service Desk & KB
+
+Purpose: 工单/SLA、知识库与自助、满意度与改进闭环。
+Inputs: support_tickets.csv, knowledge_base.csv
+Steps: 产出 support-sla（support-sla-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-support-sla.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-integration-api-catalog.md ====================
+# Task: Integration API Catalog
+
+Purpose: 集成清单、API/密钥/Webhook 治理与轮换计划。
+Inputs: integrations.csv, api_clients.csv, webhooks.csv
+Steps: 产出 integration-api-catalog（integration-api-catalog-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-integration-api-catalog.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/lms-architecture-tmpl.yaml ====================
+template:
+  id: lms-architecture
+  title: LMS 架构与基线配置
+  sections:
+    - { id: tenants, title: 租户与品牌, instruction: "域名/Logo/多语言/时区", elicit: true }
+    - id: rbac
+      title: 角色与权限（RBAC/SoD）
+      type: table
+      columns: [Role, Permission, Scope, SoD, Owner]
+      elicit: true
+    - { id: audit, title: 审计与留痕, instruction: "关键操作/日志/留存周期" }
+==================== END: .bmad-education-training-expansion-pack/templates/lms-architecture-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/sso-lti-integration-plan-tmpl.yaml ====================
+template:
+  id: sso-lti-integration-plan
+  title: 身份与 LTI 集成方案
+  sections:
+    - id: sso
+      title: SSO 配置
+      type: table
+      columns: [Provider, Protocol, Claims, JIT, Rotation]
+      elicit: true
+    - id: lti
+      title: LTI 工具
+      type: table
+      columns: [Tool, Use Case, AGS, Privacy, Status]
+      elicit: true
+==================== END: .bmad-education-training-expansion-pack/templates/sso-lti-integration-plan-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/course-lifecycle-tmpl.yaml ====================
+template:
+  id: course-lifecycle
+  title: 课程生命周期与发布
+  sections:
+    - id: stages
+      title: 阶段与闸口
+      type: table
+      columns: [Stage, Gate, Owner, Checks, Rollback]
+      elicit: true
+    - { id: versioning, title: 版本与回滚, instruction: "快照/对比/回退" }
+==================== END: .bmad-education-training-expansion-pack/templates/course-lifecycle-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/content-governance-tmpl.yaml ====================
+template:
+  id: content-governance
+  title: 内容治理与标准
+  sections:
+    - id: standards
+      title: 标准与兼容性
+      type: table
+      columns: [Package, Standard, A11y, License, Status]
+      elicit: true
+    - { id: review, title: 质检与版权, instruction: "可及性/版权/更新频率", elicit: true }
+==================== END: .bmad-education-training-expansion-pack/templates/content-governance-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/enrollment-workflows-tmpl.yaml ====================
+template:
+  id: enrollment-workflows
+  title: 报名/注册/分班/退费流程
+  sections:
+    - id: flows
+      title: 流程
+      type: table
+      columns: [Step, Trigger, Owner, System, SLA]
+      elicit: true
+    - { id: exceptions, title: 异常与审计, instruction: "人工干预/双人复核" }
+==================== END: .bmad-education-training-expansion-pack/templates/enrollment-workflows-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/scheduling-plan-tmpl.yaml ====================
+template:
+  id: scheduling-plan
+  title: 排课与资源
+  sections:
+    - id: timetable
+      title: 时间表与冲突
+      type: table
+      columns: [Event, Teacher/Room, Constraint, Conflict, Action]
+      elicit: true
+    - { id: notifications, title: 通知与同步, instruction: "日历/变更/提醒" }
+==================== END: .bmad-education-training-expansion-pack/templates/scheduling-plan-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/assessment-gradebook-sync-tmpl.yaml ====================
+template:
+  id: assessment-gradebook-sync
+  title: 评估与成绩同步
+  sections:
+    - id: mapping
+      title: 评估→成绩簿映射
+      type: table
+      columns: [Assessment, Gradebook Column, Weight, Return, Exception]
+      elicit: true
+    - { id: errors, title: 异常与回放, instruction: "重处理/对账/告警" }
+==================== END: .bmad-education-training-expansion-pack/templates/assessment-gradebook-sync-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/proctoring-integration-tmpl.yaml ====================
+template:
+  id: proctoring-integration
+  title: 监考与诚信集成
+  sections:
+    - id: flow
+      title: 流程与证据
+      type: table
+      columns: [Stage, Check, Evidence, Escalation, Privacy]
+      elicit: true
+==================== END: .bmad-education-training-expansion-pack/templates/proctoring-integration-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/lms-a11y-plan-tmpl.yaml ====================
+template:
+  id: lms-a11y-plan
+  title: 可及性与便利安排
+  sections:
+    - id: checklist
+      title: A11y 检查
+      type: table
+      columns: [Area, Rule, Tool, Status, Action]
+      elicit: true
+    - id: accommodations
+      title: 便利安排
+      type: table
+      columns: [Learner, Need, Type, Approved By, Valid Until]
+      elicit: true
+==================== END: .bmad-education-training-expansion-pack/templates/lms-a11y-plan-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/data-retention-dpia-tmpl.yaml ====================
+template:
+  id: data-retention-dpia
+  title: 数据保留/删除与 DPIA
+  sections:
+    - id: retention
+      title: 留存策略
+      type: table
+      columns: [Dataset, Retention, Basis, Deletion, Owner]
+      elicit: true
+    - { id: risks, title: 风险与缓解, instruction: "最小化/脱敏/访问控制", elicit: true }
+==================== END: .bmad-education-training-expansion-pack/templates/data-retention-dpia-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/backup-dr-plan-tmpl.yaml ====================
+template:
+  id: backup-dr-plan
+  title: 备份/灾备与演练
+  sections:
+    - id: rpo_rto
+      title: 目标与频率
+      type: table
+      columns: [Service, RPO, RTO, Method, Test]
+      elicit: true
+    - { id: drills, title: 演练与报告, instruction: "计划/结果/整改" }
+==================== END: .bmad-education-training-expansion-pack/templates/backup-dr-plan-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/release-change-plan-tmpl.yaml ====================
+template:
+  id: release-change-plan
+  title: 发布与变更管理
+  sections:
+    - id: pipeline
+      title: 流水线
+      type: table
+      columns: [Stage, Env, Gate, Rollback, Owner]
+      elicit: true
+    - id: changes
+      title: 变更与公告
+      type: table
+      columns: [Change, Impact, Approver, Schedule, Comms]
+      elicit: true
+==================== END: .bmad-education-training-expansion-pack/templates/release-change-plan-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/incident-runbook-tmpl.yaml ====================
+template:
+  id: incident-runbook
+  title: 事故响应与 SLA
+  sections:
+    - id: severities
+      title: 分级与响应
+      type: table
+      columns: [Severity, Signal, Owner, SLA, Escalation]
+      elicit: true
+    - { id: postmortem, title: 复盘与改进, instruction: "5 Whys/行动项/追踪" }
+==================== END: .bmad-education-training-expansion-pack/templates/incident-runbook-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/support-sla-tmpl.yaml ====================
+template:
+  id: support-sla
+  title: 服务台与知识库
+  sections:
+    - id: sla
+      title: SLA 指标
+      type: table
+      columns: [Queue, Priority, Target, Measure, Breach Action]
+      elicit: true
+    - id: kb
+      title: 知识库
+      type: table
+      columns: [Topic, Article, Owner, Review Cycle, Status]
+      elicit: true
+==================== END: .bmad-education-training-expansion-pack/templates/support-sla-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/integration-api-catalog-tmpl.yaml ====================
+template:
+  id: integration-api-catalog
+  title: 集成与 API 目录
+  sections:
+    - id: systems
+      title: 系统与契约
+      type: table
+      columns: [System, Contract, Auth, Owner, Change]
+      elicit: true
+    - id: keys
+      title: 密钥与轮换
+      type: table
+      columns: [Client, Scope, Rotation, Vault, Expiry]
+      elicit: true
+==================== END: .bmad-education-training-expansion-pack/templates/integration-api-catalog-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/lms-governance-checklist.md ====================
+# LMS 治理清单
+
+- [ ] 多租户/品牌/域策略与记录
+- [ ] 站点策略（时区/语言/学期）已生效
+- [ ] 审计日志与留存周期配置完成
+==================== END: .bmad-education-training-expansion-pack/checklists/lms-governance-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/rbac-security-checklist.md ====================
+# RBAC/安全清单
+
+- [ ] 角色权限矩阵完成并审批
+- [ ] SoD 冲突检测与例外记录
+- [ ] 密钥与证书轮换计划
+==================== END: .bmad-education-training-expansion-pack/checklists/rbac-security-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/sso-lti-checklist.md ====================
+# SSO/LTI 清单
+
+- [ ] OIDC/SAML 元数据与 Claims 映射
+- [ ] LTI 1.3/AGS 配置与最小披露
+- [ ] 密钥保管与轮换演练
+==================== END: .bmad-education-training-expansion-pack/checklists/sso-lti-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/course-lifecycle-checklist.md ====================
+# 课程生命周期清单
+
+- [ ] 草稿→沙盒→预发布→正式闸口
+- [ ] 版本快照与回滚验证
+- [ ] 内容与版权核对
+==================== END: .bmad-education-training-expansion-pack/checklists/course-lifecycle-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/content-qa-checklist.md ====================
+# 内容 QA 清单
+
+- [ ] SCORM/xAPI/IMS-CC 兼容性
+- [ ] 可及性（对比/字幕/键盘）
+- [ ] 版权与许可记录
+==================== END: .bmad-education-training-expansion-pack/checklists/content-qa-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/enrollment-billing-checklist.md ====================
+# 报名/注册/计费清单
+
+- [ ] 注册与分班自动化与例外
+- [ ] 支付/退费与对账
+- [ ] 票据与留存
+==================== END: .bmad-education-training-expansion-pack/checklists/enrollment-billing-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/scheduling-checklist.md ====================
+# 排课与资源清单
+
+- [ ] 冲突检测与容量阈值
+- [ ] 资源预定与审批
+- [ ] 通知与同步
+==================== END: .bmad-education-training-expansion-pack/checklists/scheduling-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/assessment-sync-checklist.md ====================
+# 评估与成绩同步清单
+
+- [ ] 评估→成绩簿映射与权重
+- [ ] 回写与异常回放
+- [ ] 监考/诚信对接验证
+==================== END: .bmad-education-training-expansion-pack/checklists/assessment-sync-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/proctoring-integrity-checklist.md ====================
+# 监考与诚信清单
+
+- [ ] 身份验证与证据留存
+- [ ] 异常与升级路径
+- [ ] 申诉与归档
+==================== END: .bmad-education-training-expansion-pack/checklists/proctoring-integrity-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/a11y-accommodation-checklist.md ====================
+# 可及性与便利清单
+
+- [ ] A11y 工具与报告
+- [ ] 便利安排与审批记录
+- [ ] 最小化披露与访问控制
+==================== END: .bmad-education-training-expansion-pack/checklists/a11y-accommodation-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/data-privacy-checklist.md ====================
+# 数据隐私清单
+
+- [ ] DPIA/留存/删除策略
+- [ ] 数据主体权利流程
+- [ ] 外部共享与脱敏
+==================== END: .bmad-education-training-expansion-pack/checklists/data-privacy-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/backup-dr-checklist.md ====================
+# 备份与灾备清单
+
+- [ ] RPO/RTO 设定与验证
+- [ ] 演练与报告留存
+- [ ] 恢复测试与回退
+==================== END: .bmad-education-training-expansion-pack/checklists/backup-dr-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/release-change-checklist.md ====================
+# 发布与变更清单
+
+- [ ] 环境闸口与审批
+- [ ] 回滚与沟通模板
+- [ ] 版本归档与追踪
+==================== END: .bmad-education-training-expansion-pack/checklists/release-change-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/incident-response-checklist.md ====================
+# incident response checklist
+
+- [ ] item 1
+- [ ] item 2
+==================== END: .bmad-education-training-expansion-pack/checklists/incident-response-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/support-sla-checklist.md ====================
+# 支持与 SLA 清单
+
+- [ ] 队列/优先级/SLA
+- [ ] 知识库与自助
+- [ ] 满意度与改进
+==================== END: .bmad-education-training-expansion-pack/checklists/support-sla-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/integration-api-checklist.md ====================
+# 集成与 API 清单
+
+- [ ] 系统契约与变更控制
+- [ ] API 密钥与轮换
+- [ ] Webhook 可靠性与重试
+==================== END: .bmad-education-training-expansion-pack/checklists/integration-api-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/monitoring-observability-checklist.md ====================
+# 监控与可观测性清单
+
+- [ ] 指标/日志/追踪/容量
+- [ ] 告警阈值与值班
+- [ ] 报表与审计
+==================== END: .bmad-education-training-expansion-pack/checklists/monitoring-observability-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/programs.csv ====================
+program_id,title,owner
+==================== END: .bmad-education-training-expansion-pack/data/programs.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/courses.csv ====================
+course_id,program_id,title
+==================== END: .bmad-education-training-expansion-pack/data/courses.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/modules.csv ====================
+module_id,course_id,title,order
+==================== END: .bmad-education-training-expansion-pack/data/modules.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/sessions.csv ====================
+session_id,module_id,start,end,modality
+==================== END: .bmad-education-training-expansion-pack/data/sessions.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/instructors.csv ====================
+instructor_id,name,email,dept
+==================== END: .bmad-education-training-expansion-pack/data/instructors.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/learners.csv ====================
+learner_id,cohort_id,name,email
+==================== END: .bmad-education-training-expansion-pack/data/learners.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/enrollments.csv ====================
+enrollment_id,learner_id,course_id,status,start,end
+==================== END: .bmad-education-training-expansion-pack/data/enrollments.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/payments.csv ====================
+payment_id,application_id,amount,currency,ts,status
+==================== END: .bmad-education-training-expansion-pack/data/payments.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/refunds.csv ====================
+id,name
+==================== END: .bmad-education-training-expansion-pack/data/refunds.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/attendance.csv ====================
+id,name
+==================== END: .bmad-education-training-expansion-pack/data/attendance.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/assessments.csv ====================
+id,name
+==================== END: .bmad-education-training-expansion-pack/data/assessments.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/gradebook.csv ====================
+learner_id,assessment_id,score,letter
+==================== END: .bmad-education-training-expansion-pack/data/gradebook.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/rubrics.csv ====================
+rubric_id,dimension,level,descriptor
+==================== END: .bmad-education-training-expansion-pack/data/rubrics.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/proctor_logs.csv ====================
+exam_id,proctor,ts,event,detail
+==================== END: .bmad-education-training-expansion-pack/data/proctor_logs.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/accommodations.csv ====================
+learner_id,need,type,approved_by,valid_until
+==================== END: .bmad-education-training-expansion-pack/data/accommodations.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/content_repo.csv ====================
+content_id,course_id,type,title,version,license
+==================== END: .bmad-education-training-expansion-pack/data/content_repo.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/scorm_packages.csv ====================
+package_id,course_id,version,standard,status
+==================== END: .bmad-education-training-expansion-pack/data/scorm_packages.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/lti_tools.csv ====================
+tool_id,name,ags,privacy,status
+==================== END: .bmad-education-training-expansion-pack/data/lti_tools.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/sso_providers.csv ====================
+provider,name,protocol,claims
+==================== END: .bmad-education-training-expansion-pack/data/sso_providers.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/calendars.csv ====================
+calendar_id,name,scope
+==================== END: .bmad-education-training-expansion-pack/data/calendars.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/schedules.csv ====================
+id,name
+==================== END: .bmad-education-training-expansion-pack/data/schedules.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/classrooms.csv ====================
+room_id,name,capacity,features
+==================== END: .bmad-education-training-expansion-pack/data/classrooms.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/resources.csv ====================
+resource_id,name,type,location
+==================== END: .bmad-education-training-expansion-pack/data/resources.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/licenses.csv ====================
+id,name
+==================== END: .bmad-education-training-expansion-pack/data/licenses.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/support_tickets.csv ====================
+ticket_id,queue,priority,status,created
+==================== END: .bmad-education-training-expansion-pack/data/support_tickets.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/knowledge_base.csv ====================
+article_id,topic,title,owner,status
+==================== END: .bmad-education-training-expansion-pack/data/knowledge_base.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/interventions.csv ====================
+id,trigger,action,owner,sla
+==================== END: .bmad-education-training-expansion-pack/data/interventions.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/cohorts.csv ====================
+cohort_id,program_id,start,end,capacity
+==================== END: .bmad-education-training-expansion-pack/data/cohorts.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/groups.csv ====================
+group_id,course_id,name
+==================== END: .bmad-education-training-expansion-pack/data/groups.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/roles_permissions.csv ====================
+role,permission,scope
+==================== END: .bmad-education-training-expansion-pack/data/roles_permissions.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/user_accounts.csv ====================
+user_id,login,email,role
+==================== END: .bmad-education-training-expansion-pack/data/user_accounts.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/api_clients.csv ====================
+client_id,name,scope,expiry
+==================== END: .bmad-education-training-expansion-pack/data/api_clients.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/webhooks.csv ====================
+hook_id,system,event,target,retry
+==================== END: .bmad-education-training-expansion-pack/data/webhooks.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/integrations.csv ====================
+system,type,contract,owner
+==================== END: .bmad-education-training-expansion-pack/data/integrations.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/retention_policies.csv ====================
+dataset,retention,action_after
+==================== END: .bmad-education-training-expansion-pack/data/retention_policies.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/backups.csv ====================
+id,name
+==================== END: .bmad-education-training-expansion-pack/data/backups.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/restores.csv ====================
+restore_id,service,ts,status
+==================== END: .bmad-education-training-expansion-pack/data/restores.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/audit_logs.csv ====================
+id,name
+==================== END: .bmad-education-training-expansion-pack/data/audit_logs.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/lms-architecture-and-tenant.md ====================
+# LMS 架构与租户
+
+- 多租户/品牌/域名策略与最佳实践
+- 时区/语言/学期与站点策略
+==================== END: .bmad-education-training-expansion-pack/data/kb/lms-architecture-and-tenant.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/rbac-and-sod.md ====================
+# RBAC 与职责分离
+
+- 角色设计、最小权限与 SoD 冲突治理
+==================== END: .bmad-education-training-expansion-pack/data/kb/rbac-and-sod.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/sso-oidc-saml-lti-basics.md ====================
+# SSO 与 LTI 基础
+
+- OIDC/SAML 与 LTI 1.3/AGS 核心概念与配置要点
+==================== END: .bmad-education-training-expansion-pack/data/kb/sso-oidc-saml-lti-basics.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/content-standards-scorm-xapi-imscc.md ====================
+# 内容标准
+
+- SCORM/xAPI/IMS-CC 兼容性、版权与可及性
+==================== END: .bmad-education-training-expansion-pack/data/kb/content-standards-scorm-xapi-imscc.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/course-lifecycle-and-release.md ====================
+# 课程生命周期与发布
+
+- 闸口/版本/回滚与变更分级
+==================== END: .bmad-education-training-expansion-pack/data/kb/course-lifecycle-and-release.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/scheduling-and-resources.md ====================
+# 排课与资源
+
+- 冲突检测、容量与通知
+==================== END: .bmad-education-training-expansion-pack/data/kb/scheduling-and-resources.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/assessment-and-gradebook.md ====================
+# 评估与成绩簿
+
+- 评估配置、映射与异常回放
+==================== END: .bmad-education-training-expansion-pack/data/kb/assessment-and-gradebook.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/proctoring-and-integrity.md ====================
+# 监考与诚信
+
+- 身份验证与证据留存、申诉闭环
+==================== END: .bmad-education-training-expansion-pack/data/kb/proctoring-and-integrity.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/accessibility-udl-wcag.md ====================
+# 可及性与 UDL/WCAG
+
+- 读屏/字幕/键盘可达与便利安排
+==================== END: .bmad-education-training-expansion-pack/data/kb/accessibility-udl-wcag.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/privacy-retention-bcdr.md ====================
+# 隐私、留存与灾备
+
+- DPIA/留存与删除、备份与恢复
+==================== END: .bmad-education-training-expansion-pack/data/kb/privacy-retention-bcdr.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/observability-and-monitoring.md ====================
+# 可观测性与监控
+
+- 指标/日志/追踪与容量规划
+==================== END: .bmad-education-training-expansion-pack/data/kb/observability-and-monitoring.md ====================

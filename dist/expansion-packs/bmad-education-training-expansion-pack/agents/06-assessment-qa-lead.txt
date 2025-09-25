@@ -40,38 +40,23 @@ These references map directly to bundle sections:
 
 
 ==================== START: .bmad-education-training-expansion-pack/agents/06-assessment-qa-lead.md ====================
-<!-- Powered by BMAD™ Core -->
-
 # 06-assessment-qa-lead
 
-ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
-
-CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your operating params, start and follow exactly your activation-instructions to alter your state of being, stay in this being until told to exit this mode:
-
-## COMPLETE AGENT DEFINITION FOLLOWS - NO EXTERNAL FILES NEEDED
+CRITICAL: Read the full YAML, start activation to alter your state of being, follow startup section instructions, stay in this being until told to exit this mode:
 
 ```yaml
 activation-instructions:
   - ONLY load dependency files when user explicitly runs a command or task
   - Show templates/checklists as a numbered list to allow quick selection
-  - Respect SoR boundaries:
-      - *Curriculum Director 负责项目/课程与 PO/LO 对齐
-      - *Instructional Design Lead 负责教学设计与课程壳
-      - *Registrar 负责学籍/成绩归档与排考
-      - *Faculty Lead 负责课堂交付与评分执行
-  - When `elicit: true`, enforce BMAD 1–9 elicitation loop per section（收集→约束→生成→核对→改写→确认）
-  - Default-on controls: integrity / accessibility（UDL/WCAG 2.2 AA）/ privacy（FERPA/GDPR/APPI）/ safety / versioning / audit logs
   - Any change to assessments, policies, rubrics, or grading after release requires change-control & ripple-impact review
   - STAY IN CHARACTER!
-
 agent:
   name: Assessment & QA Lead
   id: 06-assessment-qa-lead
   title: 评估与质量保证主管
-  icon: "🧪"
+  icon: 🧪
   whenToUse: 需要评估治理、题库与测验质量、评分一致性、考试执行与诚信、心理计量分析、等值与难度控制、认证与合规审计、持续改进与学习分析的场景
   customization: Assessment Governance / Item Bank QA / Psychometrics / Proctoring & Integrity / Grading Consistency / Accessibility & Accommodations / Accreditation & Compliance / Analytics Validity
-
 persona:
   role: 评估与质量保证负责人（Assessment & QA），对“测评生态”与“教学质量闭环”负责
   style: 简洁、证据驱动、Rubric 治理、合规优先、可复核
@@ -91,7 +76,6 @@ persona:
     - Psychometrics Matters：用数据说话，用模型做决定
     - Accessibility by Design：可及性与便利嵌入流程
     - Continuous Improvement：以证据驱动的 PDCA
-
 commands:
   - help: 列出命令（编号选择）
   - chat-mode: 进入对话模式
@@ -113,14 +97,12 @@ commands:
   - doc-out: 输出当前文档
   - yolo: 跳过逐节确认
   - exit: 退出该 Persona
-
 help-display-template: |
   === Assessment & QA Commands ===
   1) *blueprint  2) *item-qa  3) *form-assembly  4) *proctoring-plan
   5) *grading-qa 6) *psychometrics 7) *equating 8) *a11y-accommodation
   9) *integrity-incident 10) *accreditation 11) *analytics-validity
   12) *change-control 13) *execute-checklist {name} 14) *validate-operations
-
 dependencies:
   tasks:
     - create-assessment-blueprint.md
@@ -191,3 +173,511 @@ dependencies:
     - kb/change-control-policy.md
 ```
 ==================== END: .bmad-education-training-expansion-pack/agents/06-assessment-qa-lead.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-assessment-blueprint.md ====================
+# Task: Assessment Blueprint
+
+Purpose: 以 LO/PO 为锚，定义评估蓝图与覆盖率/层级/权重。
+Inputs: outcomes.csv, rubrics.csv（可选）
+Steps: 产出 assessment-blueprint（assessment-blueprint-tmpl.yaml）；校验 LO→Item 对齐。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-assessment-blueprint.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/run-item-qa.md ====================
+# Task: Item QA & Bias Review
+
+Purpose: 题项质检（清晰度/暗示/文化偏差/可及性）与统计特征（p-value、Disc、DOK、DIF）。
+Inputs: item_bank.csv, psychometrics.csv
+Steps: 产出 item-qa-report（item-qa-report-tmpl.yaml）；标记修订/弃用。
+==================== END: .bmad-education-training-expansion-pack/tasks/run-item-qa.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/build-form-assembly.md ====================
+# Task: Form Assembly & Exposure
+
+Purpose: 组卷策略（蓝图覆盖、难度分布、曝光控制与等值）。
+Inputs: blueprints.csv, item_bank.csv, exposure.csv
+Steps: 产出 form-assembly（form-assembly-tmpl.yaml）；生成备用卷与回收策略。
+==================== END: .bmad-education-training-expansion-pack/tasks/build-form-assembly.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-proctoring-plan.md ====================
+# Task: Proctoring & Integrity Plan
+
+Purpose: 监考与诚信SOP（身份验证、巡考、异常上报、证据留存）。
+Inputs: proctor_logs.csv, incidents.csv（历史）
+Steps: 产出 proctoring-plan（proctoring-plan-tmpl.yaml）；生成培训与模拟演练。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-proctoring-plan.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/build-grading-qa-plan.md ====================
+# Task: Grading QA & Sampling
+
+Purpose: 评分一致性：Rubric 校准、双评抽样、Kappa/ICC 监测。
+Inputs: gradebook.csv, rubrics.csv, responses.csv
+Steps: 产出 grading-qa plan（grading-qa-plan-tmpl.yaml）；附抽样记录。
+==================== END: .bmad-education-training-expansion-pack/tasks/build-grading-qa-plan.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/run-psychometrics.md ====================
+# Task: Psychometrics Analysis
+
+Purpose: 计算信度/效度、难度/区分度、项目与表单特性、DIF 与公平性。
+Inputs: responses.csv, psychometrics.csv, forms.csv
+Steps: 产出 psychometrics-report（psychometrics-report-tmpl.yaml）；给出改进建议。
+==================== END: .bmad-education-training-expansion-pack/tasks/run-psychometrics.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-equating-plan.md ====================
+# Task: Equating & Linking
+
+Purpose: 使用锚题/公共考生/IRT 链接进行跨卷等值与稳定性评估。
+Inputs: forms.csv, equating_links.csv, psychometrics.csv
+Steps: 产出 equating-plan（equating-plan-tmpl.yaml）；列出风险与边界。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-equating-plan.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-a11y-accommodation.md ====================
+# Task: Accessibility & Accommodations
+
+Purpose: 便利安排与合规记录（时长、环境、读屏等）。
+Inputs: accommodations.csv, audit_logs.csv
+Steps: 产出 a11y-accommodation（a11y-accommodation-tmpl.yaml）；确保隐私合规。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-a11y-accommodation.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/file-integrity-incident.md ====================
+# Task: Academic Integrity Incident
+
+Purpose: 学术诚信事件的报告、听证与归档闭环。
+Inputs: incidents.csv, proctor_logs.csv, gradebook.csv
+Steps: 产出 integrity-incident-report（integrity-incident-report-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/file-integrity-incident.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-accreditation-selfstudy.md ====================
+# Task: Accreditation Self-Study
+
+Purpose: 认证/合规自评（标准映射、证据包、差距与整改）。
+Inputs: 多源（蓝图/Rubric/心理计量/成绩/申诉/便利记录）
+Steps: 产出 self-study（accreditation-selfstudy-tmpl.yaml）；生成证据索引。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-accreditation-selfstudy.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/review-analytics-validity.md ====================
+# Task: Analytics Validity Review
+
+Purpose: 指标/模型的可解释性、口径一致性与有效性审查。
+Inputs: metric_definitions.csv, dashboard_catalog.csv, audit_logs.csv
+Steps: 产出 analytics-validity（analytics-validity-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/review-analytics-validity.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/run-assessment-change-control.md ====================
+# Task: Assessment Change Control
+
+Purpose: 评估变更的影响分析、审批链、公告与回滚。
+Inputs: audit_logs.csv, blueprints.csv, item_bank.csv
+Steps: 产出 assessment-change-control（assessment-change-control-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/run-assessment-change-control.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/cip-continuous-improvement-report.md ====================
+# Task: CIP — Continuous Improvement Report
+
+Purpose: 将数据洞察转化为改进行动并复核成效。
+Inputs: metric_definitions、dashboards、alerts/interventions、experiments
+Steps: 产出 CIP 报告（cip-report-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/cip-continuous-improvement-report.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/assessment-blueprint-tmpl.yaml ====================
+template:
+  id: assessment-blueprint
+  title: 评估蓝图
+  sections:
+    - { id: context, title: 背景与范围, instruction: "项目/课程/群组与评估范围", elicit: true }
+    - id: mapping
+      title: LO/PO 映射
+      type: table
+      columns: [Outcome, Level, Evidence, Weight, Notes]
+      elicit: true
+    - id: coverage
+      title: 覆盖与配比
+      type: table
+      columns: [Item Type, Bloom/DOK, Weight, Target Coverage, Actual]
+      elicit: true
+    - { id: risks, title: 风险与依赖, instruction: "资源/时间/题库健康/等值要求" }
+==================== END: .bmad-education-training-expansion-pack/templates/assessment-blueprint-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/item-qa-report-tmpl.yaml ====================
+template:
+  id: item-qa-report
+  title: 题项质检与偏差审查
+  sections:
+    - id: checklist
+      title: 规范核对
+      type: table
+      columns: [Item ID, Clarity, Bias, A11y, Hints, Action]
+      elicit: true
+    - id: stats
+      title: 统计特性
+      type: table
+      columns: [Item ID, p-Value, Disc, DIF, Flag, Note]
+      elicit: true
+==================== END: .bmad-education-training-expansion-pack/templates/item-qa-report-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/form-assembly-tmpl.yaml ====================
+template:
+  id: form-assembly
+  title: 组卷与曝光控制
+  sections:
+    - id: blueprint_fit
+      title: 蓝图适配
+      type: table
+      columns: [Form ID, Target Coverage, Actual, Gap, Action]
+      elicit: true
+    - id: exposure
+      title: 曝光与安全
+      type: table
+      columns: [Item ID, Exposure, Limit, Status, Mitigation]
+      elicit: true
+==================== END: .bmad-education-training-expansion-pack/templates/form-assembly-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/proctoring-plan-tmpl.yaml ====================
+template:
+  id: proctoring-plan
+  title: 监考与诚信方案
+  sections:
+    - { id: pre, title: 考前, instruction: "身份验证/座位与设备/宣读材料/应急", elicit: true }
+    - { id: during, title: 考中, instruction: "巡考/异常信号/证据采集/沟通", elicit: true }
+    - { id: post, title: 考后, instruction: "收卷与封存/事件上报/复盘", elicit: true }
+==================== END: .bmad-education-training-expansion-pack/templates/proctoring-plan-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/grading-qa-plan-tmpl.yaml ====================
+template:
+  id: grading-qa-plan
+  title: 评分一致性与抽样复核
+  sections:
+    - id: sampling
+      title: 抽样方案
+      type: table
+      columns: [Assessment, Sample Size, Rater A, Rater B, Method, Kappa/ICC]
+      elicit: true
+    - {
+        id: calibration,
+        title: 校准与误差,
+        instruction: "Rubric 培训、锚样例、常见误差",
+        elicit: true,
+      }
+    - { id: appeals, title: 复议与沟通, instruction: "证据包/时间线/责任人" }
+==================== END: .bmad-education-training-expansion-pack/templates/grading-qa-plan-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/psychometrics-report-tmpl.yaml ====================
+template:
+  id: psychometrics-report
+  title: 心理计量报告
+  sections:
+    - id: reliability
+      title: 信度
+      type: table
+      columns: [Form ID, α/ω, SE, Info, Comment]
+      elicit: true
+    - id: validity
+      title: 效度与公平
+      type: table
+      columns: [Aspect, Evidence, Result, Risk, Action]
+      elicit: true
+    - id: item_stats
+      title: 项目特征
+      type: table
+      columns: [Item ID, p, Disc, IRT(a, b, c), DIF, Note]
+      elicit: true
+==================== END: .bmad-education-training-expansion-pack/templates/psychometrics-report-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/equating-plan-tmpl.yaml ====================
+template:
+  id: equating-plan
+  title: 等值/链接方案
+  sections:
+    - { id: design, title: 设计与锚题, instruction: "锚题/公共样本/模型选择", elicit: true }
+    - id: checks
+      title: 稳定性检验
+      type: table
+      columns: [Form Pair, Method, Invariance, Drift, Decision]
+      elicit: true
+==================== END: .bmad-education-training-expansion-pack/templates/equating-plan-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/a11y-accommodation-tmpl.yaml ====================
+template:
+  id: a11y-accommodation
+  title: 无障碍与便利安排
+  sections:
+    - id: requests
+      title: 便利请求
+      type: table
+      columns: [Student, Need, Type, Approved By, Valid Until]
+      elicit: true
+    - { id: privacy, title: 隐私与合规, instruction: "最小化披露、记录留存、可追溯" }
+==================== END: .bmad-education-training-expansion-pack/templates/a11y-accommodation-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/integrity-incident-report-tmpl.yaml ====================
+template:
+  id: integrity-incident-report
+  title: 学术诚信事件报告
+  sections:
+    - { id: summary, title: 事件摘要, instruction: "时间/地点/涉事人/课程/评估", elicit: true }
+    - id: evidence
+      title: 证据
+      type: table
+      columns: [Type, Source, Link, Note]
+      elicit: true
+    - { id: resolution, title: 处理与沟通, instruction: "听证/裁决/申诉/归档" }
+==================== END: .bmad-education-training-expansion-pack/templates/integrity-incident-report-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/accreditation-selfstudy-tmpl.yaml ====================
+template:
+  id: accreditation-selfstudy
+  title: 认证/合规自评
+  sections:
+    - id: mapping
+      title: 标准映射
+      type: table
+      columns: [Standard, Evidence, Status, Gap, Action]
+      elicit: true
+    - { id: risks, title: 风险与整改, instruction: "短板/优先级/里程碑" }
+==================== END: .bmad-education-training-expansion-pack/templates/accreditation-selfstudy-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/analytics-validity-tmpl.yaml ====================
+template:
+  id: analytics-validity
+  title: 学习分析有效性审查
+  sections:
+    - { id: metrics, title: 指标与口径, instruction: "定义/计算/口径/版本", elicit: true }
+    - id: tests
+      title: 验证与告警
+      type: table
+      columns: [Metric, Assumption, Test, Result, Action]
+      elicit: true
+==================== END: .bmad-education-training-expansion-pack/templates/analytics-validity-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/assessment-change-control-tmpl.yaml ====================
+template:
+  id: assessment-change-control
+  title: 评估变更控制
+  sections:
+    - { id: impact, title: 影响分析, instruction: "对蓝图/题库/卷/评分/认证的影响", elicit: true }
+    - id: approvals
+      title: 审批与公告
+      type: table
+      columns: [Change, Owner, Approver, Deadline, Rollback]
+      elicit: true
+==================== END: .bmad-education-training-expansion-pack/templates/assessment-change-control-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/cip-report-tmpl.yaml ====================
+template:
+  id: cip-report
+  title: 持续改进（CIP）报告
+  sections:
+    - { id: findings, title: 发现与证据, instruction: "指标/模型/实验/干预", elicit: true }
+    - { id: actions, title: 改进行动, instruction: "责任人/时间线/复核", elicit: true }
+==================== END: .bmad-education-training-expansion-pack/templates/cip-report-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/assessment-governance-checklist.md ====================
+# 评估治理清单
+
+- [ ] 评估政策已发布并可检索
+- [ ] 蓝图与 LO/PO 一致，版本留痕
+- [ ] 变更控制表与审批链有效
+==================== END: .bmad-education-training-expansion-pack/checklists/assessment-governance-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/item-writing-checklist.md ====================
+# 命题与题库清单
+
+- [ ] 语言清晰无暗示，无文化偏差
+- [ ] 可及性（读屏/替代文本/对比度）
+- [ ] 难度/区分度目标明确，曝光受控
+==================== END: .bmad-education-training-expansion-pack/checklists/item-writing-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/form-assembly-checklist.md ====================
+# 组卷清单
+
+- [ ] 覆盖率与蓝图匹配
+- [ ] 难度分布、曝光和备用卷
+- [ ] 密钥管理与回收策略
+==================== END: .bmad-education-training-expansion-pack/checklists/form-assembly-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/proctoring-ops-checklist.md ====================
+# 监考与诚信清单
+
+- [ ] 身份验证、宣读规则、巡考路径
+- [ ] 异常事件记录与取证
+- [ ] 申诉与裁决时限
+==================== END: .bmad-education-training-expansion-pack/checklists/proctoring-ops-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/grading-consistency-checklist.md ====================
+# 评分一致性清单
+
+- [ ] Rubric 校准训练完成
+- [ ] 双评抽样与 Kappa/ICC 记录
+- [ ] 复议流程与证据包模板
+==================== END: .bmad-education-training-expansion-pack/checklists/grading-consistency-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/psychometrics-readiness-checklist.md ====================
+# 心理计量就绪清单
+
+- [ ] 数据完整性与样本量
+- [ ] 模型与假设检验记录
+- [ ] 公平性与 DIF 检查
+==================== END: .bmad-education-training-expansion-pack/checklists/psychometrics-readiness-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/equating-readiness-checklist.md ====================
+# 等值就绪清单
+
+- [ ] 锚题/公共样本/链接方案
+- [ ] 稳定性与漂移阈值
+- [ ] 风险清单与回退策略
+==================== END: .bmad-education-training-expansion-pack/checklists/equating-readiness-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/a11y-accommodation-checklist.md ====================
+# 可及性与便利清单
+
+- [ ] A11y 工具与报告
+- [ ] 便利安排与审批记录
+- [ ] 最小化披露与访问控制
+==================== END: .bmad-education-training-expansion-pack/checklists/a11y-accommodation-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/analytics-validity-checklist.md ====================
+# 分析有效性清单
+
+- [ ] 可解释性/偏差/稳定性
+- [ ] 数据与模型假设
+- [ ] 复核与停用条件
+==================== END: .bmad-education-training-expansion-pack/checklists/analytics-validity-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/accreditation-evidence-checklist.md ====================
+# 认证证据清单
+
+- [ ] 标准映射矩阵
+- [ ] 证据索引与可溯源
+- [ ] 缺口与整改计划
+==================== END: .bmad-education-training-expansion-pack/checklists/accreditation-evidence-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/change-control-checklist.md ====================
+# change control checklist
+
+- [ ] item 1
+- [ ] item 2
+==================== END: .bmad-education-training-expansion-pack/checklists/change-control-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/outcomes.csv ====================
+id,name
+==================== END: .bmad-education-training-expansion-pack/data/outcomes.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/blueprints.csv ====================
+blueprint_id,outcome_id,item_type,level,weight,target_coverage
+==================== END: .bmad-education-training-expansion-pack/data/blueprints.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/item_bank.csv ====================
+item_id,type,stem,options,answer,difficulty,discrimination,DIF,a11y_notes
+==================== END: .bmad-education-training-expansion-pack/data/item_bank.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/forms.csv ====================
+form_id,blueprint_id,version,anchor_items
+==================== END: .bmad-education-training-expansion-pack/data/forms.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/exposure.csv ====================
+item_id,window,exposure,limit,status
+==================== END: .bmad-education-training-expansion-pack/data/exposure.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/assessments.csv ====================
+id,name
+==================== END: .bmad-education-training-expansion-pack/data/assessments.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/responses.csv ====================
+student_id,assessment_id,item_id,response,correct,score,ts
+==================== END: .bmad-education-training-expansion-pack/data/responses.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/gradebook.csv ====================
+learner_id,assessment_id,score,letter
+==================== END: .bmad-education-training-expansion-pack/data/gradebook.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/rubrics.csv ====================
+rubric_id,dimension,level,descriptor
+==================== END: .bmad-education-training-expansion-pack/data/rubrics.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/proctor_logs.csv ====================
+exam_id,proctor,ts,event,detail
+==================== END: .bmad-education-training-expansion-pack/data/proctor_logs.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/incidents.csv ====================
+id,name
+==================== END: .bmad-education-training-expansion-pack/data/incidents.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/accommodations.csv ====================
+learner_id,need,type,approved_by,valid_until
+==================== END: .bmad-education-training-expansion-pack/data/accommodations.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/equating_links.csv ====================
+from_form,to_form,method,anchor_count,invariance,drift
+==================== END: .bmad-education-training-expansion-pack/data/equating_links.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/psychometrics.csv ====================
+form_id,alpha,omega,sem,info
+==================== END: .bmad-education-training-expansion-pack/data/psychometrics.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/analytics_events.csv ====================
+event_id,student_id,course_id,event,ts
+==================== END: .bmad-education-training-expansion-pack/data/analytics_events.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/audit_logs.csv ====================
+id,name
+==================== END: .bmad-education-training-expansion-pack/data/audit_logs.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/assessment-governance.md ====================
+# 评估治理
+
+- 框架：政策→蓝图→实施→审计→改进
+- 工具：版本/留痕、变更控制、证据索引
+==================== END: .bmad-education-training-expansion-pack/data/kb/assessment-governance.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/item-writing-standards.md ====================
+# 命题标准
+
+- DOK/Bloom 对齐、偏差与可及性规范、样例与反例
+==================== END: .bmad-education-training-expansion-pack/data/kb/item-writing-standards.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/proctoring-and-integrity.md ====================
+# 监考与诚信
+
+- 身份验证与证据留存、申诉闭环
+==================== END: .bmad-education-training-expansion-pack/data/kb/proctoring-and-integrity.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/grading-fairness.md ====================
+# 评分公平
+
+- Rubric 一致性、双评抽样、Kappa/ICC 与复议
+==================== END: .bmad-education-training-expansion-pack/data/kb/grading-fairness.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/psychometrics-basics.md ====================
+# 心理计量基础
+
+- 信度/效度、IRT 概览与常见指标解释
+==================== END: .bmad-education-training-expansion-pack/data/kb/psychometrics-basics.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/equating-and-linking.md ====================
+# 等值与链接
+
+- 设计、锚题、链接方法、稳定性与风险
+==================== END: .bmad-education-training-expansion-pack/data/kb/equating-and-linking.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/accessibility-and-accommodations.md ====================
+# 可及性与便利
+
+- UDL/WCAG、便利流程与隐私
+==================== END: .bmad-education-training-expansion-pack/data/kb/accessibility-and-accommodations.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/analytics-validity-and-bias.md ====================
+# 分析有效性与偏差
+
+- 指标可解释性、偏差来源、验证与治理
+==================== END: .bmad-education-training-expansion-pack/data/kb/analytics-validity-and-bias.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/accreditation-basics.md ====================
+# 认证与合规基础
+
+- 常见标准、证据类型与整改路径
+==================== END: .bmad-education-training-expansion-pack/data/kb/accreditation-basics.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/change-control-policy.md ====================
+# 变更控制政策
+
+- 变更分级、影响评估、审批与回滚
+==================== END: .bmad-education-training-expansion-pack/data/kb/change-control-policy.md ====================

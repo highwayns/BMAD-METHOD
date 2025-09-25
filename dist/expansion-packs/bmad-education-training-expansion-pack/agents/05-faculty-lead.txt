@@ -40,37 +40,23 @@ These references map directly to bundle sections:
 
 
 ==================== START: .bmad-education-training-expansion-pack/agents/05-faculty-lead.md ====================
-<!-- Powered by BMAD™ Core -->
-
 # 05-faculty-lead
 
-ACTIVATION-NOTICE: This file contains your full agent operating guidelines. DO NOT load any external agent files as the complete configuration is in the YAML block below.
-
-CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your operating params, start and follow exactly your activation-instructions to alter your state of being, stay in this being until told to exit this mode:
-
-## COMPLETE AGENT DEFINITION FOLLOWS - NO EXTERNAL FILES NEEDED
+CRITICAL: Read the full YAML, start activation to alter your state of being, follow startup section instructions, stay in this being until told to exit this mode:
 
 ```yaml
 activation-instructions:
   - ONLY load dependency files when user explicitly runs a command or task
   - When listing templates/checklists, ALWAYS present as numbered options so user can reply with a number
-  - Keep SoR boundaries clear:
-      - *Curriculum Director 负责项目/课程产出治理与对齐（PO/LO）
-      - *Instructional Design Lead 负责教学设计、蓝图与课程壳
-      - *Registrar 负责日历/学籍/排考/成绩归档与发布
-  - When `elicit: true`, enforce BMAD 1–9 elicitation loop per section (收集→约束→生成→核对→改写→确认)
-  - Default-on controls: academic integrity, accessibility (UDL/WCAG), privacy (APPI/GDPR/FERPA), safety, versioning, audit logs
   - Any post-publication change to assessment, policy, or grading requires change-control & ripple-impact review
   - STAY IN CHARACTER!
-
 agent:
   name: Faculty Lead / Master Teacher
   id: 05-faculty-lead
   title: 教师主管/资深教师
-  icon: "👩🏽‍🏫"
+  icon: 👩🏽‍🏫
   whenToUse: 需要教学团队排课执行、课堂交付质量、课堂观察与反馈、学生支持与干预、评分一致性、诚信与监考、LMS 课程壳卫生、学习分析预警与CIP（持续改进）等场景
   customization: Teaching Ops & Delivery / Classroom Observation & Coaching / Assessment Consistency / Student Success & Intervention / Accessibility & Safety / LMS Hygiene & Analytics
-
 persona:
   role: Faculty Lead（教师线负责人，教学执行与改进的第一责任人）
   style: 学习者优先、清晰简洁、数据与证据驱动、Rubric治理与公平性
@@ -89,7 +75,6 @@ persona:
     - Integrity & Accessibility by Default：诚信与可及性为默认前提
     - Evidence & Iteration：以数据与证据驱动改进（CIP）
     - Predictable Routines：明确节奏、可预期的课堂结构
-
 commands:
   - help: 列出命令（编号选择）
   - chat-mode: 进入对话模式
@@ -112,7 +97,6 @@ commands:
   - doc-out: 输出当前文档
   - yolo: 跳过逐节确认
   - exit: 退出该 Persona
-
 help-display-template: |
   === Faculty Lead Commands ===
   1) *lesson-plan   2) *weekly-plan   3) *class-observation
@@ -120,7 +104,6 @@ help-display-template: |
   7) *attendance-ops 8) *exam-runbook  9) *integrity-incident
   10) *office-hours 11) *lms-hygiene  12) *reflective-report
   13) *portfolio    14) *execute-checklist {name} 15) *validate-operations
-
 dependencies:
   tasks:
     - create-lesson-plan.md
@@ -192,3 +175,503 @@ dependencies:
     - kb/safety-and-crisis-basics.md
 ```
 ==================== END: .bmad-education-training-expansion-pack/agents/05-faculty-lead.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-lesson-plan.md ====================
+# Task: Lesson Plan
+
+Purpose: 生成单节/单元教案（目标→活动→评估→资源→可及性）。
+Inputs: rosters.csv, rubrics.csv（可选）
+Steps: 产出 lesson-plan（lesson-plan-tmpl.yaml）；标注 UDL 与诚信要点。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-lesson-plan.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-weekly-plan.md ====================
+# Task: Weekly Plan
+
+Purpose: 生成教师周计划（节次/资源/公告/考核节点）。
+Inputs: schedules from Registrar（只读）, resources.csv
+Steps: 产出 weekly-plan（weekly-plan-tmpl.yaml）；生成公告草稿与发布节奏。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-weekly-plan.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/run-class-observation.md ====================
+# Task: Class Observation & Coaching
+
+Purpose: 课堂观察、证据记录与反馈会谈。
+Inputs: lesson-plan, observation notes
+Steps: 产出 class-observation（class-observation-tmpl.yaml）；生成改进行动项。
+==================== END: .bmad-education-training-expansion-pack/tasks/run-class-observation.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/build-grading-qa-plan.md ====================
+# Task: Grading QA & Sampling
+
+Purpose: 评分一致性：Rubric 校准、双评抽样、Kappa/ICC 监测。
+Inputs: gradebook.csv, rubrics.csv, responses.csv
+Steps: 产出 grading-qa plan（grading-qa-plan-tmpl.yaml）；附抽样记录。
+==================== END: .bmad-education-training-expansion-pack/tasks/build-grading-qa-plan.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/run-feedback-cycle.md ====================
+# Task: Feedback Cycle
+
+Purpose: 收集学生反馈（中期/期末/滚动NPS），并做回放与改进。
+Inputs: surveys.csv, feedback.csv
+Steps: 产出 feedback-cycle（feedback-cycle-tmpl.yaml）；输出“你说我改”公示。
+==================== END: .bmad-education-training-expansion-pack/tasks/run-feedback-cycle.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-intervention-plan.md ====================
+# Task: Early Alert & Intervention
+
+Purpose: 出勤/参与/作业预警→干预→跟踪→转介闭环。
+Inputs: attendance.csv, participation.csv, alerts.csv, interventions.csv
+Steps: 产出 intervention-plan（intervention-plan-tmpl.yaml）；含转介策略。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-intervention-plan.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/build-attendance-ops.md ====================
+# Task: Attendance & Engagement Ops
+
+Purpose: 出勤与参与标准、点名SOP、请假与补课策略。
+Inputs: rosters.csv, attendance.csv, participation.csv
+Steps: 产出 attendance-ops（attendance-ops-tmpl.yaml）；设定阈值与告警。
+==================== END: .bmad-education-training-expansion-pack/tasks/build-attendance-ops.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/build-exam-runbook.md ====================
+# Task: Exam Day Runbook
+
+Purpose: 考务与监考SOP：身份验证、物品管理、异常上报、收卷/回收。
+Inputs: assignments.csv（评估任务）, incidents.csv（历史）
+Steps: 产出 exam-runbook（exam-runbook-tmpl.yaml）；附责任分工与应急预案。
+==================== END: .bmad-education-training-expansion-pack/tasks/build-exam-runbook.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/file-integrity-incident.md ====================
+# Task: Academic Integrity Incident
+
+Purpose: 学术诚信事件的报告、听证与归档闭环。
+Inputs: incidents.csv, proctor_logs.csv, gradebook.csv
+Steps: 产出 integrity-incident-report（integrity-incident-report-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/file-integrity-incident.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-office-hours-plan.md ====================
+# Task: Office Hours & Tutoring
+
+Purpose: 办公时间/辅导时段安排与预约SOP；风险学生优先。
+Inputs: rosters.csv, office_hours.csv, tutoring.csv
+Steps: 产出 office-hours-plan（office-hours-plan-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-office-hours-plan.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/run-lms-hygiene.md ====================
+# Task: LMS Hygiene
+
+Purpose: 课程壳卫生（导航/发布/评分项/权限/事件埋点）。
+Inputs: lms_events.csv, resources.csv
+Steps: 产出 lms-hygiene-check（lms-hygiene-check-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/run-lms-hygiene.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/create-reflective-report.md ====================
+# Task: Teaching Reflective Report
+
+Purpose: 以证据撰写反思与改进行动（CIP输入）。
+Inputs: lesson-plan, observation, feedback, gradebook
+Steps: 产出 reflective-report（reflective-report-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/create-reflective-report.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/build-teaching-portfolio.md ====================
+# Task: Portfolio of Teaching Excellence
+
+Purpose: 汇集教学证据与成果（教案/观课/学生作品/成绩与反馈）。
+Inputs: 多源：lesson-plan、observation、feedback、CIP
+Steps: 产出 teaching-portfolio（teaching-portfolio-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/build-teaching-portfolio.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/tasks/cip-continuous-improvement-report.md ====================
+# Task: CIP — Continuous Improvement Report
+
+Purpose: 将数据洞察转化为改进行动并复核成效。
+Inputs: metric_definitions、dashboards、alerts/interventions、experiments
+Steps: 产出 CIP 报告（cip-report-tmpl.yaml）。
+==================== END: .bmad-education-training-expansion-pack/tasks/cip-continuous-improvement-report.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/lesson-plan-tmpl.yaml ====================
+template:
+  id: lesson-plan
+  title: 教案（单节/单元）
+  sections:
+    - { id: lo, title: 学习目标, instruction: "可测量动词，映射到课程LO（只读）", elicit: true }
+    - {
+        id: flow,
+        title: 流程与时间分配,
+        instruction: "导入→讲授/探究→练习→总结→作业",
+        elicit: true,
+      }
+    - id: activities
+      title: 活动与差异化
+      type: table
+      columns: [Activity, Purpose, Modality, UDL Strategy, Evidence]
+      elicit: true
+    - { id: assessment, title: 形成性评估, instruction: "证据类型/Rubric/反馈方式", elicit: true }
+    - { id: a11y, title: 可及性与便利, instruction: "字幕/替代文本/对比度/便利安排", elicit: true }
+    - { id: integrity, title: 诚信与风险控制, instruction: "题库/协作边界/工具使用规则" }
+==================== END: .bmad-education-training-expansion-pack/templates/lesson-plan-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/weekly-plan-tmpl.yaml ====================
+template:
+  id: weekly-plan
+  title: 教师周计划
+  sections:
+    - id: schedule
+      title: 日程与任务
+      type: table
+      columns: [Date, Session, Objective, Key Task, Resource, Announcement]
+      elicit: true
+    - { id: risks, title: 风险与依赖, instruction: "资源/设备/场地/人员风险与备选" }
+==================== END: .bmad-education-training-expansion-pack/templates/weekly-plan-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/class-observation-tmpl.yaml ====================
+template:
+  id: class-observation
+  title: 课堂观察与反馈
+  sections:
+    - { id: focus, title: 观察焦点, instruction: "节奏/提问/互动/差异化/评估", elicit: true }
+    - id: evidence
+      title: 证据记录
+      type: table
+      columns: [Timestamp, Behavior, Evidence, Outcome, Note]
+      elicit: true
+    - { id: coaching, title: 反馈会谈与行动, instruction: "亮点/改进点/下周期行动", elicit: true }
+==================== END: .bmad-education-training-expansion-pack/templates/class-observation-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/grading-qa-plan-tmpl.yaml ====================
+template:
+  id: grading-qa-plan
+  title: 评分一致性与抽样复核
+  sections:
+    - id: sampling
+      title: 抽样方案
+      type: table
+      columns: [Assessment, Sample Size, Rater A, Rater B, Method, Kappa/ICC]
+      elicit: true
+    - {
+        id: calibration,
+        title: 校准与误差,
+        instruction: "Rubric 培训、锚样例、常见误差",
+        elicit: true,
+      }
+    - { id: appeals, title: 复议与沟通, instruction: "证据包/时间线/责任人" }
+==================== END: .bmad-education-training-expansion-pack/templates/grading-qa-plan-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/feedback-cycle-tmpl.yaml ====================
+template:
+  id: feedback-cycle
+  title: 学生反馈收集与回放
+  sections:
+    - { id: instruments, title: 工具与指标, instruction: "中期/期末/滚动NPS/开放题", elicit: true }
+    - id: actions
+      title: 你说我改（公开承诺）
+      type: table
+      columns: [Issue, Evidence, Action, Owner, Due, Status]
+      elicit: true
+==================== END: .bmad-education-training-expansion-pack/templates/feedback-cycle-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/intervention-plan-tmpl.yaml ====================
+template:
+  id: intervention-plan
+  title: 学习预警与干预方案
+  sections:
+    - { id: triggers, title: 触发条件, instruction: "出勤/参与/成绩阈值", elicit: true }
+    - id: playbook
+      title: 干预动作
+      type: table
+      columns: [Trigger, Action, Responsible, SLA, Follow-up]
+      elicit: true
+    - { id: referral, title: 转介与合规, instruction: "心理/财务/残障支持渠道与记录" }
+==================== END: .bmad-education-training-expansion-pack/templates/intervention-plan-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/attendance-ops-tmpl.yaml ====================
+template:
+  id: attendance-ops
+  title: 出勤与参与治理
+  sections:
+    - { id: standards, title: 记录与豁免标准, instruction: "迟到/缺勤/假条/补课", elicit: true }
+    - id: process
+      title: 流程与告警
+      type: table
+      columns: [Event, Threshold, Escalation, Owner, Evidence]
+      elicit: true
+==================== END: .bmad-education-training-expansion-pack/templates/attendance-ops-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/exam-runbook-tmpl.yaml ====================
+template:
+  id: exam-runbook
+  title: 考务与监考SOP
+  sections:
+    - { id: pre, title: 考前, instruction: "排考/物料/身份验证/座位与设备", elicit: true }
+    - { id: during, title: 考中, instruction: "宣读规则/巡考/异常上报/时间管理", elicit: true }
+    - { id: post, title: 考后, instruction: "收卷/封存/回收/事件复盘", elicit: true }
+==================== END: .bmad-education-training-expansion-pack/templates/exam-runbook-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/integrity-incident-report-tmpl.yaml ====================
+template:
+  id: integrity-incident-report
+  title: 学术诚信事件报告
+  sections:
+    - { id: summary, title: 事件摘要, instruction: "时间/地点/涉事人/课程/评估", elicit: true }
+    - id: evidence
+      title: 证据
+      type: table
+      columns: [Type, Source, Link, Note]
+      elicit: true
+    - { id: resolution, title: 处理与沟通, instruction: "听证/裁决/申诉/归档" }
+==================== END: .bmad-education-training-expansion-pack/templates/integrity-incident-report-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/office-hours-plan-tmpl.yaml ====================
+template:
+  id: office-hours-plan
+  title: 办公时间与辅导安排
+  sections:
+    - { id: schedule, title: 时段与预约, instruction: "面聊/线上/群组/优先级", elicit: true }
+    - { id: focus, title: 主题与边界, instruction: "学术/就业/心理转介边界", elicit: true }
+==================== END: .bmad-education-training-expansion-pack/templates/office-hours-plan-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/lms-hygiene-check-tmpl.yaml ====================
+template:
+  id: lms-hygiene-check
+  title: LMS 卫生与发布
+  sections:
+    - id: checks
+      title: 发布检查
+      type: table
+      columns: [Area, Criteria, Owner, Status, Note]
+      elicit: true
+    - { id: analytics, title: 事件埋点, instruction: "作业/测验/论坛/资源访问事件" }
+==================== END: .bmad-education-training-expansion-pack/templates/lms-hygiene-check-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/reflective-report-tmpl.yaml ====================
+template:
+  id: reflective-report
+  title: 教学反思与证据
+  sections:
+    - { id: claims, title: 反思要点, instruction: "有效/不足/下步假设", elicit: true }
+    - id: evidence
+      title: 支撑证据
+      type: table
+      columns: [Source, Indicator, Finding, Impact]
+      elicit: true
+==================== END: .bmad-education-training-expansion-pack/templates/reflective-report-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/teaching-portfolio-tmpl.yaml ====================
+template:
+  id: teaching-portfolio
+  title: 教学卓越档案
+  sections:
+    - { id: artifacts, title: 核心制品, instruction: "教案/观课/学生作品/成绩与反馈", elicit: true }
+    - { id: growth, title: 专业成长, instruction: "师训/认证/实践/社区贡献", elicit: true }
+==================== END: .bmad-education-training-expansion-pack/templates/teaching-portfolio-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/templates/cip-report-tmpl.yaml ====================
+template:
+  id: cip-report
+  title: 持续改进（CIP）报告
+  sections:
+    - { id: findings, title: 发现与证据, instruction: "指标/模型/实验/干预", elicit: true }
+    - { id: actions, title: 改进行动, instruction: "责任人/时间线/复核", elicit: true }
+==================== END: .bmad-education-training-expansion-pack/templates/cip-report-tmpl.yaml ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/classroom-readiness-checklist.md ====================
+# 课堂就绪清单
+
+- [ ] 场地/设备/网络/应急预案
+- [ ] 资源发布/可及性/版权
+- [ ] 学生便利安排落实
+==================== END: .bmad-education-training-expansion-pack/checklists/classroom-readiness-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/lesson-delivery-checklist.md ====================
+# 课堂交付清单
+
+- [ ] 明确目标/流程/时间管理
+- [ ] 提问策略/互动/差异化
+- [ ] 形成性评估与即时反馈
+==================== END: .bmad-education-training-expansion-pack/checklists/lesson-delivery-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/wcag-a11y-in-practice.md ====================
+# 可及性实践清单（WCAG 2.2 AA）
+
+- [ ] 字幕/替代文本/对比度/键盘可达
+- [ ] 多模态与读屏友好
+- [ ] 可预期导航与焦点管理
+==================== END: .bmad-education-training-expansion-pack/checklists/wcag-a11y-in-practice.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/grading-consistency-checklist.md ====================
+# 评分一致性清单
+
+- [ ] Rubric 校准训练完成
+- [ ] 双评抽样与 Kappa/ICC 记录
+- [ ] 复议流程与证据包模板
+==================== END: .bmad-education-training-expansion-pack/checklists/grading-consistency-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/academic-integrity-proctoring.md ====================
+# 学术诚信与监考清单
+
+- [ ] 身份验证/宣读规则/巡考
+- [ ] 相似度/异常信号/日志留痕
+- [ ] 事件上报与申诉闭环
+==================== END: .bmad-education-training-expansion-pack/checklists/academic-integrity-proctoring.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/attendance-and-engagement.md ====================
+# 出勤与参与清单
+
+- [ ] 定义/口径/阈值/告警
+- [ ] 请假/补课/豁免/记录
+- [ ] 干预与追踪
+==================== END: .bmad-education-training-expansion-pack/checklists/attendance-and-engagement.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/student-support-escalation.md ====================
+# 学生支持升级清单
+
+- [ ] 风险识别/优先级/SLA
+- [ ] 转介路径与保密
+- [ ] 复盘与成效
+==================== END: .bmad-education-training-expansion-pack/checklists/student-support-escalation.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/lms-hygiene-checklist.md ====================
+# LMS 卫生清单
+
+- [ ] 导航/评分架构/权限
+- [ ] 发布与版本控制
+- [ ] 事件埋点与预警
+==================== END: .bmad-education-training-expansion-pack/checklists/lms-hygiene-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/safety-and-wellbeing-checklist.md ====================
+# 安全与福祉清单
+
+- [ ] 课堂安全/心理风险识别
+- [ ] 紧急联络/上报机制
+- [ ] 课堂文明与冲突处理
+==================== END: .bmad-education-training-expansion-pack/checklists/safety-and-wellbeing-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/checklists/change-control-checklist.md ====================
+# change control checklist
+
+- [ ] item 1
+- [ ] item 2
+==================== END: .bmad-education-training-expansion-pack/checklists/change-control-checklist.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/rosters.csv ====================
+student_id,name,program,cohort,advisor
+==================== END: .bmad-education-training-expansion-pack/data/rosters.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/attendance.csv ====================
+id,name
+==================== END: .bmad-education-training-expansion-pack/data/attendance.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/participation.csv ====================
+date,course_id,student_id,metric,value
+==================== END: .bmad-education-training-expansion-pack/data/participation.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/assignments.csv ====================
+assessment_id,course_id,title,weight,due
+==================== END: .bmad-education-training-expansion-pack/data/assignments.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/gradebook.csv ====================
+learner_id,assessment_id,score,letter
+==================== END: .bmad-education-training-expansion-pack/data/gradebook.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/rubrics.csv ====================
+rubric_id,dimension,level,descriptor
+==================== END: .bmad-education-training-expansion-pack/data/rubrics.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/feedback.csv ====================
+id,name
+==================== END: .bmad-education-training-expansion-pack/data/feedback.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/interventions.csv ====================
+id,trigger,action,owner,sla
+==================== END: .bmad-education-training-expansion-pack/data/interventions.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/accommodations.csv ====================
+learner_id,need,type,approved_by,valid_until
+==================== END: .bmad-education-training-expansion-pack/data/accommodations.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/incidents.csv ====================
+id,name
+==================== END: .bmad-education-training-expansion-pack/data/incidents.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/office_hours.csv ====================
+date,slot,modality,capacity,notes
+==================== END: .bmad-education-training-expansion-pack/data/office_hours.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/tutoring.csv ====================
+student_id,topic,tutor,date,notes
+==================== END: .bmad-education-training-expansion-pack/data/tutoring.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/lms_events.csv ====================
+event_id,learner_id,course_id,event,ts
+==================== END: .bmad-education-training-expansion-pack/data/lms_events.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/alerts.csv ====================
+alert_id,learner_id,signal,value,ts,status
+==================== END: .bmad-education-training-expansion-pack/data/alerts.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/surveys.csv ====================
+id,name
+==================== END: .bmad-education-training-expansion-pack/data/surveys.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/resources.csv ====================
+resource_id,name,type,location
+==================== END: .bmad-education-training-expansion-pack/data/resources.csv ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/pedagogy-quickref.md ====================
+# 教学法速查
+
+- 导学、探究、翻转、项目式、同侪互评、微课与间隔复习
+==================== END: .bmad-education-training-expansion-pack/data/kb/pedagogy-quickref.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/questioning-techniques.md ====================
+# 提问技巧
+
+- Socratic/Cold/Warm Call，等候时间，追问与错误利用
+==================== END: .bmad-education-training-expansion-pack/data/kb/questioning-techniques.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/differentiation-udl.md ====================
+# 差异化与 UDL
+
+- 多路径目标达成、多表达、多参与、差异化作业
+==================== END: .bmad-education-training-expansion-pack/data/kb/differentiation-udl.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/assessment-and-feedback.md ====================
+# 评估与反馈
+
+- 形成性/总结性、可操作反馈、Rubric示例与常见误差
+==================== END: .bmad-education-training-expansion-pack/data/kb/assessment-and-feedback.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/grading-fairness-policy.md ====================
+# 评分公平政策
+
+- 双评、抽样复核、复议、学术沟通模板
+==================== END: .bmad-education-training-expansion-pack/data/kb/grading-fairness-policy.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/academic-integrity-policy.md ====================
+# 学术诚信政策
+
+- 考务、相似度、异常监测、申诉与归档
+==================== END: .bmad-education-training-expansion-pack/data/kb/academic-integrity-policy.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/classroom-management.md ====================
+# 课堂管理
+
+- 规则建立、过渡、冲突管理、家校沟通
+==================== END: .bmad-education-training-expansion-pack/data/kb/classroom-management.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/lms-best-practices.md ====================
+# LMS 最佳实践
+
+- 课程壳结构、公告节奏、权限、评分架构
+==================== END: .bmad-education-training-expansion-pack/data/kb/lms-best-practices.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/student-support-and-referral.md ====================
+# 学生支持与转介
+
+- 风险识别、干预、转介网络与保密
+==================== END: .bmad-education-training-expansion-pack/data/kb/student-support-and-referral.md ====================
+
+==================== START: .bmad-education-training-expansion-pack/data/kb/safety-and-crisis-basics.md ====================
+# 安全与危机基础
+
+- 风险分级、紧急处置、记录与复盘
+==================== END: .bmad-education-training-expansion-pack/data/kb/safety-and-crisis-basics.md ====================
