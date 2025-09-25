@@ -57,7 +57,7 @@ commands:
   - incident-breach: run task incident-breach.md
   - compliance-calendar: run task compliance-calendar.md
   - lineage-catalog: run task lineage-catalog.md
-  - execute-checklist {checklist}: Run a named checklist (default: pc-readiness-checklist.md)
+  - 'execute-checklist {checklist}': 'Run a named checklist (default: pc-readiness-checklist.md)'
   - doc-out: Output full document
   - exit: Exit (confirm)
 

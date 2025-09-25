@@ -57,7 +57,7 @@ commands:
   - test-cicd: run task test-cicd.md
   - evidence-pack: run task evidence-pack.md
   - bug-triage: run task bug-triage.md
-  - execute-checklist {checklist}: Run a named checklist (default: qa-readiness-checklist.md)
+  - 'execute-checklist {checklist}': 'Run a named checklist (default: qa-readiness-checklist.md)'
   - doc-out: Output full document
   - exit: Exit (confirm)
 

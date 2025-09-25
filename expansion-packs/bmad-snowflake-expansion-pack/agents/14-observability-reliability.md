@@ -54,7 +54,7 @@ commands:
   - o11y-ci-cd: run task o11y-ci-cd.md
   - quarterly-posture-review: run task quarterly-posture-review.md
   - lineage-catalog: run task lineage-catalog.md
-  - execute-checklist {checklist}: Run a named checklist (default: o11y-readiness-checklist.md)
+  - 'execute-checklist {checklist}': 'Run a named checklist (default: o11y-readiness-checklist.md)'
   - doc-out: Output full document
   - exit: Exit (confirm)
 

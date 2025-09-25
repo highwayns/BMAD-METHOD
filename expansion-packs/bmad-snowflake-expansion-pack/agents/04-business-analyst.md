@@ -50,7 +50,7 @@ commands:
   - stakeholder-map: run task stakeholder-map.md
   - uat-scripts: run task uat-scripts.md
   - dq-rules: run task dq-rules.md
-  - execute-checklist {checklist}: Run a named checklist (default: ba-readiness-checklist.md)
+  - 'execute-checklist {checklist}': 'Run a named checklist (default: ba-readiness-checklist.md)'
   - doc-out: Output full document
   - exit: Exit (confirm)
 

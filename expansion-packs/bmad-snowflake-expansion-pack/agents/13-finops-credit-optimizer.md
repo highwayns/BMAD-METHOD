@@ -56,7 +56,7 @@ commands:
   - showback-chargeback: run task showback-chargeback.md
   - monthly-review: run task monthly-review.md
   - finops-runbook: run task finops-runbook.md
-  - execute-checklist {checklist}: Run a named checklist (default: finops-readiness-checklist.md)
+  - 'execute-checklist {checklist}': 'Run a named checklist (default: finops-readiness-checklist.md)'
   - doc-out: Output full document
   - exit: Exit (confirm)
 

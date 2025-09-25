@@ -54,7 +54,7 @@ commands:
   - uat-support: run task uat-support.md
   - marketplace-sharing: run task marketplace-sharing.md
   - lineage-catalog: run task lineage-catalog.md
-  - execute-checklist {checklist}: Run a named checklist (default: ae-readiness-checklist.md)
+  - 'execute-checklist {checklist}': 'Run a named checklist (default: ae-readiness-checklist.md)'
   - doc-out: Output full document
   - exit: Exit (confirm)
 
