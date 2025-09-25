@@ -58,7 +58,7 @@ commands:
   - incident-security: run task incident-security.md
   - finops-security: run task finops-security.md
   - lineage-catalog: run task lineage-catalog.md
-  - execute-checklist {checklist}: Run a named checklist (default: sg-readiness-checklist.md)
+  - 'execute-checklist {checklist}': 'Run a named checklist (default: sg-readiness-checklist.md)'
   - doc-out: Output full document
   - exit: Exit (confirm)
 

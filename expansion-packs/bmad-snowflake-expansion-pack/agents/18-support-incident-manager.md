@@ -63,7 +63,7 @@ commands:
   - resource-monitor-trigger: run task resource-monitor-trigger.md
   - replication-failover: run task replication-failover.md
   - data-corruption: run task data-corruption.md
-  - execute-checklist {checklist}: Run a named checklist (default: incident-readiness-checklist.md)
+  - 'execute-checklist {checklist}': 'Run a named checklist (default: incident-readiness-checklist.md)'
   - evidence-pack: run task evidence-pack.md
   - doc-out: Output full document
   - exit: Exit (confirm)

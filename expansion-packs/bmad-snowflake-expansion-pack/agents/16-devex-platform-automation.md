@@ -55,7 +55,7 @@ commands:
   - drift-detection: run task drift-detection.md
   - policy-as-code: run task policy-as-code.md
   - platform-runbook: run task platform-runbook.md
-  - execute-checklist {checklist}: Run a named checklist (default: devex-readiness-checklist.md)
+  - 'execute-checklist {checklist}': 'Run a named checklist (default: devex-readiness-checklist.md)'
   - doc-out: Output full document
   - exit: Exit (confirm)
 

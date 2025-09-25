@@ -59,7 +59,7 @@ commands:
   - finops-plan: run task finops-plan.md
   - lineage-catalog: run task lineage-catalog.md
   - runbook-incidents: run task runbook-incidents.md
-  - execute-checklist {checklist}: Run a named checklist (default: ml-readiness-checklist.md)
+  - 'execute-checklist {checklist}': 'Run a named checklist (default: ml-readiness-checklist.md)'
   - doc-out: Output full document
   - exit: Exit (confirm)
 

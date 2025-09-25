@@ -61,7 +61,7 @@ commands:
   - compliance-audit-pack: run task compliance-audit-pack.md
   - o11y-hooks: run task o11y-hooks.md
   - finops-guardrails: run task finops-guardrails.md
-  - execute-checklist {checklist}: Run a named checklist (default: release-readiness-checklist.md)
+  - 'execute-checklist {checklist}': 'Run a named checklist (default: release-readiness-checklist.md)'
   - doc-out: Output full document
   - exit: Exit (confirm)
 

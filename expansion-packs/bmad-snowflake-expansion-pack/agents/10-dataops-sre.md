@@ -57,7 +57,7 @@ commands:
   - service-catalog: run task service-catalog.md
   - oncall-rotation: run task oncall-rotation.md
   - posture-review: run task posture-review.md
-  - execute-checklist {checklist}: Run a named checklist (default: sre-readiness-checklist.md)
+  - 'execute-checklist {checklist}': 'Run a named checklist (default: sre-readiness-checklist.md)'
   - doc-out: Output full document
   - exit: Exit (confirm)
 

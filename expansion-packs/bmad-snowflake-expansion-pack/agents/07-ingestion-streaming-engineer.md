@@ -56,7 +56,7 @@ commands:
   - ci-cd: run task ci-cd.md
   - runbook-incidents: run task runbook-incidents.md
   - lineage-catalog: run task lineage-catalog.md
-  - execute-checklist {checklist}: Run a named checklist (default: ingestion-streaming-readiness-checklist.md)
+  - 'execute-checklist {checklist}': 'Run a named checklist (default: ingestion-streaming-readiness-checklist.md)'
   - doc-out: Output full document
   - exit: Exit (confirm)
 
