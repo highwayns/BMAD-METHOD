@@ -1,0 +1,322 @@
+# alert-routing-rules.yaml
+# Databricks Support & Incident — Alert Routing Rules (Template)
+# -----------------------------------------------------------------------------
+# Purpose:
+#   Standardize alert sources, severity, grouping, suppression, and routing to
+#   Slack/PagerDuty/Email/StatusPage with escalation, bridges (Security/Privacy/
+#   FinOps/Change), and runbook links. Designed to be rendered from CI with
+#   variables like {{env}}, {{workspace}}, {{team}}, {{oncall_schedule}}.
+#
+# How to use:
+#   1) Replace {{variables}} with your values or render via templating (e.g., Jinja).
+#   2) Keep rule ids stable to avoid duplicate incidents.
+#   3) Align 'severity_matrix' with your organization's definitions.
+#   4) Store this file under version control; changes are part of change records.
+#
+# Notes:
+#   - Matchers follow simple label matching. 'expr' is a human-readable condition
+#     that your alert backend (e.g., Prometheus/Grafana/Lakehouse notebooks) can map.
+#   - Time windows support '1m/5m/15m/1h/6h/24h'. Use multi-window for burn rate.
+#   - Suppressions reduce alert fatigue: maintenance, known-issues, flood control.
+# -----------------------------------------------------------------------------
+
+version: 1
+metadata:
+  env: "{{env}}"
+  workspace: "{{workspace}}"
+  timezone: "{{timezone|Asia/Tokyo}}"
+  owner_team: "{{team|platform-ops}}"
+  last_updated: "{{git_commit_sha}}"
+  links:
+    runbook_repo: "{{runbook_repo_url}}"
+    oncall_dashboard: "{{oncall_dashboard_url}}"
+    status_page: "{{status_page_url}}"
+    incident_board: "{{incident_board_url}}"
+
+channels:
+  slack:
+    default: "#{{team}}-alerts"
+    major_incidents: "#{{team}}-war-room"
+    finops: "#finops"
+    security: "#security-incident"
+    privacy: "#privacy-incident"
+    release: "#release"
+  pagerduty:
+    service: "{{pagerduty_service}}"
+    schedule: "{{oncall_schedule}}"
+    escalation_policy: "{{pd_escalation_policy}}"
+  email:
+    default: ["{{team}}-alerts@company.com"]
+    exec_blast: ["oncall@company.com", "{{exec_contact|cto@company.com}}"]
+  statuspage:
+    component_ids:
+      databricks-workspace: "{{statuspage_component_workspace}}"
+      databricks-sql: "{{statuspage_component_dbsql}}"
+      pipelines-dlt: "{{statuspage_component_dlt}}"
+      model-serving: "{{statuspage_component_serving}}"
+
+severity_matrix:
+  P1:
+    description: "Critical impact / widespread outage / data loss / security/privacy breach suspected"
+    ack_target: "5m"
+    resolve_target: "1h"
+    notify:
+      slack: ["major_incidents"]
+      pagerduty: true
+      email: ["exec_blast"]
+      statuspage: "consider"
+  P2:
+    description: "High impact / single critical workload down / SLO hard breach / major regression"
+    ack_target: "15m"
+    resolve_target: "4h"
+    notify:
+      slack: ["default"]
+      pagerduty: true
+      email: ["default"]
+  P3:
+    description: "Moderate impact / partial degradation / SLO warning or burn-rate elevated"
+    ack_target: "1h"
+    resolve_target: "24h"
+    notify:
+      slack: ["default"]
+      pagerduty: false
+      email: ["default"]
+  P4:
+    description: "Low impact / informational / action required within sprint"
+    ack_target: "N/A"
+    resolve_target: "N/A"
+    notify:
+      slack: ["default"]
+      pagerduty: false
+      email: []
+
+grouping:
+  # Group similar alerts to avoid floods; de-duplicate within a window.
+  keys: ["source", "service", "workspace", "job_id", "pipeline_id", "warehouse_id", "endpoint"]
+  group_interval: "5m"
+  max_wait: "2m"
+  # If more than N alerts match within window, consolidate into a single incident.
+  flood_control:
+    window: "10m"
+    threshold: 20
+    action: "consolidate"
+
+suppression:
+  # Silence alerts in maintenance or known noisy windows; prefer precise matchers.
+  rules:
+    - id: maintenance_window
+      matchers: { env: "{{env}}" }
+      schedule: "Sat 00:00-04:00"
+      reason: "Planned maintenance"
+    - id: backfill_heavy_load
+      matchers: { job_tag: "backfill" }
+      window: "01:00-05:00"
+      days: ["Sun", "Mon", "Tue", "Wed", "Thu"]
+      reason: "Expected high resource use during daily backfill"
+    - id: known_issue_tmp
+      matchers: { service: "dbsql", warehouse_mode: "classic" }
+      until: "{{date_plus_7d}}"
+      reason: "Known latency issue awaiting vendor fix"
+
+routes:
+  # Default route if no rule matches
+  default:
+    to:
+      slack: "default"
+      pagerduty: false
+      email: "default"
+    escalation_after_ack_timeout: true
+
+rules:
+  # ---------------------- System / Platform Signals -------------------------
+  - id: workspace_outage
+    source: "system"
+    service: "workspace"
+    expr: "workspace_status == DOWN"
+    window: "1m"
+    severity: "P1"
+    labels: { workspace: "{{workspace}}", env: "{{env}}" }
+    runbook: "{{runbook_repo_url}}/workspace-and-cluster-outage.md"
+    to:
+      slack: "major_incidents"
+      pagerduty: true
+      email: "exec_blast"
+    statuspage:
+      component: "databricks-workspace"
+      notify_condition: "after_10m_persistent"
+  - id: cluster_autoscaling_failures_burst
+    source: "system"
+    service: "clusters"
+    expr: "autoscaling_failures_5m > 3"
+    window: "5m"
+    severity: "P2"
+    labels: { env: "{{env}}" }
+    runbook: "{{runbook_repo_url}}/cluster-outage-playbook.md"
+    to: { slack: "default", pagerduty: true }
+
+  # ---------------------- Jobs -------------------------
+  - id: jobs_failure_spike
+    source: "jobs"
+    expr: "failures_5m > 5 AND failure_rate_15m > 0.2"
+    window: "5m"
+    severity: "P2"
+    labels: { job_owner: "{{team}}", env: "{{env}}" }
+    runbook: "{{runbook_repo_url}}/jobs-incident-playbook.md"
+    to: { slack: "default", pagerduty: true }
+  - id: job_runtime_regression
+    source: "jobs"
+    expr: "p95_runtime_6h > 1.5 * baseline_p95_runtime_14d"
+    window: "30m"
+    severity: "P3"
+    labels: { job_id: "{{job_id}}", env: "{{env}}" }
+    runbook: "{{runbook_repo_url}}/jobs-incident-playbook.md"
+    to: { slack: "default", pagerduty: false }
+
+  # ---------------------- DLT / Pipelines -------------------------
+  - id: dlt_freshness_breach
+    source: "dlt"
+    expr: "freshness_p95_min > {{freshness_sla_min|30}}"
+    window: "15m"
+    severity: "P2"
+    labels: { pipeline_id: "{{pipeline_id}}", table: "{{table}}" }
+    runbook: "{{runbook_repo_url}}/dlt-incident-playbook.md"
+    to: { slack: "default", pagerduty: true }
+  - id: autoloader_file_backlog
+    source: "dlt"
+    expr: "pending_files > {{pending_files_threshold|5000}}"
+    window: "10m"
+    severity: "P3"
+    labels: { pipeline_id: "{{pipeline_id}}", env: "{{env}}" }
+    runbook: "{{runbook_repo_url}}/dlt-incident-playbook.md"
+    to: { slack: "default", pagerduty: false }
+
+  # ---------------------- DBSQL -------------------------
+  - id: dbsql_queue_time_surge
+    source: "dbsql"
+    expr: "queue_time_p95_ms > 3000 AND concurrency_near_limit == true"
+    window: "10m"
+    severity: "P2"
+    labels: { warehouse_id: "{{warehouse_id}}", mode: "{{warehouse_mode|serverless}}" }
+    runbook: "{{runbook_repo_url}}/dbsql-incident-playbook.md"
+    to: { slack: "default", pagerduty: true }
+  - id: dbsql_error_rate_high
+    source: "dbsql"
+    expr: "error_rate_5m > 0.05"
+    window: "5m"
+    severity: "P2"
+    labels: { warehouse_id: "{{warehouse_id}}" }
+    runbook: "{{runbook_repo_url}}/dbsql-incident-playbook.md"
+    to: { slack: "default", pagerduty: true }
+
+  # ---------------------- Model Serving -------------------------
+  - id: serving_latency_error_spike
+    source: "serving"
+    expr: "latency_p95_ms > 500 OR error_rate_5m > 0.02"
+    window: "5m"
+    severity: "P2"
+    labels: { endpoint: "{{endpoint}}", model: "{{model_name}}" }
+    runbook: "{{runbook_repo_url}}/serving-incident-playbook.md"
+    to: { slack: "default", pagerduty: true }
+  - id: serving_cold_starts_excessive
+    source: "serving"
+    expr: "cold_starts_15m > 10"
+    window: "15m"
+    severity: "P3"
+    labels: { endpoint: "{{endpoint}}" }
+    runbook: "{{runbook_repo_url}}/serving-incident-playbook.md"
+    to: { slack: "default", pagerduty: false }
+
+  # ---------------------- SLO Burn-rate -------------------------
+  - id: slo_burn_rate_fast
+    source: "slo"
+    expr: "burn_rate_1h > 14 AND burn_rate_6h > 7"
+    window: "1h"
+    severity: "P2"
+    labels: { slo: "{{slo_name}}", env: "{{env}}" }
+    runbook: "{{runbook_repo_url}}/incident-response-runbook.md#slo-burn"
+    to: { slack: "default", pagerduty: true }
+
+  # ---------------------- Security / Privacy Bridges -------------------------
+  - id: security_breach_suspected
+    source: "security"
+    expr: "security_incident_flag == true"
+    window: "1m"
+    severity: "P1"
+    labels: { uc_object: "{{uc_object}}", actor: "{{actor}}" }
+    runbook: "{{runbook_repo_url}}/security-bridge-intake-routing.md"
+    to:
+      slack: ["security", "major_incidents"]
+      pagerduty: true
+      email: ["exec_blast"]
+  - id: privacy_data_exposure_suspected
+    source: "privacy"
+    expr: "privacy_incident_flag == true"
+    window: "1m"
+    severity: "P1"
+    labels: { data_domain: "{{data_domain}}", regulation: "{{reg|GDPR}}" }
+    runbook: "{{runbook_repo_url}}/privacy-bridge-intake-routing.md"
+    to:
+      slack: ["privacy", "major_incidents"]
+      pagerduty: true
+      email: ["exec_blast"]
+
+  # ---------------------- FinOps Bridge (Cost-aware) -------------------------
+  - id: cost_spike_anomaly
+    source: "finops"
+    expr: "daily_cost_pct_change_7d > 0.5"
+    window: "1d"
+    severity: "P3"
+    labels: { cost_center: "{{cost_center}}", project: "{{project_code}}" }
+    runbook: "{{runbook_repo_url}}/finops-bridge-cost-controls.md"
+    to:
+      slack: ["finops", "default"]
+      pagerduty: false
+
+escalation:
+  # Escalate when ack target is missed or incident persists above window
+  on_ack_timeout:
+    action: "pagerduty_escalate"
+    to_policy: "{{pd_escalation_policy}}"
+  sustained:
+    - match: { severity: "P2" }
+      after: "30m"
+      action: "notify_execs"
+      channels: ["email.exec_blast", "slack.major_incidents"]
+    - match: { severity: "P1" }
+      after: "10m"
+      action: "declare_major_incident"
+      open_war_room: true
+
+audit:
+  # Fields appended to each alert event for traceability
+  fields:
+    [
+      "rule_id",
+      "first_seen",
+      "last_seen",
+      "fingerprint",
+      "ack_by",
+      "resolved_by",
+      "links.runbook",
+      "ticket_id",
+    ]
+  ticketing:
+    provider: "{{ticketing|Jira}}"
+    project_key: "{{jira_project}}"
+    auto_create: true
+    summary_template: "[{{env}}][{{severity}}] {{source}}: {{title}}"
+    labels: ["incident", "databricks", "{{env}}"]
+
+change_integration:
+  # Optional: Connect to release/change calendar to suppress during planned windows
+  ics_url: "{{change_calendar_ics}}"
+  respect_freeze: true
+  create_change_record_on_p1: true
+
+statuspage_policy:
+  update_on:
+    - "workspace_outage"
+    - "major_impact_user_visible"
+  hold_time_before_public: "10m"
+  auto_close_after: "2h"
+# End of file

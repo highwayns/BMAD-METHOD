@@ -1,0 +1,9 @@
+# User Story
+
+As a {{role}}, I want {{capability}}, so that {{value}}.
+
+## AC（Given-When-Then）
+
+- Given …
+- When …
+- Then …

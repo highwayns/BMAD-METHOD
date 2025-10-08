@@ -1,0 +1,13 @@
+version: 1
+test_suite:
+  name: "{{suite_name|autoloader-ingestion}}"
+  inputs:
+    path: "{{input_path}}"
+    file_count_expected: "{{n|100}}"
+  cases:
+    - id: schema_match
+      assert: schema_equals
+      target: "{{schema_json}}"
+    - id: no_duplicate_files
+      assert: no_duplicate
+      window: 24h

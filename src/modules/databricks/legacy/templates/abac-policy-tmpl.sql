@@ -1,0 +1,3 @@
+-- ABAC Policy
+-- 使用标签/属性驱动权限
+-- 示例：GRANT SELECT ON TABLE t WHERE tag.classification != 'restricted' TO `analyst`;
