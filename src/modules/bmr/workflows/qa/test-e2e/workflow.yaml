@@ -1,0 +1,326 @@
+workflow:
+  metadata:
+    id: bmad/bmm/workflows/qa/test-e2e
+    name: test.e2e
+    version: 1.0.0
+    agent: AG-10 (QA)
+    description: Execute end-to-end test suite with Playwright and generate quality report
+
+  parameters:
+    - name: suite
+      type: string
+      required: true
+      description: Test suite to run (e.g., 'smoke', 'regression', 'full')
+      example: "smoke"
+      validation:
+        enum: ["smoke", "regression", "full"]
+
+    - name: base_url
+      type: string
+      required: true
+      description: Base URL for testing (e.g., 'http://localhost:8502', 'https://staging.example.com')
+      example: "http://localhost:8502"
+      validation:
+        pattern: "^https?://.+"
+
+    - name: browser
+      type: string
+      required: false
+      description: Browser selection
+      default: "chromium"
+      validation:
+        enum: ["chromium", "firefox", "webkit"]
+
+    - name: parallel
+      type: integer
+      required: false
+      description: Number of parallel workers
+      default: 4
+      validation:
+        min: 1
+        max: 10
+
+  steps:
+    - id: environment_preparation
+      name: Environment Preparation
+      type: setup
+      actions:
+        - Verify base URL is accessible (HTTP GET /)
+        - Check Playwright is installed
+        - Verify browser binaries are available
+        - Prepare test data directory
+        - Configure environment variables
+        - Clear previous test artifacts
+      inputs:
+        - base_url
+        - browser
+      outputs:
+        - environment_ready
+        - base_url_status
+        - playwright_version
+
+    - id: load_test_suite
+      name: Load Test Suite Configuration
+      type: configuration
+      actions:
+        - Load test suite definition
+        - Count total tests in suite
+        - Identify critical path tests
+        - Load test data fixtures
+        - Set timeout configurations
+        - Configure retry policies
+      inputs:
+        - suite
+      outputs:
+        - test_list
+        - total_tests
+        - critical_tests
+        - suite_config
+
+    - id: execute_tests
+      name: Execute Test Suite
+      type: execution
+      actions:
+        - Launch Playwright with selected browser
+        - Execute tests in parallel (up to 4 workers)
+        - Capture test results in real-time
+        - Take screenshots on test failures
+        - Record videos for failed tests
+        - Log console errors and network failures
+        - Track test execution time per test
+      inputs:
+        - test_list
+        - base_url
+        - browser
+        - parallel
+      outputs:
+        - test_results
+        - passed_tests
+        - failed_tests
+        - skipped_tests
+        - test_artifacts  # screenshots, videos
+
+    - id: analyze_results
+      name: Analyze Test Results
+      type: analysis
+      actions:
+        - Calculate pass rate (passed / total)
+        - Identify failed test patterns
+        - Check for flaky tests (if historical data available)
+        - Analyze failure reasons (assertion, timeout, network)
+        - Calculate test execution duration
+        - Identify slowest tests
+      inputs:
+        - test_results
+        - total_tests
+      outputs:
+        - pass_rate
+        - failure_analysis
+        - flaky_tests_detected
+        - execution_time
+
+    - id: quality_gate_check
+      name: Quality Gate Validation
+      type: validation
+      actions:
+        - Load quality gate criteria for suite
+        - Compare pass rate against threshold
+        - Verify critical path tests all passed
+        - Check if any flaky tests detected
+        - Determine gate status (PASS/FAIL/WARNING)
+      inputs:
+        - suite
+        - pass_rate
+        - critical_tests
+        - failed_tests
+        - flaky_tests_detected
+      outputs:
+        - gate_status
+        - gate_criteria_met
+        - blocking_failures
+
+    - id: generate_report
+      name: Generate Test Report
+      type: reporting
+      actions:
+        - Create test execution summary
+        - List failed tests with error messages
+        - Embed failure screenshots
+        - Link to failure videos
+        - Include console error logs
+        - Add performance metrics
+        - Generate recommendations
+        - Create HTML report
+      inputs:
+        - test_results
+        - pass_rate
+        - failure_analysis
+        - test_artifacts
+        - gate_status
+      outputs:
+        - report_markdown
+        - report_html
+        - report_json
+
+    - id: archive_artifacts
+      name: Archive Test Artifacts
+      type: storage
+      actions:
+        - Save screenshots to artifacts directory
+        - Save videos to artifacts directory
+        - Save test logs
+        - Archive test results JSON
+        - Generate timestamped artifact directory
+        - Create artifact index
+      inputs:
+        - test_artifacts
+        - report_json
+      outputs:
+        - artifact_path
+        - artifact_count
+
+    - id: notify_results
+      name: Notify Test Results
+      type: notification
+      condition: gate_status == "FAIL"
+      actions:
+        - Send test failure notification
+        - Include failure summary
+        - Link to test report
+        - Tag relevant stakeholders
+      inputs:
+        - gate_status
+        - report_html
+        - failed_tests
+      outputs:
+        - notification_sent
+
+    - id: audit_logging
+      name: Audit Logging
+      type: audit
+      actions:
+        - Log test execution with parameters
+        - Record pass rate and gate status
+        - Log execution duration
+        - Send audit event to CloudWatch
+      inputs:
+        - suite
+        - base_url
+        - browser
+        - test_results
+        - pass_rate
+        - gate_status
+        - execution_time
+      outputs:
+        - audit_log_id
+
+  output:
+    format: markdown
+    structure:
+      - section: Test Execution Summary
+        content: Suite, total tests, pass rate, duration
+      - section: Test Results
+        content: Passed, failed, skipped counts
+      - section: Failed Tests
+        content: Test names, error messages, screenshots
+      - section: Quality Gate
+        content: Gate status, criteria, blocking failures
+      - section: Performance Metrics
+        content: Execution time, slowest tests
+      - section: Recommendations
+        content: Actions to improve quality
+
+  audit:
+    fields:
+      - actor
+      - timestamp
+      - suite
+      - base_url
+      - browser
+      - total_tests
+      - passed_tests
+      - failed_tests
+      - pass_rate
+      - gate_status
+      - execution_time
+      - artifact_path
+
+  quality_gates:
+    smoke:
+      pass_rate_threshold: 100
+      critical_path_required: true
+      allow_flaky: false
+
+    regression:
+      pass_rate_threshold: 95
+      critical_path_required: true
+      allow_flaky: false
+
+    full:
+      pass_rate_threshold: 90
+      critical_path_required: false
+      allow_flaky: true
+
+  error_handling:
+    - error: base_url_unreachable
+      action: Display connection error, suggest checking service status
+    - error: playwright_not_installed
+      action: Display installation instructions, block execution
+    - error: browser_binary_missing
+      action: Run playwright install, retry
+    - error: test_data_missing
+      action: Display missing fixtures, block execution
+    - error: all_tests_failed
+      action: Check environment health, suggest investigation
+    - error: timeout_exceeded
+      action: Log timeout, mark test as failed, continue with next test
+
+  examples:
+    - input:
+        suite: "smoke"
+        base_url: "http://localhost:8502"
+        browser: "chromium"
+      output_snippet: |
+        # Test Execution Report: Smoke Suite
+
+        **Execution Time**: 3m 42s
+        **Browser**: Chromium
+        **Target**: http://localhost:8502
+
+        ## Test Execution Summary
+        - **Total Tests**: 12
+        - **Passed**: 12 ✅
+        - **Failed**: 0
+        - **Skipped**: 0
+        - **Pass Rate**: 100%
+
+        ## Quality Gate: PASS ✅
+        - Pass rate 100% ≥ 100% (required) ✅
+        - Critical path tests: 12/12 passed ✅
+        - Flaky tests detected: 0 ✅
+
+        ## Test Results
+
+        ### Passed Tests (12)
+        1. ✅ Login page loads successfully (2.1s)
+        2. ✅ User can login with valid credentials (3.5s)
+        3. ✅ Dashboard displays after login (1.8s)
+        4. ✅ Navigation menu is functional (1.2s)
+        5. ✅ Agent command form renders (1.5s)
+        6. ✅ Dify workflow can be triggered (4.2s)
+        7. ✅ Workflow status is displayed (2.3s)
+        8. ✅ ERPNext integration responds (3.1s)
+        9. ✅ User can logout (1.6s)
+        10. ✅ Error handling displays properly (2.4s)
+        11. ✅ Responsive design works on mobile (2.7s)
+        12. ✅ Security headers are present (1.1s)
+
+        ## Performance Metrics
+        - **Average Test Duration**: 2.3s
+        - **Slowest Test**: Dify workflow trigger (4.2s)
+        - **Fastest Test**: Security headers check (1.1s)
+
+        ## Recommendations
+        - All smoke tests passed successfully
+        - System is healthy and ready for release
+        - Continue monitoring Dify workflow trigger performance (4.2s)

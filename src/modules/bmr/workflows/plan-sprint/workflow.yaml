@@ -1,0 +1,237 @@
+workflow:
+  metadata:
+    id: bmad/bmm/workflows/plan-sprint
+    name: plan.sprint
+    version: 1.0.0
+    agent: AG-01 (Commander)
+    description: Architect sprint structure with story capacity and timeline blueprint
+
+  parameters:
+    - name: name
+      type: string
+      required: true
+      description: Sprint identifier (e.g., 'Sprint-1', 'Sprint-Q2-W1')
+      example: "Sprint-1"
+
+    - name: cap
+      type: integer
+      required: true
+      description: Story point capacity (e.g., 40, 60)
+      example: 40
+      validation:
+        min: 10
+        max: 100
+
+    - name: duration
+      type: integer
+      required: false
+      description: Sprint duration in days
+      default: 14
+
+    - name: out
+      type: string
+      required: false
+      description: Output file path for sprint plan
+      default: "docs/sprints/{name}.md"
+
+  steps:
+    - id: validate_input
+      name: Validate Sprint Parameters
+      type: validation
+      actions:
+        - Verify sprint name is unique
+        - Validate capacity is reasonable (10-100 points)
+        - Check duration is valid (7-30 days)
+        - Verify output path is writable
+      outputs:
+        - validation_status
+        - sprint_exists
+
+    - id: load_backlog
+      name: Load Product Backlog
+      type: research
+      actions:
+        - Load all stories from docs/stories/
+        - Filter by status (Draft, Ready, In Progress)
+        - Load epic definitions from docs/epics.md
+        - Identify high-priority stories
+        - Load story dependencies
+      outputs:
+        - backlog_stories
+        - epic_definitions
+        - story_dependencies
+
+    - id: recommend_stories
+      name: Recommend Stories for Sprint
+      type: analysis
+      actions:
+        - Sort stories by priority and dependencies
+        - Calculate story point estimates (if missing)
+        - Recommend stories that fit capacity
+        - Check dependency chains are complete
+        - Validate agent assignments
+        - Ensure epic coverage is balanced
+      inputs:
+        - backlog_stories
+        - cap
+        - story_dependencies
+      outputs:
+        - recommended_stories
+        - capacity_allocation
+        - dependency_warnings
+
+    - id: user_selection
+      name: User Story Selection
+      type: confirmation
+      actions:
+        - Display recommended stories with points
+        - Show capacity utilization (e.g., 38/40 points)
+        - Highlight dependency warnings
+        - Allow user to add/remove stories
+        - Recalculate capacity in real-time
+      inputs:
+        - recommended_stories
+        - capacity_allocation
+        - cap
+      outputs:
+        - selected_stories
+        - final_capacity
+        - user_approved
+
+    - id: organize_sprint
+      name: Organize Sprint Structure
+      type: planning
+      condition: user_approved == true
+      actions:
+        - Group stories by epic
+        - Order stories by dependencies
+        - Assign stories to sprint phases (if applicable)
+        - Generate sprint timeline
+        - Identify risks and mitigation strategies
+        - Define sprint goals
+      inputs:
+        - selected_stories
+        - epic_definitions
+        - story_dependencies
+        - duration
+      outputs:
+        - sprint_structure
+        - sprint_goals
+        - sprint_timeline
+        - risk_assessment
+
+    - id: generate_plan
+      name: Generate Sprint Plan Document
+      type: generation
+      actions:
+        - Create sprint plan header with metadata
+        - Write sprint goals
+        - List selected stories by epic
+        - Include capacity allocation chart
+        - Document dependencies and risks
+        - Add timeline milestones
+        - Generate acceptance criteria for sprint completion
+      inputs:
+        - name
+        - sprint_structure
+        - sprint_goals
+        - sprint_timeline
+        - risk_assessment
+        - selected_stories
+      outputs:
+        - sprint_plan_draft
+
+    - id: finalize_plan
+      name: Finalize and Save Sprint Plan
+      type: write
+      actions:
+        - Add metadata (created date, capacity, duration)
+        - Update story statuses to "In Sprint"
+        - Save to output path
+        - Update sprint index
+        - Create audit log entry
+      inputs:
+        - sprint_plan_draft
+        - selected_stories
+        - out
+      outputs:
+        - sprint_path
+        - updated_stories
+        - audit_log
+
+  output:
+    format: markdown
+    structure:
+      - section: Sprint Overview
+        content: Name, capacity, duration, dates
+      - section: Sprint Goals
+        content: High-level objectives for the sprint
+      - section: Story Allocation
+        content: Stories organized by epic with point estimates
+      - section: Capacity Chart
+        content: Visual representation of capacity utilization
+      - section: Dependencies
+        content: Story dependencies and sequencing
+      - section: Risks
+        content: Identified risks and mitigation strategies
+      - section: Timeline
+        content: Key milestones and deadlines
+      - section: Definition of Done
+        content: Sprint completion criteria
+
+  audit:
+    fields:
+      - actor
+      - timestamp
+      - sprint_name
+      - capacity
+      - stories_selected
+      - total_points
+      - sprint_path
+
+  error_handling:
+    - error: sprint_name_exists
+      action: Suggest alternative name or offer to update existing sprint
+    - error: capacity_exceeded
+      action: Warn user and suggest removing stories or increasing capacity
+    - error: dependency_violation
+      action: Block sprint creation, list missing dependencies
+    - error: user_rejected
+      action: Save draft, offer to revise or discard
+
+  examples:
+    - input:
+        name: "Sprint-1"
+        cap: 40
+        duration: 14
+      output_snippet: |
+        # Sprint-1 Plan
+
+        **Capacity**: 40 points | **Duration**: 14 days | **Dates**: 2025-10-08 to 2025-10-22
+
+        ## Sprint Goals
+        - Complete agent infrastructure foundation (AG-01, AG-02, AG-03)
+        - Establish deployment and rollback capabilities
+        - Set up basic observability and audit trails
+
+        ## Story Allocation (38/40 points used)
+
+        ### Epic 1: Agent Infrastructure (28 points)
+        - S-1001: AG-01 Commander (8 points) - AG-01
+        - S-1002: AG-02 Ops Deployment & Rollback (10 points) - AG-02
+        - S-1003: AG-04 ERP Orchestrator (10 points) - AG-04
+
+        ### Epic 0: Infrastructure (10 points)
+        - S-0002: Deploy Dify on AWS (10 points) - AG-02
+
+        ## Dependencies
+        - S-1002 depends on S-0002 (Dify must be deployed first)
+        - S-1003 requires AG-01 completion for workflow definitions
+
+        ## Risks
+        - **Risk**: CloudFormation deployment complexity may delay S-0002
+          **Mitigation**: Allocate extra buffer, prepare rollback scripts
+
+        ## Timeline
+        - Week 1: S-0002 (Dify deployment)
+        - Week 2: S-1001, S-1002, S-1003 (Agent workflows)

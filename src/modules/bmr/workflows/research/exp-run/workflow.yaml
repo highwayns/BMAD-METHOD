@@ -1,0 +1,325 @@
+workflow:
+  metadata:
+    id: bmad/bmm/workflows/research/exp-run
+    name: exp.run
+    version: 1.0.0
+    agent: AG-03 (Research)
+    description: Execute AI research experiment with configurable parameters and statistical rigor
+
+  parameters:
+    - name: cfg
+      type: string
+      required: true
+      description: Experiment configuration file path
+      example: "research/templates/experiment.yaml"
+
+    - name: seeds
+      type: integer
+      required: true
+      description: Number of random seeds for reproducibility
+      example: 3
+      validation:
+        min: 1
+        max: 10
+
+    - name: dry_run
+      type: boolean
+      required: false
+      description: Dry-run mode (validate without executing)
+      default: true
+
+  steps:
+    - id: validate_config
+      name: Validate Experiment Configuration
+      type: validation
+      actions:
+        - Check configuration file exists
+        - Validate YAML schema
+        - Verify all required parameters present
+        - Check baseline configuration exists
+        - Validate seed range
+      inputs:
+        - cfg
+        - seeds
+      outputs:
+        - validation_status
+        - config_data
+        - baseline_exists
+
+    - id: formulate_hypothesis
+      name: Formulate Hypothesis
+      type: planning
+      actions:
+        - Extract hypothesis from config
+        - Verify hypothesis is falsifiable
+        - Define success criteria
+        - Identify control and experimental conditions
+        - Document expected outcomes
+      inputs:
+        - config_data
+      outputs:
+        - hypothesis
+        - success_criteria
+        - experimental_design
+
+    - id: check_resources
+      name: Check Resource Availability
+      type: validation
+      actions:
+        - Verify AI-Scientist API access
+        - Check compute resource availability
+        - Validate dataset access
+        - Verify sufficient storage for outputs
+        - Estimate resource requirements
+      inputs:
+        - config_data
+        - seeds
+      outputs:
+        - resources_available
+        - estimated_cost
+        - estimated_duration
+
+    - id: preview_experiment
+      name: Preview Experiment Plan
+      type: preview
+      actions:
+        - Display hypothesis and design
+        - Show seed configuration
+        - List experimental conditions
+        - Display resource estimates
+        - Show output directory structure
+      inputs:
+        - hypothesis
+        - experimental_design
+        - seeds
+        - estimated_cost
+        - estimated_duration
+      outputs:
+        - experiment_preview
+
+    - id: user_confirmation
+      name: User Confirmation
+      type: confirmation
+      condition: dry_run == false
+      actions:
+        - Display experiment preview
+        - Show cost and duration estimates
+        - Request explicit approval
+        - Allow user to cancel or modify
+      inputs:
+        - experiment_preview
+        - estimated_cost
+      outputs:
+        - user_approved
+        - user_notes
+
+    - id: prepare_experiment
+      name: Prepare Experiment Environment
+      type: setup
+      condition: user_approved == true OR dry_run == true
+      actions:
+        - Create experiment output directory
+        - Generate experiment ID
+        - Initialize logging
+        - Prepare dataset
+        - Configure random seeds
+        - Set up experiment tracking
+      inputs:
+        - config_data
+        - seeds
+      outputs:
+        - experiment_id
+        - output_dir
+        - seed_list
+
+    - id: execute_experiments
+      name: Execute Experiments Across Seeds
+      type: execution
+      condition: dry_run == false AND user_approved == true
+      actions:
+        - For each seed in seed_list
+        - Submit experiment task to AI-Scientist
+        - Monitor experiment progress
+        - Capture metrics and outputs
+        - Handle failures gracefully
+        - Log execution trace
+      inputs:
+        - config_data
+        - seed_list
+        - experiment_id
+      outputs:
+        - experiment_results
+        - metrics_per_seed
+        - execution_logs
+
+    - id: aggregate_results
+      name: Aggregate Results Across Seeds
+      type: analysis
+      condition: dry_run == false AND execution successful
+      actions:
+        - Collect metrics from all seed runs
+        - Calculate mean and standard deviation
+        - Calculate 95% confidence intervals
+        - Test for statistical significance (p-value)
+        - Compare against baseline (if exists)
+        - Identify outlier runs
+      inputs:
+        - experiment_results
+        - metrics_per_seed
+        - baseline_exists
+      outputs:
+        - aggregated_metrics
+        - statistical_summary
+        - significance_test
+        - outliers
+
+    - id: validate_reproducibility
+      name: Validate Reproducibility
+      type: validation
+      condition: seeds >= 3
+      actions:
+        - Calculate variance across seeds
+        - Check if variance is acceptable
+        - Flag high variance metrics
+        - Generate reproducibility score
+      inputs:
+        - metrics_per_seed
+        - statistical_summary
+      outputs:
+        - reproducibility_score
+        - variance_analysis
+
+    - id: generate_report
+      name: Generate Experiment Report
+      type: reporting
+      actions:
+        - Create experiment summary
+        - Document hypothesis and results
+        - Include statistical analysis
+        - Generate visualizations (charts/graphs)
+        - Add reproducibility assessment
+        - Include raw data references
+      inputs:
+        - hypothesis
+        - experimental_design
+        - aggregated_metrics
+        - statistical_summary
+        - reproducibility_score
+      outputs:
+        - report_markdown
+        - report_json
+        - visualizations
+
+    - id: save_artifacts
+      name: Save Experiment Artifacts
+      type: storage
+      actions:
+        - Save experiment configuration
+        - Save metrics JSON for each seed
+        - Save aggregated results
+        - Save report markdown
+        - Save visualizations
+        - Create artifact index
+      inputs:
+        - config_data
+        - experiment_results
+        - report_markdown
+        - visualizations
+        - output_dir
+      outputs:
+        - artifact_paths
+
+    - id: audit_logging
+      name: Audit Logging
+      type: audit
+      actions:
+        - Log experiment execution
+        - Record hypothesis and results
+        - Log resource usage
+        - Document statistical findings
+        - Send audit event to CloudWatch
+      inputs:
+        - experiment_id
+        - hypothesis
+        - seeds
+        - aggregated_metrics
+        - significance_test
+      outputs:
+        - audit_log_id
+
+  output:
+    format: markdown
+    structure:
+      - section: Experiment Summary
+        content: ID, hypothesis, seeds, duration
+      - section: Hypothesis
+        content: Research question and expected outcome
+      - section: Experimental Design
+        content: Control, conditions, variables
+      - section: Results
+        content: Aggregated metrics with confidence intervals
+      - section: Statistical Analysis
+        content: Mean, std dev, p-value, significance
+      - section: Reproducibility
+        content: Variance analysis, reproducibility score
+      - section: Conclusion
+        content: Hypothesis result (confirmed/rejected), insights
+      - section: Artifacts
+        content: Paths to raw data, visualizations
+
+  audit:
+    fields:
+      - actor
+      - timestamp
+      - experiment_id
+      - cfg
+      - seeds
+      - hypothesis
+      - user_approved
+      - execution_status
+      - p_value
+      - significance_achieved
+      - reproducibility_score
+
+  examples:
+    - input:
+        cfg: "research/templates/baseline-eval.yaml"
+        seeds: 3
+        dry_run: false
+      output_snippet: |
+        # Experiment Report: baseline-eval-20251008-154523
+
+        **Hypothesis**: Increasing model temperature from 0.7 to 0.9 will improve response creativity by 15% ± 5%.
+        **Seeds**: 3 | **Duration**: 24m 15s
+
+        ## Experimental Design
+        - **Control**: Model temperature = 0.7
+        - **Experimental**: Model temperature = 0.9
+        - **Metric**: Creativity score (1-10 scale)
+        - **Sample Size**: 100 prompts per seed
+
+        ## Results (n=3 seeds)
+        ### Creativity Score
+        - **Mean**: 7.8 ± 0.3 (95% CI: [7.5, 8.1])
+        - **Baseline**: 6.5 ± 0.2
+        - **Improvement**: +20% (vs baseline)
+        - **p-value**: 0.003 (< 0.05) ✅ **Statistically significant**
+
+        ## Statistical Analysis
+        - **Null Hypothesis**: Temperature has no effect on creativity
+        - **Result**: **Rejected** (p < 0.05)
+        - **Effect Size**: Cohen's d = 1.2 (large effect)
+        - **Confidence**: High
+
+        ## Reproducibility Assessment
+        - **Variance across seeds**: Low (σ = 0.3)
+        - **Reproducibility Score**: 92/100 ✅
+        - **Outliers**: None detected
+
+        ## Conclusion
+        **Hypothesis CONFIRMED**: Increasing temperature to 0.9 improved creativity by 20%, exceeding the 15% target with high statistical significance (p=0.003) and excellent reproducibility.
+
+        ## Artifacts
+        - Raw data: `research/outputs/baseline-eval-20251008-154523/metrics/`
+        - Visualizations: `research/outputs/baseline-eval-20251008-154523/charts/`
+        - Config: `research/outputs/baseline-eval-20251008-154523/config.yaml`

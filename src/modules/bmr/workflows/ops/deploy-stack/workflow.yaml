@@ -1,0 +1,296 @@
+workflow:
+  metadata:
+    id: bmad/bmm/workflows/ops/deploy-stack
+    name: deploy.stack
+    version: 1.0.0
+    agent: AG-02 (Ops)
+    description: Deploy or update CloudFormation stacks with pre-flight validation and diff preview
+
+  parameters:
+    - name: stack_name
+      type: string
+      required: true
+      description: CloudFormation stack name (e.g., 'vpc', 'ecs-dify')
+      example: "ecs-dify"
+      validation:
+        pattern: "^[a-zA-Z][-a-zA-Z0-9]*$"
+
+    - name: template
+      type: string
+      required: true
+      description: Template file path (e.g., 'infra/cloudformation/vpc.yml')
+      example: "infra/cloudformation/ecs-cluster.yml"
+
+    - name: parameters
+      type: object
+      required: false
+      description: CloudFormation parameters as key-value pairs
+      example: {"Env": "dev", "VpcId": "vpc-12345"}
+
+    - name: dry_run
+      type: boolean
+      required: false
+      description: Dry-run mode (preview changes without applying)
+      default: true
+
+  steps:
+    - id: pre_flight_validation
+      name: Pre-Flight Validation
+      type: validation
+      actions:
+        - Verify AWS credentials and region configuration
+        - Check CloudFormation template file exists
+        - Validate template syntax with cfn-lint
+        - Verify parameter values are provided for required params
+        - Check IAM permissions for stack operations
+      inputs:
+        - template
+        - parameters
+      outputs:
+        - validation_status
+        - lint_results
+        - missing_parameters
+
+    - id: check_existing_stack
+      name: Check Existing Stack Status
+      type: check
+      actions:
+        - Query CloudFormation for stack existence
+        - Get current stack status (if exists)
+        - Identify if this is create or update operation
+        - Check for stack in ROLLBACK_COMPLETE or failed state
+      inputs:
+        - stack_name
+      outputs:
+        - stack_exists
+        - stack_status
+        - operation_type  # CREATE or UPDATE
+
+    - id: create_change_set
+      name: Create Change Set
+      type: change_detection
+      actions:
+        - Create CloudFormation change set
+        - Wait for change set creation to complete
+        - Retrieve change set details
+        - Parse changes (Add/Modify/Remove resources)
+        - Assess change impact and risk level
+      inputs:
+        - stack_name
+        - template
+        - parameters
+        - operation_type
+      outputs:
+        - change_set_id
+        - changes
+        - risk_level  # LOW, MEDIUM, HIGH
+
+    - id: preview_changes
+      name: Preview Changes
+      type: display
+      actions:
+        - Format change set as readable diff
+        - Highlight critical changes (deletions, replacements)
+        - Show resource names and types affected
+        - Display risk assessment
+        - Calculate estimated deployment time
+      inputs:
+        - changes
+        - risk_level
+      outputs:
+        - change_preview
+        - estimated_duration
+
+    - id: user_confirmation
+      name: User Confirmation
+      type: confirmation
+      condition: dry_run == false
+      actions:
+        - Display change preview to user
+        - Show risk level and warnings
+        - Request explicit approval to proceed
+        - Allow user to cancel or modify
+      inputs:
+        - change_preview
+        - risk_level
+      outputs:
+        - user_approved
+        - user_notes
+
+    - id: smoke_test_check
+      name: Smoke Test Integration
+      type: integration
+      condition: user_approved == true AND operation_type == "UPDATE"
+      actions:
+        - Check if smoke tests are available
+        - Coordinate with AG-10 (QA) for test execution
+        - Wait for smoke test results
+        - Block deployment if tests fail
+      outputs:
+        - smoke_tests_passed
+        - test_results
+
+    - id: execute_change_set
+      name: Execute Change Set
+      type: execution
+      condition: user_approved == true AND (smoke_tests_passed == true OR operation_type == "CREATE")
+      actions:
+        - Execute CloudFormation change set
+        - Monitor stack events in real-time
+        - Track progress (resources completed/total)
+        - Capture any error messages
+        - Wait for stack operation to complete
+      inputs:
+        - change_set_id
+        - stack_name
+      outputs:
+        - execution_status
+        - stack_events
+        - deployment_duration
+
+    - id: post_deployment_validation
+      name: Post-Deployment Validation
+      type: validation
+      condition: execution_status == "SUCCESS"
+      actions:
+        - Verify stack reached stable state (CREATE_COMPLETE/UPDATE_COMPLETE)
+        - Query stack outputs
+        - Validate critical resources are healthy
+        - Check CloudWatch alarms (if any)
+        - Document new resource ARNs
+      inputs:
+        - stack_name
+      outputs:
+        - stack_outputs
+        - resource_health
+        - validation_result
+
+    - id: rollback_on_failure
+      name: Automatic Rollback on Failure
+      type: rollback
+      condition: execution_status == "FAILED"
+      actions:
+        - Trigger CloudFormation automatic rollback
+        - Monitor rollback progress
+        - Capture failure reason
+        - Document rollback completion
+        - Alert operator
+      inputs:
+        - stack_name
+        - stack_events
+      outputs:
+        - rollback_status
+        - failure_reason
+
+    - id: audit_logging
+      name: Audit Logging
+      type: audit
+      actions:
+        - Log deployment attempt with all parameters
+        - Record change set details
+        - Log user approval and notes
+        - Document execution result (success/failure)
+        - Record deployment duration
+        - Send audit event to CloudWatch Logs
+      inputs:
+        - stack_name
+        - template
+        - parameters
+        - changes
+        - user_approved
+        - execution_status
+        - deployment_duration
+      outputs:
+        - audit_log_id
+
+  output:
+    format: markdown
+    structure:
+      - section: Deployment Summary
+        content: Stack name, operation type, status, duration
+      - section: Change Set
+        content: Resources added, modified, removed
+      - section: Stack Outputs
+        content: CloudFormation stack outputs (if successful)
+      - section: Validation Results
+        content: Post-deployment health checks
+      - section: Audit Trail
+        content: Actor, timestamp, approval, result
+
+  audit:
+    fields:
+      - actor
+      - timestamp
+      - stack_name
+      - template
+      - operation_type
+      - changes_count
+      - risk_level
+      - user_approved
+      - smoke_tests_passed
+      - execution_status
+      - deployment_duration
+      - rollback_triggered
+
+  safety_checks:
+    pre_execution:
+      - "CloudFormation template syntax validation (cfn-lint)"
+      - "Change set preview (what will be modified/created/deleted)"
+      - "User confirmation dialog before execution"
+      - "Smoke test integration (Playwright tests must pass for updates)"
+      - "Rollback plan verification"
+
+    post_execution:
+      - "Stack status verification (stable state reached)"
+      - "Resource health validation"
+      - "CloudWatch alarm checks"
+      - "Audit logging"
+
+  error_handling:
+    - error: template_invalid
+      action: Display lint errors, block deployment
+    - error: missing_parameters
+      action: List missing parameters, request values
+    - error: insufficient_permissions
+      action: Display required IAM permissions, block deployment
+    - error: change_set_failed
+      action: Display CloudFormation error, offer troubleshooting
+    - error: smoke_tests_failed
+      action: Block deployment, display test failures, offer rollback
+    - error: deployment_failed
+      action: Trigger automatic rollback, alert operator, log failure
+    - error: user_rejected
+      action: Delete change set, log cancellation
+
+  examples:
+    - input:
+        stack_name: "ecs-dify"
+        template: "infra/cloudformation/ecs-cluster.yml"
+        parameters: {"Env": "dev", "VpcId": "vpc-12345"}
+        dry_run: true
+      output_snippet: |
+        # Deployment Preview: ecs-dify
+
+        **Operation**: UPDATE
+        **Risk Level**: MEDIUM
+        **Estimated Duration**: 5-10 minutes
+
+        ## Change Set Preview
+
+        ### Resources to be Modified (3)
+        - **ECSService**: Update desired count from 2 to 3 (No interruption)
+        - **TaskDefinition**: Update container image tag (Replacement with new tasks)
+        - **ALBTargetGroup**: Update health check path (No interruption)
+
+        ### Resources to be Added (0)
+        (none)
+
+        ### Resources to be Removed (0)
+        (none)
+
+        ## Risk Assessment
+        - **Risk**: TaskDefinition replacement will trigger service update
+        - **Impact**: Blue-green deployment, old tasks drained after new tasks healthy
+        - **Mitigation**: Rollback capability available via previous TaskDefinition
+
+        **Status**: DRY-RUN (no changes applied)

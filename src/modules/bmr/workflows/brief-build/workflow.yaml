@@ -1,0 +1,190 @@
+workflow:
+  metadata:
+    id: bmad/bmm/workflows/brief-build
+    name: brief.build
+    version: 1.0.0
+    agent: AG-01 (Commander)
+    description: Design product brief with goals, scope, and architectural foundation
+
+  parameters:
+    - name: goal
+      type: string
+      required: true
+      description: Business objective to achieve (e.g., 'Increase demo velocity', 'Reduce operational costs')
+      example: "Increase demo velocity"
+
+    - name: scope
+      type: string
+      required: true
+      description: MVP boundaries and constraints (e.g., 'MVP', 'Phase 1', 'Q1 deliverables')
+      example: "MVP"
+
+    - name: out
+      type: string
+      required: false
+      description: Output file path for brief document
+      default: "docs/briefs/{timestamp}-brief.md"
+
+  steps:
+    - id: validate_input
+      name: Validate Input Parameters
+      type: validation
+      actions:
+        - Verify goal is clear and measurable
+        - Verify scope defines boundaries
+        - Check for existing briefs with similar goals
+        - Validate output path is writable
+      outputs:
+        - validation_status
+        - existing_briefs
+
+    - id: research_context
+      name: Research Project Context
+      type: research
+      actions:
+        - Load current project structure and documentation
+        - Review existing epics and stories
+        - Identify related architectural decisions
+        - Scan knowledge base for relevant patterns
+      inputs:
+        - goal
+        - scope
+      outputs:
+        - project_context
+        - related_epics
+        - architectural_patterns
+
+    - id: draft_brief
+      name: Draft Product Brief
+      type: generation
+      actions:
+        - Generate brief title from goal
+        - Create executive summary
+        - Define business objectives
+        - Outline MVP scope and boundaries
+        - Identify key stakeholders
+        - Define success metrics
+        - List assumptions and constraints
+        - Identify dependencies
+        - Draft technical approach
+      inputs:
+        - goal
+        - scope
+        - project_context
+        - architectural_patterns
+      outputs:
+        - brief_draft
+
+    - id: validate_brief
+      name: Validate Brief Completeness
+      type: validation
+      actions:
+        - Check all required sections present
+        - Verify objectives are SMART (Specific, Measurable, Achievable, Relevant, Time-bound)
+        - Validate scope boundaries are clear
+        - Ensure success metrics are defined
+        - Check dependencies are identified
+      inputs:
+        - brief_draft
+      outputs:
+        - validation_result
+        - completeness_score
+
+    - id: user_review
+      name: User Review and Confirmation
+      type: confirmation
+      actions:
+        - Display brief draft to user
+        - Show completeness score
+        - Request user feedback
+        - Allow edits or approval
+      inputs:
+        - brief_draft
+        - completeness_score
+      outputs:
+        - user_approved
+        - user_feedback
+
+    - id: finalize_brief
+      name: Finalize and Save Brief
+      type: write
+      condition: user_approved == true
+      actions:
+        - Apply user feedback (if any)
+        - Add metadata (author, timestamp, version)
+        - Generate document ID
+        - Save to output path
+        - Update brief index
+        - Create audit log entry
+      inputs:
+        - brief_draft
+        - user_feedback
+        - out
+      outputs:
+        - brief_path
+        - brief_id
+        - audit_log
+
+  output:
+    format: markdown
+    structure:
+      - section: Executive Summary
+        content: High-level overview of goal and approach
+      - section: Business Objectives
+        content: Specific, measurable goals
+      - section: Scope
+        content: MVP boundaries, in-scope and out-of-scope items
+      - section: Success Metrics
+        content: KPIs and acceptance criteria
+      - section: Stakeholders
+        content: Key stakeholders and their roles
+      - section: Technical Approach
+        content: High-level architecture and technologies
+      - section: Assumptions
+        content: Key assumptions made in planning
+      - section: Constraints
+        content: Limitations and boundaries
+      - section: Dependencies
+        content: External dependencies and prerequisites
+      - section: Timeline
+        content: High-level milestones
+
+  audit:
+    fields:
+      - actor
+      - timestamp
+      - goal
+      - scope
+      - brief_id
+      - brief_path
+      - completeness_score
+      - user_approved
+
+  error_handling:
+    - error: validation_failed
+      action: Return validation errors to user, request corrections
+    - error: output_path_not_writable
+      action: Suggest alternative path, request user confirmation
+    - error: user_rejected
+      action: Save draft, offer to revise or discard
+
+  examples:
+    - input:
+        goal: "Increase demo velocity"
+        scope: "MVP"
+      output_snippet: |
+        # Product Brief: Increase Demo Velocity - MVP
+
+        ## Executive Summary
+        This brief outlines the MVP approach to increase demo velocity by 50% through
+        automated demo environment provisioning and standardized demo scripts.
+
+        ## Business Objectives
+        - Reduce demo setup time from 2 hours to 30 minutes
+        - Enable 10+ concurrent demo environments
+        - Standardize demo narratives across sales team
+
+        ## Success Metrics
+        - Demo setup time: < 30 minutes (target: 20 minutes)
+        - Concurrent demos: 10+ environments
+        - Sales team adoption: 80%+ using automated system

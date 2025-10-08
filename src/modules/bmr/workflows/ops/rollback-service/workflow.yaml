@@ -1,0 +1,300 @@
+workflow:
+  metadata:
+    id: bmad/bmm/workflows/ops/rollback-service
+    name: rollback.service
+    version: 1.0.0
+    agent: AG-02 (Ops)
+    description: Rollback ECS service to previous stable TaskDefinition (target <5 minutes)
+
+  parameters:
+    - name: service_name
+      type: string
+      required: true
+      description: ECS service name (e.g., 'streamlit-service', 'dify-api')
+      example: "dify-api"
+
+    - name: target_revision
+      type: string
+      required: false
+      description: Optional specific TaskDefinition revision to rollback to
+      example: "dify-task:42"
+
+    - name: cluster
+      type: string
+      required: false
+      description: ECS cluster name
+      default: "main-cluster"
+
+  steps:
+    - id: validate_service
+      name: Validate Service Exists
+      type: validation
+      actions:
+        - Verify AWS credentials and ECS access
+        - Check ECS service exists
+        - Get current service status
+        - Verify service is in stable state or degraded
+      inputs:
+        - service_name
+        - cluster
+      outputs:
+        - service_exists
+        - current_status
+        - current_task_definition
+
+    - id: list_task_revisions
+      name: List Available TaskDefinition Revisions
+      type: discovery
+      actions:
+        - Query TaskDefinition family history
+        - List last 10 revisions with timestamps
+        - Identify current active revision
+        - Mark previous stable revision
+        - Show deployment dates for each revision
+      inputs:
+        - current_task_definition
+      outputs:
+        - revision_list
+        - previous_stable_revision
+        - revision_count
+
+    - id: select_target_revision
+      name: Select Target Revision
+      type: selection
+      actions:
+        - If target_revision provided, validate it exists
+        - If not provided, recommend previous stable revision
+        - Show diff between current and target
+        - Display container image tags
+        - Calculate rollback distance (revisions back)
+      inputs:
+        - target_revision
+        - revision_list
+        - previous_stable_revision
+      outputs:
+        - selected_revision
+        - revision_diff
+        - rollback_distance
+
+    - id: preview_rollback
+      name: Preview Rollback Changes
+      type: preview
+      actions:
+        - Show current vs target TaskDefinition comparison
+        - Highlight container image changes
+        - Display environment variable differences
+        - Show resource allocation changes (CPU/memory)
+        - Estimate rollback impact
+      inputs:
+        - current_task_definition
+        - selected_revision
+        - revision_diff
+      outputs:
+        - rollback_preview
+        - impact_assessment
+
+    - id: user_confirmation
+      name: User Confirmation
+      type: confirmation
+      actions:
+        - Display rollback preview
+        - Show impact assessment
+        - Request explicit approval
+        - Allow user to cancel or proceed
+      inputs:
+        - rollback_preview
+        - impact_assessment
+      outputs:
+        - user_approved
+        - user_notes
+
+    - id: start_rollback_timer
+      name: Start Rollback Timer
+      type: timing
+      condition: user_approved == true
+      actions:
+        - Record rollback start timestamp
+        - Set 5-minute target reminder
+      outputs:
+        - rollback_start_time
+
+    - id: execute_rollback
+      name: Execute Service Update
+      type: execution
+      condition: user_approved == true
+      actions:
+        - Update ECS service with target TaskDefinition
+        - Monitor service update progress
+        - Track task replacement (old → new)
+        - Capture service events in real-time
+        - Wait for service to reach stable state
+      inputs:
+        - service_name
+        - cluster
+        - selected_revision
+      outputs:
+        - update_status
+        - service_events
+        - tasks_replaced
+
+    - id: validate_health
+      name: Validate Service Health
+      type: validation
+      condition: update_status == "SUCCESS"
+      actions:
+        - Check all tasks are running
+        - Verify tasks pass health checks
+        - Query ALB target group health (if applicable)
+        - Check CloudWatch alarms
+        - Validate service is serving traffic
+      inputs:
+        - service_name
+        - cluster
+      outputs:
+        - health_status
+        - healthy_tasks
+        - alarm_status
+
+    - id: calculate_rollback_time
+      name: Calculate Rollback Duration
+      type: timing
+      actions:
+        - Calculate time from start to completion
+        - Compare against 5-minute target
+        - Determine if SLA met
+      inputs:
+        - rollback_start_time
+      outputs:
+        - rollback_duration
+        - sla_met
+
+    - id: escalate_on_failure
+      name: Escalate on Failure
+      type: escalation
+      condition: update_status == "FAILED" OR health_status == "UNHEALTHY"
+      actions:
+        - Alert operator immediately
+        - Provide failure details
+        - Suggest further rollback or investigation
+        - Document failure reason
+      inputs:
+        - update_status
+        - health_status
+        - service_events
+      outputs:
+        - escalation_sent
+        - failure_reason
+
+    - id: audit_logging
+      name: Audit Logging
+      type: audit
+      actions:
+        - Log rollback attempt with parameters
+        - Record revision changes
+        - Log user approval and notes
+        - Document rollback result and duration
+        - Send audit event to CloudWatch
+      inputs:
+        - service_name
+        - current_task_definition
+        - selected_revision
+        - user_approved
+        - update_status
+        - rollback_duration
+        - sla_met
+      outputs:
+        - audit_log_id
+
+  output:
+    format: markdown
+    structure:
+      - section: Rollback Summary
+        content: Service name, current → target revision, duration, SLA status
+      - section: TaskDefinition Changes
+        content: Container images, resource changes
+      - section: Health Validation
+        content: Task health, ALB status, alarms
+      - section: Timeline
+        content: Start time, completion time, duration vs target
+      - section: Audit Trail
+        content: Actor, approval, result
+
+  audit:
+    fields:
+      - actor
+      - timestamp
+      - service_name
+      - cluster
+      - current_task_definition
+      - target_task_definition
+      - rollback_distance
+      - user_approved
+      - update_status
+      - health_status
+      - rollback_duration
+      - sla_met
+
+  safety_checks:
+    - "List available TaskDefinition revisions with timestamps"
+    - "Show current vs target TaskDefinition diff"
+    - "User confirmation with change preview"
+    - "Health check validation post-rollback"
+    - "Rollback timing verification (<5 minute target)"
+
+  error_handling:
+    - error: service_not_found
+      action: Display error, verify service name and cluster
+    - error: no_previous_revision
+      action: Cannot rollback, this is the first revision
+    - error: target_revision_invalid
+      action: Display available revisions, request valid selection
+    - error: rollback_failed
+      action: Alert operator, provide failure details, suggest investigation
+    - error: health_check_failed
+      action: Alert operator, provide unhealthy task details, suggest further rollback
+    - error: sla_exceeded
+      action: Log SLA miss, investigate performance bottleneck
+
+  examples:
+    - input:
+        service_name: "dify-api"
+        cluster: "main-cluster"
+      output_snippet: |
+        # Rollback Report: dify-api
+
+        **Duration**: 3m 24s ⚡ (Target: <5 minutes) ✅
+        **SLA Met**: Yes
+
+        ## Rollback Summary
+        - **Service**: dify-api (main-cluster)
+        - **Current Revision**: dify-task:45 (deployed 2025-10-08 14:30)
+        - **Target Revision**: dify-task:44 (deployed 2025-10-07 18:15)
+        - **Rollback Distance**: 1 revision back
+
+        ## TaskDefinition Changes
+        ### Container: dify-api
+        - **Image**:
+          - Before: `123456.dkr.ecr.ap-northeast-1.amazonaws.com/dify-api:v1.2.5`
+          - After:  `123456.dkr.ecr.ap-northeast-1.amazonaws.com/dify-api:v1.2.4`
+        - **CPU**: 512 (no change)
+        - **Memory**: 1024 (no change)
+        - **Environment Variables**: No changes
+
+        ## Health Validation ✅
+        - **Tasks Running**: 3/3 healthy
+        - **Health Checks**: All passing
+        - **ALB Target Group**: Healthy (3/3 targets)
+        - **CloudWatch Alarms**: All clear
+
+        ## Timeline
+        - **Start**: 2025-10-08 15:45:12
+        - **Completion**: 2025-10-08 15:48:36
+        - **Duration**: 3m 24s (204 seconds)
+        - **Target**: <5 minutes (300 seconds)
+        - **Status**: ✅ SLA Met (68% of target time)
+
+        ## Audit Trail
+        - **Actor**: ops-engineer@example.com
+        - **Approval**: Confirmed at 15:45:10
+        - **Result**: SUCCESS
+        - **Notes**: Rollback due to increased error rate in v1.2.5
