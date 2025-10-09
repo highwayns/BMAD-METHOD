@@ -1,0 +1,2 @@
+-- Query Profile reading & tips (placeholder)
+-- Look for large scans, spills, long joins; add pruning or MV/DT/SOS where helpful.

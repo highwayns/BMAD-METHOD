@@ -1,0 +1,5 @@
+-- Dedup pattern
+SELECT * FROM (
+  SELECT *, ROW_NUMBER() OVER (PARTITION BY id ORDER BY event_ts DESC) rn
+  FROM STAGING.EVENTS
+) WHERE rn=1;

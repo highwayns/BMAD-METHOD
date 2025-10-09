@@ -1,0 +1,3 @@
+- KPI：Credit、Unit Cost、Savings、Hit Ratio、Queue Time
+- TopN：仓库/作业/项目/域
+- 行动：当月优化/风险/Owner/ETA

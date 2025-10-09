@@ -1,0 +1,2 @@
+-- Retention/Deletion configurations (illustrative)
+ALTER TABLE ANALYTICS.SALES.ORDERS SET DATA_RETENTION_TIME_IN_DAYS=7;

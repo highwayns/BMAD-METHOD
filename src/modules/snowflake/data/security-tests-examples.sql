@@ -1,0 +1,2 @@
+-- RBAC/Masking/Row Policy checks (illustrative)
+SELECT CURRENT_ROLE(), SYSTEM$GET_TAG('CLASSIFICATION','GOLD','CUSTOMERS', 'COLUMN','EMAIL');
