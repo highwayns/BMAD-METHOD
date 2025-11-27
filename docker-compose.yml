@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  bmad:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: bmad-method:6.0.0-alpha.0
+    container_name: bmad-cli
+
+    # Mount volumes for project files (adjust as needed)
+    volumes:
+      # Mount your project directory
+      - ./:/workspace:ro
+      # Optionally mount config files
+      # - ~/.bmad:/home/bmad/.bmad:ro
+
+    # Set working directory for mounted projects
+    working_dir: /workspace
+
+    # Override entrypoint for interactive use
+    # entrypoint: ["/bin/sh"]
+
+    # Environment variables (add as needed)
+    environment:
+      - NODE_ENV=production
+
+    # Uncomment for interactive shell access
+    # stdin_open: true
+    # tty: true
+
+    # Network mode (adjust based on needs)
+    network_mode: bridge
+
+    # Resource limits (optional)
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2G
+        reservations:
+          cpus: '1'
+          memory: 512M
