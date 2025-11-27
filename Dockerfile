@@ -10,8 +10,8 @@ WORKDIR /app
 # Copy package files first for better caching
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci --only=production && \
+# Install dependencies (include dev so husky is available for "prepare")
+RUN npm ci && \
     npm cache clean --force
 
 # Stage 2: Production stage
